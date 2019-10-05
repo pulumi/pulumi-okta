@@ -1,0 +1,19 @@
+{
+    "name": "user",
+    "version": "0.0.1",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "dev",
+        "@pulumi/random": "^1.1.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.0.0"
+    },
+    "peerDependencies": {
+        "@pulumi/okta": "dev"
+    }
+}
