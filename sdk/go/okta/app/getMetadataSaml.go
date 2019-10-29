@@ -9,7 +9,7 @@ import (
 
 // Use this data source to retrieve the collaborators for a given repository.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
 func LookupMetadataSaml(ctx *pulumi.Context, args *GetMetadataSamlArgs) (*GetMetadataSamlResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

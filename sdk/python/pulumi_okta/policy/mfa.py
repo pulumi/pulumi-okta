@@ -213,7 +213,7 @@ class Mfa(pulumi.CustomResource):
           * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
           * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_mfa.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_mfa.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -349,7 +349,7 @@ class Mfa(pulumi.CustomResource):
           * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
           * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_mfa.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_mfa.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

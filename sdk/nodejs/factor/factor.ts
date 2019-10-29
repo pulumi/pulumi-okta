@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * This resource allows you to manage Okta MFA methods.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/factor.html.markdown.
+ * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/factor.html.markdown.
  */
 export class Factor extends pulumi.CustomResource {
     /**

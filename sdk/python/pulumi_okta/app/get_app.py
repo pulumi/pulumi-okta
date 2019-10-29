@@ -73,7 +73,7 @@ def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
     """
     __args__ = dict()
 

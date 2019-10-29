@@ -44,7 +44,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[list] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/network_zone.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/network_zone.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[list] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/network_zone.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/network_zone.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

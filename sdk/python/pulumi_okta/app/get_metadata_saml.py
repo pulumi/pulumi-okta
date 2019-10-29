@@ -85,7 +85,7 @@ def get_metadata_saml(app_id=None,key_id=None,opts=None):
     :param str app_id: The application ID.
     :param str key_id: Certificate Key ID.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
     """
     __args__ = dict()
 

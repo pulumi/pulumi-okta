@@ -9,7 +9,7 @@ import (
 
 // Use this data source to retrieve a SAML IdP from Okta.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
 func LookupSaml(ctx *pulumi.Context, args *GetSamlArgs) (*GetSamlResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

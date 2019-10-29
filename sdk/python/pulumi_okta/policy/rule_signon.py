@@ -102,7 +102,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,7 +176,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to create and configure an MFA Policy Rule.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
 type RuleMfa struct {
 	s *pulumi.ResourceState
 }

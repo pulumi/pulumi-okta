@@ -289,7 +289,7 @@ def get_user(searches=None,opts=None):
       * `name` (`str`) - Name of property to search against.
       * `value` (`str`) - Value to compare with.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
     """
     __args__ = dict()
 

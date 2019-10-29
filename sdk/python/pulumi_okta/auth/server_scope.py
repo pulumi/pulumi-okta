@@ -49,7 +49,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,7 +98,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

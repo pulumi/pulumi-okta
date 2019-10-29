@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to create and configure an Okta User.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
 type User struct {
 	s *pulumi.ResourceState
 }
