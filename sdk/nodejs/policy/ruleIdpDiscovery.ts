@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
+ * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
  */
 export class RuleIdpDiscovery extends pulumi.CustomResource {
     /**

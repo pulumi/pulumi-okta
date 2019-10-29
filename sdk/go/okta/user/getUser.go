@@ -9,7 +9,7 @@ import (
 
 // Use this data source to retrieve a users from Okta.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
 func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

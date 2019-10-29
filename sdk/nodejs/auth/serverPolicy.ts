@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy.html.markdown.
+ * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy.html.markdown.
  */
 export class ServerPolicy extends pulumi.CustomResource {
     /**

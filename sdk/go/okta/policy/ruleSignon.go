@@ -10,7 +10,7 @@ import (
 
 // Creates a Sign On Policy Rule.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
 type RuleSignon struct {
 	s *pulumi.ResourceState
 }

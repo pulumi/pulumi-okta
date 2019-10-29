@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to create and configure a SAML Identity Provider Signing Key.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/idp_saml_key.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_key.html.markdown.
 type SamlKey struct {
 	s *pulumi.ResourceState
 }

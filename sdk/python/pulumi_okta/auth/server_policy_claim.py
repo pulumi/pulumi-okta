@@ -79,7 +79,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy_rule.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,7 +149,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy_rule.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

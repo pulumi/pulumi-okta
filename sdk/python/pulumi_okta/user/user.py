@@ -195,7 +195,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -309,7 +309,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

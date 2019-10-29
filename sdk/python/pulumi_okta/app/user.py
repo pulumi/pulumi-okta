@@ -44,7 +44,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,7 +95,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

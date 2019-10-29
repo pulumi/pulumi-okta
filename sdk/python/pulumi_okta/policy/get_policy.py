@@ -49,7 +49,7 @@ def get_policy(name=None,type=None,opts=None):
     :param str name: name of policy to retrieve.
     :param str type: type of policy to retrieve.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
     """
     __args__ = dict()
 

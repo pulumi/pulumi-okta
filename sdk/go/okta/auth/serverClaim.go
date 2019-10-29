@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to create and configure an Authorization Server Claim.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/auth_server_claim.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_claim.html.markdown.
 type ServerClaim struct {
 	s *pulumi.ResourceState
 }

@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to create and configure an Trusted Origin.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/trusted_origin.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/trusted_origin.html.markdown.
 type Origin struct {
 	s *pulumi.ResourceState
 }

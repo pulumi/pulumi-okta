@@ -31,7 +31,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,7 +76,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

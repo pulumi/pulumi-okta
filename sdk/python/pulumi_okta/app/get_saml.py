@@ -285,7 +285,7 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
       * `type` (`str`)
       * `values` (`list`)
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
     """
     __args__ = dict()
 

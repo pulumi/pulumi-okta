@@ -90,7 +90,7 @@ def get_server(name=None,opts=None):
     
     :param str name: The name of the auth server to retrieve.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
     """
     __args__ = dict()
 

@@ -12,7 +12,7 @@ import (
 // 
 // This resource allows you to configure a base user schema property.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/user_base_schema.html.markdown.
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user_base_schema.html.markdown.
 type BaseSchema struct {
 	s *pulumi.ResourceState
 }

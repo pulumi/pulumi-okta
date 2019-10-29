@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+//
+// > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
 func LookupDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs) (*GetDefaultPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -24,11 +27,13 @@ func LookupDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs) (*GetD
 
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyArgs struct {
+	// type of policy to retrieve.
 	Type interface{}
 }
 
 // A collection of values returned by getDefaultPolicy.
 type GetDefaultPolicyResult struct {
+	// type of policy.
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

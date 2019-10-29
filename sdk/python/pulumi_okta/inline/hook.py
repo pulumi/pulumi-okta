@@ -80,7 +80,7 @@ class Hook(pulumi.CustomResource):
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -150,7 +150,7 @@ class Hook(pulumi.CustomResource):
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

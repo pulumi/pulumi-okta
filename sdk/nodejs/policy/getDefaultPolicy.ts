@@ -6,6 +6,22 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * 
+ * const example = okta.policy.getDefaultPolicy({
+ *     type: "PASSWORD",
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
+ */
 export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> & GetDefaultPolicyResult {
     if (!opts) {
         opts = {}
@@ -25,6 +41,9 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDefaultPolicy.
  */
 export interface GetDefaultPolicyArgs {
+    /**
+     * type of policy to retrieve.
+     */
     readonly type: string;
 }
 
@@ -32,6 +51,9 @@ export interface GetDefaultPolicyArgs {
  * A collection of values returned by getDefaultPolicy.
  */
 export interface GetDefaultPolicyResult {
+    /**
+     * type of policy.
+     */
     readonly type: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

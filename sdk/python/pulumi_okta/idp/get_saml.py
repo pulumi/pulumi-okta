@@ -126,7 +126,7 @@ def get_saml(id=None,name=None,opts=None):
     :param str id: The id of the idp to retrieve, conflicts with `name`.
     :param str name: The name of the idp to retrieve, conflicts with `id`.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
     """
     __args__ = dict()
 

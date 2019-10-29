@@ -44,7 +44,7 @@ class Email(pulumi.CustomResource):
           * `subject` (`pulumi.Input[str]`) - The email subject line.
           * `template` (`pulumi.Input[str]`) - The email body.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,7 +95,7 @@ class Email(pulumi.CustomResource):
           * `subject` (`pulumi.Input[str]`) - The email subject line.
           * `template` (`pulumi.Input[str]`) - The email body.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

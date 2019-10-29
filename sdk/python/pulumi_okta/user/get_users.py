@@ -89,7 +89,7 @@ def get_users(searches=None,users=None,opts=None):
       * `user_type` (`str`) - user profile property.
       * `zip_code` (`str`) - user profile property.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
     """
     __args__ = dict()
 

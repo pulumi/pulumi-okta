@@ -30,7 +30,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/group.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,7 +70,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-okta/blob/master/website/docs/r/group.html.markdown.
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
