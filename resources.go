@@ -266,6 +266,11 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_trusted_origin": {
 				Tok:  makeResource(trustedOriginMod, "Origin"),
 				Docs: &tfbridge.DocInfo{Source: "trusted_origin.html.markdown"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"origin": {
+						CSharpName: "OriginName",
+					},
+				},
 			},
 
 			// User Resources

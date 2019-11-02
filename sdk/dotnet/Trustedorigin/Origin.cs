@@ -32,7 +32,7 @@ namespace Pulumi.Okta.Trustedorigin
         /// The origin to trust.
         /// </summary>
         [Output("origin")]
-        public Output<string> Origin { get; private set; } = null!;
+        public Output<string> OriginName { get; private set; } = null!;
 
         /// <summary>
         /// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
@@ -102,7 +102,7 @@ namespace Pulumi.Okta.Trustedorigin
         /// The origin to trust.
         /// </summary>
         [Input("origin", required: true)]
-        public Input<string> Origin { get; set; } = null!;
+        public Input<string> OriginName { get; set; } = null!;
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;
@@ -139,7 +139,7 @@ namespace Pulumi.Okta.Trustedorigin
         /// The origin to trust.
         /// </summary>
         [Input("origin")]
-        public Input<string>? Origin { get; set; }
+        public Input<string>? OriginName { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;
