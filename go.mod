@@ -9,7 +9,6 @@ require (
 	github.com/articulate/terraform-provider-okta v0.0.0-20191023132502-355ea4d61f43
 	github.com/docker/docker v1.13.1 // indirect
 	github.com/gliderlabs/ssh v0.1.3 // indirect
-	github.com/google/btree v1.0.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.2.0
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.2.0
