@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to support go 1.13.x
+* Upgrade to v3.0.38 of the Okta Terraform Provider
 
 ---
 
