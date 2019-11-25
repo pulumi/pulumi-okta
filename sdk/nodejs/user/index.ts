@@ -4,6 +4,7 @@
 // Export members:
 export * from "./baseSchema";
 export * from "./getUser";
+export * from "./getUserProfileMappingSource";
 export * from "./getUsers";
 export * from "./schema";
 export * from "./user";

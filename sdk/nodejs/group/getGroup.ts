@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  * 
  * const example = okta.group.getGroup({
- *     label: "Example App",
+ *     name: "Example App",
  * });
  * ```
  *

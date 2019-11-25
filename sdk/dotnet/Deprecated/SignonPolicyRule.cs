@@ -22,12 +22,6 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> Authtype { get; private set; } = null!;
 
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Output("enroll")]
-        public Output<string?> Enroll { get; private set; } = null!;
-
-        /// <summary>
         /// Elapsed time before the next MFA challenge
         /// </summary>
         [Output("mfaLifetime")]
@@ -75,24 +69,6 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
-
-        /// <summary>
-        /// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Output("passwordChange")]
-        public Output<string?> PasswordChange { get; private set; } = null!;
-
-        /// <summary>
-        /// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Output("passwordReset")]
-        public Output<string?> PasswordReset { get; private set; } = null!;
-
-        /// <summary>
-        /// Allow or deny a user to unlock. Default = DENY
-        /// </summary>
-        [Output("passwordUnlock")]
-        public Output<string?> PasswordUnlock { get; private set; } = null!;
 
         /// <summary>
         /// Policy ID of the Rule
@@ -197,12 +173,6 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Authtype { get; set; }
 
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Input("enroll")]
-        public Input<string>? Enroll { get; set; }
-
-        /// <summary>
         /// Elapsed time before the next MFA challenge
         /// </summary>
         [Input("mfaLifetime")]
@@ -262,24 +232,6 @@ namespace Pulumi.Okta.Deprecated
             get => _networkIncludes ?? (_networkIncludes = new InputList<string>());
             set => _networkIncludes = value;
         }
-
-        /// <summary>
-        /// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Input("passwordChange")]
-        public Input<string>? PasswordChange { get; set; }
-
-        /// <summary>
-        /// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Input("passwordReset")]
-        public Input<string>? PasswordReset { get; set; }
-
-        /// <summary>
-        /// Allow or deny a user to unlock. Default = DENY
-        /// </summary>
-        [Input("passwordUnlock")]
-        public Input<string>? PasswordUnlock { get; set; }
 
         /// <summary>
         /// Policy ID of the Rule
@@ -351,12 +303,6 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Authtype { get; set; }
 
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Input("enroll")]
-        public Input<string>? Enroll { get; set; }
-
-        /// <summary>
         /// Elapsed time before the next MFA challenge
         /// </summary>
         [Input("mfaLifetime")]
@@ -416,24 +362,6 @@ namespace Pulumi.Okta.Deprecated
             get => _networkIncludes ?? (_networkIncludes = new InputList<string>());
             set => _networkIncludes = value;
         }
-
-        /// <summary>
-        /// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Input("passwordChange")]
-        public Input<string>? PasswordChange { get; set; }
-
-        /// <summary>
-        /// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        /// </summary>
-        [Input("passwordReset")]
-        public Input<string>? PasswordReset { get; set; }
-
-        /// <summary>
-        /// Allow or deny a user to unlock. Default = DENY
-        /// </summary>
-        [Input("passwordUnlock")]
-        public Input<string>? PasswordUnlock { get; set; }
 
         /// <summary>
         /// Policy ID of the Rule

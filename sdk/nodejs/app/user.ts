@@ -11,6 +11,12 @@ import * as utilities from "../utilities";
  * 
  * This resource allows you to create and configure an Application User.
  * 
+ * __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * 
  * ## Example Usage
  * 
  * ```typescript

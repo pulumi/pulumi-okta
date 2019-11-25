@@ -12,6 +12,16 @@ export namespace app {
         username?: string;
     }
 
+    export interface BasicAuthUser {
+        /**
+         * ID of the Application.
+         */
+        id?: string;
+        password?: string;
+        scope: string;
+        username?: string;
+    }
+
     export interface BookmarkUser {
         /**
          * ID of the Application.
@@ -471,6 +481,14 @@ export namespace policy {
     export interface RuleIdpDiscoveryUserIdentifierPattern {
         matchType?: string;
         value?: string;
+    }
+}
+
+export namespace profile {
+    export interface MappingMapping {
+        expression: string;
+        id: string;
+        pushStatus?: string;
     }
 }
 

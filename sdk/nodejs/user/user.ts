@@ -147,6 +147,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly organization!: pulumi.Output<string | undefined>;
     /**
+     * User password.
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
      * User profile property.
      */
     public readonly postalAddress!: pulumi.Output<string | undefined>;
@@ -166,6 +170,14 @@ export class User extends pulumi.CustomResource {
      * The raw status of the User in Okta - (status is mapped)
      */
     public /*out*/ readonly rawStatus!: pulumi.Output<string>;
+    /**
+     * User password recovery answer.
+     */
+    public readonly recoveryAnswer!: pulumi.Output<string | undefined>;
+    /**
+     * User password recovery question.
+     */
+    public readonly recoveryQuestion!: pulumi.Output<string | undefined>;
     /**
      * User profile property.
      */
@@ -234,11 +246,14 @@ export class User extends pulumi.CustomResource {
             inputs["mobilePhone"] = state ? state.mobilePhone : undefined;
             inputs["nickName"] = state ? state.nickName : undefined;
             inputs["organization"] = state ? state.organization : undefined;
+            inputs["password"] = state ? state.password : undefined;
             inputs["postalAddress"] = state ? state.postalAddress : undefined;
             inputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
             inputs["primaryPhone"] = state ? state.primaryPhone : undefined;
             inputs["profileUrl"] = state ? state.profileUrl : undefined;
             inputs["rawStatus"] = state ? state.rawStatus : undefined;
+            inputs["recoveryAnswer"] = state ? state.recoveryAnswer : undefined;
+            inputs["recoveryQuestion"] = state ? state.recoveryQuestion : undefined;
             inputs["secondEmail"] = state ? state.secondEmail : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -284,10 +299,13 @@ export class User extends pulumi.CustomResource {
             inputs["mobilePhone"] = args ? args.mobilePhone : undefined;
             inputs["nickName"] = args ? args.nickName : undefined;
             inputs["organization"] = args ? args.organization : undefined;
+            inputs["password"] = args ? args.password : undefined;
             inputs["postalAddress"] = args ? args.postalAddress : undefined;
             inputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
             inputs["primaryPhone"] = args ? args.primaryPhone : undefined;
             inputs["profileUrl"] = args ? args.profileUrl : undefined;
+            inputs["recoveryAnswer"] = args ? args.recoveryAnswer : undefined;
+            inputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
             inputs["secondEmail"] = args ? args.secondEmail : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -406,6 +424,10 @@ export interface UserState {
      */
     readonly organization?: pulumi.Input<string>;
     /**
+     * User password.
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
      * User profile property.
      */
     readonly postalAddress?: pulumi.Input<string>;
@@ -425,6 +447,14 @@ export interface UserState {
      * The raw status of the User in Okta - (status is mapped)
      */
     readonly rawStatus?: pulumi.Input<string>;
+    /**
+     * User password recovery answer.
+     */
+    readonly recoveryAnswer?: pulumi.Input<string>;
+    /**
+     * User password recovery question.
+     */
+    readonly recoveryQuestion?: pulumi.Input<string>;
     /**
      * User profile property.
      */
@@ -556,6 +586,10 @@ export interface UserArgs {
      */
     readonly organization?: pulumi.Input<string>;
     /**
+     * User password.
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
      * User profile property.
      */
     readonly postalAddress?: pulumi.Input<string>;
@@ -571,6 +605,14 @@ export interface UserArgs {
      * User profile property.
      */
     readonly profileUrl?: pulumi.Input<string>;
+    /**
+     * User password recovery answer.
+     */
+    readonly recoveryAnswer?: pulumi.Input<string>;
+    /**
+     * User password recovery question.
+     */
+    readonly recoveryQuestion?: pulumi.Input<string>;
     /**
      * User profile property.
      */

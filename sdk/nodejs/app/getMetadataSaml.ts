@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.AppSamlMetadata({
+ * const example = okta.app.getMetadataSaml({
  *     appId: "<app id>",
  *     keyId: "<cert key id>",
  * });

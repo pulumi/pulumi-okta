@@ -11,6 +11,8 @@ import (
 // Assigns a group to an application.
 // 
 // This resource allows you to create an App Group assignment.
+// 
+// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
 type GroupAssignment struct {
@@ -87,6 +89,7 @@ func (r *GroupAssignment) Priority() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["priority"])
 }
 
+// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 func (r *GroupAssignment) Profile() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["profile"])
 }
@@ -98,6 +101,7 @@ type GroupAssignmentState struct {
 	// The ID of the group to assign the app to.
 	GroupId interface{}
 	Priority interface{}
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile interface{}
 }
 
@@ -108,5 +112,6 @@ type GroupAssignmentArgs struct {
 	// The ID of the group to assign the app to.
 	GroupId interface{}
 	Priority interface{}
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile interface{}
 }

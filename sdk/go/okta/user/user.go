@@ -57,10 +57,13 @@ func NewUser(ctx *pulumi.Context,
 		inputs["mobilePhone"] = nil
 		inputs["nickName"] = nil
 		inputs["organization"] = nil
+		inputs["password"] = nil
 		inputs["postalAddress"] = nil
 		inputs["preferredLanguage"] = nil
 		inputs["primaryPhone"] = nil
 		inputs["profileUrl"] = nil
+		inputs["recoveryAnswer"] = nil
+		inputs["recoveryQuestion"] = nil
 		inputs["secondEmail"] = nil
 		inputs["state"] = nil
 		inputs["status"] = nil
@@ -93,10 +96,13 @@ func NewUser(ctx *pulumi.Context,
 		inputs["mobilePhone"] = args.MobilePhone
 		inputs["nickName"] = args.NickName
 		inputs["organization"] = args.Organization
+		inputs["password"] = args.Password
 		inputs["postalAddress"] = args.PostalAddress
 		inputs["preferredLanguage"] = args.PreferredLanguage
 		inputs["primaryPhone"] = args.PrimaryPhone
 		inputs["profileUrl"] = args.ProfileUrl
+		inputs["recoveryAnswer"] = args.RecoveryAnswer
+		inputs["recoveryQuestion"] = args.RecoveryQuestion
 		inputs["secondEmail"] = args.SecondEmail
 		inputs["state"] = args.State
 		inputs["status"] = args.Status
@@ -143,11 +149,14 @@ func GetUser(ctx *pulumi.Context,
 		inputs["mobilePhone"] = state.MobilePhone
 		inputs["nickName"] = state.NickName
 		inputs["organization"] = state.Organization
+		inputs["password"] = state.Password
 		inputs["postalAddress"] = state.PostalAddress
 		inputs["preferredLanguage"] = state.PreferredLanguage
 		inputs["primaryPhone"] = state.PrimaryPhone
 		inputs["profileUrl"] = state.ProfileUrl
 		inputs["rawStatus"] = state.RawStatus
+		inputs["recoveryAnswer"] = state.RecoveryAnswer
+		inputs["recoveryQuestion"] = state.RecoveryQuestion
 		inputs["secondEmail"] = state.SecondEmail
 		inputs["state"] = state.State
 		inputs["status"] = state.Status
@@ -289,6 +298,11 @@ func (r *User) Organization() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["organization"])
 }
 
+// User password.
+func (r *User) Password() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["password"])
+}
+
 // User profile property.
 func (r *User) PostalAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["postalAddress"])
@@ -312,6 +326,16 @@ func (r *User) ProfileUrl() *pulumi.StringOutput {
 // The raw status of the User in Okta - (status is mapped)
 func (r *User) RawStatus() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rawStatus"])
+}
+
+// User password recovery answer.
+func (r *User) RecoveryAnswer() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["recoveryAnswer"])
+}
+
+// User password recovery question.
+func (r *User) RecoveryQuestion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["recoveryQuestion"])
 }
 
 // User profile property.
@@ -402,6 +426,8 @@ type UserState struct {
 	NickName interface{}
 	// User profile property.
 	Organization interface{}
+	// User password.
+	Password interface{}
 	// User profile property.
 	PostalAddress interface{}
 	// User profile property.
@@ -412,6 +438,10 @@ type UserState struct {
 	ProfileUrl interface{}
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus interface{}
+	// User password recovery answer.
+	RecoveryAnswer interface{}
+	// User password recovery question.
+	RecoveryQuestion interface{}
 	// User profile property.
 	SecondEmail interface{}
 	// User profile property.
@@ -478,6 +508,8 @@ type UserArgs struct {
 	NickName interface{}
 	// User profile property.
 	Organization interface{}
+	// User password.
+	Password interface{}
 	// User profile property.
 	PostalAddress interface{}
 	// User profile property.
@@ -486,6 +518,10 @@ type UserArgs struct {
 	PrimaryPhone interface{}
 	// User profile property.
 	ProfileUrl interface{}
+	// User password recovery answer.
+	RecoveryAnswer interface{}
+	// User password recovery question.
+	RecoveryQuestion interface{}
 	// User profile property.
 	SecondEmail interface{}
 	// User profile property.

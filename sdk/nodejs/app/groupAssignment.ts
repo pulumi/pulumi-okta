@@ -11,6 +11,12 @@ import * as utilities from "../utilities";
  * 
  * This resource allows you to create an App Group assignment.
  * 
+ * __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * 
  * ## Example Usage
  * 
  * ```typescript
@@ -20,6 +26,10 @@ import * as utilities from "../utilities";
  * const example = new okta.app.GroupAssignment("example", {
  *     appId: "<app id>",
  *     groupId: "<group id>",
+ *     profile: `{
+ *   "<app_profile_field>": "<value>"
+ * }
+ * `,
  * });
  * ```
  *
@@ -61,6 +71,9 @@ export class GroupAssignment extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+     */
     public readonly profile!: pulumi.Output<string | undefined>;
 
     /**
@@ -116,6 +129,9 @@ export interface GroupAssignmentState {
      */
     readonly groupId?: pulumi.Input<string>;
     readonly priority?: pulumi.Input<number>;
+    /**
+     * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+     */
     readonly profile?: pulumi.Input<string>;
 }
 
@@ -132,5 +148,8 @@ export interface GroupAssignmentArgs {
      */
     readonly groupId: pulumi.Input<string>;
     readonly priority?: pulumi.Input<number>;
+    /**
+     * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+     */
     readonly profile?: pulumi.Input<string>;
 }

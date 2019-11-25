@@ -22,7 +22,6 @@ func NewSignonPolicyRule(ctx *pulumi.Context,
 	if args == nil {
 		inputs["access"] = nil
 		inputs["authtype"] = nil
-		inputs["enroll"] = nil
 		inputs["mfaLifetime"] = nil
 		inputs["mfaPrompt"] = nil
 		inputs["mfaRememberDevice"] = nil
@@ -31,9 +30,6 @@ func NewSignonPolicyRule(ctx *pulumi.Context,
 		inputs["networkConnection"] = nil
 		inputs["networkExcludes"] = nil
 		inputs["networkIncludes"] = nil
-		inputs["passwordChange"] = nil
-		inputs["passwordReset"] = nil
-		inputs["passwordUnlock"] = nil
 		inputs["policyid"] = nil
 		inputs["priority"] = nil
 		inputs["sessionIdle"] = nil
@@ -44,7 +40,6 @@ func NewSignonPolicyRule(ctx *pulumi.Context,
 	} else {
 		inputs["access"] = args.Access
 		inputs["authtype"] = args.Authtype
-		inputs["enroll"] = args.Enroll
 		inputs["mfaLifetime"] = args.MfaLifetime
 		inputs["mfaPrompt"] = args.MfaPrompt
 		inputs["mfaRememberDevice"] = args.MfaRememberDevice
@@ -53,9 +48,6 @@ func NewSignonPolicyRule(ctx *pulumi.Context,
 		inputs["networkConnection"] = args.NetworkConnection
 		inputs["networkExcludes"] = args.NetworkExcludes
 		inputs["networkIncludes"] = args.NetworkIncludes
-		inputs["passwordChange"] = args.PasswordChange
-		inputs["passwordReset"] = args.PasswordReset
-		inputs["passwordUnlock"] = args.PasswordUnlock
 		inputs["policyid"] = args.Policyid
 		inputs["priority"] = args.Priority
 		inputs["sessionIdle"] = args.SessionIdle
@@ -79,7 +71,6 @@ func GetSignonPolicyRule(ctx *pulumi.Context,
 	if state != nil {
 		inputs["access"] = state.Access
 		inputs["authtype"] = state.Authtype
-		inputs["enroll"] = state.Enroll
 		inputs["mfaLifetime"] = state.MfaLifetime
 		inputs["mfaPrompt"] = state.MfaPrompt
 		inputs["mfaRememberDevice"] = state.MfaRememberDevice
@@ -88,9 +79,6 @@ func GetSignonPolicyRule(ctx *pulumi.Context,
 		inputs["networkConnection"] = state.NetworkConnection
 		inputs["networkExcludes"] = state.NetworkExcludes
 		inputs["networkIncludes"] = state.NetworkIncludes
-		inputs["passwordChange"] = state.PasswordChange
-		inputs["passwordReset"] = state.PasswordReset
-		inputs["passwordUnlock"] = state.PasswordUnlock
 		inputs["policyid"] = state.Policyid
 		inputs["priority"] = state.Priority
 		inputs["sessionIdle"] = state.SessionIdle
@@ -124,11 +112,6 @@ func (r *SignonPolicyRule) Access() *pulumi.StringOutput {
 // Authentication entrypoint: ANY or RADIUS.
 func (r *SignonPolicyRule) Authtype() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["authtype"])
-}
-
-// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-func (r *SignonPolicyRule) Enroll() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["enroll"])
 }
 
 // Elapsed time before the next MFA challenge
@@ -169,21 +152,6 @@ func (r *SignonPolicyRule) NetworkExcludes() *pulumi.ArrayOutput {
 // The zones to include
 func (r *SignonPolicyRule) NetworkIncludes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
-}
-
-// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-func (r *SignonPolicyRule) PasswordChange() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordChange"])
-}
-
-// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-func (r *SignonPolicyRule) PasswordReset() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordReset"])
-}
-
-// Allow or deny a user to unlock. Default = DENY
-func (r *SignonPolicyRule) PasswordUnlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordUnlock"])
 }
 
 // Policy ID of the Rule
@@ -229,8 +197,6 @@ type SignonPolicyRuleState struct {
 	Access interface{}
 	// Authentication entrypoint: ANY or RADIUS.
 	Authtype interface{}
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-	Enroll interface{}
 	// Elapsed time before the next MFA challenge
 	MfaLifetime interface{}
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
@@ -247,12 +213,6 @@ type SignonPolicyRuleState struct {
 	NetworkExcludes interface{}
 	// The zones to include
 	NetworkIncludes interface{}
-	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-	PasswordChange interface{}
-	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-	PasswordReset interface{}
-	// Allow or deny a user to unlock. Default = DENY
-	PasswordUnlock interface{}
 	// Policy ID of the Rule
 	Policyid interface{}
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -277,8 +237,6 @@ type SignonPolicyRuleArgs struct {
 	Access interface{}
 	// Authentication entrypoint: ANY or RADIUS.
 	Authtype interface{}
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-	Enroll interface{}
 	// Elapsed time before the next MFA challenge
 	MfaLifetime interface{}
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
@@ -295,12 +253,6 @@ type SignonPolicyRuleArgs struct {
 	NetworkExcludes interface{}
 	// The zones to include
 	NetworkIncludes interface{}
-	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-	PasswordChange interface{}
-	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-	PasswordReset interface{}
-	// Allow or deny a user to unlock. Default = DENY
-	PasswordUnlock interface{}
 	// Policy ID of the Rule
 	Policyid interface{}
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an

@@ -47,10 +47,6 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly authtype!: pulumi.Output<string | undefined>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    public readonly enroll!: pulumi.Output<string | undefined>;
-    /**
      * Elapsed time before the next MFA challenge.
      */
     public readonly mfaLifetime!: pulumi.Output<number | undefined>;
@@ -82,18 +78,6 @@ export class RuleSignon extends pulumi.CustomResource {
      * The network zones to include. Conflicts with `networkExcludes`.
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-     */
-    public readonly passwordChange!: pulumi.Output<string | undefined>;
-    /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-     */
-    public readonly passwordReset!: pulumi.Output<string | undefined>;
-    /**
-     * Allow or deny a user to unlock. Default = DENY
-     */
-    public readonly passwordUnlock!: pulumi.Output<string | undefined>;
     /**
      * Policy ID.
      */
@@ -137,7 +121,6 @@ export class RuleSignon extends pulumi.CustomResource {
             const state = argsOrState as RuleSignonState | undefined;
             inputs["access"] = state ? state.access : undefined;
             inputs["authtype"] = state ? state.authtype : undefined;
-            inputs["enroll"] = state ? state.enroll : undefined;
             inputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
             inputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
             inputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
@@ -146,9 +129,6 @@ export class RuleSignon extends pulumi.CustomResource {
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
             inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
             inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["passwordChange"] = state ? state.passwordChange : undefined;
-            inputs["passwordReset"] = state ? state.passwordReset : undefined;
-            inputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
@@ -163,7 +143,6 @@ export class RuleSignon extends pulumi.CustomResource {
             }
             inputs["access"] = args ? args.access : undefined;
             inputs["authtype"] = args ? args.authtype : undefined;
-            inputs["enroll"] = args ? args.enroll : undefined;
             inputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
             inputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
             inputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
@@ -172,9 +151,6 @@ export class RuleSignon extends pulumi.CustomResource {
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
             inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
             inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["passwordChange"] = args ? args.passwordChange : undefined;
-            inputs["passwordReset"] = args ? args.passwordReset : undefined;
-            inputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
@@ -207,10 +183,6 @@ export interface RuleSignonState {
      */
     readonly authtype?: pulumi.Input<string>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    readonly enroll?: pulumi.Input<string>;
-    /**
      * Elapsed time before the next MFA challenge.
      */
     readonly mfaLifetime?: pulumi.Input<number>;
@@ -242,18 +214,6 @@ export interface RuleSignonState {
      * The network zones to include. Conflicts with `networkExcludes`.
      */
     readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-     */
-    readonly passwordChange?: pulumi.Input<string>;
-    /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-     */
-    readonly passwordReset?: pulumi.Input<string>;
-    /**
-     * Allow or deny a user to unlock. Default = DENY
-     */
-    readonly passwordUnlock?: pulumi.Input<string>;
     /**
      * Policy ID.
      */
@@ -297,10 +257,6 @@ export interface RuleSignonArgs {
      */
     readonly authtype?: pulumi.Input<string>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    readonly enroll?: pulumi.Input<string>;
-    /**
      * Elapsed time before the next MFA challenge.
      */
     readonly mfaLifetime?: pulumi.Input<number>;
@@ -332,18 +288,6 @@ export interface RuleSignonArgs {
      * The network zones to include. Conflicts with `networkExcludes`.
      */
     readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-     */
-    readonly passwordChange?: pulumi.Input<string>;
-    /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-     */
-    readonly passwordReset?: pulumi.Input<string>;
-    /**
-     * Allow or deny a user to unlock. Default = DENY
-     */
-    readonly passwordUnlock?: pulumi.Input<string>;
     /**
      * Policy ID.
      */

@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./autoLogin";
+export * from "./basicAuth";
 export * from "./bookmark";
 export * from "./getApp";
 export * from "./getMetadataSaml";

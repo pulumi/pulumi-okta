@@ -41,35 +41,6 @@ export class RulePassword extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
-     */
-    public readonly access!: pulumi.Output<string | undefined>;
-    /**
-     * Authentication entrypoint: ANY or RADIUS.
-     */
-    public readonly authtype!: pulumi.Output<string | undefined>;
-    /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    public readonly enroll!: pulumi.Output<string | undefined>;
-    /**
-     * Elapsed time before the next MFA challenge
-     */
-    public readonly mfaLifetime!: pulumi.Output<number | undefined>;
-    /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or
-     * ALWAYS
-     */
-    public readonly mfaPrompt!: pulumi.Output<string | undefined>;
-    /**
-     * Remember MFA device.
-     */
-    public readonly mfaRememberDevice!: pulumi.Output<boolean | undefined>;
-    /**
-     * Require MFA.
-     */
-    public readonly mfaRequired!: pulumi.Output<boolean | undefined>;
-    /**
      * Policy Rule Name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -106,19 +77,6 @@ export class RulePassword extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Max minutes a session can be idle.
-     */
-    public readonly sessionIdle!: pulumi.Output<number | undefined>;
-    /**
-     * Max minutes a session is active: Disable = 0.
-     */
-    public readonly sessionLifetime!: pulumi.Output<number | undefined>;
-    /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies.
-     */
-    public readonly sessionPersistent!: pulumi.Output<boolean | undefined>;
-    /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -139,13 +97,6 @@ export class RulePassword extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RulePasswordState | undefined;
-            inputs["access"] = state ? state.access : undefined;
-            inputs["authtype"] = state ? state.authtype : undefined;
-            inputs["enroll"] = state ? state.enroll : undefined;
-            inputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
-            inputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
-            inputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
-            inputs["mfaRequired"] = state ? state.mfaRequired : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
             inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
@@ -155,9 +106,6 @@ export class RulePassword extends pulumi.CustomResource {
             inputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
             inputs["priority"] = state ? state.priority : undefined;
-            inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
-            inputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
-            inputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
@@ -165,13 +113,6 @@ export class RulePassword extends pulumi.CustomResource {
             if (!args || args.policyid === undefined) {
                 throw new Error("Missing required property 'policyid'");
             }
-            inputs["access"] = args ? args.access : undefined;
-            inputs["authtype"] = args ? args.authtype : undefined;
-            inputs["enroll"] = args ? args.enroll : undefined;
-            inputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
-            inputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
-            inputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
-            inputs["mfaRequired"] = args ? args.mfaRequired : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
             inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
@@ -181,9 +122,6 @@ export class RulePassword extends pulumi.CustomResource {
             inputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
             inputs["priority"] = args ? args.priority : undefined;
-            inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
-            inputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
-            inputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
@@ -202,35 +140,6 @@ export class RulePassword extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RulePassword resources.
  */
 export interface RulePasswordState {
-    /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
-     */
-    readonly access?: pulumi.Input<string>;
-    /**
-     * Authentication entrypoint: ANY or RADIUS.
-     */
-    readonly authtype?: pulumi.Input<string>;
-    /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    readonly enroll?: pulumi.Input<string>;
-    /**
-     * Elapsed time before the next MFA challenge
-     */
-    readonly mfaLifetime?: pulumi.Input<number>;
-    /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or
-     * ALWAYS
-     */
-    readonly mfaPrompt?: pulumi.Input<string>;
-    /**
-     * Remember MFA device.
-     */
-    readonly mfaRememberDevice?: pulumi.Input<boolean>;
-    /**
-     * Require MFA.
-     */
-    readonly mfaRequired?: pulumi.Input<boolean>;
     /**
      * Policy Rule Name.
      */
@@ -268,19 +177,6 @@ export interface RulePasswordState {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * Max minutes a session can be idle.
-     */
-    readonly sessionIdle?: pulumi.Input<number>;
-    /**
-     * Max minutes a session is active: Disable = 0.
-     */
-    readonly sessionLifetime?: pulumi.Input<number>;
-    /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies.
-     */
-    readonly sessionPersistent?: pulumi.Input<boolean>;
-    /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
@@ -294,35 +190,6 @@ export interface RulePasswordState {
  * The set of arguments for constructing a RulePassword resource.
  */
 export interface RulePasswordArgs {
-    /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
-     */
-    readonly access?: pulumi.Input<string>;
-    /**
-     * Authentication entrypoint: ANY or RADIUS.
-     */
-    readonly authtype?: pulumi.Input<string>;
-    /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-     */
-    readonly enroll?: pulumi.Input<string>;
-    /**
-     * Elapsed time before the next MFA challenge
-     */
-    readonly mfaLifetime?: pulumi.Input<number>;
-    /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or
-     * ALWAYS
-     */
-    readonly mfaPrompt?: pulumi.Input<string>;
-    /**
-     * Remember MFA device.
-     */
-    readonly mfaRememberDevice?: pulumi.Input<boolean>;
-    /**
-     * Require MFA.
-     */
-    readonly mfaRequired?: pulumi.Input<boolean>;
     /**
      * Policy Rule Name.
      */
@@ -359,19 +226,6 @@ export interface RulePasswordArgs {
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
-    /**
-     * Max minutes a session can be idle.
-     */
-    readonly sessionIdle?: pulumi.Input<number>;
-    /**
-     * Max minutes a session is active: Disable = 0.
-     */
-    readonly sessionLifetime?: pulumi.Input<number>;
-    /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies.
-     */
-    readonly sessionPersistent?: pulumi.Input<boolean>;
     /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */

@@ -155,6 +155,12 @@ namespace Pulumi.Okta.User
         public Output<string?> Organization { get; private set; } = null!;
 
         /// <summary>
+        /// User password.
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Output("postalAddress")]
@@ -183,6 +189,18 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("rawStatus")]
         public Output<string> RawStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// User password recovery answer.
+        /// </summary>
+        [Output("recoveryAnswer")]
+        public Output<string?> RecoveryAnswer { get; private set; } = null!;
+
+        /// <summary>
+        /// User password recovery question.
+        /// </summary>
+        [Output("recoveryQuestion")]
+        public Output<string?> RecoveryQuestion { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -429,6 +447,12 @@ namespace Pulumi.Okta.User
         public Input<string>? Organization { get; set; }
 
         /// <summary>
+        /// User password.
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("postalAddress")]
@@ -451,6 +475,18 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
+
+        /// <summary>
+        /// User password recovery answer.
+        /// </summary>
+        [Input("recoveryAnswer")]
+        public Input<string>? RecoveryAnswer { get; set; }
+
+        /// <summary>
+        /// User password recovery question.
+        /// </summary>
+        [Input("recoveryQuestion")]
+        public Input<string>? RecoveryQuestion { get; set; }
 
         /// <summary>
         /// User profile property.
@@ -658,6 +694,12 @@ namespace Pulumi.Okta.User
         public Input<string>? Organization { get; set; }
 
         /// <summary>
+        /// User password.
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("postalAddress")]
@@ -686,6 +728,18 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("rawStatus")]
         public Input<string>? RawStatus { get; set; }
+
+        /// <summary>
+        /// User password recovery answer.
+        /// </summary>
+        [Input("recoveryAnswer")]
+        public Input<string>? RecoveryAnswer { get; set; }
+
+        /// <summary>
+        /// User password recovery question.
+        /// </summary>
+        [Input("recoveryQuestion")]
+        public Input<string>? RecoveryQuestion { get; set; }
 
         /// <summary>
         /// User profile property.
