@@ -42,7 +42,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamlIdpSigningKey(string name, SamlIdpSigningKeyArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey", name, args, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

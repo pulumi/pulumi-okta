@@ -135,158 +135,158 @@ func GetOAuth(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OAuth) URN() *pulumi.URNOutput {
+func (r *OAuth) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OAuth) ID() *pulumi.IDOutput {
+func (r *OAuth) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Requested key rotation mode.
-func (r *OAuth) AutoKeyRotation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoKeyRotation"])
+func (r *OAuth) AutoKeyRotation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoKeyRotation"])
 }
 
 // Display auto submit toolbar.
-func (r *OAuth) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *OAuth) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // OAuth client secret key, this can be set when tokenEndpointAuthMethod is client_secret_basic.
-func (r *OAuth) ClientBasicSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientBasicSecret"])
+func (r *OAuth) ClientBasicSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientBasicSecret"])
 }
 
 // The client ID of the application.
-func (r *OAuth) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *OAuth) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // The client secret of the application.
-func (r *OAuth) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *OAuth) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // URI to a web page providing information about the client.
-func (r *OAuth) ClientUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientUri"])
+func (r *OAuth) ClientUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientUri"])
 }
 
 // Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
-func (r *OAuth) ConsentMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["consentMethod"])
+func (r *OAuth) ConsentMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["consentMethod"])
 }
 
 // This property allows you to set the application's client id.
-func (r *OAuth) CustomClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customClientId"])
+func (r *OAuth) CustomClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customClientId"])
 }
 
 // List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-func (r *OAuth) GrantTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["grantTypes"])
+func (r *OAuth) GrantTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["grantTypes"])
 }
 
 // The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-func (r *OAuth) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *OAuth) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app.
-func (r *OAuth) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *OAuth) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users.
-func (r *OAuth) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *OAuth) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-func (r *OAuth) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *OAuth) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
 // The Application's display name.
-func (r *OAuth) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *OAuth) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // URI that initiates login.
-func (r *OAuth) LoginUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loginUri"])
+func (r *OAuth) LoginUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loginUri"])
 }
 
 // URI that references a logo for the client.
-func (r *OAuth) LogoUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logoUri"])
+func (r *OAuth) LogoUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logoUri"])
 }
 
 // Name assigned to the application by Okta.
-func (r *OAuth) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OAuth) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
-func (r *OAuth) OmitSecret() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["omitSecret"])
+func (r *OAuth) OmitSecret() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["omitSecret"])
 }
 
 // URI to web page providing client policy document.
-func (r *OAuth) PolicyUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyUri"])
+func (r *OAuth) PolicyUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyUri"])
 }
 
 // List of URIs for redirection after logout.
-func (r *OAuth) PostLogoutRedirectUris() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["postLogoutRedirectUris"])
+func (r *OAuth) PostLogoutRedirectUris() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["postLogoutRedirectUris"])
 }
 
 // Custom JSON that represents an OAuth application's profile.
-func (r *OAuth) Profile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profile"])
+func (r *OAuth) Profile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profile"])
 }
 
 // List of URIs for use in the redirect-based flow. This is required for all application types except service.
-func (r *OAuth) RedirectUris() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["redirectUris"])
+func (r *OAuth) RedirectUris() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["redirectUris"])
 }
 
 // List of OAuth 2.0 response type strings.
-func (r *OAuth) ResponseTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["responseTypes"])
+func (r *OAuth) ResponseTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["responseTypes"])
 }
 
 // Sign on mode of application.
-func (r *OAuth) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *OAuth) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // The status of the application, by default it is `"ACTIVE"`.
-func (r *OAuth) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *OAuth) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`.
-func (r *OAuth) TokenEndpointAuthMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenEndpointAuthMethod"])
+func (r *OAuth) TokenEndpointAuthMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenEndpointAuthMethod"])
 }
 
 // URI to web page providing client tos (terms of service).
-func (r *OAuth) TosUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tosUri"])
+func (r *OAuth) TosUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tosUri"])
 }
 
 // The type of OAuth application.
-func (r *OAuth) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *OAuth) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-func (r *OAuth) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *OAuth) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering OAuth resources.

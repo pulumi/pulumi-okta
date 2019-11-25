@@ -55,39 +55,39 @@ func GetSignonPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SignonPolicy) URN() *pulumi.URNOutput {
+func (r *SignonPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SignonPolicy) ID() *pulumi.IDOutput {
+func (r *SignonPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Policy Description
-func (r *SignonPolicy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SignonPolicy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of Group IDs to Include
-func (r *SignonPolicy) GroupsIncludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
+func (r *SignonPolicy) GroupsIncludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
 }
 
 // Policy Name
-func (r *SignonPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SignonPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 // priority is provided. API defaults it to the last/lowest if not there.
-func (r *SignonPolicy) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *SignonPolicy) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Status: ACTIVE or INACTIVE.
-func (r *SignonPolicy) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SignonPolicy) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering SignonPolicy resources.

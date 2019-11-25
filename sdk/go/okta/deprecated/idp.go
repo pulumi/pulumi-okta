@@ -184,167 +184,167 @@ func GetIdp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Idp) URN() *pulumi.URNOutput {
+func (r *Idp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Idp) ID() *pulumi.IDOutput {
+func (r *Idp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Idp) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *Idp) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
-func (r *Idp) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *Idp) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
-func (r *Idp) AcsBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsBinding"])
+func (r *Idp) AcsBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsBinding"])
 }
 
-func (r *Idp) AcsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsType"])
+func (r *Idp) AcsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsType"])
 }
 
-func (r *Idp) AuthorizationBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationBinding"])
+func (r *Idp) AuthorizationBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationBinding"])
 }
 
-func (r *Idp) AuthorizationUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationUrl"])
+func (r *Idp) AuthorizationUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationUrl"])
 }
 
-func (r *Idp) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *Idp) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
-func (r *Idp) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *Idp) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
-func (r *Idp) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *Idp) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
-func (r *Idp) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *Idp) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
-func (r *Idp) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *Idp) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
-func (r *Idp) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *Idp) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
-func (r *Idp) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *Idp) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-func (r *Idp) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *Idp) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
-func (r *Idp) IssuerUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerUrl"])
+func (r *Idp) IssuerUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerUrl"])
 }
 
-func (r *Idp) JwksBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jwksBinding"])
+func (r *Idp) JwksBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jwksBinding"])
 }
 
-func (r *Idp) JwksUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jwksUrl"])
+func (r *Idp) JwksUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jwksUrl"])
 }
 
-func (r *Idp) MaxClockSkew() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxClockSkew"])
+func (r *Idp) MaxClockSkew() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxClockSkew"])
 }
 
 // name of idp
-func (r *Idp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Idp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Idp) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *Idp) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
-func (r *Idp) ProtocolType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocolType"])
+func (r *Idp) ProtocolType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocolType"])
 }
 
-func (r *Idp) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
-}
-
-// algorithm to use to sign requests
-func (r *Idp) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
-}
-
-// algorithm to use to sign response
-func (r *Idp) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *Idp) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // algorithm to use to sign requests
-func (r *Idp) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *Idp) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // algorithm to use to sign response
-func (r *Idp) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *Idp) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
-func (r *Idp) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+// algorithm to use to sign requests
+func (r *Idp) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
-func (r *Idp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+// algorithm to use to sign response
+func (r *Idp) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
-func (r *Idp) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *Idp) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
-func (r *Idp) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *Idp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *Idp) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *Idp) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
-func (r *Idp) TokenBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenBinding"])
+func (r *Idp) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
-func (r *Idp) TokenUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenUrl"])
+func (r *Idp) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
 }
 
-func (r *Idp) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Idp) TokenBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenBinding"])
 }
 
-func (r *Idp) UserInfoBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userInfoBinding"])
+func (r *Idp) TokenUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenUrl"])
 }
 
-func (r *Idp) UserInfoUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userInfoUrl"])
+func (r *Idp) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *Idp) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *Idp) UserInfoBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userInfoBinding"])
+}
+
+func (r *Idp) UserInfoUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userInfoUrl"])
+}
+
+func (r *Idp) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering Idp resources.

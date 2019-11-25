@@ -217,7 +217,7 @@ namespace Pulumi.Okta.Idp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Saml(string name, SamlArgs args, CustomResourceOptions? options = null)
-            : base("okta:idp/saml:Saml", name, args, MakeResourceOptions(options, ""))
+            : base("okta:idp/saml:Saml", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.App
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
         /// </summary>
         public static Task<GetSamlResult> GetSaml(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSamlArgs : Pulumi.ResourceArgs

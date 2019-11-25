@@ -77,69 +77,69 @@ func GetPasswordPolicyRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PasswordPolicyRule) URN() *pulumi.URNOutput {
+func (r *PasswordPolicyRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PasswordPolicyRule) ID() *pulumi.IDOutput {
+func (r *PasswordPolicyRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Policy Rule Name
-func (r *PasswordPolicyRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PasswordPolicyRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-func (r *PasswordPolicyRule) NetworkConnection() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkConnection"])
+func (r *PasswordPolicyRule) NetworkConnection() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkConnection"])
 }
 
 // The zones to exclude
-func (r *PasswordPolicyRule) NetworkExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkExcludes"])
+func (r *PasswordPolicyRule) NetworkExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkExcludes"])
 }
 
 // The zones to include
-func (r *PasswordPolicyRule) NetworkIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
+func (r *PasswordPolicyRule) NetworkIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkIncludes"])
 }
 
 // Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-func (r *PasswordPolicyRule) PasswordChange() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordChange"])
+func (r *PasswordPolicyRule) PasswordChange() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordChange"])
 }
 
 // Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-func (r *PasswordPolicyRule) PasswordReset() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordReset"])
+func (r *PasswordPolicyRule) PasswordReset() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordReset"])
 }
 
 // Allow or deny a user to unlock. Default = DENY
-func (r *PasswordPolicyRule) PasswordUnlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordUnlock"])
+func (r *PasswordPolicyRule) PasswordUnlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordUnlock"])
 }
 
 // Policy ID of the Rule
-func (r *PasswordPolicyRule) Policyid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyid"])
+func (r *PasswordPolicyRule) Policyid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyid"])
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 // invalid priority is provided. API defaults it to the last/lowest if not there.
-func (r *PasswordPolicyRule) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *PasswordPolicyRule) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Rule Status: ACTIVE or INACTIVE.
-func (r *PasswordPolicyRule) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *PasswordPolicyRule) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Set of User IDs to Exclude
-func (r *PasswordPolicyRule) UsersExcludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
+func (r *PasswordPolicyRule) UsersExcludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
 }
 
 // Input properties used for looking up and filtering PasswordPolicyRule resources.

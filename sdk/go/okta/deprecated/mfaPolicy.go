@@ -94,90 +94,90 @@ func GetMfaPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MfaPolicy) URN() *pulumi.URNOutput {
+func (r *MfaPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MfaPolicy) ID() *pulumi.IDOutput {
+func (r *MfaPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Policy Description
-func (r *MfaPolicy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *MfaPolicy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
-func (r *MfaPolicy) Duo() *pulumi.Output {
+func (r *MfaPolicy) Duo() pulumi.Output {
 	return r.s.State["duo"]
 }
 
-func (r *MfaPolicy) FidoU2f() *pulumi.Output {
+func (r *MfaPolicy) FidoU2f() pulumi.Output {
 	return r.s.State["fidoU2f"]
 }
 
-func (r *MfaPolicy) FidoWebauthn() *pulumi.Output {
+func (r *MfaPolicy) FidoWebauthn() pulumi.Output {
 	return r.s.State["fidoWebauthn"]
 }
 
-func (r *MfaPolicy) GoogleOtp() *pulumi.Output {
+func (r *MfaPolicy) GoogleOtp() pulumi.Output {
 	return r.s.State["googleOtp"]
 }
 
 // List of Group IDs to Include
-func (r *MfaPolicy) GroupsIncludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
+func (r *MfaPolicy) GroupsIncludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
 }
 
 // Policy Name
-func (r *MfaPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MfaPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *MfaPolicy) OktaCall() *pulumi.Output {
+func (r *MfaPolicy) OktaCall() pulumi.Output {
 	return r.s.State["oktaCall"]
 }
 
-func (r *MfaPolicy) OktaOtp() *pulumi.Output {
+func (r *MfaPolicy) OktaOtp() pulumi.Output {
 	return r.s.State["oktaOtp"]
 }
 
-func (r *MfaPolicy) OktaPassword() *pulumi.Output {
+func (r *MfaPolicy) OktaPassword() pulumi.Output {
 	return r.s.State["oktaPassword"]
 }
 
-func (r *MfaPolicy) OktaPush() *pulumi.Output {
+func (r *MfaPolicy) OktaPush() pulumi.Output {
 	return r.s.State["oktaPush"]
 }
 
-func (r *MfaPolicy) OktaQuestion() *pulumi.Output {
+func (r *MfaPolicy) OktaQuestion() pulumi.Output {
 	return r.s.State["oktaQuestion"]
 }
 
-func (r *MfaPolicy) OktaSms() *pulumi.Output {
+func (r *MfaPolicy) OktaSms() pulumi.Output {
 	return r.s.State["oktaSms"]
 }
 
 // Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 // priority is provided. API defaults it to the last/lowest if not there.
-func (r *MfaPolicy) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *MfaPolicy) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
-func (r *MfaPolicy) RsaToken() *pulumi.Output {
+func (r *MfaPolicy) RsaToken() pulumi.Output {
 	return r.s.State["rsaToken"]
 }
 
 // Policy Status: ACTIVE or INACTIVE.
-func (r *MfaPolicy) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *MfaPolicy) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *MfaPolicy) SymantecVip() *pulumi.Output {
+func (r *MfaPolicy) SymantecVip() pulumi.Output {
 	return r.s.State["symantecVip"]
 }
 
-func (r *MfaPolicy) YubikeyToken() *pulumi.Output {
+func (r *MfaPolicy) YubikeyToken() pulumi.Output {
 	return r.s.State["yubikeyToken"]
 }
 

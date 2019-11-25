@@ -106,88 +106,88 @@ func GetServerPolicyClaim(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServerPolicyClaim) URN() *pulumi.URNOutput {
+func (r *ServerPolicyClaim) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServerPolicyClaim) ID() *pulumi.IDOutput {
+func (r *ServerPolicyClaim) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Lifetime of access token. Can be set to a value between 5 and 1440.
-func (r *ServerPolicyClaim) AccessTokenLifetimeMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["accessTokenLifetimeMinutes"])
+func (r *ServerPolicyClaim) AccessTokenLifetimeMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["accessTokenLifetimeMinutes"])
 }
 
 // Auth Server ID.
-func (r *ServerPolicyClaim) AuthServerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authServerId"])
+func (r *ServerPolicyClaim) AuthServerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authServerId"])
 }
 
 // Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
-func (r *ServerPolicyClaim) GrantTypeWhitelists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["grantTypeWhitelists"])
+func (r *ServerPolicyClaim) GrantTypeWhitelists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["grantTypeWhitelists"])
 }
 
-func (r *ServerPolicyClaim) GroupBlacklists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupBlacklists"])
+func (r *ServerPolicyClaim) GroupBlacklists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupBlacklists"])
 }
 
-func (r *ServerPolicyClaim) GroupWhitelists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupWhitelists"])
+func (r *ServerPolicyClaim) GroupWhitelists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupWhitelists"])
 }
 
 // The ID of the inline token to trigger.
-func (r *ServerPolicyClaim) InlineHookId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inlineHookId"])
+func (r *ServerPolicyClaim) InlineHookId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inlineHookId"])
 }
 
 // Auth Server Policy Rule name.
-func (r *ServerPolicyClaim) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServerPolicyClaim) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Auth Server Policy ID.
-func (r *ServerPolicyClaim) PolicyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyId"])
+func (r *ServerPolicyClaim) PolicyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyId"])
 }
 
 // Priority of the auth server policy rule.
-func (r *ServerPolicyClaim) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *ServerPolicyClaim) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Lifetime of refresh token.
-func (r *ServerPolicyClaim) RefreshTokenLifetimeMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["refreshTokenLifetimeMinutes"])
+func (r *ServerPolicyClaim) RefreshTokenLifetimeMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["refreshTokenLifetimeMinutes"])
 }
 
-func (r *ServerPolicyClaim) RefreshTokenWindowMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["refreshTokenWindowMinutes"])
+func (r *ServerPolicyClaim) RefreshTokenWindowMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["refreshTokenWindowMinutes"])
 }
 
 // Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
-func (r *ServerPolicyClaim) ScopeWhitelists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopeWhitelists"])
+func (r *ServerPolicyClaim) ScopeWhitelists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopeWhitelists"])
 }
 
 // The status of the Auth Server Policy Rule.
-func (r *ServerPolicyClaim) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ServerPolicyClaim) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The type of the Auth Server Policy Rule.
-func (r *ServerPolicyClaim) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *ServerPolicyClaim) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *ServerPolicyClaim) UserBlacklists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["userBlacklists"])
+func (r *ServerPolicyClaim) UserBlacklists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["userBlacklists"])
 }
 
-func (r *ServerPolicyClaim) UserWhitelists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["userWhitelists"])
+func (r *ServerPolicyClaim) UserWhitelists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["userWhitelists"])
 }
 
 // Input properties used for looking up and filtering ServerPolicyClaim resources.

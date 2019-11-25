@@ -91,7 +91,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BasicAuth(string name, BasicAuthArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/basicAuth:BasicAuth", name, args, MakeResourceOptions(options, ""))
+            : base("okta:app/basicAuth:BasicAuth", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

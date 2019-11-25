@@ -15,7 +15,7 @@ namespace Pulumi.Okta.User
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
         /// </summary>
         public static Task<GetUserProfileMappingSourceResult> GetUserProfileMappingSource(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileMappingSourceResult>("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileMappingSourceResult>("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

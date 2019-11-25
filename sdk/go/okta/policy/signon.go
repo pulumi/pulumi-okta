@@ -60,38 +60,38 @@ func GetSignon(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Signon) URN() *pulumi.URNOutput {
+func (r *Signon) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Signon) ID() *pulumi.IDOutput {
+func (r *Signon) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Policy Description.
-func (r *Signon) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Signon) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of Group IDs to Include.
-func (r *Signon) GroupsIncludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
+func (r *Signon) GroupsIncludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
 }
 
 // Policy Name.
-func (r *Signon) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Signon) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Priority of the policy.
-func (r *Signon) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *Signon) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-func (r *Signon) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Signon) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering Signon resources.

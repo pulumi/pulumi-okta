@@ -147,147 +147,147 @@ func GetSamlIdp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SamlIdp) URN() *pulumi.URNOutput {
+func (r *SamlIdp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SamlIdp) ID() *pulumi.IDOutput {
+func (r *SamlIdp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *SamlIdp) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *SamlIdp) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
-func (r *SamlIdp) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *SamlIdp) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
-func (r *SamlIdp) AcsBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsBinding"])
+func (r *SamlIdp) AcsBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsBinding"])
 }
 
-func (r *SamlIdp) AcsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsType"])
+func (r *SamlIdp) AcsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsType"])
 }
 
-func (r *SamlIdp) Audience() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["audience"])
+func (r *SamlIdp) Audience() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["audience"])
 }
 
-func (r *SamlIdp) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *SamlIdp) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
-func (r *SamlIdp) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *SamlIdp) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
-func (r *SamlIdp) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *SamlIdp) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
-func (r *SamlIdp) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *SamlIdp) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
-func (r *SamlIdp) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *SamlIdp) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
-func (r *SamlIdp) Issuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuer"])
+func (r *SamlIdp) Issuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuer"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-func (r *SamlIdp) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *SamlIdp) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
-func (r *SamlIdp) Kid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kid"])
+func (r *SamlIdp) Kid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kid"])
 }
 
 // name of idp
-func (r *SamlIdp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SamlIdp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *SamlIdp) NameFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nameFormat"])
+func (r *SamlIdp) NameFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nameFormat"])
 }
 
-func (r *SamlIdp) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *SamlIdp) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
-func (r *SamlIdp) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
-}
-
-// algorithm to use to sign requests
-func (r *SamlIdp) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
-}
-
-// algorithm to use to sign response
-func (r *SamlIdp) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *SamlIdp) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // algorithm to use to sign requests
-func (r *SamlIdp) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *SamlIdp) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // algorithm to use to sign response
-func (r *SamlIdp) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *SamlIdp) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
-func (r *SamlIdp) SsoBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoBinding"])
+// algorithm to use to sign requests
+func (r *SamlIdp) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
-func (r *SamlIdp) SsoDestination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoDestination"])
+// algorithm to use to sign response
+func (r *SamlIdp) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
-func (r *SamlIdp) SsoUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoUrl"])
+func (r *SamlIdp) SsoBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoBinding"])
 }
 
-func (r *SamlIdp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SamlIdp) SsoDestination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoDestination"])
 }
 
-func (r *SamlIdp) SubjectFilter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectFilter"])
+func (r *SamlIdp) SsoUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoUrl"])
 }
 
-func (r *SamlIdp) SubjectFormats() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subjectFormats"])
+func (r *SamlIdp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *SamlIdp) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *SamlIdp) SubjectFilter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectFilter"])
 }
 
-func (r *SamlIdp) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *SamlIdp) SubjectFormats() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subjectFormats"])
 }
 
-func (r *SamlIdp) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *SamlIdp) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
-func (r *SamlIdp) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *SamlIdp) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
-func (r *SamlIdp) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *SamlIdp) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
+}
+
+func (r *SamlIdp) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
+}
+
+func (r *SamlIdp) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering SamlIdp resources.

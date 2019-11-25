@@ -15,7 +15,7 @@ namespace Pulumi.Okta.App
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
         /// </summary>
         public static Task<GetMetadataSamlResult> GetMetadataSaml(GetMetadataSamlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetMetadataSamlArgs : Pulumi.ResourceArgs

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.Group
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/everyone_group.html.markdown.
         /// </summary>
         public static Task<GetEveryoneGroupResult> GetEveryoneGroup(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetEveryoneGroupArgs : Pulumi.ResourceArgs

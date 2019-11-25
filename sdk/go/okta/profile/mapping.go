@@ -67,49 +67,49 @@ func GetMapping(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Mapping) URN() *pulumi.URNOutput {
+func (r *Mapping) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Mapping) ID() *pulumi.IDOutput {
+func (r *Mapping) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 // default, we do not delete missing properties.
-func (r *Mapping) DeleteWhenAbsent() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deleteWhenAbsent"])
+func (r *Mapping) DeleteWhenAbsent() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deleteWhenAbsent"])
 }
 
-func (r *Mapping) Mappings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["mappings"])
+func (r *Mapping) Mappings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["mappings"])
 }
 
 // The source id of the mapping to manage.
-func (r *Mapping) SourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceId"])
+func (r *Mapping) SourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceId"])
 }
 
-func (r *Mapping) SourceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceName"])
+func (r *Mapping) SourceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceName"])
 }
 
-func (r *Mapping) SourceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceType"])
+func (r *Mapping) SourceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceType"])
 }
 
 // The target id of the mapping to manage.
-func (r *Mapping) TargetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetId"])
+func (r *Mapping) TargetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetId"])
 }
 
-func (r *Mapping) TargetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetName"])
+func (r *Mapping) TargetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetName"])
 }
 
-func (r *Mapping) TargetType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetType"])
+func (r *Mapping) TargetType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetType"])
 }
 
 // Input properties used for looking up and filtering Mapping resources.

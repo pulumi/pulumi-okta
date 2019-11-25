@@ -139,147 +139,147 @@ func GetSocialIdp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SocialIdp) URN() *pulumi.URNOutput {
+func (r *SocialIdp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SocialIdp) ID() *pulumi.IDOutput {
+func (r *SocialIdp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *SocialIdp) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *SocialIdp) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
-func (r *SocialIdp) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *SocialIdp) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
-func (r *SocialIdp) AuthorizationBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationBinding"])
+func (r *SocialIdp) AuthorizationBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationBinding"])
 }
 
-func (r *SocialIdp) AuthorizationUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationUrl"])
+func (r *SocialIdp) AuthorizationUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationUrl"])
 }
 
-func (r *SocialIdp) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *SocialIdp) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
-func (r *SocialIdp) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *SocialIdp) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
-func (r *SocialIdp) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *SocialIdp) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
-func (r *SocialIdp) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *SocialIdp) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
-func (r *SocialIdp) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *SocialIdp) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
-func (r *SocialIdp) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *SocialIdp) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
-func (r *SocialIdp) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *SocialIdp) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-func (r *SocialIdp) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *SocialIdp) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
-func (r *SocialIdp) MatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAttribute"])
+func (r *SocialIdp) MatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAttribute"])
 }
 
-func (r *SocialIdp) MatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchType"])
+func (r *SocialIdp) MatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchType"])
 }
 
-func (r *SocialIdp) MaxClockSkew() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxClockSkew"])
+func (r *SocialIdp) MaxClockSkew() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxClockSkew"])
 }
 
 // name of idp
-func (r *SocialIdp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SocialIdp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *SocialIdp) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *SocialIdp) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
-func (r *SocialIdp) ProtocolType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocolType"])
+func (r *SocialIdp) ProtocolType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocolType"])
 }
 
-func (r *SocialIdp) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
-}
-
-// algorithm to use to sign requests
-func (r *SocialIdp) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
-}
-
-// algorithm to use to sign response
-func (r *SocialIdp) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *SocialIdp) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // algorithm to use to sign requests
-func (r *SocialIdp) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *SocialIdp) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // algorithm to use to sign response
-func (r *SocialIdp) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *SocialIdp) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
-func (r *SocialIdp) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+// algorithm to use to sign requests
+func (r *SocialIdp) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
-func (r *SocialIdp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+// algorithm to use to sign response
+func (r *SocialIdp) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
-func (r *SocialIdp) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *SocialIdp) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
-func (r *SocialIdp) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *SocialIdp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *SocialIdp) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *SocialIdp) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
-func (r *SocialIdp) TokenBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenBinding"])
+func (r *SocialIdp) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
-func (r *SocialIdp) TokenUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenUrl"])
+func (r *SocialIdp) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
 }
 
-func (r *SocialIdp) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *SocialIdp) TokenBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenBinding"])
 }
 
-func (r *SocialIdp) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *SocialIdp) TokenUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenUrl"])
+}
+
+func (r *SocialIdp) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
+}
+
+func (r *SocialIdp) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering SocialIdp resources.

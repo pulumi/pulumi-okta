@@ -75,63 +75,63 @@ func GetServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Server) URN() *pulumi.URNOutput {
+func (r *Server) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Server) ID() *pulumi.IDOutput {
+func (r *Server) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
-func (r *Server) Audiences() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["audiences"])
+func (r *Server) Audiences() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["audiences"])
 }
 
 // The timestamp when the authorization server started to use the `kid` for signing tokens.
-func (r *Server) CredentialsLastRotated() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentialsLastRotated"])
+func (r *Server) CredentialsLastRotated() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentialsLastRotated"])
 }
 
 // The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
-func (r *Server) CredentialsNextRotation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentialsNextRotation"])
+func (r *Server) CredentialsNextRotation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentialsNextRotation"])
 }
 
 // The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
-func (r *Server) CredentialsRotationMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentialsRotationMode"])
+func (r *Server) CredentialsRotationMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentialsRotationMode"])
 }
 
 // The description of the authorization server.
-func (r *Server) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Server) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
-func (r *Server) Issuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuer"])
+func (r *Server) Issuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuer"])
 }
 
 // Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
-func (r *Server) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *Server) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
 // The ID of the JSON Web Key used for signing tokens issued by the authorization server.
-func (r *Server) Kid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kid"])
+func (r *Server) Kid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kid"])
 }
 
 // The name of the authorization server.
-func (r *Server) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Server) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The status of the auth server. It defaults to `"ACTIVE"`
-func (r *Server) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Server) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering Server resources.

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.User
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
         /// </summary>
         public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetUserArgs : Pulumi.ResourceArgs

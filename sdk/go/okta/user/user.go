@@ -174,208 +174,208 @@ func GetUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() *pulumi.URNOutput {
+func (r *User) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() *pulumi.IDOutput {
+func (r *User) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Administrator roles assigned to User.
-func (r *User) AdminRoles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["adminRoles"])
+func (r *User) AdminRoles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["adminRoles"])
 }
 
 // User profile property.
-func (r *User) City() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["city"])
+func (r *User) City() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["city"])
 }
 
 // User profile property.
-func (r *User) CostCenter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["costCenter"])
+func (r *User) CostCenter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["costCenter"])
 }
 
 // User profile property.
-func (r *User) CountryCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["countryCode"])
+func (r *User) CountryCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["countryCode"])
 }
 
 // raw JSON containing all custom profile attributes.
-func (r *User) CustomProfileAttributes() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customProfileAttributes"])
+func (r *User) CustomProfileAttributes() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customProfileAttributes"])
 }
 
 // User profile property.
-func (r *User) Department() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["department"])
+func (r *User) Department() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["department"])
 }
 
 // User profile property.
-func (r *User) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *User) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // User profile property.
-func (r *User) Division() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["division"])
+func (r *User) Division() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["division"])
 }
 
 // User profile property.
-func (r *User) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *User) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // User profile property.
-func (r *User) EmployeeNumber() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["employeeNumber"])
+func (r *User) EmployeeNumber() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["employeeNumber"])
 }
 
 // User's First Name, required by default.
-func (r *User) FirstName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["firstName"])
+func (r *User) FirstName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["firstName"])
 }
 
 // User profile property.
-func (r *User) GroupMemberships() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupMemberships"])
+func (r *User) GroupMemberships() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupMemberships"])
 }
 
 // User profile property.
-func (r *User) HonorificPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["honorificPrefix"])
+func (r *User) HonorificPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["honorificPrefix"])
 }
 
 // User profile property.
-func (r *User) HonorificSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["honorificSuffix"])
+func (r *User) HonorificSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["honorificSuffix"])
 }
 
 // User's Last Name, required by default.
-func (r *User) LastName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastName"])
+func (r *User) LastName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastName"])
 }
 
 // User profile property.
-func (r *User) Locale() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["locale"])
+func (r *User) Locale() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["locale"])
 }
 
 // User profile property.
-func (r *User) Login() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["login"])
+func (r *User) Login() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["login"])
 }
 
 // User profile property.
-func (r *User) Manager() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["manager"])
+func (r *User) Manager() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["manager"])
 }
 
 // User profile property.
-func (r *User) ManagerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["managerId"])
+func (r *User) ManagerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["managerId"])
 }
 
 // User profile property.
-func (r *User) MiddleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["middleName"])
+func (r *User) MiddleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["middleName"])
 }
 
 // User profile property.
-func (r *User) MobilePhone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mobilePhone"])
+func (r *User) MobilePhone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mobilePhone"])
 }
 
 // User profile property.
-func (r *User) NickName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nickName"])
+func (r *User) NickName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nickName"])
 }
 
 // User profile property.
-func (r *User) Organization() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["organization"])
+func (r *User) Organization() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["organization"])
 }
 
 // User password.
-func (r *User) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *User) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // User profile property.
-func (r *User) PostalAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["postalAddress"])
+func (r *User) PostalAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["postalAddress"])
 }
 
 // User profile property.
-func (r *User) PreferredLanguage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredLanguage"])
+func (r *User) PreferredLanguage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredLanguage"])
 }
 
 // User profile property.
-func (r *User) PrimaryPhone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryPhone"])
+func (r *User) PrimaryPhone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryPhone"])
 }
 
 // User profile property.
-func (r *User) ProfileUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profileUrl"])
+func (r *User) ProfileUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profileUrl"])
 }
 
 // The raw status of the User in Okta - (status is mapped)
-func (r *User) RawStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rawStatus"])
+func (r *User) RawStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rawStatus"])
 }
 
 // User password recovery answer.
-func (r *User) RecoveryAnswer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryAnswer"])
+func (r *User) RecoveryAnswer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryAnswer"])
 }
 
 // User password recovery question.
-func (r *User) RecoveryQuestion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryQuestion"])
+func (r *User) RecoveryQuestion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryQuestion"])
 }
 
 // User profile property.
-func (r *User) SecondEmail() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondEmail"])
+func (r *User) SecondEmail() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondEmail"])
 }
 
 // User profile property.
-func (r *User) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *User) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // User profile property.
-func (r *User) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *User) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // User profile property.
-func (r *User) StreetAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streetAddress"])
+func (r *User) StreetAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streetAddress"])
 }
 
 // User profile property.
-func (r *User) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *User) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // User profile property.
-func (r *User) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *User) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // User profile property.
-func (r *User) UserType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userType"])
+func (r *User) UserType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userType"])
 }
 
 // User profile property.
-func (r *User) ZipCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zipCode"])
+func (r *User) ZipCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zipCode"])
 }
 
 // Input properties used for looking up and filtering User resources.

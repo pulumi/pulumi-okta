@@ -67,7 +67,7 @@ namespace Pulumi.Okta.Auth
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerPolicy(string name, ServerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/serverPolicy:ServerPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("okta:auth/serverPolicy:ServerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

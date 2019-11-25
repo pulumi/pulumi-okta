@@ -73,47 +73,47 @@ func GetHook(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Hook) URN() *pulumi.URNOutput {
+func (r *Hook) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Hook) ID() *pulumi.IDOutput {
+func (r *Hook) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Authentication required for inline hook request.
-func (r *Hook) Auth() *pulumi.Output {
+func (r *Hook) Auth() pulumi.Output {
 	return r.s.State["auth"]
 }
 
 // Details of the endpoint the inline hook will hit.
-func (r *Hook) Channel() *pulumi.Output {
+func (r *Hook) Channel() pulumi.Output {
 	return r.s.State["channel"]
 }
 
 // Map of headers to send along in inline hook request.
-func (r *Hook) Headers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["headers"])
+func (r *Hook) Headers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["headers"])
 }
 
 // The inline hook display name.
-func (r *Hook) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Hook) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Hook) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Hook) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
-func (r *Hook) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Hook) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The version of the endpoint.
-func (r *Hook) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Hook) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Hook resources.

@@ -61,28 +61,28 @@ func GetEmail(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Email) URN() *pulumi.URNOutput {
+func (r *Email) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Email) ID() *pulumi.IDOutput {
+func (r *Email) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The default language, by default is set to `"en"`.
-func (r *Email) DefaultLanguage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultLanguage"])
+func (r *Email) DefaultLanguage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultLanguage"])
 }
 
 // Set of translations for particular template.
-func (r *Email) Translations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["translations"])
+func (r *Email) Translations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["translations"])
 }
 
 // Email template type
-func (r *Email) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Email) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Email resources.

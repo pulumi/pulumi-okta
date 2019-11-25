@@ -15,7 +15,7 @@ namespace Pulumi.Okta.App
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
         /// </summary>
         public static Task<GetAppResult> GetApp(GetAppArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAppArgs : Pulumi.ResourceArgs

@@ -67,38 +67,38 @@ func GetRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Rule) URN() *pulumi.URNOutput {
+func (r *Rule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Rule) ID() *pulumi.IDOutput {
+func (r *Rule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
-func (r *Rule) ExpressionType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expressionType"])
+func (r *Rule) ExpressionType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expressionType"])
 }
 
 // The expression value.
-func (r *Rule) ExpressionValue() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expressionValue"])
+func (r *Rule) ExpressionValue() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expressionValue"])
 }
 
 // The list of group ids to assign the users to.
-func (r *Rule) GroupAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupAssignments"])
+func (r *Rule) GroupAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupAssignments"])
 }
 
 // The name of the Group Rule.
-func (r *Rule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Rule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The status of the group rule.
-func (r *Rule) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Rule) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering Rule resources.

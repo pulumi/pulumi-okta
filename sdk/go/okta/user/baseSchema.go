@@ -73,43 +73,43 @@ func GetBaseSchema(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BaseSchema) URN() *pulumi.URNOutput {
+func (r *BaseSchema) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BaseSchema) ID() *pulumi.IDOutput {
+func (r *BaseSchema) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The property name.
-func (r *BaseSchema) Index() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["index"])
+func (r *BaseSchema) Index() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["index"])
 }
 
 // Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-func (r *BaseSchema) Master() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["master"])
+func (r *BaseSchema) Master() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["master"])
 }
 
 // Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-func (r *BaseSchema) Permissions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["permissions"])
+func (r *BaseSchema) Permissions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["permissions"])
 }
 
 // Whether the property is required for this application's users.
-func (r *BaseSchema) Required() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["required"])
+func (r *BaseSchema) Required() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["required"])
 }
 
 // The property display name.
-func (r *BaseSchema) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *BaseSchema) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-func (r *BaseSchema) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *BaseSchema) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering BaseSchema resources.

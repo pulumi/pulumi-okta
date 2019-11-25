@@ -189,197 +189,197 @@ func GetOidc(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Oidc) URN() *pulumi.URNOutput {
+func (r *Oidc) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Oidc) ID() *pulumi.IDOutput {
+func (r *Oidc) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the account linking action for an IdP user.
-func (r *Oidc) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *Oidc) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
 // Group memberships to determine link candidates.
-func (r *Oidc) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *Oidc) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
 // The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Oidc) AcsBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsBinding"])
+func (r *Oidc) AcsBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsBinding"])
 }
 
 // The type of ACS. Default is `"INSTANCE"`.
-func (r *Oidc) AcsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsType"])
+func (r *Oidc) AcsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsType"])
 }
 
 // The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Oidc) AuthorizationBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationBinding"])
+func (r *Oidc) AuthorizationBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationBinding"])
 }
 
 // IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-func (r *Oidc) AuthorizationUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationUrl"])
+func (r *Oidc) AuthorizationUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationUrl"])
 }
 
 // Unique identifier issued by AS for the Okta IdP instance.
-func (r *Oidc) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *Oidc) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // Client secret issued by AS for the Okta IdP instance.
-func (r *Oidc) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *Oidc) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-func (r *Oidc) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *Oidc) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
 // Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-func (r *Oidc) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *Oidc) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
 // List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-func (r *Oidc) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *Oidc) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
 // IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-func (r *Oidc) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *Oidc) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
 // Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-func (r *Oidc) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *Oidc) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-func (r *Oidc) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *Oidc) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
 // URI that identifies the issuer.
-func (r *Oidc) IssuerUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerUrl"])
+func (r *Oidc) IssuerUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerUrl"])
 }
 
 // The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Oidc) JwksBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jwksBinding"])
+func (r *Oidc) JwksBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jwksBinding"])
 }
 
 // Endpoint where the signer of the keys publishes its keys in a JWK Set.
-func (r *Oidc) JwksUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jwksUrl"])
+func (r *Oidc) JwksUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jwksUrl"])
 }
 
 // Maximum allowable clock-skew when processing messages from the IdP.
-func (r *Oidc) MaxClockSkew() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxClockSkew"])
+func (r *Oidc) MaxClockSkew() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxClockSkew"])
 }
 
 // The Application's display name.
-func (r *Oidc) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Oidc) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Determines if the IdP should act as a source of truth for user profile attributes.
-func (r *Oidc) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *Oidc) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
 // The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-func (r *Oidc) ProtocolType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocolType"])
+func (r *Oidc) ProtocolType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocolType"])
 }
 
 // Provisioning action for an IdP user during authentication.
-func (r *Oidc) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
+func (r *Oidc) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // algorithm to use to sign requests
-func (r *Oidc) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
+func (r *Oidc) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // algorithm to use to sign response
-func (r *Oidc) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *Oidc) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
 // algorithm to use to sign requests
-func (r *Oidc) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *Oidc) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
 // algorithm to use to sign response
-func (r *Oidc) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *Oidc) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
 // The scopes of the IdP.
-func (r *Oidc) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *Oidc) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // Status of the IdP.
-func (r *Oidc) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Oidc) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-func (r *Oidc) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *Oidc) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
 // Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-func (r *Oidc) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *Oidc) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
 // Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-func (r *Oidc) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *Oidc) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
 }
 
 // The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Oidc) TokenBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenBinding"])
+func (r *Oidc) TokenBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenBinding"])
 }
 
 // IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-func (r *Oidc) TokenUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenUrl"])
+func (r *Oidc) TokenUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenUrl"])
 }
 
 // Type of OIDC IdP.
-func (r *Oidc) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Oidc) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *Oidc) UserInfoBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userInfoBinding"])
+func (r *Oidc) UserInfoBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userInfoBinding"])
 }
 
 // Protected resource endpoint that returns claims about the authenticated user.
-func (r *Oidc) UserInfoUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userInfoUrl"])
+func (r *Oidc) UserInfoUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userInfoUrl"])
 }
 
 // Okta EL Expression to generate or transform a unique username for the IdP user.
-func (r *Oidc) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *Oidc) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering Oidc resources.

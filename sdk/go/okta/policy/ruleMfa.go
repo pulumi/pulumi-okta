@@ -76,58 +76,58 @@ func GetRuleMfa(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RuleMfa) URN() *pulumi.URNOutput {
+func (r *RuleMfa) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RuleMfa) ID() *pulumi.IDOutput {
+func (r *RuleMfa) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
-func (r *RuleMfa) Enroll() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["enroll"])
+func (r *RuleMfa) Enroll() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["enroll"])
 }
 
 // Policy Rule Name.
-func (r *RuleMfa) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RuleMfa) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-func (r *RuleMfa) NetworkConnection() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkConnection"])
+func (r *RuleMfa) NetworkConnection() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkConnection"])
 }
 
 // The network zones to exclude. Conflicts with `networkIncludes`.
-func (r *RuleMfa) NetworkExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkExcludes"])
+func (r *RuleMfa) NetworkExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkExcludes"])
 }
 
 // The network zones to include. Conflicts with `networkExcludes`.
-func (r *RuleMfa) NetworkIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
+func (r *RuleMfa) NetworkIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkIncludes"])
 }
 
 // Policy ID.
-func (r *RuleMfa) Policyid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyid"])
+func (r *RuleMfa) Policyid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyid"])
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
-func (r *RuleMfa) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *RuleMfa) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-func (r *RuleMfa) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *RuleMfa) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Set of User IDs to Exclude
-func (r *RuleMfa) UsersExcludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
+func (r *RuleMfa) UsersExcludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
 }
 
 // Input properties used for looking up and filtering RuleMfa resources.

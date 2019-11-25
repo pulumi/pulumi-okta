@@ -152,173 +152,173 @@ func GetSaml(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Saml) URN() *pulumi.URNOutput {
+func (r *Saml) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Saml) ID() *pulumi.IDOutput {
+func (r *Saml) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the account linking action for an IdP user.
-func (r *Saml) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *Saml) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
 // Group memberships to determine link candidates.
-func (r *Saml) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *Saml) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
 // The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Saml) AcsBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsBinding"])
+func (r *Saml) AcsBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsBinding"])
 }
 
 // The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
-func (r *Saml) AcsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acsType"])
+func (r *Saml) AcsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acsType"])
 }
 
 // The audience restriction for the IdP.
-func (r *Saml) Audience() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["audience"])
+func (r *Saml) Audience() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["audience"])
 }
 
 // Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-func (r *Saml) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *Saml) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
 // Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-func (r *Saml) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *Saml) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
 // List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-func (r *Saml) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *Saml) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
 // IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-func (r *Saml) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *Saml) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
 // Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-func (r *Saml) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *Saml) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
 // URI that identifies the issuer.
-func (r *Saml) Issuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuer"])
+func (r *Saml) Issuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuer"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-func (r *Saml) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *Saml) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
 // The ID of the signing key.
-func (r *Saml) Kid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kid"])
+func (r *Saml) Kid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kid"])
 }
 
 // The Application's display name.
-func (r *Saml) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Saml) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-func (r *Saml) NameFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nameFormat"])
+func (r *Saml) NameFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nameFormat"])
 }
 
 // Determines if the IdP should act as a source of truth for user profile attributes.
-func (r *Saml) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *Saml) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
 // Provisioning action for an IdP user during authentication.
-func (r *Saml) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
+func (r *Saml) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // The XML digital signature algorithm used when signing an AuthnRequest message.
-func (r *Saml) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
+func (r *Saml) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-func (r *Saml) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *Saml) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
 // The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-func (r *Saml) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *Saml) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
 // Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-func (r *Saml) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *Saml) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
 // The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Saml) SsoBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoBinding"])
+func (r *Saml) SsoBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoBinding"])
 }
 
 // URI reference indicating the address to which the AuthnRequest message is sent.
-func (r *Saml) SsoDestination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoDestination"])
+func (r *Saml) SsoDestination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoDestination"])
 }
 
 // URL of binding-specific endpoint to send an AuthnRequest message to IdP.
-func (r *Saml) SsoUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoUrl"])
+func (r *Saml) SsoUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoUrl"])
 }
 
 // Status of the IdP.
-func (r *Saml) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Saml) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Optional regular expression pattern used to filter untrusted IdP usernames.
-func (r *Saml) SubjectFilter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectFilter"])
+func (r *Saml) SubjectFilter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectFilter"])
 }
 
 // The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-func (r *Saml) SubjectFormats() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subjectFormats"])
+func (r *Saml) SubjectFormats() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subjectFormats"])
 }
 
 // Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-func (r *Saml) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *Saml) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
 // Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-func (r *Saml) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *Saml) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
 // Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-func (r *Saml) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *Saml) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
 }
 
 // Type of the IdP.
-func (r *Saml) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Saml) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Okta EL Expression to generate or transform a unique username for the IdP user.
-func (r *Saml) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *Saml) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering Saml resources.

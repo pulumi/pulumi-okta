@@ -79,48 +79,48 @@ func GetServerPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServerPolicy) URN() *pulumi.URNOutput {
+func (r *ServerPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServerPolicy) ID() *pulumi.IDOutput {
+func (r *ServerPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Auth Server.
-func (r *ServerPolicy) AuthServerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authServerId"])
+func (r *ServerPolicy) AuthServerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authServerId"])
 }
 
 // The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
-func (r *ServerPolicy) ClientWhitelists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientWhitelists"])
+func (r *ServerPolicy) ClientWhitelists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientWhitelists"])
 }
 
 // The description of the Auth Server Policy.
-func (r *ServerPolicy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ServerPolicy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the Auth Server Policy.
-func (r *ServerPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServerPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The priority of the Auth Server Policy.
-func (r *ServerPolicy) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *ServerPolicy) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // The status of the Auth Server Policy.
-func (r *ServerPolicy) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ServerPolicy) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The type of the Auth Server Policy.
-func (r *ServerPolicy) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *ServerPolicy) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering ServerPolicy resources.

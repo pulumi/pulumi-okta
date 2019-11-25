@@ -64,48 +64,48 @@ func GetSamlKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SamlKey) URN() *pulumi.URNOutput {
+func (r *SamlKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SamlKey) ID() *pulumi.IDOutput {
+func (r *SamlKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Date created.
-func (r *SamlKey) Created() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["created"])
+func (r *SamlKey) Created() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["created"])
 }
 
 // Date the cert expires.
-func (r *SamlKey) ExpiresAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expiresAt"])
+func (r *SamlKey) ExpiresAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expiresAt"])
 }
 
 // Key ID.
-func (r *SamlKey) Kid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kid"])
+func (r *SamlKey) Kid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kid"])
 }
 
 // Identifies the cryptographic algorithm family used with the key.
-func (r *SamlKey) Kty() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kty"])
+func (r *SamlKey) Kty() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kty"])
 }
 
 // Intended use of the public key.
-func (r *SamlKey) Use() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["use"])
+func (r *SamlKey) Use() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["use"])
 }
 
 // base64-encoded X.509 certificate chain with DER encoding.
-func (r *SamlKey) X5cs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["x5cs"])
+func (r *SamlKey) X5cs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["x5cs"])
 }
 
 // base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-func (r *SamlKey) X5tS256() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["x5tS256"])
+func (r *SamlKey) X5tS256() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["x5tS256"])
 }
 
 // Input properties used for looking up and filtering SamlKey resources.

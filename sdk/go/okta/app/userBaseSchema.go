@@ -79,48 +79,48 @@ func GetUserBaseSchema(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserBaseSchema) URN() *pulumi.URNOutput {
+func (r *UserBaseSchema) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserBaseSchema) ID() *pulumi.IDOutput {
+func (r *UserBaseSchema) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Application's ID the user schema property should be assigned to.
-func (r *UserBaseSchema) AppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appId"])
+func (r *UserBaseSchema) AppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appId"])
 }
 
 // The property name.
-func (r *UserBaseSchema) Index() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["index"])
+func (r *UserBaseSchema) Index() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["index"])
 }
 
 // Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-func (r *UserBaseSchema) Master() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["master"])
+func (r *UserBaseSchema) Master() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["master"])
 }
 
 // Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-func (r *UserBaseSchema) Permissions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["permissions"])
+func (r *UserBaseSchema) Permissions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["permissions"])
 }
 
 // Whether the property is required for this application's users.
-func (r *UserBaseSchema) Required() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["required"])
+func (r *UserBaseSchema) Required() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["required"])
 }
 
 // The property display name.
-func (r *UserBaseSchema) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *UserBaseSchema) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-func (r *UserBaseSchema) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *UserBaseSchema) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering UserBaseSchema resources.

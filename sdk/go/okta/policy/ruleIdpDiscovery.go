@@ -94,82 +94,82 @@ func GetRuleIdpDiscovery(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RuleIdpDiscovery) URN() *pulumi.URNOutput {
+func (r *RuleIdpDiscovery) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RuleIdpDiscovery) ID() *pulumi.IDOutput {
+func (r *RuleIdpDiscovery) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Applications to exclude in discovery rule
-func (r *RuleIdpDiscovery) AppExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["appExcludes"])
+func (r *RuleIdpDiscovery) AppExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["appExcludes"])
 }
 
 // Applications to include in discovery rule
-func (r *RuleIdpDiscovery) AppIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["appIncludes"])
+func (r *RuleIdpDiscovery) AppIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["appIncludes"])
 }
 
-func (r *RuleIdpDiscovery) IdpId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["idpId"])
+func (r *RuleIdpDiscovery) IdpId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["idpId"])
 }
 
-func (r *RuleIdpDiscovery) IdpType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["idpType"])
+func (r *RuleIdpDiscovery) IdpType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["idpType"])
 }
 
 // Policy Rule Name.
-func (r *RuleIdpDiscovery) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RuleIdpDiscovery) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-func (r *RuleIdpDiscovery) NetworkConnection() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkConnection"])
+func (r *RuleIdpDiscovery) NetworkConnection() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkConnection"])
 }
 
 // The network zones to exclude. Conflicts with `networkIncludes`.
-func (r *RuleIdpDiscovery) NetworkExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkExcludes"])
+func (r *RuleIdpDiscovery) NetworkExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkExcludes"])
 }
 
 // The network zones to include. Conflicts with `networkExcludes`.
-func (r *RuleIdpDiscovery) NetworkIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
+func (r *RuleIdpDiscovery) NetworkIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkIncludes"])
 }
 
-func (r *RuleIdpDiscovery) PlatformIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["platformIncludes"])
+func (r *RuleIdpDiscovery) PlatformIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["platformIncludes"])
 }
 
 // Policy ID.
-func (r *RuleIdpDiscovery) Policyid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyid"])
+func (r *RuleIdpDiscovery) Policyid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyid"])
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
-func (r *RuleIdpDiscovery) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *RuleIdpDiscovery) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-func (r *RuleIdpDiscovery) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *RuleIdpDiscovery) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *RuleIdpDiscovery) UserIdentifierAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userIdentifierAttribute"])
+func (r *RuleIdpDiscovery) UserIdentifierAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userIdentifierAttribute"])
 }
 
-func (r *RuleIdpDiscovery) UserIdentifierPatterns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["userIdentifierPatterns"])
+func (r *RuleIdpDiscovery) UserIdentifierPatterns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["userIdentifierPatterns"])
 }
 
-func (r *RuleIdpDiscovery) UserIdentifierType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userIdentifierType"])
+func (r *RuleIdpDiscovery) UserIdentifierType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userIdentifierType"])
 }
 
 // Input properties used for looking up and filtering RuleIdpDiscovery resources.

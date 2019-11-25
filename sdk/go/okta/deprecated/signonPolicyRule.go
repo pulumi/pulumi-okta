@@ -95,100 +95,100 @@ func GetSignonPolicyRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SignonPolicyRule) URN() *pulumi.URNOutput {
+func (r *SignonPolicyRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SignonPolicyRule) ID() *pulumi.IDOutput {
+func (r *SignonPolicyRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Allow or deny access based on the rule conditions: ALLOW or DENY.
-func (r *SignonPolicyRule) Access() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["access"])
+func (r *SignonPolicyRule) Access() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["access"])
 }
 
 // Authentication entrypoint: ANY or RADIUS.
-func (r *SignonPolicyRule) Authtype() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authtype"])
+func (r *SignonPolicyRule) Authtype() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authtype"])
 }
 
 // Elapsed time before the next MFA challenge
-func (r *SignonPolicyRule) MfaLifetime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["mfaLifetime"])
+func (r *SignonPolicyRule) MfaLifetime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["mfaLifetime"])
 }
 
 // Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
-func (r *SignonPolicyRule) MfaPrompt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mfaPrompt"])
+func (r *SignonPolicyRule) MfaPrompt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mfaPrompt"])
 }
 
 // Remember MFA device.
-func (r *SignonPolicyRule) MfaRememberDevice() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["mfaRememberDevice"])
+func (r *SignonPolicyRule) MfaRememberDevice() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["mfaRememberDevice"])
 }
 
 // Require MFA.
-func (r *SignonPolicyRule) MfaRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["mfaRequired"])
+func (r *SignonPolicyRule) MfaRequired() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["mfaRequired"])
 }
 
 // Policy Rule Name
-func (r *SignonPolicyRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SignonPolicyRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-func (r *SignonPolicyRule) NetworkConnection() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkConnection"])
+func (r *SignonPolicyRule) NetworkConnection() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkConnection"])
 }
 
 // The zones to exclude
-func (r *SignonPolicyRule) NetworkExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkExcludes"])
+func (r *SignonPolicyRule) NetworkExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkExcludes"])
 }
 
 // The zones to include
-func (r *SignonPolicyRule) NetworkIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
+func (r *SignonPolicyRule) NetworkIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkIncludes"])
 }
 
 // Policy ID of the Rule
-func (r *SignonPolicyRule) Policyid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyid"])
+func (r *SignonPolicyRule) Policyid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyid"])
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 // invalid priority is provided. API defaults it to the last/lowest if not there.
-func (r *SignonPolicyRule) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *SignonPolicyRule) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Max minutes a session can be idle.
-func (r *SignonPolicyRule) SessionIdle() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sessionIdle"])
+func (r *SignonPolicyRule) SessionIdle() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["sessionIdle"])
 }
 
 // Max minutes a session is active: Disable = 0.
-func (r *SignonPolicyRule) SessionLifetime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sessionLifetime"])
+func (r *SignonPolicyRule) SessionLifetime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["sessionLifetime"])
 }
 
 // Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
 // cookies.
-func (r *SignonPolicyRule) SessionPersistent() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["sessionPersistent"])
+func (r *SignonPolicyRule) SessionPersistent() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["sessionPersistent"])
 }
 
 // Policy Rule Status: ACTIVE or INACTIVE.
-func (r *SignonPolicyRule) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SignonPolicyRule) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Set of User IDs to Exclude
-func (r *SignonPolicyRule) UsersExcludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
+func (r *SignonPolicyRule) UsersExcludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
 }
 
 // Input properties used for looking up and filtering SignonPolicyRule resources.

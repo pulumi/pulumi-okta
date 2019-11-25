@@ -181,7 +181,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurePasswordStore(string name, SecurePasswordStoreArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/securePasswordStore:SecurePasswordStore", name, args, MakeResourceOptions(options, ""))
+            : base("okta:app/securePasswordStore:SecurePasswordStore", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

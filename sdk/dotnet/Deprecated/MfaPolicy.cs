@@ -88,7 +88,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MfaPolicy(string name, MfaPolicyArgs? args = null, CustomResourceOptions? options = null)
-            : base("okta:deprecated/mfaPolicy:MfaPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/mfaPolicy:MfaPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

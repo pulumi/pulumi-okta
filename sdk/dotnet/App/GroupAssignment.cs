@@ -48,7 +48,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupAssignment(string name, GroupAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/groupAssignment:GroupAssignment", name, args, MakeResourceOptions(options, ""))
+            : base("okta:app/groupAssignment:GroupAssignment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

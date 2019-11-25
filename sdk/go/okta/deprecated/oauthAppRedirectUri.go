@@ -53,22 +53,22 @@ func GetOauthAppRedirectUri(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OauthAppRedirectUri) URN() *pulumi.URNOutput {
+func (r *OauthAppRedirectUri) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OauthAppRedirectUri) ID() *pulumi.IDOutput {
+func (r *OauthAppRedirectUri) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *OauthAppRedirectUri) AppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appId"])
+func (r *OauthAppRedirectUri) AppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appId"])
 }
 
 // Redirect URI to append to Okta OIDC application.
-func (r *OauthAppRedirectUri) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *OauthAppRedirectUri) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering OauthAppRedirectUri resources.

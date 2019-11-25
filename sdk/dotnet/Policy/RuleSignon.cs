@@ -125,7 +125,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleSignon(string name, RuleSignonArgs args, CustomResourceOptions? options = null)
-            : base("okta:policy/ruleSignon:RuleSignon", name, args, MakeResourceOptions(options, ""))
+            : base("okta:policy/ruleSignon:RuleSignon", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

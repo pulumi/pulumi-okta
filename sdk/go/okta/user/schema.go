@@ -103,93 +103,93 @@ func GetSchema(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Schema) URN() *pulumi.URNOutput {
+func (r *Schema) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Schema) ID() *pulumi.IDOutput {
+func (r *Schema) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Array of values that an array property's items can be set to.
-func (r *Schema) ArrayEnums() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["arrayEnums"])
+func (r *Schema) ArrayEnums() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["arrayEnums"])
 }
 
 // Display name and value an enum array can be set to.
-func (r *Schema) ArrayOneOfs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["arrayOneOfs"])
+func (r *Schema) ArrayOneOfs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["arrayOneOfs"])
 }
 
 // The type of the array elements if `type` is set to `"array"`.
-func (r *Schema) ArrayType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arrayType"])
+func (r *Schema) ArrayType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arrayType"])
 }
 
 // The description of the user schema property.
-func (r *Schema) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Schema) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Array of values a primitive property can be set to. See `arrayEnum` for arrays.
-func (r *Schema) Enums() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["enums"])
+func (r *Schema) Enums() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["enums"])
 }
 
 // External name of the user schema property.
-func (r *Schema) ExternalName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["externalName"])
+func (r *Schema) ExternalName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["externalName"])
 }
 
 // The property name.
-func (r *Schema) Index() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["index"])
+func (r *Schema) Index() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["index"])
 }
 
 // Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-func (r *Schema) Master() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["master"])
+func (r *Schema) Master() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["master"])
 }
 
 // The maximum length of the user property value. Only applies to type `"string"`.
-func (r *Schema) MaxLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxLength"])
+func (r *Schema) MaxLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxLength"])
 }
 
 // The minimum length of the user property value. Only applies to type `"string"`.
-func (r *Schema) MinLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minLength"])
+func (r *Schema) MinLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minLength"])
 }
 
 // Array of maps containing a mapping for display name to enum value.
-func (r *Schema) OneOfs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["oneOfs"])
+func (r *Schema) OneOfs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["oneOfs"])
 }
 
 // Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-func (r *Schema) Permissions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["permissions"])
+func (r *Schema) Permissions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["permissions"])
 }
 
 // Whether the property is required for this application's users.
-func (r *Schema) Required() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["required"])
+func (r *Schema) Required() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["required"])
 }
 
 // determines whether an app user attribute can be set at the Individual or Group Level.
-func (r *Schema) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *Schema) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // display name for the enum value.
-func (r *Schema) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *Schema) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-func (r *Schema) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Schema) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Schema resources.
