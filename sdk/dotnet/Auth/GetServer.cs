@@ -15,7 +15,7 @@ namespace Pulumi.Okta.Auth
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
         /// </summary>
         public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServerArgs : Pulumi.ResourceArgs

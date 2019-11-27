@@ -10,49 +10,6 @@ namespace Pulumi.Okta.Deprecated
     public partial class PasswordPolicyRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
-        /// </summary>
-        [Output("access")]
-        public Output<string?> Access { get; private set; } = null!;
-
-        /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
-        /// </summary>
-        [Output("authtype")]
-        public Output<string?> Authtype { get; private set; } = null!;
-
-        /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Output("enroll")]
-        public Output<string?> Enroll { get; private set; } = null!;
-
-        /// <summary>
-        /// Elapsed time before the next MFA challenge
-        /// </summary>
-        [Output("mfaLifetime")]
-        public Output<int?> MfaLifetime { get; private set; } = null!;
-
-        /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
-        /// </summary>
-        [Output("mfaPrompt")]
-        public Output<string?> MfaPrompt { get; private set; } = null!;
-
-        /// <summary>
-        /// Remember MFA device.
-        /// </summary>
-        [Output("mfaRememberDevice")]
-        public Output<bool?> MfaRememberDevice { get; private set; } = null!;
-
-        /// <summary>
-        /// Require MFA.
-        /// </summary>
-        [Output("mfaRequired")]
-        public Output<bool?> MfaRequired { get; private set; } = null!;
-
-        /// <summary>
         /// Policy Rule Name
         /// </summary>
         [Output("name")]
@@ -108,25 +65,6 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Max minutes a session can be idle.
-        /// </summary>
-        [Output("sessionIdle")]
-        public Output<int?> SessionIdle { get; private set; } = null!;
-
-        /// <summary>
-        /// Max minutes a session is active: Disable = 0.
-        /// </summary>
-        [Output("sessionLifetime")]
-        public Output<int?> SessionLifetime { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
-        /// </summary>
-        [Output("sessionPersistent")]
-        public Output<bool?> SessionPersistent { get; private set; } = null!;
-
-        /// <summary>
         /// Policy Rule Status: ACTIVE or INACTIVE.
         /// </summary>
         [Output("status")]
@@ -147,7 +85,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PasswordPolicyRule(string name, PasswordPolicyRuleArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
@@ -184,49 +122,6 @@ namespace Pulumi.Okta.Deprecated
 
     public sealed class PasswordPolicyRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
-        /// </summary>
-        [Input("access")]
-        public Input<string>? Access { get; set; }
-
-        /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
-        /// </summary>
-        [Input("authtype")]
-        public Input<string>? Authtype { get; set; }
-
-        /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Input("enroll")]
-        public Input<string>? Enroll { get; set; }
-
-        /// <summary>
-        /// Elapsed time before the next MFA challenge
-        /// </summary>
-        [Input("mfaLifetime")]
-        public Input<int>? MfaLifetime { get; set; }
-
-        /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
-        /// </summary>
-        [Input("mfaPrompt")]
-        public Input<string>? MfaPrompt { get; set; }
-
-        /// <summary>
-        /// Remember MFA device.
-        /// </summary>
-        [Input("mfaRememberDevice")]
-        public Input<bool>? MfaRememberDevice { get; set; }
-
-        /// <summary>
-        /// Require MFA.
-        /// </summary>
-        [Input("mfaRequired")]
-        public Input<bool>? MfaRequired { get; set; }
-
         /// <summary>
         /// Policy Rule Name
         /// </summary>
@@ -295,25 +190,6 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Max minutes a session can be idle.
-        /// </summary>
-        [Input("sessionIdle")]
-        public Input<int>? SessionIdle { get; set; }
-
-        /// <summary>
-        /// Max minutes a session is active: Disable = 0.
-        /// </summary>
-        [Input("sessionLifetime")]
-        public Input<int>? SessionLifetime { get; set; }
-
-        /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
-        /// </summary>
-        [Input("sessionPersistent")]
-        public Input<bool>? SessionPersistent { get; set; }
-
-        /// <summary>
         /// Policy Rule Status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
@@ -338,49 +214,6 @@ namespace Pulumi.Okta.Deprecated
 
     public sealed class PasswordPolicyRuleState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
-        /// </summary>
-        [Input("access")]
-        public Input<string>? Access { get; set; }
-
-        /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
-        /// </summary>
-        [Input("authtype")]
-        public Input<string>? Authtype { get; set; }
-
-        /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-        /// </summary>
-        [Input("enroll")]
-        public Input<string>? Enroll { get; set; }
-
-        /// <summary>
-        /// Elapsed time before the next MFA challenge
-        /// </summary>
-        [Input("mfaLifetime")]
-        public Input<int>? MfaLifetime { get; set; }
-
-        /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
-        /// </summary>
-        [Input("mfaPrompt")]
-        public Input<string>? MfaPrompt { get; set; }
-
-        /// <summary>
-        /// Remember MFA device.
-        /// </summary>
-        [Input("mfaRememberDevice")]
-        public Input<bool>? MfaRememberDevice { get; set; }
-
-        /// <summary>
-        /// Require MFA.
-        /// </summary>
-        [Input("mfaRequired")]
-        public Input<bool>? MfaRequired { get; set; }
-
         /// <summary>
         /// Policy Rule Name
         /// </summary>
@@ -447,25 +280,6 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
-
-        /// <summary>
-        /// Max minutes a session can be idle.
-        /// </summary>
-        [Input("sessionIdle")]
-        public Input<int>? SessionIdle { get; set; }
-
-        /// <summary>
-        /// Max minutes a session is active: Disable = 0.
-        /// </summary>
-        [Input("sessionLifetime")]
-        public Input<int>? SessionLifetime { get; set; }
-
-        /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
-        /// </summary>
-        [Input("sessionPersistent")]
-        public Input<bool>? SessionPersistent { get; set; }
 
         /// <summary>
         /// Policy Rule Status: ACTIVE or INACTIVE.

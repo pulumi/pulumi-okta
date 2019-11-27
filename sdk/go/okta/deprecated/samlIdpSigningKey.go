@@ -59,42 +59,42 @@ func GetSamlIdpSigningKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SamlIdpSigningKey) URN() *pulumi.URNOutput {
+func (r *SamlIdpSigningKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SamlIdpSigningKey) ID() *pulumi.IDOutput {
+func (r *SamlIdpSigningKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *SamlIdpSigningKey) Created() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["created"])
+func (r *SamlIdpSigningKey) Created() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["created"])
 }
 
-func (r *SamlIdpSigningKey) ExpiresAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expiresAt"])
+func (r *SamlIdpSigningKey) ExpiresAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expiresAt"])
 }
 
-func (r *SamlIdpSigningKey) Kid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kid"])
+func (r *SamlIdpSigningKey) Kid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kid"])
 }
 
-func (r *SamlIdpSigningKey) Kty() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kty"])
+func (r *SamlIdpSigningKey) Kty() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kty"])
 }
 
-func (r *SamlIdpSigningKey) Use() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["use"])
+func (r *SamlIdpSigningKey) Use() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["use"])
 }
 
 // base64-encoded X.509 certificate chain with DER encoding
-func (r *SamlIdpSigningKey) X5cs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["x5cs"])
+func (r *SamlIdpSigningKey) X5cs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["x5cs"])
 }
 
-func (r *SamlIdpSigningKey) X5tS256() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["x5tS256"])
+func (r *SamlIdpSigningKey) X5tS256() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["x5tS256"])
 }
 
 // Input properties used for looking up and filtering SamlIdpSigningKey resources.

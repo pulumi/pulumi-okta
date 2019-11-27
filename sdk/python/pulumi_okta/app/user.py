@@ -36,6 +36,8 @@ class User(pulumi.CustomResource):
         
         This resource allows you to create and configure an Application User.
         
+        __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: App to associate user with.

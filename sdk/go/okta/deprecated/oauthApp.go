@@ -130,164 +130,164 @@ func GetOauthApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OauthApp) URN() *pulumi.URNOutput {
+func (r *OauthApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OauthApp) ID() *pulumi.IDOutput {
+func (r *OauthApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Requested key rotation mode.
-func (r *OauthApp) AutoKeyRotation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoKeyRotation"])
+func (r *OauthApp) AutoKeyRotation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoKeyRotation"])
 }
 
 // Display auto submit toolbar
-func (r *OauthApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *OauthApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
-func (r *OauthApp) ClientBasicSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientBasicSecret"])
+func (r *OauthApp) ClientBasicSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientBasicSecret"])
 }
 
 // OAuth client ID.
-func (r *OauthApp) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *OauthApp) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
-func (r *OauthApp) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *OauthApp) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // URI to a web page providing information about the client.
-func (r *OauthApp) ClientUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientUri"])
+func (r *OauthApp) ClientUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientUri"])
 }
 
 // *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 // Default value is TRUSTED
-func (r *OauthApp) ConsentMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["consentMethod"])
+func (r *OauthApp) ConsentMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["consentMethod"])
 }
 
 // This property allows you to set your client_id.
-func (r *OauthApp) CustomClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customClientId"])
+func (r *OauthApp) CustomClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customClientId"])
 }
 
 // List of OAuth 2.0 grant types. Conditional validation params found here
 // https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 // app type.
-func (r *OauthApp) GrantTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["grantTypes"])
+func (r *OauthApp) GrantTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["grantTypes"])
 }
 
 // Groups associated with the application
-func (r *OauthApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *OauthApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *OauthApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *OauthApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *OauthApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *OauthApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 // custom domain URL as the issuer of ID token for this client.
-func (r *OauthApp) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *OauthApp) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
 // Pretty name of app.
-func (r *OauthApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *OauthApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // URI that initiates login.
-func (r *OauthApp) LoginUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loginUri"])
+func (r *OauthApp) LoginUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loginUri"])
 }
 
 // URI that references a logo for the client.
-func (r *OauthApp) LogoUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logoUri"])
+func (r *OauthApp) LogoUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logoUri"])
 }
 
 // name of app.
-func (r *OauthApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OauthApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 // your app will be recreated.
-func (r *OauthApp) OmitSecret() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["omitSecret"])
+func (r *OauthApp) OmitSecret() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["omitSecret"])
 }
 
 // *Early Access Property*. URI to web page providing client policy document.
-func (r *OauthApp) PolicyUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyUri"])
+func (r *OauthApp) PolicyUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyUri"])
 }
 
 // List of URIs for redirection after logout
-func (r *OauthApp) PostLogoutRedirectUris() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["postLogoutRedirectUris"])
+func (r *OauthApp) PostLogoutRedirectUris() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["postLogoutRedirectUris"])
 }
 
 // Custom JSON that represents an OAuth application's profile
-func (r *OauthApp) Profile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profile"])
+func (r *OauthApp) Profile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profile"])
 }
 
 // List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
 // okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
-func (r *OauthApp) RedirectUris() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["redirectUris"])
+func (r *OauthApp) RedirectUris() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["redirectUris"])
 }
 
 // List of OAuth 2.0 response type strings.
-func (r *OauthApp) ResponseTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["responseTypes"])
+func (r *OauthApp) ResponseTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["responseTypes"])
 }
 
 // Sign on mode of application.
-func (r *OauthApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *OauthApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application.
-func (r *OauthApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *OauthApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Requested authentication method for the token endpoint.
-func (r *OauthApp) TokenEndpointAuthMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenEndpointAuthMethod"])
+func (r *OauthApp) TokenEndpointAuthMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenEndpointAuthMethod"])
 }
 
 // *Early Access Property*. URI to web page providing client tos (terms of service).
-func (r *OauthApp) TosUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tosUri"])
+func (r *OauthApp) TosUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tosUri"])
 }
 
 // The type of client application.
-func (r *OauthApp) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *OauthApp) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Users associated with the application
-func (r *OauthApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *OauthApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering OauthApp resources.

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.IdpSamlMetadata({
+ * const example = okta.idp.getMetadataSaml({
  *     id: "<idp id>",
  * });
  * ```

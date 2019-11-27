@@ -67,43 +67,43 @@ func GetServerScope(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServerScope) URN() *pulumi.URNOutput {
+func (r *ServerScope) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServerScope) ID() *pulumi.IDOutput {
+func (r *ServerScope) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Auth Server ID.
-func (r *ServerScope) AuthServerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authServerId"])
+func (r *ServerScope) AuthServerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authServerId"])
 }
 
 // Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
-func (r *ServerScope) Consent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["consent"])
+func (r *ServerScope) Consent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["consent"])
 }
 
 // A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
-func (r *ServerScope) Default() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["default"])
+func (r *ServerScope) Default() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["default"])
 }
 
 // Description of the Auth Server Scope.
-func (r *ServerScope) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ServerScope) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
-func (r *ServerScope) MetadataPublish() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metadataPublish"])
+func (r *ServerScope) MetadataPublish() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metadataPublish"])
 }
 
 // Auth Server scope name.
-func (r *ServerScope) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServerScope) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ServerScope resources.

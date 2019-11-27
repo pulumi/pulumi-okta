@@ -15,7 +15,7 @@ namespace Pulumi.Okta.Policy
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
         /// </summary>
         public static Task<GetDefaultPolicyResult> GetDefaultPolicy(GetDefaultPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetDefaultPolicyArgs : Pulumi.ResourceArgs

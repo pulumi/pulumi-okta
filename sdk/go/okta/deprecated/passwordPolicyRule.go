@@ -20,13 +20,6 @@ func NewPasswordPolicyRule(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["access"] = nil
-		inputs["authtype"] = nil
-		inputs["enroll"] = nil
-		inputs["mfaLifetime"] = nil
-		inputs["mfaPrompt"] = nil
-		inputs["mfaRememberDevice"] = nil
-		inputs["mfaRequired"] = nil
 		inputs["name"] = nil
 		inputs["networkConnection"] = nil
 		inputs["networkExcludes"] = nil
@@ -36,19 +29,9 @@ func NewPasswordPolicyRule(ctx *pulumi.Context,
 		inputs["passwordUnlock"] = nil
 		inputs["policyid"] = nil
 		inputs["priority"] = nil
-		inputs["sessionIdle"] = nil
-		inputs["sessionLifetime"] = nil
-		inputs["sessionPersistent"] = nil
 		inputs["status"] = nil
 		inputs["usersExcludeds"] = nil
 	} else {
-		inputs["access"] = args.Access
-		inputs["authtype"] = args.Authtype
-		inputs["enroll"] = args.Enroll
-		inputs["mfaLifetime"] = args.MfaLifetime
-		inputs["mfaPrompt"] = args.MfaPrompt
-		inputs["mfaRememberDevice"] = args.MfaRememberDevice
-		inputs["mfaRequired"] = args.MfaRequired
 		inputs["name"] = args.Name
 		inputs["networkConnection"] = args.NetworkConnection
 		inputs["networkExcludes"] = args.NetworkExcludes
@@ -58,9 +41,6 @@ func NewPasswordPolicyRule(ctx *pulumi.Context,
 		inputs["passwordUnlock"] = args.PasswordUnlock
 		inputs["policyid"] = args.Policyid
 		inputs["priority"] = args.Priority
-		inputs["sessionIdle"] = args.SessionIdle
-		inputs["sessionLifetime"] = args.SessionLifetime
-		inputs["sessionPersistent"] = args.SessionPersistent
 		inputs["status"] = args.Status
 		inputs["usersExcludeds"] = args.UsersExcludeds
 	}
@@ -77,13 +57,6 @@ func GetPasswordPolicyRule(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *PasswordPolicyRuleState, opts ...pulumi.ResourceOpt) (*PasswordPolicyRule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["access"] = state.Access
-		inputs["authtype"] = state.Authtype
-		inputs["enroll"] = state.Enroll
-		inputs["mfaLifetime"] = state.MfaLifetime
-		inputs["mfaPrompt"] = state.MfaPrompt
-		inputs["mfaRememberDevice"] = state.MfaRememberDevice
-		inputs["mfaRequired"] = state.MfaRequired
 		inputs["name"] = state.Name
 		inputs["networkConnection"] = state.NetworkConnection
 		inputs["networkExcludes"] = state.NetworkExcludes
@@ -93,9 +66,6 @@ func GetPasswordPolicyRule(ctx *pulumi.Context,
 		inputs["passwordUnlock"] = state.PasswordUnlock
 		inputs["policyid"] = state.Policyid
 		inputs["priority"] = state.Priority
-		inputs["sessionIdle"] = state.SessionIdle
-		inputs["sessionLifetime"] = state.SessionLifetime
-		inputs["sessionPersistent"] = state.SessionPersistent
 		inputs["status"] = state.Status
 		inputs["usersExcludeds"] = state.UsersExcludeds
 	}
@@ -107,138 +77,73 @@ func GetPasswordPolicyRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PasswordPolicyRule) URN() *pulumi.URNOutput {
+func (r *PasswordPolicyRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PasswordPolicyRule) ID() *pulumi.IDOutput {
+func (r *PasswordPolicyRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Allow or deny access based on the rule conditions: ALLOW or DENY.
-func (r *PasswordPolicyRule) Access() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["access"])
-}
-
-// Authentication entrypoint: ANY or RADIUS.
-func (r *PasswordPolicyRule) Authtype() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authtype"])
-}
-
-// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-func (r *PasswordPolicyRule) Enroll() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["enroll"])
-}
-
-// Elapsed time before the next MFA challenge
-func (r *PasswordPolicyRule) MfaLifetime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["mfaLifetime"])
-}
-
-// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
-func (r *PasswordPolicyRule) MfaPrompt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mfaPrompt"])
-}
-
-// Remember MFA device.
-func (r *PasswordPolicyRule) MfaRememberDevice() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["mfaRememberDevice"])
-}
-
-// Require MFA.
-func (r *PasswordPolicyRule) MfaRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["mfaRequired"])
-}
-
 // Policy Rule Name
-func (r *PasswordPolicyRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PasswordPolicyRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-func (r *PasswordPolicyRule) NetworkConnection() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkConnection"])
+func (r *PasswordPolicyRule) NetworkConnection() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkConnection"])
 }
 
 // The zones to exclude
-func (r *PasswordPolicyRule) NetworkExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkExcludes"])
+func (r *PasswordPolicyRule) NetworkExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkExcludes"])
 }
 
 // The zones to include
-func (r *PasswordPolicyRule) NetworkIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkIncludes"])
+func (r *PasswordPolicyRule) NetworkIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkIncludes"])
 }
 
 // Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-func (r *PasswordPolicyRule) PasswordChange() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordChange"])
+func (r *PasswordPolicyRule) PasswordChange() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordChange"])
 }
 
 // Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-func (r *PasswordPolicyRule) PasswordReset() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordReset"])
+func (r *PasswordPolicyRule) PasswordReset() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordReset"])
 }
 
 // Allow or deny a user to unlock. Default = DENY
-func (r *PasswordPolicyRule) PasswordUnlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordUnlock"])
+func (r *PasswordPolicyRule) PasswordUnlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordUnlock"])
 }
 
 // Policy ID of the Rule
-func (r *PasswordPolicyRule) Policyid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyid"])
+func (r *PasswordPolicyRule) Policyid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyid"])
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 // invalid priority is provided. API defaults it to the last/lowest if not there.
-func (r *PasswordPolicyRule) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
-}
-
-// Max minutes a session can be idle.
-func (r *PasswordPolicyRule) SessionIdle() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sessionIdle"])
-}
-
-// Max minutes a session is active: Disable = 0.
-func (r *PasswordPolicyRule) SessionLifetime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sessionLifetime"])
-}
-
-// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-// cookies.
-func (r *PasswordPolicyRule) SessionPersistent() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["sessionPersistent"])
+func (r *PasswordPolicyRule) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Policy Rule Status: ACTIVE or INACTIVE.
-func (r *PasswordPolicyRule) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *PasswordPolicyRule) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Set of User IDs to Exclude
-func (r *PasswordPolicyRule) UsersExcludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
+func (r *PasswordPolicyRule) UsersExcludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["usersExcludeds"])
 }
 
 // Input properties used for looking up and filtering PasswordPolicyRule resources.
 type PasswordPolicyRuleState struct {
-	// Allow or deny access based on the rule conditions: ALLOW or DENY.
-	Access interface{}
-	// Authentication entrypoint: ANY or RADIUS.
-	Authtype interface{}
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-	Enroll interface{}
-	// Elapsed time before the next MFA challenge
-	MfaLifetime interface{}
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
-	MfaPrompt interface{}
-	// Remember MFA device.
-	MfaRememberDevice interface{}
-	// Require MFA.
-	MfaRequired interface{}
 	// Policy Rule Name
 	Name interface{}
 	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -258,13 +163,6 @@ type PasswordPolicyRuleState struct {
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority interface{}
-	// Max minutes a session can be idle.
-	SessionIdle interface{}
-	// Max minutes a session is active: Disable = 0.
-	SessionLifetime interface{}
-	// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-	// cookies.
-	SessionPersistent interface{}
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status interface{}
 	// Set of User IDs to Exclude
@@ -273,20 +171,6 @@ type PasswordPolicyRuleState struct {
 
 // The set of arguments for constructing a PasswordPolicyRule resource.
 type PasswordPolicyRuleArgs struct {
-	// Allow or deny access based on the rule conditions: ALLOW or DENY.
-	Access interface{}
-	// Authentication entrypoint: ANY or RADIUS.
-	Authtype interface{}
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
-	Enroll interface{}
-	// Elapsed time before the next MFA challenge
-	MfaLifetime interface{}
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
-	MfaPrompt interface{}
-	// Remember MFA device.
-	MfaRememberDevice interface{}
-	// Require MFA.
-	MfaRequired interface{}
 	// Policy Rule Name
 	Name interface{}
 	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -306,13 +190,6 @@ type PasswordPolicyRuleArgs struct {
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority interface{}
-	// Max minutes a session can be idle.
-	SessionIdle interface{}
-	// Max minutes a session is active: Disable = 0.
-	SessionLifetime interface{}
-	// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-	// cookies.
-	SessionPersistent interface{}
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status interface{}
 	// Set of User IDs to Exclude

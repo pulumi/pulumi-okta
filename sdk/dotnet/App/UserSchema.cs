@@ -127,7 +127,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserSchema(string name, UserSchemaArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/userSchema:UserSchema", name, args, MakeResourceOptions(options, ""))
+            : base("okta:app/userSchema:UserSchema", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

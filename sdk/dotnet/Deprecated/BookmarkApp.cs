@@ -78,7 +78,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BookmarkApp(string name, BookmarkAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/bookmarkApp:BookmarkApp", name, args, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/bookmarkApp:BookmarkApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

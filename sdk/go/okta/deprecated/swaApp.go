@@ -97,108 +97,108 @@ func GetSwaApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SwaApp) URN() *pulumi.URNOutput {
+func (r *SwaApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SwaApp) ID() *pulumi.IDOutput {
+func (r *SwaApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL
-func (r *SwaApp) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *SwaApp) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Enable self service
-func (r *SwaApp) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *SwaApp) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Display auto submit toolbar
-func (r *SwaApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *SwaApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Login button field
-func (r *SwaApp) ButtonField() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["buttonField"])
+func (r *SwaApp) ButtonField() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["buttonField"])
 }
 
 // Groups associated with the application
-func (r *SwaApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *SwaApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *SwaApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *SwaApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *SwaApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *SwaApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Pretty name of app.
-func (r *SwaApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *SwaApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // name of app.
-func (r *SwaApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SwaApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Login password field
-func (r *SwaApp) PasswordField() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordField"])
+func (r *SwaApp) PasswordField() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordField"])
 }
 
 // Preconfigured app name
-func (r *SwaApp) PreconfiguredApp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preconfiguredApp"])
+func (r *SwaApp) PreconfiguredApp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preconfiguredApp"])
 }
 
 // Sign on mode of application.
-func (r *SwaApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *SwaApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application.
-func (r *SwaApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SwaApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Login URL
-func (r *SwaApp) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *SwaApp) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // A regex that further restricts URL to the specified regex
-func (r *SwaApp) UrlRegex() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["urlRegex"])
+func (r *SwaApp) UrlRegex() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["urlRegex"])
 }
 
 // Username template
-func (r *SwaApp) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *SwaApp) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // Username template type
-func (r *SwaApp) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *SwaApp) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Login username field
-func (r *SwaApp) UsernameField() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameField"])
+func (r *SwaApp) UsernameField() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameField"])
 }
 
 // Users associated with the application
-func (r *SwaApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *SwaApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering SwaApp resources.

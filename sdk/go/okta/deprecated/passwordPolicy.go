@@ -124,155 +124,155 @@ func GetPasswordPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PasswordPolicy) URN() *pulumi.URNOutput {
+func (r *PasswordPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PasswordPolicy) ID() *pulumi.IDOutput {
+func (r *PasswordPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Authentication Provider: OKTA or ACTIVE_DIRECTORY.
-func (r *PasswordPolicy) AuthProvider() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authProvider"])
+func (r *PasswordPolicy) AuthProvider() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authProvider"])
 }
 
 // Policy Description
-func (r *PasswordPolicy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *PasswordPolicy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Enable or disable email password recovery: ACTIVE or INACTIVE.
-func (r *PasswordPolicy) EmailRecovery() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["emailRecovery"])
+func (r *PasswordPolicy) EmailRecovery() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["emailRecovery"])
 }
 
 // List of Group IDs to Include
-func (r *PasswordPolicy) GroupsIncludeds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
+func (r *PasswordPolicy) GroupsIncludeds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsIncludeds"])
 }
 
 // Policy Name
-func (r *PasswordPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PasswordPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Number of minutes before a locked account is unlocked: 0 = no limit.
-func (r *PasswordPolicy) PasswordAutoUnlockMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordAutoUnlockMinutes"])
+func (r *PasswordPolicy) PasswordAutoUnlockMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordAutoUnlockMinutes"])
 }
 
 // Check Passwords Against Common Password Dictionary.
-func (r *PasswordPolicy) PasswordDictionaryLookup() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordDictionaryLookup"])
+func (r *PasswordPolicy) PasswordDictionaryLookup() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordDictionaryLookup"])
 }
 
 // User firstName attribute must be excluded from the password
-func (r *PasswordPolicy) PasswordExcludeFirstName() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordExcludeFirstName"])
+func (r *PasswordPolicy) PasswordExcludeFirstName() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordExcludeFirstName"])
 }
 
 // User lastName attribute must be excluded from the password
-func (r *PasswordPolicy) PasswordExcludeLastName() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordExcludeLastName"])
+func (r *PasswordPolicy) PasswordExcludeLastName() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordExcludeLastName"])
 }
 
 // If the user name must be excluded from the password.
-func (r *PasswordPolicy) PasswordExcludeUsername() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordExcludeUsername"])
+func (r *PasswordPolicy) PasswordExcludeUsername() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordExcludeUsername"])
 }
 
 // Length in days a user will be warned before password expiry: 0 = no warning.
-func (r *PasswordPolicy) PasswordExpireWarnDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordExpireWarnDays"])
+func (r *PasswordPolicy) PasswordExpireWarnDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordExpireWarnDays"])
 }
 
 // Number of distinct passwords that must be created before they can be reused: 0 = none.
-func (r *PasswordPolicy) PasswordHistoryCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordHistoryCount"])
+func (r *PasswordPolicy) PasswordHistoryCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordHistoryCount"])
 }
 
 // Length in days a password is valid before expiry: 0 = no limit.
-func (r *PasswordPolicy) PasswordMaxAgeDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMaxAgeDays"])
+func (r *PasswordPolicy) PasswordMaxAgeDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMaxAgeDays"])
 }
 
 // Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
-func (r *PasswordPolicy) PasswordMaxLockoutAttempts() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMaxLockoutAttempts"])
+func (r *PasswordPolicy) PasswordMaxLockoutAttempts() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMaxLockoutAttempts"])
 }
 
 // Minimum time interval in minutes between password changes: 0 = no limit.
-func (r *PasswordPolicy) PasswordMinAgeMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinAgeMinutes"])
+func (r *PasswordPolicy) PasswordMinAgeMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinAgeMinutes"])
 }
 
 // Minimum password length.
-func (r *PasswordPolicy) PasswordMinLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinLength"])
+func (r *PasswordPolicy) PasswordMinLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinLength"])
 }
 
 // If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
-func (r *PasswordPolicy) PasswordMinLowercase() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinLowercase"])
+func (r *PasswordPolicy) PasswordMinLowercase() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinLowercase"])
 }
 
 // If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
-func (r *PasswordPolicy) PasswordMinNumber() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinNumber"])
+func (r *PasswordPolicy) PasswordMinNumber() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinNumber"])
 }
 
 // If a password must contain at least one symbol (!@#$%!^(MISSING)&*): 0 = no, 1 = yes. Default = 1
-func (r *PasswordPolicy) PasswordMinSymbol() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinSymbol"])
+func (r *PasswordPolicy) PasswordMinSymbol() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinSymbol"])
 }
 
 // If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
-func (r *PasswordPolicy) PasswordMinUppercase() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordMinUppercase"])
+func (r *PasswordPolicy) PasswordMinUppercase() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordMinUppercase"])
 }
 
 // If a user should be informed when their account is locked.
-func (r *PasswordPolicy) PasswordShowLockoutFailures() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordShowLockoutFailures"])
+func (r *PasswordPolicy) PasswordShowLockoutFailures() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordShowLockoutFailures"])
 }
 
 // Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 // priority is provided. API defaults it to the last/lowest if not there.
-func (r *PasswordPolicy) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *PasswordPolicy) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Min length of the password recovery question answer.
-func (r *PasswordPolicy) QuestionMinLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["questionMinLength"])
+func (r *PasswordPolicy) QuestionMinLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["questionMinLength"])
 }
 
 // Enable or disable security question password recovery: ACTIVE or INACTIVE.
-func (r *PasswordPolicy) QuestionRecovery() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["questionRecovery"])
+func (r *PasswordPolicy) QuestionRecovery() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["questionRecovery"])
 }
 
 // Lifetime in minutes of the recovery email token.
-func (r *PasswordPolicy) RecoveryEmailToken() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["recoveryEmailToken"])
+func (r *PasswordPolicy) RecoveryEmailToken() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["recoveryEmailToken"])
 }
 
 // When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
 // Windows account.
-func (r *PasswordPolicy) SkipUnlock() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["skipUnlock"])
+func (r *PasswordPolicy) SkipUnlock() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["skipUnlock"])
 }
 
 // Enable or disable SMS password recovery: ACTIVE or INACTIVE.
-func (r *PasswordPolicy) SmsRecovery() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["smsRecovery"])
+func (r *PasswordPolicy) SmsRecovery() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["smsRecovery"])
 }
 
 // Policy Status: ACTIVE or INACTIVE.
-func (r *PasswordPolicy) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *PasswordPolicy) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering PasswordPolicy resources.

@@ -144,171 +144,171 @@ func GetSocial(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Social) URN() *pulumi.URNOutput {
+func (r *Social) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Social) ID() *pulumi.IDOutput {
+func (r *Social) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the account linking action for an IdP user.
-func (r *Social) AccountLinkAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountLinkAction"])
+func (r *Social) AccountLinkAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountLinkAction"])
 }
 
 // Group memberships to determine link candidates.
-func (r *Social) AccountLinkGroupIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
+func (r *Social) AccountLinkGroupIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accountLinkGroupIncludes"])
 }
 
 // The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Social) AuthorizationBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationBinding"])
+func (r *Social) AuthorizationBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationBinding"])
 }
 
 // IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-func (r *Social) AuthorizationUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationUrl"])
+func (r *Social) AuthorizationUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationUrl"])
 }
 
 // Unique identifier issued by AS for the Okta IdP instance.
-func (r *Social) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *Social) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // Client secret issued by AS for the Okta IdP instance.
-func (r *Social) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *Social) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-func (r *Social) DeprovisionedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deprovisionedAction"])
+func (r *Social) DeprovisionedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deprovisionedAction"])
 }
 
 // Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-func (r *Social) GroupsAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAction"])
+func (r *Social) GroupsAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAction"])
 }
 
 // List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-func (r *Social) GroupsAssignments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
+func (r *Social) GroupsAssignments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsAssignments"])
 }
 
 // IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-func (r *Social) GroupsAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupsAttribute"])
+func (r *Social) GroupsAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupsAttribute"])
 }
 
 // Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-func (r *Social) GroupsFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupsFilters"])
+func (r *Social) GroupsFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupsFilters"])
 }
 
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-func (r *Social) IssuerMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuerMode"])
+func (r *Social) IssuerMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuerMode"])
 }
 
-func (r *Social) MatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAttribute"])
+func (r *Social) MatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAttribute"])
 }
 
-func (r *Social) MatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchType"])
+func (r *Social) MatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchType"])
 }
 
 // Maximum allowable clock-skew when processing messages from the IdP.
-func (r *Social) MaxClockSkew() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxClockSkew"])
+func (r *Social) MaxClockSkew() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxClockSkew"])
 }
 
 // The Application's display name.
-func (r *Social) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Social) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Determines if the IdP should act as a source of truth for user profile attributes.
-func (r *Social) ProfileMaster() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["profileMaster"])
+func (r *Social) ProfileMaster() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["profileMaster"])
 }
 
 // The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-func (r *Social) ProtocolType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocolType"])
+func (r *Social) ProtocolType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocolType"])
 }
 
 // Provisioning action for an IdP user during authentication.
-func (r *Social) ProvisioningAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["provisioningAction"])
+func (r *Social) ProvisioningAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["provisioningAction"])
 }
 
 // The XML digital signature algorithm used when signing an AuthnRequest message.
-func (r *Social) RequestSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
+func (r *Social) RequestSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureAlgorithm"])
 }
 
 // Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-func (r *Social) RequestSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestSignatureScope"])
+func (r *Social) RequestSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestSignatureScope"])
 }
 
 // The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-func (r *Social) ResponseSignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
+func (r *Social) ResponseSignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureAlgorithm"])
 }
 
 // Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-func (r *Social) ResponseSignatureScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseSignatureScope"])
+func (r *Social) ResponseSignatureScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseSignatureScope"])
 }
 
 // The scopes of the IdP.
-func (r *Social) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *Social) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // Status of the IdP.
-func (r *Social) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Social) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-func (r *Social) SubjectMatchAttribute() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
+func (r *Social) SubjectMatchAttribute() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchAttribute"])
 }
 
 // Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-func (r *Social) SubjectMatchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectMatchType"])
+func (r *Social) SubjectMatchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectMatchType"])
 }
 
 // Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-func (r *Social) SuspendedAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["suspendedAction"])
+func (r *Social) SuspendedAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["suspendedAction"])
 }
 
 // The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-func (r *Social) TokenBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenBinding"])
+func (r *Social) TokenBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenBinding"])
 }
 
 // IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-func (r *Social) TokenUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenUrl"])
+func (r *Social) TokenUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenUrl"])
 }
 
 // The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
-func (r *Social) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Social) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Okta EL Expression to generate or transform a unique username for the IdP user.
-func (r *Social) UsernameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameTemplate"])
+func (r *Social) UsernameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameTemplate"])
 }
 
 // Input properties used for looking up and filtering Social resources.

@@ -83,68 +83,68 @@ func GetBookmark(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Bookmark) URN() *pulumi.URNOutput {
+func (r *Bookmark) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Bookmark) ID() *pulumi.IDOutput {
+func (r *Bookmark) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Display auto submit toolbar
-func (r *Bookmark) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *Bookmark) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Groups associated with the application
-func (r *Bookmark) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *Bookmark) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *Bookmark) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *Bookmark) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *Bookmark) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *Bookmark) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // The Application's display name.
-func (r *Bookmark) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *Bookmark) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // name of app.
-func (r *Bookmark) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Bookmark) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Would you like Okta to add an integration for this app?
-func (r *Bookmark) RequestIntegration() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requestIntegration"])
+func (r *Bookmark) RequestIntegration() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requestIntegration"])
 }
 
 // Sign on mode of application.
-func (r *Bookmark) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *Bookmark) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application.
-func (r *Bookmark) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Bookmark) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The URL of the bookmark.
-func (r *Bookmark) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Bookmark) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Users associated with the application
-func (r *Bookmark) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *Bookmark) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering Bookmark resources.

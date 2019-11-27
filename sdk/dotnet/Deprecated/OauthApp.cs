@@ -198,7 +198,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OauthApp(string name, OauthAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/oauthApp:OauthApp", name, args, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/oauthApp:OauthApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -64,33 +64,33 @@ func GetOrigin(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Origin) URN() *pulumi.URNOutput {
+func (r *Origin) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Origin) ID() *pulumi.IDOutput {
+func (r *Origin) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether the Trusted Origin is active or not - can only be issued post-creation.
-func (r *Origin) Active() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["active"])
+func (r *Origin) Active() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["active"])
 }
 
 // Name of the Trusted Origin Resource.
-func (r *Origin) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Origin) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The origin to trust.
-func (r *Origin) Origin() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["origin"])
+func (r *Origin) Origin() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["origin"])
 }
 
 // Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
-func (r *Origin) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *Origin) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // Input properties used for looking up and filtering Origin resources.

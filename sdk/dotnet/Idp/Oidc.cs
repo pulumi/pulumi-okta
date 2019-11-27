@@ -244,7 +244,7 @@ namespace Pulumi.Okta.Idp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Oidc(string name, OidcArgs args, CustomResourceOptions? options = null)
-            : base("okta:idp/oidc:Oidc", name, args, MakeResourceOptions(options, ""))
+            : base("okta:idp/oidc:Oidc", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

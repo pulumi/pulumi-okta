@@ -100,113 +100,113 @@ func GetAuthLoginApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AuthLoginApp) URN() *pulumi.URNOutput {
+func (r *AuthLoginApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AuthLoginApp) ID() *pulumi.IDOutput {
+func (r *AuthLoginApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL
-func (r *AuthLoginApp) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *AuthLoginApp) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Enable self service
-func (r *AuthLoginApp) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *AuthLoginApp) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Display auto submit toolbar
-func (r *AuthLoginApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *AuthLoginApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Application credentials scheme
-func (r *AuthLoginApp) CredentialsScheme() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentialsScheme"])
+func (r *AuthLoginApp) CredentialsScheme() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentialsScheme"])
 }
 
 // Groups associated with the application
-func (r *AuthLoginApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *AuthLoginApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *AuthLoginApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *AuthLoginApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *AuthLoginApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *AuthLoginApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Pretty name of app.
-func (r *AuthLoginApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *AuthLoginApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // name of app.
-func (r *AuthLoginApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AuthLoginApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Preconfigured app name
-func (r *AuthLoginApp) PreconfiguredApp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preconfiguredApp"])
+func (r *AuthLoginApp) PreconfiguredApp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preconfiguredApp"])
 }
 
 // Allow user to reveal password
-func (r *AuthLoginApp) RevealPassword() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["revealPassword"])
+func (r *AuthLoginApp) RevealPassword() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["revealPassword"])
 }
 
 // Shared password, required for certain schemes.
-func (r *AuthLoginApp) SharedPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedPassword"])
+func (r *AuthLoginApp) SharedPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedPassword"])
 }
 
 // Shared username, required for certain schemes.
-func (r *AuthLoginApp) SharedUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedUsername"])
+func (r *AuthLoginApp) SharedUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedUsername"])
 }
 
 // Sign on mode of application.
-func (r *AuthLoginApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *AuthLoginApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Post login redirect URL
-func (r *AuthLoginApp) SignOnRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnRedirectUrl"])
+func (r *AuthLoginApp) SignOnRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnRedirectUrl"])
 }
 
 // Login URL
-func (r *AuthLoginApp) SignOnUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnUrl"])
+func (r *AuthLoginApp) SignOnUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnUrl"])
 }
 
 // Status of application.
-func (r *AuthLoginApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *AuthLoginApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Username template
-func (r *AuthLoginApp) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *AuthLoginApp) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // Username template type
-func (r *AuthLoginApp) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *AuthLoginApp) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Users associated with the application
-func (r *AuthLoginApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *AuthLoginApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering AuthLoginApp resources.

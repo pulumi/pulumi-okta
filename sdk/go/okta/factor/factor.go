@@ -55,23 +55,23 @@ func GetFactor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Factor) URN() *pulumi.URNOutput {
+func (r *Factor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Factor) ID() *pulumi.IDOutput {
+func (r *Factor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether or not to activate the provider, by default it is set to `true`.
-func (r *Factor) Active() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["active"])
+func (r *Factor) Active() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["active"])
 }
 
 // Factor provider ID
-func (r *Factor) ProviderId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["providerId"])
+func (r *Factor) ProviderId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["providerId"])
 }
 
 // Input properties used for looking up and filtering Factor resources.

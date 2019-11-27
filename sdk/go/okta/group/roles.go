@@ -55,23 +55,23 @@ func GetRoles(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Roles) URN() *pulumi.URNOutput {
+func (r *Roles) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Roles) ID() *pulumi.IDOutput {
+func (r *Roles) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`.
-func (r *Roles) AdminRoles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["adminRoles"])
+func (r *Roles) AdminRoles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["adminRoles"])
 }
 
 // The ID of group to attach admin roles to.
-func (r *Roles) GroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupId"])
+func (r *Roles) GroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupId"])
 }
 
 // Input properties used for looking up and filtering Roles resources.

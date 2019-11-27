@@ -102,6 +102,10 @@ class User(pulumi.CustomResource):
     """
     User profile property.
     """
+    password: pulumi.Output[str]
+    """
+    User password.
+    """
     postal_address: pulumi.Output[str]
     """
     User profile property.
@@ -119,6 +123,14 @@ class User(pulumi.CustomResource):
     User profile property.
     """
     raw_status: pulumi.Output[str]
+    recovery_answer: pulumi.Output[str]
+    """
+    User password recovery answer.
+    """
+    recovery_question: pulumi.Output[str]
+    """
+    User password recovery question.
+    """
     second_email: pulumi.Output[str]
     """
     User profile property.
@@ -151,7 +163,7 @@ class User(pulumi.CustomResource):
     """
     User profile property.
     """
-    def __init__(__self__, resource_name, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, recovery_answer=None, recovery_question=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Okta User.
         
@@ -182,10 +194,13 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
+        :param pulumi.Input[str] password: User password.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
         :param pulumi.Input[str] profile_url: User profile property.
+        :param pulumi.Input[str] recovery_answer: User password recovery answer.
+        :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property.
@@ -245,10 +260,13 @@ class User(pulumi.CustomResource):
             __props__['mobile_phone'] = mobile_phone
             __props__['nick_name'] = nick_name
             __props__['organization'] = organization
+            __props__['password'] = password
             __props__['postal_address'] = postal_address
             __props__['preferred_language'] = preferred_language
             __props__['primary_phone'] = primary_phone
             __props__['profile_url'] = profile_url
+            __props__['recovery_answer'] = recovery_answer
+            __props__['recovery_question'] = recovery_question
             __props__['second_email'] = second_email
             __props__['state'] = state
             __props__['status'] = status
@@ -265,7 +283,7 @@ class User(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, raw_status=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None):
+    def get(resource_name, id, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, raw_status=None, recovery_answer=None, recovery_question=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None):
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -296,10 +314,13 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
+        :param pulumi.Input[str] password: User password.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
         :param pulumi.Input[str] profile_url: User profile property.
+        :param pulumi.Input[str] recovery_answer: User password recovery answer.
+        :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property.
@@ -337,11 +358,14 @@ class User(pulumi.CustomResource):
         __props__["mobile_phone"] = mobile_phone
         __props__["nick_name"] = nick_name
         __props__["organization"] = organization
+        __props__["password"] = password
         __props__["postal_address"] = postal_address
         __props__["preferred_language"] = preferred_language
         __props__["primary_phone"] = primary_phone
         __props__["profile_url"] = profile_url
         __props__["raw_status"] = raw_status
+        __props__["recovery_answer"] = recovery_answer
+        __props__["recovery_question"] = recovery_question
         __props__["second_email"] = second_email
         __props__["state"] = state
         __props__["status"] = status

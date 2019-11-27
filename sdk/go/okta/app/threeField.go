@@ -123,113 +123,113 @@ func GetThreeField(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ThreeField) URN() *pulumi.URNOutput {
+func (r *ThreeField) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ThreeField) ID() *pulumi.IDOutput {
+func (r *ThreeField) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL.
-func (r *ThreeField) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *ThreeField) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Enable self service. By default it is `false`.
-func (r *ThreeField) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *ThreeField) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Display auto submit toolbar.
-func (r *ThreeField) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *ThreeField) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Login button field CSS selector.
-func (r *ThreeField) ButtonSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["buttonSelector"])
+func (r *ThreeField) ButtonSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["buttonSelector"])
 }
 
 // Extra field CSS selector.
-func (r *ThreeField) ExtraFieldSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["extraFieldSelector"])
+func (r *ThreeField) ExtraFieldSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["extraFieldSelector"])
 }
 
 // Value for extra form field.
-func (r *ThreeField) ExtraFieldValue() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["extraFieldValue"])
+func (r *ThreeField) ExtraFieldValue() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["extraFieldValue"])
 }
 
 // Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-func (r *ThreeField) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *ThreeField) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app.
-func (r *ThreeField) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *ThreeField) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users.
-func (r *ThreeField) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *ThreeField) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // The display name of the Application.
-func (r *ThreeField) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *ThreeField) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // Name assigned to the application by Okta.
-func (r *ThreeField) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ThreeField) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Login password field CSS selector.
-func (r *ThreeField) PasswordSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordSelector"])
+func (r *ThreeField) PasswordSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordSelector"])
 }
 
 // Sign on mode of application.
-func (r *ThreeField) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *ThreeField) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application. By default it is `"ACTIVE"`.
-func (r *ThreeField) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ThreeField) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Login URL.
-func (r *ThreeField) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *ThreeField) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // A regex that further restricts URL to the specified regex.
-func (r *ThreeField) UrlRegex() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["urlRegex"])
+func (r *ThreeField) UrlRegex() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["urlRegex"])
 }
 
 // The default username assigned to each user.
-func (r *ThreeField) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *ThreeField) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // The Username template type.
-func (r *ThreeField) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *ThreeField) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Login username field CSS selector.
-func (r *ThreeField) UsernameSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameSelector"])
+func (r *ThreeField) UsernameSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameSelector"])
 }
 
 // The users assigned to the application. See `app.User` for a more flexible approach.
-func (r *ThreeField) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *ThreeField) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering ThreeField resources.

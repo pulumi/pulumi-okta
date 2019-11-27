@@ -11,6 +11,8 @@ import (
 // Creates an Application User.
 // 
 // This resource allows you to create and configure an Application User.
+// 
+// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
 type User struct {
@@ -70,38 +72,38 @@ func GetUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() *pulumi.URNOutput {
+func (r *User) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() *pulumi.IDOutput {
+func (r *User) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // App to associate user with.
-func (r *User) AppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appId"])
+func (r *User) AppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appId"])
 }
 
 // The password to use.
-func (r *User) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *User) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The JSON profile of the App User.
-func (r *User) Profile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profile"])
+func (r *User) Profile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profile"])
 }
 
 // User to associate the application with.
-func (r *User) UserId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userId"])
+func (r *User) UserId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userId"])
 }
 
 // The username to use for the app user.
-func (r *User) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *User) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering User resources.

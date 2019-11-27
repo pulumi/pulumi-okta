@@ -82,58 +82,58 @@ func GetServerClaim(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServerClaim) URN() *pulumi.URNOutput {
+func (r *ServerClaim) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServerClaim) ID() *pulumi.IDOutput {
+func (r *ServerClaim) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether to include claims in token, by default is is set to `true`.
-func (r *ServerClaim) AlwaysIncludeInToken() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["alwaysIncludeInToken"])
+func (r *ServerClaim) AlwaysIncludeInToken() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["alwaysIncludeInToken"])
 }
 
 // The Application's display name.
-func (r *ServerClaim) AuthServerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authServerId"])
+func (r *ServerClaim) AuthServerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authServerId"])
 }
 
 // Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
-func (r *ServerClaim) ClaimType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["claimType"])
+func (r *ServerClaim) ClaimType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["claimType"])
 }
 
 // Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
-func (r *ServerClaim) GroupFilterType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupFilterType"])
+func (r *ServerClaim) GroupFilterType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupFilterType"])
 }
 
 // The name of the claim.
-func (r *ServerClaim) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServerClaim) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The list of scopes the auth server claim is tied to.
-func (r *ServerClaim) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *ServerClaim) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // The status of the application. It defaults to `"ACTIVE"`.
-func (r *ServerClaim) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ServerClaim) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The value of the claim.
-func (r *ServerClaim) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *ServerClaim) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
-func (r *ServerClaim) ValueType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["valueType"])
+func (r *ServerClaim) ValueType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["valueType"])
 }
 
 // Input properties used for looking up and filtering ServerClaim resources.

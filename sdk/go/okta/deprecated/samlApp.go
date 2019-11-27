@@ -167,232 +167,232 @@ func GetSamlApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SamlApp) URN() *pulumi.URNOutput {
+func (r *SamlApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SamlApp) ID() *pulumi.IDOutput {
+func (r *SamlApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL
-func (r *SamlApp) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *SamlApp) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Custom login page URL
-func (r *SamlApp) AccessibilityLoginRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityLoginRedirectUrl"])
+func (r *SamlApp) AccessibilityLoginRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityLoginRedirectUrl"])
 }
 
 // Enable self service
-func (r *SamlApp) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *SamlApp) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Application settings in JSON format
-func (r *SamlApp) AppSettingsJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appSettingsJson"])
+func (r *SamlApp) AppSettingsJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appSettingsJson"])
 }
 
 // Determines whether the SAML assertion is digitally signed
-func (r *SamlApp) AssertionSigned() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["assertionSigned"])
+func (r *SamlApp) AssertionSigned() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["assertionSigned"])
 }
 
-func (r *SamlApp) AttributeStatements() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["attributeStatements"])
+func (r *SamlApp) AttributeStatements() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["attributeStatements"])
 }
 
 // Audience Restriction
-func (r *SamlApp) Audience() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["audience"])
+func (r *SamlApp) Audience() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["audience"])
 }
 
 // Identifies the SAML authentication context class for the assertion’s authentication statement
-func (r *SamlApp) AuthnContextClassRef() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authnContextClassRef"])
+func (r *SamlApp) AuthnContextClassRef() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authnContextClassRef"])
 }
 
 // Display auto submit toolbar
-func (r *SamlApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *SamlApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // cert from SAML XML metadata payload
-func (r *SamlApp) Certificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificate"])
+func (r *SamlApp) Certificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificate"])
 }
 
 // Identifies a specific application resource in an IDP initiated SSO scenario.
-func (r *SamlApp) DefaultRelayState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRelayState"])
+func (r *SamlApp) DefaultRelayState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRelayState"])
 }
 
 // Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-func (r *SamlApp) Destination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destination"])
+func (r *SamlApp) Destination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destination"])
 }
 
 // Determines the digest algorithm used to digitally sign the SAML assertion and response
-func (r *SamlApp) DigestAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["digestAlgorithm"])
+func (r *SamlApp) DigestAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["digestAlgorithm"])
 }
 
 // Entity ID, the ID portion of the entity_url
-func (r *SamlApp) EntityKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["entityKey"])
+func (r *SamlApp) EntityKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["entityKey"])
 }
 
 // Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-func (r *SamlApp) EntityUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["entityUrl"])
+func (r *SamlApp) EntityUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["entityUrl"])
 }
 
 // features to enable
-func (r *SamlApp) Features() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["features"])
+func (r *SamlApp) Features() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["features"])
 }
 
 // Groups associated with the application
-func (r *SamlApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *SamlApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *SamlApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *SamlApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *SamlApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *SamlApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Prompt user to re-authenticate if SP asks for it
-func (r *SamlApp) HonorForceAuthn() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["honorForceAuthn"])
+func (r *SamlApp) HonorForceAuthn() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["honorForceAuthn"])
 }
 
 // urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
-func (r *SamlApp) HttpPostBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpPostBinding"])
+func (r *SamlApp) HttpPostBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpPostBinding"])
 }
 
 // urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
-func (r *SamlApp) HttpRedirectBinding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpRedirectBinding"])
+func (r *SamlApp) HttpRedirectBinding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpRedirectBinding"])
 }
 
 // SAML issuer ID
-func (r *SamlApp) IdpIssuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["idpIssuer"])
+func (r *SamlApp) IdpIssuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["idpIssuer"])
 }
 
 // Certificate ID
-func (r *SamlApp) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *SamlApp) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // Certificate name. This modulates the rotation of keys. New name == new key.
-func (r *SamlApp) KeyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyName"])
+func (r *SamlApp) KeyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyName"])
 }
 
 // Number of years the certificate is valid.
-func (r *SamlApp) KeyYearsValid() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["keyYearsValid"])
+func (r *SamlApp) KeyYearsValid() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["keyYearsValid"])
 }
 
 // Pretty name of app.
-func (r *SamlApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *SamlApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // SAML xml metadata payload
-func (r *SamlApp) Metadata() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metadata"])
+func (r *SamlApp) Metadata() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metadata"])
 }
 
 // name of app.
-func (r *SamlApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SamlApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of preexisting SAML application. For instance 'slack'
-func (r *SamlApp) PreconfiguredApp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preconfiguredApp"])
+func (r *SamlApp) PreconfiguredApp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preconfiguredApp"])
 }
 
 // The location where the app may present the SAML assertion
-func (r *SamlApp) Recipient() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recipient"])
+func (r *SamlApp) Recipient() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recipient"])
 }
 
 // Denotes whether the request is compressed or not.
-func (r *SamlApp) RequestCompressed() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requestCompressed"])
+func (r *SamlApp) RequestCompressed() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requestCompressed"])
 }
 
 // Determines whether the SAML auth response message is digitally signed
-func (r *SamlApp) ResponseSigned() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["responseSigned"])
+func (r *SamlApp) ResponseSigned() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["responseSigned"])
 }
 
 // Sign on mode of application.
-func (r *SamlApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *SamlApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Signature algorithm used ot digitally sign the assertion and response
-func (r *SamlApp) SignatureAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signatureAlgorithm"])
+func (r *SamlApp) SignatureAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signatureAlgorithm"])
 }
 
 // SAML SP issuer ID
-func (r *SamlApp) SpIssuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["spIssuer"])
+func (r *SamlApp) SpIssuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["spIssuer"])
 }
 
 // Single Sign On URL
-func (r *SamlApp) SsoUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ssoUrl"])
+func (r *SamlApp) SsoUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ssoUrl"])
 }
 
 // Status of application.
-func (r *SamlApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SamlApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Identifies the SAML processing rules.
-func (r *SamlApp) SubjectNameIdFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectNameIdFormat"])
+func (r *SamlApp) SubjectNameIdFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectNameIdFormat"])
 }
 
 // Template for app user's username when a user is assigned to the app
-func (r *SamlApp) SubjectNameIdTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectNameIdTemplate"])
+func (r *SamlApp) SubjectNameIdTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectNameIdTemplate"])
 }
 
 // Username template
-func (r *SamlApp) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *SamlApp) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // Username template suffix
-func (r *SamlApp) UserNameTemplateSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateSuffix"])
+func (r *SamlApp) UserNameTemplateSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateSuffix"])
 }
 
 // Username template type
-func (r *SamlApp) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *SamlApp) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Users associated with the application
-func (r *SamlApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *SamlApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering SamlApp resources.

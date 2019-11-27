@@ -12,6 +12,16 @@ export namespace app {
         username?: pulumi.Input<string>;
     }
 
+    export interface BasicAuthUser {
+        /**
+         * ID of the Application.
+         */
+        id?: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
+        scope?: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
+    }
+
     export interface BookmarkUser {
         /**
          * ID of the Application.
@@ -471,6 +481,14 @@ export namespace policy {
     export interface RuleIdpDiscoveryUserIdentifierPattern {
         matchType?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace profile {
+    export interface MappingMapping {
+        expression: pulumi.Input<string>;
+        id: pulumi.Input<string>;
+        pushStatus?: pulumi.Input<string>;
     }
 }
 

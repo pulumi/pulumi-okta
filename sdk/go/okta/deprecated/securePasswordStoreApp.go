@@ -127,143 +127,143 @@ func GetSecurePasswordStoreApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurePasswordStoreApp) URN() *pulumi.URNOutput {
+func (r *SecurePasswordStoreApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurePasswordStoreApp) ID() *pulumi.IDOutput {
+func (r *SecurePasswordStoreApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL
-func (r *SecurePasswordStoreApp) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *SecurePasswordStoreApp) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Enable self service
-func (r *SecurePasswordStoreApp) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *SecurePasswordStoreApp) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Display auto submit toolbar
-func (r *SecurePasswordStoreApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *SecurePasswordStoreApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Application credentials scheme
-func (r *SecurePasswordStoreApp) CredentialsScheme() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentialsScheme"])
+func (r *SecurePasswordStoreApp) CredentialsScheme() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentialsScheme"])
 }
 
 // Groups associated with the application
-func (r *SecurePasswordStoreApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *SecurePasswordStoreApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *SecurePasswordStoreApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *SecurePasswordStoreApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *SecurePasswordStoreApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *SecurePasswordStoreApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Pretty name of app.
-func (r *SecurePasswordStoreApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *SecurePasswordStoreApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // name of app.
-func (r *SecurePasswordStoreApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SecurePasswordStoreApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of optional param in the login form
-func (r *SecurePasswordStoreApp) OptionalField1() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField1"])
+func (r *SecurePasswordStoreApp) OptionalField1() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField1"])
 }
 
 // Name of optional value in login form
-func (r *SecurePasswordStoreApp) OptionalField1Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField1Value"])
+func (r *SecurePasswordStoreApp) OptionalField1Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField1Value"])
 }
 
 // Name of optional param in the login form
-func (r *SecurePasswordStoreApp) OptionalField2() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField2"])
+func (r *SecurePasswordStoreApp) OptionalField2() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField2"])
 }
 
 // Name of optional value in login form
-func (r *SecurePasswordStoreApp) OptionalField2Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField2Value"])
+func (r *SecurePasswordStoreApp) OptionalField2Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField2Value"])
 }
 
 // Name of optional param in the login form
-func (r *SecurePasswordStoreApp) OptionalField3() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField3"])
+func (r *SecurePasswordStoreApp) OptionalField3() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField3"])
 }
 
 // Name of optional value in login form
-func (r *SecurePasswordStoreApp) OptionalField3Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionalField3Value"])
+func (r *SecurePasswordStoreApp) OptionalField3Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionalField3Value"])
 }
 
 // Login password field
-func (r *SecurePasswordStoreApp) PasswordField() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordField"])
+func (r *SecurePasswordStoreApp) PasswordField() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordField"])
 }
 
 // Allow user to reveal password
-func (r *SecurePasswordStoreApp) RevealPassword() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["revealPassword"])
+func (r *SecurePasswordStoreApp) RevealPassword() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["revealPassword"])
 }
 
 // Shared password, required for certain schemes.
-func (r *SecurePasswordStoreApp) SharedPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedPassword"])
+func (r *SecurePasswordStoreApp) SharedPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedPassword"])
 }
 
 // Shared username, required for certain schemes.
-func (r *SecurePasswordStoreApp) SharedUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedUsername"])
+func (r *SecurePasswordStoreApp) SharedUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedUsername"])
 }
 
 // Sign on mode of application.
-func (r *SecurePasswordStoreApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *SecurePasswordStoreApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application.
-func (r *SecurePasswordStoreApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SecurePasswordStoreApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Login URL
-func (r *SecurePasswordStoreApp) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *SecurePasswordStoreApp) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Username template
-func (r *SecurePasswordStoreApp) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *SecurePasswordStoreApp) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // Username template type
-func (r *SecurePasswordStoreApp) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *SecurePasswordStoreApp) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Login username field
-func (r *SecurePasswordStoreApp) UsernameField() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameField"])
+func (r *SecurePasswordStoreApp) UsernameField() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameField"])
 }
 
 // Users associated with the application
-func (r *SecurePasswordStoreApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *SecurePasswordStoreApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering SecurePasswordStoreApp resources.

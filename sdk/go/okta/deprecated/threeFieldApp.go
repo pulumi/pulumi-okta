@@ -118,113 +118,113 @@ func GetThreeFieldApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ThreeFieldApp) URN() *pulumi.URNOutput {
+func (r *ThreeFieldApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ThreeFieldApp) ID() *pulumi.IDOutput {
+func (r *ThreeFieldApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Custom error page URL
-func (r *ThreeFieldApp) AccessibilityErrorRedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
+func (r *ThreeFieldApp) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessibilityErrorRedirectUrl"])
 }
 
 // Enable self service
-func (r *ThreeFieldApp) AccessibilitySelfService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
+func (r *ThreeFieldApp) AccessibilitySelfService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["accessibilitySelfService"])
 }
 
 // Display auto submit toolbar
-func (r *ThreeFieldApp) AutoSubmitToolbar() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
+func (r *ThreeFieldApp) AutoSubmitToolbar() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoSubmitToolbar"])
 }
 
 // Login button field CSS selector
-func (r *ThreeFieldApp) ButtonSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["buttonSelector"])
+func (r *ThreeFieldApp) ButtonSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["buttonSelector"])
 }
 
 // Extra field CSS selector
-func (r *ThreeFieldApp) ExtraFieldSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["extraFieldSelector"])
+func (r *ThreeFieldApp) ExtraFieldSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["extraFieldSelector"])
 }
 
 // Value for extra form field
-func (r *ThreeFieldApp) ExtraFieldValue() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["extraFieldValue"])
+func (r *ThreeFieldApp) ExtraFieldValue() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["extraFieldValue"])
 }
 
 // Groups associated with the application
-func (r *ThreeFieldApp) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *ThreeFieldApp) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // Do not display application icon on mobile app
-func (r *ThreeFieldApp) HideIos() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideIos"])
+func (r *ThreeFieldApp) HideIos() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideIos"])
 }
 
 // Do not display application icon to users
-func (r *ThreeFieldApp) HideWeb() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hideWeb"])
+func (r *ThreeFieldApp) HideWeb() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hideWeb"])
 }
 
 // Pretty name of app.
-func (r *ThreeFieldApp) Label() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["label"])
+func (r *ThreeFieldApp) Label() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["label"])
 }
 
 // name of app.
-func (r *ThreeFieldApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ThreeFieldApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Login password field CSS selector
-func (r *ThreeFieldApp) PasswordSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passwordSelector"])
+func (r *ThreeFieldApp) PasswordSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passwordSelector"])
 }
 
 // Sign on mode of application.
-func (r *ThreeFieldApp) SignOnMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signOnMode"])
+func (r *ThreeFieldApp) SignOnMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signOnMode"])
 }
 
 // Status of application.
-func (r *ThreeFieldApp) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ThreeFieldApp) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Login URL
-func (r *ThreeFieldApp) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *ThreeFieldApp) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // A regex that further restricts URL to the specified regex
-func (r *ThreeFieldApp) UrlRegex() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["urlRegex"])
+func (r *ThreeFieldApp) UrlRegex() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["urlRegex"])
 }
 
 // Username template
-func (r *ThreeFieldApp) UserNameTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplate"])
+func (r *ThreeFieldApp) UserNameTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplate"])
 }
 
 // Username template type
-func (r *ThreeFieldApp) UserNameTemplateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userNameTemplateType"])
+func (r *ThreeFieldApp) UserNameTemplateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userNameTemplateType"])
 }
 
 // Login username field CSS selector
-func (r *ThreeFieldApp) UsernameSelector() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usernameSelector"])
+func (r *ThreeFieldApp) UsernameSelector() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usernameSelector"])
 }
 
 // Users associated with the application
-func (r *ThreeFieldApp) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *ThreeFieldApp) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering ThreeFieldApp resources.

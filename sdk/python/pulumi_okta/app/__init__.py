@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .auto_login import *
+from .basic_auth import *
 from .bookmark import *
 from .group_assignment import *
 from .o_auth import *

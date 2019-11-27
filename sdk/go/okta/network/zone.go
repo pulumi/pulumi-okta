@@ -64,38 +64,38 @@ func GetZone(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() *pulumi.URNOutput {
+func (r *Zone) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() *pulumi.IDOutput {
+func (r *Zone) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-func (r *Zone) DynamicLocations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dynamicLocations"])
+func (r *Zone) DynamicLocations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dynamicLocations"])
 }
 
 // Array of values in CIDR/range form.
-func (r *Zone) Gateways() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["gateways"])
+func (r *Zone) Gateways() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["gateways"])
 }
 
 // Name of the Network Zone Resource.
-func (r *Zone) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Zone) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Array of values in CIDR/range form.
-func (r *Zone) Proxies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["proxies"])
+func (r *Zone) Proxies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["proxies"])
 }
 
 // Type of the Network Zone - can either be IP or DYNAMIC only.
-func (r *Zone) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Zone) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Zone resources.

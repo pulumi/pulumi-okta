@@ -12,7 +12,6 @@ from .. import utilities, tables
 class SignonPolicyRule(pulumi.CustomResource):
     access: pulumi.Output[str]
     authtype: pulumi.Output[str]
-    enroll: pulumi.Output[str]
     mfa_lifetime: pulumi.Output[float]
     mfa_prompt: pulumi.Output[str]
     mfa_remember_device: pulumi.Output[bool]
@@ -21,9 +20,6 @@ class SignonPolicyRule(pulumi.CustomResource):
     network_connection: pulumi.Output[str]
     network_excludes: pulumi.Output[list]
     network_includes: pulumi.Output[list]
-    password_change: pulumi.Output[str]
-    password_reset: pulumi.Output[str]
-    password_unlock: pulumi.Output[str]
     policyid: pulumi.Output[str]
     priority: pulumi.Output[float]
     session_idle: pulumi.Output[float]
@@ -31,7 +27,7 @@ class SignonPolicyRule(pulumi.CustomResource):
     session_persistent: pulumi.Output[bool]
     status: pulumi.Output[str]
     users_excludeds: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, access=None, authtype=None, enroll=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, password_change=None, password_reset=None, password_unlock=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access=None, authtype=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SignonPolicyRule resource with the given unique name, props, and options.
         
@@ -57,7 +53,6 @@ class SignonPolicyRule(pulumi.CustomResource):
 
             __props__['access'] = access
             __props__['authtype'] = authtype
-            __props__['enroll'] = enroll
             __props__['mfa_lifetime'] = mfa_lifetime
             __props__['mfa_prompt'] = mfa_prompt
             __props__['mfa_remember_device'] = mfa_remember_device
@@ -66,9 +61,6 @@ class SignonPolicyRule(pulumi.CustomResource):
             __props__['network_connection'] = network_connection
             __props__['network_excludes'] = network_excludes
             __props__['network_includes'] = network_includes
-            __props__['password_change'] = password_change
-            __props__['password_reset'] = password_reset
-            __props__['password_unlock'] = password_unlock
             if policyid is None:
                 raise TypeError("Missing required property 'policyid'")
             __props__['policyid'] = policyid
@@ -85,7 +77,7 @@ class SignonPolicyRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access=None, authtype=None, enroll=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, password_change=None, password_reset=None, password_unlock=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None):
+    def get(resource_name, id, opts=None, access=None, authtype=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None):
         """
         Get an existing SignonPolicyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,7 +91,6 @@ class SignonPolicyRule(pulumi.CustomResource):
         __props__ = dict()
         __props__["access"] = access
         __props__["authtype"] = authtype
-        __props__["enroll"] = enroll
         __props__["mfa_lifetime"] = mfa_lifetime
         __props__["mfa_prompt"] = mfa_prompt
         __props__["mfa_remember_device"] = mfa_remember_device
@@ -108,9 +99,6 @@ class SignonPolicyRule(pulumi.CustomResource):
         __props__["network_connection"] = network_connection
         __props__["network_excludes"] = network_excludes
         __props__["network_includes"] = network_includes
-        __props__["password_change"] = password_change
-        __props__["password_reset"] = password_reset
-        __props__["password_unlock"] = password_unlock
         __props__["policyid"] = policyid
         __props__["priority"] = priority
         __props__["session_idle"] = session_idle

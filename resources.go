@@ -40,6 +40,7 @@ const (
 	inlineMod        = "inline"
 	networkMod       = "network"
 	policyMod        = "policy"
+	profileMod       = "profile"
 	templateMod      = "template"
 	trustedOriginMod = "trustedorigin"
 	userMod          = "user"
@@ -152,6 +153,10 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_app_user_schema": {
 				Tok:  makeResource(appMod, "UserSchema"),
 				Docs: &tfbridge.DocInfo{Source: "app_user_schema.html.markdown"},
+			},
+			"okta_app_basic_auth": {
+				Tok:  makeResource(appMod, "BasicAuth"),
+				Docs: &tfbridge.DocInfo{Source: "app_basic_auth.html.markdown"},
 			},
 
 			// Auth Resources
@@ -287,6 +292,12 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{Source: "user_schema.html.markdown"},
 			},
 
+			// Profile Resources
+			"okta_profile_mapping": {
+				Tok:  makeResource(profileMod, "Mapping"),
+				Docs: &tfbridge.DocInfo{Source: "profile_mapping.html.markdown"},
+			},
+
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},
 			"okta_auto_login_app":            {Tok: makeResource(deprecatedMod, "AuthLoginApp")},
@@ -360,6 +371,10 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_users": {
 				Tok:  makeDataSource(userMod, "getUsers"),
 				Docs: &tfbridge.DocInfo{Source: "users.html.markdown"},
+			},
+			"okta_user_profile_mapping_source": {
+				Tok:  makeDataSource(userMod, "getUserProfileMappingSource"),
+				Docs: &tfbridge.DocInfo{Source: "user_profile_mapping_source.html.markdown"},
 			},
 
 			// Deprecated DataSources in Upstream Provider

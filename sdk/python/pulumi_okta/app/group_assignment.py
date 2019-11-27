@@ -20,16 +20,22 @@ class GroupAssignment(pulumi.CustomResource):
     """
     priority: pulumi.Output[float]
     profile: pulumi.Output[str]
+    """
+    JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+    """
     def __init__(__self__, resource_name, opts=None, app_id=None, group_id=None, priority=None, profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Assigns a group to an application.
         
         This resource allows you to create an App Group assignment.
         
+        __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
         """
@@ -75,6 +81,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
         """

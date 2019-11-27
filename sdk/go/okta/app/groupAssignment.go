@@ -11,6 +11,8 @@ import (
 // Assigns a group to an application.
 // 
 // This resource allows you to create an App Group assignment.
+// 
+// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
 type GroupAssignment struct {
@@ -64,31 +66,32 @@ func GetGroupAssignment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GroupAssignment) URN() *pulumi.URNOutput {
+func (r *GroupAssignment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GroupAssignment) ID() *pulumi.IDOutput {
+func (r *GroupAssignment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the application to assign a group to.
-func (r *GroupAssignment) AppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appId"])
+func (r *GroupAssignment) AppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appId"])
 }
 
 // The ID of the group to assign the app to.
-func (r *GroupAssignment) GroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupId"])
+func (r *GroupAssignment) GroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupId"])
 }
 
-func (r *GroupAssignment) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *GroupAssignment) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
-func (r *GroupAssignment) Profile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profile"])
+// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+func (r *GroupAssignment) Profile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profile"])
 }
 
 // Input properties used for looking up and filtering GroupAssignment resources.
@@ -98,6 +101,7 @@ type GroupAssignmentState struct {
 	// The ID of the group to assign the app to.
 	GroupId interface{}
 	Priority interface{}
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile interface{}
 }
 
@@ -108,5 +112,6 @@ type GroupAssignmentArgs struct {
 	// The ID of the group to assign the app to.
 	GroupId interface{}
 	Priority interface{}
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile interface{}
 }

@@ -7,4 +7,5 @@ from .user import *
 from .base_schema import *
 from .schema import *
 from .get_user import *
+from .get_user_profile_mapping_source import *
 from .get_users import *
