@@ -66,7 +66,7 @@ namespace Pulumi.Okta
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.Azure.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.Okta.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
         }
