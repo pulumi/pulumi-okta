@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Okta.Trustedorigin
+namespace Pulumi.Okta.TrustedOrigin
 {
     /// <summary>
     /// Creates a Trusted Origin.

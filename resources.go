@@ -15,6 +15,7 @@
 package okta
 
 import (
+	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -32,25 +33,33 @@ const (
 	mainPkg = "okta"
 
 	// modules:
-	appMod           = "app"
-	authMod          = "auth"
-	factorMod        = "factor"
-	groupMod         = "group"
-	idpMod           = "idp"
-	inlineMod        = "inline"
-	networkMod       = "network"
-	policyMod        = "policy"
-	profileMod       = "profile"
-	templateMod      = "template"
-	trustedOriginMod = "trustedorigin"
-	userMod          = "user"
+	appMod           = "App"
+	authMod          = "Auth"
+	factorMod        = "Factor"
+	groupMod         = "Group"
+	idpMod           = "Idp"
+	inlineMod        = "Inline"
+	networkMod       = "Network"
+	policyMod        = "Policy"
+	profileMod       = "Profile"
+	templateMod      = "Template"
+	trustedOriginMod = "TrustedOrigin"
+	userMod          = "User"
 
 	// DeprecatedResourcesMod - these are resources that were renamed upstream and exist only to satisfy tfgen warnings
-	deprecatedMod = "deprecated"
+	deprecatedMod = "Deprecated"
 )
 
-func makeMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
+var namespaceMap = map[string]string{
+	mainPkg: "Okta",
+}
+
+func makeMember(moduleTitle string, mem string) tokens.ModuleMember {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
+	fn := string(unicode.ToLower(rune(mem[0]))) + mem[1:]
+	token := moduleName + "/" + fn
+	return tokens.ModuleMember(mainPkg + ":" + token + ":" + mem)
 }
 
 func makeType(mod string, typ string) tokens.Type {
@@ -58,13 +67,11 @@ func makeType(mod string, typ string) tokens.Type {
 }
 
 func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
+	return makeMember(mod, res)
 }
 
 func makeResource(mod string, res string) tokens.Type {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeType(mod+"/"+fn, res)
+	return makeType(mod, res)
 }
 
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
@@ -399,6 +406,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi":                       "1.5.0-*",
 				"System.Collections.Immutable": "1.6.0",
 			},
+			Namespaces: namespaceMap,
 		},
 	}
 
