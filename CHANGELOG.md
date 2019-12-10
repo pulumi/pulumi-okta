@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Namespace names in .NET SDK are adjusted to PascalCase
+([#8](https://github.com/pulumi/pulumi-okta/pull/8)).
 
 ---
 
