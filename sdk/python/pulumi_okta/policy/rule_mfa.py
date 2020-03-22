@@ -43,12 +43,17 @@ class RuleMfa(pulumi.CustomResource):
     Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
     """
     users_excludeds: pulumi.Output[list]
+    """
+    Set of User IDs to Exclude
+    """
     def __init__(__self__, resource_name, opts=None, enroll=None, name=None, network_connection=None, network_excludes=None, network_includes=None, policyid=None, priority=None, status=None, users_excludeds=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an MFA Policy Rule.
-        
+
         This resource allows you to create and configure an MFA Policy Rule.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
@@ -59,8 +64,7 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +105,7 @@ class RuleMfa(pulumi.CustomResource):
         """
         Get an existing RuleMfa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,12 +117,12 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enroll"] = enroll
         __props__["name"] = name
         __props__["network_connection"] = network_connection

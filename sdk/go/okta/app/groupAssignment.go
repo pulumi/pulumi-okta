@@ -12,11 +12,11 @@ import (
 )
 
 // Assigns a group to an application.
-// 
+//
 // This resource allows you to create an App Group assignment.
-// 
+//
 // __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_group_assignment.html.markdown.
 type GroupAssignment struct {
 	pulumi.CustomResourceState

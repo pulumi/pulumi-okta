@@ -11,22 +11,35 @@ from .. import utilities, tables
 
 class Mapping(pulumi.CustomResource):
     delete_when_absent: pulumi.Output[bool]
+    """
+    When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+    default, we do not delete missing properties.
+    """
     mappings: pulumi.Output[list]
     source_id: pulumi.Output[str]
+    """
+    The source id of the mapping to manage.
+    """
     source_name: pulumi.Output[str]
     source_type: pulumi.Output[str]
     target_id: pulumi.Output[str]
+    """
+    The target id of the mapping to manage.
+    """
     target_name: pulumi.Output[str]
     target_type: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, delete_when_absent=None, mappings=None, source_id=None, target_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a Mapping resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+               default, we do not delete missing properties.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
+
         The **mappings** object supports the following:
-        
+
           * `expression` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`)
           * `pushStatus` (`pulumi.Input[str]`)
@@ -71,13 +84,17 @@ class Mapping(pulumi.CustomResource):
         """
         Get an existing Mapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+               default, we do not delete missing properties.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
+
         The **mappings** object supports the following:
-        
+
           * `expression` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`)
           * `pushStatus` (`pulumi.Input[str]`)
@@ -85,6 +102,7 @@ class Mapping(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["delete_when_absent"] = delete_when_absent
         __props__["mappings"] = mappings
         __props__["source_id"] = source_id

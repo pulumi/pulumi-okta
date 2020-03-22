@@ -16,13 +16,16 @@ class SamlIdpSigningKey(pulumi.CustomResource):
     kty: pulumi.Output[str]
     use: pulumi.Output[str]
     x5cs: pulumi.Output[list]
+    """
+    base64-encoded X.509 certificate chain with DER encoding
+    """
     x5t_s256: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, x5cs=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SamlIdpSigningKey resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,14 +64,16 @@ class SamlIdpSigningKey(pulumi.CustomResource):
         """
         Get an existing SamlIdpSigningKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["created"] = created
         __props__["expires_at"] = expires_at
         __props__["kid"] = kid

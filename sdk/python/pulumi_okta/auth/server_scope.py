@@ -37,9 +37,11 @@ class ServerScope(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auth_server_id=None, consent=None, default=None, description=None, metadata_publish=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Authorization Server Scope.
-        
+
         This resource allows you to create and configure an Authorization Server Scope.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
@@ -48,8 +50,6 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class ServerScope(pulumi.CustomResource):
         """
         Get an existing ServerScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,12 +97,11 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auth_server_id"] = auth_server_id
         __props__["consent"] = consent
         __props__["default"] = default

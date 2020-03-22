@@ -12,9 +12,9 @@ import (
 )
 
 // Creates an OIDC Identity Provider.
-// 
+//
 // This resource allows you to create and configure an OIDC Identity Provider.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
 type Oidc struct {
 	pulumi.CustomResourceState

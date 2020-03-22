@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_metadata_saml import *
+from .get_saml import *
 from .oidc import *
 from .saml import *
 from .saml_key import *
 from .social import *
-from .get_metadata_saml import *
-from .get_saml import *

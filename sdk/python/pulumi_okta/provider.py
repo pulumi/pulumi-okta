@@ -16,11 +16,20 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
 
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/index.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_token: API Token granting privileges to Okta API.
+        :param pulumi.Input[bool] backoff: Use exponential back off strategy for rate limits.
+        :param pulumi.Input[str] base_url: The Okta url. (Use 'oktapreview.com' for Okta testing)
+        :param pulumi.Input[float] max_retries: maximum number of retries to attempt before erroring out.
+        :param pulumi.Input[float] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
+        :param pulumi.Input[float] min_wait_seconds: minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
+        :param pulumi.Input[str] org_name: The organization to manage in Okta.
+        :param pulumi.Input[float] parallelism: Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
+               https://developer.okta.com/docs/api/getting_started/rate-limits.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,22 +68,6 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
-    @staticmethod
-    def get(resource_name, id, opts=None):
-        """
-        Get an existing Provider resource's state with the given name, id, and optional extra
-        properties used to qualify the lookup.
-        
-        :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/index.html.markdown.
-        """
-        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
-
-        __props__ = dict()
-        return Provider(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

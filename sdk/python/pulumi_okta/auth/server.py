@@ -53,9 +53,11 @@ class Server(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, audiences=None, credentials_rotation_mode=None, description=None, issuer_mode=None, name=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Authorization Server.
-        
+
         This resource allows you to create and configure an Authorization Server.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
@@ -64,8 +66,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class Server(pulumi.CustomResource):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,12 +121,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["audiences"] = audiences
         __props__["credentials_last_rotated"] = credentials_last_rotated
         __props__["credentials_next_rotation"] = credentials_next_rotation

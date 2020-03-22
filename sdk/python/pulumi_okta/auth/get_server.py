@@ -13,7 +13,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, audiences=None, credentials_last_rotated=None, credentials_next_rotation=None, credentials_rotation_mode=None, description=None, kid=None, name=None, status=None, id=None):
+    def __init__(__self__, audiences=None, credentials_last_rotated=None, credentials_next_rotation=None, credentials_rotation_mode=None, description=None, id=None, kid=None, name=None, status=None):
         if audiences and not isinstance(audiences, list):
             raise TypeError("Expected argument 'audiences' to be a list")
         __self__.audiences = audiences
@@ -44,6 +44,12 @@ class GetServerResult:
         """
         description of Authorization server.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kid and not isinstance(kid, str):
             raise TypeError("Expected argument 'kid' to be a str")
         __self__.kid = kid
@@ -62,12 +68,6 @@ class GetServerResult:
         """
         the activation status of the authorization server.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -79,20 +79,22 @@ class AwaitableGetServerResult(GetServerResult):
             credentials_next_rotation=self.credentials_next_rotation,
             credentials_rotation_mode=self.credentials_rotation_mode,
             description=self.description,
+            id=self.id,
             kid=self.kid,
             name=self.name,
-            status=self.status,
-            id=self.id)
+            status=self.status)
 
 def get_server(name=None,opts=None):
     """
     Use this data source to retrieve an auth server from Okta.
-    
-    :param str name: The name of the auth server to retrieve.
 
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
+
+
+    :param str name: The name of the auth server to retrieve.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -107,7 +109,7 @@ def get_server(name=None,opts=None):
         credentials_next_rotation=__ret__.get('credentialsNextRotation'),
         credentials_rotation_mode=__ret__.get('credentialsRotationMode'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         kid=__ret__.get('kid'),
         name=__ret__.get('name'),
-        status=__ret__.get('status'),
-        id=__ret__.get('id'))
+        status=__ret__.get('status'))

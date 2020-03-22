@@ -41,14 +41,14 @@ class SamlKey(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, x5cs=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a SAML Identity Provider Signing Key.
-        
+
         This resource allows you to create and configure a SAML Identity Provider Signing Key.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_signing_key.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class SamlKey(pulumi.CustomResource):
         """
         Get an existing SamlKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,12 +98,11 @@ class SamlKey(pulumi.CustomResource):
         :param pulumi.Input[str] use: Intended use of the public key.
         :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding.
         :param pulumi.Input[str] x5t_s256: base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_key.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["created"] = created
         __props__["expires_at"] = expires_at
         __props__["kid"] = kid

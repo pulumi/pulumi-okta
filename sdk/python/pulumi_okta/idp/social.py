@@ -135,9 +135,11 @@ class Social(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_link_action=None, account_link_group_includes=None, client_id=None, client_secret=None, deprovisioned_action=None, groups_action=None, groups_assignments=None, groups_attribute=None, groups_filters=None, issuer_mode=None, match_attribute=None, match_type=None, max_clock_skew=None, name=None, profile_master=None, protocol_type=None, provisioning_action=None, request_signature_algorithm=None, request_signature_scope=None, response_signature_algorithm=None, response_signature_scope=None, scopes=None, status=None, subject_match_attribute=None, subject_match_type=None, suspended_action=None, type=None, username_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Social Identity Provider.
-        
+
         This resource allows you to create and configure an Social Identity Provider.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_social.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
@@ -166,8 +168,6 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] type: The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_social.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -233,7 +233,7 @@ class Social(pulumi.CustomResource):
         """
         Get an existing Social resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,12 +267,11 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         :param pulumi.Input[str] type: The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_social.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_link_action"] = account_link_action
         __props__["account_link_group_includes"] = account_link_group_includes
         __props__["authorization_binding"] = authorization_binding

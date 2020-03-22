@@ -270,24 +270,26 @@ class AwaitableGetSamlResult(GetSamlResult):
 def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_url=None,accessibility_self_service=None,active_only=None,app_settings_json=None,assertion_signed=None,attribute_statements=None,audience=None,authn_context_class_ref=None,auto_submit_toolbar=None,default_relay_state=None,destination=None,digest_algorithm=None,features=None,hide_ios=None,hide_web=None,honor_force_authn=None,id=None,idp_issuer=None,label=None,label_prefix=None,recipient=None,request_compressed=None,response_signed=None,signature_algorithm=None,sp_issuer=None,sso_url=None,subject_name_id_format=None,subject_name_id_template=None,user_name_template=None,user_name_template_suffix=None,user_name_template_type=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
-    
+
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
+
+
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
-    
+
     The **attribute_statements** object supports the following:
-    
+
       * `filterType` (`str`)
       * `filterValue` (`str`)
       * `name` (`str`) - name of application.
       * `namespace` (`str`)
       * `type` (`str`)
       * `values` (`list`)
-
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url
     __args__['accessibilityLoginRedirectUrl'] = accessibility_login_redirect_url

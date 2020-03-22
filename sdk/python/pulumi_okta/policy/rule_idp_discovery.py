@@ -11,7 +11,21 @@ from .. import utilities, tables
 
 class RuleIdpDiscovery(pulumi.CustomResource):
     app_excludes: pulumi.Output[list]
+    """
+    Applications to exclude in discovery rule
+
+      * `id` (`str`) - ID of the Rule.
+      * `name` (`str`) - Policy Rule Name.
+      * `type` (`str`)
+    """
     app_includes: pulumi.Output[list]
+    """
+    Applications to include in discovery rule
+
+      * `id` (`str`) - ID of the Rule.
+      * `name` (`str`) - Policy Rule Name.
+      * `type` (`str`)
+    """
     idp_id: pulumi.Output[str]
     idp_type: pulumi.Output[str]
     name: pulumi.Output[str]
@@ -49,11 +63,15 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_excludes=None, app_includes=None, idp_id=None, idp_type=None, name=None, network_connection=None, network_excludes=None, network_includes=None, platform_includes=None, policyid=None, priority=None, status=None, user_identifier_attribute=None, user_identifier_patterns=None, user_identifier_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an IdP Discovery Policy Rule.
-        
+
         This resource allows you to create and configure an IdP Discovery Policy Rule.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] app_excludes: Applications to exclude in discovery rule
+        :param pulumi.Input[list] app_includes: Applications to include in discovery rule
         :param pulumi.Input[str] name: Policy Rule Name.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[list] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
@@ -61,31 +79,29 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        
+
         The **app_excludes** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - ID of the Rule.
           * `name` (`pulumi.Input[str]`) - Policy Rule Name.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **app_includes** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - ID of the Rule.
           * `name` (`pulumi.Input[str]`) - Policy Rule Name.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **platform_includes** object supports the following:
-        
+
           * `osExpression` (`pulumi.Input[str]`)
           * `osType` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **user_identifier_patterns** object supports the following:
-        
+
           * `match_type` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,10 +148,12 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         """
         Get an existing RuleIdpDiscovery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] app_excludes: Applications to exclude in discovery rule
+        :param pulumi.Input[list] app_includes: Applications to include in discovery rule
         :param pulumi.Input[str] name: Policy Rule Name.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[list] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
@@ -143,35 +161,34 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        
+
         The **app_excludes** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - ID of the Rule.
           * `name` (`pulumi.Input[str]`) - Policy Rule Name.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **app_includes** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - ID of the Rule.
           * `name` (`pulumi.Input[str]`) - Policy Rule Name.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **platform_includes** object supports the following:
-        
+
           * `osExpression` (`pulumi.Input[str]`)
           * `osType` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **user_identifier_patterns** object supports the following:
-        
+
           * `match_type` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_excludes"] = app_excludes
         __props__["app_includes"] = app_includes
         __props__["idp_id"] = idp_id

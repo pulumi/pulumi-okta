@@ -13,7 +13,7 @@ class GetMetadataSamlResult:
     """
     A collection of values returned by getMetadataSaml.
     """
-    def __init__(__self__, app_id=None, certificate=None, entity_id=None, http_post_binding=None, http_redirect_binding=None, key_id=None, metadata=None, want_authn_requests_signed=None, id=None):
+    def __init__(__self__, app_id=None, certificate=None, entity_id=None, http_post_binding=None, http_redirect_binding=None, id=None, key_id=None, metadata=None, want_authn_requests_signed=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         __self__.app_id = app_id
@@ -41,6 +41,12 @@ class GetMetadataSamlResult:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if key_id and not isinstance(key_id, str):
             raise TypeError("Expected argument 'key_id' to be a str")
         __self__.key_id = key_id
@@ -56,12 +62,6 @@ class GetMetadataSamlResult:
         """
         Whether authn requests are signed.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -73,21 +73,23 @@ class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
             entity_id=self.entity_id,
             http_post_binding=self.http_post_binding,
             http_redirect_binding=self.http_redirect_binding,
+            id=self.id,
             key_id=self.key_id,
             metadata=self.metadata,
-            want_authn_requests_signed=self.want_authn_requests_signed,
-            id=self.id)
+            want_authn_requests_signed=self.want_authn_requests_signed)
 
 def get_metadata_saml(app_id=None,key_id=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
-    
-    :param str app_id: The application ID.
-    :param str key_id: Certificate Key ID.
 
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+
+
+    :param str app_id: The application ID.
+    :param str key_id: Certificate Key ID.
     """
     __args__ = dict()
+
 
     __args__['appId'] = app_id
     __args__['keyId'] = key_id
@@ -103,7 +105,7 @@ def get_metadata_saml(app_id=None,key_id=None,opts=None):
         entity_id=__ret__.get('entityId'),
         http_post_binding=__ret__.get('httpPostBinding'),
         http_redirect_binding=__ret__.get('httpRedirectBinding'),
+        id=__ret__.get('id'),
         key_id=__ret__.get('keyId'),
         metadata=__ret__.get('metadata'),
-        want_authn_requests_signed=__ret__.get('wantAuthnRequestsSigned'),
-        id=__ret__.get('id'))
+        want_authn_requests_signed=__ret__.get('wantAuthnRequestsSigned'))

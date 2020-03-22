@@ -13,7 +13,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None, id=None):
+    def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         __self__.admin_roles = admin_roles
@@ -97,6 +97,12 @@ class GetUserResult:
         __self__.honorific_suffix = honorific_suffix
         """
         user profile property.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if last_name and not isinstance(last_name, str):
             raise TypeError("Expected argument 'last_name' to be a str")
@@ -227,12 +233,6 @@ class GetUserResult:
         """
         user profile property.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -253,6 +253,7 @@ class AwaitableGetUserResult(GetUserResult):
             group_memberships=self.group_memberships,
             honorific_prefix=self.honorific_prefix,
             honorific_suffix=self.honorific_suffix,
+            id=self.id,
             last_name=self.last_name,
             locale=self.locale,
             login=self.login,
@@ -274,24 +275,25 @@ class AwaitableGetUserResult(GetUserResult):
             timezone=self.timezone,
             title=self.title,
             user_type=self.user_type,
-            zip_code=self.zip_code,
-            id=self.id)
+            zip_code=self.zip_code)
 
 def get_user(searches=None,opts=None):
     """
     Use this data source to retrieve a users from Okta.
-    
+
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
+
+
     :param list searches: Map of search criteria. It supports the following properties.
-    
+
     The **searches** object supports the following:
-    
+
       * `comparison` (`str`) - Comparison to use.
       * `name` (`str`) - Name of property to search against.
       * `value` (`str`) - Value to compare with.
-
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['searches'] = searches
     if opts is None:
@@ -315,6 +317,7 @@ def get_user(searches=None,opts=None):
         group_memberships=__ret__.get('groupMemberships'),
         honorific_prefix=__ret__.get('honorificPrefix'),
         honorific_suffix=__ret__.get('honorificSuffix'),
+        id=__ret__.get('id'),
         last_name=__ret__.get('lastName'),
         locale=__ret__.get('locale'),
         login=__ret__.get('login'),
@@ -336,5 +339,4 @@ def get_user(searches=None,opts=None):
         timezone=__ret__.get('timezone'),
         title=__ret__.get('title'),
         user_type=__ret__.get('userType'),
-        zip_code=__ret__.get('zipCode'),
-        id=__ret__.get('id'))
+        zip_code=__ret__.get('zipCode'))

@@ -11,33 +11,109 @@ from .. import utilities, tables
 
 class SwaApp(pulumi.CustomResource):
     accessibility_error_redirect_url: pulumi.Output[str]
+    """
+    Custom error page URL
+    """
     accessibility_self_service: pulumi.Output[bool]
+    """
+    Enable self service
+    """
     auto_submit_toolbar: pulumi.Output[bool]
+    """
+    Display auto submit toolbar
+    """
     button_field: pulumi.Output[str]
+    """
+    Login button field
+    """
     groups: pulumi.Output[list]
+    """
+    Groups associated with the application
+    """
     hide_ios: pulumi.Output[bool]
+    """
+    Do not display application icon on mobile app
+    """
     hide_web: pulumi.Output[bool]
+    """
+    Do not display application icon to users
+    """
     label: pulumi.Output[str]
+    """
+    Pretty name of app.
+    """
     name: pulumi.Output[str]
+    """
+    name of app.
+    """
     password_field: pulumi.Output[str]
+    """
+    Login password field
+    """
     preconfigured_app: pulumi.Output[str]
+    """
+    Preconfigured app name
+    """
     sign_on_mode: pulumi.Output[str]
+    """
+    Sign on mode of application.
+    """
     status: pulumi.Output[str]
+    """
+    Status of application.
+    """
     url: pulumi.Output[str]
+    """
+    Login URL
+    """
     url_regex: pulumi.Output[str]
+    """
+    A regex that further restricts URL to the specified regex
+    """
     user_name_template: pulumi.Output[str]
+    """
+    Username template
+    """
     user_name_template_type: pulumi.Output[str]
+    """
+    Username template type
+    """
     username_field: pulumi.Output[str]
+    """
+    Login username field
+    """
     users: pulumi.Output[list]
+    """
+    Users associated with the application
+
+      * `id` (`str`)
+      * `password` (`str`)
+      * `scope` (`str`)
+      * `username` (`str`)
+    """
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, button_field=None, groups=None, hide_ios=None, hide_web=None, label=None, password_field=None, preconfigured_app=None, status=None, url=None, url_regex=None, username_field=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SwaApp resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] username_field: Login username field
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -92,13 +168,32 @@ class SwaApp(pulumi.CustomResource):
         """
         Get an existing SwaApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -107,6 +202,7 @@ class SwaApp(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
         __props__["auto_submit_toolbar"] = auto_submit_toolbar

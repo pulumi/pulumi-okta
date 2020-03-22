@@ -67,15 +67,17 @@ class AwaitableGetAppResult(GetAppResult):
 def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
-    
+
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
+
+
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
-
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['activeOnly'] = active_only
     __args__['id'] = id

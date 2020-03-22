@@ -13,31 +13,31 @@ class GetDefaultPoliciesResult:
     """
     A collection of values returned by getDefaultPolicies.
     """
-    def __init__(__self__, type=None, id=None):
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+    def __init__(__self__, id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        __self__.type = type
 class AwaitableGetDefaultPoliciesResult(GetDefaultPoliciesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetDefaultPoliciesResult(
-            type=self.type,
-            id=self.id)
+            id=self.id,
+            type=self.type)
 
 def get_default_policies(type=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
     """
     __args__ = dict()
+
 
     __args__['type'] = type
     if opts is None:
@@ -47,5 +47,5 @@ def get_default_policies(type=None,opts=None):
     __ret__ = pulumi.runtime.invoke('okta:deprecated/getDefaultPolicies:getDefaultPolicies', __args__, opts=opts).value
 
     return AwaitableGetDefaultPoliciesResult(
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        type=__ret__.get('type'))

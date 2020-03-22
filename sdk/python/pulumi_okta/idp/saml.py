@@ -141,9 +141,11 @@ class Saml(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_link_action=None, account_link_group_includes=None, acs_binding=None, acs_type=None, deprovisioned_action=None, groups_action=None, groups_assignments=None, groups_attribute=None, groups_filters=None, issuer=None, issuer_mode=None, kid=None, name=None, name_format=None, profile_master=None, provisioning_action=None, request_signature_algorithm=None, request_signature_scope=None, response_signature_algorithm=None, response_signature_scope=None, sso_binding=None, sso_destination=None, sso_url=None, status=None, subject_filter=None, subject_formats=None, subject_match_attribute=None, subject_match_type=None, suspended_action=None, username_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a SAML Identity Provider.
-        
+
         This resource allows you to create and configure a SAML Identity Provider.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
@@ -176,8 +178,6 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -247,7 +247,7 @@ class Saml(pulumi.CustomResource):
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,12 +283,11 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] type: Type of the IdP.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_link_action"] = account_link_action
         __props__["account_link_group_includes"] = account_link_group_includes
         __props__["acs_binding"] = acs_binding

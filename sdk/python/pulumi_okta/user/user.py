@@ -123,6 +123,9 @@ class User(pulumi.CustomResource):
     User profile property.
     """
     raw_status: pulumi.Output[str]
+    """
+    The raw status of the User in Okta - (status is mapped)
+    """
     recovery_answer: pulumi.Output[str]
     """
     User password recovery answer.
@@ -166,9 +169,11 @@ class User(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, recovery_answer=None, recovery_question=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Okta User.
-        
+
         This resource allows you to create and configure an Okta User.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] admin_roles: Administrator roles assigned to User.
@@ -209,8 +214,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] title: User profile property.
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -287,7 +290,7 @@ class User(pulumi.CustomResource):
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,6 +322,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
         :param pulumi.Input[str] profile_url: User profile property.
+        :param pulumi.Input[str] raw_status: The raw status of the User in Okta - (status is mapped)
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
@@ -329,12 +333,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] title: User profile property.
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["admin_roles"] = admin_roles
         __props__["city"] = city
         __props__["cost_center"] = cost_center

@@ -12,12 +12,15 @@ from .. import utilities, tables
 class OauthAppRedirectUri(pulumi.CustomResource):
     app_id: pulumi.Output[str]
     uri: pulumi.Output[str]
+    """
+    Redirect URI to append to Okta OIDC application.
+    """
     def __init__(__self__, resource_name, opts=None, app_id=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a OauthAppRedirectUri resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,14 +56,16 @@ class OauthAppRedirectUri(pulumi.CustomResource):
         """
         Get an existing OauthAppRedirectUri resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_id"] = app_id
         __props__["uri"] = uri
         return OauthAppRedirectUri(resource_name, opts=opts, __props__=__props__)

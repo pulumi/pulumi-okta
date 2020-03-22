@@ -11,25 +11,63 @@ from .. import utilities, tables
 
 class BookmarkApp(pulumi.CustomResource):
     auto_submit_toolbar: pulumi.Output[bool]
+    """
+    Display auto submit toolbar
+    """
     groups: pulumi.Output[list]
+    """
+    Groups associated with the application
+    """
     hide_ios: pulumi.Output[bool]
+    """
+    Do not display application icon on mobile app
+    """
     hide_web: pulumi.Output[bool]
+    """
+    Do not display application icon to users
+    """
     label: pulumi.Output[str]
+    """
+    Pretty name of app.
+    """
     name: pulumi.Output[str]
+    """
+    name of app.
+    """
     request_integration: pulumi.Output[bool]
     sign_on_mode: pulumi.Output[str]
+    """
+    Sign on mode of application.
+    """
     status: pulumi.Output[str]
+    """
+    Status of application.
+    """
     url: pulumi.Output[str]
     users: pulumi.Output[list]
+    """
+    Users associated with the application
+
+      * `id` (`str`)
+      * `password` (`str`)
+      * `scope` (`str`)
+      * `username` (`str`)
+    """
     def __init__(__self__, resource_name, opts=None, auto_submit_toolbar=None, groups=None, hide_ios=None, hide_web=None, label=None, request_integration=None, status=None, url=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a BookmarkApp resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -78,13 +116,22 @@ class BookmarkApp(pulumi.CustomResource):
         """
         Get an existing BookmarkApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -93,6 +140,7 @@ class BookmarkApp(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__["groups"] = groups
         __props__["hide_ios"] = hide_ios

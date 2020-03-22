@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an Application User Base Schema property.
-// 
+//
 // This resource allows you to configure a base app user schema property.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_base_schema.html.markdown.
 type UserBaseSchema struct {
 	pulumi.CustomResourceState

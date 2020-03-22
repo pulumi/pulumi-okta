@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to retrieve a policy from Okta.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
 func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
 	var rv GetPolicyResult

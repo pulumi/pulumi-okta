@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to retrieve SAML IdP metadata from Okta.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
 func GetMetadataSaml(ctx *pulumi.Context, args *GetMetadataSamlArgs, opts ...pulumi.InvokeOption) (*GetMetadataSamlResult, error) {
 	var rv GetMetadataSamlResult

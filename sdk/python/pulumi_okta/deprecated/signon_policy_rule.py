@@ -11,28 +11,99 @@ from .. import utilities, tables
 
 class SignonPolicyRule(pulumi.CustomResource):
     access: pulumi.Output[str]
+    """
+    Allow or deny access based on the rule conditions: ALLOW or DENY.
+    """
     authtype: pulumi.Output[str]
+    """
+    Authentication entrypoint: ANY or RADIUS.
+    """
     mfa_lifetime: pulumi.Output[float]
+    """
+    Elapsed time before the next MFA challenge
+    """
     mfa_prompt: pulumi.Output[str]
+    """
+    Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+    """
     mfa_remember_device: pulumi.Output[bool]
+    """
+    Remember MFA device.
+    """
     mfa_required: pulumi.Output[bool]
+    """
+    Require MFA.
+    """
     name: pulumi.Output[str]
+    """
+    Policy Rule Name
+    """
     network_connection: pulumi.Output[str]
+    """
+    Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+    """
     network_excludes: pulumi.Output[list]
+    """
+    The zones to exclude
+    """
     network_includes: pulumi.Output[list]
+    """
+    The zones to include
+    """
     policyid: pulumi.Output[str]
+    """
+    Policy ID of the Rule
+    """
     priority: pulumi.Output[float]
+    """
+    Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+    invalid priority is provided. API defaults it to the last/lowest if not there.
+    """
     session_idle: pulumi.Output[float]
+    """
+    Max minutes a session can be idle.
+    """
     session_lifetime: pulumi.Output[float]
+    """
+    Max minutes a session is active: Disable = 0.
+    """
     session_persistent: pulumi.Output[bool]
+    """
+    Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+    cookies.
+    """
     status: pulumi.Output[str]
+    """
+    Policy Rule Status: ACTIVE or INACTIVE.
+    """
     users_excludeds: pulumi.Output[list]
+    """
+    Set of User IDs to Exclude
+    """
     def __init__(__self__, resource_name, opts=None, access=None, authtype=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SignonPolicyRule resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: ANY or RADIUS.
+        :param pulumi.Input[float] mfa_lifetime: Elapsed time before the next MFA challenge
+        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+        :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
+        :param pulumi.Input[bool] mfa_required: Require MFA.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        :param pulumi.Input[list] network_excludes: The zones to exclude
+        :param pulumi.Input[list] network_includes: The zones to include
+        :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+               invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[float] session_idle: Max minutes a session can be idle.
+        :param pulumi.Input[float] session_lifetime: Max minutes a session is active: Disable = 0.
+        :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+               cookies.
+        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,14 +152,34 @@ class SignonPolicyRule(pulumi.CustomResource):
         """
         Get an existing SignonPolicyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: ANY or RADIUS.
+        :param pulumi.Input[float] mfa_lifetime: Elapsed time before the next MFA challenge
+        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+        :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
+        :param pulumi.Input[bool] mfa_required: Require MFA.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        :param pulumi.Input[list] network_excludes: The zones to exclude
+        :param pulumi.Input[list] network_includes: The zones to include
+        :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+               invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[float] session_idle: Max minutes a session can be idle.
+        :param pulumi.Input[float] session_lifetime: Max minutes a session is active: Disable = 0.
+        :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+               cookies.
+        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access"] = access
         __props__["authtype"] = authtype
         __props__["mfa_lifetime"] = mfa_lifetime

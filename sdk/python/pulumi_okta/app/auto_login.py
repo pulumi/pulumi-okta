@@ -11,12 +11,33 @@ from .. import utilities, tables
 
 class AutoLogin(pulumi.CustomResource):
     accessibility_error_redirect_url: pulumi.Output[str]
+    """
+    Custom error page URL
+    """
     accessibility_self_service: pulumi.Output[bool]
+    """
+    Enable self service
+    """
     auto_submit_toolbar: pulumi.Output[bool]
+    """
+    Display auto submit toolbar
+    """
     credentials_scheme: pulumi.Output[str]
+    """
+    Application credentials scheme
+    """
     groups: pulumi.Output[list]
+    """
+    Groups associated with the application
+    """
     hide_ios: pulumi.Output[bool]
+    """
+    Do not display application icon on mobile app
+    """
     hide_web: pulumi.Output[bool]
+    """
+    Do not display application icon to users
+    """
     label: pulumi.Output[str]
     """
     The Application's display name.
@@ -30,41 +51,83 @@ class AutoLogin(pulumi.CustomResource):
     Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
     """
     reveal_password: pulumi.Output[bool]
+    """
+    Allow user to reveal password
+    """
     shared_password: pulumi.Output[str]
+    """
+    Shared password, required for certain schemes.
+    """
     shared_username: pulumi.Output[str]
+    """
+    Shared username, required for certain schemes.
+    """
     sign_on_mode: pulumi.Output[str]
     """
     Sign on mode of application.
     """
     sign_on_redirect_url: pulumi.Output[str]
+    """
+    Post login redirect URL
+    """
     sign_on_url: pulumi.Output[str]
+    """
+    Login URL
+    """
     status: pulumi.Output[str]
     """
     The status of the application, by default it is `"ACTIVE"`.
     """
     user_name_template: pulumi.Output[str]
+    """
+    Username template
+    """
     user_name_template_type: pulumi.Output[str]
+    """
+    Username template type
+    """
     users: pulumi.Output[list]
+    """
+    Users associated with the application
+
+      * `id` (`str`)
+      * `password` (`str`)
+      * `scope` (`str`)
+      * `username` (`str`)
+    """
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, credentials_scheme=None, groups=None, hide_ios=None, hide_web=None, label=None, preconfigured_app=None, reveal_password=None, shared_password=None, shared_username=None, sign_on_redirect_url=None, sign_on_url=None, status=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Auto Login Okta Application.
-        
+
         This resource allows you to create and configure an Auto Login Okta Application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_auto_login.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[str] sign_on_redirect_url: Post login redirect URL
+        :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: The status of the application, by default it is `"ACTIVE"`.
-        
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_auto_login.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,28 +179,42 @@ class AutoLogin(pulumi.CustomResource):
         """
         Get an existing AutoLogin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] sign_on_redirect_url: Post login redirect URL
+        :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: The status of the application, by default it is `"ACTIVE"`.
-        
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_auto_login.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
         __props__["auto_submit_toolbar"] = auto_submit_toolbar

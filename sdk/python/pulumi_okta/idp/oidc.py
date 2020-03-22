@@ -99,9 +99,21 @@ class Oidc(pulumi.CustomResource):
     Provisioning action for an IdP user during authentication.
     """
     request_signature_algorithm: pulumi.Output[str]
+    """
+    algorithm to use to sign requests
+    """
     request_signature_scope: pulumi.Output[str]
+    """
+    algorithm to use to sign response
+    """
     response_signature_algorithm: pulumi.Output[str]
+    """
+    algorithm to use to sign requests
+    """
     response_signature_scope: pulumi.Output[str]
+    """
+    algorithm to use to sign response
+    """
     scopes: pulumi.Output[list]
     """
     The scopes of the IdP.
@@ -146,9 +158,11 @@ class Oidc(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_link_action=None, account_link_group_includes=None, acs_binding=None, acs_type=None, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, deprovisioned_action=None, groups_action=None, groups_assignments=None, groups_attribute=None, groups_filters=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, profile_master=None, protocol_type=None, provisioning_action=None, request_signature_algorithm=None, request_signature_scope=None, response_signature_algorithm=None, response_signature_scope=None, scopes=None, status=None, subject_match_attribute=None, subject_match_type=None, suspended_action=None, token_binding=None, token_url=None, user_info_binding=None, user_info_url=None, username_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an OIDC Identity Provider.
-        
+
         This resource allows you to create and configure an OIDC Identity Provider.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
@@ -173,6 +187,10 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         :param pulumi.Input[list] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
@@ -182,8 +200,6 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         :param pulumi.Input[str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -272,7 +288,7 @@ class Oidc(pulumi.CustomResource):
         """
         Get an existing Oidc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,6 +314,10 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         :param pulumi.Input[list] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
@@ -308,12 +328,11 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] type: Type of OIDC IdP.
         :param pulumi.Input[str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_link_action"] = account_link_action
         __props__["account_link_group_includes"] = account_link_group_includes
         __props__["acs_binding"] = acs_binding

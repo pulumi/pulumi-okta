@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to retrieve a list of users from Okta.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult

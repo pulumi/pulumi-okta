@@ -21,7 +21,7 @@ class UserSchema(pulumi.CustomResource):
     array_one_ofs: pulumi.Output[list]
     """
     Display name and value an enum array can be set to.
-    
+
       * `const` (`str`) - value mapping to member of `enum`.
       * `title` (`str`) - display name for the enum value.
     """
@@ -60,7 +60,7 @@ class UserSchema(pulumi.CustomResource):
     one_ofs: pulumi.Output[list]
     """
     Array of maps containing a mapping for display name to enum value.
-    
+
       * `const` (`str`) - value mapping to member of `enum`.
       * `title` (`str`) - display name for the enum value.
     """
@@ -87,9 +87,11 @@ class UserSchema(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_id=None, array_enums=None, array_one_ofs=None, array_type=None, description=None, enums=None, external_name=None, index=None, master=None, max_length=None, min_length=None, one_ofs=None, permissions=None, required=None, scope=None, title=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Application User Schema property.
-        
+
         This resource allows you to create and configure a custom user schema property and associate it with an application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_schema.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user custom schema property should be assigned to.
@@ -109,18 +111,16 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        
+
         The **array_one_ofs** object supports the following:
-        
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
-        
-        The **one_ofs** object supports the following:
-        
+
           * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
           * `title` (`pulumi.Input[str]`) - display name for the enum value.
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_schema.html.markdown.
+        The **one_ofs** object supports the following:
+
+          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
+          * `title` (`pulumi.Input[str]`) - display name for the enum value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -175,7 +175,7 @@ class UserSchema(pulumi.CustomResource):
         """
         Get an existing UserSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,22 +196,21 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        
+
         The **array_one_ofs** object supports the following:
-        
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
-        
-        The **one_ofs** object supports the following:
-        
+
           * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
           * `title` (`pulumi.Input[str]`) - display name for the enum value.
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_schema.html.markdown.
+        The **one_ofs** object supports the following:
+
+          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
+          * `title` (`pulumi.Input[str]`) - display name for the enum value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_id"] = app_id
         __props__["array_enums"] = array_enums
         __props__["array_one_ofs"] = array_one_ofs

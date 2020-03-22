@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .auth_login_app import *
 from .bookmark_app import *
+from .get_default_policies import *
 from .idp import *
 from .mfa_policy import *
 from .mfa_policy_rule import *
@@ -21,4 +22,3 @@ from .signon_policy_rule import *
 from .social_idp import *
 from .swa_app import *
 from .three_field_app import *
-from .get_default_policies import *
