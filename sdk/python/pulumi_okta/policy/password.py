@@ -125,9 +125,11 @@ class Password(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auth_provider=None, description=None, email_recovery=None, groups_includeds=None, name=None, password_auto_unlock_minutes=None, password_dictionary_lookup=None, password_exclude_first_name=None, password_exclude_last_name=None, password_exclude_username=None, password_expire_warn_days=None, password_history_count=None, password_max_age_days=None, password_max_lockout_attempts=None, password_min_age_minutes=None, password_min_length=None, password_min_lowercase=None, password_min_number=None, password_min_symbol=None, password_min_uppercase=None, password_show_lockout_failures=None, priority=None, question_min_length=None, question_recovery=None, recovery_email_token=None, skip_unlock=None, sms_recovery=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a Password Policy.
-        
+
         This resource allows you to create and configure a Password Policy.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_password.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
@@ -158,8 +160,6 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_password.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -217,7 +217,7 @@ class Password(pulumi.CustomResource):
         """
         Get an existing Password resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,12 +249,11 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_password.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auth_provider"] = auth_provider
         __props__["description"] = description
         __props__["email_recovery"] = email_recovery

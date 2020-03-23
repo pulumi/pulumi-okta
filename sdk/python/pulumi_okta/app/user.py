@@ -33,11 +33,13 @@ class User(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_id=None, password=None, profile=None, user_id=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Application User.
-        
+
         This resource allows you to create and configure an Application User.
-        
+
         __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: App to associate user with.
@@ -45,8 +47,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class User(pulumi.CustomResource):
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,12 +96,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_id"] = app_id
         __props__["password"] = password
         __props__["profile"] = profile

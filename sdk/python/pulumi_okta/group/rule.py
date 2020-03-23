@@ -33,9 +33,11 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, expression_type=None, expression_value=None, group_assignments=None, name=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Okta Group Rule.
-        
+
         This resource allows you to create and configure an Okta Group Rule.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
@@ -43,8 +45,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[list] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class Rule(pulumi.CustomResource):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,12 +92,11 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[list] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["expression_type"] = expression_type
         __props__["expression_value"] = expression_value
         __props__["group_assignments"] = group_assignments

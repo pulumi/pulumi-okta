@@ -12,9 +12,9 @@ import (
 )
 
 // Creates an Social Identity Provider.
-// 
+//
 // This resource allows you to create and configure an Social Identity Provider.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_social.html.markdown.
 type Social struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,13 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, searches=None, users=None, id=None):
+    def __init__(__self__, id=None, searches=None, users=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if searches and not isinstance(searches, list):
             raise TypeError("Expected argument 'searches' to be a list")
         __self__.searches = searches
@@ -23,36 +29,33 @@ class GetUsersResult:
         """
         collection of users retrieved from Okta with the following properties.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUsersResult(GetUsersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetUsersResult(
+            id=self.id,
             searches=self.searches,
-            users=self.users,
-            id=self.id)
+            users=self.users)
 
 def get_users(searches=None,users=None,opts=None):
     """
     Use this data source to retrieve a list of users from Okta.
-    
+
+    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
+
+
     :param list searches: Map of search criteria to use to find users. It supports the following properties.
-    
+
     The **searches** object supports the following:
-    
+
       * `comparison` (`str`) - Comparison to use.
       * `name` (`str`) - Name of property to search against.
       * `value` (`str`) - Value to compare with.
-    
+
     The **users** object supports the following:
-    
+
       * `admin_roles` (`list`) - Administrator roles assigned to user.
       * `city` (`str`) - user profile property.
       * `cost_center` (`str`) - user profile property.
@@ -88,10 +91,9 @@ def get_users(searches=None,users=None,opts=None):
       * `title` (`str`) - user profile property.
       * `user_type` (`str`) - user profile property.
       * `zip_code` (`str`) - user profile property.
-
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['searches'] = searches
     __args__['users'] = users
@@ -102,6 +104,6 @@ def get_users(searches=None,users=None,opts=None):
     __ret__ = pulumi.runtime.invoke('okta:user/getUsers:getUsers', __args__, opts=opts).value
 
     return AwaitableGetUsersResult(
+        id=__ret__.get('id'),
         searches=__ret__.get('searches'),
-        users=__ret__.get('users'),
-        id=__ret__.get('id'))
+        users=__ret__.get('users'))

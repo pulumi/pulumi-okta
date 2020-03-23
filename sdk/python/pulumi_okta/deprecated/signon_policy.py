@@ -11,16 +11,37 @@ from .. import utilities, tables
 
 class SignonPolicy(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    Policy Description
+    """
     groups_includeds: pulumi.Output[list]
+    """
+    List of Group IDs to Include
+    """
     name: pulumi.Output[str]
+    """
+    Policy Name
+    """
     priority: pulumi.Output[float]
+    """
+    Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+    priority is provided. API defaults it to the last/lowest if not there.
+    """
     status: pulumi.Output[str]
+    """
+    Policy Status: ACTIVE or INACTIVE.
+    """
     def __init__(__self__, resource_name, opts=None, description=None, groups_includeds=None, name=None, priority=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SignonPolicy resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+               priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,14 +76,21 @@ class SignonPolicy(pulumi.CustomResource):
         """
         Get an existing SignonPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+               priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["groups_includeds"] = groups_includeds
         __props__["name"] = name

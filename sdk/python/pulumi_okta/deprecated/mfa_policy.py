@@ -11,12 +11,21 @@ from .. import utilities, tables
 
 class MfaPolicy(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    Policy Description
+    """
     duo: pulumi.Output[dict]
     fido_u2f: pulumi.Output[dict]
     fido_webauthn: pulumi.Output[dict]
     google_otp: pulumi.Output[dict]
     groups_includeds: pulumi.Output[list]
+    """
+    List of Group IDs to Include
+    """
     name: pulumi.Output[str]
+    """
+    Policy Name
+    """
     okta_call: pulumi.Output[dict]
     okta_otp: pulumi.Output[dict]
     okta_password: pulumi.Output[dict]
@@ -24,79 +33,91 @@ class MfaPolicy(pulumi.CustomResource):
     okta_question: pulumi.Output[dict]
     okta_sms: pulumi.Output[dict]
     priority: pulumi.Output[float]
+    """
+    Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+    priority is provided. API defaults it to the last/lowest if not there.
+    """
     rsa_token: pulumi.Output[dict]
     status: pulumi.Output[str]
+    """
+    Policy Status: ACTIVE or INACTIVE.
+    """
     symantec_vip: pulumi.Output[dict]
     yubikey_token: pulumi.Output[dict]
     def __init__(__self__, resource_name, opts=None, description=None, duo=None, fido_u2f=None, fido_webauthn=None, google_otp=None, groups_includeds=None, name=None, okta_call=None, okta_otp=None, okta_password=None, okta_push=None, okta_question=None, okta_sms=None, priority=None, rsa_token=None, status=None, symantec_vip=None, yubikey_token=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a MfaPolicy resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+               priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
+
         The **duo** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **fido_u2f** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **fido_webauthn** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **google_otp** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_call** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_otp** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_password** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_push** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_question** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_sms** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **rsa_token** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **symantec_vip** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **yubikey_token** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
         """
@@ -146,79 +167,86 @@ class MfaPolicy(pulumi.CustomResource):
         """
         Get an existing MfaPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+               priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
+
         The **duo** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **fido_u2f** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **fido_webauthn** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **google_otp** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_call** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_otp** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_password** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_push** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_question** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **okta_sms** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **rsa_token** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **symantec_vip** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
-        
+
         The **yubikey_token** object supports the following:
-        
+
           * `consent_type` (`pulumi.Input[str]`)
           * `enroll` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["duo"] = duo
         __props__["fido_u2f"] = fido_u2f

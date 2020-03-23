@@ -11,40 +11,144 @@ from .. import utilities, tables
 
 class SecurePasswordStoreApp(pulumi.CustomResource):
     accessibility_error_redirect_url: pulumi.Output[str]
+    """
+    Custom error page URL
+    """
     accessibility_self_service: pulumi.Output[bool]
+    """
+    Enable self service
+    """
     auto_submit_toolbar: pulumi.Output[bool]
+    """
+    Display auto submit toolbar
+    """
     credentials_scheme: pulumi.Output[str]
+    """
+    Application credentials scheme
+    """
     groups: pulumi.Output[list]
+    """
+    Groups associated with the application
+    """
     hide_ios: pulumi.Output[bool]
+    """
+    Do not display application icon on mobile app
+    """
     hide_web: pulumi.Output[bool]
+    """
+    Do not display application icon to users
+    """
     label: pulumi.Output[str]
+    """
+    Pretty name of app.
+    """
     name: pulumi.Output[str]
+    """
+    name of app.
+    """
     optional_field1: pulumi.Output[str]
+    """
+    Name of optional param in the login form
+    """
     optional_field1_value: pulumi.Output[str]
+    """
+    Name of optional value in login form
+    """
     optional_field2: pulumi.Output[str]
+    """
+    Name of optional param in the login form
+    """
     optional_field2_value: pulumi.Output[str]
+    """
+    Name of optional value in login form
+    """
     optional_field3: pulumi.Output[str]
+    """
+    Name of optional param in the login form
+    """
     optional_field3_value: pulumi.Output[str]
+    """
+    Name of optional value in login form
+    """
     password_field: pulumi.Output[str]
+    """
+    Login password field
+    """
     reveal_password: pulumi.Output[bool]
+    """
+    Allow user to reveal password
+    """
     shared_password: pulumi.Output[str]
+    """
+    Shared password, required for certain schemes.
+    """
     shared_username: pulumi.Output[str]
+    """
+    Shared username, required for certain schemes.
+    """
     sign_on_mode: pulumi.Output[str]
+    """
+    Sign on mode of application.
+    """
     status: pulumi.Output[str]
+    """
+    Status of application.
+    """
     url: pulumi.Output[str]
+    """
+    Login URL
+    """
     user_name_template: pulumi.Output[str]
+    """
+    Username template
+    """
     user_name_template_type: pulumi.Output[str]
+    """
+    Username template type
+    """
     username_field: pulumi.Output[str]
+    """
+    Login username field
+    """
     users: pulumi.Output[list]
+    """
+    Users associated with the application
+
+      * `id` (`str`)
+      * `password` (`str`)
+      * `scope` (`str`)
+      * `username` (`str`)
+    """
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, credentials_scheme=None, groups=None, hide_ios=None, hide_web=None, label=None, optional_field1=None, optional_field1_value=None, optional_field2=None, optional_field2_value=None, optional_field3=None, optional_field3_value=None, password_field=None, reveal_password=None, shared_password=None, shared_username=None, status=None, url=None, username_field=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SecurePasswordStoreApp resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] username_field: Login username field
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -112,13 +216,39 @@ class SecurePasswordStoreApp(pulumi.CustomResource):
         """
         Get an existing SecurePasswordStoreApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
+        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
@@ -127,6 +257,7 @@ class SecurePasswordStoreApp(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
         __props__["auto_submit_toolbar"] = auto_submit_toolbar

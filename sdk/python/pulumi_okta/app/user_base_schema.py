@@ -41,9 +41,11 @@ class UserBaseSchema(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_id=None, index=None, master=None, permissions=None, required=None, title=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application User Base Schema property.
-        
+
         This resource allows you to configure a base app user schema property.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_base_schema.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.
@@ -53,8 +55,6 @@ class UserBaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_base_schema.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,7 +99,7 @@ class UserBaseSchema(pulumi.CustomResource):
         """
         Get an existing UserBaseSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,12 +110,11 @@ class UserBaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_base_schema.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_id"] = app_id
         __props__["index"] = index
         __props__["master"] = master

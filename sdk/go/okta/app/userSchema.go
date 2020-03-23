@@ -12,9 +12,9 @@ import (
 )
 
 // Creates an Application User Schema property.
-// 
+//
 // This resource allows you to create and configure a custom user schema property and associate it with an application.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_schema.html.markdown.
 type UserSchema struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,13 @@ class GetUserProfileMappingSourceResult:
     """
     A collection of values returned by getUserProfileMappingSource.
     """
-    def __init__(__self__, name=None, type=None, id=None):
+    def __init__(__self__, id=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -26,21 +32,15 @@ class GetUserProfileMappingSourceResult:
         """
         type of source.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserProfileMappingSourceResult(GetUserProfileMappingSourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetUserProfileMappingSourceResult(
+            id=self.id,
             name=self.name,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_user_profile_mapping_source(opts=None):
     """
@@ -50,6 +50,7 @@ def get_user_profile_mapping_source(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -57,6 +58,6 @@ def get_user_profile_mapping_source(opts=None):
     __ret__ = pulumi.runtime.invoke('okta:user/getUserProfileMappingSource:getUserProfileMappingSource', __args__, opts=opts).value
 
     return AwaitableGetUserProfileMappingSourceResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

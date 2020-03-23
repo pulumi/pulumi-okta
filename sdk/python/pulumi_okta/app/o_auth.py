@@ -125,7 +125,7 @@ class OAuth(pulumi.CustomResource):
     users: pulumi.Output[list]
     """
     The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-    
+
       * `id` (`str`)
       * `password` (`str`)
       * `scope` (`str`)
@@ -134,9 +134,11 @@ class OAuth(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auto_key_rotation=None, auto_submit_toolbar=None, client_basic_secret=None, client_uri=None, consent_method=None, custom_client_id=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, issuer_mode=None, label=None, login_uri=None, logo_uri=None, omit_secret=None, policy_uri=None, post_logout_redirect_uris=None, profile=None, redirect_uris=None, response_types=None, status=None, token_endpoint_auth_method=None, tos_uri=None, type=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an OIDC Application.
-        
+
         This resource allows you to create and configure an OIDC Application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_oauth.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
@@ -164,15 +166,13 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of OAuth application.
         :param pulumi.Input[list] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_oauth.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -235,7 +235,7 @@ class OAuth(pulumi.CustomResource):
         """
         Get an existing OAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,19 +268,18 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of OAuth application.
         :param pulumi.Input[list] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_oauth.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_key_rotation"] = auto_key_rotation
         __props__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__["client_basic_secret"] = client_basic_secret

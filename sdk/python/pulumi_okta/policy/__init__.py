@@ -3,6 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_default_policy import *
+from .get_policy import *
 from .mfa import *
 from .password import *
 from .rule_idp_discovery import *
@@ -10,5 +12,3 @@ from .rule_mfa import *
 from .rule_password import *
 from .rule_signon import *
 from .signon import *
-from .get_default_policy import *
-from .get_policy import *

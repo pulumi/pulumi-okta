@@ -13,18 +13,18 @@ class GetDefaultPolicyResult:
     """
     A collection of values returned by getDefaultPolicy.
     """
-    def __init__(__self__, type=None, id=None):
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
-        """
-        type of policy.
-        """
+    def __init__(__self__, id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        __self__.type = type
+        """
+        type of policy.
         """
 class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
     # pylint: disable=using-constant-test
@@ -32,18 +32,20 @@ class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
         if False:
             yield self
         return GetDefaultPolicyResult(
-            type=self.type,
-            id=self.id)
+            id=self.id,
+            type=self.type)
 
 def get_default_policy(type=None,opts=None):
     """
     Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
-    
-    :param str type: type of policy to retrieve.
 
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
+
+
+    :param str type: type of policy to retrieve.
     """
     __args__ = dict()
+
 
     __args__['type'] = type
     if opts is None:
@@ -53,5 +55,5 @@ def get_default_policy(type=None,opts=None):
     __ret__ = pulumi.runtime.invoke('okta:policy/getDefaultPolicy:getDefaultPolicy', __args__, opts=opts).value
 
     return AwaitableGetDefaultPolicyResult(
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        type=__ret__.get('type'))

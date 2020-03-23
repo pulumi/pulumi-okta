@@ -113,7 +113,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     users: pulumi.Output[list]
     """
     The users assigned to the application. See `app.User` for a more flexible approach.
-    
+
       * `id` (`str`)
       * `password` (`str`)
       * `scope` (`str`)
@@ -122,9 +122,11 @@ class SecurePasswordStore(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, credentials_scheme=None, groups=None, hide_ios=None, hide_web=None, label=None, optional_field1=None, optional_field1_value=None, optional_field2=None, optional_field2_value=None, optional_field3=None, optional_field3_value=None, password_field=None, reveal_password=None, shared_password=None, shared_username=None, status=None, url=None, username_field=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a Secure Password Store Application.
-        
+
         This resource allows you to create and configure a Secure Password Store Application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_secure_password_store.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -149,15 +151,13 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_secure_password_store.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -221,7 +221,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         """
         Get an existing SecurePasswordStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,19 +251,18 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_secure_password_store.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
         __props__["auto_submit_toolbar"] = auto_submit_toolbar

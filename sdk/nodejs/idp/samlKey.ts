@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_key.html.markdown.
+ * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_signing_key.html.markdown.
  */
 export class SamlKey extends pulumi.CustomResource {
     /**

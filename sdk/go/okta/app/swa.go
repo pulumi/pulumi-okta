@@ -12,9 +12,9 @@ import (
 )
 
 // Creates an SWA Application.
-// 
+//
 // This resource allows you to create and configure an SWA Application.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_swa.html.markdown.
 type Swa struct {
 	pulumi.CustomResourceState

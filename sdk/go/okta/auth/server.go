@@ -12,9 +12,9 @@ import (
 )
 
 // Creates an Authorization Server.
-// 
+//
 // This resource allows you to create and configure an Authorization Server.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server.html.markdown.
 type Server struct {
 	pulumi.CustomResourceState

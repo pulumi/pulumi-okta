@@ -13,7 +13,7 @@ class Hook(pulumi.CustomResource):
     auth: pulumi.Output[dict]
     """
     Authentication required for inline hook request.
-    
+
       * `key` (`str`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
       * `type` (`str`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
       * `value` (`str`) - Authentication secret.
@@ -21,7 +21,7 @@ class Hook(pulumi.CustomResource):
     channel: pulumi.Output[dict]
     """
     Details of the endpoint the inline hook will hit.
-    
+
       * `method` (`str`) - The request method to use. Default is `"POST"`.
       * `type` (`bool`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
       * `uri` (`str`) - The URI the hook will hit.
@@ -30,7 +30,7 @@ class Hook(pulumi.CustomResource):
     headers: pulumi.Output[list]
     """
     Map of headers to send along in inline hook request.
-    
+
       * `key` (`str`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
       * `value` (`str`) - Authentication secret.
     """
@@ -50,9 +50,11 @@ class Hook(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auth=None, channel=None, headers=None, name=None, status=None, type=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an inline hook.
-        
+
         This resource allows you to create and configure an inline hook.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] auth: Authentication required for inline hook request.
@@ -61,26 +63,24 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] type: The type of hook to trigger. Currently only `"HTTP"` is supported.
         :param pulumi.Input[str] version: The version of the endpoint.
-        
+
         The **auth** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `type` (`pulumi.Input[str]`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
-        
+
         The **channel** object supports the following:
-        
+
           * `method` (`pulumi.Input[str]`) - The request method to use. Default is `"POST"`.
           * `type` (`pulumi.Input[bool]`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
           * `uri` (`pulumi.Input[str]`) - The URI the hook will hit.
           * `version` (`pulumi.Input[str]`) - The version of the endpoint.
-        
+
         The **headers** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class Hook(pulumi.CustomResource):
         """
         Get an existing Hook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,30 +131,29 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] type: The type of hook to trigger. Currently only `"HTTP"` is supported.
         :param pulumi.Input[str] version: The version of the endpoint.
-        
+
         The **auth** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `type` (`pulumi.Input[str]`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
-        
+
         The **channel** object supports the following:
-        
+
           * `method` (`pulumi.Input[str]`) - The request method to use. Default is `"POST"`.
           * `type` (`pulumi.Input[bool]`) - The type of hook to trigger. Currently only `"HTTP"` is supported.
           * `uri` (`pulumi.Input[str]`) - The URI the hook will hit.
           * `version` (`pulumi.Input[str]`) - The version of the endpoint.
-        
+
         The **headers** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`) - Key to use for authentication, usually the header name, for example `"Authorization"`.
           * `value` (`pulumi.Input[str]`) - Authentication secret.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auth"] = auth
         __props__["channel"] = channel
         __props__["headers"] = headers

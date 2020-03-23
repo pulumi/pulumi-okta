@@ -33,7 +33,7 @@ class Saml(pulumi.CustomResource):
     attribute_statements: pulumi.Output[list]
     """
     List of SAML Attribute statements.
-    
+
       * `filterType` (`str`) - Type of group attribute filter.
       * `filterValue` (`str`) - Filter value to use.
       * `name` (`str`) - The name of the attribute statement.
@@ -82,6 +82,9 @@ class Saml(pulumi.CustomResource):
     features enabled.
     """
     groups: pulumi.Output[list]
+    """
+    Groups associated with the application
+    """
     hide_ios: pulumi.Output[bool]
     """
     Do not display application icon on mobile app.
@@ -111,7 +114,13 @@ class Saml(pulumi.CustomResource):
     Certificate key ID.
     """
     key_name: pulumi.Output[str]
+    """
+    Certificate name. This modulates the rotation of keys. New name == new key.
+    """
     key_years_valid: pulumi.Output[float]
+    """
+    Number of years the certificate is valid.
+    """
     label: pulumi.Output[str]
     """
     label of application.
@@ -181,12 +190,22 @@ class Saml(pulumi.CustomResource):
     Username template type.
     """
     users: pulumi.Output[list]
+    """
+    Users associated with the application
+
+      * `id` (`str`) - id of application.
+      * `password` (`str`)
+      * `scope` (`str`)
+      * `username` (`str`)
+    """
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, idp_issuer=None, key_name=None, key_years_valid=None, label=None, preconfigured_app=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an SAML Application.
-        
+
         This resource allows you to create and configure an SAML Application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_saml.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -202,10 +221,13 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[list] features: features enabled.
+        :param pulumi.Input[list] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
+        :param pulumi.Input[float] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: label of application.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
@@ -220,24 +242,23 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
-        
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **attribute_statements** object supports the following:
-        
+
           * `filterType` (`pulumi.Input[str]`) - Type of group attribute filter.
           * `filterValue` (`pulumi.Input[str]`) - Filter value to use.
           * `name` (`pulumi.Input[str]`) - The name of the attribute statement.
           * `namespace` (`pulumi.Input[str]`) - The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
           * `type` (`pulumi.Input[str]`) - The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
           * `values` (`pulumi.Input[list]`) - Array of values to use.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - id of application.
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_saml.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -313,7 +334,7 @@ class Saml(pulumi.CustomResource):
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,6 +354,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
         :param pulumi.Input[list] features: features enabled.
+        :param pulumi.Input[list] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
@@ -340,6 +362,8 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
         :param pulumi.Input[str] key_id: Certificate key ID.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
+        :param pulumi.Input[float] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: label of application.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] name: The name of the attribute statement.
@@ -357,28 +381,28 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
-        
+        :param pulumi.Input[list] users: Users associated with the application
+
         The **attribute_statements** object supports the following:
-        
+
           * `filterType` (`pulumi.Input[str]`) - Type of group attribute filter.
           * `filterValue` (`pulumi.Input[str]`) - Filter value to use.
           * `name` (`pulumi.Input[str]`) - The name of the attribute statement.
           * `namespace` (`pulumi.Input[str]`) - The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
           * `type` (`pulumi.Input[str]`) - The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
           * `values` (`pulumi.Input[list]`) - Array of values to use.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - id of application.
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_saml.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service

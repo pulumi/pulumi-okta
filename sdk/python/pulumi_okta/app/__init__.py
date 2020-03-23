@@ -6,6 +6,9 @@
 from .auto_login import *
 from .basic_auth import *
 from .bookmark import *
+from .get_app import *
+from .get_metadata_saml import *
+from .get_saml import *
 from .group_assignment import *
 from .o_auth import *
 from .o_auth_redirect_uri import *
@@ -16,6 +19,3 @@ from .three_field import *
 from .user import *
 from .user_base_schema import *
 from .user_schema import *
-from .get_app import *
-from .get_metadata_saml import *
-from .get_saml import *

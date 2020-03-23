@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .user import *
 from .base_schema import *
-from .schema import *
 from .get_user import *
 from .get_user_profile_mapping_source import *
 from .get_users import *
+from .schema import *
+from .user import *

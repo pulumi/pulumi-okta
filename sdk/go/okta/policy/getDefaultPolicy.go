@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
-// 
+//
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
 func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...pulumi.InvokeOption) (*GetDefaultPolicyResult, error) {
 	var rv GetDefaultPolicyResult

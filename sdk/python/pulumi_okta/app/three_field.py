@@ -89,7 +89,7 @@ class ThreeField(pulumi.CustomResource):
     users: pulumi.Output[list]
     """
     The users assigned to the application. See `app.User` for a more flexible approach.
-    
+
       * `id` (`str`)
       * `password` (`str`)
       * `scope` (`str`)
@@ -98,9 +98,11 @@ class ThreeField(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, button_selector=None, extra_field_selector=None, extra_field_value=None, groups=None, hide_ios=None, hide_web=None, label=None, password_selector=None, status=None, url=None, url_regex=None, username_selector=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Three Field Application.
-        
+
         This resource allows you to create and configure an Three Field Application.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_three_field.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -119,15 +121,13 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
         :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_three_field.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,7 +191,7 @@ class ThreeField(pulumi.CustomResource):
         """
         Get an existing ThreeField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,19 +215,18 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
         :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-        
+
         The **users** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_three_field.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
         __props__["auto_submit_toolbar"] = auto_submit_toolbar

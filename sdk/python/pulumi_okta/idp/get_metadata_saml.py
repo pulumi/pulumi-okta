@@ -13,7 +13,7 @@ class GetMetadataSamlResult:
     """
     A collection of values returned by getMetadataSaml.
     """
-    def __init__(__self__, assertions_signed=None, authn_request_signed=None, encryption_certificate=None, entity_id=None, http_post_binding=None, http_redirect_binding=None, idp_id=None, metadata=None, signing_certificate=None, id=None):
+    def __init__(__self__, assertions_signed=None, authn_request_signed=None, encryption_certificate=None, entity_id=None, http_post_binding=None, http_redirect_binding=None, id=None, idp_id=None, metadata=None, signing_certificate=None):
         if assertions_signed and not isinstance(assertions_signed, bool):
             raise TypeError("Expected argument 'assertions_signed' to be a bool")
         __self__.assertions_signed = assertions_signed
@@ -50,6 +50,12 @@ class GetMetadataSamlResult:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if idp_id and not isinstance(idp_id, str):
             raise TypeError("Expected argument 'idp_id' to be a str")
         __self__.idp_id = idp_id
@@ -65,12 +71,6 @@ class GetMetadataSamlResult:
         """
         SAML request signing certificate.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -83,20 +83,22 @@ class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
             entity_id=self.entity_id,
             http_post_binding=self.http_post_binding,
             http_redirect_binding=self.http_redirect_binding,
+            id=self.id,
             idp_id=self.idp_id,
             metadata=self.metadata,
-            signing_certificate=self.signing_certificate,
-            id=self.id)
+            signing_certificate=self.signing_certificate)
 
 def get_metadata_saml(idp_id=None,opts=None):
     """
     Use this data source to retrieve SAML IdP metadata from Okta.
-    
-    :param str idp_id: The id of the IdP to retrieve metadata for.
 
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
+
+
+    :param str idp_id: The id of the IdP to retrieve metadata for.
     """
     __args__ = dict()
+
 
     __args__['idpId'] = idp_id
     if opts is None:
@@ -112,7 +114,7 @@ def get_metadata_saml(idp_id=None,opts=None):
         entity_id=__ret__.get('entityId'),
         http_post_binding=__ret__.get('httpPostBinding'),
         http_redirect_binding=__ret__.get('httpRedirectBinding'),
+        id=__ret__.get('id'),
         idp_id=__ret__.get('idpId'),
         metadata=__ret__.get('metadata'),
-        signing_certificate=__ret__.get('signingCertificate'),
-        id=__ret__.get('id'))
+        signing_certificate=__ret__.get('signingCertificate'))

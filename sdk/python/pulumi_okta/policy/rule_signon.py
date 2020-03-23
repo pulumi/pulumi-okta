@@ -75,10 +75,15 @@ class RuleSignon(pulumi.CustomResource):
     Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
     """
     users_excludeds: pulumi.Output[list]
+    """
+    Set of User IDs to Exclude
+    """
     def __init__(__self__, resource_name, opts=None, access=None, authtype=None, mfa_lifetime=None, mfa_prompt=None, mfa_remember_device=None, mfa_required=None, name=None, network_connection=None, network_excludes=None, network_includes=None, policyid=None, priority=None, session_idle=None, session_lifetime=None, session_persistent=None, status=None, users_excludeds=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a Sign On Policy Rule.
-        
+
+        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
@@ -97,8 +102,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[float] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +151,7 @@ class RuleSignon(pulumi.CustomResource):
         """
         Get an existing RuleSignon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,12 +171,12 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[float] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
+        :param pulumi.Input[list] users_excludeds: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access"] = access
         __props__["authtype"] = authtype
         __props__["mfa_lifetime"] = mfa_lifetime
