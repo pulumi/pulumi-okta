@@ -65,7 +65,7 @@ func (i SchemaArrayOneOfArray) ToSchemaArrayOneOfArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaArrayOneOfArrayOutput)
 }
 
-type SchemaArrayOneOfOutput struct { *pulumi.OutputState }
+type SchemaArrayOneOfOutput struct{ *pulumi.OutputState }
 
 func (SchemaArrayOneOfOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SchemaArrayOneOf)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o SchemaArrayOneOfOutput) ToSchemaArrayOneOfOutputWithContext(ctx context.
 
 // value mapping to member of `enum`.
 func (o SchemaArrayOneOfOutput) Const() pulumi.StringOutput {
-	return o.ApplyT(func (v SchemaArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SchemaArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
 // display name for the enum value.
 func (o SchemaArrayOneOfOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v SchemaArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SchemaArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type SchemaArrayOneOfArrayOutput struct { *pulumi.OutputState}
+type SchemaArrayOneOfArrayOutput struct{ *pulumi.OutputState }
 
 func (SchemaArrayOneOfArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SchemaArrayOneOf)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o SchemaArrayOneOfArrayOutput) ToSchemaArrayOneOfArrayOutputWithContext(ct
 }
 
 func (o SchemaArrayOneOfArrayOutput) Index(i pulumi.IntInput) SchemaArrayOneOfOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SchemaArrayOneOf {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaArrayOneOf {
 		return vs[0].([]SchemaArrayOneOf)[vs[1].(int)]
 	}).(SchemaArrayOneOfOutput)
 }
@@ -163,7 +163,7 @@ func (i SchemaOneOfArray) ToSchemaOneOfArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaOneOfArrayOutput)
 }
 
-type SchemaOneOfOutput struct { *pulumi.OutputState }
+type SchemaOneOfOutput struct{ *pulumi.OutputState }
 
 func (SchemaOneOfOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SchemaOneOf)(nil)).Elem()
@@ -179,15 +179,15 @@ func (o SchemaOneOfOutput) ToSchemaOneOfOutputWithContext(ctx context.Context) S
 
 // value mapping to member of `enum`.
 func (o SchemaOneOfOutput) Const() pulumi.StringOutput {
-	return o.ApplyT(func (v SchemaOneOf) string { return v.Const }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SchemaOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
 // display name for the enum value.
 func (o SchemaOneOfOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v SchemaOneOf) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SchemaOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type SchemaOneOfArrayOutput struct { *pulumi.OutputState}
+type SchemaOneOfArrayOutput struct{ *pulumi.OutputState }
 
 func (SchemaOneOfArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SchemaOneOf)(nil)).Elem()
@@ -202,7 +202,7 @@ func (o SchemaOneOfArrayOutput) ToSchemaOneOfArrayOutputWithContext(ctx context.
 }
 
 func (o SchemaOneOfArrayOutput) Index(i pulumi.IntInput) SchemaOneOfOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SchemaOneOf {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaOneOf {
 		return vs[0].([]SchemaOneOf)[vs[1].(int)]
 	}).(SchemaOneOfOutput)
 }
@@ -265,7 +265,7 @@ func (i GetUserSearchArray) ToGetUserSearchArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserSearchArrayOutput)
 }
 
-type GetUserSearchOutput struct { *pulumi.OutputState }
+type GetUserSearchOutput struct{ *pulumi.OutputState }
 
 func (GetUserSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetUserSearch)(nil)).Elem()
@@ -281,20 +281,20 @@ func (o GetUserSearchOutput) ToGetUserSearchOutputWithContext(ctx context.Contex
 
 // Comparison to use.
 func (o GetUserSearchOutput) Comparison() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetUserSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetUserSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
 // Name of property to search against.
 func (o GetUserSearchOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUserSearch) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUserSearch) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Value to compare with.
 func (o GetUserSearchOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUserSearch) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUserSearch) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetUserSearchArrayOutput struct { *pulumi.OutputState}
+type GetUserSearchArrayOutput struct{ *pulumi.OutputState }
 
 func (GetUserSearchArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetUserSearch)(nil)).Elem()
@@ -309,7 +309,7 @@ func (o GetUserSearchArrayOutput) ToGetUserSearchArrayOutputWithContext(ctx cont
 }
 
 func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetUserSearch {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserSearch {
 		return vs[0].([]GetUserSearch)[vs[1].(int)]
 	}).(GetUserSearchOutput)
 }
@@ -372,7 +372,7 @@ func (i GetUsersSearchArray) ToGetUsersSearchArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersSearchArrayOutput)
 }
 
-type GetUsersSearchOutput struct { *pulumi.OutputState }
+type GetUsersSearchOutput struct{ *pulumi.OutputState }
 
 func (GetUsersSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetUsersSearch)(nil)).Elem()
@@ -388,20 +388,20 @@ func (o GetUsersSearchOutput) ToGetUsersSearchOutputWithContext(ctx context.Cont
 
 // Comparison to use.
 func (o GetUsersSearchOutput) Comparison() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetUsersSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetUsersSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
 // Name of property to search against.
 func (o GetUsersSearchOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersSearch) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersSearch) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Value to compare with.
 func (o GetUsersSearchOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersSearch) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersSearch) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetUsersSearchArrayOutput struct { *pulumi.OutputState}
+type GetUsersSearchArrayOutput struct{ *pulumi.OutputState }
 
 func (GetUsersSearchArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetUsersSearch)(nil)).Elem()
@@ -416,7 +416,7 @@ func (o GetUsersSearchArrayOutput) ToGetUsersSearchArrayOutputWithContext(ctx co
 }
 
 func (o GetUsersSearchArrayOutput) Index(i pulumi.IntInput) GetUsersSearchOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetUsersSearch {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUsersSearch {
 		return vs[0].([]GetUsersSearch)[vs[1].(int)]
 	}).(GetUsersSearchOutput)
 }
@@ -607,7 +607,7 @@ func (i GetUsersUserArray) ToGetUsersUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserArrayOutput)
 }
 
-type GetUsersUserOutput struct { *pulumi.OutputState }
+type GetUsersUserOutput struct{ *pulumi.OutputState }
 
 func (GetUsersUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetUsersUser)(nil)).Elem()
@@ -623,180 +623,180 @@ func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context)
 
 // Administrator roles assigned to user.
 func (o GetUsersUserOutput) AdminRoles() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetUsersUser) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetUsersUser) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.City }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.City }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) CostCenter() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.CostCenter }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.CostCenter }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.CountryCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
 // raw JSON containing all custom profile attributes.
 func (o GetUsersUserOutput) CustomProfileAttributes() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Department() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Department }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Department }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.DisplayName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Division() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Division }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Division }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) EmployeeNumber() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.EmployeeNumber }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.EmployeeNumber }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.FirstName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) GroupMemberships() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetUsersUser) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetUsersUser) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) HonorificPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.HonorificPrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.HonorificPrefix }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) HonorificSuffix() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.HonorificSuffix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.HonorificSuffix }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.LastName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.LastName }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Locale() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Locale }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Locale }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Login() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Login }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Login }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Manager() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Manager }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Manager }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) ManagerId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.ManagerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.ManagerId }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) MiddleName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.MiddleName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.MiddleName }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) MobilePhone() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.MobilePhone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.MobilePhone }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) NickName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.NickName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.NickName }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Organization() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Organization }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Organization }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) PostalAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.PostalAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.PostalAddress }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) PreferredLanguage() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.PreferredLanguage }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.PreferredLanguage }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) PrimaryPhone() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.PrimaryPhone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.PrimaryPhone }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) ProfileUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.ProfileUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.ProfileUrl }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) SecondEmail() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.SecondEmail }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.SecondEmail }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.State }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.State }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) StreetAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.StreetAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.StreetAddress }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Timezone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.Title }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) UserType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.UserType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.UserType }).(pulumi.StringOutput)
 }
 
 // user profile property.
 func (o GetUsersUserOutput) ZipCode() pulumi.StringOutput {
-	return o.ApplyT(func (v GetUsersUser) string { return v.ZipCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetUsersUser) string { return v.ZipCode }).(pulumi.StringOutput)
 }
 
-type GetUsersUserArrayOutput struct { *pulumi.OutputState}
+type GetUsersUserArrayOutput struct{ *pulumi.OutputState }
 
 func (GetUsersUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetUsersUser)(nil)).Elem()
@@ -811,7 +811,7 @@ func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutputWithContext(ctx contex
 }
 
 func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetUsersUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUsersUser {
 		return vs[0].([]GetUsersUser)[vs[1].(int)]
 	}).(GetUsersUserOutput)
 }

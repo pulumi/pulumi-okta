@@ -6,7 +6,7 @@ require (
 	github.com/articulate/terraform-provider-okta v1.0.1-0.20191121000300-cf25a358d866
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
 	github.com/pulumi/pulumi-terraform-bridge v1.8.4
-	github.com/pulumi/pulumi/sdk v1.14.0
+	github.com/pulumi/pulumi/sdk v1.13.1
 )
 
 replace (

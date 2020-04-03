@@ -16,7 +16,18 @@ namespace Pulumi.Okta.App
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
         /// </summary>
+        [Obsolete("Use GetApp.InvokeAsync() instead")]
         public static Task<GetAppResult> GetApp(GetAppArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetApp
+    {
+        /// <summary>
+        /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
+        /// </summary>
+        public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -25,13 +25,13 @@ type BookmarkApp struct {
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// name of app.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name               pulumi.StringOutput  `pulumi:"name"`
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url    pulumi.StringOutput    `pulumi:"url"`
 	// Users associated with the application
 	Users BookmarkAppUserArrayOutput `pulumi:"users"`
 }
@@ -81,13 +81,13 @@ type bookmarkAppState struct {
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
 	// name of app.
-	Name *string `pulumi:"name"`
-	RequestIntegration *bool `pulumi:"requestIntegration"`
+	Name               *string `pulumi:"name"`
+	RequestIntegration *bool   `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Status of application.
 	Status *string `pulumi:"status"`
-	Url *string `pulumi:"url"`
+	Url    *string `pulumi:"url"`
 	// Users associated with the application
 	Users []BookmarkAppUser `pulumi:"users"`
 }
@@ -104,13 +104,13 @@ type BookmarkAppState struct {
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
 	// name of app.
-	Name pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
-	Url pulumi.StringPtrInput
+	Url    pulumi.StringPtrInput
 	// Users associated with the application
 	Users BookmarkAppUserArrayInput
 }
@@ -129,11 +129,11 @@ type bookmarkAppArgs struct {
 	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
-	Label string `pulumi:"label"`
-	RequestIntegration *bool `pulumi:"requestIntegration"`
+	Label              string `pulumi:"label"`
+	RequestIntegration *bool  `pulumi:"requestIntegration"`
 	// Status of application.
 	Status *string `pulumi:"status"`
-	Url string `pulumi:"url"`
+	Url    string  `pulumi:"url"`
 	// Users associated with the application
 	Users []BookmarkAppUser `pulumi:"users"`
 }
@@ -149,11 +149,11 @@ type BookmarkAppArgs struct {
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
-	Label pulumi.StringInput
+	Label              pulumi.StringInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
-	Url pulumi.StringInput
+	Url    pulumi.StringInput
 	// Users associated with the application
 	Users BookmarkAppUserArrayInput
 }
@@ -161,4 +161,3 @@ type BookmarkAppArgs struct {
 func (BookmarkAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkAppArgs)(nil)).Elem()
 }
-

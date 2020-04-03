@@ -176,4 +176,3 @@ type BookmarkArgs struct {
 func (BookmarkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkArgs)(nil)).Elem()
 }
-

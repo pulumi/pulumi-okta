@@ -16,14 +16,14 @@ type Mapping struct {
 
 	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 	// default, we do not delete missing properties.
-	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
-	Mappings MappingMappingArrayOutput `pulumi:"mappings"`
+	DeleteWhenAbsent pulumi.BoolPtrOutput      `pulumi:"deleteWhenAbsent"`
+	Mappings         MappingMappingArrayOutput `pulumi:"mappings"`
 	// The source id of the mapping to manage.
-	SourceId pulumi.StringOutput `pulumi:"sourceId"`
+	SourceId   pulumi.StringOutput `pulumi:"sourceId"`
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
 	// The target id of the mapping to manage.
-	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	TargetId   pulumi.StringOutput `pulumi:"targetId"`
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 }
@@ -64,14 +64,14 @@ func GetMapping(ctx *pulumi.Context,
 type mappingState struct {
 	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 	// default, we do not delete missing properties.
-	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
-	Mappings []MappingMapping `pulumi:"mappings"`
+	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
+	Mappings         []MappingMapping `pulumi:"mappings"`
 	// The source id of the mapping to manage.
-	SourceId *string `pulumi:"sourceId"`
+	SourceId   *string `pulumi:"sourceId"`
 	SourceName *string `pulumi:"sourceName"`
 	SourceType *string `pulumi:"sourceType"`
 	// The target id of the mapping to manage.
-	TargetId *string `pulumi:"targetId"`
+	TargetId   *string `pulumi:"targetId"`
 	TargetName *string `pulumi:"targetName"`
 	TargetType *string `pulumi:"targetType"`
 }
@@ -80,13 +80,13 @@ type MappingState struct {
 	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 	// default, we do not delete missing properties.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	Mappings MappingMappingArrayInput
+	Mappings         MappingMappingArrayInput
 	// The source id of the mapping to manage.
-	SourceId pulumi.StringPtrInput
+	SourceId   pulumi.StringPtrInput
 	SourceName pulumi.StringPtrInput
 	SourceType pulumi.StringPtrInput
 	// The target id of the mapping to manage.
-	TargetId pulumi.StringPtrInput
+	TargetId   pulumi.StringPtrInput
 	TargetName pulumi.StringPtrInput
 	TargetType pulumi.StringPtrInput
 }
@@ -98,8 +98,8 @@ func (MappingState) ElementType() reflect.Type {
 type mappingArgs struct {
 	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 	// default, we do not delete missing properties.
-	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
-	Mappings []MappingMapping `pulumi:"mappings"`
+	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
+	Mappings         []MappingMapping `pulumi:"mappings"`
 	// The source id of the mapping to manage.
 	SourceId string `pulumi:"sourceId"`
 	// The target id of the mapping to manage.
@@ -111,7 +111,7 @@ type MappingArgs struct {
 	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
 	// default, we do not delete missing properties.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	Mappings MappingMappingArrayInput
+	Mappings         MappingMappingArrayInput
 	// The source id of the mapping to manage.
 	SourceId pulumi.StringInput
 	// The target id of the mapping to manage.
@@ -121,4 +121,3 @@ type MappingArgs struct {
 func (MappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mappingArgs)(nil)).Elem()
 }
-

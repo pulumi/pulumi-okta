@@ -167,4 +167,3 @@ type ServerClaimArgs struct {
 func (ServerClaimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverClaimArgs)(nil)).Elem()
 }
-

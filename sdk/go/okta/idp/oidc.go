@@ -86,7 +86,7 @@ type Oidc struct {
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringOutput `pulumi:"tokenUrl"`
 	// Type of OIDC IdP.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
 	UserInfoBinding pulumi.StringPtrOutput `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl pulumi.StringPtrOutput `pulumi:"userInfoUrl"`
@@ -222,7 +222,7 @@ type oidcState struct {
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl *string `pulumi:"tokenUrl"`
 	// Type of OIDC IdP.
-	Type *string `pulumi:"type"`
+	Type            *string `pulumi:"type"`
 	UserInfoBinding *string `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl *string `pulumi:"userInfoUrl"`
@@ -298,7 +298,7 @@ type OidcState struct {
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringPtrInput
 	// Type of OIDC IdP.
-	Type pulumi.StringPtrInput
+	Type            pulumi.StringPtrInput
 	UserInfoBinding pulumi.StringPtrInput
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl pulumi.StringPtrInput
@@ -376,7 +376,7 @@ type oidcArgs struct {
 	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	TokenBinding string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl string `pulumi:"tokenUrl"`
+	TokenUrl        string  `pulumi:"tokenUrl"`
 	UserInfoBinding *string `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl *string `pulumi:"userInfoUrl"`
@@ -451,7 +451,7 @@ type OidcArgs struct {
 	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	TokenBinding pulumi.StringInput
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl pulumi.StringInput
+	TokenUrl        pulumi.StringInput
 	UserInfoBinding pulumi.StringPtrInput
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl pulumi.StringPtrInput
@@ -462,4 +462,3 @@ type OidcArgs struct {
 func (OidcArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oidcArgs)(nil)).Elem()
 }
-

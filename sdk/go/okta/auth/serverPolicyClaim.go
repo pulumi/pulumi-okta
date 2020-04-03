@@ -25,8 +25,8 @@ type ServerPolicyClaim struct {
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayOutput `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
-	GroupWhitelists pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
+	GroupBlacklists     pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
+	GroupWhitelists     pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -37,13 +37,13 @@ type ServerPolicyClaim struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenLifetimeMinutes"`
-	RefreshTokenWindowMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenWindowMinutes"`
+	RefreshTokenWindowMinutes   pulumi.IntPtrOutput `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayOutput `pulumi:"scopeWhitelists"`
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type           pulumi.StringPtrOutput   `pulumi:"type"`
 	UserBlacklists pulumi.StringArrayOutput `pulumi:"userBlacklists"`
 	UserWhitelists pulumi.StringArrayOutput `pulumi:"userWhitelists"`
 }
@@ -94,8 +94,8 @@ type serverPolicyClaimState struct {
 	AuthServerId *string `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	GroupWhitelists []string `pulumi:"groupWhitelists"`
+	GroupBlacklists     []string `pulumi:"groupBlacklists"`
+	GroupWhitelists     []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -106,13 +106,13 @@ type serverPolicyClaimState struct {
 	Priority *int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
+	RefreshTokenWindowMinutes   *int `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
 	// The status of the Auth Server Policy Rule.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type *string `pulumi:"type"`
+	Type           *string  `pulumi:"type"`
 	UserBlacklists []string `pulumi:"userBlacklists"`
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
@@ -124,8 +124,8 @@ type ServerPolicyClaimState struct {
 	AuthServerId pulumi.StringPtrInput
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayInput
-	GroupBlacklists pulumi.StringArrayInput
-	GroupWhitelists pulumi.StringArrayInput
+	GroupBlacklists     pulumi.StringArrayInput
+	GroupWhitelists     pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
 	// Auth Server Policy Rule name.
@@ -136,13 +136,13 @@ type ServerPolicyClaimState struct {
 	Priority pulumi.IntPtrInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	RefreshTokenWindowMinutes pulumi.IntPtrInput
+	RefreshTokenWindowMinutes   pulumi.IntPtrInput
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
-	Type pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 	UserBlacklists pulumi.StringArrayInput
 	UserWhitelists pulumi.StringArrayInput
 }
@@ -158,8 +158,8 @@ type serverPolicyClaimArgs struct {
 	AuthServerId string `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	GroupWhitelists []string `pulumi:"groupWhitelists"`
+	GroupBlacklists     []string `pulumi:"groupBlacklists"`
+	GroupWhitelists     []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -170,13 +170,13 @@ type serverPolicyClaimArgs struct {
 	Priority int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
+	RefreshTokenWindowMinutes   *int `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
 	// The status of the Auth Server Policy Rule.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type *string `pulumi:"type"`
+	Type           *string  `pulumi:"type"`
 	UserBlacklists []string `pulumi:"userBlacklists"`
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
@@ -189,8 +189,8 @@ type ServerPolicyClaimArgs struct {
 	AuthServerId pulumi.StringInput
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayInput
-	GroupBlacklists pulumi.StringArrayInput
-	GroupWhitelists pulumi.StringArrayInput
+	GroupBlacklists     pulumi.StringArrayInput
+	GroupWhitelists     pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
 	// Auth Server Policy Rule name.
@@ -201,13 +201,13 @@ type ServerPolicyClaimArgs struct {
 	Priority pulumi.IntInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	RefreshTokenWindowMinutes pulumi.IntPtrInput
+	RefreshTokenWindowMinutes   pulumi.IntPtrInput
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
-	Type pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 	UserBlacklists pulumi.StringArrayInput
 	UserWhitelists pulumi.StringArrayInput
 }
@@ -215,4 +215,3 @@ type ServerPolicyClaimArgs struct {
 func (ServerPolicyClaimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverPolicyClaimArgs)(nil)).Elem()
 }
-

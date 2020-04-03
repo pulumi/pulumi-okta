@@ -28,17 +28,15 @@ type LookupGroupArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	// description of group.
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IncludeUsers *bool `pulumi:"includeUsers"`
+	Id           string `pulumi:"id"`
+	IncludeUsers *bool  `pulumi:"includeUsers"`
 	// name of group.
 	Name string `pulumi:"name"`
 	// user ids that are members of this group, only included if `includeUsers` is set to `true`.
 	Users []string `pulumi:"users"`
 }
-

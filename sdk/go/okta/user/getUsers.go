@@ -24,16 +24,15 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 type GetUsersArgs struct {
 	// Map of search criteria to use to find users. It supports the following properties.
 	Searches []GetUsersSearch `pulumi:"searches"`
-	Users []GetUsersUser `pulumi:"users"`
-}
-
-
-// A collection of values returned by getUsers.
-type GetUsersResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Searches []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
 	Users []GetUsersUser `pulumi:"users"`
 }
 
+// A collection of values returned by getUsers.
+type GetUsersResult struct {
+	// id is the provider-assigned unique ID for this managed resource.
+	Id       string           `pulumi:"id"`
+	Searches []GetUsersSearch `pulumi:"searches"`
+	// collection of users retrieved from Okta with the following properties.
+	Users []GetUsersUser `pulumi:"users"`
+}

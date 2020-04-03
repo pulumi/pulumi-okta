@@ -250,4 +250,3 @@ type AuthLoginAppArgs struct {
 func (AuthLoginAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authLoginAppArgs)(nil)).Elem()
 }
-

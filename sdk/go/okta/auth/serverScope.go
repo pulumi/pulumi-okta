@@ -131,4 +131,3 @@ type ServerScopeArgs struct {
 func (ServerScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverScopeArgs)(nil)).Elem()
 }
-

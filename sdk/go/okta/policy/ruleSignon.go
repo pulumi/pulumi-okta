@@ -239,4 +239,3 @@ type RuleSignonArgs struct {
 func (RuleSignonArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleSignonArgs)(nil)).Elem()
 }
-

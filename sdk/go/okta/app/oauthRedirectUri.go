@@ -84,4 +84,3 @@ type OAuthRedirectUriArgs struct {
 func (OAuthRedirectUriArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthRedirectUriArgs)(nil)).Elem()
 }
-

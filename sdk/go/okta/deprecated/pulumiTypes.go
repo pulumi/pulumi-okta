@@ -12,9 +12,9 @@ import (
 )
 
 type AuthLoginAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -26,9 +26,9 @@ type AuthLoginAppUserInput interface {
 }
 
 type AuthLoginAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -65,7 +65,7 @@ func (i AuthLoginAppUserArray) ToAuthLoginAppUserArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppUserArrayOutput)
 }
 
-type AuthLoginAppUserOutput struct { *pulumi.OutputState }
+type AuthLoginAppUserOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthLoginAppUser)(nil)).Elem()
@@ -80,22 +80,22 @@ func (o AuthLoginAppUserOutput) ToAuthLoginAppUserOutputWithContext(ctx context.
 }
 
 func (o AuthLoginAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AuthLoginAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AuthLoginAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o AuthLoginAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AuthLoginAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AuthLoginAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o AuthLoginAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AuthLoginAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AuthLoginAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o AuthLoginAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AuthLoginAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AuthLoginAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type AuthLoginAppUserArrayOutput struct { *pulumi.OutputState}
+type AuthLoginAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AuthLoginAppUser)(nil)).Elem()
@@ -110,15 +110,15 @@ func (o AuthLoginAppUserArrayOutput) ToAuthLoginAppUserArrayOutputWithContext(ct
 }
 
 func (o AuthLoginAppUserArrayOutput) Index(i pulumi.IntInput) AuthLoginAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AuthLoginAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthLoginAppUser {
 		return vs[0].([]AuthLoginAppUser)[vs[1].(int)]
 	}).(AuthLoginAppUserOutput)
 }
 
 type BookmarkAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -130,9 +130,9 @@ type BookmarkAppUserInput interface {
 }
 
 type BookmarkAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -169,7 +169,7 @@ func (i BookmarkAppUserArray) ToBookmarkAppUserArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppUserArrayOutput)
 }
 
-type BookmarkAppUserOutput struct { *pulumi.OutputState }
+type BookmarkAppUserOutput struct{ *pulumi.OutputState }
 
 func (BookmarkAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BookmarkAppUser)(nil)).Elem()
@@ -184,22 +184,22 @@ func (o BookmarkAppUserOutput) ToBookmarkAppUserOutputWithContext(ctx context.Co
 }
 
 func (o BookmarkAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type BookmarkAppUserArrayOutput struct { *pulumi.OutputState}
+type BookmarkAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (BookmarkAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BookmarkAppUser)(nil)).Elem()
@@ -214,14 +214,14 @@ func (o BookmarkAppUserArrayOutput) ToBookmarkAppUserArrayOutputWithContext(ctx 
 }
 
 func (o BookmarkAppUserArrayOutput) Index(i pulumi.IntInput) BookmarkAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BookmarkAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BookmarkAppUser {
 		return vs[0].([]BookmarkAppUser)[vs[1].(int)]
 	}).(BookmarkAppUserOutput)
 }
 
 type MfaPolicyDuo struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyDuoInput interface {
@@ -233,7 +233,7 @@ type MfaPolicyDuoInput interface {
 
 type MfaPolicyDuoArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyDuoArgs) ElementType() reflect.Type {
@@ -265,7 +265,8 @@ type MfaPolicyDuoPtrInput interface {
 
 type mfaPolicyDuoPtrType MfaPolicyDuoArgs
 
-func MfaPolicyDuoPtr(v *MfaPolicyDuoArgs) MfaPolicyDuoPtrInput {	return (*mfaPolicyDuoPtrType)(v)
+func MfaPolicyDuoPtr(v *MfaPolicyDuoArgs) MfaPolicyDuoPtrInput {
+	return (*mfaPolicyDuoPtrType)(v)
 }
 
 func (*mfaPolicyDuoPtrType) ElementType() reflect.Type {
@@ -280,7 +281,7 @@ func (i *mfaPolicyDuoPtrType) ToMfaPolicyDuoPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyDuoPtrOutput)
 }
 
-type MfaPolicyDuoOutput struct { *pulumi.OutputState }
+type MfaPolicyDuoOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyDuoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyDuo)(nil)).Elem()
@@ -304,14 +305,14 @@ func (o MfaPolicyDuoOutput) ToMfaPolicyDuoPtrOutputWithContext(ctx context.Conte
 	}).(MfaPolicyDuoPtrOutput)
 }
 func (o MfaPolicyDuoOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyDuoOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyDuoPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyDuoPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyDuoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyDuo)(nil)).Elem()
@@ -326,20 +327,20 @@ func (o MfaPolicyDuoPtrOutput) ToMfaPolicyDuoPtrOutputWithContext(ctx context.Co
 }
 
 func (o MfaPolicyDuoPtrOutput) Elem() MfaPolicyDuoOutput {
-	return o.ApplyT(func (v *MfaPolicyDuo) MfaPolicyDuo { return *v }).(MfaPolicyDuoOutput)
+	return o.ApplyT(func(v *MfaPolicyDuo) MfaPolicyDuo { return *v }).(MfaPolicyDuoOutput)
 }
 
 func (o MfaPolicyDuoPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyDuoPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyFidoU2f struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyFidoU2fInput interface {
@@ -351,7 +352,7 @@ type MfaPolicyFidoU2fInput interface {
 
 type MfaPolicyFidoU2fArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyFidoU2fArgs) ElementType() reflect.Type {
@@ -383,7 +384,8 @@ type MfaPolicyFidoU2fPtrInput interface {
 
 type mfaPolicyFidoU2fPtrType MfaPolicyFidoU2fArgs
 
-func MfaPolicyFidoU2fPtr(v *MfaPolicyFidoU2fArgs) MfaPolicyFidoU2fPtrInput {	return (*mfaPolicyFidoU2fPtrType)(v)
+func MfaPolicyFidoU2fPtr(v *MfaPolicyFidoU2fArgs) MfaPolicyFidoU2fPtrInput {
+	return (*mfaPolicyFidoU2fPtrType)(v)
 }
 
 func (*mfaPolicyFidoU2fPtrType) ElementType() reflect.Type {
@@ -398,7 +400,7 @@ func (i *mfaPolicyFidoU2fPtrType) ToMfaPolicyFidoU2fPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyFidoU2fPtrOutput)
 }
 
-type MfaPolicyFidoU2fOutput struct { *pulumi.OutputState }
+type MfaPolicyFidoU2fOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyFidoU2fOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyFidoU2f)(nil)).Elem()
@@ -422,14 +424,14 @@ func (o MfaPolicyFidoU2fOutput) ToMfaPolicyFidoU2fPtrOutputWithContext(ctx conte
 	}).(MfaPolicyFidoU2fPtrOutput)
 }
 func (o MfaPolicyFidoU2fOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoU2fOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyFidoU2fPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyFidoU2fPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyFidoU2fPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyFidoU2f)(nil)).Elem()
@@ -444,20 +446,20 @@ func (o MfaPolicyFidoU2fPtrOutput) ToMfaPolicyFidoU2fPtrOutputWithContext(ctx co
 }
 
 func (o MfaPolicyFidoU2fPtrOutput) Elem() MfaPolicyFidoU2fOutput {
-	return o.ApplyT(func (v *MfaPolicyFidoU2f) MfaPolicyFidoU2f { return *v }).(MfaPolicyFidoU2fOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoU2f) MfaPolicyFidoU2f { return *v }).(MfaPolicyFidoU2fOutput)
 }
 
 func (o MfaPolicyFidoU2fPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoU2fPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyFidoWebauthn struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyFidoWebauthnInput interface {
@@ -469,7 +471,7 @@ type MfaPolicyFidoWebauthnInput interface {
 
 type MfaPolicyFidoWebauthnArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyFidoWebauthnArgs) ElementType() reflect.Type {
@@ -501,7 +503,8 @@ type MfaPolicyFidoWebauthnPtrInput interface {
 
 type mfaPolicyFidoWebauthnPtrType MfaPolicyFidoWebauthnArgs
 
-func MfaPolicyFidoWebauthnPtr(v *MfaPolicyFidoWebauthnArgs) MfaPolicyFidoWebauthnPtrInput {	return (*mfaPolicyFidoWebauthnPtrType)(v)
+func MfaPolicyFidoWebauthnPtr(v *MfaPolicyFidoWebauthnArgs) MfaPolicyFidoWebauthnPtrInput {
+	return (*mfaPolicyFidoWebauthnPtrType)(v)
 }
 
 func (*mfaPolicyFidoWebauthnPtrType) ElementType() reflect.Type {
@@ -516,7 +519,7 @@ func (i *mfaPolicyFidoWebauthnPtrType) ToMfaPolicyFidoWebauthnPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyFidoWebauthnPtrOutput)
 }
 
-type MfaPolicyFidoWebauthnOutput struct { *pulumi.OutputState }
+type MfaPolicyFidoWebauthnOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyFidoWebauthnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyFidoWebauthn)(nil)).Elem()
@@ -540,14 +543,14 @@ func (o MfaPolicyFidoWebauthnOutput) ToMfaPolicyFidoWebauthnPtrOutputWithContext
 	}).(MfaPolicyFidoWebauthnPtrOutput)
 }
 func (o MfaPolicyFidoWebauthnOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoWebauthnOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyFidoWebauthnPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyFidoWebauthnPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyFidoWebauthnPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyFidoWebauthn)(nil)).Elem()
@@ -562,20 +565,20 @@ func (o MfaPolicyFidoWebauthnPtrOutput) ToMfaPolicyFidoWebauthnPtrOutputWithCont
 }
 
 func (o MfaPolicyFidoWebauthnPtrOutput) Elem() MfaPolicyFidoWebauthnOutput {
-	return o.ApplyT(func (v *MfaPolicyFidoWebauthn) MfaPolicyFidoWebauthn { return *v }).(MfaPolicyFidoWebauthnOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoWebauthn) MfaPolicyFidoWebauthn { return *v }).(MfaPolicyFidoWebauthnOutput)
 }
 
 func (o MfaPolicyFidoWebauthnPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoWebauthnPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyGoogleOtp struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyGoogleOtpInput interface {
@@ -587,7 +590,7 @@ type MfaPolicyGoogleOtpInput interface {
 
 type MfaPolicyGoogleOtpArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyGoogleOtpArgs) ElementType() reflect.Type {
@@ -619,7 +622,8 @@ type MfaPolicyGoogleOtpPtrInput interface {
 
 type mfaPolicyGoogleOtpPtrType MfaPolicyGoogleOtpArgs
 
-func MfaPolicyGoogleOtpPtr(v *MfaPolicyGoogleOtpArgs) MfaPolicyGoogleOtpPtrInput {	return (*mfaPolicyGoogleOtpPtrType)(v)
+func MfaPolicyGoogleOtpPtr(v *MfaPolicyGoogleOtpArgs) MfaPolicyGoogleOtpPtrInput {
+	return (*mfaPolicyGoogleOtpPtrType)(v)
 }
 
 func (*mfaPolicyGoogleOtpPtrType) ElementType() reflect.Type {
@@ -634,7 +638,7 @@ func (i *mfaPolicyGoogleOtpPtrType) ToMfaPolicyGoogleOtpPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyGoogleOtpPtrOutput)
 }
 
-type MfaPolicyGoogleOtpOutput struct { *pulumi.OutputState }
+type MfaPolicyGoogleOtpOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyGoogleOtpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyGoogleOtp)(nil)).Elem()
@@ -658,14 +662,14 @@ func (o MfaPolicyGoogleOtpOutput) ToMfaPolicyGoogleOtpPtrOutputWithContext(ctx c
 	}).(MfaPolicyGoogleOtpPtrOutput)
 }
 func (o MfaPolicyGoogleOtpOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyGoogleOtpOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyGoogleOtpPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyGoogleOtpPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyGoogleOtpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyGoogleOtp)(nil)).Elem()
@@ -680,20 +684,20 @@ func (o MfaPolicyGoogleOtpPtrOutput) ToMfaPolicyGoogleOtpPtrOutputWithContext(ct
 }
 
 func (o MfaPolicyGoogleOtpPtrOutput) Elem() MfaPolicyGoogleOtpOutput {
-	return o.ApplyT(func (v *MfaPolicyGoogleOtp) MfaPolicyGoogleOtp { return *v }).(MfaPolicyGoogleOtpOutput)
+	return o.ApplyT(func(v *MfaPolicyGoogleOtp) MfaPolicyGoogleOtp { return *v }).(MfaPolicyGoogleOtpOutput)
 }
 
 func (o MfaPolicyGoogleOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyGoogleOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaCall struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaCallInput interface {
@@ -705,7 +709,7 @@ type MfaPolicyOktaCallInput interface {
 
 type MfaPolicyOktaCallArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaCallArgs) ElementType() reflect.Type {
@@ -737,7 +741,8 @@ type MfaPolicyOktaCallPtrInput interface {
 
 type mfaPolicyOktaCallPtrType MfaPolicyOktaCallArgs
 
-func MfaPolicyOktaCallPtr(v *MfaPolicyOktaCallArgs) MfaPolicyOktaCallPtrInput {	return (*mfaPolicyOktaCallPtrType)(v)
+func MfaPolicyOktaCallPtr(v *MfaPolicyOktaCallArgs) MfaPolicyOktaCallPtrInput {
+	return (*mfaPolicyOktaCallPtrType)(v)
 }
 
 func (*mfaPolicyOktaCallPtrType) ElementType() reflect.Type {
@@ -752,7 +757,7 @@ func (i *mfaPolicyOktaCallPtrType) ToMfaPolicyOktaCallPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaCallPtrOutput)
 }
 
-type MfaPolicyOktaCallOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaCallOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaCallOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaCall)(nil)).Elem()
@@ -776,14 +781,14 @@ func (o MfaPolicyOktaCallOutput) ToMfaPolicyOktaCallPtrOutputWithContext(ctx con
 	}).(MfaPolicyOktaCallPtrOutput)
 }
 func (o MfaPolicyOktaCallOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaCallOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaCallPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaCallPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaCallPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaCall)(nil)).Elem()
@@ -798,20 +803,20 @@ func (o MfaPolicyOktaCallPtrOutput) ToMfaPolicyOktaCallPtrOutputWithContext(ctx 
 }
 
 func (o MfaPolicyOktaCallPtrOutput) Elem() MfaPolicyOktaCallOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaCall) MfaPolicyOktaCall { return *v }).(MfaPolicyOktaCallOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaCall) MfaPolicyOktaCall { return *v }).(MfaPolicyOktaCallOutput)
 }
 
 func (o MfaPolicyOktaCallPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaCallPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaOtp struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaOtpInput interface {
@@ -823,7 +828,7 @@ type MfaPolicyOktaOtpInput interface {
 
 type MfaPolicyOktaOtpArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaOtpArgs) ElementType() reflect.Type {
@@ -855,7 +860,8 @@ type MfaPolicyOktaOtpPtrInput interface {
 
 type mfaPolicyOktaOtpPtrType MfaPolicyOktaOtpArgs
 
-func MfaPolicyOktaOtpPtr(v *MfaPolicyOktaOtpArgs) MfaPolicyOktaOtpPtrInput {	return (*mfaPolicyOktaOtpPtrType)(v)
+func MfaPolicyOktaOtpPtr(v *MfaPolicyOktaOtpArgs) MfaPolicyOktaOtpPtrInput {
+	return (*mfaPolicyOktaOtpPtrType)(v)
 }
 
 func (*mfaPolicyOktaOtpPtrType) ElementType() reflect.Type {
@@ -870,7 +876,7 @@ func (i *mfaPolicyOktaOtpPtrType) ToMfaPolicyOktaOtpPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaOtpPtrOutput)
 }
 
-type MfaPolicyOktaOtpOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaOtpOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaOtpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaOtp)(nil)).Elem()
@@ -894,14 +900,14 @@ func (o MfaPolicyOktaOtpOutput) ToMfaPolicyOktaOtpPtrOutputWithContext(ctx conte
 	}).(MfaPolicyOktaOtpPtrOutput)
 }
 func (o MfaPolicyOktaOtpOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaOtpOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaOtpPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaOtpPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaOtpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaOtp)(nil)).Elem()
@@ -916,20 +922,20 @@ func (o MfaPolicyOktaOtpPtrOutput) ToMfaPolicyOktaOtpPtrOutputWithContext(ctx co
 }
 
 func (o MfaPolicyOktaOtpPtrOutput) Elem() MfaPolicyOktaOtpOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaOtp) MfaPolicyOktaOtp { return *v }).(MfaPolicyOktaOtpOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaOtp) MfaPolicyOktaOtp { return *v }).(MfaPolicyOktaOtpOutput)
 }
 
 func (o MfaPolicyOktaOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaPassword struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaPasswordInput interface {
@@ -941,7 +947,7 @@ type MfaPolicyOktaPasswordInput interface {
 
 type MfaPolicyOktaPasswordArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaPasswordArgs) ElementType() reflect.Type {
@@ -973,7 +979,8 @@ type MfaPolicyOktaPasswordPtrInput interface {
 
 type mfaPolicyOktaPasswordPtrType MfaPolicyOktaPasswordArgs
 
-func MfaPolicyOktaPasswordPtr(v *MfaPolicyOktaPasswordArgs) MfaPolicyOktaPasswordPtrInput {	return (*mfaPolicyOktaPasswordPtrType)(v)
+func MfaPolicyOktaPasswordPtr(v *MfaPolicyOktaPasswordArgs) MfaPolicyOktaPasswordPtrInput {
+	return (*mfaPolicyOktaPasswordPtrType)(v)
 }
 
 func (*mfaPolicyOktaPasswordPtrType) ElementType() reflect.Type {
@@ -988,7 +995,7 @@ func (i *mfaPolicyOktaPasswordPtrType) ToMfaPolicyOktaPasswordPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaPasswordPtrOutput)
 }
 
-type MfaPolicyOktaPasswordOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaPasswordOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaPasswordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaPassword)(nil)).Elem()
@@ -1012,14 +1019,14 @@ func (o MfaPolicyOktaPasswordOutput) ToMfaPolicyOktaPasswordPtrOutputWithContext
 	}).(MfaPolicyOktaPasswordPtrOutput)
 }
 func (o MfaPolicyOktaPasswordOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPasswordOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaPasswordPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaPasswordPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaPasswordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaPassword)(nil)).Elem()
@@ -1034,20 +1041,20 @@ func (o MfaPolicyOktaPasswordPtrOutput) ToMfaPolicyOktaPasswordPtrOutputWithCont
 }
 
 func (o MfaPolicyOktaPasswordPtrOutput) Elem() MfaPolicyOktaPasswordOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaPassword) MfaPolicyOktaPassword { return *v }).(MfaPolicyOktaPasswordOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPassword) MfaPolicyOktaPassword { return *v }).(MfaPolicyOktaPasswordOutput)
 }
 
 func (o MfaPolicyOktaPasswordPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPasswordPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaPush struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaPushInput interface {
@@ -1059,7 +1066,7 @@ type MfaPolicyOktaPushInput interface {
 
 type MfaPolicyOktaPushArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaPushArgs) ElementType() reflect.Type {
@@ -1091,7 +1098,8 @@ type MfaPolicyOktaPushPtrInput interface {
 
 type mfaPolicyOktaPushPtrType MfaPolicyOktaPushArgs
 
-func MfaPolicyOktaPushPtr(v *MfaPolicyOktaPushArgs) MfaPolicyOktaPushPtrInput {	return (*mfaPolicyOktaPushPtrType)(v)
+func MfaPolicyOktaPushPtr(v *MfaPolicyOktaPushArgs) MfaPolicyOktaPushPtrInput {
+	return (*mfaPolicyOktaPushPtrType)(v)
 }
 
 func (*mfaPolicyOktaPushPtrType) ElementType() reflect.Type {
@@ -1106,7 +1114,7 @@ func (i *mfaPolicyOktaPushPtrType) ToMfaPolicyOktaPushPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaPushPtrOutput)
 }
 
-type MfaPolicyOktaPushOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaPushOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaPushOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaPush)(nil)).Elem()
@@ -1130,14 +1138,14 @@ func (o MfaPolicyOktaPushOutput) ToMfaPolicyOktaPushPtrOutputWithContext(ctx con
 	}).(MfaPolicyOktaPushPtrOutput)
 }
 func (o MfaPolicyOktaPushOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPushOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaPushPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaPushPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaPushPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaPush)(nil)).Elem()
@@ -1152,20 +1160,20 @@ func (o MfaPolicyOktaPushPtrOutput) ToMfaPolicyOktaPushPtrOutputWithContext(ctx 
 }
 
 func (o MfaPolicyOktaPushPtrOutput) Elem() MfaPolicyOktaPushOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaPush) MfaPolicyOktaPush { return *v }).(MfaPolicyOktaPushOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPush) MfaPolicyOktaPush { return *v }).(MfaPolicyOktaPushOutput)
 }
 
 func (o MfaPolicyOktaPushPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPushPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaQuestion struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaQuestionInput interface {
@@ -1177,7 +1185,7 @@ type MfaPolicyOktaQuestionInput interface {
 
 type MfaPolicyOktaQuestionArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaQuestionArgs) ElementType() reflect.Type {
@@ -1209,7 +1217,8 @@ type MfaPolicyOktaQuestionPtrInput interface {
 
 type mfaPolicyOktaQuestionPtrType MfaPolicyOktaQuestionArgs
 
-func MfaPolicyOktaQuestionPtr(v *MfaPolicyOktaQuestionArgs) MfaPolicyOktaQuestionPtrInput {	return (*mfaPolicyOktaQuestionPtrType)(v)
+func MfaPolicyOktaQuestionPtr(v *MfaPolicyOktaQuestionArgs) MfaPolicyOktaQuestionPtrInput {
+	return (*mfaPolicyOktaQuestionPtrType)(v)
 }
 
 func (*mfaPolicyOktaQuestionPtrType) ElementType() reflect.Type {
@@ -1224,7 +1233,7 @@ func (i *mfaPolicyOktaQuestionPtrType) ToMfaPolicyOktaQuestionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaQuestionPtrOutput)
 }
 
-type MfaPolicyOktaQuestionOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaQuestionOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaQuestionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaQuestion)(nil)).Elem()
@@ -1248,14 +1257,14 @@ func (o MfaPolicyOktaQuestionOutput) ToMfaPolicyOktaQuestionPtrOutputWithContext
 	}).(MfaPolicyOktaQuestionPtrOutput)
 }
 func (o MfaPolicyOktaQuestionOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaQuestionOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaQuestionPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaQuestionPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaQuestionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaQuestion)(nil)).Elem()
@@ -1270,20 +1279,20 @@ func (o MfaPolicyOktaQuestionPtrOutput) ToMfaPolicyOktaQuestionPtrOutputWithCont
 }
 
 func (o MfaPolicyOktaQuestionPtrOutput) Elem() MfaPolicyOktaQuestionOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaQuestion) MfaPolicyOktaQuestion { return *v }).(MfaPolicyOktaQuestionOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaQuestion) MfaPolicyOktaQuestion { return *v }).(MfaPolicyOktaQuestionOutput)
 }
 
 func (o MfaPolicyOktaQuestionPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaQuestionPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaSms struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyOktaSmsInput interface {
@@ -1295,7 +1304,7 @@ type MfaPolicyOktaSmsInput interface {
 
 type MfaPolicyOktaSmsArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyOktaSmsArgs) ElementType() reflect.Type {
@@ -1327,7 +1336,8 @@ type MfaPolicyOktaSmsPtrInput interface {
 
 type mfaPolicyOktaSmsPtrType MfaPolicyOktaSmsArgs
 
-func MfaPolicyOktaSmsPtr(v *MfaPolicyOktaSmsArgs) MfaPolicyOktaSmsPtrInput {	return (*mfaPolicyOktaSmsPtrType)(v)
+func MfaPolicyOktaSmsPtr(v *MfaPolicyOktaSmsArgs) MfaPolicyOktaSmsPtrInput {
+	return (*mfaPolicyOktaSmsPtrType)(v)
 }
 
 func (*mfaPolicyOktaSmsPtrType) ElementType() reflect.Type {
@@ -1342,7 +1352,7 @@ func (i *mfaPolicyOktaSmsPtrType) ToMfaPolicyOktaSmsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOktaSmsPtrOutput)
 }
 
-type MfaPolicyOktaSmsOutput struct { *pulumi.OutputState }
+type MfaPolicyOktaSmsOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaSmsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyOktaSms)(nil)).Elem()
@@ -1366,14 +1376,14 @@ func (o MfaPolicyOktaSmsOutput) ToMfaPolicyOktaSmsPtrOutputWithContext(ctx conte
 	}).(MfaPolicyOktaSmsPtrOutput)
 }
 func (o MfaPolicyOktaSmsOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaSmsOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyOktaSmsPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyOktaSmsPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOktaSmsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyOktaSms)(nil)).Elem()
@@ -1388,20 +1398,20 @@ func (o MfaPolicyOktaSmsPtrOutput) ToMfaPolicyOktaSmsPtrOutputWithContext(ctx co
 }
 
 func (o MfaPolicyOktaSmsPtrOutput) Elem() MfaPolicyOktaSmsOutput {
-	return o.ApplyT(func (v *MfaPolicyOktaSms) MfaPolicyOktaSms { return *v }).(MfaPolicyOktaSmsOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaSms) MfaPolicyOktaSms { return *v }).(MfaPolicyOktaSmsOutput)
 }
 
 func (o MfaPolicyOktaSmsPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaSmsPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyRsaToken struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyRsaTokenInput interface {
@@ -1413,7 +1423,7 @@ type MfaPolicyRsaTokenInput interface {
 
 type MfaPolicyRsaTokenArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyRsaTokenArgs) ElementType() reflect.Type {
@@ -1445,7 +1455,8 @@ type MfaPolicyRsaTokenPtrInput interface {
 
 type mfaPolicyRsaTokenPtrType MfaPolicyRsaTokenArgs
 
-func MfaPolicyRsaTokenPtr(v *MfaPolicyRsaTokenArgs) MfaPolicyRsaTokenPtrInput {	return (*mfaPolicyRsaTokenPtrType)(v)
+func MfaPolicyRsaTokenPtr(v *MfaPolicyRsaTokenArgs) MfaPolicyRsaTokenPtrInput {
+	return (*mfaPolicyRsaTokenPtrType)(v)
 }
 
 func (*mfaPolicyRsaTokenPtrType) ElementType() reflect.Type {
@@ -1460,7 +1471,7 @@ func (i *mfaPolicyRsaTokenPtrType) ToMfaPolicyRsaTokenPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRsaTokenPtrOutput)
 }
 
-type MfaPolicyRsaTokenOutput struct { *pulumi.OutputState }
+type MfaPolicyRsaTokenOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyRsaTokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyRsaToken)(nil)).Elem()
@@ -1484,14 +1495,14 @@ func (o MfaPolicyRsaTokenOutput) ToMfaPolicyRsaTokenPtrOutputWithContext(ctx con
 	}).(MfaPolicyRsaTokenPtrOutput)
 }
 func (o MfaPolicyRsaTokenOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyRsaTokenOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyRsaTokenPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyRsaTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyRsaTokenPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyRsaToken)(nil)).Elem()
@@ -1506,20 +1517,20 @@ func (o MfaPolicyRsaTokenPtrOutput) ToMfaPolicyRsaTokenPtrOutputWithContext(ctx 
 }
 
 func (o MfaPolicyRsaTokenPtrOutput) Elem() MfaPolicyRsaTokenOutput {
-	return o.ApplyT(func (v *MfaPolicyRsaToken) MfaPolicyRsaToken { return *v }).(MfaPolicyRsaTokenOutput)
+	return o.ApplyT(func(v *MfaPolicyRsaToken) MfaPolicyRsaToken { return *v }).(MfaPolicyRsaTokenOutput)
 }
 
 func (o MfaPolicyRsaTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyRsaTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicySymantecVip struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicySymantecVipInput interface {
@@ -1531,7 +1542,7 @@ type MfaPolicySymantecVipInput interface {
 
 type MfaPolicySymantecVipArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicySymantecVipArgs) ElementType() reflect.Type {
@@ -1563,7 +1574,8 @@ type MfaPolicySymantecVipPtrInput interface {
 
 type mfaPolicySymantecVipPtrType MfaPolicySymantecVipArgs
 
-func MfaPolicySymantecVipPtr(v *MfaPolicySymantecVipArgs) MfaPolicySymantecVipPtrInput {	return (*mfaPolicySymantecVipPtrType)(v)
+func MfaPolicySymantecVipPtr(v *MfaPolicySymantecVipArgs) MfaPolicySymantecVipPtrInput {
+	return (*mfaPolicySymantecVipPtrType)(v)
 }
 
 func (*mfaPolicySymantecVipPtrType) ElementType() reflect.Type {
@@ -1578,7 +1590,7 @@ func (i *mfaPolicySymantecVipPtrType) ToMfaPolicySymantecVipPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicySymantecVipPtrOutput)
 }
 
-type MfaPolicySymantecVipOutput struct { *pulumi.OutputState }
+type MfaPolicySymantecVipOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicySymantecVipOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicySymantecVip)(nil)).Elem()
@@ -1602,14 +1614,14 @@ func (o MfaPolicySymantecVipOutput) ToMfaPolicySymantecVipPtrOutputWithContext(c
 	}).(MfaPolicySymantecVipPtrOutput)
 }
 func (o MfaPolicySymantecVipOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicySymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicySymantecVipOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicySymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicySymantecVipPtrOutput struct { *pulumi.OutputState}
+type MfaPolicySymantecVipPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicySymantecVipPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicySymantecVip)(nil)).Elem()
@@ -1624,20 +1636,20 @@ func (o MfaPolicySymantecVipPtrOutput) ToMfaPolicySymantecVipPtrOutputWithContex
 }
 
 func (o MfaPolicySymantecVipPtrOutput) Elem() MfaPolicySymantecVipOutput {
-	return o.ApplyT(func (v *MfaPolicySymantecVip) MfaPolicySymantecVip { return *v }).(MfaPolicySymantecVipOutput)
+	return o.ApplyT(func(v *MfaPolicySymantecVip) MfaPolicySymantecVip { return *v }).(MfaPolicySymantecVipOutput)
 }
 
 func (o MfaPolicySymantecVipPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicySymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicySymantecVipPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicySymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyYubikeyToken struct {
 	ConsentType *string `pulumi:"consentType"`
-	Enroll *string `pulumi:"enroll"`
+	Enroll      *string `pulumi:"enroll"`
 }
 
 type MfaPolicyYubikeyTokenInput interface {
@@ -1649,7 +1661,7 @@ type MfaPolicyYubikeyTokenInput interface {
 
 type MfaPolicyYubikeyTokenArgs struct {
 	ConsentType pulumi.StringPtrInput `pulumi:"consentType"`
-	Enroll pulumi.StringPtrInput `pulumi:"enroll"`
+	Enroll      pulumi.StringPtrInput `pulumi:"enroll"`
 }
 
 func (MfaPolicyYubikeyTokenArgs) ElementType() reflect.Type {
@@ -1681,7 +1693,8 @@ type MfaPolicyYubikeyTokenPtrInput interface {
 
 type mfaPolicyYubikeyTokenPtrType MfaPolicyYubikeyTokenArgs
 
-func MfaPolicyYubikeyTokenPtr(v *MfaPolicyYubikeyTokenArgs) MfaPolicyYubikeyTokenPtrInput {	return (*mfaPolicyYubikeyTokenPtrType)(v)
+func MfaPolicyYubikeyTokenPtr(v *MfaPolicyYubikeyTokenArgs) MfaPolicyYubikeyTokenPtrInput {
+	return (*mfaPolicyYubikeyTokenPtrType)(v)
 }
 
 func (*mfaPolicyYubikeyTokenPtrType) ElementType() reflect.Type {
@@ -1696,7 +1709,7 @@ func (i *mfaPolicyYubikeyTokenPtrType) ToMfaPolicyYubikeyTokenPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyYubikeyTokenPtrOutput)
 }
 
-type MfaPolicyYubikeyTokenOutput struct { *pulumi.OutputState }
+type MfaPolicyYubikeyTokenOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyYubikeyTokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyYubikeyToken)(nil)).Elem()
@@ -1720,14 +1733,14 @@ func (o MfaPolicyYubikeyTokenOutput) ToMfaPolicyYubikeyTokenPtrOutputWithContext
 	}).(MfaPolicyYubikeyTokenPtrOutput)
 }
 func (o MfaPolicyYubikeyTokenOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyYubikeyTokenOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaPolicyYubikeyTokenPtrOutput struct { *pulumi.OutputState}
+type MfaPolicyYubikeyTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyYubikeyTokenPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyYubikeyToken)(nil)).Elem()
@@ -1742,21 +1755,21 @@ func (o MfaPolicyYubikeyTokenPtrOutput) ToMfaPolicyYubikeyTokenPtrOutputWithCont
 }
 
 func (o MfaPolicyYubikeyTokenPtrOutput) Elem() MfaPolicyYubikeyTokenOutput {
-	return o.ApplyT(func (v *MfaPolicyYubikeyToken) MfaPolicyYubikeyToken { return *v }).(MfaPolicyYubikeyTokenOutput)
+	return o.ApplyT(func(v *MfaPolicyYubikeyToken) MfaPolicyYubikeyToken { return *v }).(MfaPolicyYubikeyTokenOutput)
 }
 
 func (o MfaPolicyYubikeyTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyYubikeyTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaPolicyYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type OauthAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -1768,9 +1781,9 @@ type OauthAppUserInput interface {
 }
 
 type OauthAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -1807,7 +1820,7 @@ func (i OauthAppUserArray) ToOauthAppUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(OauthAppUserArrayOutput)
 }
 
-type OauthAppUserOutput struct { *pulumi.OutputState }
+type OauthAppUserOutput struct{ *pulumi.OutputState }
 
 func (OauthAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OauthAppUser)(nil)).Elem()
@@ -1822,22 +1835,22 @@ func (o OauthAppUserOutput) ToOauthAppUserOutputWithContext(ctx context.Context)
 }
 
 func (o OauthAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OauthAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OauthAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o OauthAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OauthAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OauthAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o OauthAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OauthAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OauthAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o OauthAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OauthAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OauthAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type OauthAppUserArrayOutput struct { *pulumi.OutputState}
+type OauthAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (OauthAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OauthAppUser)(nil)).Elem()
@@ -1852,18 +1865,18 @@ func (o OauthAppUserArrayOutput) ToOauthAppUserArrayOutputWithContext(ctx contex
 }
 
 func (o OauthAppUserArrayOutput) Index(i pulumi.IntInput) OauthAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OauthAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthAppUser {
 		return vs[0].([]OauthAppUser)[vs[1].(int)]
 	}).(OauthAppUserOutput)
 }
 
 type SamlAppAttributeStatement struct {
-	FilterType *string `pulumi:"filterType"`
-	FilterValue *string `pulumi:"filterValue"`
-	Name string `pulumi:"name"`
-	Namespace *string `pulumi:"namespace"`
-	Type *string `pulumi:"type"`
-	Values []string `pulumi:"values"`
+	FilterType  *string  `pulumi:"filterType"`
+	FilterValue *string  `pulumi:"filterValue"`
+	Name        string   `pulumi:"name"`
+	Namespace   *string  `pulumi:"namespace"`
+	Type        *string  `pulumi:"type"`
+	Values      []string `pulumi:"values"`
 }
 
 type SamlAppAttributeStatementInput interface {
@@ -1874,12 +1887,12 @@ type SamlAppAttributeStatementInput interface {
 }
 
 type SamlAppAttributeStatementArgs struct {
-	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	FilterValue pulumi.StringPtrInput `pulumi:"filterValue"`
-	Name pulumi.StringInput `pulumi:"name"`
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	FilterType  pulumi.StringPtrInput   `pulumi:"filterType"`
+	FilterValue pulumi.StringPtrInput   `pulumi:"filterValue"`
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Namespace   pulumi.StringPtrInput   `pulumi:"namespace"`
+	Type        pulumi.StringPtrInput   `pulumi:"type"`
+	Values      pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (SamlAppAttributeStatementArgs) ElementType() reflect.Type {
@@ -1915,7 +1928,7 @@ func (i SamlAppAttributeStatementArray) ToSamlAppAttributeStatementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAppAttributeStatementArrayOutput)
 }
 
-type SamlAppAttributeStatementOutput struct { *pulumi.OutputState }
+type SamlAppAttributeStatementOutput struct{ *pulumi.OutputState }
 
 func (SamlAppAttributeStatementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlAppAttributeStatement)(nil)).Elem()
@@ -1930,30 +1943,30 @@ func (o SamlAppAttributeStatementOutput) ToSamlAppAttributeStatementOutputWithCo
 }
 
 func (o SamlAppAttributeStatementOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppAttributeStatementOutput) FilterValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppAttributeStatementOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o SamlAppAttributeStatementOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppAttributeStatementOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppAttributeStatementOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SamlAppAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SamlAppAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type SamlAppAttributeStatementArrayOutput struct { *pulumi.OutputState}
+type SamlAppAttributeStatementArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlAppAttributeStatementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SamlAppAttributeStatement)(nil)).Elem()
@@ -1968,15 +1981,15 @@ func (o SamlAppAttributeStatementArrayOutput) ToSamlAppAttributeStatementArrayOu
 }
 
 func (o SamlAppAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAppAttributeStatementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SamlAppAttributeStatement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAppAttributeStatement {
 		return vs[0].([]SamlAppAttributeStatement)[vs[1].(int)]
 	}).(SamlAppAttributeStatementOutput)
 }
 
 type SamlAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -1988,9 +2001,9 @@ type SamlAppUserInput interface {
 }
 
 type SamlAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -2027,7 +2040,7 @@ func (i SamlAppUserArray) ToSamlAppUserArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAppUserArrayOutput)
 }
 
-type SamlAppUserOutput struct { *pulumi.OutputState }
+type SamlAppUserOutput struct{ *pulumi.OutputState }
 
 func (SamlAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlAppUser)(nil)).Elem()
@@ -2042,22 +2055,22 @@ func (o SamlAppUserOutput) ToSamlAppUserOutputWithContext(ctx context.Context) S
 }
 
 func (o SamlAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SamlAppUserArrayOutput struct { *pulumi.OutputState}
+type SamlAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SamlAppUser)(nil)).Elem()
@@ -2072,15 +2085,15 @@ func (o SamlAppUserArrayOutput) ToSamlAppUserArrayOutputWithContext(ctx context.
 }
 
 func (o SamlAppUserArrayOutput) Index(i pulumi.IntInput) SamlAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SamlAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAppUser {
 		return vs[0].([]SamlAppUser)[vs[1].(int)]
 	}).(SamlAppUserOutput)
 }
 
 type SecurePasswordStoreAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -2092,9 +2105,9 @@ type SecurePasswordStoreAppUserInput interface {
 }
 
 type SecurePasswordStoreAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -2131,7 +2144,7 @@ func (i SecurePasswordStoreAppUserArray) ToSecurePasswordStoreAppUserArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppUserArrayOutput)
 }
 
-type SecurePasswordStoreAppUserOutput struct { *pulumi.OutputState }
+type SecurePasswordStoreAppUserOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurePasswordStoreAppUser)(nil)).Elem()
@@ -2146,22 +2159,22 @@ func (o SecurePasswordStoreAppUserOutput) ToSecurePasswordStoreAppUserOutputWith
 }
 
 func (o SecurePasswordStoreAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SecurePasswordStoreAppUserArrayOutput struct { *pulumi.OutputState}
+type SecurePasswordStoreAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SecurePasswordStoreAppUser)(nil)).Elem()
@@ -2176,15 +2189,15 @@ func (o SecurePasswordStoreAppUserArrayOutput) ToSecurePasswordStoreAppUserArray
 }
 
 func (o SecurePasswordStoreAppUserArrayOutput) Index(i pulumi.IntInput) SecurePasswordStoreAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SecurePasswordStoreAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurePasswordStoreAppUser {
 		return vs[0].([]SecurePasswordStoreAppUser)[vs[1].(int)]
 	}).(SecurePasswordStoreAppUserOutput)
 }
 
 type SwaAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -2196,9 +2209,9 @@ type SwaAppUserInput interface {
 }
 
 type SwaAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -2235,7 +2248,7 @@ func (i SwaAppUserArray) ToSwaAppUserArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SwaAppUserArrayOutput)
 }
 
-type SwaAppUserOutput struct { *pulumi.OutputState }
+type SwaAppUserOutput struct{ *pulumi.OutputState }
 
 func (SwaAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SwaAppUser)(nil)).Elem()
@@ -2250,22 +2263,22 @@ func (o SwaAppUserOutput) ToSwaAppUserOutputWithContext(ctx context.Context) Swa
 }
 
 func (o SwaAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SwaAppUserArrayOutput struct { *pulumi.OutputState}
+type SwaAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SwaAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SwaAppUser)(nil)).Elem()
@@ -2280,15 +2293,15 @@ func (o SwaAppUserArrayOutput) ToSwaAppUserArrayOutputWithContext(ctx context.Co
 }
 
 func (o SwaAppUserArrayOutput) Index(i pulumi.IntInput) SwaAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SwaAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SwaAppUser {
 		return vs[0].([]SwaAppUser)[vs[1].(int)]
 	}).(SwaAppUserOutput)
 }
 
 type ThreeFieldAppUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -2300,9 +2313,9 @@ type ThreeFieldAppUserInput interface {
 }
 
 type ThreeFieldAppUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -2339,7 +2352,7 @@ func (i ThreeFieldAppUserArray) ToThreeFieldAppUserArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppUserArrayOutput)
 }
 
-type ThreeFieldAppUserOutput struct { *pulumi.OutputState }
+type ThreeFieldAppUserOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreeFieldAppUser)(nil)).Elem()
@@ -2354,22 +2367,22 @@ func (o ThreeFieldAppUserOutput) ToThreeFieldAppUserOutputWithContext(ctx contex
 }
 
 func (o ThreeFieldAppUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldAppUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldAppUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldAppUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldAppUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldAppUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldAppUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldAppUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type ThreeFieldAppUserArrayOutput struct { *pulumi.OutputState}
+type ThreeFieldAppUserArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ThreeFieldAppUser)(nil)).Elem()
@@ -2384,7 +2397,7 @@ func (o ThreeFieldAppUserArrayOutput) ToThreeFieldAppUserArrayOutputWithContext(
 }
 
 func (o ThreeFieldAppUserArrayOutput) Index(i pulumi.IntInput) ThreeFieldAppUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ThreeFieldAppUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreeFieldAppUser {
 		return vs[0].([]ThreeFieldAppUser)[vs[1].(int)]
 	}).(ThreeFieldAppUserOutput)
 }

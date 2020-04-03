@@ -319,4 +319,3 @@ type SecurePasswordStoreAppArgs struct {
 func (SecurePasswordStoreAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securePasswordStoreAppArgs)(nil)).Elem()
 }
-

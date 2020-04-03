@@ -47,6 +47,7 @@ def get_users(searches=None,users=None,opts=None):
 
 
     :param list searches: Map of search criteria to use to find users. It supports the following properties.
+    :param list users: collection of users retrieved from Okta with the following properties.
 
     The **searches** object supports the following:
 

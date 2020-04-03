@@ -150,4 +150,3 @@ type UserBaseSchemaArgs struct {
 func (UserBaseSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userBaseSchemaArgs)(nil)).Elem()
 }
-

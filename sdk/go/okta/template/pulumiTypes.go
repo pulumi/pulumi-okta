@@ -69,7 +69,7 @@ func (i EmailTranslationArray) ToEmailTranslationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTranslationArrayOutput)
 }
 
-type EmailTranslationOutput struct { *pulumi.OutputState }
+type EmailTranslationOutput struct{ *pulumi.OutputState }
 
 func (EmailTranslationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailTranslation)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o EmailTranslationOutput) ToEmailTranslationOutputWithContext(ctx context.
 
 // The language to map tthe template to.
 func (o EmailTranslationOutput) Language() pulumi.StringOutput {
-	return o.ApplyT(func (v EmailTranslation) string { return v.Language }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EmailTranslation) string { return v.Language }).(pulumi.StringOutput)
 }
 
 // The email subject line.
 func (o EmailTranslationOutput) Subject() pulumi.StringOutput {
-	return o.ApplyT(func (v EmailTranslation) string { return v.Subject }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EmailTranslation) string { return v.Subject }).(pulumi.StringOutput)
 }
 
 // The email body.
 func (o EmailTranslationOutput) Template() pulumi.StringOutput {
-	return o.ApplyT(func (v EmailTranslation) string { return v.Template }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EmailTranslation) string { return v.Template }).(pulumi.StringOutput)
 }
 
-type EmailTranslationArrayOutput struct { *pulumi.OutputState}
+type EmailTranslationArrayOutput struct{ *pulumi.OutputState }
 
 func (EmailTranslationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EmailTranslation)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o EmailTranslationArrayOutput) ToEmailTranslationArrayOutputWithContext(ct
 }
 
 func (o EmailTranslationArrayOutput) Index(i pulumi.IntInput) EmailTranslationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EmailTranslation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailTranslation {
 		return vs[0].([]EmailTranslation)[vs[1].(int)]
 	}).(EmailTranslationOutput)
 }

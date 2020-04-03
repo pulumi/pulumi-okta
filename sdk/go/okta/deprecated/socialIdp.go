@@ -14,26 +14,26 @@ import (
 type SocialIdp struct {
 	pulumi.CustomResourceState
 
-	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
+	AccountLinkAction        pulumi.StringPtrOutput   `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	AuthorizationBinding pulumi.StringOutput `pulumi:"authorizationBinding"`
-	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
-	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
-	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	DeprovisionedAction pulumi.StringPtrOutput `pulumi:"deprovisionedAction"`
-	GroupsAction pulumi.StringPtrOutput `pulumi:"groupsAction"`
-	GroupsAssignments pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
-	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
-	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
+	AuthorizationBinding     pulumi.StringOutput      `pulumi:"authorizationBinding"`
+	AuthorizationUrl         pulumi.StringOutput      `pulumi:"authorizationUrl"`
+	ClientId                 pulumi.StringPtrOutput   `pulumi:"clientId"`
+	ClientSecret             pulumi.StringPtrOutput   `pulumi:"clientSecret"`
+	DeprovisionedAction      pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
+	GroupsAction             pulumi.StringPtrOutput   `pulumi:"groupsAction"`
+	GroupsAssignments        pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
+	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
+	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	IssuerMode     pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	MatchAttribute pulumi.StringPtrOutput `pulumi:"matchAttribute"`
-	MatchType pulumi.StringPtrOutput `pulumi:"matchType"`
-	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
+	MatchType      pulumi.StringPtrOutput `pulumi:"matchType"`
+	MaxClockSkew   pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
 	// name of idp
-	Name pulumi.StringOutput `pulumi:"name"`
-	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
-	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
+	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
 	// algorithm to use to sign requests
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
@@ -42,16 +42,16 @@ type SocialIdp struct {
 	// algorithm to use to sign requests
 	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
 	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrOutput `pulumi:"responseSignatureScope"`
-	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	SubjectMatchAttribute pulumi.StringPtrOutput `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
-	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
-	TokenBinding pulumi.StringOutput `pulumi:"tokenBinding"`
-	TokenUrl pulumi.StringOutput `pulumi:"tokenUrl"`
-	Type pulumi.StringOutput `pulumi:"type"`
-	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
+	ResponseSignatureScope pulumi.StringPtrOutput   `pulumi:"responseSignatureScope"`
+	Scopes                 pulumi.StringArrayOutput `pulumi:"scopes"`
+	Status                 pulumi.StringPtrOutput   `pulumi:"status"`
+	SubjectMatchAttribute  pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType       pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
+	SuspendedAction        pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
+	TokenBinding           pulumi.StringOutput      `pulumi:"tokenBinding"`
+	TokenUrl               pulumi.StringOutput      `pulumi:"tokenUrl"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
+	UsernameTemplate       pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
 }
 
 // NewSocialIdp registers a new resource with the given unique name, arguments, and options.
@@ -88,26 +88,26 @@ func GetSocialIdp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SocialIdp resources.
 type socialIdpState struct {
-	AccountLinkAction *string `pulumi:"accountLinkAction"`
+	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AuthorizationBinding *string `pulumi:"authorizationBinding"`
-	AuthorizationUrl *string `pulumi:"authorizationUrl"`
-	ClientId *string `pulumi:"clientId"`
-	ClientSecret *string `pulumi:"clientSecret"`
-	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	GroupsAction *string `pulumi:"groupsAction"`
-	GroupsAssignments []string `pulumi:"groupsAssignments"`
-	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	GroupsFilters []string `pulumi:"groupsFilters"`
+	AuthorizationBinding     *string  `pulumi:"authorizationBinding"`
+	AuthorizationUrl         *string  `pulumi:"authorizationUrl"`
+	ClientId                 *string  `pulumi:"clientId"`
+	ClientSecret             *string  `pulumi:"clientSecret"`
+	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
+	GroupsAction             *string  `pulumi:"groupsAction"`
+	GroupsAssignments        []string `pulumi:"groupsAssignments"`
+	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
+	GroupsFilters            []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode *string `pulumi:"issuerMode"`
+	IssuerMode     *string `pulumi:"issuerMode"`
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType *string `pulumi:"matchType"`
-	MaxClockSkew *int `pulumi:"maxClockSkew"`
+	MatchType      *string `pulumi:"matchType"`
+	MaxClockSkew   *int    `pulumi:"maxClockSkew"`
 	// name of idp
-	Name *string `pulumi:"name"`
-	ProfileMaster *bool `pulumi:"profileMaster"`
-	ProtocolType *string `pulumi:"protocolType"`
+	Name               *string `pulumi:"name"`
+	ProfileMaster      *bool   `pulumi:"profileMaster"`
+	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// algorithm to use to sign requests
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
@@ -116,39 +116,39 @@ type socialIdpState struct {
 	// algorithm to use to sign requests
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
 	// algorithm to use to sign response
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
-	Scopes []string `pulumi:"scopes"`
-	Status *string `pulumi:"status"`
-	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	SuspendedAction *string `pulumi:"suspendedAction"`
-	TokenBinding *string `pulumi:"tokenBinding"`
-	TokenUrl *string `pulumi:"tokenUrl"`
-	Type *string `pulumi:"type"`
-	UsernameTemplate *string `pulumi:"usernameTemplate"`
+	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
+	Scopes                 []string `pulumi:"scopes"`
+	Status                 *string  `pulumi:"status"`
+	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
+	SuspendedAction        *string  `pulumi:"suspendedAction"`
+	TokenBinding           *string  `pulumi:"tokenBinding"`
+	TokenUrl               *string  `pulumi:"tokenUrl"`
+	Type                   *string  `pulumi:"type"`
+	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
 }
 
 type SocialIdpState struct {
-	AccountLinkAction pulumi.StringPtrInput
+	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AuthorizationBinding pulumi.StringPtrInput
-	AuthorizationUrl pulumi.StringPtrInput
-	ClientId pulumi.StringPtrInput
-	ClientSecret pulumi.StringPtrInput
-	DeprovisionedAction pulumi.StringPtrInput
-	GroupsAction pulumi.StringPtrInput
-	GroupsAssignments pulumi.StringArrayInput
-	GroupsAttribute pulumi.StringPtrInput
-	GroupsFilters pulumi.StringArrayInput
+	AuthorizationBinding     pulumi.StringPtrInput
+	AuthorizationUrl         pulumi.StringPtrInput
+	ClientId                 pulumi.StringPtrInput
+	ClientSecret             pulumi.StringPtrInput
+	DeprovisionedAction      pulumi.StringPtrInput
+	GroupsAction             pulumi.StringPtrInput
+	GroupsAssignments        pulumi.StringArrayInput
+	GroupsAttribute          pulumi.StringPtrInput
+	GroupsFilters            pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrInput
+	IssuerMode     pulumi.StringPtrInput
 	MatchAttribute pulumi.StringPtrInput
-	MatchType pulumi.StringPtrInput
-	MaxClockSkew pulumi.IntPtrInput
+	MatchType      pulumi.StringPtrInput
+	MaxClockSkew   pulumi.IntPtrInput
 	// name of idp
-	Name pulumi.StringPtrInput
-	ProfileMaster pulumi.BoolPtrInput
-	ProtocolType pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	ProfileMaster      pulumi.BoolPtrInput
+	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
 	// algorithm to use to sign requests
 	RequestSignatureAlgorithm pulumi.StringPtrInput
@@ -158,15 +158,15 @@ type SocialIdpState struct {
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
 	// algorithm to use to sign response
 	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes pulumi.StringArrayInput
-	Status pulumi.StringPtrInput
-	SubjectMatchAttribute pulumi.StringPtrInput
-	SubjectMatchType pulumi.StringPtrInput
-	SuspendedAction pulumi.StringPtrInput
-	TokenBinding pulumi.StringPtrInput
-	TokenUrl pulumi.StringPtrInput
-	Type pulumi.StringPtrInput
-	UsernameTemplate pulumi.StringPtrInput
+	Scopes                 pulumi.StringArrayInput
+	Status                 pulumi.StringPtrInput
+	SubjectMatchAttribute  pulumi.StringPtrInput
+	SubjectMatchType       pulumi.StringPtrInput
+	SuspendedAction        pulumi.StringPtrInput
+	TokenBinding           pulumi.StringPtrInput
+	TokenUrl               pulumi.StringPtrInput
+	Type                   pulumi.StringPtrInput
+	UsernameTemplate       pulumi.StringPtrInput
 }
 
 func (SocialIdpState) ElementType() reflect.Type {
@@ -174,24 +174,24 @@ func (SocialIdpState) ElementType() reflect.Type {
 }
 
 type socialIdpArgs struct {
-	AccountLinkAction *string `pulumi:"accountLinkAction"`
+	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	ClientId *string `pulumi:"clientId"`
-	ClientSecret *string `pulumi:"clientSecret"`
-	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	GroupsAction *string `pulumi:"groupsAction"`
-	GroupsAssignments []string `pulumi:"groupsAssignments"`
-	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	GroupsFilters []string `pulumi:"groupsFilters"`
+	ClientId                 *string  `pulumi:"clientId"`
+	ClientSecret             *string  `pulumi:"clientSecret"`
+	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
+	GroupsAction             *string  `pulumi:"groupsAction"`
+	GroupsAssignments        []string `pulumi:"groupsAssignments"`
+	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
+	GroupsFilters            []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode *string `pulumi:"issuerMode"`
+	IssuerMode     *string `pulumi:"issuerMode"`
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType *string `pulumi:"matchType"`
-	MaxClockSkew *int `pulumi:"maxClockSkew"`
+	MatchType      *string `pulumi:"matchType"`
+	MaxClockSkew   *int    `pulumi:"maxClockSkew"`
 	// name of idp
-	Name *string `pulumi:"name"`
-	ProfileMaster *bool `pulumi:"profileMaster"`
-	ProtocolType *string `pulumi:"protocolType"`
+	Name               *string `pulumi:"name"`
+	ProfileMaster      *bool   `pulumi:"profileMaster"`
+	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// algorithm to use to sign requests
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
@@ -200,36 +200,36 @@ type socialIdpArgs struct {
 	// algorithm to use to sign requests
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
 	// algorithm to use to sign response
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
-	Scopes []string `pulumi:"scopes"`
-	Status *string `pulumi:"status"`
-	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	SuspendedAction *string `pulumi:"suspendedAction"`
-	Type string `pulumi:"type"`
-	UsernameTemplate *string `pulumi:"usernameTemplate"`
+	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
+	Scopes                 []string `pulumi:"scopes"`
+	Status                 *string  `pulumi:"status"`
+	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
+	SuspendedAction        *string  `pulumi:"suspendedAction"`
+	Type                   string   `pulumi:"type"`
+	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a SocialIdp resource.
 type SocialIdpArgs struct {
-	AccountLinkAction pulumi.StringPtrInput
+	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	ClientId pulumi.StringPtrInput
-	ClientSecret pulumi.StringPtrInput
-	DeprovisionedAction pulumi.StringPtrInput
-	GroupsAction pulumi.StringPtrInput
-	GroupsAssignments pulumi.StringArrayInput
-	GroupsAttribute pulumi.StringPtrInput
-	GroupsFilters pulumi.StringArrayInput
+	ClientId                 pulumi.StringPtrInput
+	ClientSecret             pulumi.StringPtrInput
+	DeprovisionedAction      pulumi.StringPtrInput
+	GroupsAction             pulumi.StringPtrInput
+	GroupsAssignments        pulumi.StringArrayInput
+	GroupsAttribute          pulumi.StringPtrInput
+	GroupsFilters            pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrInput
+	IssuerMode     pulumi.StringPtrInput
 	MatchAttribute pulumi.StringPtrInput
-	MatchType pulumi.StringPtrInput
-	MaxClockSkew pulumi.IntPtrInput
+	MatchType      pulumi.StringPtrInput
+	MaxClockSkew   pulumi.IntPtrInput
 	// name of idp
-	Name pulumi.StringPtrInput
-	ProfileMaster pulumi.BoolPtrInput
-	ProtocolType pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	ProfileMaster      pulumi.BoolPtrInput
+	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
 	// algorithm to use to sign requests
 	RequestSignatureAlgorithm pulumi.StringPtrInput
@@ -239,16 +239,15 @@ type SocialIdpArgs struct {
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
 	// algorithm to use to sign response
 	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes pulumi.StringArrayInput
-	Status pulumi.StringPtrInput
-	SubjectMatchAttribute pulumi.StringPtrInput
-	SubjectMatchType pulumi.StringPtrInput
-	SuspendedAction pulumi.StringPtrInput
-	Type pulumi.StringInput
-	UsernameTemplate pulumi.StringPtrInput
+	Scopes                 pulumi.StringArrayInput
+	Status                 pulumi.StringPtrInput
+	SubjectMatchAttribute  pulumi.StringPtrInput
+	SubjectMatchType       pulumi.StringPtrInput
+	SuspendedAction        pulumi.StringPtrInput
+	Type                   pulumi.StringInput
+	UsernameTemplate       pulumi.StringPtrInput
 }
 
 func (SocialIdpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*socialIdpArgs)(nil)).Elem()
 }
-

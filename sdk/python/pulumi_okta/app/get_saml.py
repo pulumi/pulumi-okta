@@ -274,10 +274,38 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
 
 
+    :param str accessibility_error_redirect_url: Custom error page URL.
+    :param str accessibility_login_redirect_url: Custom login page URL.
+    :param bool accessibility_self_service: Enable self service.
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
+    :param str app_settings_json: Application settings in JSON format.
+    :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
+    :param list attribute_statements: SAML Attribute statements.
+    :param str audience: Audience restriction.
+    :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+    :param bool auto_submit_toolbar: Display auto submit toolbar.
+    :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
+    :param str destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+    :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+    :param list features: features enabled.
+    :param bool hide_ios: Do not display application icon on mobile app.
+    :param bool hide_web: Do not display application icon to users
+    :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+    :param str idp_issuer: SAML issuer ID.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+    :param str recipient: The location where the app may present the SAML assertion.
+    :param bool request_compressed: Denotes whether the request is compressed or not.
+    :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
+    :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+    :param str sp_issuer: SAML service provider issuer.
+    :param str sso_url: Single Sign on Url.
+    :param str subject_name_id_format: Identifies the SAML processing rules.
+    :param str subject_name_id_template: Template for app user's username when a user is assigned to the app.
+    :param str user_name_template: Username template.
+    :param str user_name_template_suffix: Username template suffix.
+    :param str user_name_template_type: Username template type.
 
     The **attribute_statements** object supports the following:
 

@@ -373,4 +373,3 @@ type OauthAppArgs struct {
 func (OauthAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthAppArgs)(nil)).Elem()
 }
-

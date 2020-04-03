@@ -16,18 +16,38 @@ namespace Pulumi.Okta.App
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSaml.InvokeAsync() instead")]
         public static Task<GetSamlResult> GetSaml(GetSamlArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSaml
+    {
+        /// <summary>
+        /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
+        /// </summary>
+        public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSamlArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Custom error page URL.
+        /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public string? AccessibilityErrorRedirectUrl { get; set; }
 
+        /// <summary>
+        /// Custom login page URL.
+        /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public string? AccessibilityLoginRedirectUrl { get; set; }
 
+        /// <summary>
+        /// Enable self service.
+        /// </summary>
         [Input("accessibilitySelfService")]
         public bool? AccessibilitySelfService { get; set; }
 
@@ -37,52 +57,93 @@ namespace Pulumi.Okta.App
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
+        /// <summary>
+        /// Application settings in JSON format.
+        /// </summary>
         [Input("appSettingsJson")]
         public string? AppSettingsJson { get; set; }
 
+        /// <summary>
+        /// Determines whether the SAML assertion is digitally signed.
+        /// </summary>
         [Input("assertionSigned")]
         public bool? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
         private List<Inputs.GetSamlAttributeStatementsArgs>? _attributeStatements;
+
+        /// <summary>
+        /// SAML Attribute statements.
+        /// </summary>
         public List<Inputs.GetSamlAttributeStatementsArgs> AttributeStatements
         {
             get => _attributeStatements ?? (_attributeStatements = new List<Inputs.GetSamlAttributeStatementsArgs>());
             set => _attributeStatements = value;
         }
 
+        /// <summary>
+        /// Audience restriction.
+        /// </summary>
         [Input("audience")]
         public string? Audience { get; set; }
 
+        /// <summary>
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// </summary>
         [Input("authnContextClassRef")]
         public string? AuthnContextClassRef { get; set; }
 
+        /// <summary>
+        /// Display auto submit toolbar.
+        /// </summary>
         [Input("autoSubmitToolbar")]
         public bool? AutoSubmitToolbar { get; set; }
 
+        /// <summary>
+        /// Identifies a specific application resource in an IDP initiated SSO scenario.
+        /// </summary>
         [Input("defaultRelayState")]
         public string? DefaultRelayState { get; set; }
 
+        /// <summary>
+        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// </summary>
         [Input("destination")]
         public string? Destination { get; set; }
 
+        /// <summary>
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        /// </summary>
         [Input("digestAlgorithm")]
         public string? DigestAlgorithm { get; set; }
 
         [Input("features")]
         private List<string>? _features;
+
+        /// <summary>
+        /// features enabled.
+        /// </summary>
         public List<string> Features
         {
             get => _features ?? (_features = new List<string>());
             set => _features = value;
         }
 
+        /// <summary>
+        /// Do not display application icon on mobile app.
+        /// </summary>
         [Input("hideIos")]
         public bool? HideIos { get; set; }
 
+        /// <summary>
+        /// Do not display application icon to users
+        /// </summary>
         [Input("hideWeb")]
         public bool? HideWeb { get; set; }
 
+        /// <summary>
+        /// Prompt user to re-authenticate if SP asks for it.
+        /// </summary>
         [Input("honorForceAuthn")]
         public bool? HonorForceAuthn { get; set; }
 
@@ -92,6 +153,9 @@ namespace Pulumi.Okta.App
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// SAML issuer ID.
+        /// </summary>
         [Input("idpIssuer")]
         public string? IdpIssuer { get; set; }
 
@@ -107,36 +171,69 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
+        /// <summary>
+        /// The location where the app may present the SAML assertion.
+        /// </summary>
         [Input("recipient")]
         public string? Recipient { get; set; }
 
+        /// <summary>
+        /// Denotes whether the request is compressed or not.
+        /// </summary>
         [Input("requestCompressed")]
         public bool? RequestCompressed { get; set; }
 
+        /// <summary>
+        /// Determines whether the SAML auth response message is digitally signed.
+        /// </summary>
         [Input("responseSigned")]
         public bool? ResponseSigned { get; set; }
 
+        /// <summary>
+        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// </summary>
         [Input("signatureAlgorithm")]
         public string? SignatureAlgorithm { get; set; }
 
+        /// <summary>
+        /// SAML service provider issuer.
+        /// </summary>
         [Input("spIssuer")]
         public string? SpIssuer { get; set; }
 
+        /// <summary>
+        /// Single Sign on Url.
+        /// </summary>
         [Input("ssoUrl")]
         public string? SsoUrl { get; set; }
 
+        /// <summary>
+        /// Identifies the SAML processing rules.
+        /// </summary>
         [Input("subjectNameIdFormat")]
         public string? SubjectNameIdFormat { get; set; }
 
+        /// <summary>
+        /// Template for app user's username when a user is assigned to the app.
+        /// </summary>
         [Input("subjectNameIdTemplate")]
         public string? SubjectNameIdTemplate { get; set; }
 
+        /// <summary>
+        /// Username template.
+        /// </summary>
         [Input("userNameTemplate")]
         public string? UserNameTemplate { get; set; }
 
+        /// <summary>
+        /// Username template suffix.
+        /// </summary>
         [Input("userNameTemplateSuffix")]
         public string? UserNameTemplateSuffix { get; set; }
 
+        /// <summary>
+        /// Username template type.
+        /// </summary>
         [Input("userNameTemplateType")]
         public string? UserNameTemplateType { get; set; }
 

@@ -14,14 +14,14 @@ import (
 type SamlIdpSigningKey struct {
 	pulumi.CustomResourceState
 
-	Created pulumi.StringOutput `pulumi:"created"`
+	Created   pulumi.StringOutput `pulumi:"created"`
 	ExpiresAt pulumi.StringOutput `pulumi:"expiresAt"`
-	Kid pulumi.StringOutput `pulumi:"kid"`
-	Kty pulumi.StringOutput `pulumi:"kty"`
-	Use pulumi.StringOutput `pulumi:"use"`
+	Kid       pulumi.StringOutput `pulumi:"kid"`
+	Kty       pulumi.StringOutput `pulumi:"kty"`
+	Use       pulumi.StringOutput `pulumi:"use"`
 	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs pulumi.StringArrayOutput `pulumi:"x5cs"`
-	X5tS256 pulumi.StringOutput `pulumi:"x5tS256"`
+	X5cs    pulumi.StringArrayOutput `pulumi:"x5cs"`
+	X5tS256 pulumi.StringOutput      `pulumi:"x5tS256"`
 }
 
 // NewSamlIdpSigningKey registers a new resource with the given unique name, arguments, and options.
@@ -55,24 +55,24 @@ func GetSamlIdpSigningKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SamlIdpSigningKey resources.
 type samlIdpSigningKeyState struct {
-	Created *string `pulumi:"created"`
+	Created   *string `pulumi:"created"`
 	ExpiresAt *string `pulumi:"expiresAt"`
-	Kid *string `pulumi:"kid"`
-	Kty *string `pulumi:"kty"`
-	Use *string `pulumi:"use"`
+	Kid       *string `pulumi:"kid"`
+	Kty       *string `pulumi:"kty"`
+	Use       *string `pulumi:"use"`
 	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs []string `pulumi:"x5cs"`
-	X5tS256 *string `pulumi:"x5tS256"`
+	X5cs    []string `pulumi:"x5cs"`
+	X5tS256 *string  `pulumi:"x5tS256"`
 }
 
 type SamlIdpSigningKeyState struct {
-	Created pulumi.StringPtrInput
+	Created   pulumi.StringPtrInput
 	ExpiresAt pulumi.StringPtrInput
-	Kid pulumi.StringPtrInput
-	Kty pulumi.StringPtrInput
-	Use pulumi.StringPtrInput
+	Kid       pulumi.StringPtrInput
+	Kty       pulumi.StringPtrInput
+	Use       pulumi.StringPtrInput
 	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs pulumi.StringArrayInput
+	X5cs    pulumi.StringArrayInput
 	X5tS256 pulumi.StringPtrInput
 }
 
@@ -94,4 +94,3 @@ type SamlIdpSigningKeyArgs struct {
 func (SamlIdpSigningKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlIdpSigningKeyArgs)(nil)).Elem()
 }
-
