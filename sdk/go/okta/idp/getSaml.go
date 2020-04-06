@@ -28,7 +28,6 @@ type LookupSamlArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getSaml.
 type LookupSamlResult struct {
 	// HTTP binding used to receive a SAMLResponse message from the IdP.
@@ -60,4 +59,3 @@ type LookupSamlResult struct {
 	// type of idp.
 	Type string `pulumi:"type"`
 }
-

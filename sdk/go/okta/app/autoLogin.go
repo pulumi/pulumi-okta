@@ -255,4 +255,3 @@ type AutoLoginArgs struct {
 func (AutoLoginArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoLoginArgs)(nil)).Elem()
 }
-

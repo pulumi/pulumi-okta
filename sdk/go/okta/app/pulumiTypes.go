@@ -12,9 +12,9 @@ import (
 )
 
 type AutoLoginUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -26,9 +26,9 @@ type AutoLoginUserInput interface {
 }
 
 type AutoLoginUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -65,7 +65,7 @@ func (i AutoLoginUserArray) ToAutoLoginUserArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginUserArrayOutput)
 }
 
-type AutoLoginUserOutput struct { *pulumi.OutputState }
+type AutoLoginUserOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoLoginUser)(nil)).Elem()
@@ -80,22 +80,22 @@ func (o AutoLoginUserOutput) ToAutoLoginUserOutputWithContext(ctx context.Contex
 }
 
 func (o AutoLoginUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoLoginUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoLoginUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o AutoLoginUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoLoginUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoLoginUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o AutoLoginUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoLoginUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoLoginUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o AutoLoginUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoLoginUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoLoginUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type AutoLoginUserArrayOutput struct { *pulumi.OutputState}
+type AutoLoginUserArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AutoLoginUser)(nil)).Elem()
@@ -110,16 +110,16 @@ func (o AutoLoginUserArrayOutput) ToAutoLoginUserArrayOutputWithContext(ctx cont
 }
 
 func (o AutoLoginUserArrayOutput) Index(i pulumi.IntInput) AutoLoginUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AutoLoginUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoLoginUser {
 		return vs[0].([]AutoLoginUser)[vs[1].(int)]
 	}).(AutoLoginUserOutput)
 }
 
 type BasicAuthUser struct {
 	// ID of the Application.
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -132,9 +132,9 @@ type BasicAuthUserInput interface {
 
 type BasicAuthUserArgs struct {
 	// ID of the Application.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -171,7 +171,7 @@ func (i BasicAuthUserArray) ToBasicAuthUserArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthUserArrayOutput)
 }
 
-type BasicAuthUserOutput struct { *pulumi.OutputState }
+type BasicAuthUserOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BasicAuthUser)(nil)).Elem()
@@ -187,22 +187,22 @@ func (o BasicAuthUserOutput) ToBasicAuthUserOutputWithContext(ctx context.Contex
 
 // ID of the Application.
 func (o BasicAuthUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BasicAuthUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BasicAuthUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o BasicAuthUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BasicAuthUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BasicAuthUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o BasicAuthUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BasicAuthUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BasicAuthUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o BasicAuthUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BasicAuthUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BasicAuthUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type BasicAuthUserArrayOutput struct { *pulumi.OutputState}
+type BasicAuthUserArrayOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BasicAuthUser)(nil)).Elem()
@@ -217,16 +217,16 @@ func (o BasicAuthUserArrayOutput) ToBasicAuthUserArrayOutputWithContext(ctx cont
 }
 
 func (o BasicAuthUserArrayOutput) Index(i pulumi.IntInput) BasicAuthUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BasicAuthUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasicAuthUser {
 		return vs[0].([]BasicAuthUser)[vs[1].(int)]
 	}).(BasicAuthUserOutput)
 }
 
 type BookmarkUser struct {
 	// ID of the Application.
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -239,9 +239,9 @@ type BookmarkUserInput interface {
 
 type BookmarkUserArgs struct {
 	// ID of the Application.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -278,7 +278,7 @@ func (i BookmarkUserArray) ToBookmarkUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkUserArrayOutput)
 }
 
-type BookmarkUserOutput struct { *pulumi.OutputState }
+type BookmarkUserOutput struct{ *pulumi.OutputState }
 
 func (BookmarkUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BookmarkUser)(nil)).Elem()
@@ -294,22 +294,22 @@ func (o BookmarkUserOutput) ToBookmarkUserOutputWithContext(ctx context.Context)
 
 // ID of the Application.
 func (o BookmarkUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o BookmarkUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BookmarkUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BookmarkUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type BookmarkUserArrayOutput struct { *pulumi.OutputState}
+type BookmarkUserArrayOutput struct{ *pulumi.OutputState }
 
 func (BookmarkUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BookmarkUser)(nil)).Elem()
@@ -324,15 +324,15 @@ func (o BookmarkUserArrayOutput) ToBookmarkUserArrayOutputWithContext(ctx contex
 }
 
 func (o BookmarkUserArrayOutput) Index(i pulumi.IntInput) BookmarkUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BookmarkUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BookmarkUser {
 		return vs[0].([]BookmarkUser)[vs[1].(int)]
 	}).(BookmarkUserOutput)
 }
 
 type OAuthUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -344,9 +344,9 @@ type OAuthUserInput interface {
 }
 
 type OAuthUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -383,7 +383,7 @@ func (i OAuthUserArray) ToOAuthUserArrayOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthUserArrayOutput)
 }
 
-type OAuthUserOutput struct { *pulumi.OutputState }
+type OAuthUserOutput struct{ *pulumi.OutputState }
 
 func (OAuthUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OAuthUser)(nil)).Elem()
@@ -398,22 +398,22 @@ func (o OAuthUserOutput) ToOAuthUserOutputWithContext(ctx context.Context) OAuth
 }
 
 func (o OAuthUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OAuthUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OAuthUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o OAuthUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OAuthUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OAuthUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o OAuthUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OAuthUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OAuthUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o OAuthUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OAuthUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OAuthUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type OAuthUserArrayOutput struct { *pulumi.OutputState}
+type OAuthUserArrayOutput struct{ *pulumi.OutputState }
 
 func (OAuthUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OAuthUser)(nil)).Elem()
@@ -428,7 +428,7 @@ func (o OAuthUserArrayOutput) ToOAuthUserArrayOutputWithContext(ctx context.Cont
 }
 
 func (o OAuthUserArrayOutput) Index(i pulumi.IntInput) OAuthUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OAuthUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OAuthUser {
 		return vs[0].([]OAuthUser)[vs[1].(int)]
 	}).(OAuthUserOutput)
 }
@@ -503,7 +503,7 @@ func (i SamlAttributeStatementArray) ToSamlAttributeStatementArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAttributeStatementArrayOutput)
 }
 
-type SamlAttributeStatementOutput struct { *pulumi.OutputState }
+type SamlAttributeStatementOutput struct{ *pulumi.OutputState }
 
 func (SamlAttributeStatementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlAttributeStatement)(nil)).Elem()
@@ -519,35 +519,35 @@ func (o SamlAttributeStatementOutput) ToSamlAttributeStatementOutputWithContext(
 
 // Type of group attribute filter.
 func (o SamlAttributeStatementOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
 // Filter value to use.
 func (o SamlAttributeStatementOutput) FilterValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
 }
 
 // The name of the attribute statement.
 func (o SamlAttributeStatementOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
 func (o SamlAttributeStatementOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
 func (o SamlAttributeStatementOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Array of values to use.
 func (o SamlAttributeStatementOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type SamlAttributeStatementArrayOutput struct { *pulumi.OutputState}
+type SamlAttributeStatementArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlAttributeStatementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SamlAttributeStatement)(nil)).Elem()
@@ -562,16 +562,16 @@ func (o SamlAttributeStatementArrayOutput) ToSamlAttributeStatementArrayOutputWi
 }
 
 func (o SamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAttributeStatementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SamlAttributeStatement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAttributeStatement {
 		return vs[0].([]SamlAttributeStatement)[vs[1].(int)]
 	}).(SamlAttributeStatementOutput)
 }
 
 type SamlUser struct {
 	// id of application.
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -584,9 +584,9 @@ type SamlUserInput interface {
 
 type SamlUserArgs struct {
 	// id of application.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -623,7 +623,7 @@ func (i SamlUserArray) ToSamlUserArrayOutputWithContext(ctx context.Context) Sam
 	return pulumi.ToOutputWithContext(ctx, i).(SamlUserArrayOutput)
 }
 
-type SamlUserOutput struct { *pulumi.OutputState }
+type SamlUserOutput struct{ *pulumi.OutputState }
 
 func (SamlUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlUser)(nil)).Elem()
@@ -639,22 +639,22 @@ func (o SamlUserOutput) ToSamlUserOutputWithContext(ctx context.Context) SamlUse
 
 // id of application.
 func (o SamlUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SamlUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SamlUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SamlUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SamlUserArrayOutput struct { *pulumi.OutputState}
+type SamlUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SamlUser)(nil)).Elem()
@@ -669,15 +669,15 @@ func (o SamlUserArrayOutput) ToSamlUserArrayOutputWithContext(ctx context.Contex
 }
 
 func (o SamlUserArrayOutput) Index(i pulumi.IntInput) SamlUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SamlUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlUser {
 		return vs[0].([]SamlUser)[vs[1].(int)]
 	}).(SamlUserOutput)
 }
 
 type SecurePasswordStoreUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -689,9 +689,9 @@ type SecurePasswordStoreUserInput interface {
 }
 
 type SecurePasswordStoreUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -728,7 +728,7 @@ func (i SecurePasswordStoreUserArray) ToSecurePasswordStoreUserArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreUserArrayOutput)
 }
 
-type SecurePasswordStoreUserOutput struct { *pulumi.OutputState }
+type SecurePasswordStoreUserOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurePasswordStoreUser)(nil)).Elem()
@@ -743,22 +743,22 @@ func (o SecurePasswordStoreUserOutput) ToSecurePasswordStoreUserOutputWithContex
 }
 
 func (o SecurePasswordStoreUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurePasswordStoreUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurePasswordStoreUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurePasswordStoreUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SecurePasswordStoreUserArrayOutput struct { *pulumi.OutputState}
+type SecurePasswordStoreUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SecurePasswordStoreUser)(nil)).Elem()
@@ -773,15 +773,15 @@ func (o SecurePasswordStoreUserArrayOutput) ToSecurePasswordStoreUserArrayOutput
 }
 
 func (o SecurePasswordStoreUserArrayOutput) Index(i pulumi.IntInput) SecurePasswordStoreUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SecurePasswordStoreUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurePasswordStoreUser {
 		return vs[0].([]SecurePasswordStoreUser)[vs[1].(int)]
 	}).(SecurePasswordStoreUserOutput)
 }
 
 type SwaUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -793,9 +793,9 @@ type SwaUserInput interface {
 }
 
 type SwaUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -832,7 +832,7 @@ func (i SwaUserArray) ToSwaUserArrayOutputWithContext(ctx context.Context) SwaUs
 	return pulumi.ToOutputWithContext(ctx, i).(SwaUserArrayOutput)
 }
 
-type SwaUserOutput struct { *pulumi.OutputState }
+type SwaUserOutput struct{ *pulumi.OutputState }
 
 func (SwaUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SwaUser)(nil)).Elem()
@@ -847,22 +847,22 @@ func (o SwaUserOutput) ToSwaUserOutputWithContext(ctx context.Context) SwaUserOu
 }
 
 func (o SwaUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o SwaUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SwaUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SwaUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SwaUserArrayOutput struct { *pulumi.OutputState}
+type SwaUserArrayOutput struct{ *pulumi.OutputState }
 
 func (SwaUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SwaUser)(nil)).Elem()
@@ -877,15 +877,15 @@ func (o SwaUserArrayOutput) ToSwaUserArrayOutputWithContext(ctx context.Context)
 }
 
 func (o SwaUserArrayOutput) Index(i pulumi.IntInput) SwaUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SwaUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SwaUser {
 		return vs[0].([]SwaUser)[vs[1].(int)]
 	}).(SwaUserOutput)
 }
 
 type ThreeFieldUser struct {
-	Id *string `pulumi:"id"`
+	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
-	Scope *string `pulumi:"scope"`
+	Scope    *string `pulumi:"scope"`
 	Username *string `pulumi:"username"`
 }
 
@@ -897,9 +897,9 @@ type ThreeFieldUserInput interface {
 }
 
 type ThreeFieldUserArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -936,7 +936,7 @@ func (i ThreeFieldUserArray) ToThreeFieldUserArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldUserArrayOutput)
 }
 
-type ThreeFieldUserOutput struct { *pulumi.OutputState }
+type ThreeFieldUserOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreeFieldUser)(nil)).Elem()
@@ -951,22 +951,22 @@ func (o ThreeFieldUserOutput) ToThreeFieldUserOutputWithContext(ctx context.Cont
 }
 
 func (o ThreeFieldUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldUser) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreeFieldUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ThreeFieldUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ThreeFieldUser) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type ThreeFieldUserArrayOutput struct { *pulumi.OutputState}
+type ThreeFieldUserArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ThreeFieldUser)(nil)).Elem()
@@ -981,7 +981,7 @@ func (o ThreeFieldUserArrayOutput) ToThreeFieldUserArrayOutputWithContext(ctx co
 }
 
 func (o ThreeFieldUserArrayOutput) Index(i pulumi.IntInput) ThreeFieldUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ThreeFieldUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreeFieldUser {
 		return vs[0].([]ThreeFieldUser)[vs[1].(int)]
 	}).(ThreeFieldUserOutput)
 }
@@ -1040,7 +1040,7 @@ func (i UserSchemaArrayOneOfArray) ToUserSchemaArrayOneOfArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaArrayOneOfArrayOutput)
 }
 
-type UserSchemaArrayOneOfOutput struct { *pulumi.OutputState }
+type UserSchemaArrayOneOfOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaArrayOneOfOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSchemaArrayOneOf)(nil)).Elem()
@@ -1056,15 +1056,15 @@ func (o UserSchemaArrayOneOfOutput) ToUserSchemaArrayOneOfOutputWithContext(ctx 
 
 // value mapping to member of `enum`.
 func (o UserSchemaArrayOneOfOutput) Const() pulumi.StringOutput {
-	return o.ApplyT(func (v UserSchemaArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UserSchemaArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
 // display name for the enum value.
 func (o UserSchemaArrayOneOfOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v UserSchemaArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UserSchemaArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type UserSchemaArrayOneOfArrayOutput struct { *pulumi.OutputState}
+type UserSchemaArrayOneOfArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaArrayOneOfArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]UserSchemaArrayOneOf)(nil)).Elem()
@@ -1079,7 +1079,7 @@ func (o UserSchemaArrayOneOfArrayOutput) ToUserSchemaArrayOneOfArrayOutputWithCo
 }
 
 func (o UserSchemaArrayOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaArrayOneOfOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) UserSchemaArrayOneOf {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaArrayOneOf {
 		return vs[0].([]UserSchemaArrayOneOf)[vs[1].(int)]
 	}).(UserSchemaArrayOneOfOutput)
 }
@@ -1138,7 +1138,7 @@ func (i UserSchemaOneOfArray) ToUserSchemaOneOfArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaOneOfArrayOutput)
 }
 
-type UserSchemaOneOfOutput struct { *pulumi.OutputState }
+type UserSchemaOneOfOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaOneOfOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSchemaOneOf)(nil)).Elem()
@@ -1154,15 +1154,15 @@ func (o UserSchemaOneOfOutput) ToUserSchemaOneOfOutputWithContext(ctx context.Co
 
 // value mapping to member of `enum`.
 func (o UserSchemaOneOfOutput) Const() pulumi.StringOutput {
-	return o.ApplyT(func (v UserSchemaOneOf) string { return v.Const }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UserSchemaOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
 // display name for the enum value.
 func (o UserSchemaOneOfOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v UserSchemaOneOf) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UserSchemaOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type UserSchemaOneOfArrayOutput struct { *pulumi.OutputState}
+type UserSchemaOneOfArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaOneOfArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]UserSchemaOneOf)(nil)).Elem()
@@ -1177,19 +1177,19 @@ func (o UserSchemaOneOfArrayOutput) ToUserSchemaOneOfArrayOutputWithContext(ctx 
 }
 
 func (o UserSchemaOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaOneOfOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) UserSchemaOneOf {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaOneOf {
 		return vs[0].([]UserSchemaOneOf)[vs[1].(int)]
 	}).(UserSchemaOneOfOutput)
 }
 
 type GetSamlAttributeStatement struct {
-	FilterType *string `pulumi:"filterType"`
+	FilterType  *string `pulumi:"filterType"`
 	FilterValue *string `pulumi:"filterValue"`
 	// name of application.
-	Name string `pulumi:"name"`
-	Namespace *string `pulumi:"namespace"`
-	Type *string `pulumi:"type"`
-	Values []string `pulumi:"values"`
+	Name      string   `pulumi:"name"`
+	Namespace *string  `pulumi:"namespace"`
+	Type      *string  `pulumi:"type"`
+	Values    []string `pulumi:"values"`
 }
 
 type GetSamlAttributeStatementInput interface {
@@ -1200,13 +1200,13 @@ type GetSamlAttributeStatementInput interface {
 }
 
 type GetSamlAttributeStatementArgs struct {
-	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	FilterType  pulumi.StringPtrInput `pulumi:"filterType"`
 	FilterValue pulumi.StringPtrInput `pulumi:"filterValue"`
 	// name of application.
-	Name pulumi.StringInput `pulumi:"name"`
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	Namespace pulumi.StringPtrInput   `pulumi:"namespace"`
+	Type      pulumi.StringPtrInput   `pulumi:"type"`
+	Values    pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetSamlAttributeStatementArgs) ElementType() reflect.Type {
@@ -1242,7 +1242,7 @@ func (i GetSamlAttributeStatementArray) ToGetSamlAttributeStatementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSamlAttributeStatementArrayOutput)
 }
 
-type GetSamlAttributeStatementOutput struct { *pulumi.OutputState }
+type GetSamlAttributeStatementOutput struct{ *pulumi.OutputState }
 
 func (GetSamlAttributeStatementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSamlAttributeStatement)(nil)).Elem()
@@ -1257,31 +1257,31 @@ func (o GetSamlAttributeStatementOutput) ToGetSamlAttributeStatementOutputWithCo
 }
 
 func (o GetSamlAttributeStatementOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSamlAttributeStatementOutput) FilterValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
 }
 
 // name of application.
 func (o GetSamlAttributeStatementOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetSamlAttributeStatementOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSamlAttributeStatementOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func (o GetSamlAttributeStatementOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetSamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetSamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetSamlAttributeStatementArrayOutput struct { *pulumi.OutputState}
+type GetSamlAttributeStatementArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSamlAttributeStatementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSamlAttributeStatement)(nil)).Elem()
@@ -1296,7 +1296,7 @@ func (o GetSamlAttributeStatementArrayOutput) ToGetSamlAttributeStatementArrayOu
 }
 
 func (o GetSamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) GetSamlAttributeStatementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSamlAttributeStatement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSamlAttributeStatement {
 		return vs[0].([]GetSamlAttributeStatement)[vs[1].(int)]
 	}).(GetSamlAttributeStatementOutput)
 }

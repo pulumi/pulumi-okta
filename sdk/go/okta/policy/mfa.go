@@ -247,4 +247,3 @@ type MfaArgs struct {
 func (MfaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaArgs)(nil)).Elem()
 }
-

@@ -91,4 +91,3 @@ type FactorArgs struct {
 func (FactorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*factorArgs)(nil)).Elem()
 }
-

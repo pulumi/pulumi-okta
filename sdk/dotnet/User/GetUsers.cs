@@ -16,7 +16,18 @@ namespace Pulumi.Okta.User
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
         /// </summary>
+        [Obsolete("Use GetUsers.InvokeAsync() instead")]
         public static Task<GetUsersResult> GetUsers(GetUsersArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetUsers
+    {
+        /// <summary>
+        /// Use this data source to retrieve a list of users from Okta.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
+        /// </summary>
+        public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,6 +47,10 @@ namespace Pulumi.Okta.User
 
         [Input("users")]
         private List<Inputs.GetUsersUsersArgs>? _users;
+
+        /// <summary>
+        /// collection of users retrieved from Okta with the following properties.
+        /// </summary>
         public List<Inputs.GetUsersUsersArgs> Users
         {
             get => _users ?? (_users = new List<Inputs.GetUsersUsersArgs>());

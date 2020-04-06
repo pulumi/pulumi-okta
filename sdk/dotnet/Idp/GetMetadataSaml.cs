@@ -16,7 +16,18 @@ namespace Pulumi.Okta.Idp
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
         /// </summary>
+        [Obsolete("Use GetMetadataSaml.InvokeAsync() instead")]
         public static Task<GetMetadataSamlResult> GetMetadataSaml(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetMetadataSaml
+    {
+        /// <summary>
+        /// Use this data source to retrieve SAML IdP metadata from Okta.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
+        /// </summary>
+        public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

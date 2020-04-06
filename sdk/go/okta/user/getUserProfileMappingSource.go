@@ -29,4 +29,3 @@ type GetUserProfileMappingSourceResult struct {
 	// type of source.
 	Type string `pulumi:"type"`
 }
-

@@ -26,7 +26,7 @@ type Hook struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayOutput `pulumi:"headers"`
 	// The inline hook display name.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name   pulumi.StringOutput    `pulumi:"name"`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of hook to trigger. Currently only `"HTTP"` is supported.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -75,7 +75,7 @@ type hookState struct {
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	Status *string `pulumi:"status"`
 	// The type of hook to trigger. Currently only `"HTTP"` is supported.
 	Type *string `pulumi:"type"`
@@ -91,7 +91,7 @@ type HookState struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Status pulumi.StringPtrInput
 	// The type of hook to trigger. Currently only `"HTTP"` is supported.
 	Type pulumi.StringPtrInput
@@ -111,7 +111,7 @@ type hookArgs struct {
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	Status *string `pulumi:"status"`
 	// The type of hook to trigger. Currently only `"HTTP"` is supported.
 	Type string `pulumi:"type"`
@@ -128,7 +128,7 @@ type HookArgs struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Status pulumi.StringPtrInput
 	// The type of hook to trigger. Currently only `"HTTP"` is supported.
 	Type pulumi.StringInput
@@ -139,4 +139,3 @@ type HookArgs struct {
 func (HookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookArgs)(nil)).Elem()
 }
-

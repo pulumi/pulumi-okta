@@ -16,7 +16,18 @@ namespace Pulumi.Okta.App
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
         /// </summary>
+        [Obsolete("Use GetMetadataSaml.InvokeAsync() instead")]
         public static Task<GetMetadataSamlResult> GetMetadataSaml(GetMetadataSamlArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetMetadataSaml
+    {
+        /// <summary>
+        /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+        /// </summary>
+        public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

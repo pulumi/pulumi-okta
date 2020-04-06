@@ -245,4 +245,3 @@ type SwaArgs struct {
 func (SwaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*swaArgs)(nil)).Elem()
 }
-

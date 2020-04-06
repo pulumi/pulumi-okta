@@ -161,4 +161,3 @@ type MfaPolicyRuleArgs struct {
 func (MfaPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaPolicyRuleArgs)(nil)).Elem()
 }
-

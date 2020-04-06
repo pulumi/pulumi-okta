@@ -73,30 +73,81 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getSaml.
  */
 export interface GetSamlArgs {
+    /**
+     * Custom error page URL.
+     */
     readonly accessibilityErrorRedirectUrl?: string;
+    /**
+     * Custom login page URL.
+     */
     readonly accessibilityLoginRedirectUrl?: string;
+    /**
+     * Enable self service.
+     */
     readonly accessibilitySelfService?: boolean;
     /**
      * tells the provider to query for only `ACTIVE` applications.
      */
     readonly activeOnly?: boolean;
+    /**
+     * Application settings in JSON format.
+     */
     readonly appSettingsJson?: string;
+    /**
+     * Determines whether the SAML assertion is digitally signed.
+     */
     readonly assertionSigned?: boolean;
+    /**
+     * SAML Attribute statements.
+     */
     readonly attributeStatements?: inputs.app.GetSamlAttributeStatement[];
+    /**
+     * Audience restriction.
+     */
     readonly audience?: string;
+    /**
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     */
     readonly authnContextClassRef?: string;
+    /**
+     * Display auto submit toolbar.
+     */
     readonly autoSubmitToolbar?: boolean;
+    /**
+     * Identifies a specific application resource in an IDP initiated SSO scenario.
+     */
     readonly defaultRelayState?: string;
+    /**
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     */
     readonly destination?: string;
+    /**
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     */
     readonly digestAlgorithm?: string;
+    /**
+     * features enabled.
+     */
     readonly features?: string[];
+    /**
+     * Do not display application icon on mobile app.
+     */
     readonly hideIos?: boolean;
+    /**
+     * Do not display application icon to users
+     */
     readonly hideWeb?: boolean;
+    /**
+     * Prompt user to re-authenticate if SP asks for it.
+     */
     readonly honorForceAuthn?: boolean;
     /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     readonly id?: string;
+    /**
+     * SAML issuer ID.
+     */
     readonly idpIssuer?: string;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`.
@@ -106,16 +157,49 @@ export interface GetSamlArgs {
      * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
      */
     readonly labelPrefix?: string;
+    /**
+     * The location where the app may present the SAML assertion.
+     */
     readonly recipient?: string;
+    /**
+     * Denotes whether the request is compressed or not.
+     */
     readonly requestCompressed?: boolean;
+    /**
+     * Determines whether the SAML auth response message is digitally signed.
+     */
     readonly responseSigned?: boolean;
+    /**
+     * Signature algorithm used ot digitally sign the assertion and response.
+     */
     readonly signatureAlgorithm?: string;
+    /**
+     * SAML service provider issuer.
+     */
     readonly spIssuer?: string;
+    /**
+     * Single Sign on Url.
+     */
     readonly ssoUrl?: string;
+    /**
+     * Identifies the SAML processing rules.
+     */
     readonly subjectNameIdFormat?: string;
+    /**
+     * Template for app user's username when a user is assigned to the app.
+     */
     readonly subjectNameIdTemplate?: string;
+    /**
+     * Username template.
+     */
     readonly userNameTemplate?: string;
+    /**
+     * Username template suffix.
+     */
     readonly userNameTemplateSuffix?: string;
+    /**
+     * Username template type.
+     */
     readonly userNameTemplateType?: string;
 }
 

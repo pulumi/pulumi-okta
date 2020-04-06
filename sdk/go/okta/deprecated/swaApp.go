@@ -240,4 +240,3 @@ type SwaAppArgs struct {
 func (SwaAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*swaAppArgs)(nil)).Elem()
 }
-

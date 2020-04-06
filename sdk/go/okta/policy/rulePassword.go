@@ -181,4 +181,3 @@ type RulePasswordArgs struct {
 func (RulePasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulePasswordArgs)(nil)).Elem()
 }
-

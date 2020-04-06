@@ -26,7 +26,6 @@ type GetDefaultPolicyArgs struct {
 	Type string `pulumi:"type"`
 }
 
-
 // A collection of values returned by getDefaultPolicy.
 type GetDefaultPolicyResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -34,4 +33,3 @@ type GetDefaultPolicyResult struct {
 	// type of policy.
 	Type string `pulumi:"type"`
 }
-

@@ -23,8 +23,8 @@ type RuleIdpDiscovery struct {
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayOutput `pulumi:"appExcludes"`
 	// Applications to include in discovery rule
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayOutput `pulumi:"appIncludes"`
-	IdpId pulumi.StringPtrOutput `pulumi:"idpId"`
-	IdpType pulumi.StringPtrOutput `pulumi:"idpType"`
+	IdpId       pulumi.StringPtrOutput                `pulumi:"idpId"`
+	IdpType     pulumi.StringPtrOutput                `pulumi:"idpType"`
 	// Policy Rule Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -32,17 +32,17 @@ type RuleIdpDiscovery struct {
 	// The network zones to exclude. Conflicts with `networkIncludes`.
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 	// The network zones to include. Conflicts with `networkExcludes`.
-	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
+	NetworkIncludes  pulumi.StringArrayOutput                   `pulumi:"networkIncludes"`
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	UserIdentifierAttribute pulumi.StringPtrOutput `pulumi:"userIdentifierAttribute"`
-	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayOutput `pulumi:"userIdentifierPatterns"`
-	UserIdentifierType pulumi.StringPtrOutput `pulumi:"userIdentifierType"`
+	Status                  pulumi.StringPtrOutput                           `pulumi:"status"`
+	UserIdentifierAttribute pulumi.StringPtrOutput                           `pulumi:"userIdentifierAttribute"`
+	UserIdentifierPatterns  RuleIdpDiscoveryUserIdentifierPatternArrayOutput `pulumi:"userIdentifierPatterns"`
+	UserIdentifierType      pulumi.StringPtrOutput                           `pulumi:"userIdentifierType"`
 }
 
 // NewRuleIdpDiscovery registers a new resource with the given unique name, arguments, and options.
@@ -80,8 +80,8 @@ type ruleIdpDiscoveryState struct {
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
-	IdpId *string `pulumi:"idpId"`
-	IdpType *string `pulumi:"idpType"`
+	IdpId       *string                      `pulumi:"idpId"`
+	IdpType     *string                      `pulumi:"idpType"`
 	// Policy Rule Name.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -89,17 +89,17 @@ type ruleIdpDiscoveryState struct {
 	// The network zones to exclude. Conflicts with `networkIncludes`.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// The network zones to include. Conflicts with `networkExcludes`.
-	NetworkIncludes []string `pulumi:"networkIncludes"`
+	NetworkIncludes  []string                          `pulumi:"networkIncludes"`
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-	Status *string `pulumi:"status"`
-	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
-	UserIdentifierType *string `pulumi:"userIdentifierType"`
+	Status                  *string                                 `pulumi:"status"`
+	UserIdentifierAttribute *string                                 `pulumi:"userIdentifierAttribute"`
+	UserIdentifierPatterns  []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
+	UserIdentifierType      *string                                 `pulumi:"userIdentifierType"`
 }
 
 type RuleIdpDiscoveryState struct {
@@ -107,8 +107,8 @@ type RuleIdpDiscoveryState struct {
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
-	IdpId pulumi.StringPtrInput
-	IdpType pulumi.StringPtrInput
+	IdpId       pulumi.StringPtrInput
+	IdpType     pulumi.StringPtrInput
 	// Policy Rule Name.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -116,17 +116,17 @@ type RuleIdpDiscoveryState struct {
 	// The network zones to exclude. Conflicts with `networkIncludes`.
 	NetworkExcludes pulumi.StringArrayInput
 	// The network zones to include. Conflicts with `networkExcludes`.
-	NetworkIncludes pulumi.StringArrayInput
+	NetworkIncludes  pulumi.StringArrayInput
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-	Status pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
 	UserIdentifierAttribute pulumi.StringPtrInput
-	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
-	UserIdentifierType pulumi.StringPtrInput
+	UserIdentifierPatterns  RuleIdpDiscoveryUserIdentifierPatternArrayInput
+	UserIdentifierType      pulumi.StringPtrInput
 }
 
 func (RuleIdpDiscoveryState) ElementType() reflect.Type {
@@ -138,8 +138,8 @@ type ruleIdpDiscoveryArgs struct {
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
-	IdpId *string `pulumi:"idpId"`
-	IdpType *string `pulumi:"idpType"`
+	IdpId       *string                      `pulumi:"idpId"`
+	IdpType     *string                      `pulumi:"idpType"`
 	// Policy Rule Name.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -147,17 +147,17 @@ type ruleIdpDiscoveryArgs struct {
 	// The network zones to exclude. Conflicts with `networkIncludes`.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// The network zones to include. Conflicts with `networkExcludes`.
-	NetworkIncludes []string `pulumi:"networkIncludes"`
+	NetworkIncludes  []string                          `pulumi:"networkIncludes"`
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-	Status *string `pulumi:"status"`
-	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
-	UserIdentifierType *string `pulumi:"userIdentifierType"`
+	Status                  *string                                 `pulumi:"status"`
+	UserIdentifierAttribute *string                                 `pulumi:"userIdentifierAttribute"`
+	UserIdentifierPatterns  []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
+	UserIdentifierType      *string                                 `pulumi:"userIdentifierType"`
 }
 
 // The set of arguments for constructing a RuleIdpDiscovery resource.
@@ -166,8 +166,8 @@ type RuleIdpDiscoveryArgs struct {
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
-	IdpId pulumi.StringPtrInput
-	IdpType pulumi.StringPtrInput
+	IdpId       pulumi.StringPtrInput
+	IdpType     pulumi.StringPtrInput
 	// Policy Rule Name.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -175,20 +175,19 @@ type RuleIdpDiscoveryArgs struct {
 	// The network zones to exclude. Conflicts with `networkIncludes`.
 	NetworkExcludes pulumi.StringArrayInput
 	// The network zones to include. Conflicts with `networkExcludes`.
-	NetworkIncludes pulumi.StringArrayInput
+	NetworkIncludes  pulumi.StringArrayInput
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	Policyid pulumi.StringInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-	Status pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
 	UserIdentifierAttribute pulumi.StringPtrInput
-	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
-	UserIdentifierType pulumi.StringPtrInput
+	UserIdentifierPatterns  RuleIdpDiscoveryUserIdentifierPatternArrayInput
+	UserIdentifierType      pulumi.StringPtrInput
 }
 
 func (RuleIdpDiscoveryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleIdpDiscoveryArgs)(nil)).Elem()
 }
-

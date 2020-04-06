@@ -26,7 +26,6 @@ type LookupServerArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getServer.
 type LookupServerResult struct {
 	// array of audiences,
@@ -48,4 +47,3 @@ type LookupServerResult struct {
 	// the activation status of the authorization server.
 	Status string `pulumi:"status"`
 }
-

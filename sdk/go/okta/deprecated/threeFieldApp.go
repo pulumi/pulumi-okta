@@ -268,4 +268,3 @@ type ThreeFieldAppArgs struct {
 func (ThreeFieldAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threeFieldAppArgs)(nil)).Elem()
 }
-

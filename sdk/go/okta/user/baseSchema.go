@@ -137,4 +137,3 @@ type BaseSchemaArgs struct {
 func (BaseSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*baseSchemaArgs)(nil)).Elem()
 }
-

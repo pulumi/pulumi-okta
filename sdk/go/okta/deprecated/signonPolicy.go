@@ -117,4 +117,3 @@ type SignonPolicyArgs struct {
 func (SignonPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonPolicyArgs)(nil)).Elem()
 }
-

@@ -26,7 +26,6 @@ type LookupUserArgs struct {
 	Searches []GetUserSearch `pulumi:"searches"`
 }
 
-
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// Administrator roles assigned to user.
@@ -84,8 +83,8 @@ type LookupUserResult struct {
 	// user profile property.
 	PrimaryPhone string `pulumi:"primaryPhone"`
 	// user profile property.
-	ProfileUrl string `pulumi:"profileUrl"`
-	Searches []GetUserSearch `pulumi:"searches"`
+	ProfileUrl string          `pulumi:"profileUrl"`
+	Searches   []GetUserSearch `pulumi:"searches"`
 	// user profile property.
 	SecondEmail string `pulumi:"secondEmail"`
 	// user profile property.
@@ -103,4 +102,3 @@ type LookupUserResult struct {
 	// user profile property.
 	ZipCode string `pulumi:"zipCode"`
 }
-

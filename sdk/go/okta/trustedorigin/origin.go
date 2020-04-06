@@ -114,4 +114,3 @@ type OriginArgs struct {
 func (OriginArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*originArgs)(nil)).Elem()
 }
-

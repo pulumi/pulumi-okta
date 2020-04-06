@@ -65,7 +65,8 @@ type HookAuthPtrInput interface {
 
 type hookAuthPtrType HookAuthArgs
 
-func HookAuthPtr(v *HookAuthArgs) HookAuthPtrInput {	return (*hookAuthPtrType)(v)
+func HookAuthPtr(v *HookAuthArgs) HookAuthPtrInput {
+	return (*hookAuthPtrType)(v)
 }
 
 func (*hookAuthPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *hookAuthPtrType) ToHookAuthPtrOutputWithContext(ctx context.Context) Ho
 	return pulumi.ToOutputWithContext(ctx, i).(HookAuthPtrOutput)
 }
 
-type HookAuthOutput struct { *pulumi.OutputState }
+type HookAuthOutput struct{ *pulumi.OutputState }
 
 func (HookAuthOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HookAuth)(nil)).Elem()
@@ -103,22 +104,23 @@ func (o HookAuthOutput) ToHookAuthPtrOutputWithContext(ctx context.Context) Hook
 		return &v
 	}).(HookAuthPtrOutput)
 }
+
 // Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o HookAuthOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookAuthOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Authentication secret.
 func (o HookAuthOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type HookAuthPtrOutput struct { *pulumi.OutputState}
+type HookAuthPtrOutput struct{ *pulumi.OutputState }
 
 func (HookAuthPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HookAuth)(nil)).Elem()
@@ -133,22 +135,22 @@ func (o HookAuthPtrOutput) ToHookAuthPtrOutputWithContext(ctx context.Context) H
 }
 
 func (o HookAuthPtrOutput) Elem() HookAuthOutput {
-	return o.ApplyT(func (v *HookAuth) HookAuth { return *v }).(HookAuthOutput)
+	return o.ApplyT(func(v *HookAuth) HookAuth { return *v }).(HookAuthOutput)
 }
 
 // Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o HookAuthPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookAuthPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Authentication secret.
 func (o HookAuthPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookAuth) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookAuth) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type HookChannel struct {
@@ -209,7 +211,8 @@ type HookChannelPtrInput interface {
 
 type hookChannelPtrType HookChannelArgs
 
-func HookChannelPtr(v *HookChannelArgs) HookChannelPtrInput {	return (*hookChannelPtrType)(v)
+func HookChannelPtr(v *HookChannelArgs) HookChannelPtrInput {
+	return (*hookChannelPtrType)(v)
 }
 
 func (*hookChannelPtrType) ElementType() reflect.Type {
@@ -224,7 +227,7 @@ func (i *hookChannelPtrType) ToHookChannelPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HookChannelPtrOutput)
 }
 
-type HookChannelOutput struct { *pulumi.OutputState }
+type HookChannelOutput struct{ *pulumi.OutputState }
 
 func (HookChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HookChannel)(nil)).Elem()
@@ -247,27 +250,28 @@ func (o HookChannelOutput) ToHookChannelPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(HookChannelPtrOutput)
 }
+
 // The request method to use. Default is `"POST"`.
 func (o HookChannelOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookChannel) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookChannel) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookChannelOutput) Type() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v HookChannel) *bool { return v.Type }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v HookChannel) *bool { return v.Type }).(pulumi.BoolPtrOutput)
 }
 
 // The URI the hook will hit.
 func (o HookChannelOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v HookChannel) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HookChannel) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 // The version of the endpoint.
 func (o HookChannelOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v HookChannel) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HookChannel) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type HookChannelPtrOutput struct { *pulumi.OutputState}
+type HookChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (HookChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HookChannel)(nil)).Elem()
@@ -282,27 +286,27 @@ func (o HookChannelPtrOutput) ToHookChannelPtrOutputWithContext(ctx context.Cont
 }
 
 func (o HookChannelPtrOutput) Elem() HookChannelOutput {
-	return o.ApplyT(func (v *HookChannel) HookChannel { return *v }).(HookChannelOutput)
+	return o.ApplyT(func(v *HookChannel) HookChannel { return *v }).(HookChannelOutput)
 }
 
 // The request method to use. Default is `"POST"`.
 func (o HookChannelPtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookChannel) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookChannel) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookChannelPtrOutput) Type() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v HookChannel) *bool { return v.Type }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v HookChannel) *bool { return v.Type }).(pulumi.BoolPtrOutput)
 }
 
 // The URI the hook will hit.
 func (o HookChannelPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v HookChannel) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HookChannel) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 // The version of the endpoint.
 func (o HookChannelPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v HookChannel) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HookChannel) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type HookHeader struct {
@@ -359,7 +363,7 @@ func (i HookHeaderArray) ToHookHeaderArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HookHeaderArrayOutput)
 }
 
-type HookHeaderOutput struct { *pulumi.OutputState }
+type HookHeaderOutput struct{ *pulumi.OutputState }
 
 func (HookHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HookHeader)(nil)).Elem()
@@ -375,15 +379,15 @@ func (o HookHeaderOutput) ToHookHeaderOutputWithContext(ctx context.Context) Hoo
 
 // Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o HookHeaderOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Authentication secret.
 func (o HookHeaderOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HookHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HookHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type HookHeaderArrayOutput struct { *pulumi.OutputState}
+type HookHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (HookHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]HookHeader)(nil)).Elem()
@@ -398,7 +402,7 @@ func (o HookHeaderArrayOutput) ToHookHeaderArrayOutputWithContext(ctx context.Co
 }
 
 func (o HookHeaderArrayOutput) Index(i pulumi.IntInput) HookHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) HookHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HookHeader {
 		return vs[0].([]HookHeader)[vs[1].(int)]
 	}).(HookHeaderOutput)
 }

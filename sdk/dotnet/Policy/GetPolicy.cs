@@ -16,7 +16,18 @@ namespace Pulumi.Okta.Policy
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPolicy.InvokeAsync() instead")]
         public static Task<GetPolicyResult> GetPolicy(GetPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPolicy
+    {
+        /// <summary>
+        /// Use this data source to retrieve a policy from Okta.
+        /// 
+        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
+        /// </summary>
+        public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

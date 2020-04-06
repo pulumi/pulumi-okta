@@ -173,4 +173,3 @@ type BasicAuthArgs struct {
 func (BasicAuthArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*basicAuthArgs)(nil)).Elem()
 }
-

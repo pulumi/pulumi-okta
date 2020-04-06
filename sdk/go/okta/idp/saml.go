@@ -392,4 +392,3 @@ type SamlArgs struct {
 func (SamlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlArgs)(nil)).Elem()
 }
-

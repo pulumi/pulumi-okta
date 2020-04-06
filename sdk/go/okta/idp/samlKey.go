@@ -117,4 +117,3 @@ type SamlKeyArgs struct {
 func (SamlKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlKeyArgs)(nil)).Elem()
 }
-

@@ -26,7 +26,6 @@ type GetMetadataSamlArgs struct {
 	IdpId *string `pulumi:"idpId"`
 }
 
-
 // A collection of values returned by getMetadataSaml.
 type GetMetadataSamlResult struct {
 	// whether assertions are signed.
@@ -42,11 +41,10 @@ type GetMetadataSamlResult struct {
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id    string  `pulumi:"id"`
 	IdpId *string `pulumi:"idpId"`
 	// raw IdP metadata.
 	Metadata string `pulumi:"metadata"`
 	// SAML request signing certificate.
 	SigningCertificate string `pulumi:"signingCertificate"`
 }
-

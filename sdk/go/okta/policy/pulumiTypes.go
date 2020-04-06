@@ -61,7 +61,8 @@ type MfaDuoPtrInput interface {
 
 type mfaDuoPtrType MfaDuoArgs
 
-func MfaDuoPtr(v *MfaDuoArgs) MfaDuoPtrInput {	return (*mfaDuoPtrType)(v)
+func MfaDuoPtr(v *MfaDuoArgs) MfaDuoPtrInput {
+	return (*mfaDuoPtrType)(v)
 }
 
 func (*mfaDuoPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *mfaDuoPtrType) ToMfaDuoPtrOutputWithContext(ctx context.Context) MfaDuo
 	return pulumi.ToOutputWithContext(ctx, i).(MfaDuoPtrOutput)
 }
 
-type MfaDuoOutput struct { *pulumi.OutputState }
+type MfaDuoOutput struct{ *pulumi.OutputState }
 
 func (MfaDuoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaDuo)(nil)).Elem()
@@ -99,17 +100,18 @@ func (o MfaDuoOutput) ToMfaDuoPtrOutputWithContext(ctx context.Context) MfaDuoPt
 		return &v
 	}).(MfaDuoPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaDuoOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaDuoOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaDuoPtrOutput struct { *pulumi.OutputState}
+type MfaDuoPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaDuoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaDuo)(nil)).Elem()
@@ -124,17 +126,17 @@ func (o MfaDuoPtrOutput) ToMfaDuoPtrOutputWithContext(ctx context.Context) MfaDu
 }
 
 func (o MfaDuoPtrOutput) Elem() MfaDuoOutput {
-	return o.ApplyT(func (v *MfaDuo) MfaDuo { return *v }).(MfaDuoOutput)
+	return o.ApplyT(func(v *MfaDuo) MfaDuo { return *v }).(MfaDuoOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaDuoPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaDuoPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaFidoU2f struct {
@@ -187,7 +189,8 @@ type MfaFidoU2fPtrInput interface {
 
 type mfaFidoU2fPtrType MfaFidoU2fArgs
 
-func MfaFidoU2fPtr(v *MfaFidoU2fArgs) MfaFidoU2fPtrInput {	return (*mfaFidoU2fPtrType)(v)
+func MfaFidoU2fPtr(v *MfaFidoU2fArgs) MfaFidoU2fPtrInput {
+	return (*mfaFidoU2fPtrType)(v)
 }
 
 func (*mfaFidoU2fPtrType) ElementType() reflect.Type {
@@ -202,7 +205,7 @@ func (i *mfaFidoU2fPtrType) ToMfaFidoU2fPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MfaFidoU2fPtrOutput)
 }
 
-type MfaFidoU2fOutput struct { *pulumi.OutputState }
+type MfaFidoU2fOutput struct{ *pulumi.OutputState }
 
 func (MfaFidoU2fOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaFidoU2f)(nil)).Elem()
@@ -225,17 +228,18 @@ func (o MfaFidoU2fOutput) ToMfaFidoU2fPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(MfaFidoU2fPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoU2fOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoU2fOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaFidoU2fPtrOutput struct { *pulumi.OutputState}
+type MfaFidoU2fPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaFidoU2fPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaFidoU2f)(nil)).Elem()
@@ -250,17 +254,17 @@ func (o MfaFidoU2fPtrOutput) ToMfaFidoU2fPtrOutputWithContext(ctx context.Contex
 }
 
 func (o MfaFidoU2fPtrOutput) Elem() MfaFidoU2fOutput {
-	return o.ApplyT(func (v *MfaFidoU2f) MfaFidoU2f { return *v }).(MfaFidoU2fOutput)
+	return o.ApplyT(func(v *MfaFidoU2f) MfaFidoU2f { return *v }).(MfaFidoU2fOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoU2fPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoU2fPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaFidoWebauthn struct {
@@ -313,7 +317,8 @@ type MfaFidoWebauthnPtrInput interface {
 
 type mfaFidoWebauthnPtrType MfaFidoWebauthnArgs
 
-func MfaFidoWebauthnPtr(v *MfaFidoWebauthnArgs) MfaFidoWebauthnPtrInput {	return (*mfaFidoWebauthnPtrType)(v)
+func MfaFidoWebauthnPtr(v *MfaFidoWebauthnArgs) MfaFidoWebauthnPtrInput {
+	return (*mfaFidoWebauthnPtrType)(v)
 }
 
 func (*mfaFidoWebauthnPtrType) ElementType() reflect.Type {
@@ -328,7 +333,7 @@ func (i *mfaFidoWebauthnPtrType) ToMfaFidoWebauthnPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaFidoWebauthnPtrOutput)
 }
 
-type MfaFidoWebauthnOutput struct { *pulumi.OutputState }
+type MfaFidoWebauthnOutput struct{ *pulumi.OutputState }
 
 func (MfaFidoWebauthnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaFidoWebauthn)(nil)).Elem()
@@ -351,17 +356,18 @@ func (o MfaFidoWebauthnOutput) ToMfaFidoWebauthnPtrOutputWithContext(ctx context
 		return &v
 	}).(MfaFidoWebauthnPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoWebauthnOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoWebauthnOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaFidoWebauthnPtrOutput struct { *pulumi.OutputState}
+type MfaFidoWebauthnPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaFidoWebauthnPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaFidoWebauthn)(nil)).Elem()
@@ -376,17 +382,17 @@ func (o MfaFidoWebauthnPtrOutput) ToMfaFidoWebauthnPtrOutputWithContext(ctx cont
 }
 
 func (o MfaFidoWebauthnPtrOutput) Elem() MfaFidoWebauthnOutput {
-	return o.ApplyT(func (v *MfaFidoWebauthn) MfaFidoWebauthn { return *v }).(MfaFidoWebauthnOutput)
+	return o.ApplyT(func(v *MfaFidoWebauthn) MfaFidoWebauthn { return *v }).(MfaFidoWebauthnOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoWebauthnPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoWebauthnPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaGoogleOtp struct {
@@ -439,7 +445,8 @@ type MfaGoogleOtpPtrInput interface {
 
 type mfaGoogleOtpPtrType MfaGoogleOtpArgs
 
-func MfaGoogleOtpPtr(v *MfaGoogleOtpArgs) MfaGoogleOtpPtrInput {	return (*mfaGoogleOtpPtrType)(v)
+func MfaGoogleOtpPtr(v *MfaGoogleOtpArgs) MfaGoogleOtpPtrInput {
+	return (*mfaGoogleOtpPtrType)(v)
 }
 
 func (*mfaGoogleOtpPtrType) ElementType() reflect.Type {
@@ -454,7 +461,7 @@ func (i *mfaGoogleOtpPtrType) ToMfaGoogleOtpPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MfaGoogleOtpPtrOutput)
 }
 
-type MfaGoogleOtpOutput struct { *pulumi.OutputState }
+type MfaGoogleOtpOutput struct{ *pulumi.OutputState }
 
 func (MfaGoogleOtpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaGoogleOtp)(nil)).Elem()
@@ -477,17 +484,18 @@ func (o MfaGoogleOtpOutput) ToMfaGoogleOtpPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(MfaGoogleOtpPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaGoogleOtpOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaGoogleOtpOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaGoogleOtpPtrOutput struct { *pulumi.OutputState}
+type MfaGoogleOtpPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaGoogleOtpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaGoogleOtp)(nil)).Elem()
@@ -502,17 +510,17 @@ func (o MfaGoogleOtpPtrOutput) ToMfaGoogleOtpPtrOutputWithContext(ctx context.Co
 }
 
 func (o MfaGoogleOtpPtrOutput) Elem() MfaGoogleOtpOutput {
-	return o.ApplyT(func (v *MfaGoogleOtp) MfaGoogleOtp { return *v }).(MfaGoogleOtpOutput)
+	return o.ApplyT(func(v *MfaGoogleOtp) MfaGoogleOtp { return *v }).(MfaGoogleOtpOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaGoogleOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaGoogleOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaCall struct {
@@ -565,7 +573,8 @@ type MfaOktaCallPtrInput interface {
 
 type mfaOktaCallPtrType MfaOktaCallArgs
 
-func MfaOktaCallPtr(v *MfaOktaCallArgs) MfaOktaCallPtrInput {	return (*mfaOktaCallPtrType)(v)
+func MfaOktaCallPtr(v *MfaOktaCallArgs) MfaOktaCallPtrInput {
+	return (*mfaOktaCallPtrType)(v)
 }
 
 func (*mfaOktaCallPtrType) ElementType() reflect.Type {
@@ -580,7 +589,7 @@ func (i *mfaOktaCallPtrType) ToMfaOktaCallPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaCallPtrOutput)
 }
 
-type MfaOktaCallOutput struct { *pulumi.OutputState }
+type MfaOktaCallOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaCallOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaCall)(nil)).Elem()
@@ -603,17 +612,18 @@ func (o MfaOktaCallOutput) ToMfaOktaCallPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(MfaOktaCallPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaCallOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaCallOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaCallPtrOutput struct { *pulumi.OutputState}
+type MfaOktaCallPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaCallPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaCall)(nil)).Elem()
@@ -628,17 +638,17 @@ func (o MfaOktaCallPtrOutput) ToMfaOktaCallPtrOutputWithContext(ctx context.Cont
 }
 
 func (o MfaOktaCallPtrOutput) Elem() MfaOktaCallOutput {
-	return o.ApplyT(func (v *MfaOktaCall) MfaOktaCall { return *v }).(MfaOktaCallOutput)
+	return o.ApplyT(func(v *MfaOktaCall) MfaOktaCall { return *v }).(MfaOktaCallOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaCallPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaCallPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaOtp struct {
@@ -691,7 +701,8 @@ type MfaOktaOtpPtrInput interface {
 
 type mfaOktaOtpPtrType MfaOktaOtpArgs
 
-func MfaOktaOtpPtr(v *MfaOktaOtpArgs) MfaOktaOtpPtrInput {	return (*mfaOktaOtpPtrType)(v)
+func MfaOktaOtpPtr(v *MfaOktaOtpArgs) MfaOktaOtpPtrInput {
+	return (*mfaOktaOtpPtrType)(v)
 }
 
 func (*mfaOktaOtpPtrType) ElementType() reflect.Type {
@@ -706,7 +717,7 @@ func (i *mfaOktaOtpPtrType) ToMfaOktaOtpPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaOtpPtrOutput)
 }
 
-type MfaOktaOtpOutput struct { *pulumi.OutputState }
+type MfaOktaOtpOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaOtpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaOtp)(nil)).Elem()
@@ -729,17 +740,18 @@ func (o MfaOktaOtpOutput) ToMfaOktaOtpPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(MfaOktaOtpPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaOtpOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaOtpOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaOtpPtrOutput struct { *pulumi.OutputState}
+type MfaOktaOtpPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaOtpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaOtp)(nil)).Elem()
@@ -754,17 +766,17 @@ func (o MfaOktaOtpPtrOutput) ToMfaOktaOtpPtrOutputWithContext(ctx context.Contex
 }
 
 func (o MfaOktaOtpPtrOutput) Elem() MfaOktaOtpOutput {
-	return o.ApplyT(func (v *MfaOktaOtp) MfaOktaOtp { return *v }).(MfaOktaOtpOutput)
+	return o.ApplyT(func(v *MfaOktaOtp) MfaOktaOtp { return *v }).(MfaOktaOtpOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaPassword struct {
@@ -817,7 +829,8 @@ type MfaOktaPasswordPtrInput interface {
 
 type mfaOktaPasswordPtrType MfaOktaPasswordArgs
 
-func MfaOktaPasswordPtr(v *MfaOktaPasswordArgs) MfaOktaPasswordPtrInput {	return (*mfaOktaPasswordPtrType)(v)
+func MfaOktaPasswordPtr(v *MfaOktaPasswordArgs) MfaOktaPasswordPtrInput {
+	return (*mfaOktaPasswordPtrType)(v)
 }
 
 func (*mfaOktaPasswordPtrType) ElementType() reflect.Type {
@@ -832,7 +845,7 @@ func (i *mfaOktaPasswordPtrType) ToMfaOktaPasswordPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaPasswordPtrOutput)
 }
 
-type MfaOktaPasswordOutput struct { *pulumi.OutputState }
+type MfaOktaPasswordOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaPasswordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaPassword)(nil)).Elem()
@@ -855,17 +868,18 @@ func (o MfaOktaPasswordOutput) ToMfaOktaPasswordPtrOutputWithContext(ctx context
 		return &v
 	}).(MfaOktaPasswordPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPasswordOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPasswordOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaPasswordPtrOutput struct { *pulumi.OutputState}
+type MfaOktaPasswordPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaPasswordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaPassword)(nil)).Elem()
@@ -880,17 +894,17 @@ func (o MfaOktaPasswordPtrOutput) ToMfaOktaPasswordPtrOutputWithContext(ctx cont
 }
 
 func (o MfaOktaPasswordPtrOutput) Elem() MfaOktaPasswordOutput {
-	return o.ApplyT(func (v *MfaOktaPassword) MfaOktaPassword { return *v }).(MfaOktaPasswordOutput)
+	return o.ApplyT(func(v *MfaOktaPassword) MfaOktaPassword { return *v }).(MfaOktaPasswordOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPasswordPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPasswordPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaPush struct {
@@ -943,7 +957,8 @@ type MfaOktaPushPtrInput interface {
 
 type mfaOktaPushPtrType MfaOktaPushArgs
 
-func MfaOktaPushPtr(v *MfaOktaPushArgs) MfaOktaPushPtrInput {	return (*mfaOktaPushPtrType)(v)
+func MfaOktaPushPtr(v *MfaOktaPushArgs) MfaOktaPushPtrInput {
+	return (*mfaOktaPushPtrType)(v)
 }
 
 func (*mfaOktaPushPtrType) ElementType() reflect.Type {
@@ -958,7 +973,7 @@ func (i *mfaOktaPushPtrType) ToMfaOktaPushPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaPushPtrOutput)
 }
 
-type MfaOktaPushOutput struct { *pulumi.OutputState }
+type MfaOktaPushOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaPushOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaPush)(nil)).Elem()
@@ -981,17 +996,18 @@ func (o MfaOktaPushOutput) ToMfaOktaPushPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(MfaOktaPushPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPushOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPushOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaPushPtrOutput struct { *pulumi.OutputState}
+type MfaOktaPushPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaPushPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaPush)(nil)).Elem()
@@ -1006,17 +1022,17 @@ func (o MfaOktaPushPtrOutput) ToMfaOktaPushPtrOutputWithContext(ctx context.Cont
 }
 
 func (o MfaOktaPushPtrOutput) Elem() MfaOktaPushOutput {
-	return o.ApplyT(func (v *MfaOktaPush) MfaOktaPush { return *v }).(MfaOktaPushOutput)
+	return o.ApplyT(func(v *MfaOktaPush) MfaOktaPush { return *v }).(MfaOktaPushOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPushPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPushPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaQuestion struct {
@@ -1069,7 +1085,8 @@ type MfaOktaQuestionPtrInput interface {
 
 type mfaOktaQuestionPtrType MfaOktaQuestionArgs
 
-func MfaOktaQuestionPtr(v *MfaOktaQuestionArgs) MfaOktaQuestionPtrInput {	return (*mfaOktaQuestionPtrType)(v)
+func MfaOktaQuestionPtr(v *MfaOktaQuestionArgs) MfaOktaQuestionPtrInput {
+	return (*mfaOktaQuestionPtrType)(v)
 }
 
 func (*mfaOktaQuestionPtrType) ElementType() reflect.Type {
@@ -1084,7 +1101,7 @@ func (i *mfaOktaQuestionPtrType) ToMfaOktaQuestionPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaQuestionPtrOutput)
 }
 
-type MfaOktaQuestionOutput struct { *pulumi.OutputState }
+type MfaOktaQuestionOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaQuestionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaQuestion)(nil)).Elem()
@@ -1107,17 +1124,18 @@ func (o MfaOktaQuestionOutput) ToMfaOktaQuestionPtrOutputWithContext(ctx context
 		return &v
 	}).(MfaOktaQuestionPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaQuestionOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaQuestionOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaQuestionPtrOutput struct { *pulumi.OutputState}
+type MfaOktaQuestionPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaQuestionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaQuestion)(nil)).Elem()
@@ -1132,17 +1150,17 @@ func (o MfaOktaQuestionPtrOutput) ToMfaOktaQuestionPtrOutputWithContext(ctx cont
 }
 
 func (o MfaOktaQuestionPtrOutput) Elem() MfaOktaQuestionOutput {
-	return o.ApplyT(func (v *MfaOktaQuestion) MfaOktaQuestion { return *v }).(MfaOktaQuestionOutput)
+	return o.ApplyT(func(v *MfaOktaQuestion) MfaOktaQuestion { return *v }).(MfaOktaQuestionOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaQuestionPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaQuestionPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaSms struct {
@@ -1195,7 +1213,8 @@ type MfaOktaSmsPtrInput interface {
 
 type mfaOktaSmsPtrType MfaOktaSmsArgs
 
-func MfaOktaSmsPtr(v *MfaOktaSmsArgs) MfaOktaSmsPtrInput {	return (*mfaOktaSmsPtrType)(v)
+func MfaOktaSmsPtr(v *MfaOktaSmsArgs) MfaOktaSmsPtrInput {
+	return (*mfaOktaSmsPtrType)(v)
 }
 
 func (*mfaOktaSmsPtrType) ElementType() reflect.Type {
@@ -1210,7 +1229,7 @@ func (i *mfaOktaSmsPtrType) ToMfaOktaSmsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOktaSmsPtrOutput)
 }
 
-type MfaOktaSmsOutput struct { *pulumi.OutputState }
+type MfaOktaSmsOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaSmsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaOktaSms)(nil)).Elem()
@@ -1233,17 +1252,18 @@ func (o MfaOktaSmsOutput) ToMfaOktaSmsPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(MfaOktaSmsPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaSmsOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaSmsOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaOktaSmsPtrOutput struct { *pulumi.OutputState}
+type MfaOktaSmsPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaOktaSmsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaOktaSms)(nil)).Elem()
@@ -1258,17 +1278,17 @@ func (o MfaOktaSmsPtrOutput) ToMfaOktaSmsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o MfaOktaSmsPtrOutput) Elem() MfaOktaSmsOutput {
-	return o.ApplyT(func (v *MfaOktaSms) MfaOktaSms { return *v }).(MfaOktaSmsOutput)
+	return o.ApplyT(func(v *MfaOktaSms) MfaOktaSms { return *v }).(MfaOktaSmsOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaSmsPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaSmsPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaRsaToken struct {
@@ -1321,7 +1341,8 @@ type MfaRsaTokenPtrInput interface {
 
 type mfaRsaTokenPtrType MfaRsaTokenArgs
 
-func MfaRsaTokenPtr(v *MfaRsaTokenArgs) MfaRsaTokenPtrInput {	return (*mfaRsaTokenPtrType)(v)
+func MfaRsaTokenPtr(v *MfaRsaTokenArgs) MfaRsaTokenPtrInput {
+	return (*mfaRsaTokenPtrType)(v)
 }
 
 func (*mfaRsaTokenPtrType) ElementType() reflect.Type {
@@ -1336,7 +1357,7 @@ func (i *mfaRsaTokenPtrType) ToMfaRsaTokenPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaRsaTokenPtrOutput)
 }
 
-type MfaRsaTokenOutput struct { *pulumi.OutputState }
+type MfaRsaTokenOutput struct{ *pulumi.OutputState }
 
 func (MfaRsaTokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaRsaToken)(nil)).Elem()
@@ -1359,17 +1380,18 @@ func (o MfaRsaTokenOutput) ToMfaRsaTokenPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(MfaRsaTokenPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaRsaTokenOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaRsaTokenOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaRsaTokenPtrOutput struct { *pulumi.OutputState}
+type MfaRsaTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaRsaTokenPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaRsaToken)(nil)).Elem()
@@ -1384,17 +1406,17 @@ func (o MfaRsaTokenPtrOutput) ToMfaRsaTokenPtrOutputWithContext(ctx context.Cont
 }
 
 func (o MfaRsaTokenPtrOutput) Elem() MfaRsaTokenOutput {
-	return o.ApplyT(func (v *MfaRsaToken) MfaRsaToken { return *v }).(MfaRsaTokenOutput)
+	return o.ApplyT(func(v *MfaRsaToken) MfaRsaToken { return *v }).(MfaRsaTokenOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaRsaTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaRsaTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaSymantecVip struct {
@@ -1447,7 +1469,8 @@ type MfaSymantecVipPtrInput interface {
 
 type mfaSymantecVipPtrType MfaSymantecVipArgs
 
-func MfaSymantecVipPtr(v *MfaSymantecVipArgs) MfaSymantecVipPtrInput {	return (*mfaSymantecVipPtrType)(v)
+func MfaSymantecVipPtr(v *MfaSymantecVipArgs) MfaSymantecVipPtrInput {
+	return (*mfaSymantecVipPtrType)(v)
 }
 
 func (*mfaSymantecVipPtrType) ElementType() reflect.Type {
@@ -1462,7 +1485,7 @@ func (i *mfaSymantecVipPtrType) ToMfaSymantecVipPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MfaSymantecVipPtrOutput)
 }
 
-type MfaSymantecVipOutput struct { *pulumi.OutputState }
+type MfaSymantecVipOutput struct{ *pulumi.OutputState }
 
 func (MfaSymantecVipOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaSymantecVip)(nil)).Elem()
@@ -1485,17 +1508,18 @@ func (o MfaSymantecVipOutput) ToMfaSymantecVipPtrOutputWithContext(ctx context.C
 		return &v
 	}).(MfaSymantecVipPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaSymantecVipOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaSymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaSymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaSymantecVipOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaSymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaSymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaSymantecVipPtrOutput struct { *pulumi.OutputState}
+type MfaSymantecVipPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaSymantecVipPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaSymantecVip)(nil)).Elem()
@@ -1510,17 +1534,17 @@ func (o MfaSymantecVipPtrOutput) ToMfaSymantecVipPtrOutputWithContext(ctx contex
 }
 
 func (o MfaSymantecVipPtrOutput) Elem() MfaSymantecVipOutput {
-	return o.ApplyT(func (v *MfaSymantecVip) MfaSymantecVip { return *v }).(MfaSymantecVipOutput)
+	return o.ApplyT(func(v *MfaSymantecVip) MfaSymantecVip { return *v }).(MfaSymantecVipOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaSymantecVipPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaSymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaSymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaSymantecVipPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaSymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaSymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type MfaYubikeyToken struct {
@@ -1573,7 +1597,8 @@ type MfaYubikeyTokenPtrInput interface {
 
 type mfaYubikeyTokenPtrType MfaYubikeyTokenArgs
 
-func MfaYubikeyTokenPtr(v *MfaYubikeyTokenArgs) MfaYubikeyTokenPtrInput {	return (*mfaYubikeyTokenPtrType)(v)
+func MfaYubikeyTokenPtr(v *MfaYubikeyTokenArgs) MfaYubikeyTokenPtrInput {
+	return (*mfaYubikeyTokenPtrType)(v)
 }
 
 func (*mfaYubikeyTokenPtrType) ElementType() reflect.Type {
@@ -1588,7 +1613,7 @@ func (i *mfaYubikeyTokenPtrType) ToMfaYubikeyTokenPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MfaYubikeyTokenPtrOutput)
 }
 
-type MfaYubikeyTokenOutput struct { *pulumi.OutputState }
+type MfaYubikeyTokenOutput struct{ *pulumi.OutputState }
 
 func (MfaYubikeyTokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaYubikeyToken)(nil)).Elem()
@@ -1611,17 +1636,18 @@ func (o MfaYubikeyTokenOutput) ToMfaYubikeyTokenPtrOutputWithContext(ctx context
 		return &v
 	}).(MfaYubikeyTokenPtrOutput)
 }
+
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaYubikeyTokenOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaYubikeyTokenOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-type MfaYubikeyTokenPtrOutput struct { *pulumi.OutputState}
+type MfaYubikeyTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaYubikeyTokenPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaYubikeyToken)(nil)).Elem()
@@ -1636,17 +1662,17 @@ func (o MfaYubikeyTokenPtrOutput) ToMfaYubikeyTokenPtrOutputWithContext(ctx cont
 }
 
 func (o MfaYubikeyTokenPtrOutput) Elem() MfaYubikeyTokenOutput {
-	return o.ApplyT(func (v *MfaYubikeyToken) MfaYubikeyToken { return *v }).(MfaYubikeyTokenOutput)
+	return o.ApplyT(func(v *MfaYubikeyToken) MfaYubikeyToken { return *v }).(MfaYubikeyTokenOutput)
 }
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaYubikeyTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaYubikeyTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MfaYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
 type RuleIdpDiscoveryAppExclude struct {
@@ -1705,7 +1731,7 @@ func (i RuleIdpDiscoveryAppExcludeArray) ToRuleIdpDiscoveryAppExcludeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }
 
-type RuleIdpDiscoveryAppExcludeOutput struct { *pulumi.OutputState }
+type RuleIdpDiscoveryAppExcludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppExcludeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleIdpDiscoveryAppExclude)(nil)).Elem()
@@ -1721,19 +1747,19 @@ func (o RuleIdpDiscoveryAppExcludeOutput) ToRuleIdpDiscoveryAppExcludeOutputWith
 
 // ID of the Rule.
 func (o RuleIdpDiscoveryAppExcludeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Policy Rule Name.
 func (o RuleIdpDiscoveryAppExcludeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleIdpDiscoveryAppExcludeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppExclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type RuleIdpDiscoveryAppExcludeArrayOutput struct { *pulumi.OutputState}
+type RuleIdpDiscoveryAppExcludeArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppExcludeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RuleIdpDiscoveryAppExclude)(nil)).Elem()
@@ -1748,7 +1774,7 @@ func (o RuleIdpDiscoveryAppExcludeArrayOutput) ToRuleIdpDiscoveryAppExcludeArray
 }
 
 func (o RuleIdpDiscoveryAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryAppExcludeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RuleIdpDiscoveryAppExclude {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscoveryAppExclude {
 		return vs[0].([]RuleIdpDiscoveryAppExclude)[vs[1].(int)]
 	}).(RuleIdpDiscoveryAppExcludeOutput)
 }
@@ -1809,7 +1835,7 @@ func (i RuleIdpDiscoveryAppIncludeArray) ToRuleIdpDiscoveryAppIncludeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppIncludeArrayOutput)
 }
 
-type RuleIdpDiscoveryAppIncludeOutput struct { *pulumi.OutputState }
+type RuleIdpDiscoveryAppIncludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppIncludeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleIdpDiscoveryAppInclude)(nil)).Elem()
@@ -1825,19 +1851,19 @@ func (o RuleIdpDiscoveryAppIncludeOutput) ToRuleIdpDiscoveryAppIncludeOutputWith
 
 // ID of the Rule.
 func (o RuleIdpDiscoveryAppIncludeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Policy Rule Name.
 func (o RuleIdpDiscoveryAppIncludeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleIdpDiscoveryAppIncludeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryAppInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type RuleIdpDiscoveryAppIncludeArrayOutput struct { *pulumi.OutputState}
+type RuleIdpDiscoveryAppIncludeArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppIncludeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RuleIdpDiscoveryAppInclude)(nil)).Elem()
@@ -1852,15 +1878,15 @@ func (o RuleIdpDiscoveryAppIncludeArrayOutput) ToRuleIdpDiscoveryAppIncludeArray
 }
 
 func (o RuleIdpDiscoveryAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryAppIncludeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RuleIdpDiscoveryAppInclude {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscoveryAppInclude {
 		return vs[0].([]RuleIdpDiscoveryAppInclude)[vs[1].(int)]
 	}).(RuleIdpDiscoveryAppIncludeOutput)
 }
 
 type RuleIdpDiscoveryPlatformInclude struct {
 	OsExpression *string `pulumi:"osExpression"`
-	OsType *string `pulumi:"osType"`
-	Type *string `pulumi:"type"`
+	OsType       *string `pulumi:"osType"`
+	Type         *string `pulumi:"type"`
 }
 
 type RuleIdpDiscoveryPlatformIncludeInput interface {
@@ -1872,8 +1898,8 @@ type RuleIdpDiscoveryPlatformIncludeInput interface {
 
 type RuleIdpDiscoveryPlatformIncludeArgs struct {
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	OsType       pulumi.StringPtrInput `pulumi:"osType"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryPlatformIncludeArgs) ElementType() reflect.Type {
@@ -1909,7 +1935,7 @@ func (i RuleIdpDiscoveryPlatformIncludeArray) ToRuleIdpDiscoveryPlatformIncludeA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryPlatformIncludeArrayOutput)
 }
 
-type RuleIdpDiscoveryPlatformIncludeOutput struct { *pulumi.OutputState }
+type RuleIdpDiscoveryPlatformIncludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryPlatformIncludeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleIdpDiscoveryPlatformInclude)(nil)).Elem()
@@ -1924,18 +1950,18 @@ func (o RuleIdpDiscoveryPlatformIncludeOutput) ToRuleIdpDiscoveryPlatformInclude
 }
 
 func (o RuleIdpDiscoveryPlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryPlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleIdpDiscoveryPlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryPlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleIdpDiscoveryPlatformIncludeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryPlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type RuleIdpDiscoveryPlatformIncludeArrayOutput struct { *pulumi.OutputState}
+type RuleIdpDiscoveryPlatformIncludeArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryPlatformIncludeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RuleIdpDiscoveryPlatformInclude)(nil)).Elem()
@@ -1950,14 +1976,14 @@ func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) ToRuleIdpDiscoveryPlatformIn
 }
 
 func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryPlatformIncludeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RuleIdpDiscoveryPlatformInclude {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscoveryPlatformInclude {
 		return vs[0].([]RuleIdpDiscoveryPlatformInclude)[vs[1].(int)]
 	}).(RuleIdpDiscoveryPlatformIncludeOutput)
 }
 
 type RuleIdpDiscoveryUserIdentifierPattern struct {
 	MatchType *string `pulumi:"matchType"`
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 type RuleIdpDiscoveryUserIdentifierPatternInput interface {
@@ -1969,7 +1995,7 @@ type RuleIdpDiscoveryUserIdentifierPatternInput interface {
 
 type RuleIdpDiscoveryUserIdentifierPatternArgs struct {
 	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (RuleIdpDiscoveryUserIdentifierPatternArgs) ElementType() reflect.Type {
@@ -2005,7 +2031,7 @@ func (i RuleIdpDiscoveryUserIdentifierPatternArray) ToRuleIdpDiscoveryUserIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryUserIdentifierPatternArrayOutput)
 }
 
-type RuleIdpDiscoveryUserIdentifierPatternOutput struct { *pulumi.OutputState }
+type RuleIdpDiscoveryUserIdentifierPatternOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryUserIdentifierPatternOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPattern)(nil)).Elem()
@@ -2020,14 +2046,14 @@ func (o RuleIdpDiscoveryUserIdentifierPatternOutput) ToRuleIdpDiscoveryUserIdent
 }
 
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) MatchType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.MatchType }).(pulumi.StringPtrOutput)
 }
 
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type RuleIdpDiscoveryUserIdentifierPatternArrayOutput struct { *pulumi.OutputState}
+type RuleIdpDiscoveryUserIdentifierPatternArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryUserIdentifierPatternArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RuleIdpDiscoveryUserIdentifierPattern)(nil)).Elem()
@@ -2042,7 +2068,7 @@ func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) ToRuleIdpDiscoveryUser
 }
 
 func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryUserIdentifierPatternOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RuleIdpDiscoveryUserIdentifierPattern {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscoveryUserIdentifierPattern {
 		return vs[0].([]RuleIdpDiscoveryUserIdentifierPattern)[vs[1].(int)]
 	}).(RuleIdpDiscoveryUserIdentifierPatternOutput)
 }

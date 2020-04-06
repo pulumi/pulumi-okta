@@ -23,7 +23,7 @@ type SamlApp struct {
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
-	AssertionSigned pulumi.BoolPtrOutput `pulumi:"assertionSigned"`
+	AssertionSigned     pulumi.BoolPtrOutput                 `pulumi:"assertionSigned"`
 	AttributeStatements SamlAppAttributeStatementArrayOutput `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
@@ -143,7 +143,7 @@ type samlAppState struct {
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
-	AssertionSigned *bool `pulumi:"assertionSigned"`
+	AssertionSigned     *bool                       `pulumi:"assertionSigned"`
 	AttributeStatements []SamlAppAttributeStatement `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience *string `pulumi:"audience"`
@@ -233,7 +233,7 @@ type SamlAppState struct {
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
-	AssertionSigned pulumi.BoolPtrInput
+	AssertionSigned     pulumi.BoolPtrInput
 	AttributeStatements SamlAppAttributeStatementArrayInput
 	// Audience Restriction
 	Audience pulumi.StringPtrInput
@@ -327,7 +327,7 @@ type samlAppArgs struct {
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
-	AssertionSigned *bool `pulumi:"assertionSigned"`
+	AssertionSigned     *bool                       `pulumi:"assertionSigned"`
 	AttributeStatements []SamlAppAttributeStatement `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience *string `pulumi:"audience"`
@@ -400,7 +400,7 @@ type SamlAppArgs struct {
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
-	AssertionSigned pulumi.BoolPtrInput
+	AssertionSigned     pulumi.BoolPtrInput
 	AttributeStatements SamlAppAttributeStatementArrayInput
 	// Audience Restriction
 	Audience pulumi.StringPtrInput
@@ -465,4 +465,3 @@ type SamlAppArgs struct {
 func (SamlAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlAppArgs)(nil)).Elem()
 }
-

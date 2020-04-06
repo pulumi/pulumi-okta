@@ -50,6 +50,9 @@ export interface GetUsersArgs {
      * Map of search criteria to use to find users. It supports the following properties.
      */
     readonly searches: inputs.user.GetUsersSearch[];
+    /**
+     * collection of users retrieved from Okta with the following properties.
+     */
     readonly users?: inputs.user.GetUsersUser[];
 }
 

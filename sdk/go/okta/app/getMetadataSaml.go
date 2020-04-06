@@ -28,7 +28,6 @@ type GetMetadataSamlArgs struct {
 	KeyId string `pulumi:"keyId"`
 }
 
-
 // A collection of values returned by getMetadataSaml.
 type GetMetadataSamlResult struct {
 	AppId string `pulumi:"appId"`
@@ -41,11 +40,10 @@ type GetMetadataSamlResult struct {
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id    string `pulumi:"id"`
 	KeyId string `pulumi:"keyId"`
 	// raw metadata of application.
 	Metadata string `pulumi:"metadata"`
 	// Whether authn requests are signed.
 	WantAuthnRequestsSigned bool `pulumi:"wantAuthnRequestsSigned"`
 }
-

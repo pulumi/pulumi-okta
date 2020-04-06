@@ -11,7 +11,13 @@ namespace Pulumi.Okta.Deprecated
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetDefaultPolicies.InvokeAsync() instead")]
         public static Task<GetDefaultPoliciesResult> GetDefaultPolicies(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDefaultPolicies
+    {
+        public static Task<GetDefaultPoliciesResult> InvokeAsync(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

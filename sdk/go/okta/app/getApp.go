@@ -32,7 +32,6 @@ type GetAppArgs struct {
 	LabelPrefix *string `pulumi:"labelPrefix"`
 }
 
-
 // A collection of values returned by getApp.
 type GetAppResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
@@ -41,11 +40,10 @@ type GetAppResult struct {
 	// `id` of application.
 	Id *string `pulumi:"id"`
 	// `label` of application.
-	Label *string `pulumi:"label"`
+	Label       *string `pulumi:"label"`
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// `name` of application.
 	Name string `pulumi:"name"`
 	// `status` of application.
 	Status string `pulumi:"status"`
 }
-
