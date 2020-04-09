@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Application User.
@@ -16,6 +16,9 @@ import (
 // This resource allows you to create and configure an Application User.
 //
 // __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+//
+//
+//
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
 type User struct {

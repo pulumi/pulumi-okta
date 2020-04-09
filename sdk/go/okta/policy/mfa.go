@@ -7,12 +7,14 @@ package policy
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an MFA Policy.
 //
 // This resource allows you to create and configure an MFA Policy.
+//
+//
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_mfa.html.markdown.
 type Mfa struct {

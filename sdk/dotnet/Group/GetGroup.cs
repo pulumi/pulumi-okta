@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Use this data source to retrieve a group from Okta.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.
         /// </summary>
         [Obsolete("Use GetGroup.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.Group
     {
         /// <summary>
         /// Use this data source to retrieve a group from Okta.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.
         /// </summary>

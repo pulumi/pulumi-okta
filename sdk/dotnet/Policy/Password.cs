@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Policy
     /// 
     /// This resource allows you to create and configure a Password Policy.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_password.html.markdown.
     /// </summary>
     public partial class Password : Pulumi.CustomResource

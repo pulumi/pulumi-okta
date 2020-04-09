@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -23,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
  */
-export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> & GetMetadataSamlResult {
+export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,12 +33,10 @@ export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetMetadataSamlResult> = pulumi.runtime.invoke("okta:app/getMetadataSaml:getMetadataSaml", {
+    return pulumi.runtime.invoke("okta:app/getMetadataSaml:getMetadataSaml", {
         "appId": args.appId,
         "keyId": args.keyId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

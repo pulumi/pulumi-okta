@@ -101,6 +101,8 @@ class ThreeField(pulumi.CustomResource):
 
         This resource allows you to create and configure an Three Field Application.
 
+
+
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_three_field.html.markdown.
 
         :param str resource_name: The name of the resource.

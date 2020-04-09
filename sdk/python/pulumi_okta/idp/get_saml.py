@@ -123,6 +123,8 @@ def get_saml(id=None,name=None,opts=None):
     """
     Use this data source to retrieve a SAML IdP from Okta.
 
+
+
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
 
 

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -31,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
  */
-export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> & GetUserResult {
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -39,11 +41,9 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetUserResult> = pulumi.runtime.invoke("okta:user/getUser:getUser", {
+    return pulumi.runtime.invoke("okta:user/getUser:getUser", {
         "searches": args.searches,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

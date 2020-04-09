@@ -14,6 +14,8 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// Use this data source to retrieve a list of users from Okta.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
         /// </summary>
         [Obsolete("Use GetUsers.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Use this data source to retrieve a list of users from Okta.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
         /// </summary>

@@ -5,10 +5,12 @@
 package user
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+//
+//
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
 func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUserProfileMappingSourceResult, error) {

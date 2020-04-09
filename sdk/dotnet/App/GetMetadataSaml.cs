@@ -14,6 +14,8 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
         /// </summary>
         [Obsolete("Use GetMetadataSaml.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.App
     {
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
         /// </summary>

@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Auth
         /// <summary>
         /// Use this data source to retrieve an auth server from Okta.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
         /// </summary>
         [Obsolete("Use GetServer.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.Auth
     {
         /// <summary>
         /// Use this data source to retrieve an auth server from Okta.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
         /// </summary>

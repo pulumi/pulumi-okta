@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Group
     /// 
     /// This resource allows you to create and configure an Okta Group Rule.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_rule.html.markdown.
     /// </summary>
     public partial class Rule : Pulumi.CustomResource

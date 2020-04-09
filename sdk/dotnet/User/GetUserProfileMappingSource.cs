@@ -14,6 +14,8 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
         /// </summary>
         [Obsolete("Use GetUserProfileMappingSource.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
         /// </summary>

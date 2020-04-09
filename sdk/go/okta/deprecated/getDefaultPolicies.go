@@ -5,7 +5,7 @@
 package deprecated
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 func GetDefaultPolicies(ctx *pulumi.Context, args *GetDefaultPoliciesArgs, opts ...pulumi.InvokeOption) (*GetDefaultPoliciesResult, error) {

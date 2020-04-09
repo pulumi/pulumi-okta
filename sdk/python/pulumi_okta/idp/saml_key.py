@@ -44,6 +44,8 @@ class SamlKey(pulumi.CustomResource):
 
         This resource allows you to create and configure a SAML Identity Provider Signing Key.
 
+
+
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_signing_key.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
  */
-export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> & GetUserProfileMappingSourceResult {
+export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -28,10 +30,8 @@ export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promis
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetUserProfileMappingSourceResult> = pulumi.runtime.invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", {
+    return pulumi.runtime.invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

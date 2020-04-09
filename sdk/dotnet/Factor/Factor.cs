@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Factor
     /// 
     /// This resource allows you to manage Okta MFA methods.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/factor.html.markdown.
     /// </summary>
     public partial class Factor : Pulumi.CustomResource

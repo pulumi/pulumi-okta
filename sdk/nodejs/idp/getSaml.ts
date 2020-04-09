@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
  */
-export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> & GetSamlResult {
+export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -29,12 +31,10 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSamlResult> = pulumi.runtime.invoke("okta:idp/getSaml:getSaml", {
+    return pulumi.runtime.invoke("okta:idp/getSaml:getSaml", {
         "id": args.id,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

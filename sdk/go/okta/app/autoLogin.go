@@ -8,12 +8,14 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Auto Login Okta Application.
 //
 // This resource allows you to create and configure an Auto Login Okta Application.
+//
+//
 //
 // > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_auto_login.html.markdown.
 type AutoLogin struct {

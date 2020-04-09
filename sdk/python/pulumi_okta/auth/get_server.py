@@ -88,6 +88,8 @@ def get_server(name=None,opts=None):
     """
     Use this data source to retrieve an auth server from Okta.
 
+
+
     > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
 
 

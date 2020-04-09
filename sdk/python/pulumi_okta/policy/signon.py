@@ -36,6 +36,8 @@ class Signon(pulumi.CustomResource):
 
         This resource allows you to create and configure a Sign On Policy.
 
+
+
         > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_signon.html.markdown.
 
         :param str resource_name: The name of the resource.

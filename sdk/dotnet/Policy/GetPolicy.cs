@@ -14,6 +14,8 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Use this data source to retrieve a policy from Okta.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
         /// </summary>
         [Obsolete("Use GetPolicy.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Okta.Policy
     {
         /// <summary>
         /// Use this data source to retrieve a policy from Okta.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
         /// </summary>

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
  */
-export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> & GetSamlResult {
+export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -31,7 +33,7 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSamlResult> = pulumi.runtime.invoke("okta:app/getSaml:getSaml", {
+    return pulumi.runtime.invoke("okta:app/getSaml:getSaml", {
         "accessibilityErrorRedirectUrl": args.accessibilityErrorRedirectUrl,
         "accessibilityLoginRedirectUrl": args.accessibilityLoginRedirectUrl,
         "accessibilitySelfService": args.accessibilitySelfService,
@@ -65,8 +67,6 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "userNameTemplateSuffix": args.userNameTemplateSuffix,
         "userNameTemplateType": args.userNameTemplateType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
