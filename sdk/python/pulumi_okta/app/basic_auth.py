@@ -67,8 +67,6 @@ class BasicAuth(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_basic_auth.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.

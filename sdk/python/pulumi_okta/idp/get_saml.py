@@ -125,8 +125,6 @@ def get_saml(id=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
-
 
     :param str id: The id of the idp to retrieve, conflicts with `name`.
     :param str name: The name of the idp to retrieve, conflicts with `id`.

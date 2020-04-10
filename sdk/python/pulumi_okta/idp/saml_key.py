@@ -46,8 +46,6 @@ class SamlKey(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml_signing_key.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding.

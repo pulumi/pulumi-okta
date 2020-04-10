@@ -127,8 +127,6 @@ class SecurePasswordStore(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_secure_password_store.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.

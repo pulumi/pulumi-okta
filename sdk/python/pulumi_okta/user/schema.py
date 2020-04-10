@@ -88,8 +88,6 @@ class Schema(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user_schema.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] array_enums: Array of values that an array property's items can be set to.

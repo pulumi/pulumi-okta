@@ -273,8 +273,6 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
 
 
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
-
 
     :param str accessibility_error_redirect_url: Custom error page URL.
     :param str accessibility_login_redirect_url: Custom login page URL.

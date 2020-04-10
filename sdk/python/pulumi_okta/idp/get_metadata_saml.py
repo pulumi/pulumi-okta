@@ -94,8 +94,6 @@ def get_metadata_saml(idp_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
-
 
     :param str idp_id: The id of the IdP to retrieve metadata for.
     """

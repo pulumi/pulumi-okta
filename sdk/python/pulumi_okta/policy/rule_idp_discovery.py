@@ -68,8 +68,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] app_excludes: Applications to exclude in discovery rule

@@ -283,8 +283,6 @@ def get_user(searches=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
-
 
     :param list searches: Map of search criteria. It supports the following properties.
 

@@ -35,10 +35,6 @@ class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
 def get_everyone_group(include_users=None,opts=None):
     """
     Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
-
-
-
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/everyone_group.html.markdown.
     """
     __args__ = dict()
 
