@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Idp
     /// Creates an Social Identity Provider.
     /// 
     /// This resource allows you to create and configure an Social Identity Provider.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_social.html.markdown.
     /// </summary>
     public partial class Social : Pulumi.CustomResource
     {
@@ -213,7 +211,7 @@ namespace Pulumi.Okta.Idp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Social(string name, SocialArgs args, CustomResourceOptions? options = null)
-            : base("okta:idp/social:Social", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:idp/social:Social", name, args ?? new SocialArgs(), MakeResourceOptions(options, ""))
         {
         }
 

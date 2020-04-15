@@ -13,8 +13,6 @@ namespace Pulumi.Okta.User
     /// Creates an Okta User.
     /// 
     /// This resource allows you to create and configure an Okta User.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user.html.markdown.
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {
@@ -261,7 +259,7 @@ namespace Pulumi.Okta.User
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("okta:user/user:User", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:user/user:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 

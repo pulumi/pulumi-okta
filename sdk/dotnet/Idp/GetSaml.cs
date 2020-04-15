@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Idp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve a SAML IdP from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSaml.InvokeAsync() instead")]
-        public static Task<GetSamlResult> GetSaml(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSaml
     {
         /// <summary>
         /// Use this data source to retrieve a SAML IdP from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_saml.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSamlArgs : Pulumi.InvokeArgs
     {
@@ -49,6 +40,7 @@ namespace Pulumi.Okta.Idp
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetSamlResult
@@ -113,18 +105,31 @@ namespace Pulumi.Okta.Idp
         [OutputConstructor]
         private GetSamlResult(
             string acsBinding,
+
             string acsType,
+
             string audience,
+
             string? id,
+
             string issuer,
+
             string issuerMode,
+
             string kid,
+
             string? name,
+
             string ssoBinding,
+
             string ssoDestination,
+
             string ssoUrl,
+
             string subjectFilter,
+
             ImmutableArray<string> subjectFormats,
+
             string type)
         {
             AcsBinding = acsBinding;

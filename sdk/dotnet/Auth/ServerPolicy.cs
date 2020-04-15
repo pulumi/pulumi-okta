@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Policy.
     /// 
     /// This resource allows you to create and configure an Authorization Server Policy.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_policy.html.markdown.
     /// </summary>
     public partial class ServerPolicy : Pulumi.CustomResource
     {
@@ -69,7 +67,7 @@ namespace Pulumi.Okta.Auth
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerPolicy(string name, ServerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/serverPolicy:ServerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:auth/serverPolicy:ServerPolicy", name, args ?? new ServerPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

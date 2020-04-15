@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSaml.InvokeAsync() instead")]
-        public static Task<GetSamlResult> GetSaml(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSaml
     {
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSamlArgs : Pulumi.InvokeArgs
     {
@@ -70,14 +61,14 @@ namespace Pulumi.Okta.App
         public bool? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
-        private List<Inputs.GetSamlAttributeStatementsArgs>? _attributeStatements;
+        private List<Inputs.GetSamlAttributeStatementArgs>? _attributeStatements;
 
         /// <summary>
         /// SAML Attribute statements.
         /// </summary>
-        public List<Inputs.GetSamlAttributeStatementsArgs> AttributeStatements
+        public List<Inputs.GetSamlAttributeStatementArgs> AttributeStatements
         {
-            get => _attributeStatements ?? (_attributeStatements = new List<Inputs.GetSamlAttributeStatementsArgs>());
+            get => _attributeStatements ?? (_attributeStatements = new List<Inputs.GetSamlAttributeStatementArgs>());
             set => _attributeStatements = value;
         }
 
@@ -242,6 +233,7 @@ namespace Pulumi.Okta.App
         }
     }
 
+
     [OutputType]
     public sealed class GetSamlResult
     {
@@ -269,7 +261,7 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// SAML Attribute statements.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetSamlAttributeStatementsResult> AttributeStatements;
+        public readonly ImmutableArray<Outputs.GetSamlAttributeStatementResult> AttributeStatements;
         /// <summary>
         /// Audience restriction.
         /// </summary>
@@ -387,40 +379,75 @@ namespace Pulumi.Okta.App
         [OutputConstructor]
         private GetSamlResult(
             string? accessibilityErrorRedirectUrl,
+
             string? accessibilityLoginRedirectUrl,
+
             bool? accessibilitySelfService,
+
             bool? activeOnly,
+
             string? appSettingsJson,
+
             bool? assertionSigned,
-            ImmutableArray<Outputs.GetSamlAttributeStatementsResult> attributeStatements,
+
+            ImmutableArray<Outputs.GetSamlAttributeStatementResult> attributeStatements,
+
             string? audience,
+
             string? authnContextClassRef,
+
             bool? autoSubmitToolbar,
+
             string? defaultRelayState,
+
             string description,
+
             string? destination,
+
             string? digestAlgorithm,
+
             ImmutableArray<string> features,
+
             bool? hideIos,
+
             bool? hideWeb,
+
             bool? honorForceAuthn,
+
             string? id,
+
             string? idpIssuer,
+
             string keyId,
+
             string? label,
+
             string? labelPrefix,
+
             string name,
+
             string? recipient,
+
             bool? requestCompressed,
+
             bool? responseSigned,
+
             string? signatureAlgorithm,
+
             string? spIssuer,
+
             string? ssoUrl,
+
             string status,
+
             string? subjectNameIdFormat,
+
             string? subjectNameIdTemplate,
+
             string? userNameTemplate,
+
             string? userNameTemplateSuffix,
+
             string? userNameTemplateType)
         {
             AccessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
@@ -460,77 +487,5 @@ namespace Pulumi.Okta.App
             UserNameTemplateSuffix = userNameTemplateSuffix;
             UserNameTemplateType = userNameTemplateType;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSamlAttributeStatementsArgs : Pulumi.InvokeArgs
-    {
-        [Input("filterType")]
-        public string? FilterType { get; set; }
-
-        [Input("filterValue")]
-        public string? FilterValue { get; set; }
-
-        /// <summary>
-        /// name of application.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("namespace")]
-        public string? Namespace { get; set; }
-
-        [Input("type")]
-        public string? Type { get; set; }
-
-        [Input("values")]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSamlAttributeStatementsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSamlAttributeStatementsResult
-    {
-        public readonly string? FilterType;
-        public readonly string? FilterValue;
-        /// <summary>
-        /// name of application.
-        /// </summary>
-        public readonly string Name;
-        public readonly string? Namespace;
-        public readonly string? Type;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSamlAttributeStatementsResult(
-            string? filterType,
-            string? filterValue,
-            string name,
-            string? @namespace,
-            string? type,
-            ImmutableArray<string> values)
-        {
-            FilterType = filterType;
-            FilterValue = filterValue;
-            Name = name;
-            Namespace = @namespace;
-            Type = type;
-            Values = values;
-        }
-    }
     }
 }

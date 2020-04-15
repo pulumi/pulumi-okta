@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Template
     /// Creates an Okta Email Template.
     /// 
     /// This resource allows you to create and configure an Okta Email Template.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
     /// </summary>
     public partial class Email : Pulumi.CustomResource
     {
@@ -28,7 +26,7 @@ namespace Pulumi.Okta.Template
         /// Set of translations for particular template.
         /// </summary>
         [Output("translations")]
-        public Output<ImmutableArray<Outputs.EmailTranslations>> Translations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EmailTranslation>> Translations { get; private set; } = null!;
 
         /// <summary>
         /// Email template type
@@ -45,7 +43,7 @@ namespace Pulumi.Okta.Template
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Email(string name, EmailArgs args, CustomResourceOptions? options = null)
-            : base("okta:template/email:Email", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:template/email:Email", name, args ?? new EmailArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -89,14 +87,14 @@ namespace Pulumi.Okta.Template
         public Input<string>? DefaultLanguage { get; set; }
 
         [Input("translations", required: true)]
-        private InputList<Inputs.EmailTranslationsArgs>? _translations;
+        private InputList<Inputs.EmailTranslationArgs>? _translations;
 
         /// <summary>
         /// Set of translations for particular template.
         /// </summary>
-        public InputList<Inputs.EmailTranslationsArgs> Translations
+        public InputList<Inputs.EmailTranslationArgs> Translations
         {
-            get => _translations ?? (_translations = new InputList<Inputs.EmailTranslationsArgs>());
+            get => _translations ?? (_translations = new InputList<Inputs.EmailTranslationArgs>());
             set => _translations = value;
         }
 
@@ -120,14 +118,14 @@ namespace Pulumi.Okta.Template
         public Input<string>? DefaultLanguage { get; set; }
 
         [Input("translations")]
-        private InputList<Inputs.EmailTranslationsGetArgs>? _translations;
+        private InputList<Inputs.EmailTranslationGetArgs>? _translations;
 
         /// <summary>
         /// Set of translations for particular template.
         /// </summary>
-        public InputList<Inputs.EmailTranslationsGetArgs> Translations
+        public InputList<Inputs.EmailTranslationGetArgs> Translations
         {
-            get => _translations ?? (_translations = new InputList<Inputs.EmailTranslationsGetArgs>());
+            get => _translations ?? (_translations = new InputList<Inputs.EmailTranslationGetArgs>());
             set => _translations = value;
         }
 
@@ -140,91 +138,5 @@ namespace Pulumi.Okta.Template
         public EmailState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EmailTranslationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The language to map tthe template to.
-        /// </summary>
-        [Input("language", required: true)]
-        public Input<string> Language { get; set; } = null!;
-
-        /// <summary>
-        /// The email subject line.
-        /// </summary>
-        [Input("subject", required: true)]
-        public Input<string> Subject { get; set; } = null!;
-
-        /// <summary>
-        /// The email body.
-        /// </summary>
-        [Input("template", required: true)]
-        public Input<string> Template { get; set; } = null!;
-
-        public EmailTranslationsArgs()
-        {
-        }
-    }
-
-    public sealed class EmailTranslationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The language to map tthe template to.
-        /// </summary>
-        [Input("language", required: true)]
-        public Input<string> Language { get; set; } = null!;
-
-        /// <summary>
-        /// The email subject line.
-        /// </summary>
-        [Input("subject", required: true)]
-        public Input<string> Subject { get; set; } = null!;
-
-        /// <summary>
-        /// The email body.
-        /// </summary>
-        [Input("template", required: true)]
-        public Input<string> Template { get; set; } = null!;
-
-        public EmailTranslationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EmailTranslations
-    {
-        /// <summary>
-        /// The language to map tthe template to.
-        /// </summary>
-        public readonly string Language;
-        /// <summary>
-        /// The email subject line.
-        /// </summary>
-        public readonly string Subject;
-        /// <summary>
-        /// The email body.
-        /// </summary>
-        public readonly string Template;
-
-        [OutputConstructor]
-        private EmailTranslations(
-            string language,
-            string subject,
-            string template)
-        {
-            Language = language;
-            Subject = subject;
-            Template = template;
-        }
-    }
     }
 }

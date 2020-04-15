@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server.
     /// 
     /// This resource allows you to create and configure an Authorization Server.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server.html.markdown.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {
@@ -87,7 +85,7 @@ namespace Pulumi.Okta.Auth
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:auth/server:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

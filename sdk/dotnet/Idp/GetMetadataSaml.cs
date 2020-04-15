@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Idp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve SAML IdP metadata from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetMetadataSaml.InvokeAsync() instead")]
-        public static Task<GetMetadataSamlResult> GetMetadataSaml(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetMetadataSaml
     {
         /// <summary>
         /// Use this data source to retrieve SAML IdP metadata from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithVersion());
     }
+
 
     public sealed class GetMetadataSamlArgs : Pulumi.InvokeArgs
     {
@@ -43,6 +34,7 @@ namespace Pulumi.Okta.Idp
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetMetadataSamlResult
@@ -71,6 +63,10 @@ namespace Pulumi.Okta.Idp
         /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         /// </summary>
         public readonly string HttpRedirectBinding;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? IdpId;
         /// <summary>
         /// raw IdP metadata.
@@ -80,23 +76,28 @@ namespace Pulumi.Okta.Idp
         /// SAML request signing certificate.
         /// </summary>
         public readonly string SigningCertificate;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMetadataSamlResult(
             bool assertionsSigned,
+
             bool authnRequestSigned,
+
             string encryptionCertificate,
+
             string entityId,
+
             string httpPostBinding,
+
             string httpRedirectBinding,
+
+            string id,
+
             string? idpId,
+
             string metadata,
-            string signingCertificate,
-            string id)
+
+            string signingCertificate)
         {
             AssertionsSigned = assertionsSigned;
             AuthnRequestSigned = authnRequestSigned;
@@ -104,10 +105,10 @@ namespace Pulumi.Okta.Idp
             EntityId = entityId;
             HttpPostBinding = httpPostBinding;
             HttpRedirectBinding = httpRedirectBinding;
+            Id = id;
             IdpId = idpId;
             Metadata = metadata;
             SigningCertificate = signingCertificate;
-            Id = id;
         }
     }
 }

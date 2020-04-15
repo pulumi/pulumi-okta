@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetMetadataSaml.InvokeAsync() instead")]
-        public static Task<GetMetadataSamlResult> GetMetadataSaml(GetMetadataSamlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetMetadataSaml
     {
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithVersion());
     }
+
 
     public sealed class GetMetadataSamlArgs : Pulumi.InvokeArgs
     {
@@ -49,6 +40,7 @@ namespace Pulumi.Okta.App
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetMetadataSamlResult
@@ -70,6 +62,10 @@ namespace Pulumi.Okta.App
         /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         /// </summary>
         public readonly string HttpRedirectBinding;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string KeyId;
         /// <summary>
         /// raw metadata of application.
@@ -79,32 +75,36 @@ namespace Pulumi.Okta.App
         /// Whether authn requests are signed.
         /// </summary>
         public readonly bool WantAuthnRequestsSigned;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMetadataSamlResult(
             string appId,
+
             string certificate,
+
             string entityId,
+
             string httpPostBinding,
+
             string httpRedirectBinding,
+
+            string id,
+
             string keyId,
+
             string metadata,
-            bool wantAuthnRequestsSigned,
-            string id)
+
+            bool wantAuthnRequestsSigned)
         {
             AppId = appId;
             Certificate = certificate;
             EntityId = entityId;
             HttpPostBinding = httpPostBinding;
             HttpRedirectBinding = httpRedirectBinding;
+            Id = id;
             KeyId = keyId;
             Metadata = metadata;
             WantAuthnRequestsSigned = wantAuthnRequestsSigned;
-            Id = id;
         }
     }
 }

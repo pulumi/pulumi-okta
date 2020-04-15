@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Group
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve a group from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetGroup.InvokeAsync() instead")]
-        public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("okta:group/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetGroup
     {
         /// <summary>
         /// Use this data source to retrieve a group from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("okta:group/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("okta:group/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +41,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
+
     [OutputType]
     public sealed class GetGroupResult
     {
@@ -57,6 +49,10 @@ namespace Pulumi.Okta.Group
         /// description of group.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludeUsers;
         /// <summary>
         /// name of group.
@@ -66,24 +62,24 @@ namespace Pulumi.Okta.Group
         /// user ids that are members of this group, only included if `include_users` is set to `true`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetGroupResult(
             string description,
+
+            string id,
+
             bool? includeUsers,
+
             string name,
-            ImmutableArray<string> users,
-            string id)
+
+            ImmutableArray<string> users)
         {
             Description = description;
+            Id = id;
             IncludeUsers = includeUsers;
             Name = name;
             Users = users;
-            Id = id;
         }
     }
 }

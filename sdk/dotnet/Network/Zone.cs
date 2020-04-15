@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Network
     /// Creates an Okta Network Zone.
     /// 
     /// This resource allows you to create and configure an Okta Network Zone.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/network_zone.html.markdown.
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {
@@ -57,7 +55,7 @@ namespace Pulumi.Okta.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs args, CustomResourceOptions? options = null)
-            : base("okta:network/zone:Zone", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:network/zone:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 

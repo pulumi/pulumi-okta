@@ -69,7 +69,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.BookmarkAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BookmarkAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BookmarkApp(string name, BookmarkAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/bookmarkApp:BookmarkApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/bookmarkApp:BookmarkApp", name, args ?? new BookmarkAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -166,14 +166,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Url { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.BookmarkAppUsersArgs>? _users;
+        private InputList<Inputs.BookmarkAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BookmarkAppUsersArgs> Users
+        public InputList<Inputs.BookmarkAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BookmarkAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BookmarkAppUserArgs>());
             set => _users = value;
         }
 
@@ -245,87 +245,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Url { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.BookmarkAppUsersGetArgs>? _users;
+        private InputList<Inputs.BookmarkAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BookmarkAppUsersGetArgs> Users
+        public InputList<Inputs.BookmarkAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BookmarkAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BookmarkAppUserGetArgs>());
             set => _users = value;
         }
 
         public BookmarkAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BookmarkAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BookmarkAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class BookmarkAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BookmarkAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BookmarkAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private BookmarkAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

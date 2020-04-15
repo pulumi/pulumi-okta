@@ -129,7 +129,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.AuthLoginAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AuthLoginAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthLoginApp(string name, AuthLoginAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/authLoginApp:AuthLoginApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/authLoginApp:AuthLoginApp", name, args ?? new AuthLoginAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -274,14 +274,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Status { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.AuthLoginAppUsersArgs>? _users;
+        private InputList<Inputs.AuthLoginAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.AuthLoginAppUsersArgs> Users
+        public InputList<Inputs.AuthLoginAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.AuthLoginAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.AuthLoginAppUserArgs>());
             set => _users = value;
         }
 
@@ -413,87 +413,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.AuthLoginAppUsersGetArgs>? _users;
+        private InputList<Inputs.AuthLoginAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.AuthLoginAppUsersGetArgs> Users
+        public InputList<Inputs.AuthLoginAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.AuthLoginAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.AuthLoginAppUserGetArgs>());
             set => _users = value;
         }
 
         public AuthLoginAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AuthLoginAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public AuthLoginAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class AuthLoginAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public AuthLoginAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AuthLoginAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private AuthLoginAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

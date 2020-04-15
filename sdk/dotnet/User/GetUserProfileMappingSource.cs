@@ -9,31 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.User
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetUserProfileMappingSource.InvokeAsync() instead")]
-        public static Task<GetUserProfileMappingSourceResult> GetUserProfileMappingSource(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileMappingSourceResult>("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUserProfileMappingSource
     {
         /// <summary>
         /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserProfileMappingSourceResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileMappingSourceResult>("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetUserProfileMappingSourceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// name of source.
         /// </summary>
@@ -42,20 +37,18 @@ namespace Pulumi.Okta.User
         /// type of source.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserProfileMappingSourceResult(
+            string id,
+
             string name,
-            string type,
-            string id)
+
+            string type)
         {
+            Id = id;
             Name = name;
             Type = type;
-            Id = id;
         }
     }
 }

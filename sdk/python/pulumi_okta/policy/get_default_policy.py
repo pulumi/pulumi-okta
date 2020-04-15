@@ -39,7 +39,7 @@ def get_default_policy(type=None,opts=None):
     """
     Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
+
 
 
     :param str type: type of policy to retrieve.

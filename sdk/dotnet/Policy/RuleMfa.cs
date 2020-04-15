@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Policy
     /// Creates an MFA Policy Rule.
     /// 
     /// This resource allows you to create and configure an MFA Policy Rule.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_mfa.html.markdown.
     /// </summary>
     public partial class RuleMfa : Pulumi.CustomResource
     {
@@ -81,7 +79,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleMfa(string name, RuleMfaArgs args, CustomResourceOptions? options = null)
-            : base("okta:policy/ruleMfa:RuleMfa", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:policy/ruleMfa:RuleMfa", name, args ?? new RuleMfaArgs(), MakeResourceOptions(options, ""))
         {
         }
 

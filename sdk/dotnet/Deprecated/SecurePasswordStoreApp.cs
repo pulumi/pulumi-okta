@@ -165,7 +165,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SecurePasswordStoreAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurePasswordStoreAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurePasswordStoreApp(string name, SecurePasswordStoreAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp", name, args ?? new SecurePasswordStoreAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -346,14 +346,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> UsernameField { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.SecurePasswordStoreAppUsersArgs>? _users;
+        private InputList<Inputs.SecurePasswordStoreAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SecurePasswordStoreAppUsersArgs> Users
+        public InputList<Inputs.SecurePasswordStoreAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreAppUserArgs>());
             set => _users = value;
         }
 
@@ -521,87 +521,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SecurePasswordStoreAppUsersGetArgs>? _users;
+        private InputList<Inputs.SecurePasswordStoreAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SecurePasswordStoreAppUsersGetArgs> Users
+        public InputList<Inputs.SecurePasswordStoreAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreAppUserGetArgs>());
             set => _users = value;
         }
 
         public SecurePasswordStoreAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurePasswordStoreAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SecurePasswordStoreAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SecurePasswordStoreAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SecurePasswordStoreAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurePasswordStoreAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SecurePasswordStoreAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

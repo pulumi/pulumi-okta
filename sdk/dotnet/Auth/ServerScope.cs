@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Scope.
     /// 
     /// This resource allows you to create and configure an Authorization Server Scope.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
     /// </summary>
     public partial class ServerScope : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.Okta.Auth
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerScope(string name, ServerScopeArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/serverScope:ServerScope", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:auth/serverScope:ServerScope", name, args ?? new ServerScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 

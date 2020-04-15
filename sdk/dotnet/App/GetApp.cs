@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetApp.InvokeAsync() instead")]
-        public static Task<GetAppResult> GetApp(GetAppArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetApp
     {
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +53,7 @@ namespace Pulumi.Okta.App
         }
     }
 
+
     [OutputType]
     public sealed class GetAppResult
     {
@@ -91,11 +83,17 @@ namespace Pulumi.Okta.App
         [OutputConstructor]
         private GetAppResult(
             bool? activeOnly,
+
             string description,
+
             string? id,
+
             string? label,
+
             string? labelPrefix,
+
             string name,
+
             string status)
         {
             ActiveOnly = activeOnly;

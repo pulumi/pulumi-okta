@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates a Secure Password Store Application.
     /// 
     /// This resource allows you to create and configure a Secure Password Store Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_secure_password_store.html.markdown.
     /// </summary>
     public partial class SecurePasswordStore : Pulumi.CustomResource
     {
@@ -172,7 +170,7 @@ namespace Pulumi.Okta.App
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SecurePasswordStoreUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurePasswordStoreUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -183,7 +181,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurePasswordStore(string name, SecurePasswordStoreArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/securePasswordStore:SecurePasswordStore", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/securePasswordStore:SecurePasswordStore", name, args ?? new SecurePasswordStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -353,14 +351,14 @@ namespace Pulumi.Okta.App
         public Input<string> UsernameField { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.SecurePasswordStoreUsersArgs>? _users;
+        private InputList<Inputs.SecurePasswordStoreUserArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.SecurePasswordStoreUsersArgs> Users
+        public InputList<Inputs.SecurePasswordStoreUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUserArgs>());
             set => _users = value;
         }
 
@@ -528,87 +526,19 @@ namespace Pulumi.Okta.App
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SecurePasswordStoreUsersGetArgs>? _users;
+        private InputList<Inputs.SecurePasswordStoreUserGetArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.SecurePasswordStoreUsersGetArgs> Users
+        public InputList<Inputs.SecurePasswordStoreUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUserGetArgs>());
             set => _users = value;
         }
 
         public SecurePasswordStoreState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurePasswordStoreUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SecurePasswordStoreUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SecurePasswordStoreUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SecurePasswordStoreUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurePasswordStoreUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SecurePasswordStoreUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

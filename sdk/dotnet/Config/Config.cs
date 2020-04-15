@@ -8,7 +8,6 @@ namespace Pulumi.Okta
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("okta");
-
         /// <summary>
         /// API Token granting privileges to Okta API.
         /// </summary>
@@ -50,8 +49,5 @@ namespace Pulumi.Okta
         /// </summary>
         public static int? Parallelism { get; set; } = __config.GetInt32("parallelism");
 
-    }
-    namespace ConfigTypes
-    {
     }
 }

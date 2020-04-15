@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/default_policy.html.markdown.
  */
-export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> & GetDefaultPolicyResult {
+export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +32,9 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDefaultPolicyResult> = pulumi.runtime.invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", {
+    return pulumi.runtime.invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", {
         "type": args.type,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

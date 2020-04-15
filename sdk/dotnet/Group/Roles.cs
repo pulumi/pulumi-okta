@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Group
     /// Creates Group level Admin Role Assignments.
     /// 
     /// This resource allows you to create and configure Group level Admin Role Assignments.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_roles.html.markdown.
     /// </summary>
     public partial class Roles : Pulumi.CustomResource
     {
@@ -39,7 +37,7 @@ namespace Pulumi.Okta.Group
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Roles(string name, RolesArgs args, CustomResourceOptions? options = null)
-            : base("okta:group/roles:Roles", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:group/roles:Roles", name, args ?? new RolesArgs(), MakeResourceOptions(options, ""))
         {
         }
 

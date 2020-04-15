@@ -38,7 +38,8 @@ class User(pulumi.CustomResource):
 
         __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
+
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

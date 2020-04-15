@@ -48,8 +48,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ClientUri { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED,
-        /// TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
+        /// Default value is TRUSTED
         /// </summary>
         [Output("consentMethod")]
         public Output<string?> ConsentMethod { get; private set; } = null!;
@@ -62,8 +62,8 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found here
-        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum
-        /// requirements per app type.
+        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+        /// app type.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -87,8 +87,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain
-        /// URL or a custom domain URL as the issuer of ID token for this client.
+        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
+        /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -118,8 +118,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true
-        /// =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false
+        /// your app will be recreated.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
@@ -143,8 +143,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
-        /// Note: see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+        /// okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
         /// </summary>
         [Output("redirectUris")]
         public Output<ImmutableArray<string>> RedirectUris { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.OauthAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OauthAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OauthApp(string name, OauthAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/oauthApp:OauthApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/oauthApp:OauthApp", name, args ?? new OauthAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -262,8 +262,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED,
-        /// TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
+        /// Default value is TRUSTED
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -279,8 +279,8 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found here
-        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum
-        /// requirements per app type.
+        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+        /// app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -313,8 +313,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain
-        /// URL or a custom domain URL as the issuer of ID token for this client.
+        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
+        /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -338,8 +338,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true
-        /// =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false
+        /// your app will be recreated.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -372,8 +372,8 @@ namespace Pulumi.Okta.Deprecated
         private InputList<string>? _redirectUris;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
-        /// Note: see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+        /// okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> RedirectUris
         {
@@ -418,14 +418,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Type { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.OauthAppUsersArgs>? _users;
+        private InputList<Inputs.OauthAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.OauthAppUsersArgs> Users
+        public InputList<Inputs.OauthAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.OauthAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.OauthAppUserArgs>());
             set => _users = value;
         }
 
@@ -473,8 +473,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED,
-        /// TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
+        /// Default value is TRUSTED
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -490,8 +490,8 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found here
-        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum
-        /// requirements per app type.
+        /// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+        /// app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -524,8 +524,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain
-        /// URL or a custom domain URL as the issuer of ID token for this client.
+        /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
+        /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -555,8 +555,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true
-        /// =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false
+        /// your app will be recreated.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -589,8 +589,8 @@ namespace Pulumi.Okta.Deprecated
         private InputList<string>? _redirectUris;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
-        /// Note: see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+        /// okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> RedirectUris
         {
@@ -641,87 +641,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Type { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.OauthAppUsersGetArgs>? _users;
+        private InputList<Inputs.OauthAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.OauthAppUsersGetArgs> Users
+        public InputList<Inputs.OauthAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.OauthAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.OauthAppUserGetArgs>());
             set => _users = value;
         }
 
         public OauthAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OauthAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public OauthAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class OauthAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public OauthAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OauthAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private OauthAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

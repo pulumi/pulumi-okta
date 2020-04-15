@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Policy
     /// Creates an IdP Discovery Policy Rule.
     /// 
     /// This resource allows you to create and configure an IdP Discovery Policy Rule.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
     /// </summary>
     public partial class RuleIdpDiscovery : Pulumi.CustomResource
     {
@@ -22,13 +20,13 @@ namespace Pulumi.Okta.Policy
         /// Applications to exclude in discovery rule
         /// </summary>
         [Output("appExcludes")]
-        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExcludes>> AppExcludes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
 
         /// <summary>
         /// Applications to include in discovery rule
         /// </summary>
         [Output("appIncludes")]
-        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppIncludes>> AppIncludes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppInclude>> AppIncludes { get; private set; } = null!;
 
         [Output("idpId")]
         public Output<string?> IdpId { get; private set; } = null!;
@@ -61,7 +59,7 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         [Output("platformIncludes")]
-        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryPlatformIncludes>> PlatformIncludes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryPlatformInclude>> PlatformIncludes { get; private set; } = null!;
 
         /// <summary>
         /// Policy ID.
@@ -85,7 +83,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> UserIdentifierAttribute { get; private set; } = null!;
 
         [Output("userIdentifierPatterns")]
-        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryUserIdentifierPatterns>> UserIdentifierPatterns { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryUserIdentifierPattern>> UserIdentifierPatterns { get; private set; } = null!;
 
         [Output("userIdentifierType")]
         public Output<string?> UserIdentifierType { get; private set; } = null!;
@@ -99,7 +97,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleIdpDiscovery(string name, RuleIdpDiscoveryArgs args, CustomResourceOptions? options = null)
-            : base("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, args ?? new RuleIdpDiscoveryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -137,26 +135,26 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleIdpDiscoveryArgs : Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
-        private InputList<Inputs.RuleIdpDiscoveryAppExcludesArgs>? _appExcludes;
+        private InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs>? _appExcludes;
 
         /// <summary>
         /// Applications to exclude in discovery rule
         /// </summary>
-        public InputList<Inputs.RuleIdpDiscoveryAppExcludesArgs> AppExcludes
+        public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
-            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleIdpDiscoveryAppExcludesArgs>());
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs>());
             set => _appExcludes = value;
         }
 
         [Input("appIncludes")]
-        private InputList<Inputs.RuleIdpDiscoveryAppIncludesArgs>? _appIncludes;
+        private InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs>? _appIncludes;
 
         /// <summary>
         /// Applications to include in discovery rule
         /// </summary>
-        public InputList<Inputs.RuleIdpDiscoveryAppIncludesArgs> AppIncludes
+        public InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs> AppIncludes
         {
-            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleIdpDiscoveryAppIncludesArgs>());
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs>());
             set => _appIncludes = value;
         }
 
@@ -203,10 +201,10 @@ namespace Pulumi.Okta.Policy
         }
 
         [Input("platformIncludes")]
-        private InputList<Inputs.RuleIdpDiscoveryPlatformIncludesArgs>? _platformIncludes;
-        public InputList<Inputs.RuleIdpDiscoveryPlatformIncludesArgs> PlatformIncludes
+        private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs>? _platformIncludes;
+        public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs> PlatformIncludes
         {
-            get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludesArgs>());
+            get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs>());
             set => _platformIncludes = value;
         }
 
@@ -232,10 +230,10 @@ namespace Pulumi.Okta.Policy
         public Input<string>? UserIdentifierAttribute { get; set; }
 
         [Input("userIdentifierPatterns")]
-        private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsArgs>? _userIdentifierPatterns;
-        public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsArgs> UserIdentifierPatterns
+        private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>? _userIdentifierPatterns;
+        public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs> UserIdentifierPatterns
         {
-            get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsArgs>());
+            get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>());
             set => _userIdentifierPatterns = value;
         }
 
@@ -250,26 +248,26 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleIdpDiscoveryState : Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
-        private InputList<Inputs.RuleIdpDiscoveryAppExcludesGetArgs>? _appExcludes;
+        private InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs>? _appExcludes;
 
         /// <summary>
         /// Applications to exclude in discovery rule
         /// </summary>
-        public InputList<Inputs.RuleIdpDiscoveryAppExcludesGetArgs> AppExcludes
+        public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {
-            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleIdpDiscoveryAppExcludesGetArgs>());
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs>());
             set => _appExcludes = value;
         }
 
         [Input("appIncludes")]
-        private InputList<Inputs.RuleIdpDiscoveryAppIncludesGetArgs>? _appIncludes;
+        private InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs>? _appIncludes;
 
         /// <summary>
         /// Applications to include in discovery rule
         /// </summary>
-        public InputList<Inputs.RuleIdpDiscoveryAppIncludesGetArgs> AppIncludes
+        public InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs> AppIncludes
         {
-            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleIdpDiscoveryAppIncludesGetArgs>());
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs>());
             set => _appIncludes = value;
         }
 
@@ -316,10 +314,10 @@ namespace Pulumi.Okta.Policy
         }
 
         [Input("platformIncludes")]
-        private InputList<Inputs.RuleIdpDiscoveryPlatformIncludesGetArgs>? _platformIncludes;
-        public InputList<Inputs.RuleIdpDiscoveryPlatformIncludesGetArgs> PlatformIncludes
+        private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>? _platformIncludes;
+        public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs> PlatformIncludes
         {
-            get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludesGetArgs>());
+            get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>());
             set => _platformIncludes = value;
         }
 
@@ -345,10 +343,10 @@ namespace Pulumi.Okta.Policy
         public Input<string>? UserIdentifierAttribute { get; set; }
 
         [Input("userIdentifierPatterns")]
-        private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsGetArgs>? _userIdentifierPatterns;
-        public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsGetArgs> UserIdentifierPatterns
+        private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>? _userIdentifierPatterns;
+        public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs> UserIdentifierPatterns
         {
-            get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternsGetArgs>());
+            get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>());
             set => _userIdentifierPatterns = value;
         }
 
@@ -358,244 +356,5 @@ namespace Pulumi.Okta.Policy
         public RuleIdpDiscoveryState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RuleIdpDiscoveryAppExcludesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryAppExcludesArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryAppExcludesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryAppExcludesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryAppIncludesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryAppIncludesArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryAppIncludesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryAppIncludesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryPlatformIncludesArgs : Pulumi.ResourceArgs
-    {
-        [Input("osExpression")]
-        public Input<string>? OsExpression { get; set; }
-
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryPlatformIncludesArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryPlatformIncludesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("osExpression")]
-        public Input<string>? OsExpression { get; set; }
-
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleIdpDiscoveryPlatformIncludesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryUserIdentifierPatternsArgs : Pulumi.ResourceArgs
-    {
-        [Input("matchType")]
-        public Input<string>? MatchType { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public RuleIdpDiscoveryUserIdentifierPatternsArgs()
-        {
-        }
-    }
-
-    public sealed class RuleIdpDiscoveryUserIdentifierPatternsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("matchType")]
-        public Input<string>? MatchType { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public RuleIdpDiscoveryUserIdentifierPatternsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RuleIdpDiscoveryAppExcludes
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private RuleIdpDiscoveryAppExcludes(
-            string? id,
-            string? name,
-            string? type)
-        {
-            Id = id;
-            Name = name;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class RuleIdpDiscoveryAppIncludes
-    {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// Policy Rule Name.
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private RuleIdpDiscoveryAppIncludes(
-            string? id,
-            string? name,
-            string? type)
-        {
-            Id = id;
-            Name = name;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class RuleIdpDiscoveryPlatformIncludes
-    {
-        public readonly string? OsExpression;
-        public readonly string? OsType;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private RuleIdpDiscoveryPlatformIncludes(
-            string? osExpression,
-            string? osType,
-            string? type)
-        {
-            OsExpression = osExpression;
-            OsType = osType;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class RuleIdpDiscoveryUserIdentifierPatterns
-    {
-        public readonly string? MatchType;
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private RuleIdpDiscoveryUserIdentifierPatterns(
-            string? matchType,
-            string? value)
-        {
-            MatchType = matchType;
-            Value = value;
-        }
-    }
     }
 }

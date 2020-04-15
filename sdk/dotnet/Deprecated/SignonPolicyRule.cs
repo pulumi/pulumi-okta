@@ -30,8 +30,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> MfaLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Output("mfaPrompt")]
         public Output<string?> MfaPrompt { get; private set; } = null!;
@@ -79,8 +78,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -98,8 +97,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> SessionLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+        /// cookies.
         /// </summary>
         [Output("sessionPersistent")]
         public Output<bool?> SessionPersistent { get; private set; } = null!;
@@ -125,7 +124,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SignonPolicyRule(string name, SignonPolicyRuleArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/signonPolicyRule:SignonPolicyRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/signonPolicyRule:SignonPolicyRule", name, args ?? new SignonPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -181,8 +180,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -242,8 +240,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -261,8 +259,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+        /// cookies.
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }
@@ -311,8 +309,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE,
-        /// SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -372,8 +369,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -391,8 +388,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent
-        /// session cookies.
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+        /// cookies.
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }

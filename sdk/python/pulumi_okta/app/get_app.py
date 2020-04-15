@@ -68,7 +68,7 @@ def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app.html.markdown.
+
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.

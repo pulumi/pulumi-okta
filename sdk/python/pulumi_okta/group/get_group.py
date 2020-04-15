@@ -57,7 +57,7 @@ def get_group(include_users=None,name=None,opts=None):
     """
     Use this data source to retrieve a group from Okta.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.
+
 
 
     :param bool include_users: whether or not to retrieve all member ids.

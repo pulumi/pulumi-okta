@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates a Bookmark Application.
     /// 
     /// This resource allows you to create and configure a Bookmark Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_bookmark.html.markdown.
     /// </summary>
     public partial class Bookmark : Pulumi.CustomResource
     {
@@ -82,7 +80,7 @@ namespace Pulumi.Okta.App
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.BookmarkUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BookmarkUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,7 +91,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bookmark(string name, BookmarkArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/bookmark:Bookmark", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/bookmark:Bookmark", name, args ?? new BookmarkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -185,14 +183,14 @@ namespace Pulumi.Okta.App
         public Input<string> Url { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.BookmarkUsersArgs>? _users;
+        private InputList<Inputs.BookmarkUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BookmarkUsersArgs> Users
+        public InputList<Inputs.BookmarkUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BookmarkUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BookmarkUserArgs>());
             set => _users = value;
         }
 
@@ -270,96 +268,19 @@ namespace Pulumi.Okta.App
         public Input<string>? Url { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.BookmarkUsersGetArgs>? _users;
+        private InputList<Inputs.BookmarkUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BookmarkUsersGetArgs> Users
+        public InputList<Inputs.BookmarkUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BookmarkUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BookmarkUserGetArgs>());
             set => _users = value;
         }
 
         public BookmarkState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BookmarkUsersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BookmarkUsersArgs()
-        {
-        }
-    }
-
-    public sealed class BookmarkUsersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BookmarkUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BookmarkUsers
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private BookmarkUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

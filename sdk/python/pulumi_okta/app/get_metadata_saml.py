@@ -82,7 +82,7 @@ def get_metadata_saml(app_id=None,key_id=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
+
 
 
     :param str app_id: The application ID.

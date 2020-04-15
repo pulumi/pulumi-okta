@@ -46,7 +46,7 @@ def get_policy(name=None,type=None,opts=None):
     """
     Use this data source to retrieve a policy from Okta.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
+
 
 
     :param str name: name of policy to retrieve.

@@ -97,7 +97,7 @@ class Swa(pulumi.CustomResource):
 
         This resource allows you to create and configure an SWA Application.
 
-        > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_swa.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

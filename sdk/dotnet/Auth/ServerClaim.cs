@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Claim.
     /// 
     /// This resource allows you to create and configure an Authorization Server Claim.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_claim.html.markdown.
     /// </summary>
     public partial class ServerClaim : Pulumi.CustomResource
     {
@@ -81,7 +79,7 @@ namespace Pulumi.Okta.Auth
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerClaim(string name, ServerClaimArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/serverClaim:ServerClaim", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:auth/serverClaim:ServerClaim", name, args ?? new ServerClaimArgs(), MakeResourceOptions(options, ""))
         {
         }
 

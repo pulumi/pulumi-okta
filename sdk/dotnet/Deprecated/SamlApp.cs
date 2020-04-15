@@ -42,7 +42,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> AssertionSigned { get; private set; } = null!;
 
         [Output("attributeStatements")]
-        public Output<ImmutableArray<Outputs.SamlAppAttributeStatements>> AttributeStatements { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SamlAppAttributeStatement>> AttributeStatements { get; private set; } = null!;
 
         /// <summary>
         /// Audience Restriction
@@ -270,7 +270,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SamlAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SamlAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -281,7 +281,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamlApp(string name, SamlAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/samlApp:SamlApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/samlApp:SamlApp", name, args ?? new SamlAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -349,10 +349,10 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
-        private InputList<Inputs.SamlAppAttributeStatementsArgs>? _attributeStatements;
-        public InputList<Inputs.SamlAppAttributeStatementsArgs> AttributeStatements
+        private InputList<Inputs.SamlAppAttributeStatementArgs>? _attributeStatements;
+        public InputList<Inputs.SamlAppAttributeStatementArgs> AttributeStatements
         {
-            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAppAttributeStatementsArgs>());
+            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAppAttributeStatementArgs>());
             set => _attributeStatements = value;
         }
 
@@ -537,14 +537,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SamlAppUsersArgs>? _users;
+        private InputList<Inputs.SamlAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SamlAppUsersArgs> Users
+        public InputList<Inputs.SamlAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SamlAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SamlAppUserArgs>());
             set => _users = value;
         }
 
@@ -586,10 +586,10 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
-        private InputList<Inputs.SamlAppAttributeStatementsGetArgs>? _attributeStatements;
-        public InputList<Inputs.SamlAppAttributeStatementsGetArgs> AttributeStatements
+        private InputList<Inputs.SamlAppAttributeStatementGetArgs>? _attributeStatements;
+        public InputList<Inputs.SamlAppAttributeStatementGetArgs> AttributeStatements
         {
-            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAppAttributeStatementsGetArgs>());
+            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAppAttributeStatementGetArgs>());
             set => _attributeStatements = value;
         }
 
@@ -828,175 +828,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SamlAppUsersGetArgs>? _users;
+        private InputList<Inputs.SamlAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SamlAppUsersGetArgs> Users
+        public InputList<Inputs.SamlAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SamlAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SamlAppUserGetArgs>());
             set => _users = value;
         }
 
         public SamlAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SamlAppAttributeStatementsArgs : Pulumi.ResourceArgs
-    {
-        [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
-
-        [Input("filterValue")]
-        public Input<string>? FilterValue { get; set; }
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public SamlAppAttributeStatementsArgs()
-        {
-        }
-    }
-
-    public sealed class SamlAppAttributeStatementsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
-
-        [Input("filterValue")]
-        public Input<string>? FilterValue { get; set; }
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public SamlAppAttributeStatementsGetArgs()
-        {
-        }
-    }
-
-    public sealed class SamlAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SamlAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SamlAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SamlAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SamlAppAttributeStatements
-    {
-        public readonly string? FilterType;
-        public readonly string? FilterValue;
-        public readonly string Name;
-        public readonly string? Namespace;
-        public readonly string? Type;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private SamlAppAttributeStatements(
-            string? filterType,
-            string? filterValue,
-            string name,
-            string? @namespace,
-            string? type,
-            ImmutableArray<string> values)
-        {
-            FilterType = filterType;
-            FilterValue = filterValue;
-            Name = name;
-            Namespace = @namespace;
-            Type = type;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class SamlAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SamlAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

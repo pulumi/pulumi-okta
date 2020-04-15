@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Group
     /// Creates an Okta Group.
     /// 
     /// This resource allows you to create and configure an Okta Group.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group.html.markdown.
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {
@@ -45,7 +43,7 @@ namespace Pulumi.Okta.Group
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("okta:group/group:Group", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:group/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

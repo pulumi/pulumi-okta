@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an Auto Login Okta Application.
     /// 
     /// This resource allows you to create and configure an Auto Login Okta Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_auto_login.html.markdown.
     /// </summary>
     public partial class AutoLogin : Pulumi.CustomResource
     {
@@ -136,7 +134,7 @@ namespace Pulumi.Okta.App
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.AutoLoginUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AutoLoginUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,7 +145,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutoLogin(string name, AutoLoginArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/autoLogin:AutoLogin", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/autoLogin:AutoLogin", name, args ?? new AutoLoginArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -281,14 +279,14 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.AutoLoginUsersArgs>? _users;
+        private InputList<Inputs.AutoLoginUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.AutoLoginUsersArgs> Users
+        public InputList<Inputs.AutoLoginUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.AutoLoginUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.AutoLoginUserArgs>());
             set => _users = value;
         }
 
@@ -420,87 +418,19 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.AutoLoginUsersGetArgs>? _users;
+        private InputList<Inputs.AutoLoginUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.AutoLoginUsersGetArgs> Users
+        public InputList<Inputs.AutoLoginUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.AutoLoginUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.AutoLoginUserGetArgs>());
             set => _users = value;
         }
 
         public AutoLoginState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AutoLoginUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public AutoLoginUsersArgs()
-        {
-        }
-    }
-
-    public sealed class AutoLoginUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public AutoLoginUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AutoLoginUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private AutoLoginUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

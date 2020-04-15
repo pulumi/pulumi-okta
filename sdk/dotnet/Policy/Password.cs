@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Policy
     /// Creates a Password Policy.
     /// 
     /// This resource allows you to create and configure a Password Policy.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_password.html.markdown.
     /// </summary>
     public partial class Password : Pulumi.CustomResource
     {
@@ -195,7 +193,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Password(string name, PasswordArgs? args = null, CustomResourceOptions? options = null)
-            : base("okta:policy/password:Password", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:policy/password:Password", name, args ?? new PasswordArgs(), MakeResourceOptions(options, ""))
         {
         }
 

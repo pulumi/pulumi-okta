@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Auth
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve an auth server from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServer.InvokeAsync() instead")]
-        public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServer
     {
         /// <summary>
         /// Use this data source to retrieve an auth server from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/auth_server.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
@@ -43,6 +34,7 @@ namespace Pulumi.Okta.Auth
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetServerResult
@@ -68,6 +60,10 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// auth server key id.
         /// </summary>
         public readonly string Kid;
@@ -79,32 +75,36 @@ namespace Pulumi.Okta.Auth
         /// the activation status of the authorization server.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServerResult(
             ImmutableArray<string> audiences,
+
             string credentialsLastRotated,
+
             string credentialsNextRotation,
+
             string credentialsRotationMode,
+
             string description,
+
+            string id,
+
             string kid,
+
             string name,
-            string status,
-            string id)
+
+            string status)
         {
             Audiences = audiences;
             CredentialsLastRotated = credentialsLastRotated;
             CredentialsNextRotation = credentialsNextRotation;
             CredentialsRotationMode = credentialsRotationMode;
             Description = description;
+            Id = id;
             Kid = kid;
             Name = name;
             Status = status;
-            Id = id;
         }
     }
 }

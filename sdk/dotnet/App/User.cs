@@ -15,8 +15,6 @@ namespace Pulumi.Okta.App
     /// This resource allows you to create and configure an Application User.
     /// 
     /// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {
@@ -59,7 +57,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/user:User", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/user:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 

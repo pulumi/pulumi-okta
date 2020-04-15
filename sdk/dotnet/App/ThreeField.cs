@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an Three Field Application.
     /// 
     /// This resource allows you to create and configure an Three Field Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_three_field.html.markdown.
     /// </summary>
     public partial class ThreeField : Pulumi.CustomResource
     {
@@ -136,7 +134,7 @@ namespace Pulumi.Okta.App
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.ThreeFieldUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ThreeFieldUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,7 +145,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThreeField(string name, ThreeFieldArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/threeField:ThreeField", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/threeField:ThreeField", name, args ?? new ThreeFieldArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -281,14 +279,14 @@ namespace Pulumi.Okta.App
         public Input<string> UsernameSelector { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.ThreeFieldUsersArgs>? _users;
+        private InputList<Inputs.ThreeFieldUserArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.ThreeFieldUsersArgs> Users
+        public InputList<Inputs.ThreeFieldUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.ThreeFieldUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.ThreeFieldUserArgs>());
             set => _users = value;
         }
 
@@ -420,87 +418,19 @@ namespace Pulumi.Okta.App
         public Input<string>? UsernameSelector { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.ThreeFieldUsersGetArgs>? _users;
+        private InputList<Inputs.ThreeFieldUserGetArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.ThreeFieldUsersGetArgs> Users
+        public InputList<Inputs.ThreeFieldUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.ThreeFieldUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.ThreeFieldUserGetArgs>());
             set => _users = value;
         }
 
         public ThreeFieldState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ThreeFieldUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public ThreeFieldUsersArgs()
-        {
-        }
-    }
-
-    public sealed class ThreeFieldUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public ThreeFieldUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ThreeFieldUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private ThreeFieldUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

@@ -60,8 +60,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PasswordPolicyRule(string name, PasswordPolicyRuleArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args ?? new PasswordPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -185,8 +185,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -277,8 +277,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we
-        /// error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        /// invalid priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

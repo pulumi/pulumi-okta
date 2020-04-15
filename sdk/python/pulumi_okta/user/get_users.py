@@ -43,7 +43,7 @@ def get_users(searches=None,users=None,opts=None):
     """
     Use this data source to retrieve a list of users from Okta.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
+
 
 
     :param list searches: Map of search criteria to use to find users. It supports the following properties.

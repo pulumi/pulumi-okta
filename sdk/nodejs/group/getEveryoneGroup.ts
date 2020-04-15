@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/everyone_group.html.markdown.
  */
-export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEveryoneGroupResult> & GetEveryoneGroupResult {
+export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEveryoneGroupResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -27,11 +29,9 @@ export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.Invo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEveryoneGroupResult> = pulumi.runtime.invoke("okta:group/getEveryoneGroup:getEveryoneGroup", {
+    return pulumi.runtime.invoke("okta:group/getEveryoneGroup:getEveryoneGroup", {
         "includeUsers": args.includeUsers,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

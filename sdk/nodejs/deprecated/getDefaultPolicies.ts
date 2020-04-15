@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPoliciesResult> & GetDefaultPoliciesResult {
+export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPoliciesResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,11 +14,9 @@ export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDefaultPoliciesResult> = pulumi.runtime.invoke("okta:deprecated/getDefaultPolicies:getDefaultPolicies", {
+    return pulumi.runtime.invoke("okta:deprecated/getDefaultPolicies:getDefaultPolicies", {
         "type": args.type,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

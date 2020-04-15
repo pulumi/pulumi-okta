@@ -9,39 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.User
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve a users from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetUser.InvokeAsync() instead")]
-        public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUser
     {
         /// <summary>
         /// Use this data source to retrieve a users from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
+
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         [Input("searches", required: true)]
-        private List<Inputs.GetUserSearchesArgs>? _searches;
+        private List<Inputs.GetUserSearchArgs>? _searches;
 
         /// <summary>
         /// Map of search criteria. It supports the following properties.
         /// </summary>
-        public List<Inputs.GetUserSearchesArgs> Searches
+        public List<Inputs.GetUserSearchArgs> Searches
         {
-            get => _searches ?? (_searches = new List<Inputs.GetUserSearchesArgs>());
+            get => _searches ?? (_searches = new List<Inputs.GetUserSearchArgs>());
             set => _searches = value;
         }
 
@@ -49,6 +40,7 @@ namespace Pulumi.Okta.User
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetUserResult
@@ -110,6 +102,10 @@ namespace Pulumi.Okta.User
         /// </summary>
         public readonly string HonorificSuffix;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// user profile property.
         /// </summary>
         public readonly string LastName;
@@ -161,7 +157,7 @@ namespace Pulumi.Okta.User
         /// user profile property.
         /// </summary>
         public readonly string ProfileUrl;
-        public readonly ImmutableArray<Outputs.GetUserSearchesResult> Searches;
+        public readonly ImmutableArray<Outputs.GetUserSearchResult> Searches;
         /// <summary>
         /// user profile property.
         /// </summary>
@@ -194,50 +190,82 @@ namespace Pulumi.Okta.User
         /// user profile property.
         /// </summary>
         public readonly string ZipCode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserResult(
             ImmutableArray<string> adminRoles,
+
             string city,
+
             string costCenter,
+
             string countryCode,
+
             string customProfileAttributes,
+
             string department,
+
             string displayName,
+
             string division,
+
             string email,
+
             string employeeNumber,
+
             string firstName,
+
             ImmutableArray<string> groupMemberships,
+
             string honorificPrefix,
+
             string honorificSuffix,
+
+            string id,
+
             string lastName,
+
             string locale,
+
             string login,
+
             string manager,
+
             string managerId,
+
             string middleName,
+
             string mobilePhone,
+
             string nickName,
+
             string organization,
+
             string postalAddress,
+
             string preferredLanguage,
+
             string primaryPhone,
+
             string profileUrl,
-            ImmutableArray<Outputs.GetUserSearchesResult> searches,
+
+            ImmutableArray<Outputs.GetUserSearchResult> searches,
+
             string secondEmail,
+
             string state,
+
             string status,
+
             string streetAddress,
+
             string timezone,
+
             string title,
+
             string userType,
-            string zipCode,
-            string id)
+
+            string zipCode)
         {
             AdminRoles = adminRoles;
             City = city;
@@ -253,6 +281,7 @@ namespace Pulumi.Okta.User
             GroupMemberships = groupMemberships;
             HonorificPrefix = honorificPrefix;
             HonorificSuffix = honorificSuffix;
+            Id = id;
             LastName = lastName;
             Locale = locale;
             Login = login;
@@ -275,68 +304,6 @@ namespace Pulumi.Okta.User
             Title = title;
             UserType = userType;
             ZipCode = zipCode;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetUserSearchesArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Comparison to use.
-        /// </summary>
-        [Input("comparison")]
-        public string? Comparison { get; set; }
-
-        /// <summary>
-        /// Name of property to search against.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
-        /// Value to compare with.
-        /// </summary>
-        [Input("value", required: true)]
-        public string Value { get; set; } = null!;
-
-        public GetUserSearchesArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetUserSearchesResult
-    {
-        /// <summary>
-        /// Comparison to use.
-        /// </summary>
-        public readonly string? Comparison;
-        /// <summary>
-        /// Name of property to search against.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Value to compare with.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetUserSearchesResult(
-            string? comparison,
-            string name,
-            string value)
-        {
-            Comparison = comparison;
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

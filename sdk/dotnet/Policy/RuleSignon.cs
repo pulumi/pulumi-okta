@@ -11,8 +11,6 @@ namespace Pulumi.Okta.Policy
 {
     /// <summary>
     /// Creates a Sign On Policy Rule.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
     /// </summary>
     public partial class RuleSignon : Pulumi.CustomResource
     {
@@ -127,7 +125,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleSignon(string name, RuleSignonArgs args, CustomResourceOptions? options = null)
-            : base("okta:policy/ruleSignon:RuleSignon", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:policy/ruleSignon:RuleSignon", name, args ?? new RuleSignonArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an OIDC Application.
     /// 
     /// This resource allows you to create and configure an OIDC Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_oauth.html.markdown.
     /// </summary>
     public partial class OAuth : Pulumi.CustomResource
     {
@@ -190,7 +188,7 @@ namespace Pulumi.Okta.App
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.OAuthUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OAuthUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -201,7 +199,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OAuth(string name, OAuthArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/oAuth:OAuth", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/oAuth:OAuth", name, args ?? new OAuthArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -413,14 +411,14 @@ namespace Pulumi.Okta.App
         public Input<string> Type { get; set; } = null!;
 
         [Input("users")]
-        private InputList<Inputs.OAuthUsersArgs>? _users;
+        private InputList<Inputs.OAuthUserArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
         /// </summary>
-        public InputList<Inputs.OAuthUsersArgs> Users
+        public InputList<Inputs.OAuthUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.OAuthUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.OAuthUserArgs>());
             set => _users = value;
         }
 
@@ -630,87 +628,19 @@ namespace Pulumi.Okta.App
         public Input<string>? Type { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.OAuthUsersGetArgs>? _users;
+        private InputList<Inputs.OAuthUserGetArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
         /// </summary>
-        public InputList<Inputs.OAuthUsersGetArgs> Users
+        public InputList<Inputs.OAuthUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.OAuthUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.OAuthUserGetArgs>());
             set => _users = value;
         }
 
         public OAuthState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OAuthUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public OAuthUsersArgs()
-        {
-        }
-    }
-
-    public sealed class OAuthUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public OAuthUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OAuthUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private OAuthUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

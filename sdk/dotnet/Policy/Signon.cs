@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Policy
     /// Creates a Sign On Policy.
     /// 
     /// This resource allows you to create and configure a Sign On Policy.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_signon.html.markdown.
     /// </summary>
     public partial class Signon : Pulumi.CustomResource
     {
@@ -57,7 +55,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Signon(string name, SignonArgs? args = null, CustomResourceOptions? options = null)
-            : base("okta:policy/signon:Signon", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:policy/signon:Signon", name, args ?? new SignonArgs(), MakeResourceOptions(options, ""))
         {
         }
 

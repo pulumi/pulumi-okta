@@ -123,7 +123,7 @@ namespace Pulumi.Okta.Deprecated
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SwaAppUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SwaAppUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SwaApp(string name, SwaAppArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/swaApp:SwaApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/swaApp:SwaApp", name, args ?? new SwaAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -262,14 +262,14 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SwaAppUsersArgs>? _users;
+        private InputList<Inputs.SwaAppUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SwaAppUsersArgs> Users
+        public InputList<Inputs.SwaAppUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SwaAppUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SwaAppUserArgs>());
             set => _users = value;
         }
 
@@ -395,87 +395,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SwaAppUsersGetArgs>? _users;
+        private InputList<Inputs.SwaAppUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SwaAppUsersGetArgs> Users
+        public InputList<Inputs.SwaAppUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SwaAppUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SwaAppUserGetArgs>());
             set => _users = value;
         }
 
         public SwaAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SwaAppUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SwaAppUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SwaAppUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SwaAppUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SwaAppUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SwaAppUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

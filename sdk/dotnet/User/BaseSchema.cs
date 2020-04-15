@@ -13,8 +13,6 @@ namespace Pulumi.Okta.User
     /// Manages a User Base Schema property.
     /// 
     /// This resource allows you to configure a base user schema property.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user_base_schema.html.markdown.
     /// </summary>
     public partial class BaseSchema : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.Okta.User
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BaseSchema(string name, BaseSchemaArgs args, CustomResourceOptions? options = null)
-            : base("okta:user/baseSchema:BaseSchema", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:user/baseSchema:BaseSchema", name, args ?? new BaseSchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 

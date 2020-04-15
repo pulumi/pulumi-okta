@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Inline
     /// Creates an inline hook.
     /// 
     /// This resource allows you to create and configure an inline hook.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
     /// </summary>
     public partial class Hook : Pulumi.CustomResource
     {
@@ -34,7 +32,7 @@ namespace Pulumi.Okta.Inline
         /// Map of headers to send along in inline hook request.
         /// </summary>
         [Output("headers")]
-        public Output<ImmutableArray<Outputs.HookHeaders>> Headers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HookHeader>> Headers { get; private set; } = null!;
 
         /// <summary>
         /// The inline hook display name.
@@ -66,7 +64,7 @@ namespace Pulumi.Okta.Inline
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Hook(string name, HookArgs args, CustomResourceOptions? options = null)
-            : base("okta:inline/hook:Hook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:inline/hook:Hook", name, args ?? new HookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -116,14 +114,14 @@ namespace Pulumi.Okta.Inline
         public Input<Inputs.HookChannelArgs>? Channel { get; set; }
 
         [Input("headers")]
-        private InputList<Inputs.HookHeadersArgs>? _headers;
+        private InputList<Inputs.HookHeaderArgs>? _headers;
 
         /// <summary>
         /// Map of headers to send along in inline hook request.
         /// </summary>
-        public InputList<Inputs.HookHeadersArgs> Headers
+        public InputList<Inputs.HookHeaderArgs> Headers
         {
-            get => _headers ?? (_headers = new InputList<Inputs.HookHeadersArgs>());
+            get => _headers ?? (_headers = new InputList<Inputs.HookHeaderArgs>());
             set => _headers = value;
         }
 
@@ -168,14 +166,14 @@ namespace Pulumi.Okta.Inline
         public Input<Inputs.HookChannelGetArgs>? Channel { get; set; }
 
         [Input("headers")]
-        private InputList<Inputs.HookHeadersGetArgs>? _headers;
+        private InputList<Inputs.HookHeaderGetArgs>? _headers;
 
         /// <summary>
         /// Map of headers to send along in inline hook request.
         /// </summary>
-        public InputList<Inputs.HookHeadersGetArgs> Headers
+        public InputList<Inputs.HookHeaderGetArgs> Headers
         {
-            get => _headers ?? (_headers = new InputList<Inputs.HookHeadersGetArgs>());
+            get => _headers ?? (_headers = new InputList<Inputs.HookHeaderGetArgs>());
             set => _headers = value;
         }
 
@@ -203,247 +201,5 @@ namespace Pulumi.Okta.Inline
         public HookState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class HookAuthArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public HookAuthArgs()
-        {
-        }
-    }
-
-    public sealed class HookAuthGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public HookAuthGetArgs()
-        {
-        }
-    }
-
-    public sealed class HookChannelArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The request method to use. Default is `"POST"`.
-        /// </summary>
-        [Input("method")]
-        public Input<string>? Method { get; set; }
-
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        [Input("type")]
-        public Input<bool>? Type { get; set; }
-
-        /// <summary>
-        /// The URI the hook will hit.
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        /// <summary>
-        /// The version of the endpoint.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public HookChannelArgs()
-        {
-        }
-    }
-
-    public sealed class HookChannelGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The request method to use. Default is `"POST"`.
-        /// </summary>
-        [Input("method")]
-        public Input<string>? Method { get; set; }
-
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        [Input("type")]
-        public Input<bool>? Type { get; set; }
-
-        /// <summary>
-        /// The URI the hook will hit.
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        /// <summary>
-        /// The version of the endpoint.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public HookChannelGetArgs()
-        {
-        }
-    }
-
-    public sealed class HookHeadersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public HookHeadersArgs()
-        {
-        }
-    }
-
-    public sealed class HookHeadersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public HookHeadersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class HookAuth
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        public readonly string? Key;
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private HookAuth(
-            string? key,
-            string? type,
-            string? value)
-        {
-            Key = key;
-            Type = type;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class HookChannel
-    {
-        /// <summary>
-        /// The request method to use. Default is `"POST"`.
-        /// </summary>
-        public readonly string? Method;
-        /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
-        /// </summary>
-        public readonly bool? Type;
-        /// <summary>
-        /// The URI the hook will hit.
-        /// </summary>
-        public readonly string Uri;
-        /// <summary>
-        /// The version of the endpoint.
-        /// </summary>
-        public readonly string Version;
-
-        [OutputConstructor]
-        private HookChannel(
-            string? method,
-            bool? type,
-            string uri,
-            string version)
-        {
-            Method = method;
-            Type = type;
-            Uri = uri;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class HookHeaders
-    {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
-        public readonly string? Key;
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private HookHeaders(
-            string? key,
-            string? value)
-        {
-            Key = key;
-            Value = value;
-        }
-    }
     }
 }

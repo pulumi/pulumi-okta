@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Idp
     /// Creates an OIDC Identity Provider.
     /// 
     /// This resource allows you to create and configure an OIDC Identity Provider.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
     /// </summary>
     public partial class Oidc : Pulumi.CustomResource
     {
@@ -246,7 +244,7 @@ namespace Pulumi.Okta.Idp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Oidc(string name, OidcArgs args, CustomResourceOptions? options = null)
-            : base("okta:idp/oidc:Oidc", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:idp/oidc:Oidc", name, args ?? new OidcArgs(), MakeResourceOptions(options, ""))
         {
         }
 

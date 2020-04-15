@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve a policy from Okta.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicy.InvokeAsync() instead")]
-        public static Task<GetPolicyResult> GetPolicy(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicy
     {
         /// <summary>
         /// Use this data source to retrieve a policy from Okta.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/policy.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +41,14 @@ namespace Pulumi.Okta.Policy
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// name of policy.
         /// </summary>
@@ -61,20 +57,18 @@ namespace Pulumi.Okta.Policy
         /// type of policy.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyResult(
+            string id,
+
             string name,
-            string type,
-            string id)
+
+            string type)
         {
+            Id = id;
             Name = name;
             Type = type;
-            Id = id;
         }
     }
 }

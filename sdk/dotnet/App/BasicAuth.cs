@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates a Bsaic Auth Application.
     /// 
     /// This resource allows you to create and configure a Basic Auth Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_basic_auth.html.markdown.
     /// </summary>
     public partial class BasicAuth : Pulumi.CustomResource
     {
@@ -82,7 +80,7 @@ namespace Pulumi.Okta.App
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.BasicAuthUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BasicAuthUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,7 +91,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BasicAuth(string name, BasicAuthArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/basicAuth:BasicAuth", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/basicAuth:BasicAuth", name, args ?? new BasicAuthArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -185,14 +183,14 @@ namespace Pulumi.Okta.App
         public Input<string>? Url { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.BasicAuthUsersArgs>? _users;
+        private InputList<Inputs.BasicAuthUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BasicAuthUsersArgs> Users
+        public InputList<Inputs.BasicAuthUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BasicAuthUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BasicAuthUserArgs>());
             set => _users = value;
         }
 
@@ -270,96 +268,19 @@ namespace Pulumi.Okta.App
         public Input<string>? Url { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.BasicAuthUsersGetArgs>? _users;
+        private InputList<Inputs.BasicAuthUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.BasicAuthUsersGetArgs> Users
+        public InputList<Inputs.BasicAuthUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.BasicAuthUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.BasicAuthUserGetArgs>());
             set => _users = value;
         }
 
         public BasicAuthState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BasicAuthUsersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BasicAuthUsersArgs()
-        {
-        }
-    }
-
-    public sealed class BasicAuthUsersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public BasicAuthUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BasicAuthUsers
-    {
-        /// <summary>
-        /// ID of the Application.
-        /// </summary>
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private BasicAuthUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

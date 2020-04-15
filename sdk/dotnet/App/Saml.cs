@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an SAML Application.
     /// 
     /// This resource allows you to create and configure an SAML Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_saml.html.markdown.
     /// </summary>
     public partial class Saml : Pulumi.CustomResource
     {
@@ -52,7 +50,7 @@ namespace Pulumi.Okta.App
         /// List of SAML Attribute statements.
         /// </summary>
         [Output("attributeStatements")]
-        public Output<ImmutableArray<Outputs.SamlAttributeStatements>> AttributeStatements { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SamlAttributeStatement>> AttributeStatements { get; private set; } = null!;
 
         /// <summary>
         /// Audience restriction.
@@ -280,7 +278,7 @@ namespace Pulumi.Okta.App
         /// Users associated with the application
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SamlUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SamlUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -291,7 +289,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Saml(string name, SamlArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/saml:Saml", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/saml:Saml", name, args ?? new SamlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -359,14 +357,14 @@ namespace Pulumi.Okta.App
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
-        private InputList<Inputs.SamlAttributeStatementsArgs>? _attributeStatements;
+        private InputList<Inputs.SamlAttributeStatementArgs>? _attributeStatements;
 
         /// <summary>
         /// List of SAML Attribute statements.
         /// </summary>
-        public InputList<Inputs.SamlAttributeStatementsArgs> AttributeStatements
+        public InputList<Inputs.SamlAttributeStatementArgs> AttributeStatements
         {
-            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementsArgs>());
+            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementArgs>());
             set => _attributeStatements = value;
         }
 
@@ -551,14 +549,14 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SamlUsersArgs>? _users;
+        private InputList<Inputs.SamlUserArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SamlUsersArgs> Users
+        public InputList<Inputs.SamlUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SamlUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SamlUserArgs>());
             set => _users = value;
         }
 
@@ -600,14 +598,14 @@ namespace Pulumi.Okta.App
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
-        private InputList<Inputs.SamlAttributeStatementsGetArgs>? _attributeStatements;
+        private InputList<Inputs.SamlAttributeStatementGetArgs>? _attributeStatements;
 
         /// <summary>
         /// List of SAML Attribute statements.
         /// </summary>
-        public InputList<Inputs.SamlAttributeStatementsGetArgs> AttributeStatements
+        public InputList<Inputs.SamlAttributeStatementGetArgs> AttributeStatements
         {
-            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementsGetArgs>());
+            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementGetArgs>());
             set => _attributeStatements = value;
         }
 
@@ -846,240 +844,19 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SamlUsersGetArgs>? _users;
+        private InputList<Inputs.SamlUserGetArgs>? _users;
 
         /// <summary>
         /// Users associated with the application
         /// </summary>
-        public InputList<Inputs.SamlUsersGetArgs> Users
+        public InputList<Inputs.SamlUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SamlUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SamlUserGetArgs>());
             set => _users = value;
         }
 
         public SamlState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SamlAttributeStatementsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of group attribute filter.
-        /// </summary>
-        [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
-
-        /// <summary>
-        /// Filter value to use.
-        /// </summary>
-        [Input("filterValue")]
-        public Input<string>? FilterValue { get; set; }
-
-        /// <summary>
-        /// The name of the attribute statement.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// Array of values to use.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public SamlAttributeStatementsArgs()
-        {
-        }
-    }
-
-    public sealed class SamlAttributeStatementsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of group attribute filter.
-        /// </summary>
-        [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
-
-        /// <summary>
-        /// Filter value to use.
-        /// </summary>
-        [Input("filterValue")]
-        public Input<string>? FilterValue { get; set; }
-
-        /// <summary>
-        /// The name of the attribute statement.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// Array of values to use.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public SamlAttributeStatementsGetArgs()
-        {
-        }
-    }
-
-    public sealed class SamlUsersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// id of application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SamlUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SamlUsersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// id of application.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SamlUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SamlAttributeStatements
-    {
-        /// <summary>
-        /// Type of group attribute filter.
-        /// </summary>
-        public readonly string? FilterType;
-        /// <summary>
-        /// Filter value to use.
-        /// </summary>
-        public readonly string? FilterValue;
-        /// <summary>
-        /// The name of the attribute statement.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        /// </summary>
-        public readonly string? Namespace;
-        /// <summary>
-        /// The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
-        /// Array of values to use.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private SamlAttributeStatements(
-            string? filterType,
-            string? filterValue,
-            string name,
-            string? @namespace,
-            string? type,
-            ImmutableArray<string> values)
-        {
-            FilterType = filterType;
-            FilterValue = filterValue;
-            Name = name;
-            Namespace = @namespace;
-            Type = type;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class SamlUsers
-    {
-        /// <summary>
-        /// id of application.
-        /// </summary>
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SamlUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

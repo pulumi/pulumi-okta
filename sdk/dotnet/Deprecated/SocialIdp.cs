@@ -134,7 +134,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SocialIdp(string name, SocialIdpArgs args, CustomResourceOptions? options = null)
-            : base("okta:deprecated/socialIdp:SocialIdp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/socialIdp:SocialIdp", name, args ?? new SocialIdpArgs(), MakeResourceOptions(options, ""))
         {
         }
 

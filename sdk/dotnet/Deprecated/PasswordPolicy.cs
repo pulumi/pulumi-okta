@@ -138,8 +138,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> PasswordShowLockoutFailures { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if
-        /// an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        /// priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -163,8 +163,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> RecoveryEmailToken { get; private set; } = null!;
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock
-        /// the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+        /// Windows account.
         /// </summary>
         [Output("skipUnlock")]
         public Output<bool?> SkipUnlock { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PasswordPolicy(string name, PasswordPolicyArgs? args = null, CustomResourceOptions? options = null)
-            : base("okta:deprecated/passwordPolicy:PasswordPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:deprecated/passwordPolicy:PasswordPolicy", name, args ?? new PasswordPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -360,8 +360,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if
-        /// an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        /// priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -385,8 +385,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock
-        /// the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+        /// Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
@@ -543,8 +543,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if
-        /// an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        /// priority is provided. API defaults it to the last/lowest if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -568,8 +568,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock
-        /// the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+        /// Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }

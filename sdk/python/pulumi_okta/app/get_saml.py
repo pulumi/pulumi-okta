@@ -271,7 +271,7 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
     """
     Use this data source to retrieve the collaborators for a given repository.
 
-    > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
+
 
 
     :param str accessibility_error_redirect_url: Custom error page URL.

@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Idp
     /// Creates a SAML Identity Provider.
     /// 
     /// This resource allows you to create and configure a SAML Identity Provider.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml.html.markdown.
     /// </summary>
     public partial class Saml : Pulumi.CustomResource
     {
@@ -219,7 +217,7 @@ namespace Pulumi.Okta.Idp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Saml(string name, SamlArgs args, CustomResourceOptions? options = null)
-            : base("okta:idp/saml:Saml", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:idp/saml:Saml", name, args ?? new SamlArgs(), MakeResourceOptions(options, ""))
         {
         }
 

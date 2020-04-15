@@ -13,8 +13,6 @@ namespace Pulumi.Okta.Factor
     /// Allows you to manage the activation of Okta MFA methods.
     /// 
     /// This resource allows you to manage Okta MFA methods.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/factor.html.markdown.
     /// </summary>
     public partial class Factor : Pulumi.CustomResource
     {
@@ -39,7 +37,7 @@ namespace Pulumi.Okta.Factor
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Factor(string name, FactorArgs args, CustomResourceOptions? options = null)
-            : base("okta:factor/factor:Factor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:factor/factor:Factor", name, args ?? new FactorArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -12,14 +12,14 @@ namespace Pulumi.Okta.Profile
     public partial class Mapping : Pulumi.CustomResource
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in
-        /// config. By default, we do not delete missing properties.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+        /// default, we do not delete missing properties.
         /// </summary>
         [Output("deleteWhenAbsent")]
         public Output<bool?> DeleteWhenAbsent { get; private set; } = null!;
 
         [Output("mappings")]
-        public Output<ImmutableArray<Outputs.MappingMappings>> Mappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MappingMapping>> Mappings { get; private set; } = null!;
 
         /// <summary>
         /// The source id of the mapping to manage.
@@ -54,7 +54,7 @@ namespace Pulumi.Okta.Profile
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Mapping(string name, MappingArgs args, CustomResourceOptions? options = null)
-            : base("okta:profile/mapping:Mapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:profile/mapping:Mapping", name, args ?? new MappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -92,17 +92,17 @@ namespace Pulumi.Okta.Profile
     public sealed class MappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in
-        /// config. By default, we do not delete missing properties.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+        /// default, we do not delete missing properties.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
-        private InputList<Inputs.MappingMappingsArgs>? _mappings;
-        public InputList<Inputs.MappingMappingsArgs> Mappings
+        private InputList<Inputs.MappingMappingArgs>? _mappings;
+        public InputList<Inputs.MappingMappingArgs> Mappings
         {
-            get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingsArgs>());
+            get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingArgs>());
             set => _mappings = value;
         }
 
@@ -126,17 +126,17 @@ namespace Pulumi.Okta.Profile
     public sealed class MappingState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in
-        /// config. By default, we do not delete missing properties.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+        /// default, we do not delete missing properties.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
-        private InputList<Inputs.MappingMappingsGetArgs>? _mappings;
-        public InputList<Inputs.MappingMappingsGetArgs> Mappings
+        private InputList<Inputs.MappingMappingGetArgs>? _mappings;
+        public InputList<Inputs.MappingMappingGetArgs> Mappings
         {
-            get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingsGetArgs>());
+            get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingGetArgs>());
             set => _mappings = value;
         }
 
@@ -167,64 +167,5 @@ namespace Pulumi.Okta.Profile
         public MappingState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MappingMappingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression", required: true)]
-        public Input<string> Expression { get; set; } = null!;
-
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        [Input("pushStatus")]
-        public Input<string>? PushStatus { get; set; }
-
-        public MappingMappingsArgs()
-        {
-        }
-    }
-
-    public sealed class MappingMappingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression", required: true)]
-        public Input<string> Expression { get; set; } = null!;
-
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        [Input("pushStatus")]
-        public Input<string>? PushStatus { get; set; }
-
-        public MappingMappingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MappingMappings
-    {
-        public readonly string Expression;
-        public readonly string Id;
-        public readonly string? PushStatus;
-
-        [OutputConstructor]
-        private MappingMappings(
-            string expression,
-            string id,
-            string? pushStatus)
-        {
-            Expression = expression;
-            Id = id;
-            PushStatus = pushStatus;
-        }
-    }
     }
 }

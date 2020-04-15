@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Group
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
-        /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/everyone_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetEveryoneGroup.InvokeAsync() instead")]
-        public static Task<GetEveryoneGroupResult> GetEveryoneGroup(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetEveryoneGroup
     {
         /// <summary>
         /// Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
         /// 
-        /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/everyone_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEveryoneGroupResult> InvokeAsync(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetEveryoneGroupArgs : Pulumi.InvokeArgs
     {
@@ -41,22 +32,24 @@ namespace Pulumi.Okta.Group
         }
     }
 
+
     [OutputType]
     public sealed class GetEveryoneGroupResult
     {
-        public readonly bool? IncludeUsers;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IncludeUsers;
 
         [OutputConstructor]
         private GetEveryoneGroupResult(
-            bool? includeUsers,
-            string id)
+            string id,
+
+            bool? includeUsers)
         {
-            IncludeUsers = includeUsers;
             Id = id;
+            IncludeUsers = includeUsers;
         }
     }
 }

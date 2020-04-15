@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetDefaultPolicies.InvokeAsync() instead")]
-        public static Task<GetDefaultPoliciesResult> GetDefaultPolicies(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDefaultPolicies
     {
         public static Task<GetDefaultPoliciesResult> InvokeAsync(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDefaultPoliciesArgs : Pulumi.InvokeArgs
     {
@@ -31,22 +26,24 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
+
     [OutputType]
     public sealed class GetDefaultPoliciesResult
     {
-        public readonly string Type;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetDefaultPoliciesResult(
-            string type,
-            string id)
+            string id,
+
+            string type)
         {
-            Type = type;
             Id = id;
+            Type = type;
         }
     }
 }

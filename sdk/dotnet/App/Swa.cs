@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an SWA Application.
     /// 
     /// This resource allows you to create and configure an SWA Application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_swa.html.markdown.
     /// </summary>
     public partial class Swa : Pulumi.CustomResource
     {
@@ -130,7 +128,7 @@ namespace Pulumi.Okta.App
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.SwaUsers>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SwaUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,7 +139,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Swa(string name, SwaArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/swa:Swa", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/swa:Swa", name, args ?? new SwaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -269,14 +267,14 @@ namespace Pulumi.Okta.App
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SwaUsersArgs>? _users;
+        private InputList<Inputs.SwaUserArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.SwaUsersArgs> Users
+        public InputList<Inputs.SwaUserArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SwaUsersArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SwaUserArgs>());
             set => _users = value;
         }
 
@@ -402,87 +400,19 @@ namespace Pulumi.Okta.App
         public Input<string>? UsernameField { get; set; }
 
         [Input("users")]
-        private InputList<Inputs.SwaUsersGetArgs>? _users;
+        private InputList<Inputs.SwaUserGetArgs>? _users;
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
         /// </summary>
-        public InputList<Inputs.SwaUsersGetArgs> Users
+        public InputList<Inputs.SwaUserGetArgs> Users
         {
-            get => _users ?? (_users = new InputList<Inputs.SwaUsersGetArgs>());
+            get => _users ?? (_users = new InputList<Inputs.SwaUserGetArgs>());
             set => _users = value;
         }
 
         public SwaState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SwaUsersArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SwaUsersArgs()
-        {
-        }
-    }
-
-    public sealed class SwaUsersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public SwaUsersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SwaUsers
-    {
-        public readonly string? Id;
-        public readonly string? Password;
-        public readonly string Scope;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private SwaUsers(
-            string? id,
-            string? password,
-            string scope,
-            string? username)
-        {
-            Id = id;
-            Password = password;
-            Scope = scope;
-            Username = username;
-        }
-    }
     }
 }

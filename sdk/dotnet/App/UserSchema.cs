@@ -13,8 +13,6 @@ namespace Pulumi.Okta.App
     /// Creates an Application User Schema property.
     /// 
     /// This resource allows you to create and configure a custom user schema property and associate it with an application.
-    /// 
-    /// &gt; This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_schema.html.markdown.
     /// </summary>
     public partial class UserSchema : Pulumi.CustomResource
     {
@@ -34,7 +32,7 @@ namespace Pulumi.Okta.App
         /// Display name and value an enum array can be set to.
         /// </summary>
         [Output("arrayOneOfs")]
-        public Output<ImmutableArray<Outputs.UserSchemaArrayOneOfs>> ArrayOneOfs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserSchemaArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
 
         /// <summary>
         /// The type of the array elements if `type` is set to `"array"`.
@@ -88,7 +86,7 @@ namespace Pulumi.Okta.App
         /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
         [Output("oneOfs")]
-        public Output<ImmutableArray<Outputs.UserSchemaOneOfs>> OneOfs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserSchemaOneOf>> OneOfs { get; private set; } = null!;
 
         /// <summary>
         /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
@@ -129,7 +127,7 @@ namespace Pulumi.Okta.App
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserSchema(string name, UserSchemaArgs args, CustomResourceOptions? options = null)
-            : base("okta:app/userSchema:UserSchema", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("okta:app/userSchema:UserSchema", name, args ?? new UserSchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -185,14 +183,14 @@ namespace Pulumi.Okta.App
         }
 
         [Input("arrayOneOfs")]
-        private InputList<Inputs.UserSchemaArrayOneOfsArgs>? _arrayOneOfs;
+        private InputList<Inputs.UserSchemaArrayOneOfArgs>? _arrayOneOfs;
 
         /// <summary>
         /// Display name and value an enum array can be set to.
         /// </summary>
-        public InputList<Inputs.UserSchemaArrayOneOfsArgs> ArrayOneOfs
+        public InputList<Inputs.UserSchemaArrayOneOfArgs> ArrayOneOfs
         {
-            get => _arrayOneOfs ?? (_arrayOneOfs = new InputList<Inputs.UserSchemaArrayOneOfsArgs>());
+            get => _arrayOneOfs ?? (_arrayOneOfs = new InputList<Inputs.UserSchemaArrayOneOfArgs>());
             set => _arrayOneOfs = value;
         }
 
@@ -251,14 +249,14 @@ namespace Pulumi.Okta.App
         public Input<int>? MinLength { get; set; }
 
         [Input("oneOfs")]
-        private InputList<Inputs.UserSchemaOneOfsArgs>? _oneOfs;
+        private InputList<Inputs.UserSchemaOneOfArgs>? _oneOfs;
 
         /// <summary>
         /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
-        public InputList<Inputs.UserSchemaOneOfsArgs> OneOfs
+        public InputList<Inputs.UserSchemaOneOfArgs> OneOfs
         {
-            get => _oneOfs ?? (_oneOfs = new InputList<Inputs.UserSchemaOneOfsArgs>());
+            get => _oneOfs ?? (_oneOfs = new InputList<Inputs.UserSchemaOneOfArgs>());
             set => _oneOfs = value;
         }
 
@@ -318,14 +316,14 @@ namespace Pulumi.Okta.App
         }
 
         [Input("arrayOneOfs")]
-        private InputList<Inputs.UserSchemaArrayOneOfsGetArgs>? _arrayOneOfs;
+        private InputList<Inputs.UserSchemaArrayOneOfGetArgs>? _arrayOneOfs;
 
         /// <summary>
         /// Display name and value an enum array can be set to.
         /// </summary>
-        public InputList<Inputs.UserSchemaArrayOneOfsGetArgs> ArrayOneOfs
+        public InputList<Inputs.UserSchemaArrayOneOfGetArgs> ArrayOneOfs
         {
-            get => _arrayOneOfs ?? (_arrayOneOfs = new InputList<Inputs.UserSchemaArrayOneOfsGetArgs>());
+            get => _arrayOneOfs ?? (_arrayOneOfs = new InputList<Inputs.UserSchemaArrayOneOfGetArgs>());
             set => _arrayOneOfs = value;
         }
 
@@ -384,14 +382,14 @@ namespace Pulumi.Okta.App
         public Input<int>? MinLength { get; set; }
 
         [Input("oneOfs")]
-        private InputList<Inputs.UserSchemaOneOfsGetArgs>? _oneOfs;
+        private InputList<Inputs.UserSchemaOneOfGetArgs>? _oneOfs;
 
         /// <summary>
         /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
-        public InputList<Inputs.UserSchemaOneOfsGetArgs> OneOfs
+        public InputList<Inputs.UserSchemaOneOfGetArgs> OneOfs
         {
-            get => _oneOfs ?? (_oneOfs = new InputList<Inputs.UserSchemaOneOfsGetArgs>());
+            get => _oneOfs ?? (_oneOfs = new InputList<Inputs.UserSchemaOneOfGetArgs>());
             set => _oneOfs = value;
         }
 
@@ -428,133 +426,5 @@ namespace Pulumi.Okta.App
         public UserSchemaState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class UserSchemaArrayOneOfsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        [Input("const", required: true)]
-        public Input<string> Const { get; set; } = null!;
-
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        public UserSchemaArrayOneOfsArgs()
-        {
-        }
-    }
-
-    public sealed class UserSchemaArrayOneOfsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        [Input("const", required: true)]
-        public Input<string> Const { get; set; } = null!;
-
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        public UserSchemaArrayOneOfsGetArgs()
-        {
-        }
-    }
-
-    public sealed class UserSchemaOneOfsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        [Input("const", required: true)]
-        public Input<string> Const { get; set; } = null!;
-
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        public UserSchemaOneOfsArgs()
-        {
-        }
-    }
-
-    public sealed class UserSchemaOneOfsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        [Input("const", required: true)]
-        public Input<string> Const { get; set; } = null!;
-
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        public UserSchemaOneOfsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class UserSchemaArrayOneOfs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        public readonly string Const;
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        public readonly string Title;
-
-        [OutputConstructor]
-        private UserSchemaArrayOneOfs(
-            string @const,
-            string title)
-        {
-            Const = @const;
-            Title = title;
-        }
-    }
-
-    [OutputType]
-    public sealed class UserSchemaOneOfs
-    {
-        /// <summary>
-        /// value mapping to member of `enum`.
-        /// </summary>
-        public readonly string Const;
-        /// <summary>
-        /// display name for the enum value.
-        /// </summary>
-        public readonly string Title;
-
-        [OutputConstructor]
-        private UserSchemaOneOfs(
-            string @const,
-            string title)
-        {
-            Const = @const;
-            Title = title;
-        }
-    }
     }
 }
