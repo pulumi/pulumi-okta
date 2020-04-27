@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.app.getSaml({
+ * const example = pulumi.output(okta.app.getSaml({
  *     label: "Example App",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.

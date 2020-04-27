@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.group.getGroup({
+ * const example = pulumi.output(okta.group.getGroup({
  *     name: "Example App",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/group.html.markdown.

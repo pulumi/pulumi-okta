@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.user.getUserProfileMappingSource();
+ * const example = pulumi.output(okta.user.getUserProfileMappingSource({ async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user_profile_mapping_source.html.markdown.
