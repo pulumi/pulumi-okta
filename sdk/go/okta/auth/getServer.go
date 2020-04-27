@@ -35,7 +35,7 @@ type LookupServerResult struct {
 	CredentialsRotationMode string `pulumi:"credentialsRotationMode"`
 	// description of Authorization server.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// auth server key id.
 	Kid string `pulumi:"kid"`

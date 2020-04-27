@@ -53,7 +53,7 @@ type LookupUserResult struct {
 	HonorificPrefix string `pulumi:"honorificPrefix"`
 	// user profile property.
 	HonorificSuffix string `pulumi:"honorificSuffix"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// user profile property.
 	LastName string `pulumi:"lastName"`

@@ -364,11 +364,21 @@ func (o MfaPolicyDuoPtrOutput) Elem() MfaPolicyDuoOutput {
 }
 
 func (o MfaPolicyDuoPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyDuo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyDuoPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyDuo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyFidoU2f struct {
@@ -497,11 +507,21 @@ func (o MfaPolicyFidoU2fPtrOutput) Elem() MfaPolicyFidoU2fOutput {
 }
 
 func (o MfaPolicyFidoU2fPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoU2f) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoU2fPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoU2f) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyFidoWebauthn struct {
@@ -630,11 +650,21 @@ func (o MfaPolicyFidoWebauthnPtrOutput) Elem() MfaPolicyFidoWebauthnOutput {
 }
 
 func (o MfaPolicyFidoWebauthnPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoWebauthn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyFidoWebauthnPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyFidoWebauthn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyGoogleOtp struct {
@@ -763,11 +793,21 @@ func (o MfaPolicyGoogleOtpPtrOutput) Elem() MfaPolicyGoogleOtpOutput {
 }
 
 func (o MfaPolicyGoogleOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyGoogleOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyGoogleOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyGoogleOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaCall struct {
@@ -896,11 +936,21 @@ func (o MfaPolicyOktaCallPtrOutput) Elem() MfaPolicyOktaCallOutput {
 }
 
 func (o MfaPolicyOktaCallPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaCall) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaCallPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaCall) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaOtp struct {
@@ -1029,11 +1079,21 @@ func (o MfaPolicyOktaOtpPtrOutput) Elem() MfaPolicyOktaOtpOutput {
 }
 
 func (o MfaPolicyOktaOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaPassword struct {
@@ -1162,11 +1222,21 @@ func (o MfaPolicyOktaPasswordPtrOutput) Elem() MfaPolicyOktaPasswordOutput {
 }
 
 func (o MfaPolicyOktaPasswordPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPasswordPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaPush struct {
@@ -1295,11 +1365,21 @@ func (o MfaPolicyOktaPushPtrOutput) Elem() MfaPolicyOktaPushOutput {
 }
 
 func (o MfaPolicyOktaPushPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaPushPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaQuestion struct {
@@ -1428,11 +1508,21 @@ func (o MfaPolicyOktaQuestionPtrOutput) Elem() MfaPolicyOktaQuestionOutput {
 }
 
 func (o MfaPolicyOktaQuestionPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaQuestionPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyOktaSms struct {
@@ -1561,11 +1651,21 @@ func (o MfaPolicyOktaSmsPtrOutput) Elem() MfaPolicyOktaSmsOutput {
 }
 
 func (o MfaPolicyOktaSmsPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaSms) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyOktaSmsPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyOktaSms) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyRsaToken struct {
@@ -1694,11 +1794,21 @@ func (o MfaPolicyRsaTokenPtrOutput) Elem() MfaPolicyRsaTokenOutput {
 }
 
 func (o MfaPolicyRsaTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyRsaToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyRsaTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyRsaToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicySymantecVip struct {
@@ -1827,11 +1937,21 @@ func (o MfaPolicySymantecVipPtrOutput) Elem() MfaPolicySymantecVipOutput {
 }
 
 func (o MfaPolicySymantecVipPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicySymantecVip) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicySymantecVipPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicySymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicySymantecVip) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaPolicyYubikeyToken struct {
@@ -1960,11 +2080,21 @@ func (o MfaPolicyYubikeyTokenPtrOutput) Elem() MfaPolicyYubikeyTokenOutput {
 }
 
 func (o MfaPolicyYubikeyTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyYubikeyToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MfaPolicyYubikeyTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaPolicyYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaPolicyYubikeyToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type OauthAppUser struct {

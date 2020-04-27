@@ -153,17 +153,32 @@ func (o HookAuthPtrOutput) Elem() HookAuthOutput {
 
 // Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o HookAuthPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HookAuth) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *HookAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookAuthPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HookAuth) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *HookAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // Authentication secret.
 func (o HookAuthPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HookAuth) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *HookAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type HookChannel struct {
@@ -318,22 +333,42 @@ func (o HookChannelPtrOutput) Elem() HookChannelOutput {
 
 // The request method to use. Default is `"POST"`.
 func (o HookChannelPtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HookChannel) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *HookChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of hook to trigger. Currently only `"HTTP"` is supported.
 func (o HookChannelPtrOutput) Type() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HookChannel) *bool { return v.Type }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *HookChannel) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The URI the hook will hit.
-func (o HookChannelPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v HookChannel) string { return v.Uri }).(pulumi.StringOutput)
+func (o HookChannelPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 // The version of the endpoint.
-func (o HookChannelPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v HookChannel) string { return v.Version }).(pulumi.StringOutput)
+func (o HookChannelPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HookChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type HookHeader struct {

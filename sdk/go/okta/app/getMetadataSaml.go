@@ -36,7 +36,7 @@ type GetMetadataSamlResult struct {
 	HttpPostBinding string `pulumi:"httpPostBinding"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id    string `pulumi:"id"`
 	KeyId string `pulumi:"keyId"`
 	// raw metadata of application.

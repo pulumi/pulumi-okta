@@ -58,7 +58,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUsersResult
     {
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetUsersSearchResult> Searches;
