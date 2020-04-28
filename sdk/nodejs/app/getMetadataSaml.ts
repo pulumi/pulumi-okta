@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.app.getMetadataSaml({
+ * const example = pulumi.output(okta.app.getMetadataSaml({
  *     appId: "<app id>",
  *     keyId: "<cert key id>",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
@@ -84,7 +84,7 @@ export interface GetMetadataSamlResult {
      */
     readonly wantAuthnRequestsSigned: boolean;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

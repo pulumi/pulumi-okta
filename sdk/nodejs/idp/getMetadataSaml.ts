@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.idp.getMetadataSaml({
+ * const example = pulumi.output(okta.idp.getMetadataSaml({
  *     id: "<idp id>",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/idp_metadata_saml.html.markdown.
@@ -84,7 +84,7 @@ export interface GetMetadataSamlResult {
      */
     readonly signingCertificate: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

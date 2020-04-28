@@ -144,12 +144,22 @@ func (o MfaDuoPtrOutput) Elem() MfaDuoOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaDuoPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaDuo) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaDuo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaDuoPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaDuo) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaDuo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaFidoU2f struct {
@@ -286,12 +296,22 @@ func (o MfaFidoU2fPtrOutput) Elem() MfaFidoU2fOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoU2fPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaFidoU2f) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaFidoU2f) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoU2fPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaFidoU2f) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaFidoU2f) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaFidoWebauthn struct {
@@ -428,12 +448,22 @@ func (o MfaFidoWebauthnPtrOutput) Elem() MfaFidoWebauthnOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaFidoWebauthnPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaFidoWebauthn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaFidoWebauthnPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaFidoWebauthn) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaFidoWebauthn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaGoogleOtp struct {
@@ -570,12 +600,22 @@ func (o MfaGoogleOtpPtrOutput) Elem() MfaGoogleOtpOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaGoogleOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaGoogleOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaGoogleOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaGoogleOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaGoogleOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaCall struct {
@@ -712,12 +752,22 @@ func (o MfaOktaCallPtrOutput) Elem() MfaOktaCallOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaCallPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaCall) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaCall) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaCallPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaCall) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaCall) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaOtp struct {
@@ -854,12 +904,22 @@ func (o MfaOktaOtpPtrOutput) Elem() MfaOktaOtpOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaOtpPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaOtp) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaOtpPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaOtp) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaOtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaPassword struct {
@@ -996,12 +1056,22 @@ func (o MfaOktaPasswordPtrOutput) Elem() MfaOktaPasswordOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPasswordPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaPassword) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPasswordPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaPassword) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaPush struct {
@@ -1138,12 +1208,22 @@ func (o MfaOktaPushPtrOutput) Elem() MfaOktaPushOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaPushPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaPush) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaPushPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaPush) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaPush) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaQuestion struct {
@@ -1280,12 +1360,22 @@ func (o MfaOktaQuestionPtrOutput) Elem() MfaOktaQuestionOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaQuestionPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaQuestionPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaQuestion) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaOktaSms struct {
@@ -1422,12 +1512,22 @@ func (o MfaOktaSmsPtrOutput) Elem() MfaOktaSmsOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaOktaSmsPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaSms) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaSms) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaOktaSmsPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaOktaSms) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaOktaSms) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaRsaToken struct {
@@ -1564,12 +1664,22 @@ func (o MfaRsaTokenPtrOutput) Elem() MfaRsaTokenOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaRsaTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaRsaToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaRsaToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaRsaTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaRsaToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaRsaToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaSymantecVip struct {
@@ -1706,12 +1816,22 @@ func (o MfaSymantecVipPtrOutput) Elem() MfaSymantecVipOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaSymantecVipPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaSymantecVip) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaSymantecVip) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaSymantecVipPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaSymantecVip) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaSymantecVip) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type MfaYubikeyToken struct {
@@ -1848,12 +1968,22 @@ func (o MfaYubikeyTokenPtrOutput) Elem() MfaYubikeyTokenOutput {
 
 // User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
 func (o MfaYubikeyTokenPtrOutput) ConsentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.ConsentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaYubikeyToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
 func (o MfaYubikeyTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MfaYubikeyToken) *string { return v.Enroll }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *MfaYubikeyToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enroll
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleIdpDiscoveryAppExclude struct {

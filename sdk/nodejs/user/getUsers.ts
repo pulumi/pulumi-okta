@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  * 
- * const example = okta.user.getUsers({
+ * const example = pulumi.output(okta.user.getUsers({
  *     searches: [{
  *         comparison: "sw",
  *         name: "profile.company",
  *         value: "Articulate",
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/users.html.markdown.
@@ -66,7 +66,7 @@ export interface GetUsersResult {
      */
     readonly users?: outputs.user.GetUsersUser[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

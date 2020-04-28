@@ -18,7 +18,7 @@ class GetDefaultPolicyResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")

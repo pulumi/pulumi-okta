@@ -27,7 +27,7 @@ type GetUsersArgs struct {
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id       string           `pulumi:"id"`
 	Searches []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
