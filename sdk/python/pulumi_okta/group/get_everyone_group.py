@@ -35,6 +35,17 @@ class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
 def get_everyone_group(include_users=None,opts=None):
     """
     Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.group.get_everyone_group()
+    ```
     """
     __args__ = dict()
 

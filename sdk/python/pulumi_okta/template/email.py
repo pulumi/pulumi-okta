@@ -32,6 +32,29 @@ class Email(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta Email Template.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.template.Email("example",
+            translations=[
+                {
+                    "language": "en",
+                    "subject": "Stuff",
+                    "template": f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
+                },
+                {
+                    "language": "es",
+                    "subject": "Cosas",
+                    "template": f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
+                },
+            ],
+            type="email.forgotPassword")
+        ```
 
 
         :param str resource_name: The name of the resource.

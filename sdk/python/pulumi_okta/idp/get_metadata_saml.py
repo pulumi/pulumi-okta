@@ -92,6 +92,16 @@ def get_metadata_saml(idp_id=None,opts=None):
     """
     Use this data source to retrieve SAML IdP metadata from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_metadata_saml(id="<idp id>")
+    ```
 
 
 

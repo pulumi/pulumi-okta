@@ -172,6 +172,22 @@ class User(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta User.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.User("example",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string")
+        ```
 
 
         :param str resource_name: The name of the resource.

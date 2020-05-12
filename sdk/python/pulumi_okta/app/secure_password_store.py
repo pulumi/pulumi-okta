@@ -125,6 +125,21 @@ class SecurePasswordStore(pulumi.CustomResource):
 
         This resource allows you to create and configure a Secure Password Store Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.SecurePasswordStore("example",
+            credentials_scheme="ADMIN_SETS_CREDENTIALS",
+            label="example",
+            password_field="pass",
+            url="http://test.com",
+            username_field="user")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -39,6 +39,16 @@ def get_default_policy(type=None,opts=None):
     """
     Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.policy.get_default_policy(type="PASSWORD")
+    ```
 
 
 

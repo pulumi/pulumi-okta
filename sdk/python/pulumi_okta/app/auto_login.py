@@ -101,6 +101,21 @@ class AutoLogin(pulumi.CustomResource):
 
         This resource allows you to create and configure an Auto Login Okta Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.AutoLogin("example",
+            credentials_scheme="EDIT_USERNAME_AND_PASSWORD",
+            label="Example App",
+            reveal_password=True,
+            sign_on_redirect_url="https://example.com",
+            sign_on_url="https://example.com/login.html")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -31,7 +31,27 @@ class GroupAssignment(pulumi.CustomResource):
 
         __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 
+        ```python
+        import pulumi
+        ```
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.GroupAssignment("example",
+            app_id="<app id>",
+            group_id="<group id>",
+            profile=\"\"\"{
+          "<app_profile_field>": "<value>"
+        }
+
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -56,6 +56,20 @@ class Server(pulumi.CustomResource):
 
         This resource allows you to create and configure an Authorization Server.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.Server("example",
+            audiences=["api://example"],
+            description="My Example Auth Server",
+            issuer_mode="CUSTOM_URL",
+            status="ACTIVE")
+        ```
 
 
         :param str resource_name: The name of the resource.

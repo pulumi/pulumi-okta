@@ -66,6 +66,26 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
         This resource allows you to create and configure an IdP Discovery Policy Rule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.policy.RuleIdpDiscovery("example",
+            idp_id="<idp id>",
+            idp_type="SAML2",
+            policyid="<policy id>",
+            priority=1,
+            user_identifier_attribute="company",
+            user_identifier_patterns=[{
+                "matchType": "EQUALS",
+                "value": "Articulate",
+            }],
+            user_identifier_type="ATTRIBUTE")
+        ```
 
 
         :param str resource_name: The name of the resource.

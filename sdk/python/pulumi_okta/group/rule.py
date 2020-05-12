@@ -36,6 +36,20 @@ class Rule(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta Group Rule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Rule("example",
+            expression_type="urn:okta:expression:1.0",
+            expression_value="String.startsWith(user.firstName,\"andy\")",
+            group_assignments=["<group id>"],
+            status="ACTIVE")
+        ```
 
 
         :param str resource_name: The name of the resource.

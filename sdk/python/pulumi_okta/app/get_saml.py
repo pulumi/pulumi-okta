@@ -271,6 +271,16 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
     """
     Use this data source to retrieve the collaborators for a given repository.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_saml(label="Example App")
+    ```
 
 
 

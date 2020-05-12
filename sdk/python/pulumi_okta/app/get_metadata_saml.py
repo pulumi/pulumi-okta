@@ -82,6 +82,17 @@ def get_metadata_saml(app_id=None,key_id=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_metadata_saml(app_id="<app id>",
+        key_id="<cert key id>")
+    ```
 
 
 

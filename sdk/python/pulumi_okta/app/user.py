@@ -38,7 +38,23 @@ class User(pulumi.CustomResource):
 
         __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
 
+        ```python
+        import pulumi
+        ```
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.User("example",
+            app_id="<app_id>",
+            user_id="<user id>",
+            username="example")
+        ```
 
 
         :param str resource_name: The name of the resource.

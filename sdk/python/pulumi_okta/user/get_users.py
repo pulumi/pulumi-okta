@@ -43,6 +43,20 @@ def get_users(searches=None,users=None,opts=None):
     """
     Use this data source to retrieve a list of users from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_users(searches=[{
+        "comparison": "sw",
+        "name": "profile.company",
+        "value": "Articulate",
+    }])
+    ```
 
 
 

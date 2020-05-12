@@ -281,6 +281,25 @@ def get_user(searches=None,opts=None):
     """
     Use this data source to retrieve a users from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user(searches=[
+        {
+            "name": "profile.firstName",
+            "value": "John",
+        },
+        {
+            "name": "profile.lastName",
+            "value": "Doe",
+        },
+    ])
+    ```
 
 
 

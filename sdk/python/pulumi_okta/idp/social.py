@@ -138,6 +138,27 @@ class Social(pulumi.CustomResource):
 
         This resource allows you to create and configure an Social Identity Provider.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.Social("example",
+            client_id="abcd123",
+            client_secret="abcd123",
+            match_attribute="customfieldId",
+            match_type="CUSTOM_ATTRIBUTE",
+            protocol_type="OAUTH2",
+            scopes=[
+                "public_profile",
+                "email",
+            ],
+            type="FACEBOOK",
+            username_template="idpuser.email")
+        ```
 
 
         :param str resource_name: The name of the resource.
