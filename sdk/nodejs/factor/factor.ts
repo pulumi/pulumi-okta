@@ -9,6 +9,16 @@ import * as utilities from "../utilities";
  * 
  * This resource allows you to manage Okta MFA methods.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * 
+ * const example = new okta.factor.Factor("example", {});
+ * ```
  *
  * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/factor.html.markdown.
  */

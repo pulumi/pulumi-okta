@@ -65,6 +65,18 @@ class Bookmark(pulumi.CustomResource):
 
         This resource allows you to create and configure a Bookmark Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Bookmark("example",
+            label="Example",
+            url="https://example.com")
+        ```
 
 
         :param str resource_name: The name of the resource.

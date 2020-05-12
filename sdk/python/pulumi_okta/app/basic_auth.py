@@ -65,6 +65,19 @@ class BasicAuth(pulumi.CustomResource):
 
         This resource allows you to create and configure a Basic Auth Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.BasicAuth("example",
+            auth_url="https://example.com/auth.html",
+            label="Example",
+            url="https://example.com/login.html")
+        ```
 
 
         :param str resource_name: The name of the resource.

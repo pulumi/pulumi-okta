@@ -24,6 +24,18 @@ class Roles(pulumi.CustomResource):
 
         This resource allows you to create and configure Group level Admin Role Assignments.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Roles("example",
+            admin_roles=["SUPER_ADMIN"],
+            group_id="<group id>")
+        ```
 
 
         :param str resource_name: The name of the resource.

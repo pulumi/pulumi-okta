@@ -144,6 +144,26 @@ class Saml(pulumi.CustomResource):
 
         This resource allows you to create and configure a SAML Identity Provider.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.Saml("example",
+            acs_binding="HTTP-POST",
+            acs_type="INSTANCE",
+            issuer="https://idp.example.com",
+            kid=okta_idp_saml_key["test"]["id"],
+            request_signature_scope="REQUEST",
+            response_signature_scope="ANY",
+            sso_binding="HTTP-POST",
+            sso_destination="https://idp.example.com",
+            sso_url="https://idp.example.com",
+            username_template="idpuser.email")
+        ```
 
 
         :param str resource_name: The name of the resource.

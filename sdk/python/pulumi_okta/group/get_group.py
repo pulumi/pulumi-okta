@@ -57,6 +57,16 @@ def get_group(include_users=None,name=None,opts=None):
     """
     Use this data source to retrieve a group from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.group.get_group(name="Example App")
+    ```
 
 
 

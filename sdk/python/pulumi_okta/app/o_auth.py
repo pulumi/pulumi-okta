@@ -137,6 +137,21 @@ class OAuth(pulumi.CustomResource):
 
         This resource allows you to create and configure an OIDC Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.OAuth("example",
+            grant_types=["authorization_code"],
+            label="example",
+            redirect_uris=["https://example.com/"],
+            response_types=["code"],
+            type="web")
+        ```
 
 
         :param str resource_name: The name of the resource.

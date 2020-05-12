@@ -86,6 +86,22 @@ class Schema(pulumi.CustomResource):
 
         This resource allows you to create and configure a custom user schema property.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.Schema("example",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string")
+        ```
 
 
         :param str resource_name: The name of the resource.

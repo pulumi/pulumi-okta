@@ -28,6 +28,16 @@ class Group(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta Group.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Group("example", description="My Example Group")
+        ```
 
 
         :param str resource_name: The name of the resource.

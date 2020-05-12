@@ -24,6 +24,16 @@ class Factor(pulumi.CustomResource):
 
         This resource allows you to manage Okta MFA methods.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.factor.Factor("example")
+        ```
 
 
         :param str resource_name: The name of the resource.

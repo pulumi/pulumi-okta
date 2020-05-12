@@ -123,6 +123,16 @@ def get_saml(id=None,name=None,opts=None):
     """
     Use this data source to retrieve a SAML IdP from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_saml(label="Example App")
+    ```
 
 
 

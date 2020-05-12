@@ -97,6 +97,21 @@ class Swa(pulumi.CustomResource):
 
         This resource allows you to create and configure an SWA Application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Swa("example",
+            button_field="btn-login",
+            label="example",
+            password_field="txtbox-password",
+            url="https://example.com/login.html",
+            username_field="txtbox-username")
+        ```
 
 
         :param str resource_name: The name of the resource.

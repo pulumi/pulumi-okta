@@ -68,6 +68,16 @@ def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_app(label="Example App")
+    ```
 
 
 

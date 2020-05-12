@@ -88,6 +88,16 @@ def get_server(name=None,opts=None):
     """
     Use this data source to retrieve an auth server from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.auth.get_server(name="Example Auth")
+    ```
 
 
 

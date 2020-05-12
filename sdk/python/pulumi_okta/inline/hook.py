@@ -53,6 +53,28 @@ class Hook(pulumi.CustomResource):
 
         This resource allows you to create and configure an inline hook.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.inline.Hook("example",
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            },
+            channel={
+                "method": "POST",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
+            type="com.okta.oauth2.tokens.transform",
+            version="1.0.1")
+        ```
 
 
         :param str resource_name: The name of the resource.

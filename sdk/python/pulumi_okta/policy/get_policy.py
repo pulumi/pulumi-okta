@@ -46,6 +46,17 @@ def get_policy(name=None,type=None,opts=None):
     """
     Use this data source to retrieve a policy from Okta.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.policy.get_policy(name="Password Policy Example",
+        type="PASSWORD")
+    ```
 
 
 

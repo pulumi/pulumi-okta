@@ -36,6 +36,25 @@ class Zone(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta Network Zone.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.network.Zone("example",
+            gateways=[
+                "1.2.3.4/24",
+                "2.3.4.5-2.3.4.15",
+            ],
+            proxies=[
+                "2.2.3.4/24",
+                "3.3.4.5-3.3.4.15",
+            ],
+            type="IP")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -128,6 +128,20 @@ class Password(pulumi.CustomResource):
 
         This resource allows you to create and configure a Password Policy.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.policy.Password("example",
+            description="Example",
+            groups_includeds=[data["group.Group"]["everyone"]["id"]],
+            password_history_count=4,
+            status="ACTIVE")
+        ```
 
 
         :param str resource_name: The name of the resource.

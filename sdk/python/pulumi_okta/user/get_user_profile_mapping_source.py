@@ -45,6 +45,17 @@ class AwaitableGetUserProfileMappingSourceResult(GetUserProfileMappingSourceResu
 def get_user_profile_mapping_source(opts=None):
     """
     Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user_profile_mapping_source()
+    ```
     """
     __args__ = dict()
 

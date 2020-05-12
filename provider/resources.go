@@ -388,7 +388,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_default_policies": {Tok: makeDataSource(deprecatedMod, "getDefaultPolicies")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
 			},

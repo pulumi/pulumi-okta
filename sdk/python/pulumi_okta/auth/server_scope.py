@@ -40,6 +40,19 @@ class ServerScope(pulumi.CustomResource):
 
         This resource allows you to create and configure an Authorization Server Scope.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerScope("example",
+            auth_server_id="<auth server id>",
+            consent="IMPLICIT",
+            metadata_publish="NO_CLIENTS")
+        ```
 
 
         :param str resource_name: The name of the resource.

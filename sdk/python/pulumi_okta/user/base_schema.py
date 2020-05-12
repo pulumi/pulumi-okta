@@ -40,6 +40,20 @@ class BaseSchema(pulumi.CustomResource):
 
         This resource allows you to configure a base user schema property.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.BaseSchema("example",
+            index="customPropertyName",
+            master="OKTA",
+            title="customPropertyName",
+            type="string")
+        ```
 
 
         :param str resource_name: The name of the resource.
