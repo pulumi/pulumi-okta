@@ -31,6 +31,12 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-okta/sdk/go/...
 
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Okta
+
 ## Configuration
 
 The following configuration points are available:
@@ -48,4 +54,4 @@ environment variable.
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs](https://pulumi.io/reference/pkg/nodejs/@pulumi/okta/index.html).
+For further information, please visit [the Okta provider docs](https://www.pulumi.com/docs/intro/cloud-providers/okta) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/okta).
