@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a SAML Identity Provider.
- * 
+ *
  * This resource allows you to create and configure a SAML Identity Provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.idp.Saml("example", {
  *     acsBinding: "HTTP-POST",
  *     acsType: "INSTANCE",
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     usernameTemplate: "idpuser.email",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_saml.html.markdown.
  */
 export class Saml extends pulumi.CustomResource {
     /**

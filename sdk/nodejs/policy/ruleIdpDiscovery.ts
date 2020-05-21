@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an IdP Discovery Policy Rule.
- * 
+ *
  * This resource allows you to create and configure an IdP Discovery Policy Rule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.policy.RuleIdpDiscovery("example", {
  *     idpId: "<idp id>",
  *     idpType: "SAML2",
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     userIdentifierType: "ATTRIBUTE",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_idp_discovery.html.markdown.
  */
 export class RuleIdpDiscovery extends pulumi.CustomResource {
     /**

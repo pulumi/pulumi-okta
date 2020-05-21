@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve a users from Okta.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = pulumi.output(okta.user.getUser({
  *     searches: [
  *         {
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     ],
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {

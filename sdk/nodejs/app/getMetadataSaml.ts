@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve the collaborators for a given repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = pulumi.output(okta.app.getMetadataSaml({
  *     appId: "<app id>",
  *     keyId: "<cert key id>",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_metadata_saml.html.markdown.
  */
 export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
     if (!opts) {

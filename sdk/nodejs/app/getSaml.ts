@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve the collaborators for a given repository.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = pulumi.output(okta.app.getSaml({
  *     label: "Example App",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/d/app_saml.html.markdown.
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};

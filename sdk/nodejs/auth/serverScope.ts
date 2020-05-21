@@ -6,25 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Authorization Server Scope.
- * 
+ *
  * This resource allows you to create and configure an Authorization Server Scope.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.auth.ServerScope("example", {
  *     authServerId: "<auth server id>",
  *     consent: "IMPLICIT",
  *     metadataPublish: "NO_CLIENTS",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_scope.html.markdown.
  */
 export class ServerScope extends pulumi.CustomResource {
     /**

@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a Sign On Policy Rule.
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/policy_rule_signon.html.markdown.
  */
 export class RuleSignon extends pulumi.CustomResource {
     /**

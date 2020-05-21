@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an SAML Application.
- * 
+ *
  * This resource allows you to create and configure an SAML Application.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.app.Saml("example", {
  *     attributeStatements: [{
  *         filterType: "REGEX",
@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     subjectNameIdTemplate: "${user.userName}",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_saml.html.markdown.
  */
 export class Saml extends pulumi.CustomResource {
     /**

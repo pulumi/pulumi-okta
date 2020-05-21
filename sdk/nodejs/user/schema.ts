@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a User Schema property.
- * 
+ *
  * This resource allows you to create and configure a custom user schema property.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.user.Schema("example", {
  *     description: "My custom property name",
  *     index: "customPropertyName",
@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     type: "string",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/user_schema.html.markdown.
  */
 export class Schema extends pulumi.CustomResource {
     /**

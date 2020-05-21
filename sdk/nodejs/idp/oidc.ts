@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an OIDC Identity Provider.
- * 
+ *
  * This resource allows you to create and configure an OIDC Identity Provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.idp.Oidc("example", {
  *     acsBinding: "HTTP-POST",
  *     acsType: "INSTANCE",
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     usernameTemplate: "idpuser.email",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/idp_oidc.html.markdown.
  */
 export class Oidc extends pulumi.CustomResource {
     /**

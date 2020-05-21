@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an inline hook.
- * 
+ *
  * This resource allows you to create and configure an inline hook.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.inline.Hook("example", {
  *     auth: {
  *         key: "Authorization",
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     version: "1.0.1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/inline_hook.html.markdown.
  */
 export class Hook extends pulumi.CustomResource {
     /**
