@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an OIDC Application.
- * 
+ *
  * This resource allows you to create and configure an OIDC Application.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.app.OAuth("example", {
  *     grantTypes: ["authorizationCode"],
  *     label: "example",
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     type: "web",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_oauth.html.markdown.
  */
 export class OAuth extends pulumi.CustomResource {
     /**

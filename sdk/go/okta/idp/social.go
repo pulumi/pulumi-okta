@@ -39,9 +39,11 @@ type Social struct {
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-	IssuerMode     pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrOutput `pulumi:"matchAttribute"`
-	MatchType      pulumi.StringPtrOutput `pulumi:"matchType"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType pulumi.StringPtrOutput `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -137,9 +139,11 @@ type socialState struct {
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-	IssuerMode     *string `pulumi:"issuerMode"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType      *string `pulumi:"matchType"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType *string `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -202,9 +206,11 @@ type SocialState struct {
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-	IssuerMode     pulumi.StringPtrInput
+	IssuerMode pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrInput
-	MatchType      pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
@@ -267,9 +273,11 @@ type socialArgs struct {
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-	IssuerMode     *string `pulumi:"issuerMode"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType      *string `pulumi:"matchType"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType *string `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -325,9 +333,11 @@ type SocialArgs struct {
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
-	IssuerMode     pulumi.StringPtrInput
+	IssuerMode pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrInput
-	MatchType      pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.

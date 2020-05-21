@@ -8,31 +8,29 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Application User.
- * 
+ *
  * This resource allows you to create and configure an Application User.
- * 
+ *
  * __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.app.User("example", {
  *     appId: "<app_id>",
  *     userId: "<user id>",
  *     username: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**

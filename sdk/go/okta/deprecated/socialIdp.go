@@ -25,10 +25,12 @@ type SocialIdp struct {
 	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
 	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode     pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrOutput `pulumi:"matchAttribute"`
-	MatchType      pulumi.StringPtrOutput `pulumi:"matchType"`
-	MaxClockSkew   pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType    pulumi.StringPtrOutput `pulumi:"matchType"`
+	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
@@ -99,10 +101,12 @@ type socialIdpState struct {
 	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
 	GroupsFilters            []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode     *string `pulumi:"issuerMode"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType      *string `pulumi:"matchType"`
-	MaxClockSkew   *int    `pulumi:"maxClockSkew"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType    *string `pulumi:"matchType"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
@@ -140,10 +144,12 @@ type SocialIdpState struct {
 	GroupsAttribute          pulumi.StringPtrInput
 	GroupsFilters            pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode     pulumi.StringPtrInput
+	IssuerMode pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrInput
-	MatchType      pulumi.StringPtrInput
-	MaxClockSkew   pulumi.IntPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType    pulumi.StringPtrInput
+	MaxClockSkew pulumi.IntPtrInput
 	// name of idp
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
@@ -183,10 +189,12 @@ type socialIdpArgs struct {
 	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
 	GroupsFilters            []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode     *string `pulumi:"issuerMode"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute *string `pulumi:"matchAttribute"`
-	MatchType      *string `pulumi:"matchType"`
-	MaxClockSkew   *int    `pulumi:"maxClockSkew"`
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType    *string `pulumi:"matchType"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
@@ -221,10 +229,12 @@ type SocialIdpArgs struct {
 	GroupsAttribute          pulumi.StringPtrInput
 	GroupsFilters            pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode     pulumi.StringPtrInput
+	IssuerMode pulumi.StringPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
 	MatchAttribute pulumi.StringPtrInput
-	MatchType      pulumi.StringPtrInput
-	MaxClockSkew   pulumi.IntPtrInput
+	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+	MatchType    pulumi.StringPtrInput
+	MaxClockSkew pulumi.IntPtrInput
 	// name of idp
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput

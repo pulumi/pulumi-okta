@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Authorization Server Claim.
- * 
+ *
  * This resource allows you to create and configure an Authorization Server Claim.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.auth.ServerClaim("example", {
  *     authServerId: "<auth server id>",
  *     claimType: "IDENTITY",
@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     value: "String.substringAfter(user.email, \"@\") == \"example.com\"",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/auth_server_claim.html.markdown.
  */
 export class ServerClaim extends pulumi.CustomResource {
     /**

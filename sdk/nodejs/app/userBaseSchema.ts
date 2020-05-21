@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application User Base Schema property.
- * 
+ *
  * This resource allows you to configure a base app user schema property.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.app.UserBaseSchema("example", {
  *     appId: "<app id>",
  *     index: "customPropertyName",
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     type: "string",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/app_user_base_schema.html.markdown.
  */
 export class UserBaseSchema extends pulumi.CustomResource {
     /**

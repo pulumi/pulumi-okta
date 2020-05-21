@@ -6,24 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Creates Group level Admin Role Assignments.
- * 
+ *
  * This resource allows you to create and configure Group level Admin Role Assignments.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.group.Roles("example", {
  *     adminRoles: ["SUPER_ADMIN"],
  *     groupId: "<group id>",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/group_roles.html.markdown.
  */
 export class Roles extends pulumi.CustomResource {
     /**

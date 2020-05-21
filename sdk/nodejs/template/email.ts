@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Okta Email Template.
- * 
+ *
  * This resource allows you to create and configure an Okta Email Template.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
- * 
+ *
  * const example = new okta.template.Email("example", {
  *     translations: [
  *         {
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     type: "email.forgotPassword",
  * });
  * ```
- *
- * > This content is derived from https://github.com/articulate/terraform-provider-okta/blob/master/website/docs/r/template_email.html.markdown.
  */
 export class Email extends pulumi.CustomResource {
     /**
