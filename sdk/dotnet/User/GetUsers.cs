@@ -15,6 +15,35 @@ namespace Pulumi.Okta.User
         /// Use this data source to retrieve a list of users from Okta.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.User.GetUsers.InvokeAsync(new Okta.User.GetUsersArgs
+        ///         {
+        ///             Searches = 
+        ///             {
+        ///                 new Okta.User.Inputs.GetUsersSearchArgs
+        ///                 {
+        ///                     Comparison = "sw",
+        ///                     Name = "profile.company",
+        ///                     Value = "Articulate",
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)

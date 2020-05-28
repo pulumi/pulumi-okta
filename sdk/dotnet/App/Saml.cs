@@ -13,6 +13,48 @@ namespace Pulumi.Okta.App
     /// Creates an SAML Application.
     /// 
     /// This resource allows you to create and configure an SAML Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.Saml("example", new Okta.App.SamlArgs
+    ///         {
+    ///             AttributeStatements = 
+    ///             {
+    ///                 new Okta.App.Inputs.SamlAttributeStatementArgs
+    ///                 {
+    ///                     FilterType = "REGEX",
+    ///                     FilterValue = ".*",
+    ///                     Name = "groups",
+    ///                     Type = "GROUP",
+    ///                 },
+    ///             },
+    ///             Audience = "http://example.com/audience",
+    ///             AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///             Destination = "http://example.com",
+    ///             DigestAlgorithm = "SHA256",
+    ///             HonorForceAuthn = false,
+    ///             Label = "example",
+    ///             Recipient = "http://example.com",
+    ///             ResponseSigned = true,
+    ///             SignatureAlgorithm = "RSA_SHA256",
+    ///             SsoUrl = "http://example.com",
+    ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///             SubjectNameIdTemplate = user.UserName,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Saml : Pulumi.CustomResource
     {

@@ -13,6 +13,40 @@ namespace Pulumi.Okta.Policy
     /// Creates an IdP Discovery Policy Rule.
     /// 
     /// This resource allows you to create and configure an IdP Discovery Policy Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Policy.RuleIdpDiscovery("example", new Okta.Policy.RuleIdpDiscoveryArgs
+    ///         {
+    ///             IdpId = "&lt;idp id&gt;",
+    ///             IdpType = "SAML2",
+    ///             Policyid = "&lt;policy id&gt;",
+    ///             Priority = 1,
+    ///             UserIdentifierAttribute = "company",
+    ///             UserIdentifierPatterns = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs
+    ///                 {
+    ///                     MatchType = "EQUALS",
+    ///                     Value = "Articulate",
+    ///                 },
+    ///             },
+    ///             UserIdentifierType = "ATTRIBUTE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RuleIdpDiscovery : Pulumi.CustomResource
     {

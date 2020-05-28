@@ -13,6 +13,28 @@ namespace Pulumi.Okta.App
     /// Creates a Bookmark Application.
     /// 
     /// This resource allows you to create and configure a Bookmark Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.Bookmark("example", new Okta.App.BookmarkArgs
+    ///         {
+    ///             Label = "Example",
+    ///             Url = "https://example.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Bookmark : Pulumi.CustomResource
     {

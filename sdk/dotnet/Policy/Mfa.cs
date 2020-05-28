@@ -13,6 +13,36 @@ namespace Pulumi.Okta.Policy
     /// Creates an MFA Policy.
     /// 
     /// This resource allows you to create and configure an MFA Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Policy.Mfa("example", new Okta.Policy.MfaArgs
+    ///         {
+    ///             Description = "Example",
+    ///             GroupsIncludeds = 
+    ///             {
+    ///                 data.Okta_group.Everyone.Id,
+    ///             },
+    ///             OktaOtp = new Okta.Policy.Inputs.MfaOktaOtpArgs
+    ///             {
+    ///                 Enroll = "REQUIRED",
+    ///             },
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Mfa : Pulumi.CustomResource
     {

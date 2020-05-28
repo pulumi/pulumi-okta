@@ -13,6 +13,36 @@ namespace Pulumi.Okta.Idp
     /// Creates a SAML Identity Provider.
     /// 
     /// This resource allows you to create and configure a SAML Identity Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Idp.Saml("example", new Okta.Idp.SamlArgs
+    ///         {
+    ///             AcsBinding = "HTTP-POST",
+    ///             AcsType = "INSTANCE",
+    ///             Issuer = "https://idp.example.com",
+    ///             Kid = okta_idp_saml_key.Test.Id,
+    ///             RequestSignatureScope = "REQUEST",
+    ///             ResponseSignatureScope = "ANY",
+    ///             SsoBinding = "HTTP-POST",
+    ///             SsoDestination = "https://idp.example.com",
+    ///             SsoUrl = "https://idp.example.com",
+    ///             UsernameTemplate = "idpuser.email",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Saml : Pulumi.CustomResource
     {

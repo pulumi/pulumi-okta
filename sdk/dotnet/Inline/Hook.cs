@@ -13,6 +13,40 @@ namespace Pulumi.Okta.Inline
     /// Creates an inline hook.
     /// 
     /// This resource allows you to create and configure an inline hook.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Inline.Hook("example", new Okta.Inline.HookArgs
+    ///         {
+    ///             Auth = new Okta.Inline.Inputs.HookAuthArgs
+    ///             {
+    ///                 Key = "Authorization",
+    ///                 Type = "HEADER",
+    ///                 Value = "secret",
+    ///             },
+    ///             Channel = new Okta.Inline.Inputs.HookChannelArgs
+    ///             {
+    ///                 Method = "POST",
+    ///                 Uri = "https://example.com/test",
+    ///                 Version = "1.0.0",
+    ///             },
+    ///             Type = "com.okta.oauth2.tokens.transform",
+    ///             Version = "1.0.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Hook : Pulumi.CustomResource
     {

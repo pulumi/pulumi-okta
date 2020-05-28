@@ -13,6 +13,31 @@ namespace Pulumi.Okta.App
     /// Creates a Secure Password Store Application.
     /// 
     /// This resource allows you to create and configure a Secure Password Store Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.SecurePasswordStore("example", new Okta.App.SecurePasswordStoreArgs
+    ///         {
+    ///             CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
+    ///             Label = "example",
+    ///             PasswordField = "pass",
+    ///             Url = "http://test.com",
+    ///             UsernameField = "user",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurePasswordStore : Pulumi.CustomResource
     {

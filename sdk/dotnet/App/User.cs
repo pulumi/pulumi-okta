@@ -15,6 +15,41 @@ namespace Pulumi.Okta.App
     /// This resource allows you to create and configure an Application User.
     /// 
     /// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.User("example", new Okta.App.UserArgs
+    ///         {
+    ///             AppId = "&lt;app_id&gt;",
+    ///             UserId = "&lt;user id&gt;",
+    ///             Username = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

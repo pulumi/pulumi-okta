@@ -13,6 +13,44 @@ namespace Pulumi.Okta.Idp
     /// Creates an OIDC Identity Provider.
     /// 
     /// This resource allows you to create and configure an OIDC Identity Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Idp.Oidc("example", new Okta.Idp.OidcArgs
+    ///         {
+    ///             AcsBinding = "HTTP-POST",
+    ///             AcsType = "INSTANCE",
+    ///             AuthorizationBinding = "HTTP-REDIRECT",
+    ///             AuthorizationUrl = "https://idp.example.com/authorize",
+    ///             ClientId = "efg456",
+    ///             ClientSecret = "efg456",
+    ///             IssuerUrl = "https://id.example.com",
+    ///             JwksBinding = "HTTP-REDIRECT",
+    ///             JwksUrl = "https://idp.example.com/keys",
+    ///             Scopes = 
+    ///             {
+    ///                 "openid",
+    ///             },
+    ///             TokenBinding = "HTTP-POST",
+    ///             TokenUrl = "https://idp.example.com/token",
+    ///             UserInfoBinding = "HTTP-REDIRECT",
+    ///             UserInfoUrl = "https://idp.example.com/userinfo",
+    ///             UsernameTemplate = "idpuser.email",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Oidc : Pulumi.CustomResource
     {

@@ -13,6 +13,33 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server.
     /// 
     /// This resource allows you to create and configure an Authorization Server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Auth.Server("example", new Okta.Auth.ServerArgs
+    ///         {
+    ///             Audiences = 
+    ///             {
+    ///                 "api://example",
+    ///             },
+    ///             Description = "My Example Auth Server",
+    ///             IssuerMode = "CUSTOM_URL",
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

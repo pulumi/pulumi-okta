@@ -13,6 +13,34 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Policy.
     /// 
     /// This resource allows you to create and configure an Authorization Server Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Auth.ServerPolicy("example", new Okta.Auth.ServerPolicyArgs
+    ///         {
+    ///             AuthServerId = "&lt;auth server id&gt;",
+    ///             ClientWhitelists = 
+    ///             {
+    ///                 "ALL_CLIENTS",
+    ///             },
+    ///             Description = "example",
+    ///             Priority = 1,
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServerPolicy : Pulumi.CustomResource
     {

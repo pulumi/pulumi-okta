@@ -13,6 +13,31 @@ namespace Pulumi.Okta.App
     /// Manages an Application User Base Schema property.
     /// 
     /// This resource allows you to configure a base app user schema property.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.UserBaseSchema("example", new Okta.App.UserBaseSchemaArgs
+    ///         {
+    ///             AppId = "&lt;app id&gt;",
+    ///             Index = "customPropertyName",
+    ///             Master = "OKTA",
+    ///             Title = "customPropertyName",
+    ///             Type = "string",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserBaseSchema : Pulumi.CustomResource
     {

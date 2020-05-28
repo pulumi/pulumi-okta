@@ -13,6 +13,29 @@ namespace Pulumi.Okta.App
     /// Creates a Bsaic Auth Application.
     /// 
     /// This resource allows you to create and configure a Basic Auth Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.BasicAuth("example", new Okta.App.BasicAuthArgs
+    ///         {
+    ///             AuthUrl = "https://example.com/auth.html",
+    ///             Label = "Example",
+    ///             Url = "https://example.com/login.html",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BasicAuth : Pulumi.CustomResource
     {

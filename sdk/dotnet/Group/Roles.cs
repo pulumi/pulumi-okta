@@ -13,6 +13,31 @@ namespace Pulumi.Okta.Group
     /// Creates Group level Admin Role Assignments.
     /// 
     /// This resource allows you to create and configure Group level Admin Role Assignments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Group.Roles("example", new Okta.Group.RolesArgs
+    ///         {
+    ///             AdminRoles = 
+    ///             {
+    ///                 "SUPER_ADMIN",
+    ///             },
+    ///             GroupId = "&lt;group id&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Roles : Pulumi.CustomResource
     {

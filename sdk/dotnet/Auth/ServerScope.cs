@@ -13,6 +13,29 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Scope.
     /// 
     /// This resource allows you to create and configure an Authorization Server Scope.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Auth.ServerScope("example", new Okta.Auth.ServerScopeArgs
+    ///         {
+    ///             AuthServerId = "&lt;auth server id&gt;",
+    ///             Consent = "IMPLICIT",
+    ///             MetadataPublish = "NO_CLIENTS",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServerScope : Pulumi.CustomResource
     {

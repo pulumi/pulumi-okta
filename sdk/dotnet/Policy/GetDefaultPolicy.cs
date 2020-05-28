@@ -15,6 +15,27 @@ namespace Pulumi.Okta.Policy
         /// Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+        ///         {
+        ///             Type = "PASSWORD",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefaultPolicyResult> InvokeAsync(GetDefaultPolicyArgs args, InvokeOptions? options = null)

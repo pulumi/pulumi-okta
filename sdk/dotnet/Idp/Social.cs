@@ -13,6 +13,38 @@ namespace Pulumi.Okta.Idp
     /// Creates an Social Identity Provider.
     /// 
     /// This resource allows you to create and configure an Social Identity Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Idp.Social("example", new Okta.Idp.SocialArgs
+    ///         {
+    ///             ClientId = "abcd123",
+    ///             ClientSecret = "abcd123",
+    ///             MatchAttribute = "customfieldId",
+    ///             MatchType = "CUSTOM_ATTRIBUTE",
+    ///             ProtocolType = "OAUTH2",
+    ///             Scopes = 
+    ///             {
+    ///                 "public_profile",
+    ///                 "email",
+    ///             },
+    ///             Type = "FACEBOOK",
+    ///             UsernameTemplate = "idpuser.email",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Social : Pulumi.CustomResource
     {

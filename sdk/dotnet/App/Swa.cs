@@ -13,6 +13,31 @@ namespace Pulumi.Okta.App
     /// Creates an SWA Application.
     /// 
     /// This resource allows you to create and configure an SWA Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.Swa("example", new Okta.App.SwaArgs
+    ///         {
+    ///             ButtonField = "btn-login",
+    ///             Label = "example",
+    ///             PasswordField = "txtbox-password",
+    ///             Url = "https://example.com/login.html",
+    ///             UsernameField = "txtbox-username",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Swa : Pulumi.CustomResource
     {

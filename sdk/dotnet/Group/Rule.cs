@@ -13,6 +13,33 @@ namespace Pulumi.Okta.Group
     /// Creates an Okta Group Rule.
     /// 
     /// This resource allows you to create and configure an Okta Group Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Group.Rule("example", new Okta.Group.RuleArgs
+    ///         {
+    ///             ExpressionType = "urn:okta:expression:1.0",
+    ///             ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
+    ///             GroupAssignments = 
+    ///             {
+    ///                 "&lt;group id&gt;",
+    ///             },
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {
