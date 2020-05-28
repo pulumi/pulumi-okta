@@ -15,6 +15,27 @@ namespace Pulumi.Okta.Idp
         /// Use this data source to retrieve a SAML IdP from Okta.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Idp.GetSaml.InvokeAsync(new Okta.Idp.GetSamlArgs
+        ///         {
+        ///             Label = "Example App",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)

@@ -13,6 +13,33 @@ namespace Pulumi.Okta.Policy
     /// Creates a Password Policy.
     /// 
     /// This resource allows you to create and configure a Password Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Policy.Password("example", new Okta.Policy.PasswordArgs
+    ///         {
+    ///             Description = "Example",
+    ///             GroupsIncludeds = 
+    ///             {
+    ///                 data.Okta_group.Everyone.Id,
+    ///             },
+    ///             PasswordHistoryCount = 4,
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Password : Pulumi.CustomResource
     {

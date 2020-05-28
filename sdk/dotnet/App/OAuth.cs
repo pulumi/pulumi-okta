@@ -13,6 +13,40 @@ namespace Pulumi.Okta.App
     /// Creates an OIDC Application.
     /// 
     /// This resource allows you to create and configure an OIDC Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.OAuth("example", new Okta.App.OAuthArgs
+    ///         {
+    ///             GrantTypes = 
+    ///             {
+    ///                 "authorization_code",
+    ///             },
+    ///             Label = "example",
+    ///             RedirectUris = 
+    ///             {
+    ///                 "https://example.com/",
+    ///             },
+    ///             ResponseTypes = 
+    ///             {
+    ///                 "code",
+    ///             },
+    ///             Type = "web",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OAuth : Pulumi.CustomResource
     {

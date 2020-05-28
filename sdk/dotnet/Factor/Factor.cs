@@ -13,6 +13,26 @@ namespace Pulumi.Okta.Factor
     /// Allows you to manage the activation of Okta MFA methods.
     /// 
     /// This resource allows you to manage Okta MFA methods.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Factor.Factor("example", new Okta.Factor.FactorArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Factor : Pulumi.CustomResource
     {

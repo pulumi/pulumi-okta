@@ -15,6 +15,27 @@ namespace Pulumi.Okta.Auth
         /// Use this data source to retrieve an auth server from Okta.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Auth.GetServer.InvokeAsync(new Okta.Auth.GetServerArgs
+        ///         {
+        ///             Name = "Example Auth",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)

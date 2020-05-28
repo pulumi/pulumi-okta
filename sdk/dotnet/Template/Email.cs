@@ -13,6 +13,42 @@ namespace Pulumi.Okta.Template
     /// Creates an Okta Email Template.
     /// 
     /// This resource allows you to create and configure an Okta Email Template.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Template.Email("example", new Okta.Template.EmailArgs
+    ///         {
+    ///             Translations = 
+    ///             {
+    ///                 new Okta.Template.Inputs.EmailTranslationArgs
+    ///                 {
+    ///                     Language = "en",
+    ///                     Subject = "Stuff",
+    ///                     Template = $"Hi {user.FirstName},&lt;br/&gt;&lt;br/&gt;Blah blah {resetPasswordLink}",
+    ///                 },
+    ///                 new Okta.Template.Inputs.EmailTranslationArgs
+    ///                 {
+    ///                     Language = "es",
+    ///                     Subject = "Cosas",
+    ///                     Template = $"Hola {user.FirstName},&lt;br/&gt;&lt;br/&gt;Puedo ir al bano {resetPasswordLink}",
+    ///                 },
+    ///             },
+    ///             Type = "email.forgotPassword",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Email : Pulumi.CustomResource
     {

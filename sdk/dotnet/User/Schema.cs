@@ -13,6 +13,32 @@ namespace Pulumi.Okta.User
     /// Creates a User Schema property.
     /// 
     /// This resource allows you to create and configure a custom user schema property.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.User.Schema("example", new Okta.User.SchemaArgs
+    ///         {
+    ///             Description = "My custom property name",
+    ///             Index = "customPropertyName",
+    ///             Master = "OKTA",
+    ///             Scope = "SELF",
+    ///             Title = "customPropertyName",
+    ///             Type = "string",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Schema : Pulumi.CustomResource
     {

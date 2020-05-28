@@ -13,6 +13,31 @@ namespace Pulumi.Okta.App
     /// Creates an Auto Login Okta Application.
     /// 
     /// This resource allows you to create and configure an Auto Login Okta Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.AutoLogin("example", new Okta.App.AutoLoginArgs
+    ///         {
+    ///             CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
+    ///             Label = "Example App",
+    ///             RevealPassword = true,
+    ///             SignOnRedirectUrl = "https://example.com",
+    ///             SignOnUrl = "https://example.com/login.html",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AutoLogin : Pulumi.CustomResource
     {

@@ -81,7 +81,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             priority=1,
             user_identifier_attribute="company",
             user_identifier_patterns=[{
-                "matchType": "EQUALS",
+                "match_type": "EQUALS",
                 "value": "Articulate",
             }],
             user_identifier_type="ATTRIBUTE")

@@ -13,6 +13,30 @@ namespace Pulumi.Okta.Idp
     /// Creates a SAML Identity Provider Signing Key.
     /// 
     /// This resource allows you to create and configure a SAML Identity Provider Signing Key.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Idp.SamlKey("example", new Okta.Idp.SamlKeyArgs
+    ///         {
+    ///             X5cs = 
+    ///             {
+    ///                 okta_app_saml.Example.Certificate,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SamlKey : Pulumi.CustomResource
     {

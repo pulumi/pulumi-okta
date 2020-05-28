@@ -13,6 +13,32 @@ namespace Pulumi.Okta.Policy
     /// Creates a Sign On Policy.
     /// 
     /// This resource allows you to create and configure a Sign On Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Policy.Signon("example", new Okta.Policy.SignonArgs
+    ///         {
+    ///             Description = "Example",
+    ///             GroupsIncludeds = 
+    ///             {
+    ///                 data.Okta_group.Everyone.Id,
+    ///             },
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Signon : Pulumi.CustomResource
     {

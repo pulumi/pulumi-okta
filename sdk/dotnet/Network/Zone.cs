@@ -13,6 +13,37 @@ namespace Pulumi.Okta.Network
     /// Creates an Okta Network Zone.
     /// 
     /// This resource allows you to create and configure an Okta Network Zone.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Network.Zone("example", new Okta.Network.ZoneArgs
+    ///         {
+    ///             Gateways = 
+    ///             {
+    ///                 "1.2.3.4/24",
+    ///                 "2.3.4.5-2.3.4.15",
+    ///             },
+    ///             Proxies = 
+    ///             {
+    ///                 "2.2.3.4/24",
+    ///                 "3.3.4.5-3.3.4.15",
+    ///             },
+    ///             Type = "IP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {

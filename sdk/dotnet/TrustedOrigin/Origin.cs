@@ -13,6 +13,31 @@ namespace Pulumi.Okta.TrustedOrigin
     /// Creates a Trusted Origin.
     /// 
     /// This resource allows you to create and configure an Trusted Origin.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.TrustedOrigin.Origin("example", new Okta.TrustedOrigin.OriginArgs
+    ///         {
+    ///             Origin = "https://example.com",
+    ///             Scopes = 
+    ///             {
+    ///                 "CORS",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Origin : Pulumi.CustomResource
     {

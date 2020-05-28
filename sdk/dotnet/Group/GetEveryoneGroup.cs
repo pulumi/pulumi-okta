@@ -15,6 +15,24 @@ namespace Pulumi.Okta.Group
         /// Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Group.GetEveryoneGroup.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEveryoneGroupResult> InvokeAsync(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)

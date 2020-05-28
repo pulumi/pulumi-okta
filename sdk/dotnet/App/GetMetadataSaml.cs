@@ -15,6 +15,28 @@ namespace Pulumi.Okta.App
         /// Use this data source to retrieve the collaborators for a given repository.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.App.GetMetadataSaml.InvokeAsync(new Okta.App.GetMetadataSamlArgs
+        ///         {
+        ///             AppId = "&lt;app id&gt;",
+        ///             KeyId = "&lt;cert key id&gt;",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)

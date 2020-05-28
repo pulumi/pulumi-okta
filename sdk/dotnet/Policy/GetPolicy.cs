@@ -15,6 +15,28 @@ namespace Pulumi.Okta.Policy
         /// Use this data source to retrieve a policy from Okta.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Policy.GetPolicy.InvokeAsync(new Okta.Policy.GetPolicyArgs
+        ///         {
+        ///             Name = "Password Policy Example",
+        ///             Type = "PASSWORD",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)

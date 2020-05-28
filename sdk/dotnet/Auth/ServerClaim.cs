@@ -13,6 +13,33 @@ namespace Pulumi.Okta.Auth
     /// Creates an Authorization Server Claim.
     /// 
     /// This resource allows you to create and configure an Authorization Server Claim.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Auth.ServerClaim("example", new Okta.Auth.ServerClaimArgs
+    ///         {
+    ///             AuthServerId = "&lt;auth server id&gt;",
+    ///             ClaimType = "IDENTITY",
+    ///             Scopes = 
+    ///             {
+    ///                 okta_auth_server_scope.Example.Name,
+    ///             },
+    ///             Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServerClaim : Pulumi.CustomResource
     {

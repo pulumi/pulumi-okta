@@ -13,6 +13,27 @@ namespace Pulumi.Okta.Group
     /// Creates an Okta Group.
     /// 
     /// This resource allows you to create and configure an Okta Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Group.Group("example", new Okta.Group.GroupArgs
+    ///         {
+    ///             Description = "My Example Group",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {
