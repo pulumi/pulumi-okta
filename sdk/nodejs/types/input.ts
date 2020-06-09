@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export namespace app {
     export interface AutoLoginUser {
@@ -705,3 +706,4 @@ export namespace user {
         title: pulumi.Input<string>;
     }
 }
+

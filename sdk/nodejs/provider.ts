@@ -35,16 +35,14 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        {
-            inputs["apiToken"] = (args ? args.apiToken : undefined) || utilities.getEnv("OKTA_API_TOKEN");
-            inputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = (args ? args.baseUrl : undefined) || utilities.getEnv("OKTA_BASE_URL");
-            inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            inputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
-            inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
-            inputs["orgName"] = (args ? args.orgName : undefined) || utilities.getEnv("OKTA_ORG_NAME");
-            inputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
-        }
+        inputs["apiToken"] = (args ? args.apiToken : undefined) || utilities.getEnv("OKTA_API_TOKEN");
+        inputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
+        inputs["baseUrl"] = (args ? args.baseUrl : undefined) || utilities.getEnv("OKTA_BASE_URL");
+        inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+        inputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
+        inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
+        inputs["orgName"] = (args ? args.orgName : undefined) || utilities.getEnv("OKTA_ORG_NAME");
+        inputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
         if (!opts) {
             opts = {}
         }

@@ -14,6 +14,7 @@ export class OauthApp extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OauthAppState, opts?: pulumi.CustomResourceOptions): OauthApp {
         return new OauthApp(name, <any>state, { ...opts, id: id });
@@ -68,8 +69,8 @@ export class OauthApp extends pulumi.CustomResource {
     public readonly customClientId!: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
-     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements
-     * per app type.
+     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+     * app type.
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -123,8 +124,8 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly profile!: pulumi.Output<string | undefined>;
     /**
-     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note:
-     * see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+     * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
     public readonly redirectUris!: pulumi.Output<string[] | undefined>;
     /**
@@ -285,8 +286,8 @@ export interface OauthAppState {
     readonly customClientId?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
-     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements
-     * per app type.
+     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+     * app type.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,8 +341,8 @@ export interface OauthAppState {
      */
     readonly profile?: pulumi.Input<string>;
     /**
-     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note:
-     * see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+     * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
     readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -405,8 +406,8 @@ export interface OauthAppArgs {
     readonly customClientId?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
-     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements
-     * per app type.
+     * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+     * app type.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -456,8 +457,8 @@ export interface OauthAppArgs {
      */
     readonly profile?: pulumi.Input<string>;
     /**
-     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note:
-     * see okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+     * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
     readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**

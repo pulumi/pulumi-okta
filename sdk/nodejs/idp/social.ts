@@ -40,6 +40,7 @@ export class Social extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SocialState, opts?: pulumi.CustomResourceOptions): Social {
         return new Social(name, <any>state, { ...opts, id: id });
@@ -107,7 +108,13 @@ export class Social extends pulumi.CustomResource {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
+     */
     public readonly matchAttribute!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
+     */
     public readonly matchType!: pulumi.Output<string | undefined>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
@@ -330,7 +337,13 @@ export interface SocialState {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
      */
     readonly issuerMode?: pulumi.Input<string>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
+     */
     readonly matchAttribute?: pulumi.Input<string>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
+     */
     readonly matchType?: pulumi.Input<string>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
@@ -450,7 +463,13 @@ export interface SocialArgs {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
      */
     readonly issuerMode?: pulumi.Input<string>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
+     */
     readonly matchAttribute?: pulumi.Input<string>;
+    /**
+     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
+     */
     readonly matchType?: pulumi.Input<string>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
