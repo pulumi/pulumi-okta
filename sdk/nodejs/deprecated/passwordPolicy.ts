@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 export class PasswordPolicy extends pulumi.CustomResource {
@@ -14,6 +12,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PasswordPolicyState, opts?: pulumi.CustomResourceOptions): PasswordPolicy {
         return new PasswordPolicy(name, <any>state, { ...opts, id: id });
@@ -106,7 +105,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly passwordMinNumber!: pulumi.Output<number | undefined>;
     /**
-     * If a password must contain at least one symbol (!@#$%!^(MISSING)&*): 0 = no, 1 = yes. Default = 1
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     public readonly passwordMinSymbol!: pulumi.Output<number | undefined>;
     /**
@@ -118,8 +117,8 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly passwordShowLockoutFailures!: pulumi.Output<boolean | undefined>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
@@ -135,8 +134,8 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly recoveryEmailToken!: pulumi.Output<number | undefined>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the
-     * user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+     * Windows account.
      */
     public readonly skipUnlock!: pulumi.Output<boolean | undefined>;
     /**
@@ -307,7 +306,7 @@ export interface PasswordPolicyState {
      */
     readonly passwordMinNumber?: pulumi.Input<number>;
     /**
-     * If a password must contain at least one symbol (!@#$%!^(MISSING)&*): 0 = no, 1 = yes. Default = 1
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     readonly passwordMinSymbol?: pulumi.Input<number>;
     /**
@@ -319,8 +318,8 @@ export interface PasswordPolicyState {
      */
     readonly passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -336,8 +335,8 @@ export interface PasswordPolicyState {
      */
     readonly recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the
-     * user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+     * Windows account.
      */
     readonly skipUnlock?: pulumi.Input<boolean>;
     /**
@@ -427,7 +426,7 @@ export interface PasswordPolicyArgs {
      */
     readonly passwordMinNumber?: pulumi.Input<number>;
     /**
-     * If a password must contain at least one symbol (!@#$%!^(MISSING)&*): 0 = no, 1 = yes. Default = 1
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     readonly passwordMinSymbol?: pulumi.Input<number>;
     /**
@@ -439,8 +438,8 @@ export interface PasswordPolicyArgs {
      */
     readonly passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -456,8 +455,8 @@ export interface PasswordPolicyArgs {
      */
     readonly recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the
-     * user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's
+     * Windows account.
      */
     readonly skipUnlock?: pulumi.Input<boolean>;
     /**

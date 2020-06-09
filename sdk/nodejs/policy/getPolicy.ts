@@ -56,6 +56,10 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * name of policy.
      */
     readonly name: string;
@@ -63,8 +67,4 @@ export interface GetPolicyResult {
      * type of policy.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

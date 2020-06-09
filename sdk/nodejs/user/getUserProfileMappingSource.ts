@@ -37,6 +37,10 @@ export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetUserProfileMappingSourceResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * name of source.
      */
     readonly name: string;
@@ -44,8 +48,4 @@ export interface GetUserProfileMappingSourceResult {
      * type of source.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

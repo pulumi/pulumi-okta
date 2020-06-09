@@ -58,13 +58,13 @@ export interface GetUsersArgs {
  * A collection of values returned by getUsers.
  */
 export interface GetUsersResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly searches: outputs.user.GetUsersSearch[];
     /**
      * collection of users retrieved from Okta with the following properties.
      */
     readonly users?: outputs.user.GetUsersUser[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

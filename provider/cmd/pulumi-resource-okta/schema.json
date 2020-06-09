@@ -103,7 +103,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/BasicAuthUser:BasicAuthUser": {
             "properties": {
@@ -141,7 +148,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/BookmarkUser:BookmarkUser": {
             "properties": {
@@ -179,7 +193,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/OAuthUser:OAuthUser": {
             "properties": {
@@ -216,7 +237,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/SamlAttributeStatement:SamlAttributeStatement": {
             "properties": {
@@ -319,7 +347,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/SecurePasswordStoreUser:SecurePasswordStoreUser": {
             "properties": {
@@ -356,7 +391,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/SwaUser:SwaUser": {
             "properties": {
@@ -393,7 +435,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/ThreeFieldUser:ThreeFieldUser": {
             "properties": {
@@ -430,7 +479,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:app/UserSchemaArrayOneOf:UserSchemaArrayOneOf": {
             "properties": {
@@ -581,7 +637,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/BookmarkAppUser:BookmarkAppUser": {
             "properties": {
@@ -618,7 +681,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/MfaPolicyDuo:MfaPolicyDuo": {
             "properties": {
@@ -798,7 +868,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/SamlAppAttributeStatement:SamlAppAttributeStatement": {
             "properties": {
@@ -894,7 +971,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/SecurePasswordStoreAppUser:SecurePasswordStoreAppUser": {
             "properties": {
@@ -931,7 +1015,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/SwaAppUser:SwaAppUser": {
             "properties": {
@@ -968,7 +1059,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:deprecated/ThreeFieldAppUser:ThreeFieldAppUser": {
             "properties": {
@@ -1005,7 +1103,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scope"
+                    ]
+                }
+            }
         },
         "okta:inline/HookAuth:HookAuth": {
             "properties": {
@@ -1910,7 +2015,12 @@
                 "title",
                 "userType",
                 "zipCode"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -16226,8 +16336,10 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^8.0.25"
             },
+            "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing okta resources.",
             "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/articulate/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`articulate/terraform-provider-okta` repo](https://github.com/articulate/terraform-provider-okta/issues).",
             "typescriptVersion": ""
         },
         "python": {

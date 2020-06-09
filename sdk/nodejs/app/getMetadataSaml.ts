@@ -72,6 +72,10 @@ export interface GetMetadataSamlResult {
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      */
     readonly httpRedirectBinding: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyId: string;
     /**
      * raw metadata of application.
@@ -81,8 +85,4 @@ export interface GetMetadataSamlResult {
      * Whether authn requests are signed.
      */
     readonly wantAuthnRequestsSigned: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

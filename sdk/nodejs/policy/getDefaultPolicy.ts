@@ -50,11 +50,11 @@ export interface GetDefaultPolicyArgs {
  */
 export interface GetDefaultPolicyResult {
     /**
-     * type of policy.
-     */
-    readonly type: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * type of policy.
+     */
+    readonly type: string;
 }

@@ -14,6 +14,7 @@ export class MfaPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MfaPolicyState, opts?: pulumi.CustomResourceOptions): MfaPolicy {
         return new MfaPolicy(name, <any>state, { ...opts, id: id });
@@ -56,8 +57,8 @@ export class MfaPolicy extends pulumi.CustomResource {
     public readonly oktaQuestion!: pulumi.Output<outputs.deprecated.MfaPolicyOktaQuestion | undefined>;
     public readonly oktaSms!: pulumi.Output<outputs.deprecated.MfaPolicyOktaSms | undefined>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly rsaToken!: pulumi.Output<outputs.deprecated.MfaPolicyRsaToken | undefined>;
@@ -157,8 +158,8 @@ export interface MfaPolicyState {
     readonly oktaQuestion?: pulumi.Input<inputs.deprecated.MfaPolicyOktaQuestion>;
     readonly oktaSms?: pulumi.Input<inputs.deprecated.MfaPolicyOktaSms>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
     readonly rsaToken?: pulumi.Input<inputs.deprecated.MfaPolicyRsaToken>;
@@ -197,8 +198,8 @@ export interface MfaPolicyArgs {
     readonly oktaQuestion?: pulumi.Input<inputs.deprecated.MfaPolicyOktaQuestion>;
     readonly oktaSms?: pulumi.Input<inputs.deprecated.MfaPolicyOktaSms>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+     * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
     readonly rsaToken?: pulumi.Input<inputs.deprecated.MfaPolicyRsaToken>;

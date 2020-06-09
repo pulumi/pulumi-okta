@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,6 +58,10 @@ export interface GetGroupResult {
      * description of group.
      */
     readonly description: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includeUsers?: boolean;
     /**
      * name of group.
@@ -65,8 +71,4 @@ export interface GetGroupResult {
      * user ids that are members of this group, only included if `includeUsers` is set to `true`.
      */
     readonly users: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -115,6 +115,10 @@ export interface GetUserResult {
      */
     readonly honorificSuffix: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * user profile property.
      */
     readonly lastName: string;
@@ -199,8 +203,4 @@ export interface GetUserResult {
      * user profile property.
      */
     readonly zipCode: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
