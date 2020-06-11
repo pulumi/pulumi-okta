@@ -22,8 +22,8 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func TestAccUserTs(t *testing.T) {
-	skipIfNoPulumiAccessToken(t)
-	test := getJSBaseOptions().
+	skipIfNoOktaTokens(t)
+	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "user"),
 		})
