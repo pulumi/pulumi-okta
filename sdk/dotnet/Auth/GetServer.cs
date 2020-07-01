@@ -34,7 +34,6 @@ namespace Pulumi.Okta.Auth
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

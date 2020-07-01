@@ -16,8 +16,6 @@ namespace Pulumi.Okta.Idp
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

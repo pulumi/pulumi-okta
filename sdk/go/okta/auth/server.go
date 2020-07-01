@@ -13,6 +13,34 @@ import (
 // Creates an Authorization Server.
 //
 // This resource allows you to create and configure an Authorization Server.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := auth.NewServer(ctx, "example", &auth.ServerArgs{
+// 			Audiences: pulumi.StringArray{
+// 				pulumi.String("api://example"),
+// 			},
+// 			Description: pulumi.String("My Example Auth Server"),
+// 			IssuerMode:  pulumi.String("CUSTOM_URL"),
+// 			Status:      pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Server struct {
 	pulumi.CustomResourceState
 

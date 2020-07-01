@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class Provider(pulumi.ProviderResource):
     def __init__(__self__, resource_name, opts=None, api_token=None, backoff=None, base_url=None, max_retries=None, max_wait_seconds=None, min_wait_seconds=None, org_name=None, parallelism=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -71,4 +72,3 @@ class Provider(pulumi.ProviderResource):
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

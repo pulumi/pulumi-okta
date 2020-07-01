@@ -13,6 +13,38 @@ import (
 // Creates an Authorization Server Policy Rule.
 //
 // This resource allows you to create and configure an Authorization Server Policy Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := auth.NewServerPolicyClaim(ctx, "example", &auth.ServerPolicyClaimArgs{
+// 			AuthServerId: pulumi.String("<auth server id>"),
+// 			GrantTypeWhitelists: pulumi.StringArray{
+// 				pulumi.String("implicit"),
+// 			},
+// 			GroupWhitelists: pulumi.StringArray{
+// 				pulumi.String("<group ids>"),
+// 			},
+// 			PolicyId: pulumi.String("<auth server policy id>"),
+// 			Priority: pulumi.Int(1),
+// 			Status:   pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ServerPolicyClaim struct {
 	pulumi.CustomResourceState
 

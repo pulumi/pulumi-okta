@@ -13,6 +13,32 @@ import (
 // Creates Group level Admin Role Assignments.
 //
 // This resource allows you to create and configure Group level Admin Role Assignments.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/group"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := group.NewRoles(ctx, "example", &group.RolesArgs{
+// 			AdminRoles: pulumi.StringArray{
+// 				pulumi.String("SUPER_ADMIN"),
+// 			},
+// 			GroupId: pulumi.String("<group id>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Roles struct {
 	pulumi.CustomResourceState
 

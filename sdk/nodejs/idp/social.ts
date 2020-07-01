@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -24,7 +22,7 @@ import * as utilities from "../utilities";
  *     matchType: "CUSTOM_ATTRIBUTE",
  *     protocolType: "OAUTH2",
  *     scopes: [
- *         "publicProfile",
+ *         "public_profile",
  *         "email",
  *     ],
  *     type: "FACEBOOK",

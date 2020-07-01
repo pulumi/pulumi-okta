@@ -11,13 +11,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.factor.Factor("example", {});
+ * const example = new okta.factor.Factor("example", {}, {
+ *     provider: "google_otp",
+ * });
  * ```
  */
 export class Factor extends pulumi.CustomResource {

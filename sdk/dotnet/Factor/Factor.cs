@@ -16,8 +16,6 @@ namespace Pulumi.Okta.Factor
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
@@ -28,6 +26,9 @@ namespace Pulumi.Okta.Factor
     ///     {
     ///         var example = new Okta.Factor.Factor("example", new Okta.Factor.FactorArgs
     ///         {
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "google_otp",
     ///         });
     ///     }
     /// 

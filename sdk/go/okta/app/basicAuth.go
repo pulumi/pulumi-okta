@@ -13,6 +13,31 @@ import (
 // Creates a Bsaic Auth Application.
 //
 // This resource allows you to create and configure a Basic Auth Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewBasicAuth(ctx, "example", &app.BasicAuthArgs{
+// 			AuthUrl: pulumi.String("https://example.com/auth.html"),
+// 			Label:   pulumi.String("Example"),
+// 			Url:     pulumi.String("https://example.com/login.html"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
 

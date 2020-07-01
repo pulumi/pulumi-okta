@@ -13,6 +13,40 @@ import (
 // Creates an inline hook.
 //
 // This resource allows you to create and configure an inline hook.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/inline"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
+// 			Auth: &inline.HookAuthArgs{
+// 				Key:   pulumi.String("Authorization"),
+// 				Type:  pulumi.String("HEADER"),
+// 				Value: pulumi.String("secret"),
+// 			},
+// 			Channel: &inline.HookChannelArgs{
+// 				Method:  pulumi.String("POST"),
+// 				Uri:     pulumi.String("https://example.com/test"),
+// 				Version: pulumi.String("1.0.0"),
+// 			},
+// 			Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
+// 			Version: pulumi.String("1.0.1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Hook struct {
 	pulumi.CustomResourceState
 

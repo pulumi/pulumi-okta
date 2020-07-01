@@ -13,6 +13,38 @@ import (
 // Creates a SAML Identity Provider.
 //
 // This resource allows you to create and configure a SAML Identity Provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/idp"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := idp.NewSaml(ctx, "example", &idp.SamlArgs{
+// 			AcsBinding:             pulumi.String("HTTP-POST"),
+// 			AcsType:                pulumi.String("INSTANCE"),
+// 			Issuer:                 pulumi.String("https://idp.example.com"),
+// 			Kid:                    pulumi.String(okta_idp_saml_key.Test.Id),
+// 			RequestSignatureScope:  pulumi.String("REQUEST"),
+// 			ResponseSignatureScope: pulumi.String("ANY"),
+// 			SsoBinding:             pulumi.String("HTTP-POST"),
+// 			SsoDestination:         pulumi.String("https://idp.example.com"),
+// 			SsoUrl:                 pulumi.String("https://idp.example.com"),
+// 			UsernameTemplate:       pulumi.String("idpuser.email"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Saml struct {
 	pulumi.CustomResourceState
 

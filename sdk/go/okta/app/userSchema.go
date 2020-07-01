@@ -13,6 +13,35 @@ import (
 // Creates an Application User Schema property.
 //
 // This resource allows you to create and configure a custom user schema property and associate it with an application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewUserSchema(ctx, "example", &app.UserSchemaArgs{
+// 			AppId:       pulumi.String("<app id>"),
+// 			Description: pulumi.String("My custom property name"),
+// 			Index:       pulumi.String("customPropertyName"),
+// 			Master:      pulumi.String("OKTA"),
+// 			Scope:       pulumi.String("SELF"),
+// 			Title:       pulumi.String("customPropertyName"),
+// 			Type:        pulumi.String("string"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserSchema struct {
 	pulumi.CustomResourceState
 

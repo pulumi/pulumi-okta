@@ -8,6 +8,29 @@ import (
 )
 
 // Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+// 			Type: "PASSWORD",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...pulumi.InvokeOption) (*GetDefaultPolicyResult, error) {
 	var rv GetDefaultPolicyResult
 	err := ctx.Invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", args, &rv, opts...)

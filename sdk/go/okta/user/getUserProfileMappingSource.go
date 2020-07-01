@@ -8,6 +8,27 @@ import (
 )
 
 // Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.GetUserProfileMappingSource(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUserProfileMappingSourceResult, error) {
 	var rv GetUserProfileMappingSourceResult
 	err := ctx.Invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", nil, &rv, opts...)

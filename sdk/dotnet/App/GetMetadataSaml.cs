@@ -35,7 +35,6 @@ namespace Pulumi.Okta.App
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

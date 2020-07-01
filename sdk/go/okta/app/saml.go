@@ -13,6 +13,48 @@ import (
 // Creates an SAML Application.
 //
 // This resource allows you to create and configure an SAML Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewSaml(ctx, "example", &app.SamlArgs{
+// 			AttributeStatements: app.SamlAttributeStatementArray{
+// 				&app.SamlAttributeStatementArgs{
+// 					FilterType:  pulumi.String("REGEX"),
+// 					FilterValue: pulumi.String(".*"),
+// 					Name:        pulumi.String("groups"),
+// 					Type:        pulumi.String("GROUP"),
+// 				},
+// 			},
+// 			Audience:              pulumi.String("http://example.com/audience"),
+// 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+// 			Destination:           pulumi.String("http://example.com"),
+// 			DigestAlgorithm:       pulumi.String("SHA256"),
+// 			HonorForceAuthn:       pulumi.Bool(false),
+// 			Label:                 pulumi.String("example"),
+// 			Recipient:             pulumi.String("http://example.com"),
+// 			ResponseSigned:        pulumi.Bool(true),
+// 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
+// 			SsoUrl:                pulumi.String("http://example.com"),
+// 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+// 			SubjectNameIdTemplate: pulumi.String(user.UserName),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Saml struct {
 	pulumi.CustomResourceState
 

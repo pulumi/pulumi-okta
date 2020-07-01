@@ -16,8 +16,6 @@ namespace Pulumi.Okta.Auth
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

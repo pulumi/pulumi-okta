@@ -13,6 +13,40 @@ import (
 // Creates an IdP Discovery Policy Rule.
 //
 // This resource allows you to create and configure an IdP Discovery Policy Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
+// 			IdpId:                   pulumi.String("<idp id>"),
+// 			IdpType:                 pulumi.String("SAML2"),
+// 			Policyid:                pulumi.String("<policy id>"),
+// 			Priority:                pulumi.Int(1),
+// 			UserIdentifierAttribute: pulumi.String("company"),
+// 			UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
+// 				&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
+// 					MatchType: pulumi.String("EQUALS"),
+// 					Value:     pulumi.String("Articulate"),
+// 				},
+// 			},
+// 			UserIdentifierType: pulumi.String("ATTRIBUTE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
 

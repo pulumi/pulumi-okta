@@ -13,6 +13,31 @@ import (
 // Creates an Authorization Server Scope.
 //
 // This resource allows you to create and configure an Authorization Server Scope.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := auth.NewServerScope(ctx, "example", &auth.ServerScopeArgs{
+// 			AuthServerId:    pulumi.String("<auth server id>"),
+// 			Consent:         pulumi.String("IMPLICIT"),
+// 			MetadataPublish: pulumi.String("NO_CLIENTS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ServerScope struct {
 	pulumi.CustomResourceState
 

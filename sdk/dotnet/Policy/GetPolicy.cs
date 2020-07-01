@@ -35,7 +35,6 @@ namespace Pulumi.Okta.Policy
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -3,11 +3,26 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import importlib
-# Make subpackages available:
-__all__ = ['app', 'auth', 'config', 'deprecated', 'factor', 'group', 'idp', 'inline', 'network', 'policy', 'profile', 'template', 'trustedorigin', 'user']
-for pkg in __all__:
-    if pkg != 'config':
-        importlib.import_module(f'{__name__}.{pkg}')
-
 # Export this package's modules as members:
 from .provider import *
+
+# Make subpackages available:
+_submodules = [
+    'app',
+    'auth',
+    'config',
+    'deprecated',
+    'factor',
+    'group',
+    'idp',
+    'inline',
+    'network',
+    'policy',
+    'profile',
+    'template',
+    'trustedorigin',
+    'user',
+]
+for pkg in _submodules:
+    if pkg != 'config':
+        importlib.import_module(f'{__name__}.{pkg}')

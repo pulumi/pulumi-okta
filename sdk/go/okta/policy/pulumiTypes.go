@@ -20,8 +20,7 @@ type MfaDuo struct {
 // MfaDuoInput is an input type that accepts MfaDuoArgs and MfaDuoOutput values.
 // You can construct a concrete instance of `MfaDuoInput` via:
 //
-// 		 MfaDuoArgs{...}
-//
+//          MfaDuoArgs{...}
 type MfaDuoInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i MfaDuoArgs) ToMfaDuoPtrOutputWithContext(ctx context.Context) MfaDuoPtrO
 // MfaDuoPtrInput is an input type that accepts MfaDuoArgs, MfaDuoPtr and MfaDuoPtrOutput values.
 // You can construct a concrete instance of `MfaDuoPtrInput` via:
 //
-// 		 MfaDuoArgs{...}
+//          MfaDuoArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaDuoPtrInput interface {
 	pulumi.Input
 
@@ -172,8 +170,7 @@ type MfaFidoU2f struct {
 // MfaFidoU2fInput is an input type that accepts MfaFidoU2fArgs and MfaFidoU2fOutput values.
 // You can construct a concrete instance of `MfaFidoU2fInput` via:
 //
-// 		 MfaFidoU2fArgs{...}
-//
+//          MfaFidoU2fArgs{...}
 type MfaFidoU2fInput interface {
 	pulumi.Input
 
@@ -211,12 +208,11 @@ func (i MfaFidoU2fArgs) ToMfaFidoU2fPtrOutputWithContext(ctx context.Context) Mf
 // MfaFidoU2fPtrInput is an input type that accepts MfaFidoU2fArgs, MfaFidoU2fPtr and MfaFidoU2fPtrOutput values.
 // You can construct a concrete instance of `MfaFidoU2fPtrInput` via:
 //
-// 		 MfaFidoU2fArgs{...}
+//          MfaFidoU2fArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaFidoU2fPtrInput interface {
 	pulumi.Input
 
@@ -324,8 +320,7 @@ type MfaFidoWebauthn struct {
 // MfaFidoWebauthnInput is an input type that accepts MfaFidoWebauthnArgs and MfaFidoWebauthnOutput values.
 // You can construct a concrete instance of `MfaFidoWebauthnInput` via:
 //
-// 		 MfaFidoWebauthnArgs{...}
-//
+//          MfaFidoWebauthnArgs{...}
 type MfaFidoWebauthnInput interface {
 	pulumi.Input
 
@@ -363,12 +358,11 @@ func (i MfaFidoWebauthnArgs) ToMfaFidoWebauthnPtrOutputWithContext(ctx context.C
 // MfaFidoWebauthnPtrInput is an input type that accepts MfaFidoWebauthnArgs, MfaFidoWebauthnPtr and MfaFidoWebauthnPtrOutput values.
 // You can construct a concrete instance of `MfaFidoWebauthnPtrInput` via:
 //
-// 		 MfaFidoWebauthnArgs{...}
+//          MfaFidoWebauthnArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaFidoWebauthnPtrInput interface {
 	pulumi.Input
 
@@ -476,8 +470,7 @@ type MfaGoogleOtp struct {
 // MfaGoogleOtpInput is an input type that accepts MfaGoogleOtpArgs and MfaGoogleOtpOutput values.
 // You can construct a concrete instance of `MfaGoogleOtpInput` via:
 //
-// 		 MfaGoogleOtpArgs{...}
-//
+//          MfaGoogleOtpArgs{...}
 type MfaGoogleOtpInput interface {
 	pulumi.Input
 
@@ -515,12 +508,11 @@ func (i MfaGoogleOtpArgs) ToMfaGoogleOtpPtrOutputWithContext(ctx context.Context
 // MfaGoogleOtpPtrInput is an input type that accepts MfaGoogleOtpArgs, MfaGoogleOtpPtr and MfaGoogleOtpPtrOutput values.
 // You can construct a concrete instance of `MfaGoogleOtpPtrInput` via:
 //
-// 		 MfaGoogleOtpArgs{...}
+//          MfaGoogleOtpArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaGoogleOtpPtrInput interface {
 	pulumi.Input
 
@@ -628,8 +620,7 @@ type MfaOktaCall struct {
 // MfaOktaCallInput is an input type that accepts MfaOktaCallArgs and MfaOktaCallOutput values.
 // You can construct a concrete instance of `MfaOktaCallInput` via:
 //
-// 		 MfaOktaCallArgs{...}
-//
+//          MfaOktaCallArgs{...}
 type MfaOktaCallInput interface {
 	pulumi.Input
 
@@ -667,12 +658,11 @@ func (i MfaOktaCallArgs) ToMfaOktaCallPtrOutputWithContext(ctx context.Context) 
 // MfaOktaCallPtrInput is an input type that accepts MfaOktaCallArgs, MfaOktaCallPtr and MfaOktaCallPtrOutput values.
 // You can construct a concrete instance of `MfaOktaCallPtrInput` via:
 //
-// 		 MfaOktaCallArgs{...}
+//          MfaOktaCallArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaCallPtrInput interface {
 	pulumi.Input
 
@@ -780,8 +770,7 @@ type MfaOktaOtp struct {
 // MfaOktaOtpInput is an input type that accepts MfaOktaOtpArgs and MfaOktaOtpOutput values.
 // You can construct a concrete instance of `MfaOktaOtpInput` via:
 //
-// 		 MfaOktaOtpArgs{...}
-//
+//          MfaOktaOtpArgs{...}
 type MfaOktaOtpInput interface {
 	pulumi.Input
 
@@ -819,12 +808,11 @@ func (i MfaOktaOtpArgs) ToMfaOktaOtpPtrOutputWithContext(ctx context.Context) Mf
 // MfaOktaOtpPtrInput is an input type that accepts MfaOktaOtpArgs, MfaOktaOtpPtr and MfaOktaOtpPtrOutput values.
 // You can construct a concrete instance of `MfaOktaOtpPtrInput` via:
 //
-// 		 MfaOktaOtpArgs{...}
+//          MfaOktaOtpArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaOtpPtrInput interface {
 	pulumi.Input
 
@@ -932,8 +920,7 @@ type MfaOktaPassword struct {
 // MfaOktaPasswordInput is an input type that accepts MfaOktaPasswordArgs and MfaOktaPasswordOutput values.
 // You can construct a concrete instance of `MfaOktaPasswordInput` via:
 //
-// 		 MfaOktaPasswordArgs{...}
-//
+//          MfaOktaPasswordArgs{...}
 type MfaOktaPasswordInput interface {
 	pulumi.Input
 
@@ -971,12 +958,11 @@ func (i MfaOktaPasswordArgs) ToMfaOktaPasswordPtrOutputWithContext(ctx context.C
 // MfaOktaPasswordPtrInput is an input type that accepts MfaOktaPasswordArgs, MfaOktaPasswordPtr and MfaOktaPasswordPtrOutput values.
 // You can construct a concrete instance of `MfaOktaPasswordPtrInput` via:
 //
-// 		 MfaOktaPasswordArgs{...}
+//          MfaOktaPasswordArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaPasswordPtrInput interface {
 	pulumi.Input
 
@@ -1084,8 +1070,7 @@ type MfaOktaPush struct {
 // MfaOktaPushInput is an input type that accepts MfaOktaPushArgs and MfaOktaPushOutput values.
 // You can construct a concrete instance of `MfaOktaPushInput` via:
 //
-// 		 MfaOktaPushArgs{...}
-//
+//          MfaOktaPushArgs{...}
 type MfaOktaPushInput interface {
 	pulumi.Input
 
@@ -1123,12 +1108,11 @@ func (i MfaOktaPushArgs) ToMfaOktaPushPtrOutputWithContext(ctx context.Context) 
 // MfaOktaPushPtrInput is an input type that accepts MfaOktaPushArgs, MfaOktaPushPtr and MfaOktaPushPtrOutput values.
 // You can construct a concrete instance of `MfaOktaPushPtrInput` via:
 //
-// 		 MfaOktaPushArgs{...}
+//          MfaOktaPushArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaPushPtrInput interface {
 	pulumi.Input
 
@@ -1236,8 +1220,7 @@ type MfaOktaQuestion struct {
 // MfaOktaQuestionInput is an input type that accepts MfaOktaQuestionArgs and MfaOktaQuestionOutput values.
 // You can construct a concrete instance of `MfaOktaQuestionInput` via:
 //
-// 		 MfaOktaQuestionArgs{...}
-//
+//          MfaOktaQuestionArgs{...}
 type MfaOktaQuestionInput interface {
 	pulumi.Input
 
@@ -1275,12 +1258,11 @@ func (i MfaOktaQuestionArgs) ToMfaOktaQuestionPtrOutputWithContext(ctx context.C
 // MfaOktaQuestionPtrInput is an input type that accepts MfaOktaQuestionArgs, MfaOktaQuestionPtr and MfaOktaQuestionPtrOutput values.
 // You can construct a concrete instance of `MfaOktaQuestionPtrInput` via:
 //
-// 		 MfaOktaQuestionArgs{...}
+//          MfaOktaQuestionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaQuestionPtrInput interface {
 	pulumi.Input
 
@@ -1388,8 +1370,7 @@ type MfaOktaSms struct {
 // MfaOktaSmsInput is an input type that accepts MfaOktaSmsArgs and MfaOktaSmsOutput values.
 // You can construct a concrete instance of `MfaOktaSmsInput` via:
 //
-// 		 MfaOktaSmsArgs{...}
-//
+//          MfaOktaSmsArgs{...}
 type MfaOktaSmsInput interface {
 	pulumi.Input
 
@@ -1427,12 +1408,11 @@ func (i MfaOktaSmsArgs) ToMfaOktaSmsPtrOutputWithContext(ctx context.Context) Mf
 // MfaOktaSmsPtrInput is an input type that accepts MfaOktaSmsArgs, MfaOktaSmsPtr and MfaOktaSmsPtrOutput values.
 // You can construct a concrete instance of `MfaOktaSmsPtrInput` via:
 //
-// 		 MfaOktaSmsArgs{...}
+//          MfaOktaSmsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaOktaSmsPtrInput interface {
 	pulumi.Input
 
@@ -1540,8 +1520,7 @@ type MfaRsaToken struct {
 // MfaRsaTokenInput is an input type that accepts MfaRsaTokenArgs and MfaRsaTokenOutput values.
 // You can construct a concrete instance of `MfaRsaTokenInput` via:
 //
-// 		 MfaRsaTokenArgs{...}
-//
+//          MfaRsaTokenArgs{...}
 type MfaRsaTokenInput interface {
 	pulumi.Input
 
@@ -1579,12 +1558,11 @@ func (i MfaRsaTokenArgs) ToMfaRsaTokenPtrOutputWithContext(ctx context.Context) 
 // MfaRsaTokenPtrInput is an input type that accepts MfaRsaTokenArgs, MfaRsaTokenPtr and MfaRsaTokenPtrOutput values.
 // You can construct a concrete instance of `MfaRsaTokenPtrInput` via:
 //
-// 		 MfaRsaTokenArgs{...}
+//          MfaRsaTokenArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaRsaTokenPtrInput interface {
 	pulumi.Input
 
@@ -1692,8 +1670,7 @@ type MfaSymantecVip struct {
 // MfaSymantecVipInput is an input type that accepts MfaSymantecVipArgs and MfaSymantecVipOutput values.
 // You can construct a concrete instance of `MfaSymantecVipInput` via:
 //
-// 		 MfaSymantecVipArgs{...}
-//
+//          MfaSymantecVipArgs{...}
 type MfaSymantecVipInput interface {
 	pulumi.Input
 
@@ -1731,12 +1708,11 @@ func (i MfaSymantecVipArgs) ToMfaSymantecVipPtrOutputWithContext(ctx context.Con
 // MfaSymantecVipPtrInput is an input type that accepts MfaSymantecVipArgs, MfaSymantecVipPtr and MfaSymantecVipPtrOutput values.
 // You can construct a concrete instance of `MfaSymantecVipPtrInput` via:
 //
-// 		 MfaSymantecVipArgs{...}
+//          MfaSymantecVipArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaSymantecVipPtrInput interface {
 	pulumi.Input
 
@@ -1844,8 +1820,7 @@ type MfaYubikeyToken struct {
 // MfaYubikeyTokenInput is an input type that accepts MfaYubikeyTokenArgs and MfaYubikeyTokenOutput values.
 // You can construct a concrete instance of `MfaYubikeyTokenInput` via:
 //
-// 		 MfaYubikeyTokenArgs{...}
-//
+//          MfaYubikeyTokenArgs{...}
 type MfaYubikeyTokenInput interface {
 	pulumi.Input
 
@@ -1883,12 +1858,11 @@ func (i MfaYubikeyTokenArgs) ToMfaYubikeyTokenPtrOutputWithContext(ctx context.C
 // MfaYubikeyTokenPtrInput is an input type that accepts MfaYubikeyTokenArgs, MfaYubikeyTokenPtr and MfaYubikeyTokenPtrOutput values.
 // You can construct a concrete instance of `MfaYubikeyTokenPtrInput` via:
 //
-// 		 MfaYubikeyTokenArgs{...}
+//          MfaYubikeyTokenArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaYubikeyTokenPtrInput interface {
 	pulumi.Input
 
@@ -1997,8 +1971,7 @@ type RuleIdpDiscoveryAppExclude struct {
 // RuleIdpDiscoveryAppExcludeInput is an input type that accepts RuleIdpDiscoveryAppExcludeArgs and RuleIdpDiscoveryAppExcludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppExcludeInput` via:
 //
-// 		 RuleIdpDiscoveryAppExcludeArgs{...}
-//
+//          RuleIdpDiscoveryAppExcludeArgs{...}
 type RuleIdpDiscoveryAppExcludeInput interface {
 	pulumi.Input
 
@@ -2029,8 +2002,7 @@ func (i RuleIdpDiscoveryAppExcludeArgs) ToRuleIdpDiscoveryAppExcludeOutputWithCo
 // RuleIdpDiscoveryAppExcludeArrayInput is an input type that accepts RuleIdpDiscoveryAppExcludeArray and RuleIdpDiscoveryAppExcludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppExcludeArrayInput` via:
 //
-// 		 RuleIdpDiscoveryAppExcludeArray{ RuleIdpDiscoveryAppExcludeArgs{...} }
-//
+//          RuleIdpDiscoveryAppExcludeArray{ RuleIdpDiscoveryAppExcludeArgs{...} }
 type RuleIdpDiscoveryAppExcludeArrayInput interface {
 	pulumi.Input
 
@@ -2111,8 +2083,7 @@ type RuleIdpDiscoveryAppInclude struct {
 // RuleIdpDiscoveryAppIncludeInput is an input type that accepts RuleIdpDiscoveryAppIncludeArgs and RuleIdpDiscoveryAppIncludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppIncludeInput` via:
 //
-// 		 RuleIdpDiscoveryAppIncludeArgs{...}
-//
+//          RuleIdpDiscoveryAppIncludeArgs{...}
 type RuleIdpDiscoveryAppIncludeInput interface {
 	pulumi.Input
 
@@ -2143,8 +2114,7 @@ func (i RuleIdpDiscoveryAppIncludeArgs) ToRuleIdpDiscoveryAppIncludeOutputWithCo
 // RuleIdpDiscoveryAppIncludeArrayInput is an input type that accepts RuleIdpDiscoveryAppIncludeArray and RuleIdpDiscoveryAppIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppIncludeArrayInput` via:
 //
-// 		 RuleIdpDiscoveryAppIncludeArray{ RuleIdpDiscoveryAppIncludeArgs{...} }
-//
+//          RuleIdpDiscoveryAppIncludeArray{ RuleIdpDiscoveryAppIncludeArgs{...} }
 type RuleIdpDiscoveryAppIncludeArrayInput interface {
 	pulumi.Input
 
@@ -2223,8 +2193,7 @@ type RuleIdpDiscoveryPlatformInclude struct {
 // RuleIdpDiscoveryPlatformIncludeInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArgs and RuleIdpDiscoveryPlatformIncludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryPlatformIncludeInput` via:
 //
-// 		 RuleIdpDiscoveryPlatformIncludeArgs{...}
-//
+//          RuleIdpDiscoveryPlatformIncludeArgs{...}
 type RuleIdpDiscoveryPlatformIncludeInput interface {
 	pulumi.Input
 
@@ -2253,8 +2222,7 @@ func (i RuleIdpDiscoveryPlatformIncludeArgs) ToRuleIdpDiscoveryPlatformIncludeOu
 // RuleIdpDiscoveryPlatformIncludeArrayInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArray and RuleIdpDiscoveryPlatformIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryPlatformIncludeArrayInput` via:
 //
-// 		 RuleIdpDiscoveryPlatformIncludeArray{ RuleIdpDiscoveryPlatformIncludeArgs{...} }
-//
+//          RuleIdpDiscoveryPlatformIncludeArray{ RuleIdpDiscoveryPlatformIncludeArgs{...} }
 type RuleIdpDiscoveryPlatformIncludeArrayInput interface {
 	pulumi.Input
 
@@ -2330,8 +2298,7 @@ type RuleIdpDiscoveryUserIdentifierPattern struct {
 // RuleIdpDiscoveryUserIdentifierPatternInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArgs and RuleIdpDiscoveryUserIdentifierPatternOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryUserIdentifierPatternInput` via:
 //
-// 		 RuleIdpDiscoveryUserIdentifierPatternArgs{...}
-//
+//          RuleIdpDiscoveryUserIdentifierPatternArgs{...}
 type RuleIdpDiscoveryUserIdentifierPatternInput interface {
 	pulumi.Input
 
@@ -2359,8 +2326,7 @@ func (i RuleIdpDiscoveryUserIdentifierPatternArgs) ToRuleIdpDiscoveryUserIdentif
 // RuleIdpDiscoveryUserIdentifierPatternArrayInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArray and RuleIdpDiscoveryUserIdentifierPatternArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryUserIdentifierPatternArrayInput` via:
 //
-// 		 RuleIdpDiscoveryUserIdentifierPatternArray{ RuleIdpDiscoveryUserIdentifierPatternArgs{...} }
-//
+//          RuleIdpDiscoveryUserIdentifierPatternArray{ RuleIdpDiscoveryUserIdentifierPatternArgs{...} }
 type RuleIdpDiscoveryUserIdentifierPatternArrayInput interface {
 	pulumi.Input
 

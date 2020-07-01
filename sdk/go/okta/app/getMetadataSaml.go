@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to retrieve the collaborators for a given repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.GetMetadataSaml(ctx, &app.GetMetadataSamlArgs{
+// 			AppId: "<app id>",
+// 			KeyId: "<cert key id>",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetMetadataSaml(ctx *pulumi.Context, args *GetMetadataSamlArgs, opts ...pulumi.InvokeOption) (*GetMetadataSamlResult, error) {
 	var rv GetMetadataSamlResult
 	err := ctx.Invoke("okta:app/getMetadataSaml:getMetadataSaml", args, &rv, opts...)

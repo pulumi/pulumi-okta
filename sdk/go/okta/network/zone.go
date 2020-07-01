@@ -13,6 +13,37 @@ import (
 // Creates an Okta Network Zone.
 //
 // This resource allows you to create and configure an Okta Network Zone.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
+// 			Gateways: pulumi.StringArray{
+// 				pulumi.String("1.2.3.4/24"),
+// 				pulumi.String("2.3.4.5-2.3.4.15"),
+// 			},
+// 			Proxies: pulumi.StringArray{
+// 				pulumi.String("2.2.3.4/24"),
+// 				pulumi.String("3.3.4.5-3.3.4.15"),
+// 			},
+// 			Type: pulumi.String("IP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Zone struct {
 	pulumi.CustomResourceState
 
