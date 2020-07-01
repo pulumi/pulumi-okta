@@ -20,8 +20,7 @@ type AuthLoginAppUser struct {
 // AuthLoginAppUserInput is an input type that accepts AuthLoginAppUserArgs and AuthLoginAppUserOutput values.
 // You can construct a concrete instance of `AuthLoginAppUserInput` via:
 //
-// 		 AuthLoginAppUserArgs{...}
-//
+//          AuthLoginAppUserArgs{...}
 type AuthLoginAppUserInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i AuthLoginAppUserArgs) ToAuthLoginAppUserOutputWithContext(ctx context.Co
 // AuthLoginAppUserArrayInput is an input type that accepts AuthLoginAppUserArray and AuthLoginAppUserArrayOutput values.
 // You can construct a concrete instance of `AuthLoginAppUserArrayInput` via:
 //
-// 		 AuthLoginAppUserArray{ AuthLoginAppUserArgs{...} }
-//
+//          AuthLoginAppUserArray{ AuthLoginAppUserArgs{...} }
 type AuthLoginAppUserArrayInput interface {
 	pulumi.Input
 
@@ -134,8 +132,7 @@ type BookmarkAppUser struct {
 // BookmarkAppUserInput is an input type that accepts BookmarkAppUserArgs and BookmarkAppUserOutput values.
 // You can construct a concrete instance of `BookmarkAppUserInput` via:
 //
-// 		 BookmarkAppUserArgs{...}
-//
+//          BookmarkAppUserArgs{...}
 type BookmarkAppUserInput interface {
 	pulumi.Input
 
@@ -165,8 +162,7 @@ func (i BookmarkAppUserArgs) ToBookmarkAppUserOutputWithContext(ctx context.Cont
 // BookmarkAppUserArrayInput is an input type that accepts BookmarkAppUserArray and BookmarkAppUserArrayOutput values.
 // You can construct a concrete instance of `BookmarkAppUserArrayInput` via:
 //
-// 		 BookmarkAppUserArray{ BookmarkAppUserArgs{...} }
-//
+//          BookmarkAppUserArray{ BookmarkAppUserArgs{...} }
 type BookmarkAppUserArrayInput interface {
 	pulumi.Input
 
@@ -246,8 +242,7 @@ type MfaPolicyDuo struct {
 // MfaPolicyDuoInput is an input type that accepts MfaPolicyDuoArgs and MfaPolicyDuoOutput values.
 // You can construct a concrete instance of `MfaPolicyDuoInput` via:
 //
-// 		 MfaPolicyDuoArgs{...}
-//
+//          MfaPolicyDuoArgs{...}
 type MfaPolicyDuoInput interface {
 	pulumi.Input
 
@@ -283,12 +278,11 @@ func (i MfaPolicyDuoArgs) ToMfaPolicyDuoPtrOutputWithContext(ctx context.Context
 // MfaPolicyDuoPtrInput is an input type that accepts MfaPolicyDuoArgs, MfaPolicyDuoPtr and MfaPolicyDuoPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyDuoPtrInput` via:
 //
-// 		 MfaPolicyDuoArgs{...}
+//          MfaPolicyDuoArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyDuoPtrInput interface {
 	pulumi.Input
 
@@ -389,8 +383,7 @@ type MfaPolicyFidoU2f struct {
 // MfaPolicyFidoU2fInput is an input type that accepts MfaPolicyFidoU2fArgs and MfaPolicyFidoU2fOutput values.
 // You can construct a concrete instance of `MfaPolicyFidoU2fInput` via:
 //
-// 		 MfaPolicyFidoU2fArgs{...}
-//
+//          MfaPolicyFidoU2fArgs{...}
 type MfaPolicyFidoU2fInput interface {
 	pulumi.Input
 
@@ -426,12 +419,11 @@ func (i MfaPolicyFidoU2fArgs) ToMfaPolicyFidoU2fPtrOutputWithContext(ctx context
 // MfaPolicyFidoU2fPtrInput is an input type that accepts MfaPolicyFidoU2fArgs, MfaPolicyFidoU2fPtr and MfaPolicyFidoU2fPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyFidoU2fPtrInput` via:
 //
-// 		 MfaPolicyFidoU2fArgs{...}
+//          MfaPolicyFidoU2fArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyFidoU2fPtrInput interface {
 	pulumi.Input
 
@@ -532,8 +524,7 @@ type MfaPolicyFidoWebauthn struct {
 // MfaPolicyFidoWebauthnInput is an input type that accepts MfaPolicyFidoWebauthnArgs and MfaPolicyFidoWebauthnOutput values.
 // You can construct a concrete instance of `MfaPolicyFidoWebauthnInput` via:
 //
-// 		 MfaPolicyFidoWebauthnArgs{...}
-//
+//          MfaPolicyFidoWebauthnArgs{...}
 type MfaPolicyFidoWebauthnInput interface {
 	pulumi.Input
 
@@ -569,12 +560,11 @@ func (i MfaPolicyFidoWebauthnArgs) ToMfaPolicyFidoWebauthnPtrOutputWithContext(c
 // MfaPolicyFidoWebauthnPtrInput is an input type that accepts MfaPolicyFidoWebauthnArgs, MfaPolicyFidoWebauthnPtr and MfaPolicyFidoWebauthnPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyFidoWebauthnPtrInput` via:
 //
-// 		 MfaPolicyFidoWebauthnArgs{...}
+//          MfaPolicyFidoWebauthnArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyFidoWebauthnPtrInput interface {
 	pulumi.Input
 
@@ -675,8 +665,7 @@ type MfaPolicyGoogleOtp struct {
 // MfaPolicyGoogleOtpInput is an input type that accepts MfaPolicyGoogleOtpArgs and MfaPolicyGoogleOtpOutput values.
 // You can construct a concrete instance of `MfaPolicyGoogleOtpInput` via:
 //
-// 		 MfaPolicyGoogleOtpArgs{...}
-//
+//          MfaPolicyGoogleOtpArgs{...}
 type MfaPolicyGoogleOtpInput interface {
 	pulumi.Input
 
@@ -712,12 +701,11 @@ func (i MfaPolicyGoogleOtpArgs) ToMfaPolicyGoogleOtpPtrOutputWithContext(ctx con
 // MfaPolicyGoogleOtpPtrInput is an input type that accepts MfaPolicyGoogleOtpArgs, MfaPolicyGoogleOtpPtr and MfaPolicyGoogleOtpPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyGoogleOtpPtrInput` via:
 //
-// 		 MfaPolicyGoogleOtpArgs{...}
+//          MfaPolicyGoogleOtpArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyGoogleOtpPtrInput interface {
 	pulumi.Input
 
@@ -818,8 +806,7 @@ type MfaPolicyOktaCall struct {
 // MfaPolicyOktaCallInput is an input type that accepts MfaPolicyOktaCallArgs and MfaPolicyOktaCallOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaCallInput` via:
 //
-// 		 MfaPolicyOktaCallArgs{...}
-//
+//          MfaPolicyOktaCallArgs{...}
 type MfaPolicyOktaCallInput interface {
 	pulumi.Input
 
@@ -855,12 +842,11 @@ func (i MfaPolicyOktaCallArgs) ToMfaPolicyOktaCallPtrOutputWithContext(ctx conte
 // MfaPolicyOktaCallPtrInput is an input type that accepts MfaPolicyOktaCallArgs, MfaPolicyOktaCallPtr and MfaPolicyOktaCallPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaCallPtrInput` via:
 //
-// 		 MfaPolicyOktaCallArgs{...}
+//          MfaPolicyOktaCallArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaCallPtrInput interface {
 	pulumi.Input
 
@@ -961,8 +947,7 @@ type MfaPolicyOktaOtp struct {
 // MfaPolicyOktaOtpInput is an input type that accepts MfaPolicyOktaOtpArgs and MfaPolicyOktaOtpOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaOtpInput` via:
 //
-// 		 MfaPolicyOktaOtpArgs{...}
-//
+//          MfaPolicyOktaOtpArgs{...}
 type MfaPolicyOktaOtpInput interface {
 	pulumi.Input
 
@@ -998,12 +983,11 @@ func (i MfaPolicyOktaOtpArgs) ToMfaPolicyOktaOtpPtrOutputWithContext(ctx context
 // MfaPolicyOktaOtpPtrInput is an input type that accepts MfaPolicyOktaOtpArgs, MfaPolicyOktaOtpPtr and MfaPolicyOktaOtpPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaOtpPtrInput` via:
 //
-// 		 MfaPolicyOktaOtpArgs{...}
+//          MfaPolicyOktaOtpArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaOtpPtrInput interface {
 	pulumi.Input
 
@@ -1104,8 +1088,7 @@ type MfaPolicyOktaPassword struct {
 // MfaPolicyOktaPasswordInput is an input type that accepts MfaPolicyOktaPasswordArgs and MfaPolicyOktaPasswordOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaPasswordInput` via:
 //
-// 		 MfaPolicyOktaPasswordArgs{...}
-//
+//          MfaPolicyOktaPasswordArgs{...}
 type MfaPolicyOktaPasswordInput interface {
 	pulumi.Input
 
@@ -1141,12 +1124,11 @@ func (i MfaPolicyOktaPasswordArgs) ToMfaPolicyOktaPasswordPtrOutputWithContext(c
 // MfaPolicyOktaPasswordPtrInput is an input type that accepts MfaPolicyOktaPasswordArgs, MfaPolicyOktaPasswordPtr and MfaPolicyOktaPasswordPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaPasswordPtrInput` via:
 //
-// 		 MfaPolicyOktaPasswordArgs{...}
+//          MfaPolicyOktaPasswordArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaPasswordPtrInput interface {
 	pulumi.Input
 
@@ -1247,8 +1229,7 @@ type MfaPolicyOktaPush struct {
 // MfaPolicyOktaPushInput is an input type that accepts MfaPolicyOktaPushArgs and MfaPolicyOktaPushOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaPushInput` via:
 //
-// 		 MfaPolicyOktaPushArgs{...}
-//
+//          MfaPolicyOktaPushArgs{...}
 type MfaPolicyOktaPushInput interface {
 	pulumi.Input
 
@@ -1284,12 +1265,11 @@ func (i MfaPolicyOktaPushArgs) ToMfaPolicyOktaPushPtrOutputWithContext(ctx conte
 // MfaPolicyOktaPushPtrInput is an input type that accepts MfaPolicyOktaPushArgs, MfaPolicyOktaPushPtr and MfaPolicyOktaPushPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaPushPtrInput` via:
 //
-// 		 MfaPolicyOktaPushArgs{...}
+//          MfaPolicyOktaPushArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaPushPtrInput interface {
 	pulumi.Input
 
@@ -1390,8 +1370,7 @@ type MfaPolicyOktaQuestion struct {
 // MfaPolicyOktaQuestionInput is an input type that accepts MfaPolicyOktaQuestionArgs and MfaPolicyOktaQuestionOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaQuestionInput` via:
 //
-// 		 MfaPolicyOktaQuestionArgs{...}
-//
+//          MfaPolicyOktaQuestionArgs{...}
 type MfaPolicyOktaQuestionInput interface {
 	pulumi.Input
 
@@ -1427,12 +1406,11 @@ func (i MfaPolicyOktaQuestionArgs) ToMfaPolicyOktaQuestionPtrOutputWithContext(c
 // MfaPolicyOktaQuestionPtrInput is an input type that accepts MfaPolicyOktaQuestionArgs, MfaPolicyOktaQuestionPtr and MfaPolicyOktaQuestionPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaQuestionPtrInput` via:
 //
-// 		 MfaPolicyOktaQuestionArgs{...}
+//          MfaPolicyOktaQuestionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaQuestionPtrInput interface {
 	pulumi.Input
 
@@ -1533,8 +1511,7 @@ type MfaPolicyOktaSms struct {
 // MfaPolicyOktaSmsInput is an input type that accepts MfaPolicyOktaSmsArgs and MfaPolicyOktaSmsOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaSmsInput` via:
 //
-// 		 MfaPolicyOktaSmsArgs{...}
-//
+//          MfaPolicyOktaSmsArgs{...}
 type MfaPolicyOktaSmsInput interface {
 	pulumi.Input
 
@@ -1570,12 +1547,11 @@ func (i MfaPolicyOktaSmsArgs) ToMfaPolicyOktaSmsPtrOutputWithContext(ctx context
 // MfaPolicyOktaSmsPtrInput is an input type that accepts MfaPolicyOktaSmsArgs, MfaPolicyOktaSmsPtr and MfaPolicyOktaSmsPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyOktaSmsPtrInput` via:
 //
-// 		 MfaPolicyOktaSmsArgs{...}
+//          MfaPolicyOktaSmsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyOktaSmsPtrInput interface {
 	pulumi.Input
 
@@ -1676,8 +1652,7 @@ type MfaPolicyRsaToken struct {
 // MfaPolicyRsaTokenInput is an input type that accepts MfaPolicyRsaTokenArgs and MfaPolicyRsaTokenOutput values.
 // You can construct a concrete instance of `MfaPolicyRsaTokenInput` via:
 //
-// 		 MfaPolicyRsaTokenArgs{...}
-//
+//          MfaPolicyRsaTokenArgs{...}
 type MfaPolicyRsaTokenInput interface {
 	pulumi.Input
 
@@ -1713,12 +1688,11 @@ func (i MfaPolicyRsaTokenArgs) ToMfaPolicyRsaTokenPtrOutputWithContext(ctx conte
 // MfaPolicyRsaTokenPtrInput is an input type that accepts MfaPolicyRsaTokenArgs, MfaPolicyRsaTokenPtr and MfaPolicyRsaTokenPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyRsaTokenPtrInput` via:
 //
-// 		 MfaPolicyRsaTokenArgs{...}
+//          MfaPolicyRsaTokenArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyRsaTokenPtrInput interface {
 	pulumi.Input
 
@@ -1819,8 +1793,7 @@ type MfaPolicySymantecVip struct {
 // MfaPolicySymantecVipInput is an input type that accepts MfaPolicySymantecVipArgs and MfaPolicySymantecVipOutput values.
 // You can construct a concrete instance of `MfaPolicySymantecVipInput` via:
 //
-// 		 MfaPolicySymantecVipArgs{...}
-//
+//          MfaPolicySymantecVipArgs{...}
 type MfaPolicySymantecVipInput interface {
 	pulumi.Input
 
@@ -1856,12 +1829,11 @@ func (i MfaPolicySymantecVipArgs) ToMfaPolicySymantecVipPtrOutputWithContext(ctx
 // MfaPolicySymantecVipPtrInput is an input type that accepts MfaPolicySymantecVipArgs, MfaPolicySymantecVipPtr and MfaPolicySymantecVipPtrOutput values.
 // You can construct a concrete instance of `MfaPolicySymantecVipPtrInput` via:
 //
-// 		 MfaPolicySymantecVipArgs{...}
+//          MfaPolicySymantecVipArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicySymantecVipPtrInput interface {
 	pulumi.Input
 
@@ -1962,8 +1934,7 @@ type MfaPolicyYubikeyToken struct {
 // MfaPolicyYubikeyTokenInput is an input type that accepts MfaPolicyYubikeyTokenArgs and MfaPolicyYubikeyTokenOutput values.
 // You can construct a concrete instance of `MfaPolicyYubikeyTokenInput` via:
 //
-// 		 MfaPolicyYubikeyTokenArgs{...}
-//
+//          MfaPolicyYubikeyTokenArgs{...}
 type MfaPolicyYubikeyTokenInput interface {
 	pulumi.Input
 
@@ -1999,12 +1970,11 @@ func (i MfaPolicyYubikeyTokenArgs) ToMfaPolicyYubikeyTokenPtrOutputWithContext(c
 // MfaPolicyYubikeyTokenPtrInput is an input type that accepts MfaPolicyYubikeyTokenArgs, MfaPolicyYubikeyTokenPtr and MfaPolicyYubikeyTokenPtrOutput values.
 // You can construct a concrete instance of `MfaPolicyYubikeyTokenPtrInput` via:
 //
-// 		 MfaPolicyYubikeyTokenArgs{...}
+//          MfaPolicyYubikeyTokenArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MfaPolicyYubikeyTokenPtrInput interface {
 	pulumi.Input
 
@@ -2107,8 +2077,7 @@ type OauthAppUser struct {
 // OauthAppUserInput is an input type that accepts OauthAppUserArgs and OauthAppUserOutput values.
 // You can construct a concrete instance of `OauthAppUserInput` via:
 //
-// 		 OauthAppUserArgs{...}
-//
+//          OauthAppUserArgs{...}
 type OauthAppUserInput interface {
 	pulumi.Input
 
@@ -2138,8 +2107,7 @@ func (i OauthAppUserArgs) ToOauthAppUserOutputWithContext(ctx context.Context) O
 // OauthAppUserArrayInput is an input type that accepts OauthAppUserArray and OauthAppUserArrayOutput values.
 // You can construct a concrete instance of `OauthAppUserArrayInput` via:
 //
-// 		 OauthAppUserArray{ OauthAppUserArgs{...} }
-//
+//          OauthAppUserArray{ OauthAppUserArgs{...} }
 type OauthAppUserArrayInput interface {
 	pulumi.Input
 
@@ -2223,8 +2191,7 @@ type SamlAppAttributeStatement struct {
 // SamlAppAttributeStatementInput is an input type that accepts SamlAppAttributeStatementArgs and SamlAppAttributeStatementOutput values.
 // You can construct a concrete instance of `SamlAppAttributeStatementInput` via:
 //
-// 		 SamlAppAttributeStatementArgs{...}
-//
+//          SamlAppAttributeStatementArgs{...}
 type SamlAppAttributeStatementInput interface {
 	pulumi.Input
 
@@ -2256,8 +2223,7 @@ func (i SamlAppAttributeStatementArgs) ToSamlAppAttributeStatementOutputWithCont
 // SamlAppAttributeStatementArrayInput is an input type that accepts SamlAppAttributeStatementArray and SamlAppAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `SamlAppAttributeStatementArrayInput` via:
 //
-// 		 SamlAppAttributeStatementArray{ SamlAppAttributeStatementArgs{...} }
-//
+//          SamlAppAttributeStatementArray{ SamlAppAttributeStatementArgs{...} }
 type SamlAppAttributeStatementArrayInput interface {
 	pulumi.Input
 
@@ -2347,8 +2313,7 @@ type SamlAppUser struct {
 // SamlAppUserInput is an input type that accepts SamlAppUserArgs and SamlAppUserOutput values.
 // You can construct a concrete instance of `SamlAppUserInput` via:
 //
-// 		 SamlAppUserArgs{...}
-//
+//          SamlAppUserArgs{...}
 type SamlAppUserInput interface {
 	pulumi.Input
 
@@ -2378,8 +2343,7 @@ func (i SamlAppUserArgs) ToSamlAppUserOutputWithContext(ctx context.Context) Sam
 // SamlAppUserArrayInput is an input type that accepts SamlAppUserArray and SamlAppUserArrayOutput values.
 // You can construct a concrete instance of `SamlAppUserArrayInput` via:
 //
-// 		 SamlAppUserArray{ SamlAppUserArgs{...} }
-//
+//          SamlAppUserArray{ SamlAppUserArgs{...} }
 type SamlAppUserArrayInput interface {
 	pulumi.Input
 
@@ -2461,8 +2425,7 @@ type SecurePasswordStoreAppUser struct {
 // SecurePasswordStoreAppUserInput is an input type that accepts SecurePasswordStoreAppUserArgs and SecurePasswordStoreAppUserOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppUserInput` via:
 //
-// 		 SecurePasswordStoreAppUserArgs{...}
-//
+//          SecurePasswordStoreAppUserArgs{...}
 type SecurePasswordStoreAppUserInput interface {
 	pulumi.Input
 
@@ -2492,8 +2455,7 @@ func (i SecurePasswordStoreAppUserArgs) ToSecurePasswordStoreAppUserOutputWithCo
 // SecurePasswordStoreAppUserArrayInput is an input type that accepts SecurePasswordStoreAppUserArray and SecurePasswordStoreAppUserArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppUserArrayInput` via:
 //
-// 		 SecurePasswordStoreAppUserArray{ SecurePasswordStoreAppUserArgs{...} }
-//
+//          SecurePasswordStoreAppUserArray{ SecurePasswordStoreAppUserArgs{...} }
 type SecurePasswordStoreAppUserArrayInput interface {
 	pulumi.Input
 
@@ -2575,8 +2537,7 @@ type SwaAppUser struct {
 // SwaAppUserInput is an input type that accepts SwaAppUserArgs and SwaAppUserOutput values.
 // You can construct a concrete instance of `SwaAppUserInput` via:
 //
-// 		 SwaAppUserArgs{...}
-//
+//          SwaAppUserArgs{...}
 type SwaAppUserInput interface {
 	pulumi.Input
 
@@ -2606,8 +2567,7 @@ func (i SwaAppUserArgs) ToSwaAppUserOutputWithContext(ctx context.Context) SwaAp
 // SwaAppUserArrayInput is an input type that accepts SwaAppUserArray and SwaAppUserArrayOutput values.
 // You can construct a concrete instance of `SwaAppUserArrayInput` via:
 //
-// 		 SwaAppUserArray{ SwaAppUserArgs{...} }
-//
+//          SwaAppUserArray{ SwaAppUserArgs{...} }
 type SwaAppUserArrayInput interface {
 	pulumi.Input
 
@@ -2689,8 +2649,7 @@ type ThreeFieldAppUser struct {
 // ThreeFieldAppUserInput is an input type that accepts ThreeFieldAppUserArgs and ThreeFieldAppUserOutput values.
 // You can construct a concrete instance of `ThreeFieldAppUserInput` via:
 //
-// 		 ThreeFieldAppUserArgs{...}
-//
+//          ThreeFieldAppUserArgs{...}
 type ThreeFieldAppUserInput interface {
 	pulumi.Input
 
@@ -2720,8 +2679,7 @@ func (i ThreeFieldAppUserArgs) ToThreeFieldAppUserOutputWithContext(ctx context.
 // ThreeFieldAppUserArrayInput is an input type that accepts ThreeFieldAppUserArray and ThreeFieldAppUserArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldAppUserArrayInput` via:
 //
-// 		 ThreeFieldAppUserArray{ ThreeFieldAppUserArgs{...} }
-//
+//          ThreeFieldAppUserArray{ ThreeFieldAppUserArgs{...} }
 type ThreeFieldAppUserArrayInput interface {
 	pulumi.Input
 

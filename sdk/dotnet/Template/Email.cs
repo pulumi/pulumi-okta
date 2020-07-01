@@ -16,8 +16,6 @@ namespace Pulumi.Okta.Template
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

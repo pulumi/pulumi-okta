@@ -16,8 +16,6 @@ namespace Pulumi.Okta.TrustedOrigin
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

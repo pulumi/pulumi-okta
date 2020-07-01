@@ -8,6 +8,35 @@ import (
 )
 
 // Use this data source to retrieve a list of users from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.GetUsers(ctx, &user.GetUsersArgs{
+// 			Searches: []user.GetUsersSearch{
+// 				user.GetUsersSearch{
+// 					Comparison: "sw",
+// 					Name:       "profile.company",
+// 					Value:      "Articulate",
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult
 	err := ctx.Invoke("okta:user/getUsers:getUsers", args, &rv, opts...)

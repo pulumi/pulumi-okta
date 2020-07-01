@@ -8,6 +8,29 @@ import (
 )
 
 // Use this data source to retrieve a SAML IdP from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/idp"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := idp.LookupSaml(ctx, &idp.LookupSamlArgs{
+// 			Label: "Example App",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSaml(ctx *pulumi.Context, args *LookupSamlArgs, opts ...pulumi.InvokeOption) (*LookupSamlResult, error) {
 	var rv LookupSamlResult
 	err := ctx.Invoke("okta:idp/getSaml:getSaml", args, &rv, opts...)

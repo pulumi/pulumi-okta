@@ -30,8 +30,6 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

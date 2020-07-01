@@ -13,14 +13,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.OAuth("example", {
- *     grantTypes: ["authorizationCode"],
+ *     grantTypes: ["authorization_code"],
  *     label: "example",
  *     redirectUris: ["https://example.com/"],
  *     responseTypes: ["code"],

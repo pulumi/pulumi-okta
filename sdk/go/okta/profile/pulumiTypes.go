@@ -19,8 +19,7 @@ type MappingMapping struct {
 // MappingMappingInput is an input type that accepts MappingMappingArgs and MappingMappingOutput values.
 // You can construct a concrete instance of `MappingMappingInput` via:
 //
-// 		 MappingMappingArgs{...}
-//
+//          MappingMappingArgs{...}
 type MappingMappingInput interface {
 	pulumi.Input
 
@@ -49,8 +48,7 @@ func (i MappingMappingArgs) ToMappingMappingOutputWithContext(ctx context.Contex
 // MappingMappingArrayInput is an input type that accepts MappingMappingArray and MappingMappingArrayOutput values.
 // You can construct a concrete instance of `MappingMappingArrayInput` via:
 //
-// 		 MappingMappingArray{ MappingMappingArgs{...} }
-//
+//          MappingMappingArray{ MappingMappingArgs{...} }
 type MappingMappingArrayInput interface {
 	pulumi.Input
 

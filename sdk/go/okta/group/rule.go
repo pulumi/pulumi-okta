@@ -13,6 +13,34 @@ import (
 // Creates an Okta Group Rule.
 //
 // This resource allows you to create and configure an Okta Group Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/group"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := group.NewRule(ctx, "example", &group.RuleArgs{
+// 			ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
+// 			ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
+// 			GroupAssignments: pulumi.StringArray{
+// 				pulumi.String("<group id>"),
+// 			},
+// 			Status: pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Rule struct {
 	pulumi.CustomResourceState
 

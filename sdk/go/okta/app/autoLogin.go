@@ -13,6 +13,33 @@ import (
 // Creates an Auto Login Okta Application.
 //
 // This resource allows you to create and configure an Auto Login Okta Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
+// 			CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
+// 			Label:             pulumi.String("Example App"),
+// 			RevealPassword:    pulumi.Bool(true),
+// 			SignOnRedirectUrl: pulumi.String("https://example.com"),
+// 			SignOnUrl:         pulumi.String("https://example.com/login.html"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
 

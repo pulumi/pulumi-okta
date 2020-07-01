@@ -13,6 +13,33 @@ import (
 // Creates an SWA Application.
 //
 // This resource allows you to create and configure an SWA Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewSwa(ctx, "example", &app.SwaArgs{
+// 			ButtonField:   pulumi.String("btn-login"),
+// 			Label:         pulumi.String("example"),
+// 			PasswordField: pulumi.String("txtbox-password"),
+// 			Url:           pulumi.String("https://example.com/login.html"),
+// 			UsernameField: pulumi.String("txtbox-username"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Swa struct {
 	pulumi.CustomResourceState
 

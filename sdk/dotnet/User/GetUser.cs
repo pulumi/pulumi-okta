@@ -46,7 +46,6 @@ namespace Pulumi.Okta.User
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -22,8 +22,7 @@ type HookAuth struct {
 // HookAuthInput is an input type that accepts HookAuthArgs and HookAuthOutput values.
 // You can construct a concrete instance of `HookAuthInput` via:
 //
-// 		 HookAuthArgs{...}
-//
+//          HookAuthArgs{...}
 type HookAuthInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i HookAuthArgs) ToHookAuthPtrOutputWithContext(ctx context.Context) HookAu
 // HookAuthPtrInput is an input type that accepts HookAuthArgs, HookAuthPtr and HookAuthPtrOutput values.
 // You can construct a concrete instance of `HookAuthPtrInput` via:
 //
-// 		 HookAuthArgs{...}
+//          HookAuthArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type HookAuthPtrInput interface {
 	pulumi.Input
 
@@ -195,8 +193,7 @@ type HookChannel struct {
 // HookChannelInput is an input type that accepts HookChannelArgs and HookChannelOutput values.
 // You can construct a concrete instance of `HookChannelInput` via:
 //
-// 		 HookChannelArgs{...}
-//
+//          HookChannelArgs{...}
 type HookChannelInput interface {
 	pulumi.Input
 
@@ -238,12 +235,11 @@ func (i HookChannelArgs) ToHookChannelPtrOutputWithContext(ctx context.Context) 
 // HookChannelPtrInput is an input type that accepts HookChannelArgs, HookChannelPtr and HookChannelPtrOutput values.
 // You can construct a concrete instance of `HookChannelPtrInput` via:
 //
-// 		 HookChannelArgs{...}
+//          HookChannelArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type HookChannelPtrInput interface {
 	pulumi.Input
 
@@ -381,8 +377,7 @@ type HookHeader struct {
 // HookHeaderInput is an input type that accepts HookHeaderArgs and HookHeaderOutput values.
 // You can construct a concrete instance of `HookHeaderInput` via:
 //
-// 		 HookHeaderArgs{...}
-//
+//          HookHeaderArgs{...}
 type HookHeaderInput interface {
 	pulumi.Input
 
@@ -412,8 +407,7 @@ func (i HookHeaderArgs) ToHookHeaderOutputWithContext(ctx context.Context) HookH
 // HookHeaderArrayInput is an input type that accepts HookHeaderArray and HookHeaderArrayOutput values.
 // You can construct a concrete instance of `HookHeaderArrayInput` via:
 //
-// 		 HookHeaderArray{ HookHeaderArgs{...} }
-//
+//          HookHeaderArray{ HookHeaderArgs{...} }
 type HookHeaderArrayInput interface {
 	pulumi.Input
 

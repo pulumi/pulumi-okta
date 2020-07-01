@@ -13,6 +13,33 @@ import (
 // Creates a Secure Password Store Application.
 //
 // This resource allows you to create and configure a Secure Password Store Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewSecurePasswordStore(ctx, "example", &app.SecurePasswordStoreArgs{
+// 			CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
+// 			Label:             pulumi.String("example"),
+// 			PasswordField:     pulumi.String("pass"),
+// 			Url:               pulumi.String("http://test.com"),
+// 			UsernameField:     pulumi.String("user"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecurePasswordStore struct {
 	pulumi.CustomResourceState
 

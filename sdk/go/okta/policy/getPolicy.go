@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to retrieve a policy from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+// 			Name: "Password Policy Example",
+// 			Type: "PASSWORD",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
 	var rv GetPolicyResult
 	err := ctx.Invoke("okta:policy/getPolicy:getPolicy", args, &rv, opts...)

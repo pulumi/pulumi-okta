@@ -13,6 +13,27 @@ import (
 // Allows you to manage the activation of Okta MFA methods.
 //
 // This resource allows you to manage Okta MFA methods.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/factor"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := factor.NewFactor(ctx, "example", nil, pulumi.Provider("google_otp"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Factor struct {
 	pulumi.CustomResourceState
 

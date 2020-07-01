@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to retrieve the collaborators for a given repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Example App"
+// 		_, err := app.GetApp(ctx, &app.GetAppArgs{
+// 			Label: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetApp(ctx *pulumi.Context, args *GetAppArgs, opts ...pulumi.InvokeOption) (*GetAppResult, error) {
 	var rv GetAppResult
 	err := ctx.Invoke("okta:app/getApp:getApp", args, &rv, opts...)

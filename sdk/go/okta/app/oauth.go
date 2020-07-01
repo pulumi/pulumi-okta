@@ -13,6 +13,39 @@ import (
 // Creates an OIDC Application.
 //
 // This resource allows you to create and configure an OIDC Application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+// 			GrantTypes: pulumi.StringArray{
+// 				pulumi.String("authorization_code"),
+// 			},
+// 			Label: pulumi.String("example"),
+// 			RedirectUris: pulumi.StringArray{
+// 				pulumi.String("https://example.com/"),
+// 			},
+// 			ResponseTypes: pulumi.StringArray{
+// 				pulumi.String("code"),
+// 			},
+// 			Type: pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type OAuth struct {
 	pulumi.CustomResourceState
 

@@ -34,7 +34,6 @@ namespace Pulumi.Okta.Group
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

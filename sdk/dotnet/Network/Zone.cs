@@ -16,8 +16,6 @@ namespace Pulumi.Okta.Network
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;

@@ -13,6 +13,32 @@ import (
 // Manages a User Base Schema property.
 //
 // This resource allows you to configure a base user schema property.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.NewBaseSchema(ctx, "example", &user.BaseSchemaArgs{
+// 			Index:  pulumi.String("customPropertyName"),
+// 			Master: pulumi.String("OKTA"),
+// 			Title:  pulumi.String("customPropertyName"),
+// 			Type:   pulumi.String("string"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BaseSchema struct {
 	pulumi.CustomResourceState
 
