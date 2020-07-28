@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetUserResult:
     """
@@ -232,6 +233,8 @@ class GetUserResult:
         """
         user profile property.
         """
+
+
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -276,7 +279,8 @@ class AwaitableGetUserResult(GetUserResult):
             user_type=self.user_type,
             zip_code=self.zip_code)
 
-def get_user(searches=None,opts=None):
+
+def get_user(searches=None, opts=None):
     """
     Use this data source to retrieve a users from Okta.
 
@@ -308,13 +312,11 @@ def get_user(searches=None,opts=None):
       * `value` (`str`) - Value to compare with.
     """
     __args__ = dict()
-
-
     __args__['searches'] = searches
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:user/getUser:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(

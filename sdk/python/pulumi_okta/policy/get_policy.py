@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPolicyResult:
     """
@@ -31,6 +32,8 @@ class GetPolicyResult:
         """
         type of policy.
         """
+
+
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -41,7 +44,8 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             name=self.name,
             type=self.type)
 
-def get_policy(name=None,type=None,opts=None):
+
+def get_policy(name=None, type=None, opts=None):
     """
     Use this data source to retrieve a policy from Okta.
 
@@ -60,14 +64,12 @@ def get_policy(name=None,type=None,opts=None):
     :param str type: type of policy to retrieve.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['type'] = type
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:policy/getPolicy:getPolicy', __args__, opts=opts).value
 
     return AwaitableGetPolicyResult(

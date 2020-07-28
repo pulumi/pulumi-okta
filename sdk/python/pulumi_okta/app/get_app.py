@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetAppResult:
     """
@@ -49,6 +50,8 @@ class GetAppResult:
         """
         `status` of application.
         """
+
+
 class AwaitableGetAppResult(GetAppResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -63,7 +66,8 @@ class AwaitableGetAppResult(GetAppResult):
             name=self.name,
             status=self.status)
 
-def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
+
+def get_app(active_only=None, id=None, label=None, label_prefix=None, opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
@@ -83,8 +87,6 @@ def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
     """
     __args__ = dict()
-
-
     __args__['activeOnly'] = active_only
     __args__['id'] = id
     __args__['label'] = label
@@ -92,7 +94,7 @@ def get_app(active_only=None,id=None,label=None,label_prefix=None,opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:app/getApp:getApp', __args__, opts=opts).value
 
     return AwaitableGetAppResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetUserProfileMappingSourceResult:
     """
@@ -31,6 +32,8 @@ class GetUserProfileMappingSourceResult:
         """
         type of source.
         """
+
+
 class AwaitableGetUserProfileMappingSourceResult(GetUserProfileMappingSourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -40,6 +43,7 @@ class AwaitableGetUserProfileMappingSourceResult(GetUserProfileMappingSourceResu
             id=self.id,
             name=self.name,
             type=self.type)
+
 
 def get_user_profile_mapping_source(opts=None):
     """
@@ -55,12 +59,10 @@ def get_user_profile_mapping_source(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:user/getUserProfileMappingSource:getUserProfileMappingSource', __args__, opts=opts).value
 
     return AwaitableGetUserProfileMappingSourceResult(

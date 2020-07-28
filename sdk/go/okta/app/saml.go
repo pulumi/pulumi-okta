@@ -46,7 +46,7 @@ import (
 // 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
 // 			SsoUrl:                pulumi.String("http://example.com"),
 // 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-// 			SubjectNameIdTemplate: pulumi.String(user.UserName),
+// 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -5,8 +5,8 @@ go 1.14
 require (
 	github.com/articulate/terraform-provider-okta v1.0.1-0.20191121000300-cf25a358d866
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.5.2
-	github.com/pulumi/pulumi/sdk/v2 v2.5.1-0.20200630091945-bb358c4d2173
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.6.0
+	github.com/pulumi/pulumi/sdk/v2 v2.7.1
 )
 
 replace (

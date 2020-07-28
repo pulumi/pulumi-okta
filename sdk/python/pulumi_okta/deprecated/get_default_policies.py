@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetDefaultPoliciesResult:
     """
@@ -22,6 +23,8 @@ class GetDefaultPoliciesResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
+
+
 class AwaitableGetDefaultPoliciesResult(GetDefaultPoliciesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -31,18 +34,17 @@ class AwaitableGetDefaultPoliciesResult(GetDefaultPoliciesResult):
             id=self.id,
             type=self.type)
 
-def get_default_policies(type=None,opts=None):
+
+def get_default_policies(type=None, opts=None):
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-
-
     __args__['type'] = type
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:deprecated/getDefaultPolicies:getDefaultPolicies', __args__, opts=opts).value
 
     return AwaitableGetDefaultPoliciesResult(

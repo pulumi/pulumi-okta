@@ -28,7 +28,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := idp.NewSamlKey(ctx, "example", &idp.SamlKeyArgs{
 // 			X5cs: pulumi.StringArray{
-// 				pulumi.String(okta_app_saml.Example.Certificate),
+// 				pulumi.Any(okta_app_saml.Example.Certificate),
 // 			},
 // 		})
 // 		if err != nil {
