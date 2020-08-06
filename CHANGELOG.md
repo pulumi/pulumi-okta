@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to Pulumi SDK v2.7.1
-* Upgrade to pulumi-terraform-bridge v2.6.0
+_(none)_
 
 ---
+
+## 2.2.0 (2020-08-06)
+* Upgrade to Pulumi SDK v2.7.1
+* Upgrade to pulumi-terraform-bridge v2.6.0
 
 ## 2.1.3 (2020-06-11)
 * Switch to GitHub actions for build
