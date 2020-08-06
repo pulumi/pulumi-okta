@@ -30,7 +30,7 @@ import (
 // 			AcsBinding:             pulumi.String("HTTP-POST"),
 // 			AcsType:                pulumi.String("INSTANCE"),
 // 			Issuer:                 pulumi.String("https://idp.example.com"),
-// 			Kid:                    pulumi.String(okta_idp_saml_key.Test.Id),
+// 			Kid:                    pulumi.Any(okta_idp_saml_key.Test.Id),
 // 			RequestSignatureScope:  pulumi.String("REQUEST"),
 // 			ResponseSignatureScope: pulumi.String("ANY"),
 // 			SsoBinding:             pulumi.String("HTTP-POST"),

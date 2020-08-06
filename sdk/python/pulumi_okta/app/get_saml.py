@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSamlResult:
     """
@@ -223,6 +224,8 @@ class GetSamlResult:
         """
         Username template type.
         """
+
+
 class AwaitableGetSamlResult(GetSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -266,7 +269,8 @@ class AwaitableGetSamlResult(GetSamlResult):
             user_name_template_suffix=self.user_name_template_suffix,
             user_name_template_type=self.user_name_template_type)
 
-def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_url=None,accessibility_self_service=None,active_only=None,app_settings_json=None,assertion_signed=None,attribute_statements=None,audience=None,authn_context_class_ref=None,auto_submit_toolbar=None,default_relay_state=None,destination=None,digest_algorithm=None,features=None,hide_ios=None,hide_web=None,honor_force_authn=None,id=None,idp_issuer=None,label=None,label_prefix=None,recipient=None,request_compressed=None,response_signed=None,signature_algorithm=None,sp_issuer=None,sso_url=None,subject_name_id_format=None,subject_name_id_template=None,user_name_template=None,user_name_template_suffix=None,user_name_template_type=None,opts=None):
+
+def get_saml(accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, label=None, label_prefix=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
@@ -323,8 +327,6 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
       * `values` (`list`)
     """
     __args__ = dict()
-
-
     __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url
     __args__['accessibilityLoginRedirectUrl'] = accessibility_login_redirect_url
     __args__['accessibilitySelfService'] = accessibility_self_service
@@ -360,7 +362,7 @@ def get_saml(accessibility_error_redirect_url=None,accessibility_login_redirect_
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:app/getSaml:getSaml', __args__, opts=opts).value
 
     return AwaitableGetSamlResult(

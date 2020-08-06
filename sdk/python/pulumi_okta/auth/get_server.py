@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetServerResult:
     """
@@ -67,6 +68,8 @@ class GetServerResult:
         """
         the activation status of the authorization server.
         """
+
+
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -83,7 +86,8 @@ class AwaitableGetServerResult(GetServerResult):
             name=self.name,
             status=self.status)
 
-def get_server(name=None,opts=None):
+
+def get_server(name=None, opts=None):
     """
     Use this data source to retrieve an auth server from Okta.
 
@@ -100,13 +104,11 @@ def get_server(name=None,opts=None):
     :param str name: The name of the auth server to retrieve.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:auth/getServer:getServer', __args__, opts=opts).value
 
     return AwaitableGetServerResult(

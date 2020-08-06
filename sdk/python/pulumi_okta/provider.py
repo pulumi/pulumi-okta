@@ -7,7 +7,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class Provider(pulumi.ProviderResource):
@@ -41,24 +41,24 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
             if api_token is None:
-                api_token = utilities.get_env('OKTA_API_TOKEN')
+                api_token = _utilities.get_env('OKTA_API_TOKEN')
             __props__['api_token'] = api_token
             __props__['backoff'] = pulumi.Output.from_input(backoff).apply(json.dumps) if backoff is not None else None
             if base_url is None:
-                base_url = utilities.get_env('OKTA_BASE_URL')
+                base_url = _utilities.get_env('OKTA_BASE_URL')
             __props__['base_url'] = base_url
             __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(json.dumps) if max_retries is not None else None
             __props__['max_wait_seconds'] = pulumi.Output.from_input(max_wait_seconds).apply(json.dumps) if max_wait_seconds is not None else None
             __props__['min_wait_seconds'] = pulumi.Output.from_input(min_wait_seconds).apply(json.dumps) if min_wait_seconds is not None else None
             if org_name is None:
-                org_name = utilities.get_env('OKTA_ORG_NAME')
+                org_name = _utilities.get_env('OKTA_ORG_NAME')
             __props__['org_name'] = org_name
             __props__['parallelism'] = pulumi.Output.from_input(parallelism).apply(json.dumps) if parallelism is not None else None
         super(Provider, __self__).__init__(
@@ -68,7 +68,7 @@ class Provider(pulumi.ProviderResource):
             opts)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

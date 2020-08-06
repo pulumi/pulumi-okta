@@ -6,11 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 __config__ = pulumi.Config('okta')
 
-api_token = __config__.get('apiToken') or utilities.get_env('OKTA_API_TOKEN')
+api_token = __config__.get('apiToken') or _utilities.get_env('OKTA_API_TOKEN')
 """
 API Token granting privileges to Okta API.
 """
@@ -20,7 +20,7 @@ backoff = __config__.get('backoff')
 Use exponential back off strategy for rate limits.
 """
 
-base_url = __config__.get('baseUrl') or utilities.get_env('OKTA_BASE_URL')
+base_url = __config__.get('baseUrl') or _utilities.get_env('OKTA_BASE_URL')
 """
 The Okta url. (Use 'oktapreview.com' for Okta testing)
 """
@@ -40,7 +40,7 @@ min_wait_seconds = __config__.get('minWaitSeconds')
 minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
 """
 
-org_name = __config__.get('orgName') or utilities.get_env('OKTA_ORG_NAME')
+org_name = __config__.get('orgName') or _utilities.get_env('OKTA_ORG_NAME')
 """
 The organization to manage in Okta.
 """

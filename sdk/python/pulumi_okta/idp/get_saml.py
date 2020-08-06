@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSamlResult:
     """
@@ -97,6 +98,8 @@ class GetSamlResult:
         """
         type of idp.
         """
+
+
 class AwaitableGetSamlResult(GetSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -118,7 +121,8 @@ class AwaitableGetSamlResult(GetSamlResult):
             subject_formats=self.subject_formats,
             type=self.type)
 
-def get_saml(id=None,name=None,opts=None):
+
+def get_saml(id=None, name=None, opts=None):
     """
     Use this data source to retrieve a SAML IdP from Okta.
 
@@ -136,14 +140,12 @@ def get_saml(id=None,name=None,opts=None):
     :param str name: The name of the idp to retrieve, conflicts with `id`.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:idp/getSaml:getSaml', __args__, opts=opts).value
 
     return AwaitableGetSamlResult(

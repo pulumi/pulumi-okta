@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetMetadataSamlResult:
     """
@@ -61,6 +62,8 @@ class GetMetadataSamlResult:
         """
         Whether authn requests are signed.
         """
+
+
 class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -77,7 +80,8 @@ class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
             metadata=self.metadata,
             want_authn_requests_signed=self.want_authn_requests_signed)
 
-def get_metadata_saml(app_id=None,key_id=None,opts=None):
+
+def get_metadata_saml(app_id=None, key_id=None, opts=None):
     """
     Use this data source to retrieve the collaborators for a given repository.
 
@@ -96,14 +100,12 @@ def get_metadata_saml(app_id=None,key_id=None,opts=None):
     :param str key_id: Certificate Key ID.
     """
     __args__ = dict()
-
-
     __args__['appId'] = app_id
     __args__['keyId'] = key_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:app/getMetadataSaml:getMetadataSaml', __args__, opts=opts).value
 
     return AwaitableGetMetadataSamlResult(

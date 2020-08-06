@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetMetadataSamlResult:
     """
@@ -70,6 +71,8 @@ class GetMetadataSamlResult:
         """
         SAML request signing certificate.
         """
+
+
 class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -87,7 +90,8 @@ class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
             metadata=self.metadata,
             signing_certificate=self.signing_certificate)
 
-def get_metadata_saml(idp_id=None,opts=None):
+
+def get_metadata_saml(idp_id=None, opts=None):
     """
     Use this data source to retrieve SAML IdP metadata from Okta.
 
@@ -104,13 +108,11 @@ def get_metadata_saml(idp_id=None,opts=None):
     :param str idp_id: The id of the IdP to retrieve metadata for.
     """
     __args__ = dict()
-
-
     __args__['idpId'] = idp_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:idp/getMetadataSaml:getMetadataSaml', __args__, opts=opts).value
 
     return AwaitableGetMetadataSamlResult(

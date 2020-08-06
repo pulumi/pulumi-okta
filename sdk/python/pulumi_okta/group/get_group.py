@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetGroupResult:
     """
@@ -40,6 +41,8 @@ class GetGroupResult:
         """
         user ids that are members of this group, only included if `include_users` is set to `true`.
         """
+
+
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,7 +55,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             name=self.name,
             users=self.users)
 
-def get_group(include_users=None,name=None,opts=None):
+
+def get_group(include_users=None, name=None, opts=None):
     """
     Use this data source to retrieve a group from Okta.
 
@@ -70,14 +74,12 @@ def get_group(include_users=None,name=None,opts=None):
     :param str name: name of group to retrieve.
     """
     __args__ = dict()
-
-
     __args__['includeUsers'] = include_users
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('okta:group/getGroup:getGroup', __args__, opts=opts).value
 
     return AwaitableGetGroupResult(
