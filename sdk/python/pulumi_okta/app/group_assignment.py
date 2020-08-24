@@ -5,25 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['GroupAssignment']
 
 
 class GroupAssignment(pulumi.CustomResource):
-    app_id: pulumi.Output[str]
-    """
-    The ID of the application to assign a group to.
-    """
-    group_id: pulumi.Output[str]
-    """
-    The ID of the group to assign the app to.
-    """
-    priority: pulumi.Output[float]
-    profile: pulumi.Output[str]
-    """
-    JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-    """
-    def __init__(__self__, resource_name, opts=None, app_id=None, group_id=None, priority=None, profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Assigns a group to an application.
 
@@ -89,13 +87,19 @@ class GroupAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_id=None, group_id=None, priority=None, profile=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: Optional[pulumi.Input[str]] = None,
+            group_id: Optional[pulumi.Input[str]] = None,
+            priority: Optional[pulumi.Input[float]] = None,
+            profile: Optional[pulumi.Input[str]] = None) -> 'GroupAssignment':
         """
         Get an existing GroupAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
@@ -111,8 +115,38 @@ class GroupAssignment(pulumi.CustomResource):
         __props__["profile"] = profile
         return GroupAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        The ID of the application to assign a group to.
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the group to assign the app to.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        return pulumi.get(self, "profile")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

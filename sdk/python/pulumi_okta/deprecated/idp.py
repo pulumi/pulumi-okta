@@ -5,67 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Idp']
 
 
 class Idp(pulumi.CustomResource):
-    account_link_action: pulumi.Output[str]
-    account_link_group_includes: pulumi.Output[list]
-    acs_binding: pulumi.Output[str]
-    acs_type: pulumi.Output[str]
-    authorization_binding: pulumi.Output[str]
-    authorization_url: pulumi.Output[str]
-    client_id: pulumi.Output[str]
-    client_secret: pulumi.Output[str]
-    deprovisioned_action: pulumi.Output[str]
-    groups_action: pulumi.Output[str]
-    groups_assignments: pulumi.Output[list]
-    groups_attribute: pulumi.Output[str]
-    groups_filters: pulumi.Output[list]
-    issuer_mode: pulumi.Output[str]
-    """
-    Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-    """
-    issuer_url: pulumi.Output[str]
-    jwks_binding: pulumi.Output[str]
-    jwks_url: pulumi.Output[str]
-    max_clock_skew: pulumi.Output[float]
-    name: pulumi.Output[str]
-    """
-    name of idp
-    """
-    profile_master: pulumi.Output[bool]
-    protocol_type: pulumi.Output[str]
-    provisioning_action: pulumi.Output[str]
-    request_signature_algorithm: pulumi.Output[str]
-    """
-    algorithm to use to sign requests
-    """
-    request_signature_scope: pulumi.Output[str]
-    """
-    algorithm to use to sign response
-    """
-    response_signature_algorithm: pulumi.Output[str]
-    """
-    algorithm to use to sign requests
-    """
-    response_signature_scope: pulumi.Output[str]
-    """
-    algorithm to use to sign response
-    """
-    scopes: pulumi.Output[list]
-    status: pulumi.Output[str]
-    subject_match_attribute: pulumi.Output[str]
-    subject_match_type: pulumi.Output[str]
-    suspended_action: pulumi.Output[str]
-    token_binding: pulumi.Output[str]
-    token_url: pulumi.Output[str]
-    type: pulumi.Output[str]
-    user_info_binding: pulumi.Output[str]
-    user_info_url: pulumi.Output[str]
-    username_template: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, account_link_action=None, account_link_group_includes=None, acs_binding=None, acs_type=None, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, deprovisioned_action=None, groups_action=None, groups_assignments=None, groups_attribute=None, groups_filters=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, profile_master=None, protocol_type=None, provisioning_action=None, request_signature_algorithm=None, request_signature_scope=None, response_signature_algorithm=None, response_signature_scope=None, scopes=None, status=None, subject_match_attribute=None, subject_match_type=None, suspended_action=None, token_binding=None, token_url=None, user_info_binding=None, user_info_url=None, username_template=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_link_action: Optional[pulumi.Input[str]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 acs_binding: Optional[pulumi.Input[str]] = None,
+                 acs_type: Optional[pulumi.Input[str]] = None,
+                 authorization_binding: Optional[pulumi.Input[str]] = None,
+                 authorization_url: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 deprovisioned_action: Optional[pulumi.Input[str]] = None,
+                 groups_action: Optional[pulumi.Input[str]] = None,
+                 groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_attribute: Optional[pulumi.Input[str]] = None,
+                 groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 issuer_url: Optional[pulumi.Input[str]] = None,
+                 jwks_binding: Optional[pulumi.Input[str]] = None,
+                 jwks_url: Optional[pulumi.Input[str]] = None,
+                 max_clock_skew: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_master: Optional[pulumi.Input[bool]] = None,
+                 protocol_type: Optional[pulumi.Input[str]] = None,
+                 provisioning_action: Optional[pulumi.Input[str]] = None,
+                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 request_signature_scope: Optional[pulumi.Input[str]] = None,
+                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 response_signature_scope: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 subject_match_attribute: Optional[pulumi.Input[str]] = None,
+                 subject_match_type: Optional[pulumi.Input[str]] = None,
+                 suspended_action: Optional[pulumi.Input[str]] = None,
+                 token_binding: Optional[pulumi.Input[str]] = None,
+                 token_url: Optional[pulumi.Input[str]] = None,
+                 user_info_binding: Optional[pulumi.Input[str]] = None,
+                 user_info_url: Optional[pulumi.Input[str]] = None,
+                 username_template: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Idp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -160,13 +148,52 @@ class Idp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_link_action=None, account_link_group_includes=None, acs_binding=None, acs_type=None, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, deprovisioned_action=None, groups_action=None, groups_assignments=None, groups_attribute=None, groups_filters=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, profile_master=None, protocol_type=None, provisioning_action=None, request_signature_algorithm=None, request_signature_scope=None, response_signature_algorithm=None, response_signature_scope=None, scopes=None, status=None, subject_match_attribute=None, subject_match_type=None, suspended_action=None, token_binding=None, token_url=None, type=None, user_info_binding=None, user_info_url=None, username_template=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_link_action: Optional[pulumi.Input[str]] = None,
+            account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            acs_binding: Optional[pulumi.Input[str]] = None,
+            acs_type: Optional[pulumi.Input[str]] = None,
+            authorization_binding: Optional[pulumi.Input[str]] = None,
+            authorization_url: Optional[pulumi.Input[str]] = None,
+            client_id: Optional[pulumi.Input[str]] = None,
+            client_secret: Optional[pulumi.Input[str]] = None,
+            deprovisioned_action: Optional[pulumi.Input[str]] = None,
+            groups_action: Optional[pulumi.Input[str]] = None,
+            groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_attribute: Optional[pulumi.Input[str]] = None,
+            groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            issuer_mode: Optional[pulumi.Input[str]] = None,
+            issuer_url: Optional[pulumi.Input[str]] = None,
+            jwks_binding: Optional[pulumi.Input[str]] = None,
+            jwks_url: Optional[pulumi.Input[str]] = None,
+            max_clock_skew: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            profile_master: Optional[pulumi.Input[bool]] = None,
+            protocol_type: Optional[pulumi.Input[str]] = None,
+            provisioning_action: Optional[pulumi.Input[str]] = None,
+            request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+            request_signature_scope: Optional[pulumi.Input[str]] = None,
+            response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+            response_signature_scope: Optional[pulumi.Input[str]] = None,
+            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            subject_match_attribute: Optional[pulumi.Input[str]] = None,
+            subject_match_type: Optional[pulumi.Input[str]] = None,
+            suspended_action: Optional[pulumi.Input[str]] = None,
+            token_binding: Optional[pulumi.Input[str]] = None,
+            token_url: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            user_info_binding: Optional[pulumi.Input[str]] = None,
+            user_info_url: Optional[pulumi.Input[str]] = None,
+            username_template: Optional[pulumi.Input[str]] = None) -> 'Idp':
         """
         Get an existing Idp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: name of idp
@@ -218,8 +245,212 @@ class Idp(pulumi.CustomResource):
         __props__["username_template"] = username_template
         return Idp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountLinkAction")
+    def account_link_action(self) -> Optional[str]:
+        return pulumi.get(self, "account_link_action")
+
+    @property
+    @pulumi.getter(name="accountLinkGroupIncludes")
+    def account_link_group_includes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "account_link_group_includes")
+
+    @property
+    @pulumi.getter(name="acsBinding")
+    def acs_binding(self) -> str:
+        return pulumi.get(self, "acs_binding")
+
+    @property
+    @pulumi.getter(name="acsType")
+    def acs_type(self) -> Optional[str]:
+        return pulumi.get(self, "acs_type")
+
+    @property
+    @pulumi.getter(name="authorizationBinding")
+    def authorization_binding(self) -> str:
+        return pulumi.get(self, "authorization_binding")
+
+    @property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> str:
+        return pulumi.get(self, "authorization_url")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="deprovisionedAction")
+    def deprovisioned_action(self) -> Optional[str]:
+        return pulumi.get(self, "deprovisioned_action")
+
+    @property
+    @pulumi.getter(name="groupsAction")
+    def groups_action(self) -> Optional[str]:
+        return pulumi.get(self, "groups_action")
+
+    @property
+    @pulumi.getter(name="groupsAssignments")
+    def groups_assignments(self) -> Optional[List[str]]:
+        return pulumi.get(self, "groups_assignments")
+
+    @property
+    @pulumi.getter(name="groupsAttribute")
+    def groups_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "groups_attribute")
+
+    @property
+    @pulumi.getter(name="groupsFilters")
+    def groups_filters(self) -> Optional[List[str]]:
+        return pulumi.get(self, "groups_filters")
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[str]:
+        """
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> str:
+        return pulumi.get(self, "issuer_url")
+
+    @property
+    @pulumi.getter(name="jwksBinding")
+    def jwks_binding(self) -> str:
+        return pulumi.get(self, "jwks_binding")
+
+    @property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> str:
+        return pulumi.get(self, "jwks_url")
+
+    @property
+    @pulumi.getter(name="maxClockSkew")
+    def max_clock_skew(self) -> Optional[float]:
+        return pulumi.get(self, "max_clock_skew")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        name of idp
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileMaster")
+    def profile_master(self) -> Optional[bool]:
+        return pulumi.get(self, "profile_master")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[str]:
+        return pulumi.get(self, "protocol_type")
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_action")
+
+    @property
+    @pulumi.getter(name="requestSignatureAlgorithm")
+    def request_signature_algorithm(self) -> Optional[str]:
+        """
+        algorithm to use to sign requests
+        """
+        return pulumi.get(self, "request_signature_algorithm")
+
+    @property
+    @pulumi.getter(name="requestSignatureScope")
+    def request_signature_scope(self) -> Optional[str]:
+        """
+        algorithm to use to sign response
+        """
+        return pulumi.get(self, "request_signature_scope")
+
+    @property
+    @pulumi.getter(name="responseSignatureAlgorithm")
+    def response_signature_algorithm(self) -> Optional[str]:
+        """
+        algorithm to use to sign requests
+        """
+        return pulumi.get(self, "response_signature_algorithm")
+
+    @property
+    @pulumi.getter(name="responseSignatureScope")
+    def response_signature_scope(self) -> Optional[str]:
+        """
+        algorithm to use to sign response
+        """
+        return pulumi.get(self, "response_signature_scope")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subjectMatchAttribute")
+    def subject_match_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "subject_match_attribute")
+
+    @property
+    @pulumi.getter(name="subjectMatchType")
+    def subject_match_type(self) -> Optional[str]:
+        return pulumi.get(self, "subject_match_type")
+
+    @property
+    @pulumi.getter(name="suspendedAction")
+    def suspended_action(self) -> Optional[str]:
+        return pulumi.get(self, "suspended_action")
+
+    @property
+    @pulumi.getter(name="tokenBinding")
+    def token_binding(self) -> str:
+        return pulumi.get(self, "token_binding")
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> str:
+        return pulumi.get(self, "token_url")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userInfoBinding")
+    def user_info_binding(self) -> Optional[str]:
+        return pulumi.get(self, "user_info_binding")
+
+    @property
+    @pulumi.getter(name="userInfoUrl")
+    def user_info_url(self) -> Optional[str]:
+        return pulumi.get(self, "user_info_url")
+
+    @property
+    @pulumi.getter(name="usernameTemplate")
+    def username_template(self) -> Optional[str]:
+        return pulumi.get(self, "username_template")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

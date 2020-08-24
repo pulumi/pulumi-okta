@@ -5,123 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Mfa']
 
 
 class Mfa(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    Policy Description.
-    """
-    duo: pulumi.Output[dict]
-    """
-    DUO MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    fido_u2f: pulumi.Output[dict]
-    """
-    Fido U2F MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    fido_webauthn: pulumi.Output[dict]
-    """
-    Fido Web Authn MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    google_otp: pulumi.Output[dict]
-    """
-    Google OTP MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    groups_includeds: pulumi.Output[list]
-    """
-    List of Group IDs to Include.
-    """
-    name: pulumi.Output[str]
-    """
-    Policy Name.
-    """
-    okta_call: pulumi.Output[dict]
-    """
-    Okta Call MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    okta_otp: pulumi.Output[dict]
-    """
-    Okta OTP MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    okta_password: pulumi.Output[dict]
-    """
-    Okta Password MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    okta_push: pulumi.Output[dict]
-    """
-    Okta Push MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    okta_question: pulumi.Output[dict]
-    """
-    Okta Question MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    okta_sms: pulumi.Output[dict]
-    """
-    Okta SMS MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    priority: pulumi.Output[float]
-    """
-    Priority of the policy.
-    """
-    rsa_token: pulumi.Output[dict]
-    """
-    RSA Token MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    status: pulumi.Output[str]
-    """
-    Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-    """
-    symantec_vip: pulumi.Output[dict]
-    """
-    Symantec VIP MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    yubikey_token: pulumi.Output[dict]
-    """
-    Yubikey Token MFA policy settings.
-
-      * `consent_type` (`str`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-      * `enroll` (`str`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, duo=None, fido_u2f=None, fido_webauthn=None, google_otp=None, groups_includeds=None, name=None, okta_call=None, okta_otp=None, okta_password=None, okta_push=None, okta_question=None, okta_sms=None, priority=None, rsa_token=None, status=None, symantec_vip=None, yubikey_token=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 duo: Optional[pulumi.Input[pulumi.InputType['MfaDuoArgs']]] = None,
+                 fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']]] = None,
+                 fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']]] = None,
+                 google_otp: Optional[pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']]] = None,
+                 groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 okta_call: Optional[pulumi.Input[pulumi.InputType['MfaOktaCallArgs']]] = None,
+                 okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']]] = None,
+                 okta_password: Optional[pulumi.Input[pulumi.InputType['MfaOktaPasswordArgs']]] = None,
+                 okta_push: Optional[pulumi.Input[pulumi.InputType['MfaOktaPushArgs']]] = None,
+                 okta_question: Optional[pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']]] = None,
+                 okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']]] = None,
+                 yubikey_token: Optional[pulumi.Input[pulumi.InputType['MfaYubikeyTokenArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an MFA Policy.
 
@@ -136,97 +52,32 @@ class Mfa(pulumi.CustomResource):
         example = okta.policy.Mfa("example",
             description="Example",
             groups_includeds=[data["okta_group"]["everyone"]["id"]],
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
+            okta_otp=okta.policy.MfaOktaOtpArgs(
+                enroll="REQUIRED",
+            ),
             status="ACTIVE")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[dict] duo: DUO MFA policy settings.
-        :param pulumi.Input[dict] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[dict] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[dict] google_otp: Google OTP MFA policy settings.
-        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[pulumi.InputType['MfaDuoArgs']] duo: DUO MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']] fido_u2f: Fido U2F MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']] fido_webauthn: Fido Web Authn MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[dict] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[dict] okta_otp: Okta OTP MFA policy settings.
-        :param pulumi.Input[dict] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[dict] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[dict] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[dict] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaCallArgs']] okta_call: Okta Call MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaPasswordArgs']] okta_password: Okta Password MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaPushArgs']] okta_push: Okta Push MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']] okta_question: Okta Question MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']] okta_sms: Okta SMS MFA policy settings.
         :param pulumi.Input[float] priority: Priority of the policy.
-        :param pulumi.Input[dict] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']] rsa_token: RSA Token MFA policy settings.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[dict] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[dict] yubikey_token: Yubikey Token MFA policy settings.
-
-        The **duo** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **fido_u2f** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **fido_webauthn** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **google_otp** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_call** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_otp** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_password** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_push** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_question** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_sms** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **rsa_token** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **symantec_vip** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **yubikey_token** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
+        :param pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']] symantec_vip: Symantec VIP MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaYubikeyTokenArgs']] yubikey_token: Yubikey Token MFA policy settings.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -270,97 +121,52 @@ class Mfa(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, duo=None, fido_u2f=None, fido_webauthn=None, google_otp=None, groups_includeds=None, name=None, okta_call=None, okta_otp=None, okta_password=None, okta_push=None, okta_question=None, okta_sms=None, priority=None, rsa_token=None, status=None, symantec_vip=None, yubikey_token=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            duo: Optional[pulumi.Input[pulumi.InputType['MfaDuoArgs']]] = None,
+            fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']]] = None,
+            fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']]] = None,
+            google_otp: Optional[pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']]] = None,
+            groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            okta_call: Optional[pulumi.Input[pulumi.InputType['MfaOktaCallArgs']]] = None,
+            okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']]] = None,
+            okta_password: Optional[pulumi.Input[pulumi.InputType['MfaOktaPasswordArgs']]] = None,
+            okta_push: Optional[pulumi.Input[pulumi.InputType['MfaOktaPushArgs']]] = None,
+            okta_question: Optional[pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']]] = None,
+            okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']]] = None,
+            priority: Optional[pulumi.Input[float]] = None,
+            rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']]] = None,
+            yubikey_token: Optional[pulumi.Input[pulumi.InputType['MfaYubikeyTokenArgs']]] = None) -> 'Mfa':
         """
         Get an existing Mfa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[dict] duo: DUO MFA policy settings.
-        :param pulumi.Input[dict] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[dict] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[dict] google_otp: Google OTP MFA policy settings.
-        :param pulumi.Input[list] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[pulumi.InputType['MfaDuoArgs']] duo: DUO MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']] fido_u2f: Fido U2F MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']] fido_webauthn: Fido Web Authn MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[dict] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[dict] okta_otp: Okta OTP MFA policy settings.
-        :param pulumi.Input[dict] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[dict] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[dict] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[dict] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaCallArgs']] okta_call: Okta Call MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaPasswordArgs']] okta_password: Okta Password MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaPushArgs']] okta_push: Okta Push MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']] okta_question: Okta Question MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']] okta_sms: Okta SMS MFA policy settings.
         :param pulumi.Input[float] priority: Priority of the policy.
-        :param pulumi.Input[dict] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']] rsa_token: RSA Token MFA policy settings.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[dict] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[dict] yubikey_token: Yubikey Token MFA policy settings.
-
-        The **duo** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **fido_u2f** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **fido_webauthn** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **google_otp** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_call** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_otp** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_password** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_push** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_question** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **okta_sms** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **rsa_token** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **symantec_vip** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-
-        The **yubikey_token** object supports the following:
-
-          * `consent_type` (`pulumi.Input[str]`) - User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-          * `enroll` (`pulumi.Input[str]`) - Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
+        :param pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']] symantec_vip: Symantec VIP MFA policy settings.
+        :param pulumi.Input[pulumi.InputType['MfaYubikeyTokenArgs']] yubikey_token: Yubikey Token MFA policy settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -386,8 +192,153 @@ class Mfa(pulumi.CustomResource):
         __props__["yubikey_token"] = yubikey_token
         return Mfa(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Policy Description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def duo(self) -> Optional['outputs.MfaDuo']:
+        """
+        DUO MFA policy settings.
+        """
+        return pulumi.get(self, "duo")
+
+    @property
+    @pulumi.getter(name="fidoU2f")
+    def fido_u2f(self) -> Optional['outputs.MfaFidoU2f']:
+        """
+        Fido U2F MFA policy settings.
+        """
+        return pulumi.get(self, "fido_u2f")
+
+    @property
+    @pulumi.getter(name="fidoWebauthn")
+    def fido_webauthn(self) -> Optional['outputs.MfaFidoWebauthn']:
+        """
+        Fido Web Authn MFA policy settings.
+        """
+        return pulumi.get(self, "fido_webauthn")
+
+    @property
+    @pulumi.getter(name="googleOtp")
+    def google_otp(self) -> Optional['outputs.MfaGoogleOtp']:
+        """
+        Google OTP MFA policy settings.
+        """
+        return pulumi.get(self, "google_otp")
+
+    @property
+    @pulumi.getter(name="groupsIncludeds")
+    def groups_includeds(self) -> Optional[List[str]]:
+        """
+        List of Group IDs to Include.
+        """
+        return pulumi.get(self, "groups_includeds")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Policy Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="oktaCall")
+    def okta_call(self) -> Optional['outputs.MfaOktaCall']:
+        """
+        Okta Call MFA policy settings.
+        """
+        return pulumi.get(self, "okta_call")
+
+    @property
+    @pulumi.getter(name="oktaOtp")
+    def okta_otp(self) -> Optional['outputs.MfaOktaOtp']:
+        """
+        Okta OTP MFA policy settings.
+        """
+        return pulumi.get(self, "okta_otp")
+
+    @property
+    @pulumi.getter(name="oktaPassword")
+    def okta_password(self) -> Optional['outputs.MfaOktaPassword']:
+        """
+        Okta Password MFA policy settings.
+        """
+        return pulumi.get(self, "okta_password")
+
+    @property
+    @pulumi.getter(name="oktaPush")
+    def okta_push(self) -> Optional['outputs.MfaOktaPush']:
+        """
+        Okta Push MFA policy settings.
+        """
+        return pulumi.get(self, "okta_push")
+
+    @property
+    @pulumi.getter(name="oktaQuestion")
+    def okta_question(self) -> Optional['outputs.MfaOktaQuestion']:
+        """
+        Okta Question MFA policy settings.
+        """
+        return pulumi.get(self, "okta_question")
+
+    @property
+    @pulumi.getter(name="oktaSms")
+    def okta_sms(self) -> Optional['outputs.MfaOktaSms']:
+        """
+        Okta SMS MFA policy settings.
+        """
+        return pulumi.get(self, "okta_sms")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Priority of the policy.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="rsaToken")
+    def rsa_token(self) -> Optional['outputs.MfaRsaToken']:
+        """
+        RSA Token MFA policy settings.
+        """
+        return pulumi.get(self, "rsa_token")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="symantecVip")
+    def symantec_vip(self) -> Optional['outputs.MfaSymantecVip']:
+        """
+        Symantec VIP MFA policy settings.
+        """
+        return pulumi.get(self, "symantec_vip")
+
+    @property
+    @pulumi.getter(name="yubikeyToken")
+    def yubikey_token(self) -> Optional['outputs.MfaYubikeyToken']:
+        """
+        Yubikey Token MFA policy settings.
+        """
+        return pulumi.get(self, "yubikey_token")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

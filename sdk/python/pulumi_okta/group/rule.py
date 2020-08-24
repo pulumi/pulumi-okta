@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Rule']
 
 
 class Rule(pulumi.CustomResource):
-    expression_type: pulumi.Output[str]
-    """
-    The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
-    """
-    expression_value: pulumi.Output[str]
-    """
-    The expression value.
-    """
-    group_assignments: pulumi.Output[list]
-    """
-    The list of group ids to assign the users to.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Group Rule.
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the group rule.
-    """
-    def __init__(__self__, resource_name, opts=None, expression_type=None, expression_value=None, group_assignments=None, name=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 expression_type: Optional[pulumi.Input[str]] = None,
+                 expression_value: Optional[pulumi.Input[str]] = None,
+                 group_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Okta Group Rule.
 
@@ -53,7 +45,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
-        :param pulumi.Input[list] group_assignments: The list of group ids to assign the users to.
+        :param pulumi.Input[List[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
         """
@@ -90,17 +82,24 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, expression_type=None, expression_value=None, group_assignments=None, name=None, status=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expression_type: Optional[pulumi.Input[str]] = None,
+            expression_value: Optional[pulumi.Input[str]] = None,
+            group_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
-        :param pulumi.Input[list] group_assignments: The list of group ids to assign the users to.
+        :param pulumi.Input[List[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
         """
@@ -115,8 +114,49 @@ class Rule(pulumi.CustomResource):
         __props__["status"] = status
         return Rule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="expressionType")
+    def expression_type(self) -> Optional[str]:
+        """
+        The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        """
+        return pulumi.get(self, "expression_type")
+
+    @property
+    @pulumi.getter(name="expressionValue")
+    def expression_value(self) -> str:
+        """
+        The expression value.
+        """
+        return pulumi.get(self, "expression_value")
+
+    @property
+    @pulumi.getter(name="groupAssignments")
+    def group_assignments(self) -> List[str]:
+        """
+        The list of group ids to assign the users to.
+        """
+        return pulumi.get(self, "group_assignments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Group Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the group rule.
+        """
+        return pulumi.get(self, "status")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

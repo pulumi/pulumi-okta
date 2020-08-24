@@ -12,3 +12,5 @@ from .rule_mfa import *
 from .rule_password import *
 from .rule_signon import *
 from .signon import *
+from ._inputs import *
+from . import outputs

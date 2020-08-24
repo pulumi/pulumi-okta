@@ -5,52 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    audiences: pulumi.Output[list]
-    """
-    The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
-    """
-    credentials_last_rotated: pulumi.Output[str]
-    """
-    The timestamp when the authorization server started to use the `kid` for signing tokens.
-    """
-    credentials_next_rotation: pulumi.Output[str]
-    """
-    The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
-    """
-    credentials_rotation_mode: pulumi.Output[str]
-    """
-    The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the authorization server.
-    """
-    issuer: pulumi.Output[str]
-    """
-    The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
-    """
-    issuer_mode: pulumi.Output[str]
-    """
-    Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
-    """
-    kid: pulumi.Output[str]
-    """
-    The ID of the JSON Web Key used for signing tokens issued by the authorization server.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the authorization server.
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the auth server. It defaults to `"ACTIVE"`
-    """
-    def __init__(__self__, resource_name, opts=None, audiences=None, credentials_rotation_mode=None, description=None, issuer_mode=None, name=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Authorization Server.
 
@@ -71,7 +44,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[List[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
@@ -114,15 +87,27 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, audiences=None, credentials_last_rotated=None, credentials_next_rotation=None, credentials_rotation_mode=None, description=None, issuer=None, issuer_mode=None, kid=None, name=None, status=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            credentials_last_rotated: Optional[pulumi.Input[str]] = None,
+            credentials_next_rotation: Optional[pulumi.Input[str]] = None,
+            credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            issuer: Optional[pulumi.Input[str]] = None,
+            issuer_mode: Optional[pulumi.Input[str]] = None,
+            kid: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[List[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
         :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
@@ -149,8 +134,89 @@ class Server(pulumi.CustomResource):
         __props__["status"] = status
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def audiences(self) -> List[str]:
+        """
+        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        """
+        return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter(name="credentialsLastRotated")
+    def credentials_last_rotated(self) -> str:
+        """
+        The timestamp when the authorization server started to use the `kid` for signing tokens.
+        """
+        return pulumi.get(self, "credentials_last_rotated")
+
+    @property
+    @pulumi.getter(name="credentialsNextRotation")
+    def credentials_next_rotation(self) -> str:
+        """
+        The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        """
+        return pulumi.get(self, "credentials_next_rotation")
+
+    @property
+    @pulumi.getter(name="credentialsRotationMode")
+    def credentials_rotation_mode(self) -> Optional[str]:
+        """
+        The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        """
+        return pulumi.get(self, "credentials_rotation_mode")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the authorization server.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[str]:
+        """
+        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
+        """
+        The ID of the JSON Web Key used for signing tokens issued by the authorization server.
+        """
+        return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the authorization server.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the auth server. It defaults to `"ACTIVE"`
+        """
+        return pulumi.get(self, "status")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

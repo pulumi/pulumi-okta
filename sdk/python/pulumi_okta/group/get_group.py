@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetGroupResult',
+    'AwaitableGetGroupResult',
+    'get_group',
+]
 
+@pulumi.output_type
 class GetGroupResult:
     """
     A collection of values returned by getGroup.
@@ -16,31 +22,56 @@ class GetGroupResult:
     def __init__(__self__, description=None, id=None, include_users=None, name=None, users=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if include_users and not isinstance(include_users, bool):
+            raise TypeError("Expected argument 'include_users' to be a bool")
+        pulumi.set(__self__, "include_users", include_users)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         description of group.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if include_users and not isinstance(include_users, bool):
-            raise TypeError("Expected argument 'include_users' to be a bool")
-        __self__.include_users = include_users
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeUsers")
+    def include_users(self) -> Optional[bool]:
+        return pulumi.get(self, "include_users")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         name of group.
         """
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        __self__.users = users
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def users(self) -> List[str]:
         """
         user ids that are members of this group, only included if `include_users` is set to `true`.
         """
+        return pulumi.get(self, "users")
 
 
 class AwaitableGetGroupResult(GetGroupResult):
@@ -56,7 +87,9 @@ class AwaitableGetGroupResult(GetGroupResult):
             users=self.users)
 
 
-def get_group(include_users=None, name=None, opts=None):
+def get_group(include_users: Optional[bool] = None,
+              name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to retrieve a group from Okta.
 
@@ -80,11 +113,11 @@ def get_group(include_users=None, name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:group/getGroup:getGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:group/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        include_users=__ret__.get('includeUsers'),
-        name=__ret__.get('name'),
-        users=__ret__.get('users'))
+        description=__ret__.description,
+        id=__ret__.id,
+        include_users=__ret__.include_users,
+        name=__ret__.name,
+        users=__ret__.users)

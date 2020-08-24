@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetUserResult',
+    'AwaitableGetUserResult',
+    'get_user',
+]
 
+@pulumi.output_type
 class GetUserResult:
     """
     A collection of values returned by getUser.
@@ -16,223 +24,408 @@ class GetUserResult:
     def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
-        __self__.admin_roles = admin_roles
+        pulumi.set(__self__, "admin_roles", admin_roles)
+        if city and not isinstance(city, str):
+            raise TypeError("Expected argument 'city' to be a str")
+        pulumi.set(__self__, "city", city)
+        if cost_center and not isinstance(cost_center, str):
+            raise TypeError("Expected argument 'cost_center' to be a str")
+        pulumi.set(__self__, "cost_center", cost_center)
+        if country_code and not isinstance(country_code, str):
+            raise TypeError("Expected argument 'country_code' to be a str")
+        pulumi.set(__self__, "country_code", country_code)
+        if custom_profile_attributes and not isinstance(custom_profile_attributes, str):
+            raise TypeError("Expected argument 'custom_profile_attributes' to be a str")
+        pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
+        if department and not isinstance(department, str):
+            raise TypeError("Expected argument 'department' to be a str")
+        pulumi.set(__self__, "department", department)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if division and not isinstance(division, str):
+            raise TypeError("Expected argument 'division' to be a str")
+        pulumi.set(__self__, "division", division)
+        if email and not isinstance(email, str):
+            raise TypeError("Expected argument 'email' to be a str")
+        pulumi.set(__self__, "email", email)
+        if employee_number and not isinstance(employee_number, str):
+            raise TypeError("Expected argument 'employee_number' to be a str")
+        pulumi.set(__self__, "employee_number", employee_number)
+        if first_name and not isinstance(first_name, str):
+            raise TypeError("Expected argument 'first_name' to be a str")
+        pulumi.set(__self__, "first_name", first_name)
+        if group_memberships and not isinstance(group_memberships, list):
+            raise TypeError("Expected argument 'group_memberships' to be a list")
+        pulumi.set(__self__, "group_memberships", group_memberships)
+        if honorific_prefix and not isinstance(honorific_prefix, str):
+            raise TypeError("Expected argument 'honorific_prefix' to be a str")
+        pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+        if honorific_suffix and not isinstance(honorific_suffix, str):
+            raise TypeError("Expected argument 'honorific_suffix' to be a str")
+        pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if last_name and not isinstance(last_name, str):
+            raise TypeError("Expected argument 'last_name' to be a str")
+        pulumi.set(__self__, "last_name", last_name)
+        if locale and not isinstance(locale, str):
+            raise TypeError("Expected argument 'locale' to be a str")
+        pulumi.set(__self__, "locale", locale)
+        if login and not isinstance(login, str):
+            raise TypeError("Expected argument 'login' to be a str")
+        pulumi.set(__self__, "login", login)
+        if manager and not isinstance(manager, str):
+            raise TypeError("Expected argument 'manager' to be a str")
+        pulumi.set(__self__, "manager", manager)
+        if manager_id and not isinstance(manager_id, str):
+            raise TypeError("Expected argument 'manager_id' to be a str")
+        pulumi.set(__self__, "manager_id", manager_id)
+        if middle_name and not isinstance(middle_name, str):
+            raise TypeError("Expected argument 'middle_name' to be a str")
+        pulumi.set(__self__, "middle_name", middle_name)
+        if mobile_phone and not isinstance(mobile_phone, str):
+            raise TypeError("Expected argument 'mobile_phone' to be a str")
+        pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if nick_name and not isinstance(nick_name, str):
+            raise TypeError("Expected argument 'nick_name' to be a str")
+        pulumi.set(__self__, "nick_name", nick_name)
+        if organization and not isinstance(organization, str):
+            raise TypeError("Expected argument 'organization' to be a str")
+        pulumi.set(__self__, "organization", organization)
+        if postal_address and not isinstance(postal_address, str):
+            raise TypeError("Expected argument 'postal_address' to be a str")
+        pulumi.set(__self__, "postal_address", postal_address)
+        if preferred_language and not isinstance(preferred_language, str):
+            raise TypeError("Expected argument 'preferred_language' to be a str")
+        pulumi.set(__self__, "preferred_language", preferred_language)
+        if primary_phone and not isinstance(primary_phone, str):
+            raise TypeError("Expected argument 'primary_phone' to be a str")
+        pulumi.set(__self__, "primary_phone", primary_phone)
+        if profile_url and not isinstance(profile_url, str):
+            raise TypeError("Expected argument 'profile_url' to be a str")
+        pulumi.set(__self__, "profile_url", profile_url)
+        if searches and not isinstance(searches, list):
+            raise TypeError("Expected argument 'searches' to be a list")
+        pulumi.set(__self__, "searches", searches)
+        if second_email and not isinstance(second_email, str):
+            raise TypeError("Expected argument 'second_email' to be a str")
+        pulumi.set(__self__, "second_email", second_email)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if street_address and not isinstance(street_address, str):
+            raise TypeError("Expected argument 'street_address' to be a str")
+        pulumi.set(__self__, "street_address", street_address)
+        if timezone and not isinstance(timezone, str):
+            raise TypeError("Expected argument 'timezone' to be a str")
+        pulumi.set(__self__, "timezone", timezone)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
+        if user_type and not isinstance(user_type, str):
+            raise TypeError("Expected argument 'user_type' to be a str")
+        pulumi.set(__self__, "user_type", user_type)
+        if zip_code and not isinstance(zip_code, str):
+            raise TypeError("Expected argument 'zip_code' to be a str")
+        pulumi.set(__self__, "zip_code", zip_code)
+
+    @property
+    @pulumi.getter(name="adminRoles")
+    def admin_roles(self) -> List[str]:
         """
         Administrator roles assigned to user.
         """
-        if city and not isinstance(city, str):
-            raise TypeError("Expected argument 'city' to be a str")
-        __self__.city = city
+        return pulumi.get(self, "admin_roles")
+
+    @property
+    @pulumi.getter
+    def city(self) -> str:
         """
         user profile property.
         """
-        if cost_center and not isinstance(cost_center, str):
-            raise TypeError("Expected argument 'cost_center' to be a str")
-        __self__.cost_center = cost_center
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="costCenter")
+    def cost_center(self) -> str:
         """
         user profile property.
         """
-        if country_code and not isinstance(country_code, str):
-            raise TypeError("Expected argument 'country_code' to be a str")
-        __self__.country_code = country_code
+        return pulumi.get(self, "cost_center")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
         """
         user profile property.
         """
-        if custom_profile_attributes and not isinstance(custom_profile_attributes, str):
-            raise TypeError("Expected argument 'custom_profile_attributes' to be a str")
-        __self__.custom_profile_attributes = custom_profile_attributes
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="customProfileAttributes")
+    def custom_profile_attributes(self) -> str:
         """
         raw JSON containing all custom profile attributes.
         """
-        if department and not isinstance(department, str):
-            raise TypeError("Expected argument 'department' to be a str")
-        __self__.department = department
+        return pulumi.get(self, "custom_profile_attributes")
+
+    @property
+    @pulumi.getter
+    def department(self) -> str:
         """
         user profile property.
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "department")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         user profile property.
         """
-        if division and not isinstance(division, str):
-            raise TypeError("Expected argument 'division' to be a str")
-        __self__.division = division
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def division(self) -> str:
         """
         user profile property.
         """
-        if email and not isinstance(email, str):
-            raise TypeError("Expected argument 'email' to be a str")
-        __self__.email = email
+        return pulumi.get(self, "division")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
         """
         user profile property.
         """
-        if employee_number and not isinstance(employee_number, str):
-            raise TypeError("Expected argument 'employee_number' to be a str")
-        __self__.employee_number = employee_number
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="employeeNumber")
+    def employee_number(self) -> str:
         """
         user profile property.
         """
-        if first_name and not isinstance(first_name, str):
-            raise TypeError("Expected argument 'first_name' to be a str")
-        __self__.first_name = first_name
+        return pulumi.get(self, "employee_number")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
         """
         user profile property.
         """
-        if group_memberships and not isinstance(group_memberships, list):
-            raise TypeError("Expected argument 'group_memberships' to be a list")
-        __self__.group_memberships = group_memberships
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="groupMemberships")
+    def group_memberships(self) -> List[str]:
         """
         user profile property.
         """
-        if honorific_prefix and not isinstance(honorific_prefix, str):
-            raise TypeError("Expected argument 'honorific_prefix' to be a str")
-        __self__.honorific_prefix = honorific_prefix
+        return pulumi.get(self, "group_memberships")
+
+    @property
+    @pulumi.getter(name="honorificPrefix")
+    def honorific_prefix(self) -> str:
         """
         user profile property.
         """
-        if honorific_suffix and not isinstance(honorific_suffix, str):
-            raise TypeError("Expected argument 'honorific_suffix' to be a str")
-        __self__.honorific_suffix = honorific_suffix
+        return pulumi.get(self, "honorific_prefix")
+
+    @property
+    @pulumi.getter(name="honorificSuffix")
+    def honorific_suffix(self) -> str:
         """
         user profile property.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "honorific_suffix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if last_name and not isinstance(last_name, str):
-            raise TypeError("Expected argument 'last_name' to be a str")
-        __self__.last_name = last_name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
         """
         user profile property.
         """
-        if locale and not isinstance(locale, str):
-            raise TypeError("Expected argument 'locale' to be a str")
-        __self__.locale = locale
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> str:
         """
         user profile property.
         """
-        if login and not isinstance(login, str):
-            raise TypeError("Expected argument 'login' to be a str")
-        __self__.login = login
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
         """
         user profile property.
         """
-        if manager and not isinstance(manager, str):
-            raise TypeError("Expected argument 'manager' to be a str")
-        __self__.manager = manager
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def manager(self) -> str:
         """
         user profile property.
         """
-        if manager_id and not isinstance(manager_id, str):
-            raise TypeError("Expected argument 'manager_id' to be a str")
-        __self__.manager_id = manager_id
+        return pulumi.get(self, "manager")
+
+    @property
+    @pulumi.getter(name="managerId")
+    def manager_id(self) -> str:
         """
         user profile property.
         """
-        if middle_name and not isinstance(middle_name, str):
-            raise TypeError("Expected argument 'middle_name' to be a str")
-        __self__.middle_name = middle_name
+        return pulumi.get(self, "manager_id")
+
+    @property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> str:
         """
         user profile property.
         """
-        if mobile_phone and not isinstance(mobile_phone, str):
-            raise TypeError("Expected argument 'mobile_phone' to be a str")
-        __self__.mobile_phone = mobile_phone
+        return pulumi.get(self, "middle_name")
+
+    @property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> str:
         """
         user profile property.
         """
-        if nick_name and not isinstance(nick_name, str):
-            raise TypeError("Expected argument 'nick_name' to be a str")
-        __self__.nick_name = nick_name
+        return pulumi.get(self, "mobile_phone")
+
+    @property
+    @pulumi.getter(name="nickName")
+    def nick_name(self) -> str:
         """
         user profile property.
         """
-        if organization and not isinstance(organization, str):
-            raise TypeError("Expected argument 'organization' to be a str")
-        __self__.organization = organization
+        return pulumi.get(self, "nick_name")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> str:
         """
         user profile property.
         """
-        if postal_address and not isinstance(postal_address, str):
-            raise TypeError("Expected argument 'postal_address' to be a str")
-        __self__.postal_address = postal_address
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter(name="postalAddress")
+    def postal_address(self) -> str:
         """
         user profile property.
         """
-        if preferred_language and not isinstance(preferred_language, str):
-            raise TypeError("Expected argument 'preferred_language' to be a str")
-        __self__.preferred_language = preferred_language
+        return pulumi.get(self, "postal_address")
+
+    @property
+    @pulumi.getter(name="preferredLanguage")
+    def preferred_language(self) -> str:
         """
         user profile property.
         """
-        if primary_phone and not isinstance(primary_phone, str):
-            raise TypeError("Expected argument 'primary_phone' to be a str")
-        __self__.primary_phone = primary_phone
+        return pulumi.get(self, "preferred_language")
+
+    @property
+    @pulumi.getter(name="primaryPhone")
+    def primary_phone(self) -> str:
         """
         user profile property.
         """
-        if profile_url and not isinstance(profile_url, str):
-            raise TypeError("Expected argument 'profile_url' to be a str")
-        __self__.profile_url = profile_url
+        return pulumi.get(self, "primary_phone")
+
+    @property
+    @pulumi.getter(name="profileUrl")
+    def profile_url(self) -> str:
         """
         user profile property.
         """
-        if searches and not isinstance(searches, list):
-            raise TypeError("Expected argument 'searches' to be a list")
-        __self__.searches = searches
-        if second_email and not isinstance(second_email, str):
-            raise TypeError("Expected argument 'second_email' to be a str")
-        __self__.second_email = second_email
+        return pulumi.get(self, "profile_url")
+
+    @property
+    @pulumi.getter
+    def searches(self) -> List['outputs.GetUserSearchResult']:
+        return pulumi.get(self, "searches")
+
+    @property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> str:
         """
         user profile property.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "second_email")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         user profile property.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         user profile property.
         """
-        if street_address and not isinstance(street_address, str):
-            raise TypeError("Expected argument 'street_address' to be a str")
-        __self__.street_address = street_address
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="streetAddress")
+    def street_address(self) -> str:
         """
         user profile property.
         """
-        if timezone and not isinstance(timezone, str):
-            raise TypeError("Expected argument 'timezone' to be a str")
-        __self__.timezone = timezone
+        return pulumi.get(self, "street_address")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
         """
         user profile property.
         """
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        __self__.title = title
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
         """
         user profile property.
         """
-        if user_type and not isinstance(user_type, str):
-            raise TypeError("Expected argument 'user_type' to be a str")
-        __self__.user_type = user_type
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> str:
         """
         user profile property.
         """
-        if zip_code and not isinstance(zip_code, str):
-            raise TypeError("Expected argument 'zip_code' to be a str")
-        __self__.zip_code = zip_code
+        return pulumi.get(self, "user_type")
+
+    @property
+    @pulumi.getter(name="zipCode")
+    def zip_code(self) -> str:
         """
         user profile property.
         """
+        return pulumi.get(self, "zip_code")
 
 
 class AwaitableGetUserResult(GetUserResult):
@@ -280,7 +473,8 @@ class AwaitableGetUserResult(GetUserResult):
             zip_code=self.zip_code)
 
 
-def get_user(searches=None, opts=None):
+def get_user(searches: Optional[List[pulumi.InputType['GetUserSearchArgs']]] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Use this data source to retrieve a users from Okta.
 
@@ -291,25 +485,19 @@ def get_user(searches=None, opts=None):
     import pulumi_okta as okta
 
     example = okta.user.get_user(searches=[
-        {
-            "name": "profile.firstName",
-            "value": "John",
-        },
-        {
-            "name": "profile.lastName",
-            "value": "Doe",
-        },
+        okta.user.GetUserSearchArgs(
+            name="profile.firstName",
+            value="John",
+        ),
+        okta.user.GetUserSearchArgs(
+            name="profile.lastName",
+            value="Doe",
+        ),
     ])
     ```
 
 
-    :param list searches: Map of search criteria. It supports the following properties.
-
-    The **searches** object supports the following:
-
-      * `comparison` (`str`) - Comparison to use.
-      * `name` (`str`) - Name of property to search against.
-      * `value` (`str`) - Value to compare with.
+    :param List[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     """
     __args__ = dict()
     __args__['searches'] = searches
@@ -317,43 +505,43 @@ def get_user(searches=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:user/getUser:getUser', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:user/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        admin_roles=__ret__.get('adminRoles'),
-        city=__ret__.get('city'),
-        cost_center=__ret__.get('costCenter'),
-        country_code=__ret__.get('countryCode'),
-        custom_profile_attributes=__ret__.get('customProfileAttributes'),
-        department=__ret__.get('department'),
-        display_name=__ret__.get('displayName'),
-        division=__ret__.get('division'),
-        email=__ret__.get('email'),
-        employee_number=__ret__.get('employeeNumber'),
-        first_name=__ret__.get('firstName'),
-        group_memberships=__ret__.get('groupMemberships'),
-        honorific_prefix=__ret__.get('honorificPrefix'),
-        honorific_suffix=__ret__.get('honorificSuffix'),
-        id=__ret__.get('id'),
-        last_name=__ret__.get('lastName'),
-        locale=__ret__.get('locale'),
-        login=__ret__.get('login'),
-        manager=__ret__.get('manager'),
-        manager_id=__ret__.get('managerId'),
-        middle_name=__ret__.get('middleName'),
-        mobile_phone=__ret__.get('mobilePhone'),
-        nick_name=__ret__.get('nickName'),
-        organization=__ret__.get('organization'),
-        postal_address=__ret__.get('postalAddress'),
-        preferred_language=__ret__.get('preferredLanguage'),
-        primary_phone=__ret__.get('primaryPhone'),
-        profile_url=__ret__.get('profileUrl'),
-        searches=__ret__.get('searches'),
-        second_email=__ret__.get('secondEmail'),
-        state=__ret__.get('state'),
-        status=__ret__.get('status'),
-        street_address=__ret__.get('streetAddress'),
-        timezone=__ret__.get('timezone'),
-        title=__ret__.get('title'),
-        user_type=__ret__.get('userType'),
-        zip_code=__ret__.get('zipCode'))
+        admin_roles=__ret__.admin_roles,
+        city=__ret__.city,
+        cost_center=__ret__.cost_center,
+        country_code=__ret__.country_code,
+        custom_profile_attributes=__ret__.custom_profile_attributes,
+        department=__ret__.department,
+        display_name=__ret__.display_name,
+        division=__ret__.division,
+        email=__ret__.email,
+        employee_number=__ret__.employee_number,
+        first_name=__ret__.first_name,
+        group_memberships=__ret__.group_memberships,
+        honorific_prefix=__ret__.honorific_prefix,
+        honorific_suffix=__ret__.honorific_suffix,
+        id=__ret__.id,
+        last_name=__ret__.last_name,
+        locale=__ret__.locale,
+        login=__ret__.login,
+        manager=__ret__.manager,
+        manager_id=__ret__.manager_id,
+        middle_name=__ret__.middle_name,
+        mobile_phone=__ret__.mobile_phone,
+        nick_name=__ret__.nick_name,
+        organization=__ret__.organization,
+        postal_address=__ret__.postal_address,
+        preferred_language=__ret__.preferred_language,
+        primary_phone=__ret__.primary_phone,
+        profile_url=__ret__.profile_url,
+        searches=__ret__.searches,
+        second_email=__ret__.second_email,
+        state=__ret__.state,
+        status=__ret__.status,
+        street_address=__ret__.street_address,
+        timezone=__ret__.timezone,
+        title=__ret__.title,
+        user_type=__ret__.user_type,
+        zip_code=__ret__.zip_code)

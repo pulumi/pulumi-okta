@@ -5,82 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Schema']
 
 
 class Schema(pulumi.CustomResource):
-    array_enums: pulumi.Output[list]
-    """
-    Array of values that an array property's items can be set to.
-    """
-    array_one_ofs: pulumi.Output[list]
-    """
-    Display name and value an enum array can be set to.
-
-      * `const` (`str`) - value mapping to member of `enum`.
-      * `title` (`str`) - display name for the enum value.
-    """
-    array_type: pulumi.Output[str]
-    """
-    The type of the array elements if `type` is set to `"array"`.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the user schema property.
-    """
-    enums: pulumi.Output[list]
-    """
-    Array of values a primitive property can be set to. See `array_enum` for arrays.
-    """
-    external_name: pulumi.Output[str]
-    """
-    External name of the user schema property.
-    """
-    index: pulumi.Output[str]
-    """
-    The property name.
-    """
-    master: pulumi.Output[str]
-    """
-    Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-    """
-    max_length: pulumi.Output[float]
-    """
-    The maximum length of the user property value. Only applies to type `"string"`.
-    """
-    min_length: pulumi.Output[float]
-    """
-    The minimum length of the user property value. Only applies to type `"string"`.
-    """
-    one_ofs: pulumi.Output[list]
-    """
-    Array of maps containing a mapping for display name to enum value.
-
-      * `const` (`str`) - value mapping to member of `enum`.
-      * `title` (`str`) - display name for the enum value.
-    """
-    permissions: pulumi.Output[str]
-    """
-    Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-    """
-    required: pulumi.Output[bool]
-    """
-    Whether the property is required for this application's users.
-    """
-    scope: pulumi.Output[str]
-    """
-    determines whether an app user attribute can be set at the Individual or Group Level.
-    """
-    title: pulumi.Output[str]
-    """
-    display name for the enum value.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-    """
-    def __init__(__self__, resource_name, opts=None, array_enums=None, array_one_ofs=None, array_type=None, description=None, enums=None, external_name=None, index=None, master=None, max_length=None, min_length=None, one_ofs=None, permissions=None, required=None, scope=None, title=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 array_enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaArrayOneOfArgs']]]]] = None,
+                 array_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 external_name: Optional[pulumi.Input[str]] = None,
+                 index: Optional[pulumi.Input[str]] = None,
+                 master: Optional[pulumi.Input[str]] = None,
+                 max_length: Optional[pulumi.Input[float]] = None,
+                 min_length: Optional[pulumi.Input[float]] = None,
+                 one_ofs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[bool]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates a User Schema property.
 
@@ -103,32 +58,22 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[list] array_one_ofs: Display name and value an enum array can be set to.
+        :param pulumi.Input[List[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
         :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[list] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
+        :param pulumi.Input[List[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
         :param pulumi.Input[str] external_name: External name of the user schema property.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         :param pulumi.Input[float] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[float] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[list] one_ofs: Array of maps containing a mapping for display name to enum value.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-
-        The **array_one_ofs** object supports the following:
-
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
-
-        The **one_ofs** object supports the following:
-
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,40 +121,48 @@ class Schema(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, array_enums=None, array_one_ofs=None, array_type=None, description=None, enums=None, external_name=None, index=None, master=None, max_length=None, min_length=None, one_ofs=None, permissions=None, required=None, scope=None, title=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            array_enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            array_one_ofs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaArrayOneOfArgs']]]]] = None,
+            array_type: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            external_name: Optional[pulumi.Input[str]] = None,
+            index: Optional[pulumi.Input[str]] = None,
+            master: Optional[pulumi.Input[str]] = None,
+            max_length: Optional[pulumi.Input[float]] = None,
+            min_length: Optional[pulumi.Input[float]] = None,
+            one_ofs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[str]] = None,
+            required: Optional[pulumi.Input[bool]] = None,
+            scope: Optional[pulumi.Input[str]] = None,
+            title: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[list] array_one_ofs: Display name and value an enum array can be set to.
+        :param pulumi.Input[List[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
         :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[list] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
+        :param pulumi.Input[List[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
         :param pulumi.Input[str] external_name: External name of the user schema property.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         :param pulumi.Input[float] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[float] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[list] one_ofs: Array of maps containing a mapping for display name to enum value.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-
-        The **array_one_ofs** object supports the following:
-
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
-
-        The **one_ofs** object supports the following:
-
-          * `const` (`pulumi.Input[str]`) - value mapping to member of `enum`.
-          * `title` (`pulumi.Input[str]`) - display name for the enum value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,8 +186,137 @@ class Schema(pulumi.CustomResource):
         __props__["type"] = type
         return Schema(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="arrayEnums")
+    def array_enums(self) -> Optional[List[str]]:
+        """
+        Array of values that an array property's items can be set to.
+        """
+        return pulumi.get(self, "array_enums")
+
+    @property
+    @pulumi.getter(name="arrayOneOfs")
+    def array_one_ofs(self) -> Optional[List['outputs.SchemaArrayOneOf']]:
+        """
+        Display name and value an enum array can be set to.
+        """
+        return pulumi.get(self, "array_one_ofs")
+
+    @property
+    @pulumi.getter(name="arrayType")
+    def array_type(self) -> Optional[str]:
+        """
+        The type of the array elements if `type` is set to `"array"`.
+        """
+        return pulumi.get(self, "array_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the user schema property.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enums(self) -> Optional[List[str]]:
+        """
+        Array of values a primitive property can be set to. See `array_enum` for arrays.
+        """
+        return pulumi.get(self, "enums")
+
+    @property
+    @pulumi.getter(name="externalName")
+    def external_name(self) -> Optional[str]:
+        """
+        External name of the user schema property.
+        """
+        return pulumi.get(self, "external_name")
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The property name.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter
+    def master(self) -> Optional[str]:
+        """
+        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        """
+        return pulumi.get(self, "master")
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> Optional[float]:
+        """
+        The maximum length of the user property value. Only applies to type `"string"`.
+        """
+        return pulumi.get(self, "max_length")
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[float]:
+        """
+        The minimum length of the user property value. Only applies to type `"string"`.
+        """
+        return pulumi.get(self, "min_length")
+
+    @property
+    @pulumi.getter(name="oneOfs")
+    def one_ofs(self) -> Optional[List['outputs.SchemaOneOf']]:
+        """
+        Array of maps containing a mapping for display name to enum value.
+        """
+        return pulumi.get(self, "one_ofs")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[str]:
+        """
+        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Whether the property is required for this application's users.
+        """
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        determines whether an app user attribute can be set at the Individual or Group Level.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

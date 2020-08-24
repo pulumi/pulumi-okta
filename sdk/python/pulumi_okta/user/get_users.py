@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetUsersResult',
+    'AwaitableGetUsersResult',
+    'get_users',
+]
 
+@pulumi.output_type
 class GetUsersResult:
     """
     A collection of values returned by getUsers.
@@ -16,19 +24,34 @@ class GetUsersResult:
     def __init__(__self__, id=None, searches=None, users=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if searches and not isinstance(searches, list):
+            raise TypeError("Expected argument 'searches' to be a list")
+        pulumi.set(__self__, "searches", searches)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if searches and not isinstance(searches, list):
-            raise TypeError("Expected argument 'searches' to be a list")
-        __self__.searches = searches
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        __self__.users = users
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def searches(self) -> List['outputs.GetUsersSearchResult']:
+        return pulumi.get(self, "searches")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.GetUsersUserResult']]:
         """
         collection of users retrieved from Okta with the following properties.
         """
+        return pulumi.get(self, "users")
 
 
 class AwaitableGetUsersResult(GetUsersResult):
@@ -42,7 +65,9 @@ class AwaitableGetUsersResult(GetUsersResult):
             users=self.users)
 
 
-def get_users(searches=None, users=None, opts=None):
+def get_users(searches: Optional[List[pulumi.InputType['GetUsersSearchArgs']]] = None,
+              users: Optional[List[pulumi.InputType['GetUsersUserArgs']]] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to retrieve a list of users from Okta.
 
@@ -52,60 +77,16 @@ def get_users(searches=None, users=None, opts=None):
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.user.get_users(searches=[{
-        "comparison": "sw",
-        "name": "profile.company",
-        "value": "Articulate",
-    }])
+    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
+        comparison="sw",
+        name="profile.company",
+        value="Articulate",
+    )])
     ```
 
 
-    :param list searches: Map of search criteria to use to find users. It supports the following properties.
-    :param list users: collection of users retrieved from Okta with the following properties.
-
-    The **searches** object supports the following:
-
-      * `comparison` (`str`) - Comparison to use.
-      * `name` (`str`) - Name of property to search against.
-      * `value` (`str`) - Value to compare with.
-
-    The **users** object supports the following:
-
-      * `admin_roles` (`list`) - Administrator roles assigned to user.
-      * `city` (`str`) - user profile property.
-      * `cost_center` (`str`) - user profile property.
-      * `country_code` (`str`) - user profile property.
-      * `custom_profile_attributes` (`str`) - raw JSON containing all custom profile attributes.
-      * `department` (`str`) - user profile property.
-      * `display_name` (`str`) - user profile property.
-      * `division` (`str`) - user profile property.
-      * `email` (`str`) - user profile property.
-      * `employee_number` (`str`) - user profile property.
-      * `first_name` (`str`) - user profile property.
-      * `group_memberships` (`list`) - user profile property.
-      * `honorific_prefix` (`str`) - user profile property.
-      * `honorific_suffix` (`str`) - user profile property.
-      * `last_name` (`str`) - user profile property.
-      * `locale` (`str`) - user profile property.
-      * `login` (`str`) - user profile property.
-      * `manager` (`str`) - user profile property.
-      * `manager_id` (`str`) - user profile property.
-      * `middle_name` (`str`) - user profile property.
-      * `mobile_phone` (`str`) - user profile property.
-      * `nick_name` (`str`) - user profile property.
-      * `organization` (`str`) - user profile property.
-      * `postal_address` (`str`) - user profile property.
-      * `preferred_language` (`str`) - user profile property.
-      * `primary_phone` (`str`) - user profile property.
-      * `profile_url` (`str`) - user profile property.
-      * `second_email` (`str`) - user profile property.
-      * `state` (`str`) - user profile property.
-      * `status` (`str`) - user profile property.
-      * `street_address` (`str`) - user profile property.
-      * `timezone` (`str`) - user profile property.
-      * `title` (`str`) - user profile property.
-      * `user_type` (`str`) - user profile property.
-      * `zip_code` (`str`) - user profile property.
+    :param List[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to use to find users. It supports the following properties.
+    :param List[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
     """
     __args__ = dict()
     __args__['searches'] = searches
@@ -114,9 +95,9 @@ def get_users(searches=None, users=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:user/getUsers:getUsers', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:user/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        id=__ret__.get('id'),
-        searches=__ret__.get('searches'),
-        users=__ret__.get('users'))
+        id=__ret__.id,
+        searches=__ret__.searches,
+        users=__ret__.users)

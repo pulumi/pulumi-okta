@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetPolicyResult',
+    'AwaitableGetPolicyResult',
+    'get_policy',
+]
 
+@pulumi.output_type
 class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
@@ -16,22 +22,37 @@ class GetPolicyResult:
     def __init__(__self__, id=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         name of policy.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         type of policy.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetPolicyResult(GetPolicyResult):
@@ -45,7 +66,9 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             type=self.type)
 
 
-def get_policy(name=None, type=None, opts=None):
+def get_policy(name: Optional[str] = None,
+               type: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Use this data source to retrieve a policy from Okta.
 
@@ -70,9 +93,9 @@ def get_policy(name=None, type=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:policy/getPolicy:getPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:policy/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        id=__ret__.id,
+        name=__ret__.name,
+        type=__ret__.type)
