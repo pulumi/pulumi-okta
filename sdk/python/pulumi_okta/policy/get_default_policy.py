@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetDefaultPolicyResult',
+    'AwaitableGetDefaultPolicyResult',
+    'get_default_policy',
+]
 
+@pulumi.output_type
 class GetDefaultPolicyResult:
     """
     A collection of values returned by getDefaultPolicy.
@@ -16,16 +22,26 @@ class GetDefaultPolicyResult:
     def __init__(__self__, id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         type of policy.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
@@ -38,7 +54,8 @@ class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
             type=self.type)
 
 
-def get_default_policy(type=None, opts=None):
+def get_default_policy(type: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultPolicyResult:
     """
     Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
 
@@ -60,8 +77,8 @@ def get_default_policy(type=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:policy/getDefaultPolicy:getDefaultPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:policy/getDefaultPolicy:getDefaultPolicy', __args__, opts=opts, typ=GetDefaultPolicyResult).value
 
     return AwaitableGetDefaultPolicyResult(
-        id=__ret__.get('id'),
-        type=__ret__.get('type'))
+        id=__ret__.id,
+        type=__ret__.type)

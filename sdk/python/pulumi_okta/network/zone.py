@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Zone']
 
 
 class Zone(pulumi.CustomResource):
-    dynamic_locations: pulumi.Output[list]
-    """
-    Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-    """
-    gateways: pulumi.Output[list]
-    """
-    Array of values in CIDR/range form.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the Network Zone Resource.
-    """
-    proxies: pulumi.Output[list]
-    """
-    Array of values in CIDR/range form.
-    """
-    type: pulumi.Output[str]
-    """
-    Type of the Network Zone - can either be IP or DYNAMIC only.
-    """
-    def __init__(__self__, resource_name, opts=None, dynamic_locations=None, gateways=None, name=None, proxies=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dynamic_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 gateways: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 proxies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Okta Network Zone.
 
@@ -56,10 +48,10 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-        :param pulumi.Input[list] gateways: Array of values in CIDR/range form.
+        :param pulumi.Input[List[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[List[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[list] proxies: Array of values in CIDR/range form.
+        :param pulumi.Input[List[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
         """
         if __name__ is not None:
@@ -93,18 +85,25 @@ class Zone(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dynamic_locations=None, gateways=None, name=None, proxies=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dynamic_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            gateways: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            proxies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-        :param pulumi.Input[list] gateways: Array of values in CIDR/range form.
+        :param pulumi.Input[List[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[List[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[list] proxies: Array of values in CIDR/range form.
+        :param pulumi.Input[List[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -118,8 +117,49 @@ class Zone(pulumi.CustomResource):
         __props__["type"] = type
         return Zone(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dynamicLocations")
+    def dynamic_locations(self) -> Optional[List[str]]:
+        """
+        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        """
+        return pulumi.get(self, "dynamic_locations")
+
+    @property
+    @pulumi.getter
+    def gateways(self) -> Optional[List[str]]:
+        """
+        Array of values in CIDR/range form.
+        """
+        return pulumi.get(self, "gateways")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Network Zone Resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def proxies(self) -> Optional[List[str]]:
+        """
+        Array of values in CIDR/range form.
+        """
+        return pulumi.get(self, "proxies")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the Network Zone - can either be IP or DYNAMIC only.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

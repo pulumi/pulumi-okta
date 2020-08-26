@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetAppResult',
+    'AwaitableGetAppResult',
+    'get_app',
+]
 
+@pulumi.output_type
 class GetAppResult:
     """
     A collection of values returned by getApp.
@@ -16,40 +22,75 @@ class GetAppResult:
     def __init__(__self__, active_only=None, description=None, id=None, label=None, label_prefix=None, name=None, status=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
-        __self__.active_only = active_only
+        pulumi.set(__self__, "active_only", active_only)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if label and not isinstance(label, str):
+            raise TypeError("Expected argument 'label' to be a str")
+        pulumi.set(__self__, "label", label)
+        if label_prefix and not isinstance(label_prefix, str):
+            raise TypeError("Expected argument 'label_prefix' to be a str")
+        pulumi.set(__self__, "label_prefix", label_prefix)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="activeOnly")
+    def active_only(self) -> Optional[bool]:
+        return pulumi.get(self, "active_only")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         `description` of application.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
         `id` of application.
         """
-        if label and not isinstance(label, str):
-            raise TypeError("Expected argument 'label' to be a str")
-        __self__.label = label
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
         """
         `label` of application.
         """
-        if label_prefix and not isinstance(label_prefix, str):
-            raise TypeError("Expected argument 'label_prefix' to be a str")
-        __self__.label_prefix = label_prefix
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="labelPrefix")
+    def label_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "label_prefix")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         `name` of application.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         `status` of application.
         """
+        return pulumi.get(self, "status")
 
 
 class AwaitableGetAppResult(GetAppResult):
@@ -67,7 +108,11 @@ class AwaitableGetAppResult(GetAppResult):
             status=self.status)
 
 
-def get_app(active_only=None, id=None, label=None, label_prefix=None, opts=None):
+def get_app(active_only: Optional[bool] = None,
+            id: Optional[str] = None,
+            label: Optional[str] = None,
+            label_prefix: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Use this data source to retrieve the collaborators for a given repository.
 
@@ -95,13 +140,13 @@ def get_app(active_only=None, id=None, label=None, label_prefix=None, opts=None)
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:app/getApp:getApp', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:app/getApp:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        active_only=__ret__.get('activeOnly'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        label=__ret__.get('label'),
-        label_prefix=__ret__.get('labelPrefix'),
-        name=__ret__.get('name'),
-        status=__ret__.get('status'))
+        active_only=__ret__.active_only,
+        description=__ret__.description,
+        id=__ret__.id,
+        label=__ret__.label,
+        label_prefix=__ret__.label_prefix,
+        name=__ret__.name,
+        status=__ret__.status)

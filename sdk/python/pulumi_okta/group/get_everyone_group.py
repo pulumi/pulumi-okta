@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetEveryoneGroupResult',
+    'AwaitableGetEveryoneGroupResult',
+    'get_everyone_group',
+]
 
+@pulumi.output_type
 class GetEveryoneGroupResult:
     """
     A collection of values returned by getEveryoneGroup.
@@ -16,13 +22,23 @@ class GetEveryoneGroupResult:
     def __init__(__self__, id=None, include_users=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if include_users and not isinstance(include_users, bool):
+            raise TypeError("Expected argument 'include_users' to be a bool")
+        pulumi.set(__self__, "include_users", include_users)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if include_users and not isinstance(include_users, bool):
-            raise TypeError("Expected argument 'include_users' to be a bool")
-        __self__.include_users = include_users
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeUsers")
+    def include_users(self) -> Optional[bool]:
+        return pulumi.get(self, "include_users")
 
 
 class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
@@ -35,7 +51,8 @@ class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
             include_users=self.include_users)
 
 
-def get_everyone_group(include_users=None, opts=None):
+def get_everyone_group(include_users: Optional[bool] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEveryoneGroupResult:
     """
     Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
 
@@ -54,8 +71,8 @@ def get_everyone_group(include_users=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts, typ=GetEveryoneGroupResult).value
 
     return AwaitableGetEveryoneGroupResult(
-        id=__ret__.get('id'),
-        include_users=__ret__.get('includeUsers'))
+        id=__ret__.id,
+        include_users=__ret__.include_users)

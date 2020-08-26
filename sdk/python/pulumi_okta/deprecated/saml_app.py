@@ -5,190 +5,56 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SamlApp']
 
 
 class SamlApp(pulumi.CustomResource):
-    accessibility_error_redirect_url: pulumi.Output[str]
-    """
-    Custom error page URL
-    """
-    accessibility_login_redirect_url: pulumi.Output[str]
-    """
-    Custom login page URL
-    """
-    accessibility_self_service: pulumi.Output[bool]
-    """
-    Enable self service
-    """
-    app_settings_json: pulumi.Output[str]
-    """
-    Application settings in JSON format
-    """
-    assertion_signed: pulumi.Output[bool]
-    """
-    Determines whether the SAML assertion is digitally signed
-    """
-    attribute_statements: pulumi.Output[list]
-    audience: pulumi.Output[str]
-    """
-    Audience Restriction
-    """
-    authn_context_class_ref: pulumi.Output[str]
-    """
-    Identifies the SAML authentication context class for the assertion’s authentication statement
-    """
-    auto_submit_toolbar: pulumi.Output[bool]
-    """
-    Display auto submit toolbar
-    """
-    certificate: pulumi.Output[str]
-    """
-    cert from SAML XML metadata payload
-    """
-    default_relay_state: pulumi.Output[str]
-    """
-    Identifies a specific application resource in an IDP initiated SSO scenario.
-    """
-    destination: pulumi.Output[str]
-    """
-    Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-    """
-    digest_algorithm: pulumi.Output[str]
-    """
-    Determines the digest algorithm used to digitally sign the SAML assertion and response
-    """
-    entity_key: pulumi.Output[str]
-    """
-    Entity ID, the ID portion of the entity_url
-    """
-    entity_url: pulumi.Output[str]
-    """
-    Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-    """
-    features: pulumi.Output[list]
-    """
-    features to enable
-    """
-    groups: pulumi.Output[list]
-    """
-    Groups associated with the application
-    """
-    hide_ios: pulumi.Output[bool]
-    """
-    Do not display application icon on mobile app
-    """
-    hide_web: pulumi.Output[bool]
-    """
-    Do not display application icon to users
-    """
-    honor_force_authn: pulumi.Output[bool]
-    """
-    Prompt user to re-authenticate if SP asks for it
-    """
-    http_post_binding: pulumi.Output[str]
-    """
-    urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
-    """
-    http_redirect_binding: pulumi.Output[str]
-    """
-    urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
-    """
-    idp_issuer: pulumi.Output[str]
-    """
-    SAML issuer ID
-    """
-    key_id: pulumi.Output[str]
-    """
-    Certificate ID
-    """
-    key_name: pulumi.Output[str]
-    """
-    Certificate name. This modulates the rotation of keys. New name == new key.
-    """
-    key_years_valid: pulumi.Output[float]
-    """
-    Number of years the certificate is valid.
-    """
-    label: pulumi.Output[str]
-    """
-    Pretty name of app.
-    """
-    metadata: pulumi.Output[str]
-    """
-    SAML xml metadata payload
-    """
-    name: pulumi.Output[str]
-    """
-    name of app.
-    """
-    preconfigured_app: pulumi.Output[str]
-    """
-    Name of preexisting SAML application. For instance 'slack'
-    """
-    recipient: pulumi.Output[str]
-    """
-    The location where the app may present the SAML assertion
-    """
-    request_compressed: pulumi.Output[bool]
-    """
-    Denotes whether the request is compressed or not.
-    """
-    response_signed: pulumi.Output[bool]
-    """
-    Determines whether the SAML auth response message is digitally signed
-    """
-    sign_on_mode: pulumi.Output[str]
-    """
-    Sign on mode of application.
-    """
-    signature_algorithm: pulumi.Output[str]
-    """
-    Signature algorithm used ot digitally sign the assertion and response
-    """
-    sp_issuer: pulumi.Output[str]
-    """
-    SAML SP issuer ID
-    """
-    sso_url: pulumi.Output[str]
-    """
-    Single Sign On URL
-    """
-    status: pulumi.Output[str]
-    """
-    Status of application.
-    """
-    subject_name_id_format: pulumi.Output[str]
-    """
-    Identifies the SAML processing rules.
-    """
-    subject_name_id_template: pulumi.Output[str]
-    """
-    Template for app user's username when a user is assigned to the app
-    """
-    user_name_template: pulumi.Output[str]
-    """
-    Username template
-    """
-    user_name_template_suffix: pulumi.Output[str]
-    """
-    Username template suffix
-    """
-    user_name_template_type: pulumi.Output[str]
-    """
-    Username template type
-    """
-    users: pulumi.Output[list]
-    """
-    Users associated with the application
-
-      * `id` (`str`)
-      * `password` (`str`)
-      * `scope` (`str`)
-      * `username` (`str`)
-    """
-    def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, idp_issuer=None, key_name=None, key_years_valid=None, label=None, preconfigured_app=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
+                 assertion_signed: Optional[pulumi.Input[bool]] = None,
+                 attribute_statements: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
+                 audience: Optional[pulumi.Input[str]] = None,
+                 authn_context_class_ref: Optional[pulumi.Input[str]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 default_relay_state: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 digest_algorithm: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 honor_force_authn: Optional[pulumi.Input[bool]] = None,
+                 idp_issuer: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_years_valid: Optional[pulumi.Input[float]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
+                 recipient: Optional[pulumi.Input[str]] = None,
+                 request_compressed: Optional[pulumi.Input[bool]] = None,
+                 response_signed: Optional[pulumi.Input[bool]] = None,
+                 signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 sp_issuer: Optional[pulumi.Input[str]] = None,
+                 sso_url: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 subject_name_id_format: Optional[pulumi.Input[str]] = None,
+                 subject_name_id_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a SamlApp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -204,8 +70,8 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[list] features: features to enable
-        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[List[pulumi.Input[str]]] features: features to enable
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
@@ -226,23 +92,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
-        :param pulumi.Input[list] users: Users associated with the application
-
-        The **attribute_statements** object supports the following:
-
-          * `filterType` (`pulumi.Input[str]`)
-          * `filterValue` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`)
-          * `namespace` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`)
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -314,13 +164,59 @@ class SamlApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, certificate=None, default_relay_state=None, destination=None, digest_algorithm=None, entity_key=None, entity_url=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, http_post_binding=None, http_redirect_binding=None, idp_issuer=None, key_id=None, key_name=None, key_years_valid=None, label=None, metadata=None, name=None, preconfigured_app=None, recipient=None, request_compressed=None, response_signed=None, sign_on_mode=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+            app_settings_json: Optional[pulumi.Input[str]] = None,
+            assertion_signed: Optional[pulumi.Input[bool]] = None,
+            attribute_statements: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
+            audience: Optional[pulumi.Input[str]] = None,
+            authn_context_class_ref: Optional[pulumi.Input[str]] = None,
+            auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+            certificate: Optional[pulumi.Input[str]] = None,
+            default_relay_state: Optional[pulumi.Input[str]] = None,
+            destination: Optional[pulumi.Input[str]] = None,
+            digest_algorithm: Optional[pulumi.Input[str]] = None,
+            entity_key: Optional[pulumi.Input[str]] = None,
+            entity_url: Optional[pulumi.Input[str]] = None,
+            features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            hide_ios: Optional[pulumi.Input[bool]] = None,
+            hide_web: Optional[pulumi.Input[bool]] = None,
+            honor_force_authn: Optional[pulumi.Input[bool]] = None,
+            http_post_binding: Optional[pulumi.Input[str]] = None,
+            http_redirect_binding: Optional[pulumi.Input[str]] = None,
+            idp_issuer: Optional[pulumi.Input[str]] = None,
+            key_id: Optional[pulumi.Input[str]] = None,
+            key_name: Optional[pulumi.Input[str]] = None,
+            key_years_valid: Optional[pulumi.Input[float]] = None,
+            label: Optional[pulumi.Input[str]] = None,
+            metadata: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            preconfigured_app: Optional[pulumi.Input[str]] = None,
+            recipient: Optional[pulumi.Input[str]] = None,
+            request_compressed: Optional[pulumi.Input[bool]] = None,
+            response_signed: Optional[pulumi.Input[bool]] = None,
+            sign_on_mode: Optional[pulumi.Input[str]] = None,
+            signature_algorithm: Optional[pulumi.Input[str]] = None,
+            sp_issuer: Optional[pulumi.Input[str]] = None,
+            sso_url: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            subject_name_id_format: Optional[pulumi.Input[str]] = None,
+            subject_name_id_template: Optional[pulumi.Input[str]] = None,
+            user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+            user_name_template_type: Optional[pulumi.Input[str]] = None,
+            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None) -> 'SamlApp':
         """
         Get an existing SamlApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
@@ -336,8 +232,8 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
         :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-        :param pulumi.Input[list] features: features to enable
-        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[List[pulumi.Input[str]]] features: features to enable
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
@@ -364,23 +260,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
-        :param pulumi.Input[list] users: Users associated with the application
-
-        The **attribute_statements** object supports the following:
-
-          * `filterType` (`pulumi.Input[str]`)
-          * `filterValue` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`)
-          * `namespace` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`)
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,8 +312,358 @@ class SamlApp(pulumi.CustomResource):
         __props__["users"] = users
         return SamlApp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[str]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[str]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[bool]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[str]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @property
+    @pulumi.getter(name="assertionSigned")
+    def assertion_signed(self) -> Optional[bool]:
+        """
+        Determines whether the SAML assertion is digitally signed
+        """
+        return pulumi.get(self, "assertion_signed")
+
+    @property
+    @pulumi.getter(name="attributeStatements")
+    def attribute_statements(self) -> Optional[List['outputs.SamlAppAttributeStatement']]:
+        return pulumi.get(self, "attribute_statements")
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        Audience Restriction
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter(name="authnContextClassRef")
+    def authn_context_class_ref(self) -> Optional[str]:
+        """
+        Identifies the SAML authentication context class for the assertion’s authentication statement
+        """
+        return pulumi.get(self, "authn_context_class_ref")
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[bool]:
+        """
+        Display auto submit toolbar
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> str:
+        """
+        cert from SAML XML metadata payload
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="defaultRelayState")
+    def default_relay_state(self) -> Optional[str]:
+        """
+        Identifies a specific application resource in an IDP initiated SSO scenario.
+        """
+        return pulumi.get(self, "default_relay_state")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="digestAlgorithm")
+    def digest_algorithm(self) -> Optional[str]:
+        """
+        Determines the digest algorithm used to digitally sign the SAML assertion and response
+        """
+        return pulumi.get(self, "digest_algorithm")
+
+    @property
+    @pulumi.getter(name="entityKey")
+    def entity_key(self) -> str:
+        """
+        Entity ID, the ID portion of the entity_url
+        """
+        return pulumi.get(self, "entity_key")
+
+    @property
+    @pulumi.getter(name="entityUrl")
+    def entity_url(self) -> str:
+        """
+        Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        """
+        return pulumi.get(self, "entity_url")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[List[str]]:
+        """
+        features to enable
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[List[str]]:
+        """
+        Groups associated with the application
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[bool]:
+        """
+        Do not display application icon on mobile app
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[bool]:
+        """
+        Do not display application icon to users
+        """
+        return pulumi.get(self, "hide_web")
+
+    @property
+    @pulumi.getter(name="honorForceAuthn")
+    def honor_force_authn(self) -> Optional[bool]:
+        """
+        Prompt user to re-authenticate if SP asks for it
+        """
+        return pulumi.get(self, "honor_force_authn")
+
+    @property
+    @pulumi.getter(name="httpPostBinding")
+    def http_post_binding(self) -> str:
+        """
+        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+        """
+        return pulumi.get(self, "http_post_binding")
+
+    @property
+    @pulumi.getter(name="httpRedirectBinding")
+    def http_redirect_binding(self) -> str:
+        """
+        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+        """
+        return pulumi.get(self, "http_redirect_binding")
+
+    @property
+    @pulumi.getter(name="idpIssuer")
+    def idp_issuer(self) -> Optional[str]:
+        """
+        SAML issuer ID
+        """
+        return pulumi.get(self, "idp_issuer")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        Certificate ID
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        Certificate name. This modulates the rotation of keys. New name == new key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyYearsValid")
+    def key_years_valid(self) -> Optional[float]:
+        """
+        Number of years the certificate is valid.
+        """
+        return pulumi.get(self, "key_years_valid")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Pretty name of app.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        SAML xml metadata payload
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        name of app.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[str]:
+        """
+        Name of preexisting SAML application. For instance 'slack'
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @property
+    @pulumi.getter
+    def recipient(self) -> Optional[str]:
+        """
+        The location where the app may present the SAML assertion
+        """
+        return pulumi.get(self, "recipient")
+
+    @property
+    @pulumi.getter(name="requestCompressed")
+    def request_compressed(self) -> Optional[bool]:
+        """
+        Denotes whether the request is compressed or not.
+        """
+        return pulumi.get(self, "request_compressed")
+
+    @property
+    @pulumi.getter(name="responseSigned")
+    def response_signed(self) -> Optional[bool]:
+        """
+        Determines whether the SAML auth response message is digitally signed
+        """
+        return pulumi.get(self, "response_signed")
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> str:
+        """
+        Sign on mode of application.
+        """
+        return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter(name="signatureAlgorithm")
+    def signature_algorithm(self) -> Optional[str]:
+        """
+        Signature algorithm used ot digitally sign the assertion and response
+        """
+        return pulumi.get(self, "signature_algorithm")
+
+    @property
+    @pulumi.getter(name="spIssuer")
+    def sp_issuer(self) -> Optional[str]:
+        """
+        SAML SP issuer ID
+        """
+        return pulumi.get(self, "sp_issuer")
+
+    @property
+    @pulumi.getter(name="ssoUrl")
+    def sso_url(self) -> Optional[str]:
+        """
+        Single Sign On URL
+        """
+        return pulumi.get(self, "sso_url")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of application.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subjectNameIdFormat")
+    def subject_name_id_format(self) -> Optional[str]:
+        """
+        Identifies the SAML processing rules.
+        """
+        return pulumi.get(self, "subject_name_id_format")
+
+    @property
+    @pulumi.getter(name="subjectNameIdTemplate")
+    def subject_name_id_template(self) -> Optional[str]:
+        """
+        Template for app user's username when a user is assigned to the app
+        """
+        return pulumi.get(self, "subject_name_id_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[str]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[str]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[str]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.SamlAppUser']]:
+        """
+        Users associated with the application
+        """
+        return pulumi.get(self, "users")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,115 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ThreeField']
 
 
 class ThreeField(pulumi.CustomResource):
-    accessibility_error_redirect_url: pulumi.Output[str]
-    """
-    Custom error page URL.
-    """
-    accessibility_self_service: pulumi.Output[bool]
-    """
-    Enable self service. By default it is `false`.
-    """
-    auto_submit_toolbar: pulumi.Output[bool]
-    """
-    Display auto submit toolbar.
-    """
-    button_selector: pulumi.Output[str]
-    """
-    Login button field CSS selector.
-    """
-    extra_field_selector: pulumi.Output[str]
-    """
-    Extra field CSS selector.
-    """
-    extra_field_value: pulumi.Output[str]
-    """
-    Value for extra form field.
-    """
-    groups: pulumi.Output[list]
-    """
-    Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-    """
-    hide_ios: pulumi.Output[bool]
-    """
-    Do not display application icon on mobile app.
-    """
-    hide_web: pulumi.Output[bool]
-    """
-    Do not display application icon to users.
-    """
-    label: pulumi.Output[str]
-    """
-    The display name of the Application.
-    """
-    name: pulumi.Output[str]
-    """
-    Name assigned to the application by Okta.
-    """
-    password_selector: pulumi.Output[str]
-    """
-    Login password field CSS selector.
-    """
-    sign_on_mode: pulumi.Output[str]
-    """
-    Sign on mode of application.
-    """
-    status: pulumi.Output[str]
-    """
-    Status of application. By default it is `"ACTIVE"`.
-    """
-    url: pulumi.Output[str]
-    """
-    Login URL.
-    """
-    url_regex: pulumi.Output[str]
-    """
-    A regex that further restricts URL to the specified regex.
-    """
-    user_name_template: pulumi.Output[str]
-    """
-    The default username assigned to each user.
-    """
-    user_name_template_type: pulumi.Output[str]
-    """
-    The Username template type.
-    """
-    username_selector: pulumi.Output[str]
-    """
-    Login username field CSS selector.
-    """
-    users: pulumi.Output[list]
-    """
-    The users assigned to the application. See `app.User` for a more flexible approach.
-
-      * `id` (`str`)
-      * `password` (`str`)
-      * `scope` (`str`)
-      * `username` (`str`)
-    """
-    def __init__(__self__, resource_name, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, button_selector=None, extra_field_selector=None, extra_field_value=None, groups=None, hide_ios=None, hide_web=None, label=None, password_selector=None, status=None, url=None, url_regex=None, username_selector=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 button_selector: Optional[pulumi.Input[str]] = None,
+                 extra_field_selector: Optional[pulumi.Input[str]] = None,
+                 extra_field_value: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 password_selector: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 url_regex: Optional[pulumi.Input[str]] = None,
+                 username_selector: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Three Field Application.
 
         This resource allows you to create and configure an Three Field Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.app.ThreeField("example",
-            credentials_scheme="EDIT_USERNAME_AND_PASSWORD",
-            label="Example App",
-            reveal_password=True,
-            sign_on_redirect_url="https://example.com",
-            sign_on_url="https://example.com/login.html")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +49,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[list] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -132,14 +58,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -199,13 +118,35 @@ class ThreeField(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, accessibility_error_redirect_url=None, accessibility_self_service=None, auto_submit_toolbar=None, button_selector=None, extra_field_selector=None, extra_field_value=None, groups=None, hide_ios=None, hide_web=None, label=None, name=None, password_selector=None, sign_on_mode=None, status=None, url=None, url_regex=None, user_name_template=None, user_name_template_type=None, username_selector=None, users=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+            auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+            button_selector: Optional[pulumi.Input[str]] = None,
+            extra_field_selector: Optional[pulumi.Input[str]] = None,
+            extra_field_value: Optional[pulumi.Input[str]] = None,
+            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            hide_ios: Optional[pulumi.Input[bool]] = None,
+            hide_web: Optional[pulumi.Input[bool]] = None,
+            label: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            password_selector: Optional[pulumi.Input[str]] = None,
+            sign_on_mode: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None,
+            url_regex: Optional[pulumi.Input[str]] = None,
+            user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_type: Optional[pulumi.Input[str]] = None,
+            username_selector: Optional[pulumi.Input[str]] = None,
+            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None) -> 'ThreeField':
         """
         Get an existing ThreeField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
@@ -213,7 +154,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[list] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -226,14 +167,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[list] users: The users assigned to the application. See `app.User` for a more flexible approach.
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,8 +195,169 @@ class ThreeField(pulumi.CustomResource):
         __props__["users"] = users
         return ThreeField(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[str]:
+        """
+        Custom error page URL.
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[bool]:
+        """
+        Enable self service. By default it is `false`.
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[bool]:
+        """
+        Display auto submit toolbar.
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @property
+    @pulumi.getter(name="buttonSelector")
+    def button_selector(self) -> str:
+        """
+        Login button field CSS selector.
+        """
+        return pulumi.get(self, "button_selector")
+
+    @property
+    @pulumi.getter(name="extraFieldSelector")
+    def extra_field_selector(self) -> str:
+        """
+        Extra field CSS selector.
+        """
+        return pulumi.get(self, "extra_field_selector")
+
+    @property
+    @pulumi.getter(name="extraFieldValue")
+    def extra_field_value(self) -> str:
+        """
+        Value for extra form field.
+        """
+        return pulumi.get(self, "extra_field_value")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[List[str]]:
+        """
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[bool]:
+        """
+        Do not display application icon on mobile app.
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[bool]:
+        """
+        Do not display application icon to users.
+        """
+        return pulumi.get(self, "hide_web")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The display name of the Application.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name assigned to the application by Okta.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="passwordSelector")
+    def password_selector(self) -> str:
+        """
+        Login password field CSS selector.
+        """
+        return pulumi.get(self, "password_selector")
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> str:
+        """
+        Sign on mode of application.
+        """
+        return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of application. By default it is `"ACTIVE"`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Login URL.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="urlRegex")
+    def url_regex(self) -> Optional[str]:
+        """
+        A regex that further restricts URL to the specified regex.
+        """
+        return pulumi.get(self, "url_regex")
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> str:
+        """
+        The default username assigned to each user.
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> str:
+        """
+        The Username template type.
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @property
+    @pulumi.getter(name="usernameSelector")
+    def username_selector(self) -> str:
+        """
+        Login username field CSS selector.
+        """
+        return pulumi.get(self, "username_selector")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.ThreeFieldUser']]:
+        """
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        """
+        return pulumi.get(self, "users")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,73 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BookmarkApp']
 
 
 class BookmarkApp(pulumi.CustomResource):
-    auto_submit_toolbar: pulumi.Output[bool]
-    """
-    Display auto submit toolbar
-    """
-    groups: pulumi.Output[list]
-    """
-    Groups associated with the application
-    """
-    hide_ios: pulumi.Output[bool]
-    """
-    Do not display application icon on mobile app
-    """
-    hide_web: pulumi.Output[bool]
-    """
-    Do not display application icon to users
-    """
-    label: pulumi.Output[str]
-    """
-    Pretty name of app.
-    """
-    name: pulumi.Output[str]
-    """
-    name of app.
-    """
-    request_integration: pulumi.Output[bool]
-    sign_on_mode: pulumi.Output[str]
-    """
-    Sign on mode of application.
-    """
-    status: pulumi.Output[str]
-    """
-    Status of application.
-    """
-    url: pulumi.Output[str]
-    users: pulumi.Output[list]
-    """
-    Users associated with the application
-
-      * `id` (`str`)
-      * `password` (`str`)
-      * `scope` (`str`)
-      * `username` (`str`)
-    """
-    def __init__(__self__, resource_name, opts=None, auto_submit_toolbar=None, groups=None, hide_ios=None, hide_web=None, label=None, request_integration=None, status=None, url=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 request_integration: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a BookmarkApp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] status: Status of application.
-        :param pulumi.Input[list] users: Users associated with the application
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,30 +80,36 @@ class BookmarkApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_submit_toolbar=None, groups=None, hide_ios=None, hide_web=None, label=None, name=None, request_integration=None, sign_on_mode=None, status=None, url=None, users=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            hide_ios: Optional[pulumi.Input[bool]] = None,
+            hide_web: Optional[pulumi.Input[bool]] = None,
+            label: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            request_integration: Optional[pulumi.Input[bool]] = None,
+            sign_on_mode: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None,
+            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None) -> 'BookmarkApp':
         """
         Get an existing BookmarkApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[list] groups: Groups associated with the application
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] name: name of app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application.
-        :param pulumi.Input[list] users: Users associated with the application
-
-        The **users** object supports the following:
-
-          * `id` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -154,8 +128,91 @@ class BookmarkApp(pulumi.CustomResource):
         __props__["users"] = users
         return BookmarkApp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[bool]:
+        """
+        Display auto submit toolbar
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[List[str]]:
+        """
+        Groups associated with the application
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[bool]:
+        """
+        Do not display application icon on mobile app
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[bool]:
+        """
+        Do not display application icon to users
+        """
+        return pulumi.get(self, "hide_web")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Pretty name of app.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        name of app.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requestIntegration")
+    def request_integration(self) -> Optional[bool]:
+        return pulumi.get(self, "request_integration")
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> str:
+        """
+        Sign on mode of application.
+        """
+        return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of application.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[List['outputs.BookmarkAppUser']]:
+        """
+        Users associated with the application
+        """
+        return pulumi.get(self, "users")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

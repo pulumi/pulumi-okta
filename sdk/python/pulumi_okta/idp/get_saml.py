@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetSamlResult',
+    'AwaitableGetSamlResult',
+    'get_saml',
+]
 
+@pulumi.output_type
 class GetSamlResult:
     """
     A collection of values returned by getSaml.
@@ -16,88 +22,158 @@ class GetSamlResult:
     def __init__(__self__, acs_binding=None, acs_type=None, audience=None, id=None, issuer=None, issuer_mode=None, kid=None, name=None, sso_binding=None, sso_destination=None, sso_url=None, subject_filter=None, subject_formats=None, type=None):
         if acs_binding and not isinstance(acs_binding, str):
             raise TypeError("Expected argument 'acs_binding' to be a str")
-        __self__.acs_binding = acs_binding
+        pulumi.set(__self__, "acs_binding", acs_binding)
+        if acs_type and not isinstance(acs_type, str):
+            raise TypeError("Expected argument 'acs_type' to be a str")
+        pulumi.set(__self__, "acs_type", acs_type)
+        if audience and not isinstance(audience, str):
+            raise TypeError("Expected argument 'audience' to be a str")
+        pulumi.set(__self__, "audience", audience)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        pulumi.set(__self__, "issuer", issuer)
+        if issuer_mode and not isinstance(issuer_mode, str):
+            raise TypeError("Expected argument 'issuer_mode' to be a str")
+        pulumi.set(__self__, "issuer_mode", issuer_mode)
+        if kid and not isinstance(kid, str):
+            raise TypeError("Expected argument 'kid' to be a str")
+        pulumi.set(__self__, "kid", kid)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if sso_binding and not isinstance(sso_binding, str):
+            raise TypeError("Expected argument 'sso_binding' to be a str")
+        pulumi.set(__self__, "sso_binding", sso_binding)
+        if sso_destination and not isinstance(sso_destination, str):
+            raise TypeError("Expected argument 'sso_destination' to be a str")
+        pulumi.set(__self__, "sso_destination", sso_destination)
+        if sso_url and not isinstance(sso_url, str):
+            raise TypeError("Expected argument 'sso_url' to be a str")
+        pulumi.set(__self__, "sso_url", sso_url)
+        if subject_filter and not isinstance(subject_filter, str):
+            raise TypeError("Expected argument 'subject_filter' to be a str")
+        pulumi.set(__self__, "subject_filter", subject_filter)
+        if subject_formats and not isinstance(subject_formats, list):
+            raise TypeError("Expected argument 'subject_formats' to be a list")
+        pulumi.set(__self__, "subject_formats", subject_formats)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="acsBinding")
+    def acs_binding(self) -> str:
         """
         HTTP binding used to receive a SAMLResponse message from the IdP.
         """
-        if acs_type and not isinstance(acs_type, str):
-            raise TypeError("Expected argument 'acs_type' to be a str")
-        __self__.acs_type = acs_type
+        return pulumi.get(self, "acs_binding")
+
+    @property
+    @pulumi.getter(name="acsType")
+    def acs_type(self) -> str:
         """
         Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
         """
-        if audience and not isinstance(audience, str):
-            raise TypeError("Expected argument 'audience' to be a str")
-        __self__.audience = audience
+        return pulumi.get(self, "acs_type")
+
+    @property
+    @pulumi.getter
+    def audience(self) -> str:
         """
         URI that identifies the target Okta IdP instance (SP)
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
         id of idp.
         """
-        if issuer and not isinstance(issuer, str):
-            raise TypeError("Expected argument 'issuer' to be a str")
-        __self__.issuer = issuer
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
         """
         URI that identifies the issuer (IdP).
         """
-        if issuer_mode and not isinstance(issuer_mode, str):
-            raise TypeError("Expected argument 'issuer_mode' to be a str")
-        __self__.issuer_mode = issuer_mode
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> str:
         """
         indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
         """
-        if kid and not isinstance(kid, str):
-            raise TypeError("Expected argument 'kid' to be a str")
-        __self__.kid = kid
+        return pulumi.get(self, "issuer_mode")
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
         """
         Key ID reference to the IdP's X.509 signature certificate.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         name of the idp.
         """
-        if sso_binding and not isinstance(sso_binding, str):
-            raise TypeError("Expected argument 'sso_binding' to be a str")
-        __self__.sso_binding = sso_binding
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ssoBinding")
+    def sso_binding(self) -> str:
         """
         single sign on binding.
         """
-        if sso_destination and not isinstance(sso_destination, str):
-            raise TypeError("Expected argument 'sso_destination' to be a str")
-        __self__.sso_destination = sso_destination
+        return pulumi.get(self, "sso_binding")
+
+    @property
+    @pulumi.getter(name="ssoDestination")
+    def sso_destination(self) -> str:
         """
         SSO request binding, HTTP-POST or HTTP-REDIRECT.
         """
-        if sso_url and not isinstance(sso_url, str):
-            raise TypeError("Expected argument 'sso_url' to be a str")
-        __self__.sso_url = sso_url
+        return pulumi.get(self, "sso_destination")
+
+    @property
+    @pulumi.getter(name="ssoUrl")
+    def sso_url(self) -> str:
         """
         single sign on url.
         """
-        if subject_filter and not isinstance(subject_filter, str):
-            raise TypeError("Expected argument 'subject_filter' to be a str")
-        __self__.subject_filter = subject_filter
+        return pulumi.get(self, "sso_url")
+
+    @property
+    @pulumi.getter(name="subjectFilter")
+    def subject_filter(self) -> str:
         """
         regular expression pattern used to filter untrusted IdP usernames.
         """
-        if subject_formats and not isinstance(subject_formats, list):
-            raise TypeError("Expected argument 'subject_formats' to be a list")
-        __self__.subject_formats = subject_formats
+        return pulumi.get(self, "subject_filter")
+
+    @property
+    @pulumi.getter(name="subjectFormats")
+    def subject_formats(self) -> List[str]:
         """
         Expression to generate or transform a unique username for the IdP user.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "subject_formats")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         type of idp.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetSamlResult(GetSamlResult):
@@ -122,7 +198,9 @@ class AwaitableGetSamlResult(GetSamlResult):
             type=self.type)
 
 
-def get_saml(id=None, name=None, opts=None):
+def get_saml(id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
     Use this data source to retrieve a SAML IdP from Okta.
 
@@ -146,20 +224,20 @@ def get_saml(id=None, name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('okta:idp/getSaml:getSaml', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('okta:idp/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult).value
 
     return AwaitableGetSamlResult(
-        acs_binding=__ret__.get('acsBinding'),
-        acs_type=__ret__.get('acsType'),
-        audience=__ret__.get('audience'),
-        id=__ret__.get('id'),
-        issuer=__ret__.get('issuer'),
-        issuer_mode=__ret__.get('issuerMode'),
-        kid=__ret__.get('kid'),
-        name=__ret__.get('name'),
-        sso_binding=__ret__.get('ssoBinding'),
-        sso_destination=__ret__.get('ssoDestination'),
-        sso_url=__ret__.get('ssoUrl'),
-        subject_filter=__ret__.get('subjectFilter'),
-        subject_formats=__ret__.get('subjectFormats'),
-        type=__ret__.get('type'))
+        acs_binding=__ret__.acs_binding,
+        acs_type=__ret__.acs_type,
+        audience=__ret__.audience,
+        id=__ret__.id,
+        issuer=__ret__.issuer,
+        issuer_mode=__ret__.issuer_mode,
+        kid=__ret__.kid,
+        name=__ret__.name,
+        sso_binding=__ret__.sso_binding,
+        sso_destination=__ret__.sso_destination,
+        sso_url=__ret__.sso_url,
+        subject_filter=__ret__.subject_filter,
+        subject_formats=__ret__.subject_formats,
+        type=__ret__.type)

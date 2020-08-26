@@ -5,36 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['BaseSchema']
 
 
 class BaseSchema(pulumi.CustomResource):
-    index: pulumi.Output[str]
-    """
-    The property name.
-    """
-    master: pulumi.Output[str]
-    """
-    Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-    """
-    permissions: pulumi.Output[str]
-    """
-    Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-    """
-    required: pulumi.Output[bool]
-    """
-    Whether the property is required for this application's users.
-    """
-    title: pulumi.Output[str]
-    """
-    The property display name.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-    """
-    def __init__(__self__, resource_name, opts=None, index=None, master=None, permissions=None, required=None, title=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 index: Optional[pulumi.Input[str]] = None,
+                 master: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[bool]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a User Base Schema property.
 
@@ -98,13 +87,21 @@ class BaseSchema(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, index=None, master=None, permissions=None, required=None, title=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            index: Optional[pulumi.Input[str]] = None,
+            master: Optional[pulumi.Input[str]] = None,
+            permissions: Optional[pulumi.Input[str]] = None,
+            required: Optional[pulumi.Input[bool]] = None,
+            title: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'BaseSchema':
         """
         Get an existing BaseSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -125,8 +122,57 @@ class BaseSchema(pulumi.CustomResource):
         __props__["type"] = type
         return BaseSchema(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The property name.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter
+    def master(self) -> Optional[str]:
+        """
+        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        """
+        return pulumi.get(self, "master")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[str]:
+        """
+        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Whether the property is required for this application's users.
+        """
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The property display name.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

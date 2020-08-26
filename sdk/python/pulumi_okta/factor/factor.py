@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Factor']
 
 
 class Factor(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    Whether or not to activate the provider, by default it is set to `true`.
-    """
-    provider_id: pulumi.Output[str]
-    """
-    Factor provider ID
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, provider_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 provider_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Allows you to manage the activation of Okta MFA methods.
 
@@ -66,13 +67,17 @@ class Factor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, provider_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: Optional[pulumi.Input[bool]] = None,
+            provider_id: Optional[pulumi.Input[str]] = None) -> 'Factor':
         """
         Get an existing Factor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Whether or not to activate the provider, by default it is set to `true`.
         :param pulumi.Input[str] provider_id: Factor provider ID
@@ -85,8 +90,25 @@ class Factor(pulumi.CustomResource):
         __props__["provider_id"] = provider_id
         return Factor(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        Whether or not to activate the provider, by default it is set to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> str:
+        """
+        Factor provider ID
+        """
+        return pulumi.get(self, "provider_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,191 +5,65 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['User']
 
 
 class User(pulumi.CustomResource):
-    admin_roles: pulumi.Output[list]
-    """
-    Administrator roles assigned to User.
-    """
-    city: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    cost_center: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    country_code: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    custom_profile_attributes: pulumi.Output[str]
-    """
-    raw JSON containing all custom profile attributes.
-    """
-    department: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    display_name: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    division: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    email: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    employee_number: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    first_name: pulumi.Output[str]
-    """
-    User's First Name, required by default.
-    """
-    group_memberships: pulumi.Output[list]
-    """
-    User profile property.
-    """
-    honorific_prefix: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    honorific_suffix: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    last_name: pulumi.Output[str]
-    """
-    User's Last Name, required by default.
-    """
-    locale: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    login: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    manager: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    manager_id: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    middle_name: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    mobile_phone: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    nick_name: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    organization: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    password: pulumi.Output[str]
-    """
-    User password.
-    """
-    postal_address: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    preferred_language: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    primary_phone: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    profile_url: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    raw_status: pulumi.Output[str]
-    """
-    The raw status of the User in Okta - (status is mapped)
-    """
-    recovery_answer: pulumi.Output[str]
-    """
-    User password recovery answer.
-    """
-    recovery_question: pulumi.Output[str]
-    """
-    User password recovery question.
-    """
-    second_email: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    state: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    status: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    street_address: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    timezone: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    title: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    user_type: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    zip_code: pulumi.Output[str]
-    """
-    User profile property.
-    """
-    def __init__(__self__, resource_name, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, recovery_answer=None, recovery_question=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 city: Optional[pulumi.Input[str]] = None,
+                 cost_center: Optional[pulumi.Input[str]] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+                 department: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 division: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 employee_number: Optional[pulumi.Input[str]] = None,
+                 first_name: Optional[pulumi.Input[str]] = None,
+                 group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 honorific_prefix: Optional[pulumi.Input[str]] = None,
+                 honorific_suffix: Optional[pulumi.Input[str]] = None,
+                 last_name: Optional[pulumi.Input[str]] = None,
+                 locale: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 manager: Optional[pulumi.Input[str]] = None,
+                 manager_id: Optional[pulumi.Input[str]] = None,
+                 middle_name: Optional[pulumi.Input[str]] = None,
+                 mobile_phone: Optional[pulumi.Input[str]] = None,
+                 nick_name: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 postal_address: Optional[pulumi.Input[str]] = None,
+                 preferred_language: Optional[pulumi.Input[str]] = None,
+                 primary_phone: Optional[pulumi.Input[str]] = None,
+                 profile_url: Optional[pulumi.Input[str]] = None,
+                 recovery_answer: Optional[pulumi.Input[str]] = None,
+                 recovery_question: Optional[pulumi.Input[str]] = None,
+                 second_email: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 street_address: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
+                 zip_code: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Okta User.
 
         This resource allows you to create and configure an Okta User.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.user.User("example",
-            description="My custom property name",
-            index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
-            title="customPropertyName",
-            type="string")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] admin_roles: Administrator roles assigned to User.
+        :param pulumi.Input[List[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -200,7 +74,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[list] group_memberships: User profile property.
+        :param pulumi.Input[List[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -299,15 +173,56 @@ class User(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, raw_status=None, recovery_answer=None, recovery_question=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_type=None, zip_code=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            city: Optional[pulumi.Input[str]] = None,
+            cost_center: Optional[pulumi.Input[str]] = None,
+            country_code: Optional[pulumi.Input[str]] = None,
+            custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+            department: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            division: Optional[pulumi.Input[str]] = None,
+            email: Optional[pulumi.Input[str]] = None,
+            employee_number: Optional[pulumi.Input[str]] = None,
+            first_name: Optional[pulumi.Input[str]] = None,
+            group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            honorific_prefix: Optional[pulumi.Input[str]] = None,
+            honorific_suffix: Optional[pulumi.Input[str]] = None,
+            last_name: Optional[pulumi.Input[str]] = None,
+            locale: Optional[pulumi.Input[str]] = None,
+            login: Optional[pulumi.Input[str]] = None,
+            manager: Optional[pulumi.Input[str]] = None,
+            manager_id: Optional[pulumi.Input[str]] = None,
+            middle_name: Optional[pulumi.Input[str]] = None,
+            mobile_phone: Optional[pulumi.Input[str]] = None,
+            nick_name: Optional[pulumi.Input[str]] = None,
+            organization: Optional[pulumi.Input[str]] = None,
+            password: Optional[pulumi.Input[str]] = None,
+            postal_address: Optional[pulumi.Input[str]] = None,
+            preferred_language: Optional[pulumi.Input[str]] = None,
+            primary_phone: Optional[pulumi.Input[str]] = None,
+            profile_url: Optional[pulumi.Input[str]] = None,
+            raw_status: Optional[pulumi.Input[str]] = None,
+            recovery_answer: Optional[pulumi.Input[str]] = None,
+            recovery_question: Optional[pulumi.Input[str]] = None,
+            second_email: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            street_address: Optional[pulumi.Input[str]] = None,
+            timezone: Optional[pulumi.Input[str]] = None,
+            title: Optional[pulumi.Input[str]] = None,
+            user_type: Optional[pulumi.Input[str]] = None,
+            zip_code: Optional[pulumi.Input[str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] admin_roles: Administrator roles assigned to User.
+        :param pulumi.Input[List[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -318,7 +233,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[list] group_memberships: User profile property.
+        :param pulumi.Input[List[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -392,8 +307,321 @@ class User(pulumi.CustomResource):
         __props__["zip_code"] = zip_code
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="adminRoles")
+    def admin_roles(self) -> Optional[List[str]]:
+        """
+        Administrator roles assigned to User.
+        """
+        return pulumi.get(self, "admin_roles")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="costCenter")
+    def cost_center(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "cost_center")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="customProfileAttributes")
+    def custom_profile_attributes(self) -> Optional[str]:
+        """
+        raw JSON containing all custom profile attributes.
+        """
+        return pulumi.get(self, "custom_profile_attributes")
+
+    @property
+    @pulumi.getter
+    def department(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "department")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def division(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "division")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="employeeNumber")
+    def employee_number(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "employee_number")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        """
+        User's First Name, required by default.
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="groupMemberships")
+    def group_memberships(self) -> Optional[List[str]]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "group_memberships")
+
+    @property
+    @pulumi.getter(name="honorificPrefix")
+    def honorific_prefix(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "honorific_prefix")
+
+    @property
+    @pulumi.getter(name="honorificSuffix")
+    def honorific_suffix(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "honorific_suffix")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        """
+        User's Last Name, required by default.
+        """
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def manager(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "manager")
+
+    @property
+    @pulumi.getter(name="managerId")
+    def manager_id(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "manager_id")
+
+    @property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "mobile_phone")
+
+    @property
+    @pulumi.getter(name="nickName")
+    def nick_name(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "nick_name")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        User password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="postalAddress")
+    def postal_address(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "postal_address")
+
+    @property
+    @pulumi.getter(name="preferredLanguage")
+    def preferred_language(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "preferred_language")
+
+    @property
+    @pulumi.getter(name="primaryPhone")
+    def primary_phone(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "primary_phone")
+
+    @property
+    @pulumi.getter(name="profileUrl")
+    def profile_url(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "profile_url")
+
+    @property
+    @pulumi.getter(name="rawStatus")
+    def raw_status(self) -> str:
+        """
+        The raw status of the User in Okta - (status is mapped)
+        """
+        return pulumi.get(self, "raw_status")
+
+    @property
+    @pulumi.getter(name="recoveryAnswer")
+    def recovery_answer(self) -> Optional[str]:
+        """
+        User password recovery answer.
+        """
+        return pulumi.get(self, "recovery_answer")
+
+    @property
+    @pulumi.getter(name="recoveryQuestion")
+    def recovery_question(self) -> Optional[str]:
+        """
+        User password recovery question.
+        """
+        return pulumi.get(self, "recovery_question")
+
+    @property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "second_email")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="streetAddress")
+    def street_address(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "street_address")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "user_type")
+
+    @property
+    @pulumi.getter(name="zipCode")
+    def zip_code(self) -> Optional[str]:
+        """
+        User profile property.
+        """
+        return pulumi.get(self, "zip_code")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

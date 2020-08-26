@@ -5,28 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Email']
 
 
 class Email(pulumi.CustomResource):
-    default_language: pulumi.Output[str]
-    """
-    The default language, by default is set to `"en"`.
-    """
-    translations: pulumi.Output[list]
-    """
-    Set of translations for particular template.
-
-      * `language` (`str`) - The language to map tthe template to.
-      * `subject` (`str`) - The email subject line.
-      * `template` (`str`) - The email body.
-    """
-    type: pulumi.Output[str]
-    """
-    Email template type
-    """
-    def __init__(__self__, resource_name, opts=None, default_language=None, translations=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_language: Optional[pulumi.Input[str]] = None,
+                 translations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates an Okta Email Template.
 
@@ -40,16 +36,16 @@ class Email(pulumi.CustomResource):
 
         example = okta.template.Email("example",
             translations=[
-                {
-                    "language": "en",
-                    "subject": "Stuff",
-                    "template": f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
-                },
-                {
-                    "language": "es",
-                    "subject": "Cosas",
-                    "template": f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
-                },
+                okta.template.EmailTranslationArgs(
+                    language="en",
+                    subject="Stuff",
+                    template=f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
+                ),
+                okta.template.EmailTranslationArgs(
+                    language="es",
+                    subject="Cosas",
+                    template=f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
+                ),
             ],
             type="email.forgotPassword")
         ```
@@ -57,14 +53,8 @@ class Email(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
-        :param pulumi.Input[list] translations: Set of translations for particular template.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for particular template.
         :param pulumi.Input[str] type: Email template type
-
-        The **translations** object supports the following:
-
-          * `language` (`pulumi.Input[str]`) - The language to map tthe template to.
-          * `subject` (`pulumi.Input[str]`) - The email subject line.
-          * `template` (`pulumi.Input[str]`) - The email body.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,23 +87,22 @@ class Email(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, default_language=None, translations=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_language: Optional[pulumi.Input[str]] = None,
+            translations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Email':
         """
         Get an existing Email resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
-        :param pulumi.Input[list] translations: Set of translations for particular template.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for particular template.
         :param pulumi.Input[str] type: Email template type
-
-        The **translations** object supports the following:
-
-          * `language` (`pulumi.Input[str]`) - The language to map tthe template to.
-          * `subject` (`pulumi.Input[str]`) - The email subject line.
-          * `template` (`pulumi.Input[str]`) - The email body.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -124,8 +113,33 @@ class Email(pulumi.CustomResource):
         __props__["type"] = type
         return Email(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultLanguage")
+    def default_language(self) -> Optional[str]:
+        """
+        The default language, by default is set to `"en"`.
+        """
+        return pulumi.get(self, "default_language")
+
+    @property
+    @pulumi.getter
+    def translations(self) -> List['outputs.EmailTranslation']:
+        """
+        Set of translations for particular template.
+        """
+        return pulumi.get(self, "translations")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Email template type
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

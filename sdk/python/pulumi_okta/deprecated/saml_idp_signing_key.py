@@ -5,27 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['SamlIdpSigningKey']
 
 
 class SamlIdpSigningKey(pulumi.CustomResource):
-    created: pulumi.Output[str]
-    expires_at: pulumi.Output[str]
-    kid: pulumi.Output[str]
-    kty: pulumi.Output[str]
-    use: pulumi.Output[str]
-    x5cs: pulumi.Output[list]
-    """
-    base64-encoded X.509 certificate chain with DER encoding
-    """
-    x5t_s256: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, x5cs=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a SamlIdpSigningKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding
+        :param pulumi.Input[List[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,15 +58,24 @@ class SamlIdpSigningKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, created=None, expires_at=None, kid=None, kty=None, use=None, x5cs=None, x5t_s256=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: Optional[pulumi.Input[str]] = None,
+            expires_at: Optional[pulumi.Input[str]] = None,
+            kid: Optional[pulumi.Input[str]] = None,
+            kty: Optional[pulumi.Input[str]] = None,
+            use: Optional[pulumi.Input[str]] = None,
+            x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            x5t_s256: Optional[pulumi.Input[str]] = None) -> 'SamlIdpSigningKey':
         """
         Get an existing SamlIdpSigningKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] x5cs: base64-encoded X.509 certificate chain with DER encoding
+        :param pulumi.Input[List[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -83,8 +90,47 @@ class SamlIdpSigningKey(pulumi.CustomResource):
         __props__["x5t_s256"] = x5t_s256
         return SamlIdpSigningKey(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> str:
+        return pulumi.get(self, "expires_at")
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
+        return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter
+    def kty(self) -> str:
+        return pulumi.get(self, "kty")
+
+    @property
+    @pulumi.getter
+    def use(self) -> str:
+        return pulumi.get(self, "use")
+
+    @property
+    @pulumi.getter
+    def x5cs(self) -> List[str]:
+        """
+        base64-encoded X.509 certificate chain with DER encoding
+        """
+        return pulumi.get(self, "x5cs")
+
+    @property
+    @pulumi.getter(name="x5tS256")
+    def x5t_s256(self) -> str:
+        return pulumi.get(self, "x5t_s256")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

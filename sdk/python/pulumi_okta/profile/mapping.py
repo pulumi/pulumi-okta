@@ -5,30 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Mapping']
 
 
 class Mapping(pulumi.CustomResource):
-    delete_when_absent: pulumi.Output[bool]
-    """
-    When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-    default, we do not delete missing properties.
-    """
-    mappings: pulumi.Output[list]
-    source_id: pulumi.Output[str]
-    """
-    The source id of the mapping to manage.
-    """
-    source_name: pulumi.Output[str]
-    source_type: pulumi.Output[str]
-    target_id: pulumi.Output[str]
-    """
-    The target id of the mapping to manage.
-    """
-    target_name: pulumi.Output[str]
-    target_type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, delete_when_absent=None, mappings=None, source_id=None, target_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_when_absent: Optional[pulumi.Input[bool]] = None,
+                 mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Mapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -37,12 +32,6 @@ class Mapping(pulumi.CustomResource):
                default, we do not delete missing properties.
         :param pulumi.Input[str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[str] target_id: The target id of the mapping to manage.
-
-        The **mappings** object supports the following:
-
-          * `expression` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`)
-          * `pushStatus` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,24 +69,28 @@ class Mapping(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, delete_when_absent=None, mappings=None, source_id=None, source_name=None, source_type=None, target_id=None, target_name=None, target_type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            delete_when_absent: Optional[pulumi.Input[bool]] = None,
+            mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+            source_id: Optional[pulumi.Input[str]] = None,
+            source_name: Optional[pulumi.Input[str]] = None,
+            source_type: Optional[pulumi.Input[str]] = None,
+            target_id: Optional[pulumi.Input[str]] = None,
+            target_name: Optional[pulumi.Input[str]] = None,
+            target_type: Optional[pulumi.Input[str]] = None) -> 'Mapping':
         """
         Get an existing Mapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
                default, we do not delete missing properties.
         :param pulumi.Input[str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[str] target_id: The target id of the mapping to manage.
-
-        The **mappings** object supports the following:
-
-          * `expression` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`)
-          * `pushStatus` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -113,8 +106,59 @@ class Mapping(pulumi.CustomResource):
         __props__["target_type"] = target_type
         return Mapping(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="deleteWhenAbsent")
+    def delete_when_absent(self) -> Optional[bool]:
+        """
+        When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
+        default, we do not delete missing properties.
+        """
+        return pulumi.get(self, "delete_when_absent")
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Optional[List['outputs.MappingMapping']]:
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> str:
+        """
+        The source id of the mapping to manage.
+        """
+        return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> str:
+        return pulumi.get(self, "source_name")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> str:
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> str:
+        """
+        The target id of the mapping to manage.
+        """
+        return pulumi.get(self, "target_id")
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> str:
+        return pulumi.get(self, "target_name")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> str:
+        return pulumi.get(self, "target_type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
