@@ -13,7 +13,7 @@ __all__ = ['UserBaseSchema']
 
 class UserBaseSchema(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  index: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         The Application's ID the user schema property should be assigned to.
         """
@@ -141,7 +141,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def index(self) -> str:
+    def index(self) -> pulumi.Output[str]:
         """
         The property name.
         """
@@ -149,7 +149,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def master(self) -> Optional[str]:
+    def master(self) -> pulumi.Output[Optional[str]]:
         """
         Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         """
@@ -157,7 +157,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[str]:
+    def permissions(self) -> pulumi.Output[Optional[str]]:
         """
         Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         """
@@ -165,7 +165,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def required(self) -> Optional[bool]:
+    def required(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the property is required for this application's users.
         """
@@ -173,7 +173,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The property display name.
         """
@@ -181,7 +181,7 @@ class UserBaseSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """

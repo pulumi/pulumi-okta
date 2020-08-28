@@ -15,7 +15,7 @@ __all__ = ['Mapping']
 
 class Mapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
                  mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
@@ -108,7 +108,7 @@ class Mapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteWhenAbsent")
-    def delete_when_absent(self) -> Optional[bool]:
+    def delete_when_absent(self) -> pulumi.Output[Optional[bool]]:
         """
         When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
         default, we do not delete missing properties.
@@ -117,12 +117,12 @@ class Mapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[List['outputs.MappingMapping']]:
+    def mappings(self) -> pulumi.Output[Optional[List['outputs.MappingMapping']]]:
         return pulumi.get(self, "mappings")
 
     @property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> str:
+    def source_id(self) -> pulumi.Output[str]:
         """
         The source id of the mapping to manage.
         """
@@ -130,17 +130,17 @@ class Mapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> str:
+    def source_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "source_name")
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> str:
+    def source_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> str:
+    def target_id(self) -> pulumi.Output[str]:
         """
         The target id of the mapping to manage.
         """
@@ -148,12 +148,12 @@ class Mapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> str:
+    def target_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "target_name")
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> str:
+    def target_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "target_type")
 
     def translate_output_property(self, prop):

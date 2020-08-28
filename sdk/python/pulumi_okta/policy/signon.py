@@ -13,7 +13,7 @@ __all__ = ['Signon']
 
 class Signon(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -111,7 +111,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Description.
         """
@@ -119,7 +119,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[List[str]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Group IDs to Include.
         """
@@ -127,7 +127,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Name.
         """
@@ -135,7 +135,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Priority of the policy.
         """
@@ -143,7 +143,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         """

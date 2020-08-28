@@ -13,7 +13,7 @@ __all__ = ['SamlIdpSigningKey']
 
 class SamlIdpSigningKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -92,32 +92,32 @@ class SamlIdpSigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created")
 
     @property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> str:
+    def expires_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "expires_at")
 
     @property
     @pulumi.getter
-    def kid(self) -> str:
+    def kid(self) -> pulumi.Output[str]:
         return pulumi.get(self, "kid")
 
     @property
     @pulumi.getter
-    def kty(self) -> str:
+    def kty(self) -> pulumi.Output[str]:
         return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter
-    def use(self) -> str:
+    def use(self) -> pulumi.Output[str]:
         return pulumi.get(self, "use")
 
     @property
     @pulumi.getter
-    def x5cs(self) -> List[str]:
+    def x5cs(self) -> pulumi.Output[List[str]]:
         """
         base64-encoded X.509 certificate chain with DER encoding
         """
@@ -125,7 +125,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="x5tS256")
-    def x5t_s256(self) -> str:
+    def x5t_s256(self) -> pulumi.Output[str]:
         return pulumi.get(self, "x5t_s256")
 
     def translate_output_property(self, prop):

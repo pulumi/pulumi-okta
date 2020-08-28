@@ -13,7 +13,7 @@ __all__ = ['MfaPolicyRule']
 
 class MfaPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enroll(self) -> Optional[str]:
+    def enroll(self) -> pulumi.Output[Optional[str]]:
         """
         Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
         """
@@ -132,7 +132,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Rule Name
         """
@@ -140,7 +140,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[str]:
+    def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
         Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         """
@@ -148,7 +148,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[List[str]]:
+    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The zones to exclude
         """
@@ -156,7 +156,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[List[str]]:
+    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The zones to include
         """
@@ -164,7 +164,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policyid(self) -> str:
+    def policyid(self) -> pulumi.Output[str]:
         """
         Policy ID of the Rule
         """
@@ -172,7 +172,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
         invalid priority is provided. API defaults it to the last/lowest if not there.
@@ -181,7 +181,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Rule Status: ACTIVE or INACTIVE.
         """
@@ -189,7 +189,7 @@ class MfaPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[List[str]]:
+    def users_excludeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Set of User IDs to Exclude
         """

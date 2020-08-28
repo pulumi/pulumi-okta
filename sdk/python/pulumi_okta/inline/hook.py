@@ -15,7 +15,7 @@ __all__ = ['Hook']
 
 class Hook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[pulumi.InputType['HookAuthArgs']]] = None,
                  channel: Optional[pulumi.Input[pulumi.InputType['HookChannelArgs']]] = None,
@@ -136,7 +136,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def auth(self) -> Optional['outputs.HookAuth']:
+    def auth(self) -> pulumi.Output[Optional['outputs.HookAuth']]:
         """
         Authentication required for inline hook request.
         """
@@ -144,7 +144,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def channel(self) -> Optional['outputs.HookChannel']:
+    def channel(self) -> pulumi.Output[Optional['outputs.HookChannel']]:
         """
         Details of the endpoint the inline hook will hit.
         """
@@ -152,7 +152,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[List['outputs.HookHeader']]:
+    def headers(self) -> pulumi.Output[Optional[List['outputs.HookHeader']]]:
         """
         Map of headers to send along in inline hook request.
         """
@@ -160,7 +160,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The inline hook display name.
         """
@@ -168,12 +168,12 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of hook to trigger. Currently only `"HTTP"` is supported.
         """
@@ -181,7 +181,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The version of the endpoint.
         """

@@ -13,7 +13,7 @@ __all__ = ['Password']
 
 class Password(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_provider: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -250,7 +250,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authProvider")
-    def auth_provider(self) -> Optional[str]:
+    def auth_provider(self) -> pulumi.Output[Optional[str]]:
         """
         Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
         """
@@ -258,7 +258,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Description.
         """
@@ -266,7 +266,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailRecovery")
-    def email_recovery(self) -> Optional[str]:
+    def email_recovery(self) -> pulumi.Output[Optional[str]]:
         """
         Enable or disable email password recovery: ACTIVE or INACTIVE.
         """
@@ -274,7 +274,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[List[str]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Group IDs to Include.
         """
@@ -282,7 +282,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Name.
         """
@@ -290,7 +290,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordAutoUnlockMinutes")
-    def password_auto_unlock_minutes(self) -> Optional[float]:
+    def password_auto_unlock_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Number of minutes before a locked account is unlocked: 0 = no limit.
         """
@@ -298,7 +298,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordDictionaryLookup")
-    def password_dictionary_lookup(self) -> Optional[bool]:
+    def password_dictionary_lookup(self) -> pulumi.Output[Optional[bool]]:
         """
         Check Passwords Against Common Password Dictionary.
         """
@@ -306,7 +306,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordExcludeFirstName")
-    def password_exclude_first_name(self) -> Optional[bool]:
+    def password_exclude_first_name(self) -> pulumi.Output[Optional[bool]]:
         """
         User firstName attribute must be excluded from the password.
         """
@@ -314,7 +314,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordExcludeLastName")
-    def password_exclude_last_name(self) -> Optional[bool]:
+    def password_exclude_last_name(self) -> pulumi.Output[Optional[bool]]:
         """
         User lastName attribute must be excluded from the password.
         """
@@ -322,7 +322,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordExcludeUsername")
-    def password_exclude_username(self) -> Optional[bool]:
+    def password_exclude_username(self) -> pulumi.Output[Optional[bool]]:
         """
         If the user name must be excluded from the password.
         """
@@ -330,7 +330,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordExpireWarnDays")
-    def password_expire_warn_days(self) -> Optional[float]:
+    def password_expire_warn_days(self) -> pulumi.Output[Optional[float]]:
         """
         Length in days a user will be warned before password expiry: 0 = no warning.
         """
@@ -338,7 +338,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordHistoryCount")
-    def password_history_count(self) -> Optional[float]:
+    def password_history_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of distinct passwords that must be created before they can be reused: 0 = none.
         """
@@ -346,7 +346,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMaxAgeDays")
-    def password_max_age_days(self) -> Optional[float]:
+    def password_max_age_days(self) -> pulumi.Output[Optional[float]]:
         """
         Length in days a password is valid before expiry: 0 = no limit.",
         """
@@ -354,7 +354,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMaxLockoutAttempts")
-    def password_max_lockout_attempts(self) -> Optional[float]:
+    def password_max_lockout_attempts(self) -> pulumi.Output[Optional[float]]:
         """
         Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         """
@@ -362,7 +362,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinAgeMinutes")
-    def password_min_age_minutes(self) -> Optional[float]:
+    def password_min_age_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum time interval in minutes between password changes: 0 = no limit.
         """
@@ -370,7 +370,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinLength")
-    def password_min_length(self) -> Optional[float]:
+    def password_min_length(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum password length. Default is 8.
         """
@@ -378,7 +378,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinLowercase")
-    def password_min_lowercase(self) -> Optional[float]:
+    def password_min_lowercase(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum number of lower case characters in password.
         """
@@ -386,7 +386,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinNumber")
-    def password_min_number(self) -> Optional[float]:
+    def password_min_number(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum number of numbers in password.
         """
@@ -394,7 +394,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinSymbol")
-    def password_min_symbol(self) -> Optional[float]:
+    def password_min_symbol(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum number of symbols in password.
         """
@@ -402,7 +402,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordMinUppercase")
-    def password_min_uppercase(self) -> Optional[float]:
+    def password_min_uppercase(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum number of upper case characters in password.
         """
@@ -410,7 +410,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordShowLockoutFailures")
-    def password_show_lockout_failures(self) -> Optional[bool]:
+    def password_show_lockout_failures(self) -> pulumi.Output[Optional[bool]]:
         """
         If a user should be informed when their account is locked.
         """
@@ -418,7 +418,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Priority of the policy.
         """
@@ -426,7 +426,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="questionMinLength")
-    def question_min_length(self) -> Optional[float]:
+    def question_min_length(self) -> pulumi.Output[Optional[float]]:
         """
         Min length of the password recovery question answer.
         """
@@ -434,7 +434,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="questionRecovery")
-    def question_recovery(self) -> Optional[str]:
+    def question_recovery(self) -> pulumi.Output[Optional[str]]:
         """
         Enable or disable security question password recovery: ACTIVE or INACTIVE.
         """
@@ -442,7 +442,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryEmailToken")
-    def recovery_email_token(self) -> Optional[float]:
+    def recovery_email_token(self) -> pulumi.Output[Optional[float]]:
         """
         Lifetime in minutes of the recovery email token.
         """
@@ -450,7 +450,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skipUnlock")
-    def skip_unlock(self) -> Optional[bool]:
+    def skip_unlock(self) -> pulumi.Output[Optional[bool]]:
         """
         When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         """
@@ -458,7 +458,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smsRecovery")
-    def sms_recovery(self) -> Optional[str]:
+    def sms_recovery(self) -> pulumi.Output[Optional[str]]:
         """
         Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         """
@@ -466,7 +466,7 @@ class Password(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         """

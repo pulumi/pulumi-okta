@@ -13,7 +13,7 @@ __all__ = ['OAuthRedirectUri']
 
 class OAuthRedirectUri(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -80,12 +80,12 @@ class OAuthRedirectUri(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         """
         Redirect URI to append to Okta OIDC application.
         """

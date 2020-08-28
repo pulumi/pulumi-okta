@@ -13,7 +13,7 @@ __all__ = ['ServerPolicy']
 
 class ServerPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
                  client_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -133,7 +133,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> str:
+    def auth_server_id(self) -> pulumi.Output[str]:
         """
         The ID of the Auth Server.
         """
@@ -141,7 +141,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientWhitelists")
-    def client_whitelists(self) -> List[str]:
+    def client_whitelists(self) -> pulumi.Output[List[str]]:
         """
         The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
         """
@@ -149,7 +149,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the Auth Server Policy.
         """
@@ -157,7 +157,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Auth Server Policy.
         """
@@ -165,7 +165,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         The priority of the Auth Server Policy.
         """
@@ -173,7 +173,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Auth Server Policy.
         """
@@ -181,7 +181,7 @@ class ServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the Auth Server Policy.
         """

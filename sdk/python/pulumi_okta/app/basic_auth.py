@@ -15,7 +15,7 @@ __all__ = ['BasicAuth']
 
 class BasicAuth(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_url: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
@@ -147,7 +147,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authUrl")
-    def auth_url(self) -> Optional[str]:
+    def auth_url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the authenticating site for this app.
         """
@@ -155,7 +155,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar
         """
@@ -163,7 +163,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application
         """
@@ -171,7 +171,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app
         """
@@ -179,7 +179,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users
         """
@@ -187,7 +187,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -195,7 +195,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of app.
         """
@@ -203,7 +203,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -211,7 +211,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of application.
         """
@@ -219,7 +219,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL of the sign-in page for this app.
         """
@@ -227,7 +227,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.BasicAuthUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.BasicAuthUser']]]:
         """
         Users associated with the application
         """

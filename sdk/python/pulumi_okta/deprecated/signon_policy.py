@@ -13,7 +13,7 @@ __all__ = ['SignonPolicy']
 
 class SignonPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -98,7 +98,7 @@ class SignonPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Description
         """
@@ -106,7 +106,7 @@ class SignonPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[List[str]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Group IDs to Include
         """
@@ -114,7 +114,7 @@ class SignonPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Name
         """
@@ -122,7 +122,7 @@ class SignonPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         priority is provided. API defaults it to the last/lowest if not there.
@@ -131,7 +131,7 @@ class SignonPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Status: ACTIVE or INACTIVE.
         """

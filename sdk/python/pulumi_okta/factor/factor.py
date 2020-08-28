@@ -13,7 +13,7 @@ __all__ = ['Factor']
 
 class Factor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  provider_id: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class Factor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not to activate the provider, by default it is set to `true`.
         """
@@ -100,7 +100,7 @@ class Factor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerId")
-    def provider_id(self) -> str:
+    def provider_id(self) -> pulumi.Output[str]:
         """
         Factor provider ID
         """

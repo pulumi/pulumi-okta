@@ -13,7 +13,7 @@ __all__ = ['RuleSignon']
 
 class RuleSignon(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
@@ -171,7 +171,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def access(self) -> Optional[str]:
+    def access(self) -> pulumi.Output[Optional[str]]:
         """
         Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
         """
@@ -179,7 +179,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authtype(self) -> Optional[str]:
+    def authtype(self) -> pulumi.Output[Optional[str]]:
         """
         Authentication entrypoint: `"ANY"` or `"RADIUS"`.
         """
@@ -187,7 +187,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mfaLifetime")
-    def mfa_lifetime(self) -> Optional[float]:
+    def mfa_lifetime(self) -> pulumi.Output[Optional[float]]:
         """
         Elapsed time before the next MFA challenge.
         """
@@ -195,7 +195,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mfaPrompt")
-    def mfa_prompt(self) -> Optional[str]:
+    def mfa_prompt(self) -> pulumi.Output[Optional[str]]:
         """
         Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         """
@@ -203,7 +203,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mfaRememberDevice")
-    def mfa_remember_device(self) -> Optional[bool]:
+    def mfa_remember_device(self) -> pulumi.Output[Optional[bool]]:
         """
         Remember MFA device. The default `false`.
         """
@@ -211,7 +211,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mfaRequired")
-    def mfa_required(self) -> Optional[bool]:
+    def mfa_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Require MFA. By default is `false`.
         """
@@ -219,7 +219,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Rule Name.
         """
@@ -227,7 +227,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[str]:
+    def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
         Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         """
@@ -235,7 +235,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[List[str]]:
+    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to exclude. Conflicts with `network_includes`.
         """
@@ -243,7 +243,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[List[str]]:
+    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to include. Conflicts with `network_excludes`.
         """
@@ -251,7 +251,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policyid(self) -> str:
+    def policyid(self) -> pulumi.Output[str]:
         """
         Policy ID.
         """
@@ -259,7 +259,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         """
@@ -267,7 +267,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionIdle")
-    def session_idle(self) -> Optional[float]:
+    def session_idle(self) -> pulumi.Output[Optional[float]]:
         """
         Max minutes a session can be idle.",
         """
@@ -275,7 +275,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionLifetime")
-    def session_lifetime(self) -> Optional[float]:
+    def session_lifetime(self) -> pulumi.Output[Optional[float]]:
         """
         Max minutes a session is active: Disable = 0.
         """
@@ -283,7 +283,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionPersistent")
-    def session_persistent(self) -> Optional[bool]:
+    def session_persistent(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         """
@@ -291,7 +291,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         """
@@ -299,7 +299,7 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[List[str]]:
+    def users_excludeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Set of User IDs to Exclude
         """

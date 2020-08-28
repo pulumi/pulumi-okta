@@ -13,7 +13,7 @@ __all__ = ['ServerPolicyClaim']
 
 class ServerPolicyClaim(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token_lifetime_minutes: Optional[pulumi.Input[float]] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
@@ -178,7 +178,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
-    def access_token_lifetime_minutes(self) -> Optional[float]:
+    def access_token_lifetime_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Lifetime of access token. Can be set to a value between 5 and 1440.
         """
@@ -186,7 +186,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> str:
+    def auth_server_id(self) -> pulumi.Output[str]:
         """
         Auth Server ID.
         """
@@ -194,7 +194,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantTypeWhitelists")
-    def grant_type_whitelists(self) -> List[str]:
+    def grant_type_whitelists(self) -> pulumi.Output[List[str]]:
         """
         Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
         """
@@ -202,17 +202,17 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupBlacklists")
-    def group_blacklists(self) -> Optional[List[str]]:
+    def group_blacklists(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "group_blacklists")
 
     @property
     @pulumi.getter(name="groupWhitelists")
-    def group_whitelists(self) -> Optional[List[str]]:
+    def group_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "group_whitelists")
 
     @property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[str]:
+    def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the inline token to trigger.
         """
@@ -220,7 +220,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Auth Server Policy Rule name.
         """
@@ -228,7 +228,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> str:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         Auth Server Policy ID.
         """
@@ -236,7 +236,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         Priority of the auth server policy rule.
         """
@@ -244,7 +244,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenLifetimeMinutes")
-    def refresh_token_lifetime_minutes(self) -> Optional[float]:
+    def refresh_token_lifetime_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Lifetime of refresh token.
         """
@@ -252,12 +252,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenWindowMinutes")
-    def refresh_token_window_minutes(self) -> Optional[float]:
+    def refresh_token_window_minutes(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "refresh_token_window_minutes")
 
     @property
     @pulumi.getter(name="scopeWhitelists")
-    def scope_whitelists(self) -> Optional[List[str]]:
+    def scope_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         """
@@ -265,7 +265,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Auth Server Policy Rule.
         """
@@ -273,7 +273,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the Auth Server Policy Rule.
         """
@@ -281,12 +281,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userBlacklists")
-    def user_blacklists(self) -> Optional[List[str]]:
+    def user_blacklists(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "user_blacklists")
 
     @property
     @pulumi.getter(name="userWhitelists")
-    def user_whitelists(self) -> Optional[List[str]]:
+    def user_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "user_whitelists")
 
     def translate_output_property(self, prop):

@@ -13,7 +13,7 @@ __all__ = ['GroupAssignment']
 
 class GroupAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class GroupAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         The ID of the application to assign a group to.
         """
@@ -125,7 +125,7 @@ class GroupAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    def group_id(self) -> pulumi.Output[str]:
         """
         The ID of the group to assign the app to.
         """
@@ -133,12 +133,12 @@ class GroupAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
-    def profile(self) -> Optional[str]:
+    def profile(self) -> pulumi.Output[Optional[str]]:
         """
         JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         """

@@ -13,7 +13,7 @@ __all__ = ['ServerClaim']
 
 class ServerClaim(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_include_in_token: Optional[pulumi.Input[bool]] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alwaysIncludeInToken")
-    def always_include_in_token(self) -> Optional[bool]:
+    def always_include_in_token(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to include claims in token, by default is is set to `true`.
         """
@@ -150,7 +150,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> str:
+    def auth_server_id(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -158,7 +158,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimType")
-    def claim_type(self) -> str:
+    def claim_type(self) -> pulumi.Output[str]:
         """
         Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         """
@@ -166,7 +166,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupFilterType")
-    def group_filter_type(self) -> Optional[str]:
+    def group_filter_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
         """
@@ -174,7 +174,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the claim.
         """
@@ -182,7 +182,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of scopes the auth server claim is tied to.
         """
@@ -190,7 +190,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the application. It defaults to `"ACTIVE"`.
         """
@@ -198,7 +198,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         The value of the claim.
         """
@@ -206,7 +206,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[str]:
+    def value_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
         """

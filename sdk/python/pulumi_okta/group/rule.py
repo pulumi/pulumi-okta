@@ -13,7 +13,7 @@ __all__ = ['Rule']
 
 class Rule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  expression_type: Optional[pulumi.Input[str]] = None,
                  expression_value: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressionType")
-    def expression_type(self) -> Optional[str]:
+    def expression_type(self) -> pulumi.Output[Optional[str]]:
         """
         The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
         """
@@ -124,7 +124,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressionValue")
-    def expression_value(self) -> str:
+    def expression_value(self) -> pulumi.Output[str]:
         """
         The expression value.
         """
@@ -132,7 +132,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupAssignments")
-    def group_assignments(self) -> List[str]:
+    def group_assignments(self) -> pulumi.Output[List[str]]:
         """
         The list of group ids to assign the users to.
         """
@@ -140,7 +140,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Group Rule.
         """
@@ -148,7 +148,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the group rule.
         """

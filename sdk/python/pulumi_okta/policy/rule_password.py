@@ -13,7 +13,7 @@ __all__ = ['RulePassword']
 
 class RulePassword(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Rule Name.
         """
@@ -145,7 +145,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[str]:
+    def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
         Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         """
@@ -153,7 +153,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[List[str]]:
+    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to exclude. Conflicts with `network_includes`.
         """
@@ -161,7 +161,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[List[str]]:
+    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to include. Conflicts with `network_excludes`.
         """
@@ -169,7 +169,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordChange")
-    def password_change(self) -> Optional[str]:
+    def password_change(self) -> pulumi.Output[Optional[str]]:
         """
         Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
         """
@@ -177,7 +177,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordReset")
-    def password_reset(self) -> Optional[str]:
+    def password_reset(self) -> pulumi.Output[Optional[str]]:
         """
         Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
         """
@@ -185,7 +185,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordUnlock")
-    def password_unlock(self) -> Optional[str]:
+    def password_unlock(self) -> pulumi.Output[Optional[str]]:
         """
         Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
         """
@@ -193,7 +193,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policyid(self) -> str:
+    def policyid(self) -> pulumi.Output[str]:
         """
         Policy ID.
         """
@@ -201,7 +201,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         """
@@ -209,7 +209,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         """
@@ -217,7 +217,7 @@ class RulePassword(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[List[str]]:
+    def users_excludeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Set of User IDs to Exclude
         """

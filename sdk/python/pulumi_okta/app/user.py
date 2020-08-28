@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         App to associate user with.
         """
@@ -131,7 +131,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password to use.
         """
@@ -139,7 +139,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profile(self) -> Optional[str]:
+    def profile(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON profile of the App User.
         """
@@ -147,7 +147,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         User to associate the application with.
         """
@@ -155,7 +155,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> pulumi.Output[str]:
         """
         The username to use for the app user.
         """

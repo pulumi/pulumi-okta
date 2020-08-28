@@ -15,7 +15,7 @@ __all__ = ['SamlApp']
 
 class SamlApp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
@@ -314,7 +314,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[str]:
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Custom error page URL
         """
@@ -322,7 +322,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[str]:
+    def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Custom login page URL
         """
@@ -330,7 +330,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[bool]:
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable self service
         """
@@ -338,7 +338,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[str]:
+    def app_settings_json(self) -> pulumi.Output[Optional[str]]:
         """
         Application settings in JSON format
         """
@@ -346,7 +346,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assertionSigned")
-    def assertion_signed(self) -> Optional[bool]:
+    def assertion_signed(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether the SAML assertion is digitally signed
         """
@@ -354,12 +354,12 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> Optional[List['outputs.SamlAppAttributeStatement']]:
+    def attribute_statements(self) -> pulumi.Output[Optional[List['outputs.SamlAppAttributeStatement']]]:
         return pulumi.get(self, "attribute_statements")
 
     @property
     @pulumi.getter
-    def audience(self) -> Optional[str]:
+    def audience(self) -> pulumi.Output[Optional[str]]:
         """
         Audience Restriction
         """
@@ -367,7 +367,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authnContextClassRef")
-    def authn_context_class_ref(self) -> Optional[str]:
+    def authn_context_class_ref(self) -> pulumi.Output[Optional[str]]:
         """
         Identifies the SAML authentication context class for the assertion’s authentication statement
         """
@@ -375,7 +375,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar
         """
@@ -383,7 +383,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> pulumi.Output[str]:
         """
         cert from SAML XML metadata payload
         """
@@ -391,7 +391,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRelayState")
-    def default_relay_state(self) -> Optional[str]:
+    def default_relay_state(self) -> pulumi.Output[Optional[str]]:
         """
         Identifies a specific application resource in an IDP initiated SSO scenario.
         """
@@ -399,7 +399,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[str]:
+    def destination(self) -> pulumi.Output[Optional[str]]:
         """
         Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
@@ -407,7 +407,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="digestAlgorithm")
-    def digest_algorithm(self) -> Optional[str]:
+    def digest_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
@@ -415,7 +415,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityKey")
-    def entity_key(self) -> str:
+    def entity_key(self) -> pulumi.Output[str]:
         """
         Entity ID, the ID portion of the entity_url
         """
@@ -423,7 +423,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityUrl")
-    def entity_url(self) -> str:
+    def entity_url(self) -> pulumi.Output[str]:
         """
         Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
         """
@@ -431,7 +431,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[List[str]]:
+    def features(self) -> pulumi.Output[Optional[List[str]]]:
         """
         features to enable
         """
@@ -439,7 +439,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application
         """
@@ -447,7 +447,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app
         """
@@ -455,7 +455,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users
         """
@@ -463,7 +463,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="honorForceAuthn")
-    def honor_force_authn(self) -> Optional[bool]:
+    def honor_force_authn(self) -> pulumi.Output[Optional[bool]]:
         """
         Prompt user to re-authenticate if SP asks for it
         """
@@ -471,7 +471,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpPostBinding")
-    def http_post_binding(self) -> str:
+    def http_post_binding(self) -> pulumi.Output[str]:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         """
@@ -479,7 +479,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpRedirectBinding")
-    def http_redirect_binding(self) -> str:
+    def http_redirect_binding(self) -> pulumi.Output[str]:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         """
@@ -487,7 +487,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idpIssuer")
-    def idp_issuer(self) -> Optional[str]:
+    def idp_issuer(self) -> pulumi.Output[Optional[str]]:
         """
         SAML issuer ID
         """
@@ -495,7 +495,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> pulumi.Output[str]:
         """
         Certificate ID
         """
@@ -503,7 +503,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
+    def key_name(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate name. This modulates the rotation of keys. New name == new key.
         """
@@ -511,7 +511,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyYearsValid")
-    def key_years_valid(self) -> Optional[float]:
+    def key_years_valid(self) -> pulumi.Output[Optional[float]]:
         """
         Number of years the certificate is valid.
         """
@@ -519,7 +519,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         Pretty name of app.
         """
@@ -527,7 +527,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> pulumi.Output[str]:
         """
         SAML xml metadata payload
         """
@@ -535,7 +535,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of app.
         """
@@ -543,7 +543,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[str]:
+    def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
         Name of preexisting SAML application. For instance 'slack'
         """
@@ -551,7 +551,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def recipient(self) -> Optional[str]:
+    def recipient(self) -> pulumi.Output[Optional[str]]:
         """
         The location where the app may present the SAML assertion
         """
@@ -559,7 +559,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestCompressed")
-    def request_compressed(self) -> Optional[bool]:
+    def request_compressed(self) -> pulumi.Output[Optional[bool]]:
         """
         Denotes whether the request is compressed or not.
         """
@@ -567,7 +567,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseSigned")
-    def response_signed(self) -> Optional[bool]:
+    def response_signed(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether the SAML auth response message is digitally signed
         """
@@ -575,7 +575,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -583,7 +583,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signatureAlgorithm")
-    def signature_algorithm(self) -> Optional[str]:
+    def signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         Signature algorithm used ot digitally sign the assertion and response
         """
@@ -591,7 +591,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spIssuer")
-    def sp_issuer(self) -> Optional[str]:
+    def sp_issuer(self) -> pulumi.Output[Optional[str]]:
         """
         SAML SP issuer ID
         """
@@ -599,7 +599,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> Optional[str]:
+    def sso_url(self) -> pulumi.Output[Optional[str]]:
         """
         Single Sign On URL
         """
@@ -607,7 +607,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of application.
         """
@@ -615,7 +615,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectNameIdFormat")
-    def subject_name_id_format(self) -> Optional[str]:
+    def subject_name_id_format(self) -> pulumi.Output[Optional[str]]:
         """
         Identifies the SAML processing rules.
         """
@@ -623,7 +623,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectNameIdTemplate")
-    def subject_name_id_template(self) -> Optional[str]:
+    def subject_name_id_template(self) -> pulumi.Output[Optional[str]]:
         """
         Template for app user's username when a user is assigned to the app
         """
@@ -631,7 +631,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
         Username template
         """
@@ -639,7 +639,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[str]:
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         Username template suffix
         """
@@ -647,7 +647,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[str]:
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
         Username template type
         """
@@ -655,7 +655,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.SamlAppUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.SamlAppUser']]]:
         """
         Users associated with the application
         """
