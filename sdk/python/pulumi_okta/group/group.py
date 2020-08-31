@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Okta Group.
         """
@@ -104,7 +104,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Okta Group.
         """
@@ -112,7 +112,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List[str]]:
+    def users(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Users associated with the group. This can also be done per user.
         """

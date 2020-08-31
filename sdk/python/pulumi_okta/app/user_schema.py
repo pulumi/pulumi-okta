@@ -15,7 +15,7 @@ __all__ = ['UserSchema']
 
 class UserSchema(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  array_enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -197,7 +197,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         The Application's ID the user custom schema property should be assigned to.
         """
@@ -205,7 +205,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arrayEnums")
-    def array_enums(self) -> Optional[List[str]]:
+    def array_enums(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of values that an array property's items can be set to.
         """
@@ -213,7 +213,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arrayOneOfs")
-    def array_one_ofs(self) -> Optional[List['outputs.UserSchemaArrayOneOf']]:
+    def array_one_ofs(self) -> pulumi.Output[Optional[List['outputs.UserSchemaArrayOneOf']]]:
         """
         Display name and value an enum array can be set to.
         """
@@ -221,7 +221,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arrayType")
-    def array_type(self) -> Optional[str]:
+    def array_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the array elements if `type` is set to `"array"`.
         """
@@ -229,7 +229,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the user schema property.
         """
@@ -237,7 +237,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enums(self) -> Optional[List[str]]:
+    def enums(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of values a primitive property can be set to. See `array_enum` for arrays.
         """
@@ -245,7 +245,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalName")
-    def external_name(self) -> Optional[str]:
+    def external_name(self) -> pulumi.Output[Optional[str]]:
         """
         External name of the user schema property.
         """
@@ -253,7 +253,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def index(self) -> str:
+    def index(self) -> pulumi.Output[str]:
         """
         The property name.
         """
@@ -261,7 +261,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def master(self) -> Optional[str]:
+    def master(self) -> pulumi.Output[Optional[str]]:
         """
         Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         """
@@ -269,7 +269,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[float]:
+    def max_length(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum length of the user property value. Only applies to type `"string"`.
         """
@@ -277,7 +277,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[float]:
+    def min_length(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum length of the user property value. Only applies to type `"string"`.
         """
@@ -285,7 +285,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oneOfs")
-    def one_ofs(self) -> Optional[List['outputs.UserSchemaOneOf']]:
+    def one_ofs(self) -> pulumi.Output[Optional[List['outputs.UserSchemaOneOf']]]:
         """
         Array of maps containing a mapping for display name to enum value.
         """
@@ -293,7 +293,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[str]:
+    def permissions(self) -> pulumi.Output[Optional[str]]:
         """
         Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         """
@@ -301,7 +301,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def required(self) -> Optional[bool]:
+    def required(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the property is required for this application's users.
         """
@@ -309,7 +309,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         determines whether an app user attribute can be set at the Individual or Group Level.
         """
@@ -317,7 +317,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         display name for the enum value.
         """
@@ -325,7 +325,7 @@ class UserSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """

@@ -13,7 +13,7 @@ __all__ = ['SamlKey']
 
 class SamlKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -110,7 +110,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         Date created.
         """
@@ -118,7 +118,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> str:
+    def expires_at(self) -> pulumi.Output[str]:
         """
         Date the cert expires.
         """
@@ -126,7 +126,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kid(self) -> str:
+    def kid(self) -> pulumi.Output[str]:
         """
         Key ID.
         """
@@ -134,7 +134,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kty(self) -> str:
+    def kty(self) -> pulumi.Output[str]:
         """
         Identifies the cryptographic algorithm family used with the key.
         """
@@ -142,7 +142,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def use(self) -> str:
+    def use(self) -> pulumi.Output[str]:
         """
         Intended use of the public key.
         """
@@ -150,7 +150,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def x5cs(self) -> List[str]:
+    def x5cs(self) -> pulumi.Output[List[str]]:
         """
         base64-encoded X.509 certificate chain with DER encoding.
         """
@@ -158,7 +158,7 @@ class SamlKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="x5tS256")
-    def x5t_s256(self) -> str:
+    def x5t_s256(self) -> pulumi.Output[str]:
         """
         base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
         """

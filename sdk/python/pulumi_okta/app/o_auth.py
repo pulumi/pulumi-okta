@@ -15,7 +15,7 @@ __all__ = ['OAuth']
 
 class OAuth(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
@@ -255,7 +255,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoKeyRotation")
-    def auto_key_rotation(self) -> Optional[bool]:
+    def auto_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
         Requested key rotation mode.
         """
@@ -263,7 +263,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar.
         """
@@ -271,7 +271,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientBasicSecret")
-    def client_basic_secret(self) -> Optional[str]:
+    def client_basic_secret(self) -> pulumi.Output[Optional[str]]:
         """
         OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
         """
@@ -279,7 +279,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The client ID of the application.
         """
@@ -287,7 +287,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         The client secret of the application.
         """
@@ -295,7 +295,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientUri")
-    def client_uri(self) -> Optional[str]:
+    def client_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI to a web page providing information about the client.
         """
@@ -303,7 +303,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consentMethod")
-    def consent_method(self) -> Optional[str]:
+    def consent_method(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
         """
@@ -311,7 +311,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customClientId")
-    def custom_client_id(self) -> Optional[str]:
+    def custom_client_id(self) -> pulumi.Output[Optional[str]]:
         """
         This property allows you to set the application's client id.
         """
@@ -319,7 +319,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> Optional[List[str]]:
+    def grant_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         """
@@ -327,7 +327,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         """
@@ -335,7 +335,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app.
         """
@@ -343,7 +343,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users.
         """
@@ -351,7 +351,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[str]:
+    def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         """
@@ -359,7 +359,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -367,7 +367,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loginUri")
-    def login_uri(self) -> Optional[str]:
+    def login_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI that initiates login.
         """
@@ -375,7 +375,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logoUri")
-    def logo_uri(self) -> Optional[str]:
+    def logo_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI that references a logo for the client.
         """
@@ -383,7 +383,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name assigned to the application by Okta.
         """
@@ -391,7 +391,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="omitSecret")
-    def omit_secret(self) -> Optional[bool]:
+    def omit_secret(self) -> pulumi.Output[Optional[bool]]:
         """
         This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
         """
@@ -399,7 +399,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyUri")
-    def policy_uri(self) -> Optional[str]:
+    def policy_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI to web page providing client policy document.
         """
@@ -407,7 +407,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="postLogoutRedirectUris")
-    def post_logout_redirect_uris(self) -> Optional[List[str]]:
+    def post_logout_redirect_uris(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of URIs for redirection after logout.
         """
@@ -415,7 +415,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profile(self) -> Optional[str]:
+    def profile(self) -> pulumi.Output[Optional[str]]:
         """
         Custom JSON that represents an OAuth application's profile.
         """
@@ -423,7 +423,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redirectUris")
-    def redirect_uris(self) -> Optional[List[str]]:
+    def redirect_uris(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of URIs for use in the redirect-based flow. This is required for all application types except service.
         """
@@ -431,7 +431,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTypes")
-    def response_types(self) -> Optional[List[str]]:
+    def response_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of OAuth 2.0 response type strings.
         """
@@ -439,7 +439,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -447,7 +447,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the application, by default it is `"ACTIVE"`.
         """
@@ -455,7 +455,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenEndpointAuthMethod")
-    def token_endpoint_auth_method(self) -> Optional[str]:
+    def token_endpoint_auth_method(self) -> pulumi.Output[Optional[str]]:
         """
         Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`.
         """
@@ -463,7 +463,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tosUri")
-    def tos_uri(self) -> Optional[str]:
+    def tos_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI to web page providing client tos (terms of service).
         """
@@ -471,7 +471,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of OAuth application.
         """
@@ -479,7 +479,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.OAuthUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.OAuthUser']]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
         """

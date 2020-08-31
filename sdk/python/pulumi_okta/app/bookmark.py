@@ -15,7 +15,7 @@ __all__ = ['Bookmark']
 
 class Bookmark(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -148,7 +148,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar
         """
@@ -156,7 +156,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application
         """
@@ -164,7 +164,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app
         """
@@ -172,7 +172,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users
         """
@@ -180,7 +180,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -188,7 +188,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of app.
         """
@@ -196,7 +196,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestIntegration")
-    def request_integration(self) -> Optional[bool]:
+    def request_integration(self) -> pulumi.Output[Optional[bool]]:
         """
         Would you like Okta to add an integration for this app?
         """
@@ -204,7 +204,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -212,7 +212,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of application.
         """
@@ -220,7 +220,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL of the bookmark.
         """
@@ -228,7 +228,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.BookmarkUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.BookmarkUser']]]:
         """
         Users associated with the application
         """

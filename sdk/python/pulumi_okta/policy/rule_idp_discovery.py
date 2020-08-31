@@ -15,7 +15,7 @@ __all__ = ['RuleIdpDiscovery']
 
 class RuleIdpDiscovery(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_excludes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]]] = None,
                  app_includes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]]] = None,
@@ -170,7 +170,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> Optional[List['outputs.RuleIdpDiscoveryAppExclude']]:
+    def app_excludes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryAppExclude']]]:
         """
         Applications to exclude in discovery rule
         """
@@ -178,7 +178,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> Optional[List['outputs.RuleIdpDiscoveryAppInclude']]:
+    def app_includes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryAppInclude']]]:
         """
         Applications to include in discovery rule
         """
@@ -186,17 +186,17 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idpId")
-    def idp_id(self) -> Optional[str]:
+    def idp_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "idp_id")
 
     @property
     @pulumi.getter(name="idpType")
-    def idp_type(self) -> Optional[str]:
+    def idp_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "idp_type")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Rule Name.
         """
@@ -204,7 +204,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[str]:
+    def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
         Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         """
@@ -212,7 +212,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[List[str]]:
+    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to exclude. Conflicts with `network_includes`.
         """
@@ -220,7 +220,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[List[str]]:
+    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The network zones to include. Conflicts with `network_excludes`.
         """
@@ -228,12 +228,12 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformIncludes")
-    def platform_includes(self) -> Optional[List['outputs.RuleIdpDiscoveryPlatformInclude']]:
+    def platform_includes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryPlatformInclude']]]:
         return pulumi.get(self, "platform_includes")
 
     @property
     @pulumi.getter
-    def policyid(self) -> str:
+    def policyid(self) -> pulumi.Output[str]:
         """
         Policy ID.
         """
@@ -241,7 +241,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         """
@@ -249,7 +249,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         """
@@ -257,17 +257,17 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userIdentifierAttribute")
-    def user_identifier_attribute(self) -> Optional[str]:
+    def user_identifier_attribute(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "user_identifier_attribute")
 
     @property
     @pulumi.getter(name="userIdentifierPatterns")
-    def user_identifier_patterns(self) -> Optional[List['outputs.RuleIdpDiscoveryUserIdentifierPattern']]:
+    def user_identifier_patterns(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryUserIdentifierPattern']]]:
         return pulumi.get(self, "user_identifier_patterns")
 
     @property
     @pulumi.getter(name="userIdentifierType")
-    def user_identifier_type(self) -> Optional[str]:
+    def user_identifier_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "user_identifier_type")
 
     def translate_output_property(self, prop):

@@ -15,7 +15,7 @@ __all__ = ['Email']
 
 class Email(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_language: Optional[pulumi.Input[str]] = None,
                  translations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]]] = None,
@@ -115,7 +115,7 @@ class Email(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultLanguage")
-    def default_language(self) -> Optional[str]:
+    def default_language(self) -> pulumi.Output[Optional[str]]:
         """
         The default language, by default is set to `"en"`.
         """
@@ -123,7 +123,7 @@ class Email(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def translations(self) -> List['outputs.EmailTranslation']:
+    def translations(self) -> pulumi.Output[List['outputs.EmailTranslation']]:
         """
         Set of translations for particular template.
         """
@@ -131,7 +131,7 @@ class Email(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Email template type
         """

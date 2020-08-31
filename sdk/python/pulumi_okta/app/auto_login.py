@@ -15,7 +15,7 @@ __all__ = ['AutoLogin']
 
 class AutoLogin(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -199,7 +199,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[str]:
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Custom error page URL
         """
@@ -207,7 +207,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[bool]:
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable self service
         """
@@ -215,7 +215,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar
         """
@@ -223,7 +223,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsScheme")
-    def credentials_scheme(self) -> Optional[str]:
+    def credentials_scheme(self) -> pulumi.Output[Optional[str]]:
         """
         Application credentials scheme
         """
@@ -231,7 +231,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application
         """
@@ -239,7 +239,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app
         """
@@ -247,7 +247,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users
         """
@@ -255,7 +255,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -263,7 +263,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name assigned to the application by Okta.
         """
@@ -271,7 +271,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[str]:
+    def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
         Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         """
@@ -279,7 +279,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revealPassword")
-    def reveal_password(self) -> Optional[bool]:
+    def reveal_password(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow user to reveal password
         """
@@ -287,7 +287,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedPassword")
-    def shared_password(self) -> Optional[str]:
+    def shared_password(self) -> pulumi.Output[Optional[str]]:
         """
         Shared password, required for certain schemes.
         """
@@ -295,7 +295,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedUsername")
-    def shared_username(self) -> Optional[str]:
+    def shared_username(self) -> pulumi.Output[Optional[str]]:
         """
         Shared username, required for certain schemes.
         """
@@ -303,7 +303,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -311,7 +311,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnRedirectUrl")
-    def sign_on_redirect_url(self) -> Optional[str]:
+    def sign_on_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Post login redirect URL
         """
@@ -319,7 +319,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnUrl")
-    def sign_on_url(self) -> Optional[str]:
+    def sign_on_url(self) -> pulumi.Output[Optional[str]]:
         """
         Login URL
         """
@@ -327,7 +327,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the application, by default it is `"ACTIVE"`.
         """
@@ -335,7 +335,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> str:
+    def user_name_template(self) -> pulumi.Output[str]:
         """
         Username template
         """
@@ -343,7 +343,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> str:
+    def user_name_template_type(self) -> pulumi.Output[str]:
         """
         Username template type
         """
@@ -351,7 +351,7 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.AutoLoginUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.AutoLoginUser']]]:
         """
         Users associated with the application
         """

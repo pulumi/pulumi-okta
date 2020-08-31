@@ -15,7 +15,7 @@ __all__ = ['Swa']
 
 class Swa(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -193,7 +193,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[str]:
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Custom error page URL.
         """
@@ -201,7 +201,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[bool]:
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable self service. By default it is `false`.
         """
@@ -209,7 +209,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar.
         """
@@ -217,7 +217,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buttonField")
-    def button_field(self) -> Optional[str]:
+    def button_field(self) -> pulumi.Output[Optional[str]]:
         """
         Login button field.
         """
@@ -225,7 +225,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         """
@@ -233,7 +233,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app.
         """
@@ -241,7 +241,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users.
         """
@@ -249,7 +249,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The display name of the Application.
         """
@@ -257,7 +257,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name assigned to the application by Okta.
         """
@@ -265,7 +265,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[str]:
+    def password_field(self) -> pulumi.Output[Optional[str]]:
         """
         Login password field.
         """
@@ -273,7 +273,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[str]:
+    def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
         name of application from the Okta Integration Network, if not included a custom app will be created.
         """
@@ -281,7 +281,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -289,7 +289,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of application. By default it is `"ACTIVE"`.
         """
@@ -297,7 +297,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         Login URL.
         """
@@ -305,7 +305,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlRegex")
-    def url_regex(self) -> Optional[str]:
+    def url_regex(self) -> pulumi.Output[Optional[str]]:
         """
         A regex that further restricts URL to the specified regex.
         """
@@ -313,7 +313,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> str:
+    def user_name_template(self) -> pulumi.Output[str]:
         """
         The default username assigned to each user.
         """
@@ -321,7 +321,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> str:
+    def user_name_template_type(self) -> pulumi.Output[str]:
         """
         The Username template type.
         """
@@ -329,7 +329,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[str]:
+    def username_field(self) -> pulumi.Output[Optional[str]]:
         """
         Login username field.
         """
@@ -337,7 +337,7 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.SwaUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.SwaUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
         """

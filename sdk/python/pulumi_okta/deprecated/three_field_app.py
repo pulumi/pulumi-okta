@@ -15,7 +15,7 @@ __all__ = ['ThreeFieldApp']
 
 class ThreeFieldApp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -194,7 +194,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[str]:
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Custom error page URL
         """
@@ -202,7 +202,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[bool]:
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable self service
         """
@@ -210,7 +210,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar
         """
@@ -218,7 +218,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buttonSelector")
-    def button_selector(self) -> str:
+    def button_selector(self) -> pulumi.Output[str]:
         """
         Login button field CSS selector
         """
@@ -226,7 +226,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extraFieldSelector")
-    def extra_field_selector(self) -> str:
+    def extra_field_selector(self) -> pulumi.Output[str]:
         """
         Extra field CSS selector
         """
@@ -234,7 +234,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extraFieldValue")
-    def extra_field_value(self) -> str:
+    def extra_field_value(self) -> pulumi.Output[str]:
         """
         Value for extra form field
         """
@@ -242,7 +242,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Groups associated with the application
         """
@@ -250,7 +250,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon on mobile app
         """
@@ -258,7 +258,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not display application icon to users
         """
@@ -266,7 +266,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         Pretty name of app.
         """
@@ -274,7 +274,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of app.
         """
@@ -282,7 +282,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordSelector")
-    def password_selector(self) -> str:
+    def password_selector(self) -> pulumi.Output[str]:
         """
         Login password field CSS selector
         """
@@ -290,7 +290,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> str:
+    def sign_on_mode(self) -> pulumi.Output[str]:
         """
         Sign on mode of application.
         """
@@ -298,7 +298,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of application.
         """
@@ -306,7 +306,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         Login URL
         """
@@ -314,7 +314,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlRegex")
-    def url_regex(self) -> Optional[str]:
+    def url_regex(self) -> pulumi.Output[Optional[str]]:
         """
         A regex that further restricts URL to the specified regex
         """
@@ -322,7 +322,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> str:
+    def user_name_template(self) -> pulumi.Output[str]:
         """
         Username template
         """
@@ -330,7 +330,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> str:
+    def user_name_template_type(self) -> pulumi.Output[str]:
         """
         Username template type
         """
@@ -338,7 +338,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usernameSelector")
-    def username_selector(self) -> str:
+    def username_selector(self) -> pulumi.Output[str]:
         """
         Login username field CSS selector
         """
@@ -346,7 +346,7 @@ class ThreeFieldApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.ThreeFieldAppUser']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.ThreeFieldAppUser']]]:
         """
         Users associated with the application
         """

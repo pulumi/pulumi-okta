@@ -13,7 +13,7 @@ __all__ = ['Roles']
 
 class Roles(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class Roles(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> Optional[List[str]]:
+    def admin_roles(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`.
         """
@@ -102,7 +102,7 @@ class Roles(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    def group_id(self) -> pulumi.Output[str]:
         """
         The ID of group to attach admin roles to.
         """

@@ -15,7 +15,7 @@ __all__ = ['Mfa']
 
 class Mfa(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[pulumi.InputType['MfaDuoArgs']]] = None,
@@ -194,7 +194,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Description.
         """
@@ -202,7 +202,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duo(self) -> Optional['outputs.MfaDuo']:
+    def duo(self) -> pulumi.Output[Optional['outputs.MfaDuo']]:
         """
         DUO MFA policy settings.
         """
@@ -210,7 +210,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fidoU2f")
-    def fido_u2f(self) -> Optional['outputs.MfaFidoU2f']:
+    def fido_u2f(self) -> pulumi.Output[Optional['outputs.MfaFidoU2f']]:
         """
         Fido U2F MFA policy settings.
         """
@@ -218,7 +218,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fidoWebauthn")
-    def fido_webauthn(self) -> Optional['outputs.MfaFidoWebauthn']:
+    def fido_webauthn(self) -> pulumi.Output[Optional['outputs.MfaFidoWebauthn']]:
         """
         Fido Web Authn MFA policy settings.
         """
@@ -226,7 +226,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="googleOtp")
-    def google_otp(self) -> Optional['outputs.MfaGoogleOtp']:
+    def google_otp(self) -> pulumi.Output[Optional['outputs.MfaGoogleOtp']]:
         """
         Google OTP MFA policy settings.
         """
@@ -234,7 +234,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[List[str]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Group IDs to Include.
         """
@@ -242,7 +242,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Name.
         """
@@ -250,7 +250,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaCall")
-    def okta_call(self) -> Optional['outputs.MfaOktaCall']:
+    def okta_call(self) -> pulumi.Output[Optional['outputs.MfaOktaCall']]:
         """
         Okta Call MFA policy settings.
         """
@@ -258,7 +258,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaOtp")
-    def okta_otp(self) -> Optional['outputs.MfaOktaOtp']:
+    def okta_otp(self) -> pulumi.Output[Optional['outputs.MfaOktaOtp']]:
         """
         Okta OTP MFA policy settings.
         """
@@ -266,7 +266,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaPassword")
-    def okta_password(self) -> Optional['outputs.MfaOktaPassword']:
+    def okta_password(self) -> pulumi.Output[Optional['outputs.MfaOktaPassword']]:
         """
         Okta Password MFA policy settings.
         """
@@ -274,7 +274,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaPush")
-    def okta_push(self) -> Optional['outputs.MfaOktaPush']:
+    def okta_push(self) -> pulumi.Output[Optional['outputs.MfaOktaPush']]:
         """
         Okta Push MFA policy settings.
         """
@@ -282,7 +282,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaQuestion")
-    def okta_question(self) -> Optional['outputs.MfaOktaQuestion']:
+    def okta_question(self) -> pulumi.Output[Optional['outputs.MfaOktaQuestion']]:
         """
         Okta Question MFA policy settings.
         """
@@ -290,7 +290,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaSms")
-    def okta_sms(self) -> Optional['outputs.MfaOktaSms']:
+    def okta_sms(self) -> pulumi.Output[Optional['outputs.MfaOktaSms']]:
         """
         Okta SMS MFA policy settings.
         """
@@ -298,7 +298,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Priority of the policy.
         """
@@ -306,7 +306,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rsaToken")
-    def rsa_token(self) -> Optional['outputs.MfaRsaToken']:
+    def rsa_token(self) -> pulumi.Output[Optional['outputs.MfaRsaToken']]:
         """
         RSA Token MFA policy settings.
         """
@@ -314,7 +314,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         """
@@ -322,7 +322,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="symantecVip")
-    def symantec_vip(self) -> Optional['outputs.MfaSymantecVip']:
+    def symantec_vip(self) -> pulumi.Output[Optional['outputs.MfaSymantecVip']]:
         """
         Symantec VIP MFA policy settings.
         """
@@ -330,7 +330,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="yubikeyToken")
-    def yubikey_token(self) -> Optional['outputs.MfaYubikeyToken']:
+    def yubikey_token(self) -> pulumi.Output[Optional['outputs.MfaYubikeyToken']]:
         """
         Yubikey Token MFA policy settings.
         """

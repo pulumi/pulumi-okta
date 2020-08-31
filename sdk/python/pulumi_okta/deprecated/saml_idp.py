@@ -13,7 +13,7 @@ __all__ = ['SamlIdp']
 
 class SamlIdp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -212,62 +212,62 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[str]:
+    def account_link_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "account_link_action")
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[List[str]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "account_link_group_includes")
 
     @property
     @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> str:
+    def acs_binding(self) -> pulumi.Output[str]:
         return pulumi.get(self, "acs_binding")
 
     @property
     @pulumi.getter(name="acsType")
-    def acs_type(self) -> Optional[str]:
+    def acs_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "acs_type")
 
     @property
     @pulumi.getter
-    def audience(self) -> str:
+    def audience(self) -> pulumi.Output[str]:
         return pulumi.get(self, "audience")
 
     @property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[str]:
+    def deprovisioned_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "deprovisioned_action")
 
     @property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[str]:
+    def groups_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "groups_action")
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[List[str]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "groups_assignments")
 
     @property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[str]:
+    def groups_attribute(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "groups_attribute")
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[List[str]]:
+    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "groups_filters")
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> pulumi.Output[str]:
         return pulumi.get(self, "issuer")
 
     @property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[str]:
+    def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
@@ -275,12 +275,12 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kid(self) -> str:
+    def kid(self) -> pulumi.Output[str]:
         return pulumi.get(self, "kid")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of idp
         """
@@ -288,22 +288,22 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameFormat")
-    def name_format(self) -> Optional[str]:
+    def name_format(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name_format")
 
     @property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[bool]:
+    def profile_master(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "profile_master")
 
     @property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[str]:
+    def provisioning_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "provisioning_action")
 
     @property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[str]:
+    def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         algorithm to use to sign requests
         """
@@ -311,7 +311,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[str]:
+    def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
         algorithm to use to sign response
         """
@@ -319,7 +319,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[str]:
+    def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         algorithm to use to sign requests
         """
@@ -327,7 +327,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[str]:
+    def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
         algorithm to use to sign response
         """
@@ -335,57 +335,57 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssoBinding")
-    def sso_binding(self) -> Optional[str]:
+    def sso_binding(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sso_binding")
 
     @property
     @pulumi.getter(name="ssoDestination")
-    def sso_destination(self) -> Optional[str]:
+    def sso_destination(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sso_destination")
 
     @property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> str:
+    def sso_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "sso_url")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subjectFilter")
-    def subject_filter(self) -> Optional[str]:
+    def subject_filter(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "subject_filter")
 
     @property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> Optional[List[str]]:
+    def subject_formats(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "subject_formats")
 
     @property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[str]:
+    def subject_match_attribute(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "subject_match_attribute")
 
     @property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[str]:
+    def subject_match_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "subject_match_type")
 
     @property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[str]:
+    def suspended_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "suspended_action")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[str]:
+    def username_template(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "username_template")
 
     def translate_output_property(self, prop):

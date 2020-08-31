@@ -13,7 +13,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def audiences(self) -> List[str]:
+    def audiences(self) -> pulumi.Output[List[str]]:
         """
         The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         """
@@ -144,7 +144,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsLastRotated")
-    def credentials_last_rotated(self) -> str:
+    def credentials_last_rotated(self) -> pulumi.Output[str]:
         """
         The timestamp when the authorization server started to use the `kid` for signing tokens.
         """
@@ -152,7 +152,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsNextRotation")
-    def credentials_next_rotation(self) -> str:
+    def credentials_next_rotation(self) -> pulumi.Output[str]:
         """
         The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
         """
@@ -160,7 +160,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsRotationMode")
-    def credentials_rotation_mode(self) -> Optional[str]:
+    def credentials_rotation_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         """
@@ -168,7 +168,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the authorization server.
         """
@@ -176,7 +176,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> pulumi.Output[str]:
         """
         The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
         """
@@ -184,7 +184,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[str]:
+    def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         """
@@ -192,7 +192,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kid(self) -> str:
+    def kid(self) -> pulumi.Output[str]:
         """
         The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         """
@@ -200,7 +200,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the authorization server.
         """
@@ -208,7 +208,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the auth server. It defaults to `"ACTIVE"`
         """

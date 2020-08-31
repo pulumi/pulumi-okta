@@ -13,7 +13,7 @@ __all__ = ['Zone']
 
 class Zone(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dynamic_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  gateways: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -119,7 +119,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamicLocations")
-    def dynamic_locations(self) -> Optional[List[str]]:
+    def dynamic_locations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
         """
@@ -127,7 +127,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gateways(self) -> Optional[List[str]]:
+    def gateways(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of values in CIDR/range form.
         """
@@ -135,7 +135,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the Network Zone Resource.
         """
@@ -143,7 +143,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxies(self) -> Optional[List[str]]:
+    def proxies(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of values in CIDR/range form.
         """
@@ -151,7 +151,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the Network Zone - can either be IP or DYNAMIC only.
         """

@@ -13,7 +13,7 @@ __all__ = ['ServerScope']
 
 class ServerScope(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
                  consent: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> str:
+    def auth_server_id(self) -> pulumi.Output[str]:
         """
         Auth Server ID.
         """
@@ -127,7 +127,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def consent(self) -> Optional[str]:
+    def consent(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         """
@@ -135,7 +135,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def default(self) -> Optional[bool]:
+    def default(self) -> pulumi.Output[Optional[bool]]:
         """
         A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         """
@@ -143,7 +143,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the Auth Server Scope.
         """
@@ -151,7 +151,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataPublish")
-    def metadata_publish(self) -> Optional[str]:
+    def metadata_publish(self) -> pulumi.Output[Optional[str]]:
         """
         Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         """
@@ -159,7 +159,7 @@ class ServerScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Auth Server scope name.
         """

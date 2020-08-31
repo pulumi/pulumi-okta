@@ -13,7 +13,7 @@ __all__ = ['Saml']
 
 class Saml(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -284,7 +284,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[str]:
+    def account_link_action(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the account linking action for an IdP user.
         """
@@ -292,7 +292,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[List[str]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Group memberships to determine link candidates.
         """
@@ -300,7 +300,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> str:
+    def acs_binding(self) -> pulumi.Output[str]:
         """
         The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         """
@@ -308,7 +308,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acsType")
-    def acs_type(self) -> Optional[str]:
+    def acs_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
         """
@@ -316,7 +316,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def audience(self) -> str:
+    def audience(self) -> pulumi.Output[str]:
         """
         The audience restriction for the IdP.
         """
@@ -324,7 +324,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[str]:
+    def deprovisioned_action(self) -> pulumi.Output[Optional[str]]:
         """
         Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
         """
@@ -332,7 +332,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[str]:
+    def groups_action(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
         """
@@ -340,7 +340,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[List[str]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         """
@@ -348,7 +348,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[str]:
+    def groups_attribute(self) -> pulumi.Output[Optional[str]]:
         """
         IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         """
@@ -356,7 +356,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[List[str]]:
+    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         """
@@ -364,7 +364,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> pulumi.Output[str]:
         """
         URI that identifies the issuer.
         """
@@ -372,7 +372,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[str]:
+    def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         """
@@ -380,7 +380,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kid(self) -> str:
+    def kid(self) -> pulumi.Output[str]:
         """
         The ID of the signing key.
         """
@@ -388,7 +388,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Application's display name.
         """
@@ -396,7 +396,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameFormat")
-    def name_format(self) -> Optional[str]:
+    def name_format(self) -> pulumi.Output[Optional[str]]:
         """
         The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         """
@@ -404,7 +404,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[bool]:
+    def profile_master(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines if the IdP should act as a source of truth for user profile attributes.
         """
@@ -412,7 +412,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[str]:
+    def provisioning_action(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning action for an IdP user during authentication.
         """
@@ -420,7 +420,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[str]:
+    def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         The XML digital signature algorithm used when signing an AuthnRequest message.
         """
@@ -428,7 +428,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[str]:
+    def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         """
@@ -436,7 +436,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[str]:
+    def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
         """
@@ -444,7 +444,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[str]:
+    def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         """
@@ -452,7 +452,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssoBinding")
-    def sso_binding(self) -> Optional[str]:
+    def sso_binding(self) -> pulumi.Output[Optional[str]]:
         """
         The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         """
@@ -460,7 +460,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssoDestination")
-    def sso_destination(self) -> Optional[str]:
+    def sso_destination(self) -> pulumi.Output[Optional[str]]:
         """
         URI reference indicating the address to which the AuthnRequest message is sent.
         """
@@ -468,7 +468,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> str:
+    def sso_url(self) -> pulumi.Output[str]:
         """
         URL of binding-specific endpoint to send an AuthnRequest message to IdP.
         """
@@ -476,7 +476,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the IdP.
         """
@@ -484,7 +484,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectFilter")
-    def subject_filter(self) -> Optional[str]:
+    def subject_filter(self) -> pulumi.Output[Optional[str]]:
         """
         Optional regular expression pattern used to filter untrusted IdP usernames.
         """
@@ -492,7 +492,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> Optional[List[str]]:
+    def subject_formats(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         """
@@ -500,7 +500,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[str]:
+    def subject_match_attribute(self) -> pulumi.Output[Optional[str]]:
         """
         Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         """
@@ -508,7 +508,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[str]:
+    def subject_match_type(self) -> pulumi.Output[Optional[str]]:
         """
         Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         """
@@ -516,7 +516,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[str]:
+    def suspended_action(self) -> pulumi.Output[Optional[str]]:
         """
         Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         """
@@ -524,7 +524,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the IdP.
         """
@@ -532,7 +532,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[str]:
+    def username_template(self) -> pulumi.Output[Optional[str]]:
         """
         Okta EL Expression to generate or transform a unique username for the IdP user.
         """

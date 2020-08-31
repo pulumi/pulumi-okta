@@ -13,7 +13,7 @@ __all__ = ['Origin']
 
 class Origin(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the Trusted Origin is active or not - can only be issued post-creation.
         """
@@ -116,7 +116,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the Trusted Origin Resource.
         """
@@ -124,7 +124,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> pulumi.Output[str]:
         """
         The origin to trust.
         """
@@ -132,7 +132,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> pulumi.Output[List[str]]:
         """
         Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """

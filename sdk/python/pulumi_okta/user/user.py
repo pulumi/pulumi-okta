@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
@@ -309,7 +309,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> Optional[List[str]]:
+    def admin_roles(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Administrator roles assigned to User.
         """
@@ -317,7 +317,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def city(self) -> Optional[str]:
+    def city(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -325,7 +325,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="costCenter")
-    def cost_center(self) -> Optional[str]:
+    def cost_center(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -333,7 +333,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[str]:
+    def country_code(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -341,7 +341,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> Optional[str]:
+    def custom_profile_attributes(self) -> pulumi.Output[Optional[str]]:
         """
         raw JSON containing all custom profile attributes.
         """
@@ -349,7 +349,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def department(self) -> Optional[str]:
+    def department(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -357,7 +357,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -365,7 +365,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def division(self) -> Optional[str]:
+    def division(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -373,7 +373,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         User profile property.
         """
@@ -381,7 +381,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="employeeNumber")
-    def employee_number(self) -> Optional[str]:
+    def employee_number(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -389,7 +389,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> str:
+    def first_name(self) -> pulumi.Output[str]:
         """
         User's First Name, required by default.
         """
@@ -397,7 +397,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> Optional[List[str]]:
+    def group_memberships(self) -> pulumi.Output[Optional[List[str]]]:
         """
         User profile property.
         """
@@ -405,7 +405,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="honorificPrefix")
-    def honorific_prefix(self) -> Optional[str]:
+    def honorific_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -413,7 +413,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="honorificSuffix")
-    def honorific_suffix(self) -> Optional[str]:
+    def honorific_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -421,7 +421,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> str:
+    def last_name(self) -> pulumi.Output[str]:
         """
         User's Last Name, required by default.
         """
@@ -429,7 +429,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locale(self) -> Optional[str]:
+    def locale(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -437,7 +437,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def login(self) -> str:
+    def login(self) -> pulumi.Output[str]:
         """
         User profile property.
         """
@@ -445,7 +445,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def manager(self) -> Optional[str]:
+    def manager(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -453,7 +453,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managerId")
-    def manager_id(self) -> Optional[str]:
+    def manager_id(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -461,7 +461,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[str]:
+    def middle_name(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -469,7 +469,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mobilePhone")
-    def mobile_phone(self) -> Optional[str]:
+    def mobile_phone(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -477,7 +477,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nickName")
-    def nick_name(self) -> Optional[str]:
+    def nick_name(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -485,7 +485,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def organization(self) -> Optional[str]:
+    def organization(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -493,7 +493,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         User password.
         """
@@ -501,7 +501,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="postalAddress")
-    def postal_address(self) -> Optional[str]:
+    def postal_address(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -509,7 +509,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> Optional[str]:
+    def preferred_language(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -517,7 +517,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryPhone")
-    def primary_phone(self) -> Optional[str]:
+    def primary_phone(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -525,7 +525,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> Optional[str]:
+    def profile_url(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -533,7 +533,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rawStatus")
-    def raw_status(self) -> str:
+    def raw_status(self) -> pulumi.Output[str]:
         """
         The raw status of the User in Okta - (status is mapped)
         """
@@ -541,7 +541,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryAnswer")
-    def recovery_answer(self) -> Optional[str]:
+    def recovery_answer(self) -> pulumi.Output[Optional[str]]:
         """
         User password recovery answer.
         """
@@ -549,7 +549,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryQuestion")
-    def recovery_question(self) -> Optional[str]:
+    def recovery_question(self) -> pulumi.Output[Optional[str]]:
         """
         User password recovery question.
         """
@@ -557,7 +557,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondEmail")
-    def second_email(self) -> Optional[str]:
+    def second_email(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -565,7 +565,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -573,7 +573,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -581,7 +581,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> Optional[str]:
+    def street_address(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -589,7 +589,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -597,7 +597,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -605,7 +605,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[str]:
+    def user_type(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """
@@ -613,7 +613,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zipCode")
-    def zip_code(self) -> Optional[str]:
+    def zip_code(self) -> pulumi.Output[Optional[str]]:
         """
         User profile property.
         """

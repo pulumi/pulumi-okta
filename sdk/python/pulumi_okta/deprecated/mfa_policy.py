@@ -15,7 +15,7 @@ __all__ = ['MfaPolicy']
 
 class MfaPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[pulumi.InputType['MfaPolicyDuoArgs']]] = None,
@@ -152,7 +152,7 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Description
         """
@@ -160,27 +160,27 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duo(self) -> Optional['outputs.MfaPolicyDuo']:
+    def duo(self) -> pulumi.Output[Optional['outputs.MfaPolicyDuo']]:
         return pulumi.get(self, "duo")
 
     @property
     @pulumi.getter(name="fidoU2f")
-    def fido_u2f(self) -> Optional['outputs.MfaPolicyFidoU2f']:
+    def fido_u2f(self) -> pulumi.Output[Optional['outputs.MfaPolicyFidoU2f']]:
         return pulumi.get(self, "fido_u2f")
 
     @property
     @pulumi.getter(name="fidoWebauthn")
-    def fido_webauthn(self) -> Optional['outputs.MfaPolicyFidoWebauthn']:
+    def fido_webauthn(self) -> pulumi.Output[Optional['outputs.MfaPolicyFidoWebauthn']]:
         return pulumi.get(self, "fido_webauthn")
 
     @property
     @pulumi.getter(name="googleOtp")
-    def google_otp(self) -> Optional['outputs.MfaPolicyGoogleOtp']:
+    def google_otp(self) -> pulumi.Output[Optional['outputs.MfaPolicyGoogleOtp']]:
         return pulumi.get(self, "google_otp")
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[List[str]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Group IDs to Include
         """
@@ -188,7 +188,7 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Policy Name
         """
@@ -196,37 +196,37 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaCall")
-    def okta_call(self) -> Optional['outputs.MfaPolicyOktaCall']:
+    def okta_call(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaCall']]:
         return pulumi.get(self, "okta_call")
 
     @property
     @pulumi.getter(name="oktaOtp")
-    def okta_otp(self) -> Optional['outputs.MfaPolicyOktaOtp']:
+    def okta_otp(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaOtp']]:
         return pulumi.get(self, "okta_otp")
 
     @property
     @pulumi.getter(name="oktaPassword")
-    def okta_password(self) -> Optional['outputs.MfaPolicyOktaPassword']:
+    def okta_password(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaPassword']]:
         return pulumi.get(self, "okta_password")
 
     @property
     @pulumi.getter(name="oktaPush")
-    def okta_push(self) -> Optional['outputs.MfaPolicyOktaPush']:
+    def okta_push(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaPush']]:
         return pulumi.get(self, "okta_push")
 
     @property
     @pulumi.getter(name="oktaQuestion")
-    def okta_question(self) -> Optional['outputs.MfaPolicyOktaQuestion']:
+    def okta_question(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaQuestion']]:
         return pulumi.get(self, "okta_question")
 
     @property
     @pulumi.getter(name="oktaSms")
-    def okta_sms(self) -> Optional['outputs.MfaPolicyOktaSms']:
+    def okta_sms(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaSms']]:
         return pulumi.get(self, "okta_sms")
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         priority is provided. API defaults it to the last/lowest if not there.
@@ -235,12 +235,12 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rsaToken")
-    def rsa_token(self) -> Optional['outputs.MfaPolicyRsaToken']:
+    def rsa_token(self) -> pulumi.Output[Optional['outputs.MfaPolicyRsaToken']]:
         return pulumi.get(self, "rsa_token")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Policy Status: ACTIVE or INACTIVE.
         """
@@ -248,12 +248,12 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="symantecVip")
-    def symantec_vip(self) -> Optional['outputs.MfaPolicySymantecVip']:
+    def symantec_vip(self) -> pulumi.Output[Optional['outputs.MfaPolicySymantecVip']]:
         return pulumi.get(self, "symantec_vip")
 
     @property
     @pulumi.getter(name="yubikeyToken")
-    def yubikey_token(self) -> Optional['outputs.MfaPolicyYubikeyToken']:
+    def yubikey_token(self) -> pulumi.Output[Optional['outputs.MfaPolicyYubikeyToken']]:
         return pulumi.get(self, "yubikey_token")
 
     def translate_output_property(self, prop):
