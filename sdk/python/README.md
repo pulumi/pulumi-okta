@@ -51,7 +51,7 @@ The following configuration points are available:
 an org name of dev-123. May be set via the `OKTA_ORG_NAME` environment variable.
 - `okta:baseUrl` - (Required) This is the domain of your Okta account, for example `dev-123.oktapreview.com` would have 
 a base url of `oktapreview.com`. May be set via the `OKTA_BASE_URL` environment variable.
-- `okta:apiKey` - (Required) This is the API token to interact with your Okta org. May be set via the `OKTA_API_TOKEN` 
+- `okta:apiToken` - (Required) This is the API token to interact with your Okta org. May be set via the `OKTA_API_TOKEN` 
 environment variable.
 - `okta:backoff` - (Optional)  Whether to use exponential back off strategy for rate limits, the default is `true`.
 - `okta:maxRetries` - (Optional) Maximum number of retries to attempt before returning an error, the default is `5`.
