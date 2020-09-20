@@ -5211,7 +5211,7 @@
             }
         },
         "okta:auth/serverClaim:ServerClaim": {
-            "description": "Creates an Authorization Server Claim.\n\nThis resource allows you to create and configure an Authorization Server Claim.\n",
+            "description": "Creates an Authorization Server Claim.\n\nThis resource allows you to create and configure an Authorization Server Claim.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerClaim(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    claimType: \"IDENTITY\",\n    scopes: [okta_auth_server_scope_example.name],\n    value: \"String.substringAfter(user.email, \\\"@\\\") == \\\"example.com\\\"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerClaim(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    claim_type=\"IDENTITY\",\n    scopes=[okta_auth_server_scope[\"example\"][\"name\"]],\n    value=\"String.substringAfter(user.email, \\\"@\\\") == \\\"example.com\\\"\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Auth.ServerClaim(\"example\", new Okta.Auth.ServerClaimArgs\n        {\n            AuthServerId = \"\u003cauth server id\u003e\",\n            ClaimType = \"IDENTITY\",\n            Scopes = \n            {\n                okta_auth_server_scope.Example.Name,\n            },\n            Value = \"String.substringAfter(user.email, \\\"@\\\") == \\\"example.com\\\"\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alwaysIncludeInToken": {
                     "type": "boolean",
@@ -12515,7 +12515,7 @@
             }
         },
         "okta:policy/mfa:Mfa": {
-            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n",
+            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Mfa(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Mfa(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    okta_otp=okta.policy.MfaOktaOtpArgs(\n        enroll=\"REQUIRED\",\n    ),\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Mfa(\"example\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            OktaOtp = new Okta.Policy.Inputs.MfaOktaOtpArgs\n            {\n                Enroll = \"REQUIRED\",\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "description": {
                     "type": "string",
@@ -12756,7 +12756,7 @@
             }
         },
         "okta:policy/password:Password": {
-            "description": "Creates a Password Policy.\n\nThis resource allows you to create and configure a Password Policy.\n",
+            "description": "Creates a Password Policy.\n\nThis resource allows you to create and configure a Password Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Password(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    passwordHistoryCount: 4,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Password(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    password_history_count=4,\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Password(\"example\", new Okta.Policy.PasswordArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            PasswordHistoryCount = 4,\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "authProvider": {
                     "type": "string",
@@ -13938,7 +13938,7 @@
             }
         },
         "okta:policy/signon:Signon": {
-            "description": "Creates a Sign On Policy.\n\nThis resource allows you to create and configure a Sign On Policy.\n",
+            "description": "Creates a Sign On Policy.\n\nThis resource allows you to create and configure a Sign On Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Signon(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Signon(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Signon(\"example\", new Okta.Policy.SignonArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "description": {
                     "type": "string",

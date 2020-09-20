@@ -706,4 +706,3 @@ export namespace user {
         title: pulumi.Input<string>;
     }
 }
-
