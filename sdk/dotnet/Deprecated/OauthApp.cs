@@ -30,7 +30,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ClientBasicSecret { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client ID.
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
@@ -55,7 +55,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ConsentMethod { get; private set; } = null!;
 
         /// <summary>
-        /// This property allows you to set your client_id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Output("customClientId")]
         public Output<string?> CustomClientId { get; private set; } = null!;
@@ -92,6 +93,9 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
+
+        [Output("jwks")]
+        public Output<ImmutableArray<Outputs.OauthAppJwk>> Jwks { get; private set; } = null!;
 
         /// <summary>
         /// Pretty name of app.
@@ -256,6 +260,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
+        /// OAuth client ID. If set during creation, app is created with this id.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
         /// URI to a web page providing information about the client.
         /// </summary>
         [Input("clientUri")]
@@ -269,7 +279,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set your client_id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -318,6 +329,14 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
+
+        [Input("jwks")]
+        private InputList<Inputs.OauthAppJwkArgs>? _jwks;
+        public InputList<Inputs.OauthAppJwkArgs> Jwks
+        {
+            get => _jwks ?? (_jwks = new InputList<Inputs.OauthAppJwkArgs>());
+            set => _jwks = value;
+        }
 
         /// <summary>
         /// Pretty name of app.
@@ -455,7 +474,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
-        /// OAuth client ID.
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -480,7 +499,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set your client_id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -529,6 +549,14 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
+
+        [Input("jwks")]
+        private InputList<Inputs.OauthAppJwkGetArgs>? _jwks;
+        public InputList<Inputs.OauthAppJwkGetArgs> Jwks
+        {
+            get => _jwks ?? (_jwks = new InputList<Inputs.OauthAppJwkGetArgs>());
+            set => _jwks = value;
+        }
 
         /// <summary>
         /// Pretty name of app.

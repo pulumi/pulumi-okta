@@ -12,6 +12,7 @@ __all__ = [
     'AutoLoginUser',
     'BasicAuthUser',
     'BookmarkUser',
+    'OAuthJwk',
     'OAuthUser',
     'SamlAttributeStatement',
     'SamlUser',
@@ -156,12 +157,53 @@ class BookmarkUser(dict):
 
 
 @pulumi.output_type
+class OAuthJwk(dict):
+    def __init__(__self__, *,
+                 kid: str,
+                 kty: str,
+                 e: Optional[str] = None,
+                 n: Optional[str] = None):
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "kty", kty)
+        if e is not None:
+            pulumi.set(__self__, "e", e)
+        if n is not None:
+            pulumi.set(__self__, "n", n)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
+        return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter
+    def kty(self) -> str:
+        return pulumi.get(self, "kty")
+
+    @property
+    @pulumi.getter
+    def e(self) -> Optional[str]:
+        return pulumi.get(self, "e")
+
+    @property
+    @pulumi.getter
+    def n(self) -> Optional[str]:
+        return pulumi.get(self, "n")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class OAuthUser(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  password: Optional[str] = None,
                  scope: Optional[str] = None,
                  username: Optional[str] = None):
+        """
+        :param str id: ID of the application.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if password is not None:
@@ -174,6 +216,9 @@ class OAuthUser(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        ID of the application.
+        """
         return pulumi.get(self, "id")
 
     @property

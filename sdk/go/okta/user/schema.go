@@ -56,6 +56,8 @@ type Schema struct {
 	Enums pulumi.StringArrayOutput `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrOutput `pulumi:"externalName"`
+	// External name of the user schema property.
+	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
 	// The property name.
 	Index pulumi.StringOutput `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -76,6 +78,8 @@ type Schema struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+	Unique pulumi.StringPtrOutput `pulumi:"unique"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -127,6 +131,8 @@ type schemaState struct {
 	Enums []string `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
+	// External name of the user schema property.
+	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index *string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -147,6 +153,8 @@ type schemaState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
+	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+	Unique *string `pulumi:"unique"`
 }
 
 type SchemaState struct {
@@ -162,6 +170,8 @@ type SchemaState struct {
 	Enums pulumi.StringArrayInput
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
+	// External name of the user schema property.
+	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringPtrInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -182,6 +192,8 @@ type SchemaState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
+	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+	Unique pulumi.StringPtrInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -201,6 +213,8 @@ type schemaArgs struct {
 	Enums []string `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
+	// External name of the user schema property.
+	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -221,6 +235,8 @@ type schemaArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
+	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+	Unique *string `pulumi:"unique"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -237,6 +253,8 @@ type SchemaArgs struct {
 	Enums pulumi.StringArrayInput
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
+	// External name of the user schema property.
+	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -257,6 +275,8 @@ type SchemaArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
+	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+	Unique pulumi.StringPtrInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

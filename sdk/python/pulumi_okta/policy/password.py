@@ -27,6 +27,7 @@ class Password(pulumi.CustomResource):
                  password_exclude_username: Optional[pulumi.Input[bool]] = None,
                  password_expire_warn_days: Optional[pulumi.Input[float]] = None,
                  password_history_count: Optional[pulumi.Input[float]] = None,
+                 password_lockout_notification_channels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  password_max_age_days: Optional[pulumi.Input[float]] = None,
                  password_max_lockout_attempts: Optional[pulumi.Input[float]] = None,
                  password_min_age_minutes: Optional[pulumi.Input[float]] = None,
@@ -78,6 +79,7 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] password_exclude_username: If the user name must be excluded from the password.
         :param pulumi.Input[float] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
         :param pulumi.Input[float] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
+        :param pulumi.Input[List[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
         :param pulumi.Input[float] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.",
         :param pulumi.Input[float] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         :param pulumi.Input[float] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
@@ -124,6 +126,7 @@ class Password(pulumi.CustomResource):
             __props__['password_exclude_username'] = password_exclude_username
             __props__['password_expire_warn_days'] = password_expire_warn_days
             __props__['password_history_count'] = password_history_count
+            __props__['password_lockout_notification_channels'] = password_lockout_notification_channels
             __props__['password_max_age_days'] = password_max_age_days
             __props__['password_max_lockout_attempts'] = password_max_lockout_attempts
             __props__['password_min_age_minutes'] = password_min_age_minutes
@@ -162,6 +165,7 @@ class Password(pulumi.CustomResource):
             password_exclude_username: Optional[pulumi.Input[bool]] = None,
             password_expire_warn_days: Optional[pulumi.Input[float]] = None,
             password_history_count: Optional[pulumi.Input[float]] = None,
+            password_lockout_notification_channels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             password_max_age_days: Optional[pulumi.Input[float]] = None,
             password_max_lockout_attempts: Optional[pulumi.Input[float]] = None,
             password_min_age_minutes: Optional[pulumi.Input[float]] = None,
@@ -197,6 +201,7 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] password_exclude_username: If the user name must be excluded from the password.
         :param pulumi.Input[float] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
         :param pulumi.Input[float] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
+        :param pulumi.Input[List[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
         :param pulumi.Input[float] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.",
         :param pulumi.Input[float] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         :param pulumi.Input[float] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
@@ -230,6 +235,7 @@ class Password(pulumi.CustomResource):
         __props__["password_exclude_username"] = password_exclude_username
         __props__["password_expire_warn_days"] = password_expire_warn_days
         __props__["password_history_count"] = password_history_count
+        __props__["password_lockout_notification_channels"] = password_lockout_notification_channels
         __props__["password_max_age_days"] = password_max_age_days
         __props__["password_max_lockout_attempts"] = password_max_lockout_attempts
         __props__["password_min_age_minutes"] = password_min_age_minutes
@@ -343,6 +349,14 @@ class Password(pulumi.CustomResource):
         Number of distinct passwords that must be created before they can be reused: 0 = none.
         """
         return pulumi.get(self, "password_history_count")
+
+    @property
+    @pulumi.getter(name="passwordLockoutNotificationChannels")
+    def password_lockout_notification_channels(self) -> pulumi.Output[Optional[List[str]]]:
+        """
+        Notification channels to use to notify a user when their account has been locked.
+        """
+        return pulumi.get(self, "password_lockout_notification_channels")
 
     @property
     @pulumi.getter(name="passwordMaxAgeDays")

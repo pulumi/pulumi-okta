@@ -31,13 +31,14 @@ class Factor(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.factor.Factor("example", opts=ResourceOptions(provider="google_otp"))
+        example = okta.factor.Factor("example", provider_id="google_otp")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Whether or not to activate the provider, by default it is set to `true`.
-        :param pulumi.Input[str] provider_id: Factor provider ID
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,7 +81,8 @@ class Factor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Whether or not to activate the provider, by default it is set to `true`.
-        :param pulumi.Input[str] provider_id: Factor provider ID
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -102,7 +104,8 @@ class Factor(pulumi.CustomResource):
     @pulumi.getter(name="providerId")
     def provider_id(self) -> pulumi.Output[str]:
         """
-        Factor provider ID
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
         return pulumi.get(self, "provider_id")
 

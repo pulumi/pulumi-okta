@@ -20,6 +20,7 @@ class OauthApp(pulumi.CustomResource):
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
                  custom_client_id: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class OauthApp(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
+                 jwks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OauthAppJwkArgs']]]]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
@@ -52,10 +54,12 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
                Default value is TRUSTED
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id.
+        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+               no-op, use client_id for that behavior instead.
         :param pulumi.Input[List[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -101,14 +105,19 @@ class OauthApp(pulumi.CustomResource):
             __props__['auto_key_rotation'] = auto_key_rotation
             __props__['auto_submit_toolbar'] = auto_submit_toolbar
             __props__['client_basic_secret'] = client_basic_secret
+            __props__['client_id'] = client_id
             __props__['client_uri'] = client_uri
             __props__['consent_method'] = consent_method
+            if custom_client_id is not None:
+                warnings.warn("This field is being replaced by client_id. Please set that field instead.", DeprecationWarning)
+                pulumi.log.warn("custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.")
             __props__['custom_client_id'] = custom_client_id
             __props__['grant_types'] = grant_types
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
             __props__['issuer_mode'] = issuer_mode
+            __props__['jwks'] = jwks
             if label is None:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
@@ -127,7 +136,6 @@ class OauthApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['users'] = users
-            __props__['client_id'] = None
             __props__['client_secret'] = None
             __props__['name'] = None
             __props__['sign_on_mode'] = None
@@ -154,6 +162,7 @@ class OauthApp(pulumi.CustomResource):
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
+            jwks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OauthAppJwkArgs']]]]] = None,
             label: Optional[pulumi.Input[str]] = None,
             login_uri: Optional[pulumi.Input[str]] = None,
             logo_uri: Optional[pulumi.Input[str]] = None,
@@ -180,12 +189,13 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
-        :param pulumi.Input[str] client_id: OAuth client ID.
+        :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_secret: OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
                Default value is TRUSTED
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id.
+        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+               no-op, use client_id for that behavior instead.
         :param pulumi.Input[List[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -230,6 +240,7 @@ class OauthApp(pulumi.CustomResource):
         __props__["hide_ios"] = hide_ios
         __props__["hide_web"] = hide_web
         __props__["issuer_mode"] = issuer_mode
+        __props__["jwks"] = jwks
         __props__["label"] = label
         __props__["login_uri"] = login_uri
         __props__["logo_uri"] = logo_uri
@@ -276,7 +287,7 @@ class OauthApp(pulumi.CustomResource):
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
         """
-        OAuth client ID.
+        OAuth client ID. If set during creation, app is created with this id.
         """
         return pulumi.get(self, "client_id")
 
@@ -309,7 +320,8 @@ class OauthApp(pulumi.CustomResource):
     @pulumi.getter(name="customClientId")
     def custom_client_id(self) -> pulumi.Output[Optional[str]]:
         """
-        This property allows you to set your client_id.
+        **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        no-op, use client_id for that behavior instead.
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -355,6 +367,11 @@ class OauthApp(pulumi.CustomResource):
         custom domain URL as the issuer of ID token for this client.
         """
         return pulumi.get(self, "issuer_mode")
+
+    @property
+    @pulumi.getter
+    def jwks(self) -> pulumi.Output[Optional[List['outputs.OauthAppJwk']]]:
+        return pulumi.get(self, "jwks")
 
     @property
     @pulumi.getter

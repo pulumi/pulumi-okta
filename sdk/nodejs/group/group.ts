@@ -57,7 +57,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Users associated with the group. This can also be done per user.
+     * The users associated with the group. This can also be done per user.
      */
     public readonly users!: pulumi.Output<string[] | undefined>;
 
@@ -106,7 +106,7 @@ export interface GroupState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Users associated with the group. This can also be done per user.
+     * The users associated with the group. This can also be done per user.
      */
     readonly users?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -124,7 +124,7 @@ export interface GroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Users associated with the group. This can also be done per user.
+     * The users associated with the group. This can also be done per user.
      */
     readonly users?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -24,6 +24,7 @@ class UserSchema(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  external_name: Optional[pulumi.Input[str]] = None,
+                 external_namespace: Optional[pulumi.Input[str]] = None,
                  index: Optional[pulumi.Input[str]] = None,
                  master: Optional[pulumi.Input[str]] = None,
                  max_length: Optional[pulumi.Input[float]] = None,
@@ -34,6 +35,7 @@ class UserSchema(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 unique: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -67,6 +69,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[List[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
         :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         :param pulumi.Input[float] max_length: The maximum length of the user property value. Only applies to type `"string"`.
@@ -77,6 +80,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] unique: Subschema unique restriction
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,6 +108,7 @@ class UserSchema(pulumi.CustomResource):
             __props__['description'] = description
             __props__['enums'] = enums
             __props__['external_name'] = external_name
+            __props__['external_namespace'] = external_namespace
             if index is None:
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
@@ -120,6 +125,7 @@ class UserSchema(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['unique'] = unique
         super(UserSchema, __self__).__init__(
             'okta:app/userSchema:UserSchema',
             resource_name,
@@ -137,6 +143,7 @@ class UserSchema(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enums: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             external_name: Optional[pulumi.Input[str]] = None,
+            external_namespace: Optional[pulumi.Input[str]] = None,
             index: Optional[pulumi.Input[str]] = None,
             master: Optional[pulumi.Input[str]] = None,
             max_length: Optional[pulumi.Input[float]] = None,
@@ -146,7 +153,8 @@ class UserSchema(pulumi.CustomResource):
             required: Optional[pulumi.Input[bool]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'UserSchema':
+            type: Optional[pulumi.Input[str]] = None,
+            unique: Optional[pulumi.Input[str]] = None) -> 'UserSchema':
         """
         Get an existing UserSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -161,6 +169,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[List[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
         :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         :param pulumi.Input[float] max_length: The maximum length of the user property value. Only applies to type `"string"`.
@@ -171,6 +180,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] unique: Subschema unique restriction
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -183,6 +193,7 @@ class UserSchema(pulumi.CustomResource):
         __props__["description"] = description
         __props__["enums"] = enums
         __props__["external_name"] = external_name
+        __props__["external_namespace"] = external_namespace
         __props__["index"] = index
         __props__["master"] = master
         __props__["max_length"] = max_length
@@ -193,6 +204,7 @@ class UserSchema(pulumi.CustomResource):
         __props__["scope"] = scope
         __props__["title"] = title
         __props__["type"] = type
+        __props__["unique"] = unique
         return UserSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,6 +262,14 @@ class UserSchema(pulumi.CustomResource):
         External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
+
+    @property
+    @pulumi.getter(name="externalNamespace")
+    def external_namespace(self) -> pulumi.Output[Optional[str]]:
+        """
+        External namespace of the user schema property.
+        """
+        return pulumi.get(self, "external_namespace")
 
     @property
     @pulumi.getter
@@ -330,6 +350,14 @@ class UserSchema(pulumi.CustomResource):
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unique(self) -> pulumi.Output[Optional[str]]:
+        """
+        Subschema unique restriction
+        """
+        return pulumi.get(self, "unique")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

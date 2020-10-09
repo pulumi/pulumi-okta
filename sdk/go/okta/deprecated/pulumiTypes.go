@@ -2067,6 +2067,118 @@ func (o MfaPolicyYubikeyTokenPtrOutput) Enroll() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OauthAppJwk struct {
+	E   *string `pulumi:"e"`
+	Kid string  `pulumi:"kid"`
+	Kty string  `pulumi:"kty"`
+	N   *string `pulumi:"n"`
+}
+
+// OauthAppJwkInput is an input type that accepts OauthAppJwkArgs and OauthAppJwkOutput values.
+// You can construct a concrete instance of `OauthAppJwkInput` via:
+//
+//          OauthAppJwkArgs{...}
+type OauthAppJwkInput interface {
+	pulumi.Input
+
+	ToOauthAppJwkOutput() OauthAppJwkOutput
+	ToOauthAppJwkOutputWithContext(context.Context) OauthAppJwkOutput
+}
+
+type OauthAppJwkArgs struct {
+	E   pulumi.StringPtrInput `pulumi:"e"`
+	Kid pulumi.StringInput    `pulumi:"kid"`
+	Kty pulumi.StringInput    `pulumi:"kty"`
+	N   pulumi.StringPtrInput `pulumi:"n"`
+}
+
+func (OauthAppJwkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppJwk)(nil)).Elem()
+}
+
+func (i OauthAppJwkArgs) ToOauthAppJwkOutput() OauthAppJwkOutput {
+	return i.ToOauthAppJwkOutputWithContext(context.Background())
+}
+
+func (i OauthAppJwkArgs) ToOauthAppJwkOutputWithContext(ctx context.Context) OauthAppJwkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppJwkOutput)
+}
+
+// OauthAppJwkArrayInput is an input type that accepts OauthAppJwkArray and OauthAppJwkArrayOutput values.
+// You can construct a concrete instance of `OauthAppJwkArrayInput` via:
+//
+//          OauthAppJwkArray{ OauthAppJwkArgs{...} }
+type OauthAppJwkArrayInput interface {
+	pulumi.Input
+
+	ToOauthAppJwkArrayOutput() OauthAppJwkArrayOutput
+	ToOauthAppJwkArrayOutputWithContext(context.Context) OauthAppJwkArrayOutput
+}
+
+type OauthAppJwkArray []OauthAppJwkInput
+
+func (OauthAppJwkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OauthAppJwk)(nil)).Elem()
+}
+
+func (i OauthAppJwkArray) ToOauthAppJwkArrayOutput() OauthAppJwkArrayOutput {
+	return i.ToOauthAppJwkArrayOutputWithContext(context.Background())
+}
+
+func (i OauthAppJwkArray) ToOauthAppJwkArrayOutputWithContext(ctx context.Context) OauthAppJwkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppJwkArrayOutput)
+}
+
+type OauthAppJwkOutput struct{ *pulumi.OutputState }
+
+func (OauthAppJwkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppJwk)(nil)).Elem()
+}
+
+func (o OauthAppJwkOutput) ToOauthAppJwkOutput() OauthAppJwkOutput {
+	return o
+}
+
+func (o OauthAppJwkOutput) ToOauthAppJwkOutputWithContext(ctx context.Context) OauthAppJwkOutput {
+	return o
+}
+
+func (o OauthAppJwkOutput) E() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OauthAppJwk) *string { return v.E }).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppJwkOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v OauthAppJwk) string { return v.Kid }).(pulumi.StringOutput)
+}
+
+func (o OauthAppJwkOutput) Kty() pulumi.StringOutput {
+	return o.ApplyT(func(v OauthAppJwk) string { return v.Kty }).(pulumi.StringOutput)
+}
+
+func (o OauthAppJwkOutput) N() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OauthAppJwk) *string { return v.N }).(pulumi.StringPtrOutput)
+}
+
+type OauthAppJwkArrayOutput struct{ *pulumi.OutputState }
+
+func (OauthAppJwkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OauthAppJwk)(nil)).Elem()
+}
+
+func (o OauthAppJwkArrayOutput) ToOauthAppJwkArrayOutput() OauthAppJwkArrayOutput {
+	return o
+}
+
+func (o OauthAppJwkArrayOutput) ToOauthAppJwkArrayOutputWithContext(ctx context.Context) OauthAppJwkArrayOutput {
+	return o
+}
+
+func (o OauthAppJwkArrayOutput) Index(i pulumi.IntInput) OauthAppJwkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthAppJwk {
+		return vs[0].([]OauthAppJwk)[vs[1].(int)]
+	}).(OauthAppJwkOutput)
+}
+
 type OauthAppUser struct {
 	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
@@ -2782,6 +2894,8 @@ func init() {
 	pulumi.RegisterOutputType(MfaPolicySymantecVipPtrOutput{})
 	pulumi.RegisterOutputType(MfaPolicyYubikeyTokenOutput{})
 	pulumi.RegisterOutputType(MfaPolicyYubikeyTokenPtrOutput{})
+	pulumi.RegisterOutputType(OauthAppJwkOutput{})
+	pulumi.RegisterOutputType(OauthAppJwkArrayOutput{})
 	pulumi.RegisterOutputType(OauthAppUserOutput{})
 	pulumi.RegisterOutputType(OauthAppUserArrayOutput{})
 	pulumi.RegisterOutputType(SamlAppAttributeStatementOutput{})

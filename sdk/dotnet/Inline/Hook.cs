@@ -39,7 +39,7 @@ namespace Pulumi.Okta.Inline
     ///                 Version = "1.0.0",
     ///             },
     ///             Type = "com.okta.oauth2.tokens.transform",
-    ///             Version = "1.0.1",
+    ///             Version = "1.0.0",
     ///         });
     ///     }
     /// 

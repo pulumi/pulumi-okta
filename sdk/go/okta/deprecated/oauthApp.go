@@ -19,7 +19,7 @@ type OauthApp struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
 	ClientBasicSecret pulumi.StringPtrOutput `pulumi:"clientBasicSecret"`
-	// OAuth client ID.
+	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
@@ -28,7 +28,10 @@ type OauthApp struct {
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 	// Default value is TRUSTED
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
-	// This property allows you to set your client_id.
+	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+	// no-op, use client_id for that behavior instead.
+	//
+	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -43,6 +46,7 @@ type OauthApp struct {
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	Jwks       OauthAppJwkArrayOutput `pulumi:"jwks"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// URI that initiates login.
@@ -119,7 +123,7 @@ type oauthAppState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
-	// OAuth client ID.
+	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId *string `pulumi:"clientId"`
 	// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
 	ClientSecret *string `pulumi:"clientSecret"`
@@ -128,7 +132,10 @@ type oauthAppState struct {
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 	// Default value is TRUSTED
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// This property allows you to set your client_id.
+	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+	// no-op, use client_id for that behavior instead.
+	//
+	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -142,7 +149,8 @@ type oauthAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
-	IssuerMode *string `pulumi:"issuerMode"`
+	IssuerMode *string       `pulumi:"issuerMode"`
+	Jwks       []OauthAppJwk `pulumi:"jwks"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
 	// URI that initiates login.
@@ -186,7 +194,7 @@ type OauthAppState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
 	ClientBasicSecret pulumi.StringPtrInput
-	// OAuth client ID.
+	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId pulumi.StringPtrInput
 	// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
 	ClientSecret pulumi.StringPtrInput
@@ -195,7 +203,10 @@ type OauthAppState struct {
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 	// Default value is TRUSTED
 	ConsentMethod pulumi.StringPtrInput
-	// This property allows you to set your client_id.
+	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+	// no-op, use client_id for that behavior instead.
+	//
+	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -210,6 +221,7 @@ type OauthAppState struct {
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
+	Jwks       OauthAppJwkArrayInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
 	// URI that initiates login.
@@ -257,12 +269,17 @@ type oauthAppArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
+	// OAuth client ID. If set during creation, app is created with this id.
+	ClientId *string `pulumi:"clientId"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 	// Default value is TRUSTED
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// This property allows you to set your client_id.
+	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+	// no-op, use client_id for that behavior instead.
+	//
+	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -276,7 +293,8 @@ type oauthAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
-	IssuerMode *string `pulumi:"issuerMode"`
+	IssuerMode *string       `pulumi:"issuerMode"`
+	Jwks       []OauthAppJwk `pulumi:"jwks"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
 	// URI that initiates login.
@@ -317,12 +335,17 @@ type OauthAppArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
 	ClientBasicSecret pulumi.StringPtrInput
+	// OAuth client ID. If set during creation, app is created with this id.
+	ClientId pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
 	// Default value is TRUSTED
 	ConsentMethod pulumi.StringPtrInput
-	// This property allows you to set your client_id.
+	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+	// no-op, use client_id for that behavior instead.
+	//
+	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -337,6 +360,7 @@ type OauthAppArgs struct {
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
+	Jwks       OauthAppJwkArrayInput
 	// Pretty name of app.
 	Label pulumi.StringInput
 	// URI that initiates login.

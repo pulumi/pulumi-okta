@@ -25,6 +25,25 @@ import * as utilities from "../utilities";
  *     type: "web",
  * });
  * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.OAuth("example", {
+ *     grantTypes: ["client_credentials"],
+ *     jwks: [{
+ *         e: "AQAB",
+ *         kid: "SIGNING_KEY",
+ *         kty: "RSA",
+ *         n: "xyz",
+ *     }],
+ *     label: "example",
+ *     responseTypes: ["token"],
+ *     tokenEndpointAuthMethod: "private_key_jwt",
+ *     type: "service",
+ * });
+ * ```
  */
 export class OAuth extends pulumi.CustomResource {
     /**
@@ -67,9 +86,9 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly clientBasicSecret!: pulumi.Output<string | undefined>;
     /**
-     * The client ID of the application.
+     * OAuth client ID. If set during creation, app is created with this id.
      */
-    public /*out*/ readonly clientId!: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string>;
     /**
      * The client secret of the application.
      */
@@ -83,7 +102,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly consentMethod!: pulumi.Output<string | undefined>;
     /**
-     * This property allows you to set the application's client id.
+     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+     * no-op, use client_id for that behavior instead.
+     *
+     * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     public readonly customClientId!: pulumi.Output<string | undefined>;
     /**
@@ -106,6 +128,7 @@ export class OAuth extends pulumi.CustomResource {
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
+    public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
     /**
      * The Application's display name.
      */
@@ -155,7 +178,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -196,6 +219,7 @@ export class OAuth extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["issuerMode"] = state ? state.issuerMode : undefined;
+            inputs["jwks"] = state ? state.jwks : undefined;
             inputs["label"] = state ? state.label : undefined;
             inputs["loginUri"] = state ? state.loginUri : undefined;
             inputs["logoUri"] = state ? state.logoUri : undefined;
@@ -223,6 +247,7 @@ export class OAuth extends pulumi.CustomResource {
             inputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
+            inputs["clientId"] = args ? args.clientId : undefined;
             inputs["clientUri"] = args ? args.clientUri : undefined;
             inputs["consentMethod"] = args ? args.consentMethod : undefined;
             inputs["customClientId"] = args ? args.customClientId : undefined;
@@ -231,6 +256,7 @@ export class OAuth extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["issuerMode"] = args ? args.issuerMode : undefined;
+            inputs["jwks"] = args ? args.jwks : undefined;
             inputs["label"] = args ? args.label : undefined;
             inputs["loginUri"] = args ? args.loginUri : undefined;
             inputs["logoUri"] = args ? args.logoUri : undefined;
@@ -245,7 +271,6 @@ export class OAuth extends pulumi.CustomResource {
             inputs["tosUri"] = args ? args.tosUri : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["users"] = args ? args.users : undefined;
-            inputs["clientId"] = undefined /*out*/;
             inputs["clientSecret"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
@@ -278,7 +303,7 @@ export interface OAuthState {
      */
     readonly clientBasicSecret?: pulumi.Input<string>;
     /**
-     * The client ID of the application.
+     * OAuth client ID. If set during creation, app is created with this id.
      */
     readonly clientId?: pulumi.Input<string>;
     /**
@@ -294,7 +319,10 @@ export interface OAuthState {
      */
     readonly consentMethod?: pulumi.Input<string>;
     /**
-     * This property allows you to set the application's client id.
+     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+     * no-op, use client_id for that behavior instead.
+     *
+     * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
@@ -317,6 +345,7 @@ export interface OAuthState {
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     readonly issuerMode?: pulumi.Input<string>;
+    readonly jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
      * The Application's display name.
      */
@@ -366,7 +395,7 @@ export interface OAuthState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
      */
     readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -400,6 +429,10 @@ export interface OAuthArgs {
      */
     readonly clientBasicSecret?: pulumi.Input<string>;
     /**
+     * OAuth client ID. If set during creation, app is created with this id.
+     */
+    readonly clientId?: pulumi.Input<string>;
+    /**
      * URI to a web page providing information about the client.
      */
     readonly clientUri?: pulumi.Input<string>;
@@ -408,7 +441,10 @@ export interface OAuthArgs {
      */
     readonly consentMethod?: pulumi.Input<string>;
     /**
-     * This property allows you to set the application's client id.
+     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+     * no-op, use client_id for that behavior instead.
+     *
+     * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
@@ -431,6 +467,7 @@ export interface OAuthArgs {
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     readonly issuerMode?: pulumi.Input<string>;
+    readonly jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
      * The Application's display name.
      */
@@ -472,7 +509,7 @@ export interface OAuthArgs {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
      */
     readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**

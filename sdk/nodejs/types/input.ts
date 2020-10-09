@@ -5,6 +5,57 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface EventHookAuth {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Authentication secret.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventHookChannel {
+    /**
+     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The URI the hook will hit.
+     */
+    uri: pulumi.Input<string>;
+    /**
+     * The version of the channel. Currently only `"1.0.0"` is supported.
+     */
+    version: pulumi.Input<string>;
+}
+
+export interface EventHookHeader {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Authentication secret.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface TemplateSmsTranslation {
+    /**
+     * The language to map the template to.
+     */
+    language: pulumi.Input<string>;
+    /**
+     * The SMS message.
+     */
+    template: pulumi.Input<string>;
+}
 export namespace app {
     export interface AutoLoginUser {
         id?: pulumi.Input<string>;
@@ -45,7 +96,17 @@ export namespace app {
         values?: string[];
     }
 
+    export interface OAuthJwk {
+        e?: pulumi.Input<string>;
+        kid: pulumi.Input<string>;
+        kty: pulumi.Input<string>;
+        n?: pulumi.Input<string>;
+    }
+
     export interface OAuthUser {
+        /**
+         * ID of the application.
+         */
         id?: pulumi.Input<string>;
         password?: pulumi.Input<string>;
         scope?: pulumi.Input<string>;
@@ -211,6 +272,13 @@ export namespace deprecated {
     export interface MfaPolicyYubikeyToken {
         consentType?: pulumi.Input<string>;
         enroll?: pulumi.Input<string>;
+    }
+
+    export interface OauthAppJwk {
+        e?: pulumi.Input<string>;
+        kid: pulumi.Input<string>;
+        kty: pulumi.Input<string>;
+        n?: pulumi.Input<string>;
     }
 
     export interface OauthAppUser {
@@ -487,8 +555,17 @@ export namespace policy {
 
 export namespace profile {
     export interface MappingMapping {
+        /**
+         * Combination or single source properties that will be mapped to the target property.
+         */
         expression: pulumi.Input<string>;
+        /**
+         * Key of mapping.
+         */
         id: pulumi.Input<string>;
+        /**
+         * Whether to update target properties on user create & update or just on create.
+         */
         pushStatus?: pulumi.Input<string>;
     }
 }

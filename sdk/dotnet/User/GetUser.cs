@@ -49,14 +49,14 @@ namespace Pulumi.Okta.User
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
-        [Input("searches", required: true)]
+        [Input("searches")]
         private List<Inputs.GetUserSearchArgs>? _searches;
 
         /// <summary>
@@ -67,6 +67,12 @@ namespace Pulumi.Okta.User
             get => _searches ?? (_searches = new List<Inputs.GetUserSearchArgs>());
             set => _searches = value;
         }
+
+        /// <summary>
+        /// String representing a specific user's id value
+        /// </summary>
+        [Input("userId")]
+        public string? UserId { get; set; }
 
         public GetUserArgs()
         {
@@ -214,6 +220,7 @@ namespace Pulumi.Okta.User
         /// user profile property.
         /// </summary>
         public readonly string Title;
+        public readonly string? UserId;
         /// <summary>
         /// user profile property.
         /// </summary>
@@ -295,6 +302,8 @@ namespace Pulumi.Okta.User
 
             string title,
 
+            string? userId,
+
             string userType,
 
             string zipCode)
@@ -334,6 +343,7 @@ namespace Pulumi.Okta.User
             StreetAddress = streetAddress;
             Timezone = timezone;
             Title = title;
+            UserId = userId;
             UserType = userType;
             ZipCode = zipCode;
         }

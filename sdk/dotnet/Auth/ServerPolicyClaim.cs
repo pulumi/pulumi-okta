@@ -100,6 +100,9 @@ namespace Pulumi.Okta.Auth
         [Output("refreshTokenLifetimeMinutes")]
         public Output<int?> RefreshTokenLifetimeMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// </summary>
         [Output("refreshTokenWindowMinutes")]
         public Output<int?> RefreshTokenWindowMinutes { get; private set; } = null!;
 
@@ -243,6 +246,9 @@ namespace Pulumi.Okta.Auth
         [Input("refreshTokenLifetimeMinutes")]
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
+        /// <summary>
+        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
 
@@ -363,6 +369,9 @@ namespace Pulumi.Okta.Auth
         [Input("refreshTokenLifetimeMinutes")]
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
+        /// <summary>
+        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
 

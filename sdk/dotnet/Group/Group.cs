@@ -48,7 +48,7 @@ namespace Pulumi.Okta.Group
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Users associated with the group. This can also be done per user.
+        /// The users associated with the group. This can also be done per user.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<string>> Users { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _users;
 
         /// <summary>
-        /// Users associated with the group. This can also be done per user.
+        /// The users associated with the group. This can also be done per user.
         /// </summary>
         public InputList<string> Users
         {
@@ -146,7 +146,7 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _users;
 
         /// <summary>
-        /// Users associated with the group. This can also be done per user.
+        /// The users associated with the group. This can also be done per user.
         /// </summary>
         public InputList<string> Users
         {

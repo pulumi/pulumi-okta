@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./eventHook";
 export * from "./provider";
+export * from "./templateSms";
 
 // Export sub-modules:
 import * as app from "./app";

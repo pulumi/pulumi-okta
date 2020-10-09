@@ -38,7 +38,7 @@ import (
 // 				Version: pulumi.String("1.0.0"),
 // 			},
 // 			Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
-// 			Version: pulumi.String("1.0.1"),
+// 			Version: pulumi.String("1.0.0"),
 // 		})
 // 		if err != nil {
 // 			return err

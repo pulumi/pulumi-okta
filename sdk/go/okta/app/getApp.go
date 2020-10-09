@@ -47,7 +47,7 @@ type GetAppArgs struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`.
+	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`

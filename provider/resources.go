@@ -24,7 +24,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 
-	"github.com/articulate/terraform-provider-okta/okta"
+	"github.com/oktadeveloper/terraform-provider-okta/okta"
 )
 
 // all of the token components used below.
@@ -45,6 +45,7 @@ const (
 	templateMod      = "Template"
 	trustedOriginMod = "TrustedOrigin"
 	userMod          = "User"
+	mainMod          = "Index"
 
 	// DeprecatedResourcesMod - these are resources that were renamed upstream and exist only to satisfy tfgen warnings
 	deprecatedMod = "Deprecated"
@@ -84,11 +85,11 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "okta",
-		GitHubOrg:   "articulate",
 		Description: "A Pulumi package for creating and managing okta resources.",
 		Keywords:    []string{"pulumi", "okta"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
+		GitHubOrg:   "oktadeveloper",
 		Repository:  "https://github.com/pulumi/pulumi-okta",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_name": {
@@ -304,6 +305,10 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(profileMod, "Mapping"),
 				Docs: &tfbridge.DocInfo{Source: "profile_mapping.html.markdown"},
 			},
+
+			// All new resources will be put in top level package i.e. mainMod
+			"okta_event_hook":   {Tok: makeResource(mainMod, "EventHook")},
+			"okta_template_sms": {Tok: makeResource(mainMod, "TemplateSms")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},

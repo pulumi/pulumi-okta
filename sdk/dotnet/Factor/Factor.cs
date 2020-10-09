@@ -26,9 +26,7 @@ namespace Pulumi.Okta.Factor
     ///     {
     ///         var example = new Okta.Factor.Factor("example", new Okta.Factor.FactorArgs
     ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "google_otp",
+    ///             ProviderId = "google_otp",
     ///         });
     ///     }
     /// 
@@ -44,7 +42,8 @@ namespace Pulumi.Okta.Factor
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// Factor provider ID
+        /// The MFA provider name.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         /// </summary>
         [Output("providerId")]
         public Output<string> ProviderId { get; private set; } = null!;
@@ -102,7 +101,8 @@ namespace Pulumi.Okta.Factor
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Factor provider ID
+        /// The MFA provider name.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         /// </summary>
         [Input("providerId", required: true)]
         public Input<string> ProviderId { get; set; } = null!;
@@ -121,7 +121,8 @@ namespace Pulumi.Okta.Factor
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Factor provider ID
+        /// The MFA provider name.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         /// </summary>
         [Input("providerId")]
         public Input<string>? ProviderId { get; set; }

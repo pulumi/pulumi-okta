@@ -9,39 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Profile
 {
+    /// <summary>
+    /// Manages a profile mapping.
+    /// 
+    /// This resource allows you to manage a profile mapping by source id.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var user = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());
+    ///         var example = new Okta.Profile.Mapping("example", new Okta.Profile.MappingArgs
+    ///         {
+    ///             DeleteWhenAbsent = true,
+    ///             Mappings = 
+    ///             {
+    ///                 new Okta.Profile.Inputs.MappingMappingArgs
+    ///                 {
+    ///                     Expression = "appuser.firstName",
+    ///                     Id = "firstName",
+    ///                 },
+    ///                 new Okta.Profile.Inputs.MappingMappingArgs
+    ///                 {
+    ///                     Expression = "appuser.lastName",
+    ///                     Id = "lastName",
+    ///                 },
+    ///                 new Okta.Profile.Inputs.MappingMappingArgs
+    ///                 {
+    ///                     Expression = "appuser.email",
+    ///                     Id = "email",
+    ///                 },
+    ///                 new Okta.Profile.Inputs.MappingMappingArgs
+    ///                 {
+    ///                     Expression = "appuser.email",
+    ///                     Id = "login",
+    ///                 },
+    ///             },
+    ///             SourceId = "&lt;source id&gt;",
+    ///             TargetId = user.Apply(user =&gt; user.Id),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Mapping : Pulumi.CustomResource
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-        /// default, we do not delete missing properties.
+        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>
         [Output("deleteWhenAbsent")]
         public Output<bool?> DeleteWhenAbsent { get; private set; } = null!;
 
+        /// <summary>
+        /// Priority of the policy.
+        /// </summary>
         [Output("mappings")]
         public Output<ImmutableArray<Outputs.MappingMapping>> Mappings { get; private set; } = null!;
 
         /// <summary>
-        /// The source id of the mapping to manage.
+        /// Source id of the profile mapping.
         /// </summary>
         [Output("sourceId")]
         public Output<string> SourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the mapping source.
+        /// </summary>
         [Output("sourceName")]
         public Output<string> SourceName { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the mapping source.
+        /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The target id of the mapping to manage.
+        /// ID of the mapping target.
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the mapping target.
+        /// </summary>
         [Output("targetName")]
         public Output<string> TargetName { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the mapping target.
+        /// </summary>
         [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
 
@@ -92,14 +156,17 @@ namespace Pulumi.Okta.Profile
     public sealed class MappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-        /// default, we do not delete missing properties.
+        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
         private InputList<Inputs.MappingMappingArgs>? _mappings;
+
+        /// <summary>
+        /// Priority of the policy.
+        /// </summary>
         public InputList<Inputs.MappingMappingArgs> Mappings
         {
             get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingArgs>());
@@ -107,13 +174,13 @@ namespace Pulumi.Okta.Profile
         }
 
         /// <summary>
-        /// The source id of the mapping to manage.
+        /// Source id of the profile mapping.
         /// </summary>
         [Input("sourceId", required: true)]
         public Input<string> SourceId { get; set; } = null!;
 
         /// <summary>
-        /// The target id of the mapping to manage.
+        /// ID of the mapping target.
         /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
@@ -126,14 +193,17 @@ namespace Pulumi.Okta.Profile
     public sealed class MappingState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-        /// default, we do not delete missing properties.
+        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
         private InputList<Inputs.MappingMappingGetArgs>? _mappings;
+
+        /// <summary>
+        /// Priority of the policy.
+        /// </summary>
         public InputList<Inputs.MappingMappingGetArgs> Mappings
         {
             get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingGetArgs>());
@@ -141,26 +211,38 @@ namespace Pulumi.Okta.Profile
         }
 
         /// <summary>
-        /// The source id of the mapping to manage.
+        /// Source id of the profile mapping.
         /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
+        /// <summary>
+        /// Name of the mapping source.
+        /// </summary>
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
 
+        /// <summary>
+        /// ID of the mapping source.
+        /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
 
         /// <summary>
-        /// The target id of the mapping to manage.
+        /// ID of the mapping target.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 
+        /// <summary>
+        /// Name of the mapping target.
+        /// </summary>
         [Input("targetName")]
         public Input<string>? TargetName { get; set; }
 
+        /// <summary>
+        /// ID of the mapping target.
+        /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 

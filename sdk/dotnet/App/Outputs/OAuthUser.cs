@@ -13,6 +13,9 @@ namespace Pulumi.Okta.App.Outputs
     [OutputType]
     public sealed class OAuthUser
     {
+        /// <summary>
+        /// ID of the application.
+        /// </summary>
         public readonly string? Id;
         public readonly string? Password;
         public readonly string? Scope;

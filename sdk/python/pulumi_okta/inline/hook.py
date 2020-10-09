@@ -50,7 +50,7 @@ class Hook(pulumi.CustomResource):
                 version="1.0.0",
             ),
             type="com.okta.oauth2.tokens.transform",
-            version="1.0.1")
+            version="1.0.0")
         ```
 
         :param str resource_name: The name of the resource.

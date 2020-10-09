@@ -24,6 +24,7 @@ __all__ = [
     'MfaPolicyRsaTokenArgs',
     'MfaPolicySymantecVipArgs',
     'MfaPolicyYubikeyTokenArgs',
+    'OauthAppJwkArgs',
     'OauthAppUserArgs',
     'SamlAppAttributeStatementArgs',
     'SamlAppUserArgs',
@@ -513,6 +514,57 @@ class MfaPolicyYubikeyTokenArgs:
     @enroll.setter
     def enroll(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enroll", value)
+
+
+@pulumi.input_type
+class OauthAppJwkArgs:
+    def __init__(__self__, *,
+                 kid: pulumi.Input[str],
+                 kty: pulumi.Input[str],
+                 e: Optional[pulumi.Input[str]] = None,
+                 n: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "kty", kty)
+        if e is not None:
+            pulumi.set(__self__, "e", e)
+        if n is not None:
+            pulumi.set(__self__, "n", n)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kid")
+
+    @kid.setter
+    def kid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kid", value)
+
+    @property
+    @pulumi.getter
+    def kty(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kty")
+
+    @kty.setter
+    def kty(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kty", value)
+
+    @property
+    @pulumi.getter
+    def e(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "e")
+
+    @e.setter
+    def e(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e", value)
+
+    @property
+    @pulumi.getter
+    def n(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "n")
+
+    @n.setter
+    def n(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "n", value)
 
 
 @pulumi.input_type

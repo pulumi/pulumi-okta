@@ -84,6 +84,12 @@ namespace Pulumi.Okta.App
         public Output<string?> ExternalName { get; private set; } = null!;
 
         /// <summary>
+        /// External namespace of the user schema property.
+        /// </summary>
+        [Output("externalNamespace")]
+        public Output<string?> ExternalNamespace { get; private set; } = null!;
+
+        /// <summary>
         /// The property name.
         /// </summary>
         [Output("index")]
@@ -142,6 +148,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Subschema unique restriction
+        /// </summary>
+        [Output("unique")]
+        public Output<string?> Unique { get; private set; } = null!;
 
 
         /// <summary>
@@ -250,6 +262,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ExternalName { get; set; }
 
         /// <summary>
+        /// External namespace of the user schema property.
+        /// </summary>
+        [Input("externalNamespace")]
+        public Input<string>? ExternalNamespace { get; set; }
+
+        /// <summary>
         /// The property name.
         /// </summary>
         [Input("index", required: true)]
@@ -314,6 +332,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Subschema unique restriction
+        /// </summary>
+        [Input("unique")]
+        public Input<string>? Unique { get; set; }
 
         public UserSchemaArgs()
         {
@@ -383,6 +407,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ExternalName { get; set; }
 
         /// <summary>
+        /// External namespace of the user schema property.
+        /// </summary>
+        [Input("externalNamespace")]
+        public Input<string>? ExternalNamespace { get; set; }
+
+        /// <summary>
         /// The property name.
         /// </summary>
         [Input("index")]
@@ -447,6 +477,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Subschema unique restriction
+        /// </summary>
+        [Input("unique")]
+        public Input<string>? Unique { get; set; }
 
         public UserSchemaState()
         {

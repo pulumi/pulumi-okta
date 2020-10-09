@@ -80,6 +80,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly externalName!: pulumi.Output<string | undefined>;
     /**
+     * External name of the user schema property.
+     */
+    public readonly externalNamespace!: pulumi.Output<string | undefined>;
+    /**
      * The property name.
      */
     public readonly index!: pulumi.Output<string>;
@@ -119,6 +123,10 @@ export class Schema extends pulumi.CustomResource {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     */
+    public readonly unique!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -138,6 +146,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["enums"] = state ? state.enums : undefined;
             inputs["externalName"] = state ? state.externalName : undefined;
+            inputs["externalNamespace"] = state ? state.externalNamespace : undefined;
             inputs["index"] = state ? state.index : undefined;
             inputs["master"] = state ? state.master : undefined;
             inputs["maxLength"] = state ? state.maxLength : undefined;
@@ -148,6 +157,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["unique"] = state ? state.unique : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if (!args || args.index === undefined) {
@@ -165,6 +175,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enums"] = args ? args.enums : undefined;
             inputs["externalName"] = args ? args.externalName : undefined;
+            inputs["externalNamespace"] = args ? args.externalNamespace : undefined;
             inputs["index"] = args ? args.index : undefined;
             inputs["master"] = args ? args.master : undefined;
             inputs["maxLength"] = args ? args.maxLength : undefined;
@@ -175,6 +186,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["unique"] = args ? args.unique : undefined;
         }
         if (!opts) {
             opts = {}
@@ -216,6 +228,10 @@ export interface SchemaState {
      */
     readonly externalName?: pulumi.Input<string>;
     /**
+     * External name of the user schema property.
+     */
+    readonly externalNamespace?: pulumi.Input<string>;
+    /**
      * The property name.
      */
     readonly index?: pulumi.Input<string>;
@@ -255,6 +271,10 @@ export interface SchemaState {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     */
+    readonly unique?: pulumi.Input<string>;
 }
 
 /**
@@ -285,6 +305,10 @@ export interface SchemaArgs {
      * External name of the user schema property.
      */
     readonly externalName?: pulumi.Input<string>;
+    /**
+     * External name of the user schema property.
+     */
+    readonly externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
@@ -325,4 +349,8 @@ export interface SchemaArgs {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     */
+    readonly unique?: pulumi.Input<string>;
 }

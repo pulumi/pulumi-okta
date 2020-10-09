@@ -77,6 +77,12 @@ namespace Pulumi.Okta.User
         public Output<string?> ExternalName { get; private set; } = null!;
 
         /// <summary>
+        /// External name of the user schema property.
+        /// </summary>
+        [Output("externalNamespace")]
+        public Output<string?> ExternalNamespace { get; private set; } = null!;
+
+        /// <summary>
         /// The property name.
         /// </summary>
         [Output("index")]
@@ -135,6 +141,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        /// </summary>
+        [Output("unique")]
+        public Output<string?> Unique { get; private set; } = null!;
 
 
         /// <summary>
@@ -237,6 +249,12 @@ namespace Pulumi.Okta.User
         public Input<string>? ExternalName { get; set; }
 
         /// <summary>
+        /// External name of the user schema property.
+        /// </summary>
+        [Input("externalNamespace")]
+        public Input<string>? ExternalNamespace { get; set; }
+
+        /// <summary>
         /// The property name.
         /// </summary>
         [Input("index", required: true)]
@@ -302,6 +320,12 @@ namespace Pulumi.Okta.User
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        /// </summary>
+        [Input("unique")]
+        public Input<string>? Unique { get; set; }
+
         public SchemaArgs()
         {
         }
@@ -362,6 +386,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("externalName")]
         public Input<string>? ExternalName { get; set; }
+
+        /// <summary>
+        /// External name of the user schema property.
+        /// </summary>
+        [Input("externalNamespace")]
+        public Input<string>? ExternalNamespace { get; set; }
 
         /// <summary>
         /// The property name.
@@ -428,6 +458,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        /// </summary>
+        [Input("unique")]
+        public Input<string>? Unique { get; set; }
 
         public SchemaState()
         {

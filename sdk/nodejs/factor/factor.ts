@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.factor.Factor("example", {}, {
- *     provider: "google_otp",
+ * const example = new okta.factor.Factor("example", {
+ *     providerId: "google_otp",
  * });
  * ```
  */
@@ -53,7 +53,8 @@ export class Factor extends pulumi.CustomResource {
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
      */
     public readonly providerId!: pulumi.Output<string>;
 
@@ -99,7 +100,8 @@ export interface FactorState {
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
      */
     readonly providerId?: pulumi.Input<string>;
 }
@@ -113,7 +115,8 @@ export interface FactorArgs {
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
      */
     readonly providerId: pulumi.Input<string>;
 }

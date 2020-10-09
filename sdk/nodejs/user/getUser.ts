@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
+ * // Search for a single user based on supported profile properties
  * const example = pulumi.output(okta.user.getUser({
  *     searches: [
  *         {
@@ -29,7 +30,8 @@ import * as utilities from "../utilities";
  * }, { async: true }));
  * ```
  */
-export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -39,6 +41,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("okta:user/getUser:getUser", {
         "searches": args.searches,
+        "userId": args.userId,
     }, opts);
 }
 
@@ -49,7 +52,11 @@ export interface GetUserArgs {
     /**
      * Map of search criteria. It supports the following properties.
      */
-    readonly searches: inputs.user.GetUserSearch[];
+    readonly searches?: inputs.user.GetUserSearch[];
+    /**
+     * String representing a specific user's id value
+     */
+    readonly userId?: string;
 }
 
 /**
@@ -168,7 +175,7 @@ export interface GetUserResult {
      * user profile property.
      */
     readonly profileUrl: string;
-    readonly searches: outputs.user.GetUserSearch[];
+    readonly searches?: outputs.user.GetUserSearch[];
     /**
      * user profile property.
      */
@@ -193,6 +200,7 @@ export interface GetUserResult {
      * user profile property.
      */
     readonly title: string;
+    readonly userId?: string;
     /**
      * user profile property.
      */
