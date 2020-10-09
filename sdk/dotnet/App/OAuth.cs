@@ -45,6 +45,43 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.OAuth("example", new Okta.App.OAuthArgs
+    ///         {
+    ///             GrantTypes = 
+    ///             {
+    ///                 "client_credentials",
+    ///             },
+    ///             Jwks = 
+    ///             {
+    ///                 new Okta.App.Inputs.OAuthJwkArgs
+    ///                 {
+    ///                     E = "AQAB",
+    ///                     Kid = "SIGNING_KEY",
+    ///                     Kty = "RSA",
+    ///                     N = "xyz",
+    ///                 },
+    ///             },
+    ///             Label = "example",
+    ///             ResponseTypes = 
+    ///             {
+    ///                 "token",
+    ///             },
+    ///             TokenEndpointAuthMethod = "private_key_jwt",
+    ///             Type = "service",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OAuth : Pulumi.CustomResource
     {
@@ -67,7 +104,7 @@ namespace Pulumi.Okta.App
         public Output<string?> ClientBasicSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The client ID of the application.
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
@@ -91,7 +128,8 @@ namespace Pulumi.Okta.App
         public Output<string?> ConsentMethod { get; private set; } = null!;
 
         /// <summary>
-        /// This property allows you to set the application's client id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Output("customClientId")]
         public Output<string?> CustomClientId { get; private set; } = null!;
@@ -125,6 +163,9 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
+
+        [Output("jwks")]
+        public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
         /// <summary>
         /// The Application's display name.
@@ -199,7 +240,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         /// </summary>
         [Output("tokenEndpointAuthMethod")]
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
@@ -287,6 +328,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
+        /// OAuth client ID. If set during creation, app is created with this id.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
         /// URI to a web page providing information about the client.
         /// </summary>
         [Input("clientUri")]
@@ -299,7 +346,8 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set the application's client id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -345,6 +393,14 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
+
+        [Input("jwks")]
+        private InputList<Inputs.OAuthJwkArgs>? _jwks;
+        public InputList<Inputs.OAuthJwkArgs> Jwks
+        {
+            get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkArgs>());
+            set => _jwks = value;
+        }
 
         /// <summary>
         /// The Application's display name.
@@ -425,7 +481,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -480,7 +536,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
-        /// The client ID of the application.
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -504,7 +560,8 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set the application's client id.
+        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        /// no-op, use client_id for that behavior instead.
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -550,6 +607,14 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
+
+        [Input("jwks")]
+        private InputList<Inputs.OAuthJwkGetArgs>? _jwks;
+        public InputList<Inputs.OAuthJwkGetArgs> Jwks
+        {
+            get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkGetArgs>());
+            set => _jwks = value;
+        }
 
         /// <summary>
         /// The Application's display name.
@@ -642,7 +707,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }

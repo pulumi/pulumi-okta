@@ -57,7 +57,7 @@ namespace Pulumi.Okta.App
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`.
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }

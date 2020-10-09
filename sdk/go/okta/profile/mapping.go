@@ -10,20 +10,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Manages a profile mapping.
+//
+// This resource allows you to manage a profile mapping by source id.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/profile"
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		user, err := user.GetUserProfileMappingSource(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
+// 			DeleteWhenAbsent: pulumi.Bool(true),
+// 			Mappings: profile.MappingMappingArray{
+// 				&profile.MappingMappingArgs{
+// 					Expression: pulumi.String("appuser.firstName"),
+// 					Id:         pulumi.String("firstName"),
+// 				},
+// 				&profile.MappingMappingArgs{
+// 					Expression: pulumi.String("appuser.lastName"),
+// 					Id:         pulumi.String("lastName"),
+// 				},
+// 				&profile.MappingMappingArgs{
+// 					Expression: pulumi.String("appuser.email"),
+// 					Id:         pulumi.String("email"),
+// 				},
+// 				&profile.MappingMappingArgs{
+// 					Expression: pulumi.String("appuser.email"),
+// 					Id:         pulumi.String("login"),
+// 				},
+// 			},
+// 			SourceId: pulumi.String("<source id>"),
+// 			TargetId: pulumi.String(user.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Mapping struct {
 	pulumi.CustomResourceState
 
-	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-	// default, we do not delete missing properties.
-	DeleteWhenAbsent pulumi.BoolPtrOutput      `pulumi:"deleteWhenAbsent"`
-	Mappings         MappingMappingArrayOutput `pulumi:"mappings"`
-	// The source id of the mapping to manage.
-	SourceId   pulumi.StringOutput `pulumi:"sourceId"`
+	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
+	// Priority of the policy.
+	Mappings MappingMappingArrayOutput `pulumi:"mappings"`
+	// Source id of the profile mapping.
+	SourceId pulumi.StringOutput `pulumi:"sourceId"`
+	// Name of the mapping source.
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
+	// ID of the mapping source.
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
-	// The target id of the mapping to manage.
-	TargetId   pulumi.StringOutput `pulumi:"targetId"`
+	// ID of the mapping target.
+	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	// Name of the mapping target.
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
+	// ID of the mapping target.
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 }
 
@@ -61,32 +116,40 @@ func GetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Mapping resources.
 type mappingState struct {
-	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-	// default, we do not delete missing properties.
-	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
-	Mappings         []MappingMapping `pulumi:"mappings"`
-	// The source id of the mapping to manage.
-	SourceId   *string `pulumi:"sourceId"`
+	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
+	// Priority of the policy.
+	Mappings []MappingMapping `pulumi:"mappings"`
+	// Source id of the profile mapping.
+	SourceId *string `pulumi:"sourceId"`
+	// Name of the mapping source.
 	SourceName *string `pulumi:"sourceName"`
+	// ID of the mapping source.
 	SourceType *string `pulumi:"sourceType"`
-	// The target id of the mapping to manage.
-	TargetId   *string `pulumi:"targetId"`
+	// ID of the mapping target.
+	TargetId *string `pulumi:"targetId"`
+	// Name of the mapping target.
 	TargetName *string `pulumi:"targetName"`
+	// ID of the mapping target.
 	TargetType *string `pulumi:"targetType"`
 }
 
 type MappingState struct {
-	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-	// default, we do not delete missing properties.
+	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	Mappings         MappingMappingArrayInput
-	// The source id of the mapping to manage.
-	SourceId   pulumi.StringPtrInput
+	// Priority of the policy.
+	Mappings MappingMappingArrayInput
+	// Source id of the profile mapping.
+	SourceId pulumi.StringPtrInput
+	// Name of the mapping source.
 	SourceName pulumi.StringPtrInput
+	// ID of the mapping source.
 	SourceType pulumi.StringPtrInput
-	// The target id of the mapping to manage.
-	TargetId   pulumi.StringPtrInput
+	// ID of the mapping target.
+	TargetId pulumi.StringPtrInput
+	// Name of the mapping target.
 	TargetName pulumi.StringPtrInput
+	// ID of the mapping target.
 	TargetType pulumi.StringPtrInput
 }
 
@@ -95,25 +158,25 @@ func (MappingState) ElementType() reflect.Type {
 }
 
 type mappingArgs struct {
-	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-	// default, we do not delete missing properties.
-	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
-	Mappings         []MappingMapping `pulumi:"mappings"`
-	// The source id of the mapping to manage.
+	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
+	// Priority of the policy.
+	Mappings []MappingMapping `pulumi:"mappings"`
+	// Source id of the profile mapping.
 	SourceId string `pulumi:"sourceId"`
-	// The target id of the mapping to manage.
+	// ID of the mapping target.
 	TargetId string `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a Mapping resource.
 type MappingArgs struct {
-	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-	// default, we do not delete missing properties.
+	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	Mappings         MappingMappingArrayInput
-	// The source id of the mapping to manage.
+	// Priority of the policy.
+	Mappings MappingMappingArrayInput
+	// Source id of the profile mapping.
 	SourceId pulumi.StringInput
-	// The target id of the mapping to manage.
+	// ID of the mapping target.
 	TargetId pulumi.StringInput
 }
 

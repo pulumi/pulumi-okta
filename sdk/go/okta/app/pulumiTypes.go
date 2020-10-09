@@ -352,7 +352,120 @@ func (o BookmarkUserArrayOutput) Index(i pulumi.IntInput) BookmarkUserOutput {
 	}).(BookmarkUserOutput)
 }
 
+type OAuthJwk struct {
+	E   *string `pulumi:"e"`
+	Kid string  `pulumi:"kid"`
+	Kty string  `pulumi:"kty"`
+	N   *string `pulumi:"n"`
+}
+
+// OAuthJwkInput is an input type that accepts OAuthJwkArgs and OAuthJwkOutput values.
+// You can construct a concrete instance of `OAuthJwkInput` via:
+//
+//          OAuthJwkArgs{...}
+type OAuthJwkInput interface {
+	pulumi.Input
+
+	ToOAuthJwkOutput() OAuthJwkOutput
+	ToOAuthJwkOutputWithContext(context.Context) OAuthJwkOutput
+}
+
+type OAuthJwkArgs struct {
+	E   pulumi.StringPtrInput `pulumi:"e"`
+	Kid pulumi.StringInput    `pulumi:"kid"`
+	Kty pulumi.StringInput    `pulumi:"kty"`
+	N   pulumi.StringPtrInput `pulumi:"n"`
+}
+
+func (OAuthJwkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthJwk)(nil)).Elem()
+}
+
+func (i OAuthJwkArgs) ToOAuthJwkOutput() OAuthJwkOutput {
+	return i.ToOAuthJwkOutputWithContext(context.Background())
+}
+
+func (i OAuthJwkArgs) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJwkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthJwkOutput)
+}
+
+// OAuthJwkArrayInput is an input type that accepts OAuthJwkArray and OAuthJwkArrayOutput values.
+// You can construct a concrete instance of `OAuthJwkArrayInput` via:
+//
+//          OAuthJwkArray{ OAuthJwkArgs{...} }
+type OAuthJwkArrayInput interface {
+	pulumi.Input
+
+	ToOAuthJwkArrayOutput() OAuthJwkArrayOutput
+	ToOAuthJwkArrayOutputWithContext(context.Context) OAuthJwkArrayOutput
+}
+
+type OAuthJwkArray []OAuthJwkInput
+
+func (OAuthJwkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OAuthJwk)(nil)).Elem()
+}
+
+func (i OAuthJwkArray) ToOAuthJwkArrayOutput() OAuthJwkArrayOutput {
+	return i.ToOAuthJwkArrayOutputWithContext(context.Background())
+}
+
+func (i OAuthJwkArray) ToOAuthJwkArrayOutputWithContext(ctx context.Context) OAuthJwkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthJwkArrayOutput)
+}
+
+type OAuthJwkOutput struct{ *pulumi.OutputState }
+
+func (OAuthJwkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthJwk)(nil)).Elem()
+}
+
+func (o OAuthJwkOutput) ToOAuthJwkOutput() OAuthJwkOutput {
+	return o
+}
+
+func (o OAuthJwkOutput) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJwkOutput {
+	return o
+}
+
+func (o OAuthJwkOutput) E() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthJwk) *string { return v.E }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuthJwkOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthJwk) string { return v.Kid }).(pulumi.StringOutput)
+}
+
+func (o OAuthJwkOutput) Kty() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthJwk) string { return v.Kty }).(pulumi.StringOutput)
+}
+
+func (o OAuthJwkOutput) N() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthJwk) *string { return v.N }).(pulumi.StringPtrOutput)
+}
+
+type OAuthJwkArrayOutput struct{ *pulumi.OutputState }
+
+func (OAuthJwkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OAuthJwk)(nil)).Elem()
+}
+
+func (o OAuthJwkArrayOutput) ToOAuthJwkArrayOutput() OAuthJwkArrayOutput {
+	return o
+}
+
+func (o OAuthJwkArrayOutput) ToOAuthJwkArrayOutputWithContext(ctx context.Context) OAuthJwkArrayOutput {
+	return o
+}
+
+func (o OAuthJwkArrayOutput) Index(i pulumi.IntInput) OAuthJwkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OAuthJwk {
+		return vs[0].([]OAuthJwk)[vs[1].(int)]
+	}).(OAuthJwkOutput)
+}
+
 type OAuthUser struct {
+	// ID of the application.
 	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
 	Scope    *string `pulumi:"scope"`
@@ -371,6 +484,7 @@ type OAuthUserInput interface {
 }
 
 type OAuthUserArgs struct {
+	// ID of the application.
 	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	Scope    pulumi.StringPtrInput `pulumi:"scope"`
@@ -428,6 +542,7 @@ func (o OAuthUserOutput) ToOAuthUserOutputWithContext(ctx context.Context) OAuth
 	return o
 }
 
+// ID of the application.
 func (o OAuthUserOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1403,6 +1518,8 @@ func init() {
 	pulumi.RegisterOutputType(BasicAuthUserArrayOutput{})
 	pulumi.RegisterOutputType(BookmarkUserOutput{})
 	pulumi.RegisterOutputType(BookmarkUserArrayOutput{})
+	pulumi.RegisterOutputType(OAuthJwkOutput{})
+	pulumi.RegisterOutputType(OAuthJwkArrayOutput{})
 	pulumi.RegisterOutputType(OAuthUserOutput{})
 	pulumi.RegisterOutputType(OAuthUserArrayOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementOutput{})

@@ -39,7 +39,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[List[pulumi.Input[str]]] users: Users associated with the group. This can also be done per user.
+        :param pulumi.Input[List[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[List[pulumi.Input[str]]] users: Users associated with the group. This can also be done per user.
+        :param pulumi.Input[List[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -114,7 +114,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[List[str]]]:
         """
-        Users associated with the group. This can also be done per user.
+        The users associated with the group. This can also be done per user.
         """
         return pulumi.get(self, "users")
 

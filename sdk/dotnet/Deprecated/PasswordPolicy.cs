@@ -84,6 +84,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> PasswordHistoryCount { get; private set; } = null!;
 
         /// <summary>
+        /// Notification channels to use to notify a user when their account has been locked.
+        /// </summary>
+        [Output("passwordLockoutNotificationChannels")]
+        public Output<ImmutableArray<string>> PasswordLockoutNotificationChannels { get; private set; } = null!;
+
+        /// <summary>
         /// Length in days a password is valid before expiry: 0 = no limit.
         /// </summary>
         [Output("passwordMaxAgeDays")]
@@ -305,6 +311,18 @@ namespace Pulumi.Okta.Deprecated
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
 
+        [Input("passwordLockoutNotificationChannels")]
+        private InputList<string>? _passwordLockoutNotificationChannels;
+
+        /// <summary>
+        /// Notification channels to use to notify a user when their account has been locked.
+        /// </summary>
+        public InputList<string> PasswordLockoutNotificationChannels
+        {
+            get => _passwordLockoutNotificationChannels ?? (_passwordLockoutNotificationChannels = new InputList<string>());
+            set => _passwordLockoutNotificationChannels = value;
+        }
+
         /// <summary>
         /// Length in days a password is valid before expiry: 0 = no limit.
         /// </summary>
@@ -487,6 +505,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
+
+        [Input("passwordLockoutNotificationChannels")]
+        private InputList<string>? _passwordLockoutNotificationChannels;
+
+        /// <summary>
+        /// Notification channels to use to notify a user when their account has been locked.
+        /// </summary>
+        public InputList<string> PasswordLockoutNotificationChannels
+        {
+            get => _passwordLockoutNotificationChannels ?? (_passwordLockoutNotificationChannels = new InputList<string>());
+            set => _passwordLockoutNotificationChannels = value;
+        }
 
         /// <summary>
         /// Length in days a password is valid before expiry: 0 = no limit.

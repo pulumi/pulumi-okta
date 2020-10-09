@@ -25,13 +25,47 @@ class Mapping(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Mapping resource with the given unique name, props, and options.
+        Manages a profile mapping.
+
+        This resource allows you to manage a profile mapping by source id.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        user = okta.user.get_user_profile_mapping_source()
+        example = okta.profile.Mapping("example",
+            delete_when_absent=True,
+            mappings=[
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.firstName",
+                    id="firstName",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.lastName",
+                    id="lastName",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.email",
+                    id="email",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.email",
+                    id="login",
+                ),
+            ],
+            source_id="<source id>",
+            target_id=user.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-               default, we do not delete missing properties.
-        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
-        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
+        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
+        :param pulumi.Input[str] source_id: Source id of the profile mapping.
+        :param pulumi.Input[str] target_id: ID of the mapping target.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,10 +121,14 @@ class Mapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-               default, we do not delete missing properties.
-        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
-        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
+        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
+        :param pulumi.Input[str] source_id: Source id of the profile mapping.
+        :param pulumi.Input[str] source_name: Name of the mapping source.
+        :param pulumi.Input[str] source_type: ID of the mapping source.
+        :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[str] target_name: Name of the mapping target.
+        :param pulumi.Input[str] target_type: ID of the mapping target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -110,50 +148,64 @@ class Mapping(pulumi.CustomResource):
     @pulumi.getter(name="deleteWhenAbsent")
     def delete_when_absent(self) -> pulumi.Output[Optional[bool]]:
         """
-        When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-        default, we do not delete missing properties.
+        Tells the provider whether to attempt to delete missing mappings under profile mapping.
         """
         return pulumi.get(self, "delete_when_absent")
 
     @property
     @pulumi.getter
     def mappings(self) -> pulumi.Output[Optional[List['outputs.MappingMapping']]]:
+        """
+        Priority of the policy.
+        """
         return pulumi.get(self, "mappings")
 
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> pulumi.Output[str]:
         """
-        The source id of the mapping to manage.
+        Source id of the profile mapping.
         """
         return pulumi.get(self, "source_id")
 
     @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Output[str]:
+        """
+        Name of the mapping source.
+        """
         return pulumi.get(self, "source_name")
 
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[str]:
+        """
+        ID of the mapping source.
+        """
         return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
         """
-        The target id of the mapping to manage.
+        ID of the mapping target.
         """
         return pulumi.get(self, "target_id")
 
     @property
     @pulumi.getter(name="targetName")
     def target_name(self) -> pulumi.Output[str]:
+        """
+        Name of the mapping target.
+        """
         return pulumi.get(self, "target_name")
 
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[str]:
+        """
+        ID of the mapping target.
+        """
         return pulumi.get(self, "target_type")
 
     def translate_output_property(self, prop):

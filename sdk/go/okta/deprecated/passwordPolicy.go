@@ -36,6 +36,8 @@ type PasswordPolicy struct {
 	PasswordExpireWarnDays pulumi.IntPtrOutput `pulumi:"passwordExpireWarnDays"`
 	// Number of distinct passwords that must be created before they can be reused: 0 = none.
 	PasswordHistoryCount pulumi.IntPtrOutput `pulumi:"passwordHistoryCount"`
+	// Notification channels to use to notify a user when their account has been locked.
+	PasswordLockoutNotificationChannels pulumi.StringArrayOutput `pulumi:"passwordLockoutNotificationChannels"`
 	// Length in days a password is valid before expiry: 0 = no limit.
 	PasswordMaxAgeDays pulumi.IntPtrOutput `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
@@ -124,6 +126,8 @@ type passwordPolicyState struct {
 	PasswordExpireWarnDays *int `pulumi:"passwordExpireWarnDays"`
 	// Number of distinct passwords that must be created before they can be reused: 0 = none.
 	PasswordHistoryCount *int `pulumi:"passwordHistoryCount"`
+	// Notification channels to use to notify a user when their account has been locked.
+	PasswordLockoutNotificationChannels []string `pulumi:"passwordLockoutNotificationChannels"`
 	// Length in days a password is valid before expiry: 0 = no limit.
 	PasswordMaxAgeDays *int `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
@@ -185,6 +189,8 @@ type PasswordPolicyState struct {
 	PasswordExpireWarnDays pulumi.IntPtrInput
 	// Number of distinct passwords that must be created before they can be reused: 0 = none.
 	PasswordHistoryCount pulumi.IntPtrInput
+	// Notification channels to use to notify a user when their account has been locked.
+	PasswordLockoutNotificationChannels pulumi.StringArrayInput
 	// Length in days a password is valid before expiry: 0 = no limit.
 	PasswordMaxAgeDays pulumi.IntPtrInput
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
@@ -250,6 +256,8 @@ type passwordPolicyArgs struct {
 	PasswordExpireWarnDays *int `pulumi:"passwordExpireWarnDays"`
 	// Number of distinct passwords that must be created before they can be reused: 0 = none.
 	PasswordHistoryCount *int `pulumi:"passwordHistoryCount"`
+	// Notification channels to use to notify a user when their account has been locked.
+	PasswordLockoutNotificationChannels []string `pulumi:"passwordLockoutNotificationChannels"`
 	// Length in days a password is valid before expiry: 0 = no limit.
 	PasswordMaxAgeDays *int `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
@@ -312,6 +320,8 @@ type PasswordPolicyArgs struct {
 	PasswordExpireWarnDays pulumi.IntPtrInput
 	// Number of distinct passwords that must be created before they can be reused: 0 = none.
 	PasswordHistoryCount pulumi.IntPtrInput
+	// Notification channels to use to notify a user when their account has been locked.
+	PasswordLockoutNotificationChannels pulumi.StringArrayInput
 	// Length in days a password is valid before expiry: 0 = no limit.
 	PasswordMaxAgeDays pulumi.IntPtrInput
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.

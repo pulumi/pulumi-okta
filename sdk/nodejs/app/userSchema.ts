@@ -85,6 +85,10 @@ export class UserSchema extends pulumi.CustomResource {
      */
     public readonly externalName!: pulumi.Output<string | undefined>;
     /**
+     * External namespace of the user schema property.
+     */
+    public readonly externalNamespace!: pulumi.Output<string | undefined>;
+    /**
      * The property name.
      */
     public readonly index!: pulumi.Output<string>;
@@ -124,6 +128,10 @@ export class UserSchema extends pulumi.CustomResource {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Subschema unique restriction
+     */
+    public readonly unique!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserSchema resource with the given unique name, arguments, and options.
@@ -144,6 +152,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["enums"] = state ? state.enums : undefined;
             inputs["externalName"] = state ? state.externalName : undefined;
+            inputs["externalNamespace"] = state ? state.externalNamespace : undefined;
             inputs["index"] = state ? state.index : undefined;
             inputs["master"] = state ? state.master : undefined;
             inputs["maxLength"] = state ? state.maxLength : undefined;
@@ -154,6 +163,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["unique"] = state ? state.unique : undefined;
         } else {
             const args = argsOrState as UserSchemaArgs | undefined;
             if (!args || args.appId === undefined) {
@@ -175,6 +185,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enums"] = args ? args.enums : undefined;
             inputs["externalName"] = args ? args.externalName : undefined;
+            inputs["externalNamespace"] = args ? args.externalNamespace : undefined;
             inputs["index"] = args ? args.index : undefined;
             inputs["master"] = args ? args.master : undefined;
             inputs["maxLength"] = args ? args.maxLength : undefined;
@@ -185,6 +196,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["unique"] = args ? args.unique : undefined;
         }
         if (!opts) {
             opts = {}
@@ -230,6 +242,10 @@ export interface UserSchemaState {
      */
     readonly externalName?: pulumi.Input<string>;
     /**
+     * External namespace of the user schema property.
+     */
+    readonly externalNamespace?: pulumi.Input<string>;
+    /**
      * The property name.
      */
     readonly index?: pulumi.Input<string>;
@@ -269,6 +285,10 @@ export interface UserSchemaState {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Subschema unique restriction
+     */
+    readonly unique?: pulumi.Input<string>;
 }
 
 /**
@@ -303,6 +323,10 @@ export interface UserSchemaArgs {
      * External name of the user schema property.
      */
     readonly externalName?: pulumi.Input<string>;
+    /**
+     * External namespace of the user schema property.
+     */
+    readonly externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
@@ -343,4 +367,8 @@ export interface UserSchemaArgs {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Subschema unique restriction
+     */
+    readonly unique?: pulumi.Input<string>;
 }

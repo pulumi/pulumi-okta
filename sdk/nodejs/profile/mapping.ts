@@ -6,6 +6,43 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a profile mapping.
+ *
+ * This resource allows you to manage a profile mapping by source id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const user = pulumi.output(okta.user.getUserProfileMappingSource({ async: true }));
+ * const example = new okta.profile.Mapping("example", {
+ *     deleteWhenAbsent: true,
+ *     mappings: [
+ *         {
+ *             expression: "appuser.firstName",
+ *             id: "firstName",
+ *         },
+ *         {
+ *             expression: "appuser.lastName",
+ *             id: "lastName",
+ *         },
+ *         {
+ *             expression: "appuser.email",
+ *             id: "email",
+ *         },
+ *         {
+ *             expression: "appuser.email",
+ *             id: "login",
+ *         },
+ *     ],
+ *     sourceId: "<source id>",
+ *     targetId: user.id,
+ * });
+ * ```
+ */
 export class Mapping extends pulumi.CustomResource {
     /**
      * Get an existing Mapping resource's state with the given name, ID, and optional extra
@@ -35,22 +72,36 @@ export class Mapping extends pulumi.CustomResource {
     }
 
     /**
-     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-     * default, we do not delete missing properties.
+     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
     public readonly deleteWhenAbsent!: pulumi.Output<boolean | undefined>;
+    /**
+     * Priority of the policy.
+     */
     public readonly mappings!: pulumi.Output<outputs.profile.MappingMapping[] | undefined>;
     /**
-     * The source id of the mapping to manage.
+     * Source id of the profile mapping.
      */
     public readonly sourceId!: pulumi.Output<string>;
+    /**
+     * Name of the mapping source.
+     */
     public /*out*/ readonly sourceName!: pulumi.Output<string>;
+    /**
+     * ID of the mapping source.
+     */
     public /*out*/ readonly sourceType!: pulumi.Output<string>;
     /**
-     * The target id of the mapping to manage.
+     * ID of the mapping target.
      */
     public readonly targetId!: pulumi.Output<string>;
+    /**
+     * Name of the mapping target.
+     */
     public /*out*/ readonly targetName!: pulumi.Output<string>;
+    /**
+     * ID of the mapping target.
+     */
     public /*out*/ readonly targetType!: pulumi.Output<string>;
 
     /**
@@ -106,22 +157,36 @@ export class Mapping extends pulumi.CustomResource {
  */
 export interface MappingState {
     /**
-     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-     * default, we do not delete missing properties.
+     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
     readonly deleteWhenAbsent?: pulumi.Input<boolean>;
+    /**
+     * Priority of the policy.
+     */
     readonly mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
-     * The source id of the mapping to manage.
+     * Source id of the profile mapping.
      */
     readonly sourceId?: pulumi.Input<string>;
+    /**
+     * Name of the mapping source.
+     */
     readonly sourceName?: pulumi.Input<string>;
+    /**
+     * ID of the mapping source.
+     */
     readonly sourceType?: pulumi.Input<string>;
     /**
-     * The target id of the mapping to manage.
+     * ID of the mapping target.
      */
     readonly targetId?: pulumi.Input<string>;
+    /**
+     * Name of the mapping target.
+     */
     readonly targetName?: pulumi.Input<string>;
+    /**
+     * ID of the mapping target.
+     */
     readonly targetType?: pulumi.Input<string>;
 }
 
@@ -130,17 +195,19 @@ export interface MappingState {
  */
 export interface MappingArgs {
     /**
-     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By
-     * default, we do not delete missing properties.
+     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
     readonly deleteWhenAbsent?: pulumi.Input<boolean>;
+    /**
+     * Priority of the policy.
+     */
     readonly mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
-     * The source id of the mapping to manage.
+     * Source id of the profile mapping.
      */
     readonly sourceId: pulumi.Input<string>;
     /**
-     * The target id of the mapping to manage.
+     * ID of the mapping target.
      */
     readonly targetId: pulumi.Input<string>;
 }

@@ -12,6 +12,9 @@ namespace Pulumi.Okta.App.Inputs
 
     public sealed class OAuthUserArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the application.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

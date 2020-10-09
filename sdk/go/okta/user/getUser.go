@@ -53,6 +53,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 type LookupUserArgs struct {
 	// Map of search criteria. It supports the following properties.
 	Searches []GetUserSearch `pulumi:"searches"`
+	// String representing a specific user's id value
+	UserId *string `pulumi:"userId"`
 }
 
 // A collection of values returned by getUser.
@@ -125,7 +127,8 @@ type LookupUserResult struct {
 	// user profile property.
 	Timezone string `pulumi:"timezone"`
 	// user profile property.
-	Title string `pulumi:"title"`
+	Title  string  `pulumi:"title"`
+	UserId *string `pulumi:"userId"`
 	// user profile property.
 	UserType string `pulumi:"userType"`
 	// user profile property.

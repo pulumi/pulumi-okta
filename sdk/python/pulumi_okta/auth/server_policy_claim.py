@@ -64,6 +64,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
         :param pulumi.Input[float] priority: Priority of the auth server policy rule.
         :param pulumi.Input[float] refresh_token_lifetime_minutes: Lifetime of refresh token.
+        :param pulumi.Input[float] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
         :param pulumi.Input[List[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
@@ -150,6 +151,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
         :param pulumi.Input[float] priority: Priority of the auth server policy rule.
         :param pulumi.Input[float] refresh_token_lifetime_minutes: Lifetime of refresh token.
+        :param pulumi.Input[float] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
         :param pulumi.Input[List[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
@@ -253,6 +255,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @property
     @pulumi.getter(name="refreshTokenWindowMinutes")
     def refresh_token_window_minutes(self) -> pulumi.Output[Optional[float]]:
+        """
+        Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        """
         return pulumi.get(self, "refresh_token_window_minutes")
 
     @property

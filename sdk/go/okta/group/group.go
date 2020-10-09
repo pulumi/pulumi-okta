@@ -42,7 +42,7 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Okta Group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Users associated with the group. This can also be done per user.
+	// The users associated with the group. This can also be done per user.
 	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
@@ -78,7 +78,7 @@ type groupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
-	// Users associated with the group. This can also be done per user.
+	// The users associated with the group. This can also be done per user.
 	Users []string `pulumi:"users"`
 }
 
@@ -87,7 +87,7 @@ type GroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
-	// Users associated with the group. This can also be done per user.
+	// The users associated with the group. This can also be done per user.
 	Users pulumi.StringArrayInput
 }
 
@@ -100,7 +100,7 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
-	// Users associated with the group. This can also be done per user.
+	// The users associated with the group. This can also be done per user.
 	Users []string `pulumi:"users"`
 }
 
@@ -110,7 +110,7 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
-	// Users associated with the group. This can also be done per user.
+	// The users associated with the group. This can also be done per user.
 	Users pulumi.StringArrayInput
 }
 

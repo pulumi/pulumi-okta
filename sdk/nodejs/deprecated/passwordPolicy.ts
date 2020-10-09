@@ -81,6 +81,10 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly passwordHistoryCount!: pulumi.Output<number | undefined>;
     /**
+     * Notification channels to use to notify a user when their account has been locked.
+     */
+    public readonly passwordLockoutNotificationChannels!: pulumi.Output<string[] | undefined>;
+    /**
      * Length in days a password is valid before expiry: 0 = no limit.
      */
     public readonly passwordMaxAgeDays!: pulumi.Output<number | undefined>;
@@ -171,6 +175,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             inputs["passwordExcludeUsername"] = state ? state.passwordExcludeUsername : undefined;
             inputs["passwordExpireWarnDays"] = state ? state.passwordExpireWarnDays : undefined;
             inputs["passwordHistoryCount"] = state ? state.passwordHistoryCount : undefined;
+            inputs["passwordLockoutNotificationChannels"] = state ? state.passwordLockoutNotificationChannels : undefined;
             inputs["passwordMaxAgeDays"] = state ? state.passwordMaxAgeDays : undefined;
             inputs["passwordMaxLockoutAttempts"] = state ? state.passwordMaxLockoutAttempts : undefined;
             inputs["passwordMinAgeMinutes"] = state ? state.passwordMinAgeMinutes : undefined;
@@ -201,6 +206,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             inputs["passwordExcludeUsername"] = args ? args.passwordExcludeUsername : undefined;
             inputs["passwordExpireWarnDays"] = args ? args.passwordExpireWarnDays : undefined;
             inputs["passwordHistoryCount"] = args ? args.passwordHistoryCount : undefined;
+            inputs["passwordLockoutNotificationChannels"] = args ? args.passwordLockoutNotificationChannels : undefined;
             inputs["passwordMaxAgeDays"] = args ? args.passwordMaxAgeDays : undefined;
             inputs["passwordMaxLockoutAttempts"] = args ? args.passwordMaxLockoutAttempts : undefined;
             inputs["passwordMinAgeMinutes"] = args ? args.passwordMinAgeMinutes : undefined;
@@ -281,6 +287,10 @@ export interface PasswordPolicyState {
      * Number of distinct passwords that must be created before they can be reused: 0 = none.
      */
     readonly passwordHistoryCount?: pulumi.Input<number>;
+    /**
+     * Notification channels to use to notify a user when their account has been locked.
+     */
+    readonly passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Length in days a password is valid before expiry: 0 = no limit.
      */
@@ -401,6 +411,10 @@ export interface PasswordPolicyArgs {
      * Number of distinct passwords that must be created before they can be reused: 0 = none.
      */
     readonly passwordHistoryCount?: pulumi.Input<number>;
+    /**
+     * Notification channels to use to notify a user when their account has been locked.
+     */
+    readonly passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Length in days a password is valid before expiry: 0 = no limit.
      */

@@ -59,6 +59,8 @@ type UserSchema struct {
 	Enums pulumi.StringArrayOutput `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrOutput `pulumi:"externalName"`
+	// External namespace of the user schema property.
+	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
 	// The property name.
 	Index pulumi.StringOutput `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -79,6 +81,8 @@ type UserSchema struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Subschema unique restriction
+	Unique pulumi.StringPtrOutput `pulumi:"unique"`
 }
 
 // NewUserSchema registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +139,8 @@ type userSchemaState struct {
 	Enums []string `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
+	// External namespace of the user schema property.
+	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index *string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -155,6 +161,8 @@ type userSchemaState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
+	// Subschema unique restriction
+	Unique *string `pulumi:"unique"`
 }
 
 type UserSchemaState struct {
@@ -172,6 +180,8 @@ type UserSchemaState struct {
 	Enums pulumi.StringArrayInput
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
+	// External namespace of the user schema property.
+	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringPtrInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -192,6 +202,8 @@ type UserSchemaState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
+	// Subschema unique restriction
+	Unique pulumi.StringPtrInput
 }
 
 func (UserSchemaState) ElementType() reflect.Type {
@@ -213,6 +225,8 @@ type userSchemaArgs struct {
 	Enums []string `pulumi:"enums"`
 	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
+	// External namespace of the user schema property.
+	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -233,6 +247,8 @@ type userSchemaArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
+	// Subschema unique restriction
+	Unique *string `pulumi:"unique"`
 }
 
 // The set of arguments for constructing a UserSchema resource.
@@ -251,6 +267,8 @@ type UserSchemaArgs struct {
 	Enums pulumi.StringArrayInput
 	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
+	// External namespace of the user schema property.
+	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
@@ -271,6 +289,8 @@ type UserSchemaArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
+	// Subschema unique restriction
+	Unique pulumi.StringPtrInput
 }
 
 func (UserSchemaArgs) ElementType() reflect.Type {

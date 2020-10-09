@@ -5,6 +5,57 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface EventHookAuth {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
+    key: string;
+    /**
+     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     */
+    type: string;
+    /**
+     * Authentication secret.
+     */
+    value: string;
+}
+
+export interface EventHookChannel {
+    /**
+     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     */
+    type: string;
+    /**
+     * The URI the hook will hit.
+     */
+    uri: string;
+    /**
+     * The version of the channel. Currently only `"1.0.0"` is supported.
+     */
+    version: string;
+}
+
+export interface EventHookHeader {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
+    key?: string;
+    /**
+     * Authentication secret.
+     */
+    value?: string;
+}
+
+export interface TemplateSmsTranslation {
+    /**
+     * The language to map the template to.
+     */
+    language: string;
+    /**
+     * The SMS message.
+     */
+    template: string;
+}
 export namespace app {
     export interface AutoLoginUser {
         id?: string;
@@ -45,7 +96,17 @@ export namespace app {
         values?: string[];
     }
 
+    export interface OAuthJwk {
+        e?: string;
+        kid: string;
+        kty: string;
+        n?: string;
+    }
+
     export interface OAuthUser {
+        /**
+         * ID of the application.
+         */
         id?: string;
         password?: string;
         scope: string;
@@ -211,6 +272,13 @@ export namespace deprecated {
     export interface MfaPolicyYubikeyToken {
         consentType?: string;
         enroll?: string;
+    }
+
+    export interface OauthAppJwk {
+        e?: string;
+        kid: string;
+        kty: string;
+        n?: string;
     }
 
     export interface OauthAppUser {
@@ -487,8 +555,17 @@ export namespace policy {
 
 export namespace profile {
     export interface MappingMapping {
+        /**
+         * Combination or single source properties that will be mapped to the target property.
+         */
         expression: string;
+        /**
+         * Key of mapping.
+         */
         id: string;
+        /**
+         * Whether to update target properties on user create & update or just on create.
+         */
         pushStatus?: string;
     }
 }

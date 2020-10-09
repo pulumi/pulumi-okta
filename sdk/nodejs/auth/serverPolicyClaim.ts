@@ -87,6 +87,9 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      * Lifetime of refresh token.
      */
     public readonly refreshTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     */
     public readonly refreshTokenWindowMinutes!: pulumi.Output<number | undefined>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
@@ -211,6 +214,9 @@ export interface ServerPolicyClaimState {
      * Lifetime of refresh token.
      */
     readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    /**
+     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     */
     readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
@@ -266,6 +272,9 @@ export interface ServerPolicyClaimArgs {
      * Lifetime of refresh token.
      */
     readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    /**
+     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     */
     readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.

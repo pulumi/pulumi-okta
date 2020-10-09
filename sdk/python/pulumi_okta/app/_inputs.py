@@ -12,6 +12,7 @@ __all__ = [
     'AutoLoginUserArgs',
     'BasicAuthUserArgs',
     'BookmarkUserArgs',
+    'OAuthJwkArgs',
     'OAuthUserArgs',
     'SamlAttributeStatementArgs',
     'SamlUserArgs',
@@ -195,12 +196,66 @@ class BookmarkUserArgs:
 
 
 @pulumi.input_type
+class OAuthJwkArgs:
+    def __init__(__self__, *,
+                 kid: pulumi.Input[str],
+                 kty: pulumi.Input[str],
+                 e: Optional[pulumi.Input[str]] = None,
+                 n: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "kty", kty)
+        if e is not None:
+            pulumi.set(__self__, "e", e)
+        if n is not None:
+            pulumi.set(__self__, "n", n)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kid")
+
+    @kid.setter
+    def kid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kid", value)
+
+    @property
+    @pulumi.getter
+    def kty(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kty")
+
+    @kty.setter
+    def kty(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kty", value)
+
+    @property
+    @pulumi.getter
+    def e(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "e")
+
+    @e.setter
+    def e(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e", value)
+
+    @property
+    @pulumi.getter
+    def n(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "n")
+
+    @n.setter
+    def n(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "n", value)
+
+
+@pulumi.input_type
 class OAuthUserArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the application.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if password is not None:
@@ -213,6 +268,9 @@ class OAuthUserArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the application.
+        """
         return pulumi.get(self, "id")
 
     @id.setter

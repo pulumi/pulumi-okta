@@ -128,7 +128,7 @@ def get_app(active_only: Optional[bool] = None,
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
+    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
     """
     __args__ = dict()

@@ -24,6 +24,7 @@ __all__ = [
     'MfaPolicyRsaToken',
     'MfaPolicySymantecVip',
     'MfaPolicyYubikeyToken',
+    'OauthAppJwk',
     'OauthAppUser',
     'SamlAppAttributeStatement',
     'SamlAppUser',
@@ -419,6 +420,44 @@ class MfaPolicyYubikeyToken(dict):
     @pulumi.getter
     def enroll(self) -> Optional[str]:
         return pulumi.get(self, "enroll")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OauthAppJwk(dict):
+    def __init__(__self__, *,
+                 kid: str,
+                 kty: str,
+                 e: Optional[str] = None,
+                 n: Optional[str] = None):
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "kty", kty)
+        if e is not None:
+            pulumi.set(__self__, "e", e)
+        if n is not None:
+            pulumi.set(__self__, "n", n)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
+        return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter
+    def kty(self) -> str:
+        return pulumi.get(self, "kty")
+
+    @property
+    @pulumi.getter
+    def e(self) -> Optional[str]:
+        return pulumi.get(self, "e")
+
+    @property
+    @pulumi.getter
+    def n(self) -> Optional[str]:
+        return pulumi.get(self, "n")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
