@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Deprecate `auth.ServerPolicyClaim` in favour of `auth.ServerPolicyRule`
+_(none)_
 
 ---
+
+## 2.4.1 (2020-10-12)
+* Deprecate `auth.ServerPolicyClaim` in favour of `auth.ServerPolicyRule`
 
 ## 2.4.0 (2020-10-09)
 * Upgrade to v3.5.0 of the Okta Terraform Provider
