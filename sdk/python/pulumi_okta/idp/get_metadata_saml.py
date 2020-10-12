@@ -158,7 +158,7 @@ def get_metadata_saml(idp_id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.idp.get_metadata_saml(id="<idp id>")
+    example = okta.idp.get_metadata_saml(idp_id="<idp id>")
     ```
 
 

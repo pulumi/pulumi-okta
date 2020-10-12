@@ -28,7 +28,7 @@ namespace Pulumi.Okta.Idp
         ///     {
         ///         var example = Output.Create(Okta.Idp.GetMetadataSaml.InvokeAsync(new Okta.Idp.GetMetadataSamlArgs
         ///         {
-        ///             Id = "&lt;idp id&gt;",
+        ///             IdpId = "&lt;idp id&gt;",
         ///         }));
         ///     }
         /// 
