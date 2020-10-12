@@ -21,8 +21,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "<idp id>"
 // 		_, err := idp.GetMetadataSaml(ctx, &idp.GetMetadataSamlArgs{
-// 			Id: "<idp id>",
+// 			IdpId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

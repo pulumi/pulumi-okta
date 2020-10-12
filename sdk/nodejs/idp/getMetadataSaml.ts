@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = pulumi.output(okta.idp.getMetadataSaml({
- *     id: "<idp id>",
+ *     idpId: "<idp id>",
  * }, { async: true }));
  * ```
  */

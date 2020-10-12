@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Assigns a group to an application.
  *
  * This resource allows you to create an App Group assignment.
- *
- * __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.GroupAssignment("example", {
- *     appId: "<app id>",
- *     groupId: "<group id>",
- *     profile: `{
- *   "<app_profile_field>": "<value>"
- * }
- * `,
- * });
- * ```
  */
 export class GroupAssignment extends pulumi.CustomResource {
     /**

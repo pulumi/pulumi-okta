@@ -13,49 +13,6 @@ import (
 // Assigns a group to an application.
 //
 // This resource allows you to create an App Group assignment.
-//
-// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewGroupAssignment(ctx, "example", &app.GroupAssignmentArgs{
-// 			AppId:   pulumi.String("<app id>"),
-// 			GroupId: pulumi.String("<group id>"),
-// 			Profile: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"<app_profile_field>\": \"<value>\"\n", "}\n", "\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type GroupAssignment struct {
 	pulumi.CustomResourceState
 

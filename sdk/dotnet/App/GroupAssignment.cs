@@ -13,45 +13,6 @@ namespace Pulumi.Okta.App
     /// Assigns a group to an application.
     /// 
     /// This resource allows you to create an App Group assignment.
-    /// 
-    /// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Okta.App.GroupAssignment("example", new Okta.App.GroupAssignmentArgs
-    ///         {
-    ///             AppId = "&lt;app id&gt;",
-    ///             GroupId = "&lt;group id&gt;",
-    ///             Profile = @"{
-    ///   ""&lt;app_profile_field&gt;"": ""&lt;value&gt;""
-    /// }
-    /// 
-    /// ",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class GroupAssignment : Pulumi.CustomResource
     {
