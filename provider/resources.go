@@ -180,10 +180,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(authMod, "ServerPolicy"),
 				Docs: &tfbridge.DocInfo{Source: "auth_server_policy.html.markdown"},
 			},
-			"okta_auth_server_policy_rule": {
-				Tok:  makeResource(authMod, "ServerPolicyClaim"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server_policy_rule.html.markdown"},
-			},
 			"okta_auth_server_scope": {
 				Tok:  makeResource(authMod, "ServerScope"),
 				Docs: &tfbridge.DocInfo{Source: "auth_server_scope.html.markdown"},
@@ -415,6 +411,13 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 	}
+
+	prov.RenameResourceWithAlias("okta_auth_server_policy_rule",
+		makeResource(authMod, "ServerPolicyClaim"), makeResource(authMod, "ServerPolicyRule"),
+		authMod, authMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "auth_server_policy_rule.html.markdown"},
+		})
 
 	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
 	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).

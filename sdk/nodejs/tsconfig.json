@@ -36,6 +36,7 @@
         "auth/serverClaim.ts",
         "auth/serverPolicy.ts",
         "auth/serverPolicyClaim.ts",
+        "auth/serverPolicyRule.ts",
         "auth/serverScope.ts",
         "config/index.ts",
         "config/vars.ts",

@@ -7,4 +7,5 @@ export * from "./server";
 export * from "./serverClaim";
 export * from "./serverPolicy";
 export * from "./serverPolicyClaim";
+export * from "./serverPolicyRule";
 export * from "./serverScope";

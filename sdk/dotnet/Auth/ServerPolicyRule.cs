@@ -44,8 +44,7 @@ namespace Pulumi.Okta.Auth
     /// }
     /// ```
     /// </summary>
-    [Obsolete(@"okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")]
-    public partial class ServerPolicyClaim : Pulumi.CustomResource
+    public partial class ServerPolicyRule : Pulumi.CustomResource
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440.
@@ -133,19 +132,19 @@ namespace Pulumi.Okta.Auth
 
 
         /// <summary>
-        /// Create a ServerPolicyClaim resource with the given unique name, arguments, and options.
+        /// Create a ServerPolicyRule resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServerPolicyClaim(string name, ServerPolicyClaimArgs args, CustomResourceOptions? options = null)
-            : base("okta:auth/serverPolicyClaim:ServerPolicyClaim", name, args ?? new ServerPolicyClaimArgs(), MakeResourceOptions(options, ""))
+        public ServerPolicyRule(string name, ServerPolicyRuleArgs args, CustomResourceOptions? options = null)
+            : base("okta:auth/serverPolicyRule:ServerPolicyRule", name, args ?? new ServerPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private ServerPolicyClaim(string name, Input<string> id, ServerPolicyClaimState? state = null, CustomResourceOptions? options = null)
-            : base("okta:auth/serverPolicyClaim:ServerPolicyClaim", name, state, MakeResourceOptions(options, id))
+        private ServerPolicyRule(string name, Input<string> id, ServerPolicyRuleState? state = null, CustomResourceOptions? options = null)
+            : base("okta:auth/serverPolicyRule:ServerPolicyRule", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,6 +153,10 @@ namespace Pulumi.Okta.Auth
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "okta:auth/serverPolicyClaim:ServerPolicyClaim"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -161,7 +164,7 @@ namespace Pulumi.Okta.Auth
             return merged;
         }
         /// <summary>
-        /// Get an existing ServerPolicyClaim resource's state with the given name, ID, and optional extra
+        /// Get an existing ServerPolicyRule resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -169,13 +172,13 @@ namespace Pulumi.Okta.Auth
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServerPolicyClaim Get(string name, Input<string> id, ServerPolicyClaimState? state = null, CustomResourceOptions? options = null)
+        public static ServerPolicyRule Get(string name, Input<string> id, ServerPolicyRuleState? state = null, CustomResourceOptions? options = null)
         {
-            return new ServerPolicyClaim(name, id, state, options);
+            return new ServerPolicyRule(name, id, state, options);
         }
     }
 
-    public sealed class ServerPolicyClaimArgs : Pulumi.ResourceArgs
+    public sealed class ServerPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440.
@@ -293,12 +296,12 @@ namespace Pulumi.Okta.Auth
             set => _userWhitelists = value;
         }
 
-        public ServerPolicyClaimArgs()
+        public ServerPolicyRuleArgs()
         {
         }
     }
 
-    public sealed class ServerPolicyClaimState : Pulumi.ResourceArgs
+    public sealed class ServerPolicyRuleState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440.
@@ -416,7 +419,7 @@ namespace Pulumi.Okta.Auth
             set => _userWhitelists = value;
         }
 
-        public ServerPolicyClaimState()
+        public ServerPolicyRuleState()
         {
         }
     }

@@ -45,9 +45,7 @@ import (
 // 	})
 // }
 // ```
-//
-// Deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule
-type ServerPolicyClaim struct {
+type ServerPolicyRule struct {
 	pulumi.CustomResourceState
 
 	// Lifetime of access token. Can be set to a value between 5 and 1440.
@@ -80,9 +78,9 @@ type ServerPolicyClaim struct {
 	UserWhitelists pulumi.StringArrayOutput `pulumi:"userWhitelists"`
 }
 
-// NewServerPolicyClaim registers a new resource with the given unique name, arguments, and options.
-func NewServerPolicyClaim(ctx *pulumi.Context,
-	name string, args *ServerPolicyClaimArgs, opts ...pulumi.ResourceOption) (*ServerPolicyClaim, error) {
+// NewServerPolicyRule registers a new resource with the given unique name, arguments, and options.
+func NewServerPolicyRule(ctx *pulumi.Context,
+	name string, args *ServerPolicyRuleArgs, opts ...pulumi.ResourceOption) (*ServerPolicyRule, error) {
 	if args == nil || args.AuthServerId == nil {
 		return nil, errors.New("missing required argument 'AuthServerId'")
 	}
@@ -96,30 +94,36 @@ func NewServerPolicyClaim(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'Priority'")
 	}
 	if args == nil {
-		args = &ServerPolicyClaimArgs{}
+		args = &ServerPolicyRuleArgs{}
 	}
-	var resource ServerPolicyClaim
-	err := ctx.RegisterResource("okta:auth/serverPolicyClaim:ServerPolicyClaim", name, args, &resource, opts...)
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("okta:auth/serverPolicyClaim:ServerPolicyClaim"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource ServerPolicyRule
+	err := ctx.RegisterResource("okta:auth/serverPolicyRule:ServerPolicyRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetServerPolicyClaim gets an existing ServerPolicyClaim resource's state with the given name, ID, and optional
+// GetServerPolicyRule gets an existing ServerPolicyRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetServerPolicyClaim(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *ServerPolicyClaimState, opts ...pulumi.ResourceOption) (*ServerPolicyClaim, error) {
-	var resource ServerPolicyClaim
-	err := ctx.ReadResource("okta:auth/serverPolicyClaim:ServerPolicyClaim", name, id, state, &resource, opts...)
+func GetServerPolicyRule(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ServerPolicyRuleState, opts ...pulumi.ResourceOption) (*ServerPolicyRule, error) {
+	var resource ServerPolicyRule
+	err := ctx.ReadResource("okta:auth/serverPolicyRule:ServerPolicyRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering ServerPolicyClaim resources.
-type serverPolicyClaimState struct {
+// Input properties used for looking up and filtering ServerPolicyRule resources.
+type serverPolicyRuleState struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
@@ -150,7 +154,7 @@ type serverPolicyClaimState struct {
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
-type ServerPolicyClaimState struct {
+type ServerPolicyRuleState struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
@@ -181,11 +185,11 @@ type ServerPolicyClaimState struct {
 	UserWhitelists pulumi.StringArrayInput
 }
 
-func (ServerPolicyClaimState) ElementType() reflect.Type {
-	return reflect.TypeOf((*serverPolicyClaimState)(nil)).Elem()
+func (ServerPolicyRuleState) ElementType() reflect.Type {
+	return reflect.TypeOf((*serverPolicyRuleState)(nil)).Elem()
 }
 
-type serverPolicyClaimArgs struct {
+type serverPolicyRuleArgs struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
@@ -216,8 +220,8 @@ type serverPolicyClaimArgs struct {
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
-// The set of arguments for constructing a ServerPolicyClaim resource.
-type ServerPolicyClaimArgs struct {
+// The set of arguments for constructing a ServerPolicyRule resource.
+type ServerPolicyRuleArgs struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
@@ -248,6 +252,6 @@ type ServerPolicyClaimArgs struct {
 	UserWhitelists pulumi.StringArrayInput
 }
 
-func (ServerPolicyClaimArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*serverPolicyClaimArgs)(nil)).Elem()
+func (ServerPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*serverPolicyRuleArgs)(nil)).Elem()
 }

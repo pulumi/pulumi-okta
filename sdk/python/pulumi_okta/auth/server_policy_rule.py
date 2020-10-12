@@ -8,14 +8,10 @@ import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
-__all__ = ['ServerPolicyClaim']
-
-warnings.warn("okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule", DeprecationWarning)
+__all__ = ['ServerPolicyRule']
 
 
-class ServerPolicyClaim(pulumi.CustomResource):
-    warnings.warn("okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule", DeprecationWarning)
-
+class ServerPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -73,7 +69,6 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
         """
-        pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,8 +110,10 @@ class ServerPolicyClaim(pulumi.CustomResource):
             __props__['type'] = type
             __props__['user_blacklists'] = user_blacklists
             __props__['user_whitelists'] = user_whitelists
-        super(ServerPolicyClaim, __self__).__init__(
-            'okta:auth/serverPolicyClaim:ServerPolicyClaim',
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="okta:auth/serverPolicyClaim:ServerPolicyClaim")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        super(ServerPolicyRule, __self__).__init__(
+            'okta:auth/serverPolicyRule:ServerPolicyRule',
             resource_name,
             __props__,
             opts)
@@ -140,9 +137,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_blacklists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            user_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ServerPolicyClaim':
+            user_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ServerPolicyRule':
         """
-        Get an existing ServerPolicyClaim resource's state with the given name, id, and optional extra
+        Get an existing ServerPolicyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -181,7 +178,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         __props__["type"] = type
         __props__["user_blacklists"] = user_blacklists
         __props__["user_whitelists"] = user_whitelists
-        return ServerPolicyClaim(resource_name, opts=opts, __props__=__props__)
+        return ServerPolicyRule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accessTokenLifetimeMinutes")

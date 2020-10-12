@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Deprecate `auth.ServerPolicyClaim` in favour of `auth.ServerPolicyRule`
 
 ---
 

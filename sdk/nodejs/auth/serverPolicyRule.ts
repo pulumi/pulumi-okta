@@ -24,12 +24,10 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
- *
- * @deprecated okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule
  */
-export class ServerPolicyClaim extends pulumi.CustomResource {
+export class ServerPolicyRule extends pulumi.CustomResource {
     /**
-     * Get an existing ServerPolicyClaim resource's state with the given name, ID, and optional extra
+     * Get an existing ServerPolicyRule resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -37,23 +35,22 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerPolicyClaimState, opts?: pulumi.CustomResourceOptions): ServerPolicyClaim {
-        pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
-        return new ServerPolicyClaim(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerPolicyRuleState, opts?: pulumi.CustomResourceOptions): ServerPolicyRule {
+        return new ServerPolicyRule(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'okta:auth/serverPolicyClaim:ServerPolicyClaim';
+    public static readonly __pulumiType = 'okta:auth/serverPolicyRule:ServerPolicyRule';
 
     /**
-     * Returns true if the given object is an instance of ServerPolicyClaim.  This is designed to work even
+     * Returns true if the given object is an instance of ServerPolicyRule.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is ServerPolicyClaim {
+    public static isInstance(obj: any): obj is ServerPolicyRule {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === ServerPolicyClaim.__pulumiType;
+        return obj['__pulumiType'] === ServerPolicyRule.__pulumiType;
     }
 
     /**
@@ -110,20 +107,17 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
     public readonly userWhitelists!: pulumi.Output<string[] | undefined>;
 
     /**
-     * Create a ServerPolicyClaim resource with the given unique name, arguments, and options.
+     * Create a ServerPolicyRule resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule */
-    constructor(name: string, args: ServerPolicyClaimArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule */
-    constructor(name: string, argsOrState?: ServerPolicyClaimArgs | ServerPolicyClaimState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
+    constructor(name: string, args: ServerPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ServerPolicyRuleArgs | ServerPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ServerPolicyClaimState | undefined;
+            const state = argsOrState as ServerPolicyRuleState | undefined;
             inputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
             inputs["grantTypeWhitelists"] = state ? state.grantTypeWhitelists : undefined;
@@ -141,7 +135,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             inputs["userBlacklists"] = state ? state.userBlacklists : undefined;
             inputs["userWhitelists"] = state ? state.userWhitelists : undefined;
         } else {
-            const args = argsOrState as ServerPolicyClaimArgs | undefined;
+            const args = argsOrState as ServerPolicyRuleArgs | undefined;
             if (!args || args.authServerId === undefined) {
                 throw new Error("Missing required property 'authServerId'");
             }
@@ -178,14 +172,16 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(ServerPolicyClaim.__pulumiType, name, inputs, opts);
+        const aliasOpts = { aliases: [{ type: "okta:auth/serverPolicyClaim:ServerPolicyClaim" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        super(ServerPolicyRule.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering ServerPolicyClaim resources.
+ * Input properties used for looking up and filtering ServerPolicyRule resources.
  */
-export interface ServerPolicyClaimState {
+export interface ServerPolicyRuleState {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440.
      */
@@ -241,9 +237,9 @@ export interface ServerPolicyClaimState {
 }
 
 /**
- * The set of arguments for constructing a ServerPolicyClaim resource.
+ * The set of arguments for constructing a ServerPolicyRule resource.
  */
-export interface ServerPolicyClaimArgs {
+export interface ServerPolicyRuleArgs {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440.
      */

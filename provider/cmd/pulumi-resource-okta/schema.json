@@ -5700,7 +5700,7 @@
             }
         },
         "okta:auth/serverPolicyClaim:ServerPolicyClaim": {
-            "description": "Creates an Authorization Server Policy Rule.\n\nThis resource allows you to create and configure an Authorization Server Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerPolicyClaim(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    grantTypeWhitelists: [\"implicit\"],\n    groupWhitelists: [\"\u003cgroup ids\u003e\"],\n    policyId: \"\u003cauth server policy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerPolicyClaim(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    grant_type_whitelists=[\"implicit\"],\n    group_whitelists=[\"\u003cgroup ids\u003e\"],\n    policy_id=\"\u003cauth server policy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Auth.ServerPolicyClaim(\"example\", new Okta.Auth.ServerPolicyClaimArgs\n        {\n            AuthServerId = \"\u003cauth server id\u003e\",\n            GrantTypeWhitelists = \n            {\n                \"implicit\",\n            },\n            GroupWhitelists = \n            {\n                \"\u003cgroup ids\u003e\",\n            },\n            PolicyId = \"\u003cauth server policy id\u003e\",\n            Priority = 1,\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerPolicyClaim(ctx, \"example\", \u0026auth.ServerPolicyClaimArgs{\n\t\t\tAuthServerId: pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tGrantTypeWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"implicit\"),\n\t\t\t},\n\t\t\tGroupWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\u003cgroup ids\u003e\"),\n\t\t\t},\n\t\t\tPolicyId: pulumi.String(\"\u003cauth server policy id\u003e\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Creates an Authorization Server Policy Rule.\n\nThis resource allows you to create and configure an Authorization Server Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerPolicyRule(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    grantTypeWhitelists: [\"implicit\"],\n    groupWhitelists: [\"\u003cgroup ids\u003e\"],\n    policyId: \"\u003cauth server policy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerPolicyRule(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    grant_type_whitelists=[\"implicit\"],\n    group_whitelists=[\"\u003cgroup ids\u003e\"],\n    policy_id=\"\u003cauth server policy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Auth.ServerPolicyRule(\"example\", new Okta.Auth.ServerPolicyRuleArgs\n        {\n            AuthServerId = \"\u003cauth server id\u003e\",\n            GrantTypeWhitelists = \n            {\n                \"implicit\",\n            },\n            GroupWhitelists = \n            {\n                \"\u003cgroup ids\u003e\",\n            },\n            PolicyId = \"\u003cauth server policy id\u003e\",\n            Priority = 1,\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerPolicyRule(ctx, \"example\", \u0026auth.ServerPolicyRuleArgs{\n\t\t\tAuthServerId: pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tGrantTypeWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"implicit\"),\n\t\t\t},\n\t\t\tGroupWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\u003cgroup ids\u003e\"),\n\t\t\t},\n\t\t\tPolicyId: pulumi.String(\"\u003cauth server policy id\u003e\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "accessTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5957,7 +5957,273 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule"
+        },
+        "okta:auth/serverPolicyRule:ServerPolicyRule": {
+            "description": "Creates an Authorization Server Policy Rule.\n\nThis resource allows you to create and configure an Authorization Server Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerPolicyRule(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    grantTypeWhitelists: [\"implicit\"],\n    groupWhitelists: [\"\u003cgroup ids\u003e\"],\n    policyId: \"\u003cauth server policy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerPolicyRule(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    grant_type_whitelists=[\"implicit\"],\n    group_whitelists=[\"\u003cgroup ids\u003e\"],\n    policy_id=\"\u003cauth server policy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Auth.ServerPolicyRule(\"example\", new Okta.Auth.ServerPolicyRuleArgs\n        {\n            AuthServerId = \"\u003cauth server id\u003e\",\n            GrantTypeWhitelists = \n            {\n                \"implicit\",\n            },\n            GroupWhitelists = \n            {\n                \"\u003cgroup ids\u003e\",\n            },\n            PolicyId = \"\u003cauth server policy id\u003e\",\n            Priority = 1,\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerPolicyRule(ctx, \"example\", \u0026auth.ServerPolicyRuleArgs{\n\t\t\tAuthServerId: pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tGrantTypeWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"implicit\"),\n\t\t\t},\n\t\t\tGroupWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\u003cgroup ids\u003e\"),\n\t\t\t},\n\t\t\tPolicyId: pulumi.String(\"\u003cauth server policy id\u003e\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "accessTokenLifetimeMinutes": {
+                    "type": "integer",
+                    "description": "Lifetime of access token. Can be set to a value between 5 and 1440.\n"
+                },
+                "authServerId": {
+                    "type": "string",
+                    "description": "Auth Server ID.\n"
+                },
+                "grantTypeWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                },
+                "groupBlacklists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "groupWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "inlineHookId": {
+                    "type": "string",
+                    "description": "The ID of the inline token to trigger.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Auth Server Policy Rule name.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "Auth Server Policy ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the auth server policy rule.\n"
+                },
+                "refreshTokenLifetimeMinutes": {
+                    "type": "integer",
+                    "description": "Lifetime of refresh token.\n"
+                },
+                "refreshTokenWindowMinutes": {
+                    "type": "integer",
+                    "description": "Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).\n"
+                },
+                "scopeWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the Auth Server Policy Rule.\n"
+                },
+                "userBlacklists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "userWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "authServerId",
+                "grantTypeWhitelists",
+                "name",
+                "policyId",
+                "priority"
+            ],
+            "inputProperties": {
+                "accessTokenLifetimeMinutes": {
+                    "type": "integer",
+                    "description": "Lifetime of access token. Can be set to a value between 5 and 1440.\n"
+                },
+                "authServerId": {
+                    "type": "string",
+                    "description": "Auth Server ID.\n"
+                },
+                "grantTypeWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                },
+                "groupBlacklists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "groupWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "inlineHookId": {
+                    "type": "string",
+                    "description": "The ID of the inline token to trigger.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Auth Server Policy Rule name.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "Auth Server Policy ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the auth server policy rule.\n"
+                },
+                "refreshTokenLifetimeMinutes": {
+                    "type": "integer",
+                    "description": "Lifetime of refresh token.\n"
+                },
+                "refreshTokenWindowMinutes": {
+                    "type": "integer",
+                    "description": "Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).\n"
+                },
+                "scopeWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the Auth Server Policy Rule.\n"
+                },
+                "userBlacklists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "userWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "authServerId",
+                "grantTypeWhitelists",
+                "policyId",
+                "priority"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServerPolicyRule resources.\n",
+                "properties": {
+                    "accessTokenLifetimeMinutes": {
+                        "type": "integer",
+                        "description": "Lifetime of access token. Can be set to a value between 5 and 1440.\n"
+                    },
+                    "authServerId": {
+                        "type": "string",
+                        "description": "Auth Server ID.\n"
+                    },
+                    "grantTypeWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                    },
+                    "groupBlacklists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "groupWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "inlineHookId": {
+                        "type": "string",
+                        "description": "The ID of the inline token to trigger.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Auth Server Policy Rule name.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "Auth Server Policy ID.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Priority of the auth server policy rule.\n"
+                    },
+                    "refreshTokenLifetimeMinutes": {
+                        "type": "integer",
+                        "description": "Lifetime of refresh token.\n"
+                    },
+                    "refreshTokenWindowMinutes": {
+                        "type": "integer",
+                        "description": "Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).\n"
+                    },
+                    "scopeWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the Auth Server Policy Rule.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the Auth Server Policy Rule.\n"
+                    },
+                    "userBlacklists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "userWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "aliases": [
+                {
+                    "type": "okta:auth/serverPolicyClaim:ServerPolicyClaim"
+                }
+            ]
         },
         "okta:auth/serverScope:ServerScope": {
             "description": "Creates an Authorization Server Scope.\n\nThis resource allows you to create and configure an Authorization Server Scope.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerScope(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    consent: \"IMPLICIT\",\n    metadataPublish: \"NO_CLIENTS\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerScope(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    consent=\"IMPLICIT\",\n    metadata_publish=\"NO_CLIENTS\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Auth.ServerScope(\"example\", new Okta.Auth.ServerScopeArgs\n        {\n            AuthServerId = \"\u003cauth server id\u003e\",\n            Consent = \"IMPLICIT\",\n            MetadataPublish = \"NO_CLIENTS\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerScope(ctx, \"example\", \u0026auth.ServerScopeArgs{\n\t\t\tAuthServerId:    pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tConsent:         pulumi.String(\"IMPLICIT\"),\n\t\t\tMetadataPublish: pulumi.String(\"NO_CLIENTS\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
