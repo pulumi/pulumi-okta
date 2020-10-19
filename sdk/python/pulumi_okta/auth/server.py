@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Server']
@@ -15,7 +15,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
@@ -90,7 +90,7 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             credentials_last_rotated: Optional[pulumi.Input[str]] = None,
             credentials_next_rotation: Optional[pulumi.Input[str]] = None,
             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
         :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
@@ -136,7 +136,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def audiences(self) -> pulumi.Output[List[str]]:
+    def audiences(self) -> pulumi.Output[Sequence[str]]:
         """
         The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         """

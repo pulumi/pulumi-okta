@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -139,7 +139,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> List[str]:
+    def admin_roles(self) -> Sequence[str]:
         """
         Administrator roles assigned to user.
         """
@@ -227,7 +227,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> List[str]:
+    def group_memberships(self) -> Sequence[str]:
         """
         user profile property.
         """
@@ -363,7 +363,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def searches(self) -> Optional[List['outputs.GetUserSearchResult']]:
+    def searches(self) -> Optional[Sequence['outputs.GetUserSearchResult']]:
         return pulumi.get(self, "searches")
 
     @property
@@ -482,7 +482,7 @@ class AwaitableGetUserResult(GetUserResult):
             zip_code=self.zip_code)
 
 
-def get_user(searches: Optional[List[pulumi.InputType['GetUserSearchArgs']]] = None,
+def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -507,7 +507,7 @@ def get_user(searches: Optional[List[pulumi.InputType['GetUserSearchArgs']]] = N
     ```
 
 
-    :param List[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param str user_id: String representing a specific user's id value
     """
     __args__ = dict()

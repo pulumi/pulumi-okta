@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -67,7 +67,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -84,7 +84,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -151,7 +151,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             credentials_scheme: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None) -> 'SecurePasswordStore':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None) -> 'SecurePasswordStore':
         """
         Get an existing SecurePasswordStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -184,7 +184,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -205,7 +205,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -273,7 +273,7 @@ class SecurePasswordStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         """
@@ -441,7 +441,7 @@ class SecurePasswordStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.SecurePasswordStoreUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.SecurePasswordStoreUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
         """

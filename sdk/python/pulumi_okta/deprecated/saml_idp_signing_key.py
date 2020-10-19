@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SamlIdpSigningKey']
@@ -15,7 +15,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -23,7 +23,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
         Create a SamlIdpSigningKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,7 +66,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
             kid: Optional[pulumi.Input[str]] = None,
             kty: Optional[pulumi.Input[str]] = None,
             use: Optional[pulumi.Input[str]] = None,
-            x5cs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             x5t_s256: Optional[pulumi.Input[str]] = None) -> 'SamlIdpSigningKey':
         """
         Get an existing SamlIdpSigningKey resource's state with the given name, id, and optional extra
@@ -75,7 +75,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -117,7 +117,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def x5cs(self) -> pulumi.Output[List[str]]:
+    def x5cs(self) -> pulumi.Output[Sequence[str]]:
         """
         base64-encoded X.509 certificate chain with DER encoding
         """

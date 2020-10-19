@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SamlIdp']
@@ -16,14 +16,14 @@ class SamlIdp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
-                 groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[str]] = None,
-                 groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  kid: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class SamlIdp(pulumi.CustomResource):
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_filter: Optional[pulumi.Input[str]] = None,
-                 subject_formats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
                  suspended_action: Optional[pulumi.Input[str]] = None,
@@ -127,15 +127,15 @@ class SamlIdp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             acs_binding: Optional[pulumi.Input[str]] = None,
             acs_type: Optional[pulumi.Input[str]] = None,
             audience: Optional[pulumi.Input[str]] = None,
             deprovisioned_action: Optional[pulumi.Input[str]] = None,
             groups_action: Optional[pulumi.Input[str]] = None,
-            groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_attribute: Optional[pulumi.Input[str]] = None,
-            groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             kid: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class SamlIdp(pulumi.CustomResource):
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_filter: Optional[pulumi.Input[str]] = None,
-            subject_formats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
             subject_match_type: Optional[pulumi.Input[str]] = None,
             suspended_action: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "account_link_group_includes")
 
     @property
@@ -247,7 +247,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "groups_assignments")
 
     @property
@@ -257,7 +257,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "groups_filters")
 
     @property
@@ -360,7 +360,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> pulumi.Output[Optional[List[str]]]:
+    def subject_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "subject_formats")
 
     @property

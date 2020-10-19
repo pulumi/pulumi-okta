@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class Mfa(pulumi.CustomResource):
                  fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']]] = None,
                  fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']]] = None,
                  google_otp: Optional[pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']]] = None,
-                 groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[pulumi.InputType['MfaOktaCallArgs']]] = None,
                  okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']]] = None,
@@ -30,7 +30,7 @@ class Mfa(pulumi.CustomResource):
                  okta_push: Optional[pulumi.Input[pulumi.InputType['MfaOktaPushArgs']]] = None,
                  okta_question: Optional[pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']]] = None,
                  okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']]] = None,
@@ -65,7 +65,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']] fido_u2f: Fido U2F MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']] fido_webauthn: Fido Web Authn MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']] google_otp: Google OTP MFA policy settings.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[pulumi.InputType['MfaOktaCallArgs']] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']] okta_otp: Okta OTP MFA policy settings.
@@ -73,7 +73,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MfaOktaPushArgs']] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']] okta_question: Okta Question MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']] okta_sms: Okta SMS MFA policy settings.
-        :param pulumi.Input[float] priority: Priority of the policy.
+        :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']] rsa_token: RSA Token MFA policy settings.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']] symantec_vip: Symantec VIP MFA policy settings.
@@ -129,7 +129,7 @@ class Mfa(pulumi.CustomResource):
             fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']]] = None,
             fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']]] = None,
             google_otp: Optional[pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']]] = None,
-            groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[pulumi.InputType['MfaOktaCallArgs']]] = None,
             okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']]] = None,
@@ -137,7 +137,7 @@ class Mfa(pulumi.CustomResource):
             okta_push: Optional[pulumi.Input[pulumi.InputType['MfaOktaPushArgs']]] = None,
             okta_question: Optional[pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']]] = None,
             okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']]] = None,
@@ -154,7 +154,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MfaFidoU2fArgs']] fido_u2f: Fido U2F MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaFidoWebauthnArgs']] fido_webauthn: Fido Web Authn MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaGoogleOtpArgs']] google_otp: Google OTP MFA policy settings.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[pulumi.InputType['MfaOktaCallArgs']] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaOtpArgs']] okta_otp: Okta OTP MFA policy settings.
@@ -162,7 +162,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MfaOktaPushArgs']] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaQuestionArgs']] okta_question: Okta Question MFA policy settings.
         :param pulumi.Input[pulumi.InputType['MfaOktaSmsArgs']] okta_sms: Okta SMS MFA policy settings.
-        :param pulumi.Input[float] priority: Priority of the policy.
+        :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[pulumi.InputType['MfaRsaTokenArgs']] rsa_token: RSA Token MFA policy settings.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[pulumi.InputType['MfaSymantecVipArgs']] symantec_vip: Symantec VIP MFA policy settings.
@@ -234,7 +234,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Group IDs to Include.
         """
@@ -298,7 +298,7 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Priority of the policy.
         """

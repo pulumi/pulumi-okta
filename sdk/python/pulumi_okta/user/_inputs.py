@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -199,7 +199,7 @@ class GetUsersSearchArgs:
 @pulumi.input_type
 class GetUsersUserArgs:
     def __init__(__self__, *,
-                 admin_roles: List[str],
+                 admin_roles: Sequence[str],
                  city: str,
                  cost_center: str,
                  country_code: str,
@@ -210,7 +210,7 @@ class GetUsersUserArgs:
                  email: str,
                  employee_number: str,
                  first_name: str,
-                 group_memberships: List[str],
+                 group_memberships: Sequence[str],
                  honorific_prefix: str,
                  honorific_suffix: str,
                  last_name: str,
@@ -235,7 +235,7 @@ class GetUsersUserArgs:
                  user_type: str,
                  zip_code: str):
         """
-        :param List[str] admin_roles: Administrator roles assigned to user.
+        :param Sequence[str] admin_roles: Administrator roles assigned to user.
         :param str city: user profile property.
         :param str cost_center: user profile property.
         :param str country_code: user profile property.
@@ -246,7 +246,7 @@ class GetUsersUserArgs:
         :param str email: user profile property.
         :param str employee_number: user profile property.
         :param str first_name: user profile property.
-        :param List[str] group_memberships: user profile property.
+        :param Sequence[str] group_memberships: user profile property.
         :param str honorific_prefix: user profile property.
         :param str honorific_suffix: user profile property.
         :param str last_name: user profile property.
@@ -309,14 +309,14 @@ class GetUsersUserArgs:
 
     @property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> List[str]:
+    def admin_roles(self) -> Sequence[str]:
         """
         Administrator roles assigned to user.
         """
         return pulumi.get(self, "admin_roles")
 
     @admin_roles.setter
-    def admin_roles(self, value: List[str]):
+    def admin_roles(self, value: Sequence[str]):
         pulumi.set(self, "admin_roles", value)
 
     @property
@@ -441,14 +441,14 @@ class GetUsersUserArgs:
 
     @property
     @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> List[str]:
+    def group_memberships(self) -> Sequence[str]:
         """
         user profile property.
         """
         return pulumi.get(self, "group_memberships")
 
     @group_memberships.setter
-    def group_memberships(self, value: List[str]):
+    def group_memberships(self, value: Sequence[str]):
         pulumi.set(self, "group_memberships", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -67,7 +67,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def users(self) -> List[str]:
+    def users(self) -> Sequence[str]:
         """
         user ids that are members of this group, only included if `include_users` is set to `true`.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Saml']
@@ -16,14 +16,14 @@ class Saml(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
-                 groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[str]] = None,
-                 groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  kid: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class Saml(pulumi.CustomResource):
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_filter: Optional[pulumi.Input[str]] = None,
-                 subject_formats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
                  suspended_action: Optional[pulumi.Input[str]] = None,
@@ -75,14 +75,14 @@ class Saml(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
-        :param pulumi.Input[List[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
         :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
         :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] kid: The ID of the signing key.
@@ -99,7 +99,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[List[pulumi.Input[str]]] subject_formats: The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
@@ -173,15 +173,15 @@ class Saml(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             acs_binding: Optional[pulumi.Input[str]] = None,
             acs_type: Optional[pulumi.Input[str]] = None,
             audience: Optional[pulumi.Input[str]] = None,
             deprovisioned_action: Optional[pulumi.Input[str]] = None,
             groups_action: Optional[pulumi.Input[str]] = None,
-            groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_attribute: Optional[pulumi.Input[str]] = None,
-            groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             kid: Optional[pulumi.Input[str]] = None,
@@ -198,7 +198,7 @@ class Saml(pulumi.CustomResource):
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_filter: Optional[pulumi.Input[str]] = None,
-            subject_formats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
             subject_match_type: Optional[pulumi.Input[str]] = None,
             suspended_action: Optional[pulumi.Input[str]] = None,
@@ -212,15 +212,15 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
-        :param pulumi.Input[List[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
         :param pulumi.Input[str] audience: The audience restriction for the IdP.
         :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
         :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] kid: The ID of the signing key.
@@ -237,7 +237,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[List[pulumi.Input[str]]] subject_formats: The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
@@ -292,7 +292,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Group memberships to determine link candidates.
         """
@@ -340,7 +340,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         """
@@ -356,7 +356,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         """
@@ -492,7 +492,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> pulumi.Output[Optional[List[str]]]:
+    def subject_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SocialIdp']
@@ -16,18 +16,18 @@ class SocialIdp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
-                 groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[str]] = None,
-                 groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  match_attribute: Optional[pulumi.Input[str]] = None,
                  match_type: Optional[pulumi.Input[str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[float]] = None,
+                 max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class SocialIdp(pulumi.CustomResource):
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
                  response_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  response_signature_scope: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -127,20 +127,20 @@ class SocialIdp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authorization_binding: Optional[pulumi.Input[str]] = None,
             authorization_url: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             deprovisioned_action: Optional[pulumi.Input[str]] = None,
             groups_action: Optional[pulumi.Input[str]] = None,
-            groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_attribute: Optional[pulumi.Input[str]] = None,
-            groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             match_attribute: Optional[pulumi.Input[str]] = None,
             match_type: Optional[pulumi.Input[str]] = None,
-            max_clock_skew: Optional[pulumi.Input[float]] = None,
+            max_clock_skew: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_master: Optional[pulumi.Input[bool]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class SocialIdp(pulumi.CustomResource):
             request_signature_scope: Optional[pulumi.Input[str]] = None,
             response_signature_algorithm: Optional[pulumi.Input[str]] = None,
             response_signature_scope: Optional[pulumi.Input[str]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
             subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class SocialIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "account_link_group_includes")
 
     @property
@@ -252,7 +252,7 @@ class SocialIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "groups_assignments")
 
     @property
@@ -262,7 +262,7 @@ class SocialIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "groups_filters")
 
     @property
@@ -285,7 +285,7 @@ class SocialIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> pulumi.Output[Optional[float]]:
+    def max_clock_skew(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "max_clock_skew")
 
     @property
@@ -345,7 +345,7 @@ class SocialIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[List[str]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "scopes")
 
     @property

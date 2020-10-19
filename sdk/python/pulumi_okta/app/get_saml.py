@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -178,7 +178,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> Optional[List['outputs.GetSamlAttributeStatementResult']]:
+    def attribute_statements(self) -> Optional[Sequence['outputs.GetSamlAttributeStatementResult']]:
         """
         SAML Attribute statements.
         """
@@ -242,7 +242,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[List[str]]:
+    def features(self) -> Optional[Sequence[str]]:
         """
         features enabled.
         """
@@ -464,14 +464,14 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
              active_only: Optional[bool] = None,
              app_settings_json: Optional[str] = None,
              assertion_signed: Optional[bool] = None,
-             attribute_statements: Optional[List[pulumi.InputType['GetSamlAttributeStatementArgs']]] = None,
+             attribute_statements: Optional[Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']]] = None,
              audience: Optional[str] = None,
              authn_context_class_ref: Optional[str] = None,
              auto_submit_toolbar: Optional[bool] = None,
              default_relay_state: Optional[str] = None,
              destination: Optional[str] = None,
              digest_algorithm: Optional[str] = None,
-             features: Optional[List[str]] = None,
+             features: Optional[Sequence[str]] = None,
              hide_ios: Optional[bool] = None,
              hide_web: Optional[bool] = None,
              honor_force_authn: Optional[bool] = None,
@@ -510,14 +510,14 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str app_settings_json: Application settings in JSON format.
     :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
-    :param List[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: SAML Attribute statements.
+    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: SAML Attribute statements.
     :param str audience: Audience restriction.
     :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
     :param bool auto_submit_toolbar: Display auto submit toolbar.
     :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
     :param str destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
     :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
-    :param List[str] features: features enabled.
+    :param Sequence[str] features: features enabled.
     :param bool hide_ios: Do not display application icon on mobile app.
     :param bool hide_web: Do not display application icon to users
     :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.

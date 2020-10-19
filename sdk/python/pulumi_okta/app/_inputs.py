@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -313,14 +313,14 @@ class SamlAttributeStatementArgs:
                  filter_value: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name of the attribute statement.
         :param pulumi.Input[str] filter_type: Type of group attribute filter.
         :param pulumi.Input[str] filter_value: Filter value to use.
         :param pulumi.Input[str] namespace: The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
         :param pulumi.Input[str] type: The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: Array of values to use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use.
         """
         pulumi.set(__self__, "name", name)
         if filter_type is not None:
@@ -396,14 +396,14 @@ class SamlAttributeStatementArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Array of values to use.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -707,7 +707,7 @@ class GetSamlAttributeStatementArgs:
                  filter_value: Optional[str] = None,
                  namespace: Optional[str] = None,
                  type: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         :param str name: name of application.
         """
@@ -773,11 +773,11 @@ class GetSamlAttributeStatementArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[List[str]]):
+    def values(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "values", value)
 
 

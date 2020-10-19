@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class TemplateSms(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  template: Optional[pulumi.Input[str]] = None,
-                 translations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]]] = None,
+                 translations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,7 +52,7 @@ class TemplateSms(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] template: The SMS message.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for particular template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for particular template.
         :param pulumi.Input[str] type: SMS template type
         """
         if __name__ is not None:
@@ -90,7 +90,7 @@ class TemplateSms(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             template: Optional[pulumi.Input[str]] = None,
-            translations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]]] = None,
+            translations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'TemplateSms':
         """
         Get an existing TemplateSms resource's state with the given name, id, and optional extra
@@ -100,7 +100,7 @@ class TemplateSms(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] template: The SMS message.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for particular template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for particular template.
         :param pulumi.Input[str] type: SMS template type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,7 +122,7 @@ class TemplateSms(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def translations(self) -> pulumi.Output[Optional[List['outputs.TemplateSmsTranslation']]]:
+    def translations(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateSmsTranslation']]]:
         """
         Set of translations for particular template.
         """

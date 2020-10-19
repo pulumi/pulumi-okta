@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Rule']
@@ -17,7 +17,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  expression_type: Optional[pulumi.Input[str]] = None,
                  expression_value: Optional[pulumi.Input[str]] = None,
-                 group_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -45,7 +45,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
         """
@@ -87,7 +87,7 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             expression_type: Optional[pulumi.Input[str]] = None,
             expression_value: Optional[pulumi.Input[str]] = None,
-            group_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Rule':
         """
@@ -99,7 +99,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
         :param pulumi.Input[str] status: The status of the group rule.
         """
@@ -132,7 +132,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupAssignments")
-    def group_assignments(self) -> pulumi.Output[List[str]]:
+    def group_assignments(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of group ids to assign the users to.
         """

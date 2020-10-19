@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Origin']
@@ -18,7 +18,7 @@ class Origin(pulumi.CustomResource):
                  active: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  origin: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,7 +43,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation.
         :param pulumi.Input[str] name: Name of the Trusted Origin Resource.
         :param pulumi.Input[str] origin: The origin to trust.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class Origin(pulumi.CustomResource):
             active: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             origin: Optional[pulumi.Input[str]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Origin':
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Origin':
         """
         Get an existing Origin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,7 +94,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation.
         :param pulumi.Input[str] name: Name of the Trusted Origin Resource.
         :param pulumi.Input[str] origin: The origin to trust.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -132,7 +132,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[List[str]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
