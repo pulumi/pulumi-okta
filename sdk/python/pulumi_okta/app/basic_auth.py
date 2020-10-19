@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,13 +19,13 @@ class BasicAuth(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_url: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,13 +50,13 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,7 +100,7 @@ class BasicAuth(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auth_url: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class BasicAuth(pulumi.CustomResource):
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None) -> 'BasicAuth':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None) -> 'BasicAuth':
         """
         Get an existing BasicAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,7 +118,7 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
@@ -126,7 +126,7 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -163,7 +163,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application
         """
@@ -227,7 +227,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.BasicAuthUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.BasicAuthUser']]]:
         """
         Users associated with the application
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -628,7 +628,7 @@ class SamlAppAttributeStatementArgs:
                  filter_value: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "name", name)
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
@@ -688,11 +688,11 @@ class SamlAppAttributeStatementArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 

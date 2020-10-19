@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -42,12 +42,12 @@ class GetUsersResult:
 
     @property
     @pulumi.getter
-    def searches(self) -> List['outputs.GetUsersSearchResult']:
+    def searches(self) -> Sequence['outputs.GetUsersSearchResult']:
         return pulumi.get(self, "searches")
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.GetUsersUserResult']]:
+    def users(self) -> Optional[Sequence['outputs.GetUsersUserResult']]:
         """
         collection of users retrieved from Okta with the following properties.
         """
@@ -65,8 +65,8 @@ class AwaitableGetUsersResult(GetUsersResult):
             users=self.users)
 
 
-def get_users(searches: Optional[List[pulumi.InputType['GetUsersSearchArgs']]] = None,
-              users: Optional[List[pulumi.InputType['GetUsersUserArgs']]] = None,
+def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
+              users: Optional[Sequence[pulumi.InputType['GetUsersUserArgs']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to retrieve a list of users from Okta.
@@ -85,8 +85,8 @@ def get_users(searches: Optional[List[pulumi.InputType['GetUsersSearchArgs']]] =
     ```
 
 
-    :param List[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to use to find users. It supports the following properties.
-    :param List[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to use to find users. It supports the following properties.
+    :param Sequence[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
     """
     __args__ = dict()
     __args__['searches'] = searches

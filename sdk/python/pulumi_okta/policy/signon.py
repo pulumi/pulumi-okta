@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Signon']
@@ -16,9 +16,9 @@ class Signon(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,9 +43,9 @@ class Signon(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[float] priority: Priority of the policy.
+        :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         """
         if __name__ is not None:
@@ -81,9 +81,9 @@ class Signon(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Signon':
         """
         Get an existing Signon resource's state with the given name, id, and optional extra
@@ -93,9 +93,9 @@ class Signon(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[float] priority: Priority of the policy.
+        :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,7 +119,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Group IDs to Include.
         """
@@ -135,7 +135,7 @@ class Signon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Priority of the policy.
         """

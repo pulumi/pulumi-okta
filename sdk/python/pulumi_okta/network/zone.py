@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Zone']
@@ -15,10 +15,10 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 gateways: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 proxies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,10 +48,10 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-        :param pulumi.Input[List[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
         """
         if __name__ is not None:
@@ -88,10 +88,10 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dynamic_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            gateways: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            proxies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -100,10 +100,10 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
-        :param pulumi.Input[List[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,7 +119,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamicLocations")
-    def dynamic_locations(self) -> pulumi.Output[Optional[List[str]]]:
+    def dynamic_locations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
         """
@@ -127,7 +127,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gateways(self) -> pulumi.Output[Optional[List[str]]]:
+    def gateways(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Array of values in CIDR/range form.
         """
@@ -143,7 +143,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxies(self) -> pulumi.Output[Optional[List[str]]]:
+    def proxies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Array of values in CIDR/range form.
         """

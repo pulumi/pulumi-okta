@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class SwaApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class SwaApp(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,7 +43,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] button_field: Login button field
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
@@ -53,7 +53,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] username_field: Login username field
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class SwaApp(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             button_field: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class SwaApp(pulumi.CustomResource):
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None) -> 'SwaApp':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None) -> 'SwaApp':
         """
         Get an existing SwaApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -133,7 +133,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] button_field: Login button field
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
@@ -147,7 +147,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_field: Login username field
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -208,7 +208,7 @@ class SwaApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application
         """
@@ -320,7 +320,7 @@ class SwaApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.SwaAppUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.SwaAppUser']]]:
         """
         Users associated with the application
         """

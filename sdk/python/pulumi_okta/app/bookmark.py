@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,14 +18,14 @@ class Bookmark(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  request_integration: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,14 +48,14 @@ class Bookmark(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: The URL of the bookmark.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,7 +100,7 @@ class Bookmark(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Bookmark(pulumi.CustomResource):
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None) -> 'Bookmark':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None) -> 'Bookmark':
         """
         Get an existing Bookmark resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,7 +118,7 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
@@ -127,7 +127,7 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: The URL of the bookmark.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,7 +156,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application
         """
@@ -228,7 +228,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.BookmarkUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.BookmarkUser']]]:
         """
         Users associated with the application
         """

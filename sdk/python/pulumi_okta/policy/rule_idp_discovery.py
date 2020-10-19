@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,20 +17,20 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]]] = None,
-                 app_includes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]]] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]]] = None,
                  idp_id: Optional[pulumi.Input[str]] = None,
                  idp_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
-                 network_excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 network_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
+                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[str]] = None,
-                 user_identifier_patterns: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]] = None,
+                 user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]] = None,
                  user_identifier_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -61,14 +61,14 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule
         :param pulumi.Input[str] name: Policy Rule Name.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         """
         if __name__ is not None:
@@ -115,20 +115,20 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_excludes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]]] = None,
-            app_includes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]]] = None,
+            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]]] = None,
+            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]]] = None,
             idp_id: Optional[pulumi.Input[str]] = None,
             idp_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_connection: Optional[pulumi.Input[str]] = None,
-            network_excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            network_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            platform_includes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
+            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_identifier_attribute: Optional[pulumi.Input[str]] = None,
-            user_identifier_patterns: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]] = None,
+            user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]] = None,
             user_identifier_type: Optional[pulumi.Input[str]] = None) -> 'RuleIdpDiscovery':
         """
         Get an existing RuleIdpDiscovery resource's state with the given name, id, and optional extra
@@ -137,14 +137,14 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule
         :param pulumi.Input[str] name: Policy Rule Name.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -170,7 +170,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryAppExclude']]]:
+    def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryAppExclude']]]:
         """
         Applications to exclude in discovery rule
         """
@@ -178,7 +178,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryAppInclude']]]:
+    def app_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryAppInclude']]]:
         """
         Applications to include in discovery rule
         """
@@ -212,7 +212,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
+    def network_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The network zones to exclude. Conflicts with `network_includes`.
         """
@@ -220,7 +220,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def network_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The network zones to include. Conflicts with `network_excludes`.
         """
@@ -228,7 +228,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformIncludes")
-    def platform_includes(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryPlatformInclude']]]:
+    def platform_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryPlatformInclude']]]:
         return pulumi.get(self, "platform_includes")
 
     @property
@@ -241,7 +241,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
         """
@@ -262,7 +262,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userIdentifierPatterns")
-    def user_identifier_patterns(self) -> pulumi.Output[Optional[List['outputs.RuleIdpDiscoveryUserIdentifierPattern']]]:
+    def user_identifier_patterns(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryUserIdentifierPattern']]]:
         return pulumi.get(self, "user_identifier_patterns")
 
     @property

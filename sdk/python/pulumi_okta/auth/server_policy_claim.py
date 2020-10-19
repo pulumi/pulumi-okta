@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ServerPolicyClaim']
@@ -19,22 +19,22 @@ class ServerPolicyClaim(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token_lifetime_minutes: Optional[pulumi.Input[float]] = None,
+                 access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
-                 grant_type_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 group_blacklists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 group_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
-                 refresh_token_lifetime_minutes: Optional[pulumi.Input[float]] = None,
-                 refresh_token_window_minutes: Optional[pulumi.Input[float]] = None,
-                 scope_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 refresh_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+                 refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
+                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 user_blacklists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 user_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -60,16 +60,16 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
+        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[List[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
         :param pulumi.Input[str] name: Auth Server Policy Rule name.
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[float] priority: Priority of the auth server policy rule.
-        :param pulumi.Input[float] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[float] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
-        :param pulumi.Input[List[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
         """
@@ -125,22 +125,22 @@ class ServerPolicyClaim(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_token_lifetime_minutes: Optional[pulumi.Input[float]] = None,
+            access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
             auth_server_id: Optional[pulumi.Input[str]] = None,
-            grant_type_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            group_blacklists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            group_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             inline_hook_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
-            refresh_token_lifetime_minutes: Optional[pulumi.Input[float]] = None,
-            refresh_token_window_minutes: Optional[pulumi.Input[float]] = None,
-            scope_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
+            refresh_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+            refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
+            scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            user_blacklists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            user_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ServerPolicyClaim':
+            user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ServerPolicyClaim':
         """
         Get an existing ServerPolicyClaim resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,16 +148,16 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
+        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[List[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
         :param pulumi.Input[str] name: Auth Server Policy Rule name.
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[float] priority: Priority of the auth server policy rule.
-        :param pulumi.Input[float] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[float] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
-        :param pulumi.Input[List[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
         """
@@ -185,7 +185,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
-    def access_token_lifetime_minutes(self) -> pulumi.Output[Optional[float]]:
+    def access_token_lifetime_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Lifetime of access token. Can be set to a value between 5 and 1440.
         """
@@ -201,7 +201,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantTypeWhitelists")
-    def grant_type_whitelists(self) -> pulumi.Output[List[str]]:
+    def grant_type_whitelists(self) -> pulumi.Output[Sequence[str]]:
         """
         Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
         """
@@ -209,12 +209,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupBlacklists")
-    def group_blacklists(self) -> pulumi.Output[Optional[List[str]]]:
+    def group_blacklists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "group_blacklists")
 
     @property
     @pulumi.getter(name="groupWhitelists")
-    def group_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
+    def group_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "group_whitelists")
 
     @property
@@ -243,7 +243,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[float]:
+    def priority(self) -> pulumi.Output[int]:
         """
         Priority of the auth server policy rule.
         """
@@ -251,7 +251,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenLifetimeMinutes")
-    def refresh_token_lifetime_minutes(self) -> pulumi.Output[Optional[float]]:
+    def refresh_token_lifetime_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Lifetime of refresh token.
         """
@@ -259,7 +259,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenWindowMinutes")
-    def refresh_token_window_minutes(self) -> pulumi.Output[Optional[float]]:
+    def refresh_token_window_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
         """
@@ -267,7 +267,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeWhitelists")
-    def scope_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
+    def scope_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         """
@@ -291,12 +291,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userBlacklists")
-    def user_blacklists(self) -> pulumi.Output[Optional[List[str]]]:
+    def user_blacklists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "user_blacklists")
 
     @property
     @pulumi.getter(name="userWhitelists")
-    def user_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
+    def user_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "user_whitelists")
 
     def translate_output_property(self, prop):

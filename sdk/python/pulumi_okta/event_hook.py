@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,8 +19,8 @@ class EventHook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[pulumi.InputType['EventHookAuthArgs']]] = None,
                  channel: Optional[pulumi.Input[pulumi.InputType['EventHookChannelArgs']]] = None,
-                 events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 headers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -58,8 +58,8 @@ class EventHook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventHookAuthArgs']] auth: Authentication required for event hook request.
         :param pulumi.Input[pulumi.InputType['EventHookChannelArgs']] channel: Details of the endpoint the event hook will hit.
-        :param pulumi.Input[List[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
         """
         if __name__ is not None:
@@ -101,8 +101,8 @@ class EventHook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auth: Optional[pulumi.Input[pulumi.InputType['EventHookAuthArgs']]] = None,
             channel: Optional[pulumi.Input[pulumi.InputType['EventHookChannelArgs']]] = None,
-            events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            headers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
+            events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'EventHook':
         """
@@ -114,8 +114,8 @@ class EventHook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventHookAuthArgs']] auth: Authentication required for event hook request.
         :param pulumi.Input[pulumi.InputType['EventHookChannelArgs']] channel: Details of the endpoint the event hook will hit.
-        :param pulumi.Input[List[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -148,7 +148,7 @@ class EventHook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[List[str]]:
+    def events(self) -> pulumi.Output[Sequence[str]]:
         """
         The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         """
@@ -156,7 +156,7 @@ class EventHook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def headers(self) -> pulumi.Output[Optional[List['outputs.EventHookHeader']]]:
+    def headers(self) -> pulumi.Output[Optional[Sequence['outputs.EventHookHeader']]]:
         """
         Map of headers to send along in event hook request.
         """

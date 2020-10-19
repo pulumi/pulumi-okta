@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -248,14 +248,14 @@ class SamlAttributeStatement(dict):
                  filter_value: Optional[str] = None,
                  namespace: Optional[str] = None,
                  type: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         :param str name: The name of the attribute statement.
         :param str filter_type: Type of group attribute filter.
         :param str filter_value: Filter value to use.
         :param str namespace: The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
         :param str type: The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        :param List[str] values: Array of values to use.
+        :param Sequence[str] values: Array of values to use.
         """
         pulumi.set(__self__, "name", name)
         if filter_type is not None:
@@ -311,7 +311,7 @@ class SamlAttributeStatement(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         Array of values to use.
         """
@@ -559,7 +559,7 @@ class GetSamlAttributeStatementResult(dict):
                  filter_value: Optional[str] = None,
                  namespace: Optional[str] = None,
                  type: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         :param str name: name of application.
         """
@@ -605,7 +605,7 @@ class GetSamlAttributeStatementResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ServerClaim']
@@ -20,7 +20,7 @@ class ServerClaim(pulumi.CustomResource):
                  claim_type: Optional[pulumi.Input[str]] = None,
                  group_filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  value_type: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class ServerClaim(pulumi.CustomResource):
         :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         :param pulumi.Input[str] group_filter_type: Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
         :param pulumi.Input[str] name: The name of the claim.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
         :param pulumi.Input[str] status: The status of the application. It defaults to `"ACTIVE"`.
         :param pulumi.Input[str] value: The value of the claim.
         :param pulumi.Input[str] value_type: The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
@@ -104,7 +104,7 @@ class ServerClaim(pulumi.CustomResource):
             claim_type: Optional[pulumi.Input[str]] = None,
             group_filter_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             value: Optional[pulumi.Input[str]] = None,
             value_type: Optional[pulumi.Input[str]] = None) -> 'ServerClaim':
@@ -120,7 +120,7 @@ class ServerClaim(pulumi.CustomResource):
         :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         :param pulumi.Input[str] group_filter_type: Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
         :param pulumi.Input[str] name: The name of the claim.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
         :param pulumi.Input[str] status: The status of the application. It defaults to `"ACTIVE"`.
         :param pulumi.Input[str] value: The value of the claim.
         :param pulumi.Input[str] value_type: The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
@@ -182,7 +182,7 @@ class ServerClaim(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of scopes the auth server claim is tied to.
         """

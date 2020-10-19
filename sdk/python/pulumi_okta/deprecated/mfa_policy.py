@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class MfaPolicy(pulumi.CustomResource):
                  fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoU2fArgs']]] = None,
                  fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoWebauthnArgs']]] = None,
                  google_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyGoogleOtpArgs']]] = None,
-                 groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaCallArgs']]] = None,
                  okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaOtpArgs']]] = None,
@@ -30,7 +30,7 @@ class MfaPolicy(pulumi.CustomResource):
                  okta_push: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPushArgs']]] = None,
                  okta_question: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaQuestionArgs']]] = None,
                  okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaSmsArgs']]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyRsaTokenArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaPolicySymantecVipArgs']]] = None,
@@ -43,9 +43,9 @@ class MfaPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
-        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
                priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
@@ -99,7 +99,7 @@ class MfaPolicy(pulumi.CustomResource):
             fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoU2fArgs']]] = None,
             fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoWebauthnArgs']]] = None,
             google_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyGoogleOtpArgs']]] = None,
-            groups_includeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaCallArgs']]] = None,
             okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaOtpArgs']]] = None,
@@ -107,7 +107,7 @@ class MfaPolicy(pulumi.CustomResource):
             okta_push: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPushArgs']]] = None,
             okta_question: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaQuestionArgs']]] = None,
             okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaSmsArgs']]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyRsaTokenArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaPolicySymantecVipArgs']]] = None,
@@ -120,9 +120,9 @@ class MfaPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
-        :param pulumi.Input[float] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
                priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
@@ -180,7 +180,7 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Group IDs to Include
         """
@@ -226,7 +226,7 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         priority is provided. API defaults it to the last/lowest if not there.

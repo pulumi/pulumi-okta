@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['GroupAssignment']
@@ -17,7 +17,7 @@ class GroupAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -70,7 +70,7 @@ class GroupAssignment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             profile: Optional[pulumi.Input[str]] = None) -> 'GroupAssignment':
         """
         Get an existing GroupAssignment resource's state with the given name, id, and optional extra
@@ -111,7 +111,7 @@ class GroupAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "priority")
 
     @property

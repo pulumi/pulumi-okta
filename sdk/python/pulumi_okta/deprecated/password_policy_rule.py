@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PasswordPolicyRule']
@@ -17,15 +17,15 @@ class PasswordPolicyRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
-                 network_excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 network_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  password_change: Optional[pulumi.Input[str]] = None,
                  password_reset: Optional[pulumi.Input[str]] = None,
                  password_unlock: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 users_excludeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,16 +35,16 @@ class PasswordPolicyRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[List[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
         :param pulumi.Input[str] policyid: Policy ID of the Rule
-        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[List[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,15 +88,15 @@ class PasswordPolicyRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_connection: Optional[pulumi.Input[str]] = None,
-            network_excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            network_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             password_change: Optional[pulumi.Input[str]] = None,
             password_reset: Optional[pulumi.Input[str]] = None,
             password_unlock: Optional[pulumi.Input[str]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            users_excludeds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'PasswordPolicyRule':
+            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'PasswordPolicyRule':
         """
         Get an existing PasswordPolicyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,16 +106,16 @@ class PasswordPolicyRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[List[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
         :param pulumi.Input[str] policyid: Policy ID of the Rule
-        :param pulumi.Input[float] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last/lowest if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[List[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -152,7 +152,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> pulumi.Output[Optional[List[str]]]:
+    def network_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The zones to exclude
         """
@@ -160,7 +160,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def network_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The zones to include
         """
@@ -200,7 +200,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
         invalid priority is provided. API defaults it to the last/lowest if not there.
@@ -217,7 +217,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Output[Optional[List[str]]]:
+    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of User IDs to Exclude
         """

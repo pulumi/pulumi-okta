@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class ThreeField(pulumi.CustomResource):
                  button_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class ThreeField(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -49,7 +49,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -58,7 +58,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +127,7 @@ class ThreeField(pulumi.CustomResource):
             button_selector: Optional[pulumi.Input[str]] = None,
             extra_field_selector: Optional[pulumi.Input[str]] = None,
             extra_field_value: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class ThreeField(pulumi.CustomResource):
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_selector: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None) -> 'ThreeField':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None) -> 'ThreeField':
         """
         Get an existing ThreeField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,7 +154,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -167,7 +167,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,7 +245,7 @@ class ThreeField(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         """
@@ -349,7 +349,7 @@ class ThreeField(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.ThreeFieldUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.ThreeFieldUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
         """

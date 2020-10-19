@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Mapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
-                 mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -63,7 +63,7 @@ class Mapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
         :param pulumi.Input[str] target_id: ID of the mapping target.
         """
@@ -107,7 +107,7 @@ class Mapping(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             delete_when_absent: Optional[pulumi.Input[bool]] = None,
-            mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+            mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
             source_id: Optional[pulumi.Input[str]] = None,
             source_name: Optional[pulumi.Input[str]] = None,
             source_type: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
         :param pulumi.Input[str] source_name: Name of the mapping source.
         :param pulumi.Input[str] source_type: ID of the mapping source.
@@ -154,7 +154,7 @@ class Mapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mappings(self) -> pulumi.Output[Optional[List['outputs.MappingMapping']]]:
+    def mappings(self) -> pulumi.Output[Optional[Sequence['outputs.MappingMapping']]]:
         """
         Priority of the policy.
         """

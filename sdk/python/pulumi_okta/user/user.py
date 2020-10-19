@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['User']
@@ -15,7 +15,7 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class User(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -74,7 +74,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_memberships: User profile property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -176,7 +176,7 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             city: Optional[pulumi.Input[str]] = None,
             cost_center: Optional[pulumi.Input[str]] = None,
             country_code: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class User(pulumi.CustomResource):
             email: Optional[pulumi.Input[str]] = None,
             employee_number: Optional[pulumi.Input[str]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
-            group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             honorific_prefix: Optional[pulumi.Input[str]] = None,
             honorific_suffix: Optional[pulumi.Input[str]] = None,
             last_name: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -233,7 +233,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_memberships: User profile property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -309,7 +309,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> pulumi.Output[Optional[List[str]]]:
+    def admin_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Administrator roles assigned to User.
         """
@@ -397,7 +397,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> pulumi.Output[Optional[List[str]]]:
+    def group_memberships(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         User profile property.
         """

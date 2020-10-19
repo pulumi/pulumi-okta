@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,21 +22,21 @@ class SamlApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
+                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  authn_context_class_ref: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  default_relay_state: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 key_years_valid: Optional[pulumi.Input[float]] = None,
+                 key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class SamlApp(pulumi.CustomResource):
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -70,14 +70,14 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[List[pulumi.Input[str]]] features: features to enable
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[float] key_years_valid: Number of years the certificate is valid.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
@@ -92,7 +92,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,7 +172,7 @@ class SamlApp(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             app_settings_json: Optional[pulumi.Input[str]] = None,
             assertion_signed: Optional[pulumi.Input[bool]] = None,
-            attribute_statements: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
+            attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
             audience: Optional[pulumi.Input[str]] = None,
             authn_context_class_ref: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
@@ -182,8 +182,8 @@ class SamlApp(pulumi.CustomResource):
             digest_algorithm: Optional[pulumi.Input[str]] = None,
             entity_key: Optional[pulumi.Input[str]] = None,
             entity_url: Optional[pulumi.Input[str]] = None,
-            features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -192,7 +192,7 @@ class SamlApp(pulumi.CustomResource):
             idp_issuer: Optional[pulumi.Input[str]] = None,
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
-            key_years_valid: Optional[pulumi.Input[float]] = None,
+            key_years_valid: Optional[pulumi.Input[int]] = None,
             label: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class SamlApp(pulumi.CustomResource):
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None) -> 'SamlApp':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None) -> 'SamlApp':
         """
         Get an existing SamlApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -232,8 +232,8 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
         :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-        :param pulumi.Input[List[pulumi.Input[str]]] features: features to enable
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
@@ -242,7 +242,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[float] key_years_valid: Number of years the certificate is valid.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] metadata: SAML xml metadata payload
         :param pulumi.Input[str] name: name of app.
@@ -260,7 +260,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template: Username template
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]] users: Users associated with the application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,7 +354,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> pulumi.Output[Optional[List['outputs.SamlAppAttributeStatement']]]:
+    def attribute_statements(self) -> pulumi.Output[Optional[Sequence['outputs.SamlAppAttributeStatement']]]:
         return pulumi.get(self, "attribute_statements")
 
     @property
@@ -431,7 +431,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[List[str]]]:
+    def features(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         features to enable
         """
@@ -439,7 +439,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application
         """
@@ -511,7 +511,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyYearsValid")
-    def key_years_valid(self) -> pulumi.Output[Optional[float]]:
+    def key_years_valid(self) -> pulumi.Output[Optional[int]]:
         """
         Number of years the certificate is valid.
         """
@@ -655,7 +655,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.SamlAppUser']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.SamlAppUser']]]:
         """
         Users associated with the application
         """

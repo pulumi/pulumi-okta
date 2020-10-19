@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Oidc']
@@ -16,7 +16,7 @@ class Oidc(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  authorization_binding: Optional[pulumi.Input[str]] = None,
@@ -25,14 +25,14 @@ class Oidc(pulumi.CustomResource):
                  client_secret: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
-                 groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[str]] = None,
-                 groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  issuer_url: Optional[pulumi.Input[str]] = None,
                  jwks_binding: Optional[pulumi.Input[str]] = None,
                  jwks_url: Optional[pulumi.Input[str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[float]] = None,
+                 max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class Oidc(pulumi.CustomResource):
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
                  response_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  response_signature_scope: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class Oidc(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
-        :param pulumi.Input[List[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] acs_type: The type of ACS. Default is `"INSTANCE"`.
         :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
@@ -95,14 +95,14 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
         :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] issuer_url: URI that identifies the issuer.
         :param pulumi.Input[str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] jwks_url: Endpoint where the signer of the keys publishes its keys in a JWK Set.
-        :param pulumi.Input[float] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -111,7 +111,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
@@ -208,7 +208,7 @@ class Oidc(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             acs_binding: Optional[pulumi.Input[str]] = None,
             acs_type: Optional[pulumi.Input[str]] = None,
             authorization_binding: Optional[pulumi.Input[str]] = None,
@@ -217,14 +217,14 @@ class Oidc(pulumi.CustomResource):
             client_secret: Optional[pulumi.Input[str]] = None,
             deprovisioned_action: Optional[pulumi.Input[str]] = None,
             groups_action: Optional[pulumi.Input[str]] = None,
-            groups_assignments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_attribute: Optional[pulumi.Input[str]] = None,
-            groups_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             issuer_url: Optional[pulumi.Input[str]] = None,
             jwks_binding: Optional[pulumi.Input[str]] = None,
             jwks_url: Optional[pulumi.Input[str]] = None,
-            max_clock_skew: Optional[pulumi.Input[float]] = None,
+            max_clock_skew: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_master: Optional[pulumi.Input[bool]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
@@ -233,7 +233,7 @@ class Oidc(pulumi.CustomResource):
             request_signature_scope: Optional[pulumi.Input[str]] = None,
             response_signature_algorithm: Optional[pulumi.Input[str]] = None,
             response_signature_scope: Optional[pulumi.Input[str]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
             subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -252,7 +252,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
-        :param pulumi.Input[List[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] acs_type: The type of ACS. Default is `"INSTANCE"`.
         :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
@@ -261,14 +261,14 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
         :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] issuer_url: URI that identifies the issuer.
         :param pulumi.Input[str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] jwks_url: Endpoint where the signer of the keys publishes its keys in a JWK Set.
-        :param pulumi.Input[float] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -277,7 +277,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
@@ -341,7 +341,7 @@ class Oidc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> pulumi.Output[Optional[List[str]]]:
+    def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Group memberships to determine link candidates.
         """
@@ -413,7 +413,7 @@ class Oidc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
         """
@@ -429,7 +429,7 @@ class Oidc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
         """
@@ -469,7 +469,7 @@ class Oidc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> pulumi.Output[Optional[float]]:
+    def max_clock_skew(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum allowable clock-skew when processing messages from the IdP.
         """
@@ -541,7 +541,7 @@ class Oidc(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[List[str]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         The scopes of the IdP.
         """
