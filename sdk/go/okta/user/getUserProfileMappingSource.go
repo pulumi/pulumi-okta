@@ -40,7 +40,7 @@ func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOptio
 
 // A collection of values returned by getUserProfileMappingSource.
 type GetUserProfileMappingSourceResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// id of the source.
 	Id string `pulumi:"id"`
 	// name of source.
 	Name string `pulumi:"name"`
