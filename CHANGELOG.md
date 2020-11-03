@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.6.0 of the Okta Terraform Provider
+_(none)_
 
 ---
+
+## 2.6.0 (2020-11-03)
+* Upgrade to v3.6.0 of the Okta Terraform Provider
 
 ## 2.5.0 (2020-10-26)
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
