@@ -34,7 +34,7 @@ class GetUserProfileMappingSourceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        id of the source.
         """
         return pulumi.get(self, "id")
 

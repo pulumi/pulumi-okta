@@ -43,7 +43,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUserProfileMappingSourceResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// id of the source.
         /// </summary>
         public readonly string Id;
         /// <summary>

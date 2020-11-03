@@ -61,11 +61,7 @@
                 "type": "integer",
                 "description": "Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of\nhttps://developer.okta.com/docs/api/getting_started/rate-limits.\n"
             }
-        },
-        "defaults": [
-            "apiToken",
-            "orgName"
-        ]
+        }
     },
     "types": {
         "okta:app/AutoLoginUser:AutoLoginUser": {
@@ -17011,7 +17007,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "description": "id of the source.\n"
                     },
                     "name": {
                         "type": "string",
@@ -17024,9 +17020,9 @@
                 },
                 "type": "object",
                 "required": [
+                    "id",
                     "name",
-                    "type",
-                    "id"
+                    "type"
                 ]
             }
         },
