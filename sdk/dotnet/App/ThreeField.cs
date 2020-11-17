@@ -124,13 +124,19 @@ namespace Pulumi.Okta.App
         /// The default username assigned to each user.
         /// </summary>
         [Output("userNameTemplate")]
-        public Output<string> UserNameTemplate { get; private set; } = null!;
+        public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Output("userNameTemplateSuffix")]
+        public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
         /// The Username template type.
         /// </summary>
         [Output("userNameTemplateType")]
-        public Output<string> UserNameTemplateType { get; private set; } = null!;
+        public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
         /// Login username field CSS selector.
@@ -281,6 +287,24 @@ namespace Pulumi.Okta.App
         public Input<string>? UrlRegex { get; set; }
 
         /// <summary>
+        /// The default username assigned to each user.
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// The Username template type.
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
+
+        /// <summary>
         /// Login username field CSS selector.
         /// </summary>
         [Input("usernameSelector", required: true)]
@@ -412,6 +436,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
         /// The Username template type.

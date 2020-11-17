@@ -37,6 +37,9 @@ class SecurePasswordStore(pulumi.CustomResource):
                  shared_username: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None,
                  __props__=None,
@@ -91,6 +94,9 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
+        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
@@ -137,14 +143,15 @@ class SecurePasswordStore(pulumi.CustomResource):
             if url is None:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
+            __props__['user_name_template'] = user_name_template
+            __props__['user_name_template_suffix'] = user_name_template_suffix
+            __props__['user_name_template_type'] = user_name_template_type
             if username_field is None:
                 raise TypeError("Missing required property 'username_field'")
             __props__['username_field'] = username_field
             __props__['users'] = users
             __props__['name'] = None
             __props__['sign_on_mode'] = None
-            __props__['user_name_template'] = None
-            __props__['user_name_template_type'] = None
         super(SecurePasswordStore, __self__).__init__(
             'okta:app/securePasswordStore:SecurePasswordStore',
             resource_name,
@@ -178,6 +185,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None) -> 'SecurePasswordStore':
@@ -211,6 +219,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
@@ -242,6 +251,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__["status"] = status
         __props__["url"] = url
         __props__["user_name_template"] = user_name_template
+        __props__["user_name_template_suffix"] = user_name_template_suffix
         __props__["user_name_template_type"] = user_name_template_type
         __props__["username_field"] = username_field
         __props__["users"] = users
@@ -425,15 +435,23 @@ class SecurePasswordStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> pulumi.Output[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
         The default username assigned to each user.
         """
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> pulumi.Output[str]:
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Username template type.
         """

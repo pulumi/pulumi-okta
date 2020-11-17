@@ -45,9 +45,11 @@ type SwaApp struct {
 	// A regex that further restricts URL to the specified regex
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
 	// Users associated with the application
@@ -117,6 +119,8 @@ type swaAppState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field
@@ -158,6 +162,8 @@ type SwaAppState struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field
@@ -197,6 +203,12 @@ type swaAppArgs struct {
 	Url *string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex
 	UrlRegex *string `pulumi:"urlRegex"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field
 	UsernameField *string `pulumi:"usernameField"`
 	// Users associated with the application
@@ -231,6 +243,12 @@ type SwaAppArgs struct {
 	Url pulumi.StringPtrInput
 	// A regex that further restricts URL to the specified regex
 	UrlRegex pulumi.StringPtrInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field
 	UsernameField pulumi.StringPtrInput
 	// Users associated with the application

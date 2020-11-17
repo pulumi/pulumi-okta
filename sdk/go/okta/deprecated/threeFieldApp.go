@@ -47,9 +47,11 @@ type ThreeFieldApp struct {
 	// A regex that further restricts URL to the specified regex
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
 	// Users associated with the application
@@ -139,6 +141,8 @@ type threeFieldAppState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector
@@ -182,6 +186,8 @@ type ThreeFieldAppState struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector
@@ -223,6 +229,12 @@ type threeFieldAppArgs struct {
 	Url string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex
 	UrlRegex *string `pulumi:"urlRegex"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector
 	UsernameSelector string `pulumi:"usernameSelector"`
 	// Users associated with the application
@@ -259,6 +271,12 @@ type ThreeFieldAppArgs struct {
 	Url pulumi.StringInput
 	// A regex that further restricts URL to the specified regex
 	UrlRegex pulumi.StringPtrInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector
 	UsernameSelector pulumi.StringInput
 	// Users associated with the application

@@ -72,9 +72,15 @@ namespace Pulumi.Okta.Auth
         [Output("grantTypeWhitelists")]
         public Output<ImmutableArray<string>> GrantTypeWhitelists { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be excluded
+        /// </summary>
         [Output("groupBlacklists")]
         public Output<ImmutableArray<string>> GroupBlacklists { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be included
+        /// </summary>
         [Output("groupWhitelists")]
         public Output<ImmutableArray<string>> GroupWhitelists { get; private set; } = null!;
 
@@ -132,9 +138,15 @@ namespace Pulumi.Okta.Auth
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a set of Users to be excluded
+        /// </summary>
         [Output("userBlacklists")]
         public Output<ImmutableArray<string>> UserBlacklists { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a set of Users to be included
+        /// </summary>
         [Output("userWhitelists")]
         public Output<ImmutableArray<string>> UserWhitelists { get; private set; } = null!;
 
@@ -214,6 +226,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("groupBlacklists")]
         private InputList<string>? _groupBlacklists;
+
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be excluded
+        /// </summary>
         public InputList<string> GroupBlacklists
         {
             get => _groupBlacklists ?? (_groupBlacklists = new InputList<string>());
@@ -222,6 +238,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("groupWhitelists")]
         private InputList<string>? _groupWhitelists;
+
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be included
+        /// </summary>
         public InputList<string> GroupWhitelists
         {
             get => _groupWhitelists ?? (_groupWhitelists = new InputList<string>());
@@ -290,6 +310,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("userBlacklists")]
         private InputList<string>? _userBlacklists;
+
+        /// <summary>
+        /// Specifies a set of Users to be excluded
+        /// </summary>
         public InputList<string> UserBlacklists
         {
             get => _userBlacklists ?? (_userBlacklists = new InputList<string>());
@@ -298,6 +322,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("userWhitelists")]
         private InputList<string>? _userWhitelists;
+
+        /// <summary>
+        /// Specifies a set of Users to be included
+        /// </summary>
         public InputList<string> UserWhitelists
         {
             get => _userWhitelists ?? (_userWhitelists = new InputList<string>());
@@ -337,6 +365,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("groupBlacklists")]
         private InputList<string>? _groupBlacklists;
+
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be excluded
+        /// </summary>
         public InputList<string> GroupBlacklists
         {
             get => _groupBlacklists ?? (_groupBlacklists = new InputList<string>());
@@ -345,6 +377,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("groupWhitelists")]
         private InputList<string>? _groupWhitelists;
+
+        /// <summary>
+        /// Specifies a set of Groups whose Users are to be included
+        /// </summary>
         public InputList<string> GroupWhitelists
         {
             get => _groupWhitelists ?? (_groupWhitelists = new InputList<string>());
@@ -413,6 +449,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("userBlacklists")]
         private InputList<string>? _userBlacklists;
+
+        /// <summary>
+        /// Specifies a set of Users to be excluded
+        /// </summary>
         public InputList<string> UserBlacklists
         {
             get => _userBlacklists ?? (_userBlacklists = new InputList<string>());
@@ -421,6 +461,10 @@ namespace Pulumi.Okta.Auth
 
         [Input("userWhitelists")]
         private InputList<string>? _userWhitelists;
+
+        /// <summary>
+        /// Specifies a set of Users to be included
+        /// </summary>
         public InputList<string> UserWhitelists
         {
             get => _userWhitelists ?? (_userWhitelists = new InputList<string>());

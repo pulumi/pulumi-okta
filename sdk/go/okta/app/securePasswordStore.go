@@ -97,9 +97,11 @@ type SecurePasswordStore struct {
 	// Login URL.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The default username assigned to each user.
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// The Username template type.
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
@@ -192,6 +194,8 @@ type securePasswordStoreState struct {
 	Url *string `pulumi:"url"`
 	// The default username assigned to each user.
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// The Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
@@ -247,6 +251,8 @@ type SecurePasswordStoreState struct {
 	Url pulumi.StringPtrInput
 	// The default username assigned to each user.
 	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
 	// The Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
@@ -300,6 +306,12 @@ type securePasswordStoreArgs struct {
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url string `pulumi:"url"`
+	// The default username assigned to each user.
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// The Username template type.
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
@@ -348,6 +360,12 @@ type SecurePasswordStoreArgs struct {
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringInput
+	// The default username assigned to each user.
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// The Username template type.
+	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.

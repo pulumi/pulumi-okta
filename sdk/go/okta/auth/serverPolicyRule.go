@@ -63,8 +63,10 @@ type ServerPolicyRule struct {
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayOutput `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists     pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
-	GroupWhitelists     pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
+	// Specifies a set of Groups whose Users are to be excluded
+	GroupBlacklists pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
+	// Specifies a set of Groups whose Users are to be included
+	GroupWhitelists pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -82,8 +84,10 @@ type ServerPolicyRule struct {
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type           pulumi.StringPtrOutput   `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Specifies a set of Users to be excluded
 	UserBlacklists pulumi.StringArrayOutput `pulumi:"userBlacklists"`
+	// Specifies a set of Users to be included
 	UserWhitelists pulumi.StringArrayOutput `pulumi:"userWhitelists"`
 }
 
@@ -139,8 +143,10 @@ type serverPolicyRuleState struct {
 	AuthServerId *string `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists     []string `pulumi:"groupBlacklists"`
-	GroupWhitelists     []string `pulumi:"groupWhitelists"`
+	// Specifies a set of Groups whose Users are to be excluded
+	GroupBlacklists []string `pulumi:"groupBlacklists"`
+	// Specifies a set of Groups whose Users are to be included
+	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -158,8 +164,10 @@ type serverPolicyRuleState struct {
 	// The status of the Auth Server Policy Rule.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type           *string  `pulumi:"type"`
+	Type *string `pulumi:"type"`
+	// Specifies a set of Users to be excluded
 	UserBlacklists []string `pulumi:"userBlacklists"`
+	// Specifies a set of Users to be included
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
@@ -170,8 +178,10 @@ type ServerPolicyRuleState struct {
 	AuthServerId pulumi.StringPtrInput
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayInput
-	GroupBlacklists     pulumi.StringArrayInput
-	GroupWhitelists     pulumi.StringArrayInput
+	// Specifies a set of Groups whose Users are to be excluded
+	GroupBlacklists pulumi.StringArrayInput
+	// Specifies a set of Groups whose Users are to be included
+	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
 	// Auth Server Policy Rule name.
@@ -189,8 +199,10 @@ type ServerPolicyRuleState struct {
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
-	Type           pulumi.StringPtrInput
+	Type pulumi.StringPtrInput
+	// Specifies a set of Users to be excluded
 	UserBlacklists pulumi.StringArrayInput
+	// Specifies a set of Users to be included
 	UserWhitelists pulumi.StringArrayInput
 }
 
@@ -205,8 +217,10 @@ type serverPolicyRuleArgs struct {
 	AuthServerId string `pulumi:"authServerId"`
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	GroupBlacklists     []string `pulumi:"groupBlacklists"`
-	GroupWhitelists     []string `pulumi:"groupWhitelists"`
+	// Specifies a set of Groups whose Users are to be excluded
+	GroupBlacklists []string `pulumi:"groupBlacklists"`
+	// Specifies a set of Groups whose Users are to be included
+	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Auth Server Policy Rule name.
@@ -224,8 +238,10 @@ type serverPolicyRuleArgs struct {
 	// The status of the Auth Server Policy Rule.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
-	Type           *string  `pulumi:"type"`
+	Type *string `pulumi:"type"`
+	// Specifies a set of Users to be excluded
 	UserBlacklists []string `pulumi:"userBlacklists"`
+	// Specifies a set of Users to be included
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
@@ -237,8 +253,10 @@ type ServerPolicyRuleArgs struct {
 	AuthServerId pulumi.StringInput
 	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
 	GrantTypeWhitelists pulumi.StringArrayInput
-	GroupBlacklists     pulumi.StringArrayInput
-	GroupWhitelists     pulumi.StringArrayInput
+	// Specifies a set of Groups whose Users are to be excluded
+	GroupBlacklists pulumi.StringArrayInput
+	// Specifies a set of Groups whose Users are to be included
+	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
 	// Auth Server Policy Rule name.
@@ -256,8 +274,10 @@ type ServerPolicyRuleArgs struct {
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
-	Type           pulumi.StringPtrInput
+	Type pulumi.StringPtrInput
+	// Specifies a set of Users to be excluded
 	UserBlacklists pulumi.StringArrayInput
+	// Specifies a set of Users to be included
 	UserWhitelists pulumi.StringArrayInput
 }
 

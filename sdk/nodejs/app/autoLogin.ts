@@ -62,31 +62,31 @@ export class AutoLogin extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service
+     * Enable self service. By default it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Application credentials scheme
+     * One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
      */
     public readonly credentialsScheme!: pulumi.Output<string | undefined>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,11 +106,11 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly revealPassword!: pulumi.Output<boolean | undefined>;
     /**
-     * Shared password, required for certain schemes.
+     * Shared password, required for certain schemes
      */
     public readonly sharedPassword!: pulumi.Output<string | undefined>;
     /**
-     * Shared username, required for certain schemes.
+     * Shared username, required for certain schemes
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
@@ -118,7 +118,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Post login redirect URL
+     * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      */
     public readonly signOnRedirectUrl!: pulumi.Output<string | undefined>;
     /**
@@ -130,15 +130,19 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
-    public /*out*/ readonly userNameTemplate!: pulumi.Output<string>;
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Username template type
+     * Username template suffix.
      */
-    public /*out*/ readonly userNameTemplateType!: pulumi.Output<string>;
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Users associated with the application
+     * Username template type. Default: `"BUILT_IN"`
+     */
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
+    /**
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
      */
     public readonly users!: pulumi.Output<outputs.app.AutoLoginUser[] | undefined>;
 
@@ -172,6 +176,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["signOnUrl"] = state ? state.signOnUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
@@ -194,11 +199,12 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
             inputs["signOnUrl"] = args ? args.signOnUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
-            inputs["userNameTemplate"] = undefined /*out*/;
-            inputs["userNameTemplateType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -216,31 +222,31 @@ export class AutoLogin extends pulumi.CustomResource {
  */
 export interface AutoLoginState {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service
+     * Enable self service. By default it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Application credentials scheme
+     * One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
      */
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -260,11 +266,11 @@ export interface AutoLoginState {
      */
     readonly revealPassword?: pulumi.Input<boolean>;
     /**
-     * Shared password, required for certain schemes.
+     * Shared password, required for certain schemes
      */
     readonly sharedPassword?: pulumi.Input<string>;
     /**
-     * Shared username, required for certain schemes.
+     * Shared username, required for certain schemes
      */
     readonly sharedUsername?: pulumi.Input<string>;
     /**
@@ -272,7 +278,7 @@ export interface AutoLoginState {
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Post login redirect URL
+     * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      */
     readonly signOnRedirectUrl?: pulumi.Input<string>;
     /**
@@ -284,15 +290,19 @@ export interface AutoLoginState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     readonly userNameTemplate?: pulumi.Input<string>;
     /**
-     * Username template type
+     * Username template suffix.
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type. Default: `"BUILT_IN"`
      */
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }
@@ -302,31 +312,31 @@ export interface AutoLoginState {
  */
 export interface AutoLoginArgs {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service
+     * Enable self service. By default it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Application credentials scheme
+     * One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
      */
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -342,15 +352,15 @@ export interface AutoLoginArgs {
      */
     readonly revealPassword?: pulumi.Input<boolean>;
     /**
-     * Shared password, required for certain schemes.
+     * Shared password, required for certain schemes
      */
     readonly sharedPassword?: pulumi.Input<string>;
     /**
-     * Shared username, required for certain schemes.
+     * Shared username, required for certain schemes
      */
     readonly sharedUsername?: pulumi.Input<string>;
     /**
-     * Post login redirect URL
+     * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      */
     readonly signOnRedirectUrl?: pulumi.Input<string>;
     /**
@@ -362,7 +372,19 @@ export interface AutoLoginArgs {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Username template. Default: `"${source.login}"`
+     */
+    readonly userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type. Default: `"BUILT_IN"`
+     */
+    readonly userNameTemplateType?: pulumi.Input<string>;
+    /**
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }

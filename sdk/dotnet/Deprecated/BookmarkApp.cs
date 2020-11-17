@@ -35,9 +35,6 @@ namespace Pulumi.Okta.Deprecated
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
-        /// <summary>
-        /// Pretty name of app.
-        /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
@@ -147,9 +144,6 @@ namespace Pulumi.Okta.Deprecated
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
-        /// <summary>
-        /// Pretty name of app.
-        /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
@@ -214,9 +208,6 @@ namespace Pulumi.Okta.Deprecated
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
-        /// <summary>
-        /// Pretty name of app.
-        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 

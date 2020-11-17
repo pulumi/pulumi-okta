@@ -117,13 +117,19 @@ namespace Pulumi.Okta.Deprecated
         /// Username template
         /// </summary>
         [Output("userNameTemplate")]
-        public Output<string> UserNameTemplate { get; private set; } = null!;
+        public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Output("userNameTemplateSuffix")]
+        public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
         /// Username template type
         /// </summary>
         [Output("userNameTemplateType")]
-        public Output<string> UserNameTemplateType { get; private set; } = null!;
+        public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
         /// Users associated with the application
@@ -273,6 +279,24 @@ namespace Pulumi.Okta.Deprecated
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
+
         [Input("users")]
         private InputList<Inputs.AuthLoginAppUserArgs>? _users;
 
@@ -405,6 +429,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
         /// Username template type

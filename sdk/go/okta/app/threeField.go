@@ -58,9 +58,11 @@ type ThreeField struct {
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// The default username assigned to each user.
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// The Username template type.
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
@@ -150,6 +152,8 @@ type threeFieldState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// The default username assigned to each user.
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// The Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
@@ -193,6 +197,8 @@ type ThreeFieldState struct {
 	UrlRegex pulumi.StringPtrInput
 	// The default username assigned to each user.
 	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
 	// The Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
@@ -234,6 +240,12 @@ type threeFieldArgs struct {
 	Url string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex *string `pulumi:"urlRegex"`
+	// The default username assigned to each user.
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// The Username template type.
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector string `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
@@ -270,6 +282,12 @@ type ThreeFieldArgs struct {
 	Url pulumi.StringInput
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrInput
+	// The default username assigned to each user.
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// The Username template type.
+	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
