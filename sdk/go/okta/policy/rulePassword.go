@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Creates a Password Policy Rule.
 //
 // This resource allows you to create and configure a Password Policy Rule.
+//
+// ## Import
+//
+// A Policy Rule can be imported via the Policy and Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+// ```
 type RulePassword struct {
 	pulumi.CustomResourceState
 
@@ -177,4 +186,43 @@ type RulePasswordArgs struct {
 
 func (RulePasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulePasswordArgs)(nil)).Elem()
+}
+
+type RulePasswordInput interface {
+	pulumi.Input
+
+	ToRulePasswordOutput() RulePasswordOutput
+	ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput
+}
+
+func (RulePassword) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePassword)(nil)).Elem()
+}
+
+func (i RulePassword) ToRulePasswordOutput() RulePasswordOutput {
+	return i.ToRulePasswordOutputWithContext(context.Background())
+}
+
+func (i RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordOutput)
+}
+
+type RulePasswordOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulePasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePasswordOutput)(nil)).Elem()
+}
+
+func (o RulePasswordOutput) ToRulePasswordOutput() RulePasswordOutput {
+	return o
+}
+
+func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RulePasswordOutput{})
 }

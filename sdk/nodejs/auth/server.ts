@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Authorization Server can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:auth/server:Server example <auth server id>
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

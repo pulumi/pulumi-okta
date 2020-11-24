@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,4 +180,43 @@ type PasswordPolicyRuleArgs struct {
 
 func (PasswordPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordPolicyRuleArgs)(nil)).Elem()
+}
+
+type PasswordPolicyRuleInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput
+	ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput
+}
+
+func (PasswordPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyRule)(nil)).Elem()
+}
+
+func (i PasswordPolicyRule) ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput {
+	return i.ToPasswordPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyRule) ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleOutput)
+}
+
+type PasswordPolicyRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (PasswordPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyRuleOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyRuleOutput) ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput {
+	return o
+}
+
+func (o PasswordPolicyRuleOutput) ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PasswordPolicyRuleOutput{})
 }

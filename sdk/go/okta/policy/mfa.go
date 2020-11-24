@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -12,6 +13,14 @@ import (
 // Creates an MFA Policy.
 //
 // This resource allows you to create and configure an MFA Policy.
+//
+// ## Import
+//
+// An MFA Policy can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/mfa:Mfa example <policy id>
+// ```
 type Mfa struct {
 	pulumi.CustomResourceState
 
@@ -243,4 +252,43 @@ type MfaArgs struct {
 
 func (MfaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaArgs)(nil)).Elem()
+}
+
+type MfaInput interface {
+	pulumi.Input
+
+	ToMfaOutput() MfaOutput
+	ToMfaOutputWithContext(ctx context.Context) MfaOutput
+}
+
+func (Mfa) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mfa)(nil)).Elem()
+}
+
+func (i Mfa) ToMfaOutput() MfaOutput {
+	return i.ToMfaOutputWithContext(context.Background())
+}
+
+func (i Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaOutput)
+}
+
+type MfaOutput struct {
+	*pulumi.OutputState
+}
+
+func (MfaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaOutput)(nil)).Elem()
+}
+
+func (o MfaOutput) ToMfaOutput() MfaOutput {
+	return o
+}
+
+func (o MfaOutput) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MfaOutput{})
 }

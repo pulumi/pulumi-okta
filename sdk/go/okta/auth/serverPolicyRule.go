@@ -4,6 +4,7 @@
 package auth
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example <auth server id>/<policy id>/<policy rule id>
 // ```
 type ServerPolicyRule struct {
 	pulumi.CustomResourceState
@@ -254,4 +263,43 @@ type ServerPolicyRuleArgs struct {
 
 func (ServerPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverPolicyRuleArgs)(nil)).Elem()
+}
+
+type ServerPolicyRuleInput interface {
+	pulumi.Input
+
+	ToServerPolicyRuleOutput() ServerPolicyRuleOutput
+	ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput
+}
+
+func (ServerPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyRule)(nil)).Elem()
+}
+
+func (i ServerPolicyRule) ToServerPolicyRuleOutput() ServerPolicyRuleOutput {
+	return i.ToServerPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyRule) ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleOutput)
+}
+
+type ServerPolicyRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyRuleOutput)(nil)).Elem()
+}
+
+func (o ServerPolicyRuleOutput) ToServerPolicyRuleOutput() ServerPolicyRuleOutput {
+	return o
+}
+
+func (o ServerPolicyRuleOutput) ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerPolicyRuleOutput{})
 }

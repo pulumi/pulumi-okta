@@ -44,6 +44,14 @@ class UserBaseSchema(pulumi.CustomResource):
             type="string")
         ```
 
+        ## Import
+
+        App user base schema property can be imported via the property index and app id.
+
+        ```sh
+         $ pulumi import okta:app/userBaseSchema:UserBaseSchema example <app id>/<property name>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.

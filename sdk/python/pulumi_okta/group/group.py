@@ -35,6 +35,14 @@ class Group(pulumi.CustomResource):
         example = okta.group.Group("example", description="My Example Group")
         ```
 
+        ## Import
+
+        An Okta Group can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:group/group:Group example <group id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Okta Group.

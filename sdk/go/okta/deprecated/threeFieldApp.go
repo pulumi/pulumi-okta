@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -266,4 +267,43 @@ type ThreeFieldAppArgs struct {
 
 func (ThreeFieldAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threeFieldAppArgs)(nil)).Elem()
+}
+
+type ThreeFieldAppInput interface {
+	pulumi.Input
+
+	ToThreeFieldAppOutput() ThreeFieldAppOutput
+	ToThreeFieldAppOutputWithContext(ctx context.Context) ThreeFieldAppOutput
+}
+
+func (ThreeFieldApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreeFieldApp)(nil)).Elem()
+}
+
+func (i ThreeFieldApp) ToThreeFieldAppOutput() ThreeFieldAppOutput {
+	return i.ToThreeFieldAppOutputWithContext(context.Background())
+}
+
+func (i ThreeFieldApp) ToThreeFieldAppOutputWithContext(ctx context.Context) ThreeFieldAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppOutput)
+}
+
+type ThreeFieldAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreeFieldAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreeFieldAppOutput)(nil)).Elem()
+}
+
+func (o ThreeFieldAppOutput) ToThreeFieldAppOutput() ThreeFieldAppOutput {
+	return o
+}
+
+func (o ThreeFieldAppOutput) ToThreeFieldAppOutputWithContext(ctx context.Context) ThreeFieldAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThreeFieldAppOutput{})
 }

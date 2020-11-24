@@ -42,6 +42,14 @@ namespace Pulumi.Okta.Network
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Network Zone can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:network/zone:Zone example &lt;zone id&gt;
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {

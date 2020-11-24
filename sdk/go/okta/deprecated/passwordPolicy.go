@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -360,4 +361,43 @@ type PasswordPolicyArgs struct {
 
 func (PasswordPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordPolicyArgs)(nil)).Elem()
+}
+
+type PasswordPolicyInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyOutput() PasswordPolicyOutput
+	ToPasswordPolicyOutputWithContext(ctx context.Context) PasswordPolicyOutput
+}
+
+func (PasswordPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicy)(nil)).Elem()
+}
+
+func (i PasswordPolicy) ToPasswordPolicyOutput() PasswordPolicyOutput {
+	return i.ToPasswordPolicyOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicy) ToPasswordPolicyOutputWithContext(ctx context.Context) PasswordPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyOutput)
+}
+
+type PasswordPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (PasswordPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyOutput) ToPasswordPolicyOutput() PasswordPolicyOutput {
+	return o
+}
+
+func (o PasswordPolicyOutput) ToPasswordPolicyOutputWithContext(ctx context.Context) PasswordPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PasswordPolicyOutput{})
 }

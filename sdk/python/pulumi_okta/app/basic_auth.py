@@ -46,6 +46,14 @@ class BasicAuth(pulumi.CustomResource):
             url="https://example.com/login.html")
         ```
 
+        ## Import
+
+        A Basic Auth App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.

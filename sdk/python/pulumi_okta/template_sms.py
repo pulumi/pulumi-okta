@@ -49,6 +49,14 @@ class TemplateSms(pulumi.CustomResource):
             type="SMS_VERIFY_CODE")
         ```
 
+        ## Import
+
+        An Okta SMS Template can be imported via the template type.
+
+        ```sh
+         $ pulumi import okta:index/templateSms:TemplateSms example <template type>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] template: The SMS message.

@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     type: "string",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * User base schema property can be imported via the property index.
+ *
+ * ```sh
+ *  $ pulumi import okta:user/baseSchema:BaseSchema example <property name>
+ * ```
  */
 export class BaseSchema extends pulumi.CustomResource {
     /**

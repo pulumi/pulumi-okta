@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Okta SWA App can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/swa:Swa example <app id>
 // ```
 type Swa struct {
 	pulumi.CustomResourceState
@@ -268,4 +277,43 @@ type SwaArgs struct {
 
 func (SwaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*swaArgs)(nil)).Elem()
+}
+
+type SwaInput interface {
+	pulumi.Input
+
+	ToSwaOutput() SwaOutput
+	ToSwaOutputWithContext(ctx context.Context) SwaOutput
+}
+
+func (Swa) ElementType() reflect.Type {
+	return reflect.TypeOf((*Swa)(nil)).Elem()
+}
+
+func (i Swa) ToSwaOutput() SwaOutput {
+	return i.ToSwaOutputWithContext(context.Background())
+}
+
+func (i Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaOutput)
+}
+
+type SwaOutput struct {
+	*pulumi.OutputState
+}
+
+func (SwaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwaOutput)(nil)).Elem()
+}
+
+func (o SwaOutput) ToSwaOutput() SwaOutput {
+	return o
+}
+
+func (o SwaOutput) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SwaOutput{})
 }

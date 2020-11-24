@@ -43,6 +43,14 @@ namespace Pulumi.Okta.Idp
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Social IdP can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:idp/social:Social example &lt;idp id&gt;
+    /// ```
     /// </summary>
     public partial class Social : Pulumi.CustomResource
     {

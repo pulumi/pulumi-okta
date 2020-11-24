@@ -36,6 +36,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Secure Password Store Application can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class SecurePasswordStore : Pulumi.CustomResource
     {

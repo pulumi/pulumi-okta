@@ -34,6 +34,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Basic Auth App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/basicAuth:BasicAuth example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class BasicAuth : Pulumi.CustomResource
     {

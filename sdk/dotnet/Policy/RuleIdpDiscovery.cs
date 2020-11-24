@@ -45,6 +45,14 @@ namespace Pulumi.Okta.Policy
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Policy Rule can be imported via the Policy and Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &lt;policy id&gt;/&lt;rule id&gt;
+    /// ```
     /// </summary>
     public partial class RuleIdpDiscovery : Pulumi.CustomResource
     {

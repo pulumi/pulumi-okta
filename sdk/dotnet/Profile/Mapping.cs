@@ -58,6 +58,10 @@ namespace Pulumi.Okta.Profile
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Once the source is deleted this resources will no longer exist.
     /// </summary>
     public partial class Mapping : Pulumi.CustomResource
     {

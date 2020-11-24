@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -115,4 +116,43 @@ type SignonPolicyArgs struct {
 
 func (SignonPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonPolicyArgs)(nil)).Elem()
+}
+
+type SignonPolicyInput interface {
+	pulumi.Input
+
+	ToSignonPolicyOutput() SignonPolicyOutput
+	ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput
+}
+
+func (SignonPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicy)(nil)).Elem()
+}
+
+func (i SignonPolicy) ToSignonPolicyOutput() SignonPolicyOutput {
+	return i.ToSignonPolicyOutputWithContext(context.Background())
+}
+
+func (i SignonPolicy) ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyOutput)
+}
+
+type SignonPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (SignonPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyOutput)(nil)).Elem()
+}
+
+func (o SignonPolicyOutput) ToSignonPolicyOutput() SignonPolicyOutput {
+	return o
+}
+
+func (o SignonPolicyOutput) ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SignonPolicyOutput{})
 }

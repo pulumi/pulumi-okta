@@ -33,6 +33,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Bookmark App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/bookmark:Bookmark example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class Bookmark : Pulumi.CustomResource
     {

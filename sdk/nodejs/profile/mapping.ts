@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +41,10 @@ import * as utilities from "../utilities";
  *     targetId: user.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Once the source is deleted this resources will no longer exist.
  */
 export class Mapping extends pulumi.CustomResource {
     /**

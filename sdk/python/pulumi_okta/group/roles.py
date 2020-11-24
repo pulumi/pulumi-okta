@@ -36,6 +36,14 @@ class Roles(pulumi.CustomResource):
             group_id="<group id>")
         ```
 
+        ## Import
+
+        Group Role Assignment can be imported via the Okta Group ID.
+
+        ```sh
+         $ pulumi import okta:group/roles:Roles example <group id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.

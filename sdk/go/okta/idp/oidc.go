@@ -4,6 +4,7 @@
 package idp
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An OIDC IdP can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:idp/oidc:Oidc example <idp id>
 // ```
 type Oidc struct {
 	pulumi.CustomResourceState
@@ -497,4 +506,43 @@ type OidcArgs struct {
 
 func (OidcArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oidcArgs)(nil)).Elem()
+}
+
+type OidcInput interface {
+	pulumi.Input
+
+	ToOidcOutput() OidcOutput
+	ToOidcOutputWithContext(ctx context.Context) OidcOutput
+}
+
+func (Oidc) ElementType() reflect.Type {
+	return reflect.TypeOf((*Oidc)(nil)).Elem()
+}
+
+func (i Oidc) ToOidcOutput() OidcOutput {
+	return i.ToOidcOutputWithContext(context.Background())
+}
+
+func (i Oidc) ToOidcOutputWithContext(ctx context.Context) OidcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OidcOutput)
+}
+
+type OidcOutput struct {
+	*pulumi.OutputState
+}
+
+func (OidcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OidcOutput)(nil)).Elem()
+}
+
+func (o OidcOutput) ToOidcOutput() OidcOutput {
+	return o
+}
+
+func (o OidcOutput) ToOidcOutputWithContext(ctx context.Context) OidcOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OidcOutput{})
 }

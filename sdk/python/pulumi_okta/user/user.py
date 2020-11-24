@@ -61,6 +61,14 @@ class User(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta User.
 
+        ## Import
+
+        An Okta User can be imported via the ID.
+
+        ```sh
+         $ pulumi import okta:user/user:User example <user id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.

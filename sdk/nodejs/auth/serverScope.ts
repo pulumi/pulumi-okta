@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     metadataPublish: "NO_CLIENTS",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:auth/serverScope:ServerScope example <auth server id>/<scope id>
+ * ```
  */
 export class ServerScope extends pulumi.CustomResource {
     /**

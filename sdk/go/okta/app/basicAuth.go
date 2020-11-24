@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Basic Auth App can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
 // ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
@@ -194,4 +203,43 @@ type BasicAuthArgs struct {
 
 func (BasicAuthArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*basicAuthArgs)(nil)).Elem()
+}
+
+type BasicAuthInput interface {
+	pulumi.Input
+
+	ToBasicAuthOutput() BasicAuthOutput
+	ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput
+}
+
+func (BasicAuth) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuth)(nil)).Elem()
+}
+
+func (i BasicAuth) ToBasicAuthOutput() BasicAuthOutput {
+	return i.ToBasicAuthOutputWithContext(context.Background())
+}
+
+func (i BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthOutput)
+}
+
+type BasicAuthOutput struct {
+	*pulumi.OutputState
+}
+
+func (BasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthOutput)(nil)).Elem()
+}
+
+func (o BasicAuthOutput) ToBasicAuthOutput() BasicAuthOutput {
+	return o
+}
+
+func (o BasicAuthOutput) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BasicAuthOutput{})
 }

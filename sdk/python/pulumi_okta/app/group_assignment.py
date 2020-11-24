@@ -27,6 +27,14 @@ class GroupAssignment(pulumi.CustomResource):
 
         This resource allows you to create an App Group assignment.
 
+        ## Import
+
+        An application group assignment can be imported via the `app_id` and the `group_id`.
+
+        ```sh
+         $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.

@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An OIDC Application can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/oAuth:OAuth example <app id>
 // ```
 type OAuth struct {
 	pulumi.CustomResourceState
@@ -438,4 +447,43 @@ type OAuthArgs struct {
 
 func (OAuthArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthArgs)(nil)).Elem()
+}
+
+type OAuthInput interface {
+	pulumi.Input
+
+	ToOAuthOutput() OAuthOutput
+	ToOAuthOutputWithContext(ctx context.Context) OAuthOutput
+}
+
+func (OAuth) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth)(nil)).Elem()
+}
+
+func (i OAuth) ToOAuthOutput() OAuthOutput {
+	return i.ToOAuthOutputWithContext(context.Background())
+}
+
+func (i OAuth) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthOutput)
+}
+
+type OAuthOutput struct {
+	*pulumi.OutputState
+}
+
+func (OAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthOutput)(nil)).Elem()
+}
+
+func (o OAuthOutput) ToOAuthOutput() OAuthOutput {
+	return o
+}
+
+func (o OAuthOutput) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OAuthOutput{})
 }

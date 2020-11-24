@@ -4,6 +4,7 @@
 package okta
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An event hook can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:index/eventHook:EventHook example <hook id>
 // ```
 type EventHook struct {
 	pulumi.CustomResourceState
@@ -161,4 +170,43 @@ type EventHookArgs struct {
 
 func (EventHookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHookArgs)(nil)).Elem()
+}
+
+type EventHookInput interface {
+	pulumi.Input
+
+	ToEventHookOutput() EventHookOutput
+	ToEventHookOutputWithContext(ctx context.Context) EventHookOutput
+}
+
+func (EventHook) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHook)(nil)).Elem()
+}
+
+func (i EventHook) ToEventHookOutput() EventHookOutput {
+	return i.ToEventHookOutputWithContext(context.Background())
+}
+
+func (i EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHookOutput)
+}
+
+type EventHookOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHookOutput)(nil)).Elem()
+}
+
+func (o EventHookOutput) ToEventHookOutput() EventHookOutput {
+	return o
+}
+
+func (o EventHookOutput) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHookOutput{})
 }

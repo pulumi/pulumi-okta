@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Okta Network Zone can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:network/zone:Zone example <zone id>
 // ```
 type Zone struct {
 	pulumi.CustomResourceState
@@ -148,4 +157,43 @@ type ZoneArgs struct {
 
 func (ZoneArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneArgs)(nil)).Elem()
+}
+
+type ZoneInput interface {
+	pulumi.Input
+
+	ToZoneOutput() ZoneOutput
+	ToZoneOutputWithContext(ctx context.Context) ZoneOutput
+}
+
+func (Zone) ElementType() reflect.Type {
+	return reflect.TypeOf((*Zone)(nil)).Elem()
+}
+
+func (i Zone) ToZoneOutput() ZoneOutput {
+	return i.ToZoneOutputWithContext(context.Background())
+}
+
+func (i Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
+}
+
+type ZoneOutput struct {
+	*pulumi.OutputState
+}
+
+func (ZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneOutput)(nil)).Elem()
+}
+
+func (o ZoneOutput) ToZoneOutput() ZoneOutput {
+	return o
+}
+
+func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ZoneOutput{})
 }

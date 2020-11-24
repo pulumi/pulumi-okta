@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -307,4 +308,43 @@ type IdpArgs struct {
 
 func (IdpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*idpArgs)(nil)).Elem()
+}
+
+type IdpInput interface {
+	pulumi.Input
+
+	ToIdpOutput() IdpOutput
+	ToIdpOutputWithContext(ctx context.Context) IdpOutput
+}
+
+func (Idp) ElementType() reflect.Type {
+	return reflect.TypeOf((*Idp)(nil)).Elem()
+}
+
+func (i Idp) ToIdpOutput() IdpOutput {
+	return i.ToIdpOutputWithContext(context.Background())
+}
+
+func (i Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdpOutput)
+}
+
+type IdpOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdpOutput)(nil)).Elem()
+}
+
+func (o IdpOutput) ToIdpOutput() IdpOutput {
+	return o
+}
+
+func (o IdpOutput) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdpOutput{})
 }

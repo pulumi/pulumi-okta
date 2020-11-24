@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An Okta Group Rule can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:group/rule:Rule example <group rule id>
+ * ```
  */
 export class Rule extends pulumi.CustomResource {
     /**

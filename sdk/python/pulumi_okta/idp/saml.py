@@ -72,6 +72,14 @@ class Saml(pulumi.CustomResource):
             username_template="idpuser.email")
         ```
 
+        ## Import
+
+        An SAML IdP can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:idp/saml:Saml example <idp id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.

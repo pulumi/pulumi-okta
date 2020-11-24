@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -159,4 +160,43 @@ type MfaPolicyRuleArgs struct {
 
 func (MfaPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaPolicyRuleArgs)(nil)).Elem()
+}
+
+type MfaPolicyRuleInput interface {
+	pulumi.Input
+
+	ToMfaPolicyRuleOutput() MfaPolicyRuleOutput
+	ToMfaPolicyRuleOutputWithContext(ctx context.Context) MfaPolicyRuleOutput
+}
+
+func (MfaPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRule)(nil)).Elem()
+}
+
+func (i MfaPolicyRule) ToMfaPolicyRuleOutput() MfaPolicyRuleOutput {
+	return i.ToMfaPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyRule) ToMfaPolicyRuleOutputWithContext(ctx context.Context) MfaPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleOutput)
+}
+
+type MfaPolicyRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (MfaPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRuleOutput)(nil)).Elem()
+}
+
+func (o MfaPolicyRuleOutput) ToMfaPolicyRuleOutput() MfaPolicyRuleOutput {
+	return o
+}
+
+func (o MfaPolicyRuleOutput) ToMfaPolicyRuleOutputWithContext(ctx context.Context) MfaPolicyRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MfaPolicyRuleOutput{})
 }

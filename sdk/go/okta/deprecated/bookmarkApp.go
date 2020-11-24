@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -159,4 +160,43 @@ type BookmarkAppArgs struct {
 
 func (BookmarkAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkAppArgs)(nil)).Elem()
+}
+
+type BookmarkAppInput interface {
+	pulumi.Input
+
+	ToBookmarkAppOutput() BookmarkAppOutput
+	ToBookmarkAppOutputWithContext(ctx context.Context) BookmarkAppOutput
+}
+
+func (BookmarkApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkApp)(nil)).Elem()
+}
+
+func (i BookmarkApp) ToBookmarkAppOutput() BookmarkAppOutput {
+	return i.ToBookmarkAppOutputWithContext(context.Background())
+}
+
+func (i BookmarkApp) ToBookmarkAppOutputWithContext(ctx context.Context) BookmarkAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppOutput)
+}
+
+type BookmarkAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (BookmarkAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkAppOutput)(nil)).Elem()
+}
+
+func (o BookmarkAppOutput) ToBookmarkAppOutput() BookmarkAppOutput {
+	return o
+}
+
+func (o BookmarkAppOutput) ToBookmarkAppOutputWithContext(ctx context.Context) BookmarkAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BookmarkAppOutput{})
 }

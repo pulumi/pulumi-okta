@@ -6,6 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a Sign On Policy Rule.
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy id>/<rule id>
+ * ```
  */
 export class RuleSignon extends pulumi.CustomResource {
     /**

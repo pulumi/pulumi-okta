@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -12,6 +13,14 @@ import (
 // Creates a Sign On Policy.
 //
 // This resource allows you to create and configure a Sign On Policy.
+//
+// ## Import
+//
+// A Sign On Policy can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/signon:Signon example <policy id>
+// ```
 type Signon struct {
 	pulumi.CustomResourceState
 
@@ -113,4 +122,43 @@ type SignonArgs struct {
 
 func (SignonArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonArgs)(nil)).Elem()
+}
+
+type SignonInput interface {
+	pulumi.Input
+
+	ToSignonOutput() SignonOutput
+	ToSignonOutputWithContext(ctx context.Context) SignonOutput
+}
+
+func (Signon) ElementType() reflect.Type {
+	return reflect.TypeOf((*Signon)(nil)).Elem()
+}
+
+func (i Signon) ToSignonOutput() SignonOutput {
+	return i.ToSignonOutputWithContext(context.Background())
+}
+
+func (i Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonOutput)
+}
+
+type SignonOutput struct {
+	*pulumi.OutputState
+}
+
+func (SignonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonOutput)(nil)).Elem()
+}
+
+func (o SignonOutput) ToSignonOutput() SignonOutput {
+	return o
+}
+
+func (o SignonOutput) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SignonOutput{})
 }

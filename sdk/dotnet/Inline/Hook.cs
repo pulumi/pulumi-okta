@@ -45,6 +45,14 @@ namespace Pulumi.Okta.Inline
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An inline hook can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:inline/hook:Hook example &lt;hook id&gt;
+    /// ```
     /// </summary>
     public partial class Hook : Pulumi.CustomResource
     {

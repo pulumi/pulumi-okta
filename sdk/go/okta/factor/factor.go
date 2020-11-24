@@ -4,6 +4,7 @@
 package factor
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type FactorArgs struct {
 
 func (FactorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*factorArgs)(nil)).Elem()
+}
+
+type FactorInput interface {
+	pulumi.Input
+
+	ToFactorOutput() FactorOutput
+	ToFactorOutputWithContext(ctx context.Context) FactorOutput
+}
+
+func (Factor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Factor)(nil)).Elem()
+}
+
+func (i Factor) ToFactorOutput() FactorOutput {
+	return i.ToFactorOutputWithContext(context.Background())
+}
+
+func (i Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactorOutput)
+}
+
+type FactorOutput struct {
+	*pulumi.OutputState
+}
+
+func (FactorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FactorOutput)(nil)).Elem()
+}
+
+func (o FactorOutput) ToFactorOutput() FactorOutput {
+	return o
+}
+
+func (o FactorOutput) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FactorOutput{})
 }

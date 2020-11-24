@@ -8,6 +8,14 @@ import * as utilities from "../utilities";
  * Creates a Password Policy Rule.
  *
  * This resource allows you to create and configure a Password Policy Rule.
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+ * ```
  */
 export class RulePassword extends pulumi.CustomResource {
     /**

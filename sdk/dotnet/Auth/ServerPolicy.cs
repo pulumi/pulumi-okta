@@ -39,6 +39,14 @@ namespace Pulumi.Okta.Auth
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:auth/serverPolicy:ServerPolicy example &lt;auth server id&gt;/&lt;policy id&gt;
+    /// ```
     /// </summary>
     public partial class ServerPolicy : Pulumi.CustomResource
     {

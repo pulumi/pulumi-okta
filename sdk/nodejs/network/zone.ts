@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     type: "IP",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Okta Network Zone can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:network/zone:Zone example <zone id>
+ * ```
  */
 export class Zone extends pulumi.CustomResource {
     /**

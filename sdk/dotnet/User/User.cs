@@ -13,6 +13,14 @@ namespace Pulumi.Okta.User
     /// Creates an Okta User.
     /// 
     /// This resource allows you to create and configure an Okta User.
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta User can be imported via the ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/user:User example &lt;user id&gt;
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

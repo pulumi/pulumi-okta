@@ -32,6 +32,14 @@ class RuleMfa(pulumi.CustomResource):
 
         This resource allows you to create and configure an MFA Policy Rule.
 
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy id>/<rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.

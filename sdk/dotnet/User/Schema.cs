@@ -37,6 +37,14 @@ namespace Pulumi.Okta.User
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// User schema property can be imported via the property index.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/schema:Schema example &lt;index&gt;
+    /// ```
     /// </summary>
     public partial class Schema : Pulumi.CustomResource
     {

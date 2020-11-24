@@ -54,6 +54,14 @@ class Swa(pulumi.CustomResource):
             username_field="txtbox-username")
         ```
 
+        ## Import
+
+        Okta SWA App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/swa:Swa example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.

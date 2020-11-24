@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Creates an Three Field Application.
 //
 // This resource allows you to create and configure an Three Field Application.
+//
+// ## Import
+//
+// A Three Field App can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/threeField:ThreeField example <app id>
+// ```
 type ThreeField struct {
 	pulumi.CustomResourceState
 
@@ -269,4 +278,43 @@ type ThreeFieldArgs struct {
 
 func (ThreeFieldArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threeFieldArgs)(nil)).Elem()
+}
+
+type ThreeFieldInput interface {
+	pulumi.Input
+
+	ToThreeFieldOutput() ThreeFieldOutput
+	ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput
+}
+
+func (ThreeField) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreeField)(nil)).Elem()
+}
+
+func (i ThreeField) ToThreeFieldOutput() ThreeFieldOutput {
+	return i.ToThreeFieldOutputWithContext(context.Background())
+}
+
+func (i ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldOutput)
+}
+
+type ThreeFieldOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreeFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreeFieldOutput)(nil)).Elem()
+}
+
+func (o ThreeFieldOutput) ToThreeFieldOutput() ThreeFieldOutput {
+	return o
+}
+
+func (o ThreeFieldOutput) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThreeFieldOutput{})
 }

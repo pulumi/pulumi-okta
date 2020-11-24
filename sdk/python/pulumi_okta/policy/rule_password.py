@@ -34,6 +34,14 @@ class RulePassword(pulumi.CustomResource):
 
         This resource allows you to create and configure a Password Policy Rule.
 
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Policy Rule Name.

@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     description: "My Example Group",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An Okta Group can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:group/group:Group example <group id>
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

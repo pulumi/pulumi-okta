@@ -35,6 +35,14 @@ namespace Pulumi.Okta.User
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// User base schema property can be imported via the property index.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &lt;property name&gt;
+    /// ```
     /// </summary>
     public partial class BaseSchema : Pulumi.CustomResource
     {

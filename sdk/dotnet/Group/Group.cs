@@ -32,6 +32,14 @@ namespace Pulumi.Okta.Group
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta Group can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

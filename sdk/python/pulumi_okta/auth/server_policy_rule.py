@@ -54,6 +54,14 @@ class ServerPolicyRule(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example <auth server id>/<policy id>/<policy rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.

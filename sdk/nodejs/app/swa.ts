@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -24,6 +23,14 @@ import * as utilities from "../utilities";
  *     url: "https://example.com/login.html",
  *     usernameField: "txtbox-username",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta SWA App can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/swa:Swa example <app id>
  * ```
  */
 export class Swa extends pulumi.CustomResource {

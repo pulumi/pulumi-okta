@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -31,6 +30,14 @@ import * as utilities from "./utilities";
  *     ],
  *     type: "SMS_VERIFY_CODE",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * An Okta SMS Template can be imported via the template type.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/templateSms:TemplateSms example <template type>
  * ```
  */
 export class TemplateSms extends pulumi.CustomResource {

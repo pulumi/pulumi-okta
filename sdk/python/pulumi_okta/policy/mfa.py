@@ -58,6 +58,14 @@ class Mfa(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        An MFA Policy can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:policy/mfa:Mfa example <policy id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.

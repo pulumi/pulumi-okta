@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Okta Auto Login App can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>
 // ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
@@ -278,4 +287,43 @@ type AutoLoginArgs struct {
 
 func (AutoLoginArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoLoginArgs)(nil)).Elem()
+}
+
+type AutoLoginInput interface {
+	pulumi.Input
+
+	ToAutoLoginOutput() AutoLoginOutput
+	ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput
+}
+
+func (AutoLogin) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoLogin)(nil)).Elem()
+}
+
+func (i AutoLogin) ToAutoLoginOutput() AutoLoginOutput {
+	return i.ToAutoLoginOutputWithContext(context.Background())
+}
+
+func (i AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginOutput)
+}
+
+type AutoLoginOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutoLoginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoLoginOutput)(nil)).Elem()
+}
+
+func (o AutoLoginOutput) ToAutoLoginOutput() AutoLoginOutput {
+	return o
+}
+
+func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AutoLoginOutput{})
 }

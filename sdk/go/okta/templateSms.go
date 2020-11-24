@@ -4,6 +4,7 @@
 package okta
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An Okta SMS Template can be imported via the template type.
+//
+// ```sh
+//  $ pulumi import okta:index/templateSms:TemplateSms example <template type>
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState
@@ -136,4 +145,43 @@ type TemplateSmsArgs struct {
 
 func (TemplateSmsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateSmsArgs)(nil)).Elem()
+}
+
+type TemplateSmsInput interface {
+	pulumi.Input
+
+	ToTemplateSmsOutput() TemplateSmsOutput
+	ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput
+}
+
+func (TemplateSms) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSms)(nil)).Elem()
+}
+
+func (i TemplateSms) ToTemplateSmsOutput() TemplateSmsOutput {
+	return i.ToTemplateSmsOutputWithContext(context.Background())
+}
+
+func (i TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsOutput)
+}
+
+type TemplateSmsOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateSmsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSmsOutput)(nil)).Elem()
+}
+
+func (o TemplateSmsOutput) ToTemplateSmsOutput() TemplateSmsOutput {
+	return o
+}
+
+func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TemplateSmsOutput{})
 }

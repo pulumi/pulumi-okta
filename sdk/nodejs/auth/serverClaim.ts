@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     value: "String.substringAfter(user.email, \"@\") == \"example.com\"",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+ * ```
  */
 export class ServerClaim extends pulumi.CustomResource {
     /**

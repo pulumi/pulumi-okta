@@ -40,6 +40,14 @@ class Signon(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        A Sign On Policy can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:policy/signon:Signon example <policy id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.

@@ -42,6 +42,14 @@ class Server(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        Authorization Server can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:auth/server:Server example <auth server id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.

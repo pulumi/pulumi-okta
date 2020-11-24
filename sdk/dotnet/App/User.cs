@@ -48,6 +48,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Application User can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/user:User example &lt;app id&gt;/&lt;user id&gt;
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

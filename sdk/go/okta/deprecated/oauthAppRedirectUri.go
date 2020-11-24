@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,4 +83,43 @@ type OauthAppRedirectUriArgs struct {
 
 func (OauthAppRedirectUriArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthAppRedirectUriArgs)(nil)).Elem()
+}
+
+type OauthAppRedirectUriInput interface {
+	pulumi.Input
+
+	ToOauthAppRedirectUriOutput() OauthAppRedirectUriOutput
+	ToOauthAppRedirectUriOutputWithContext(ctx context.Context) OauthAppRedirectUriOutput
+}
+
+func (OauthAppRedirectUri) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppRedirectUri)(nil)).Elem()
+}
+
+func (i OauthAppRedirectUri) ToOauthAppRedirectUriOutput() OauthAppRedirectUriOutput {
+	return i.ToOauthAppRedirectUriOutputWithContext(context.Background())
+}
+
+func (i OauthAppRedirectUri) ToOauthAppRedirectUriOutputWithContext(ctx context.Context) OauthAppRedirectUriOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppRedirectUriOutput)
+}
+
+type OauthAppRedirectUriOutput struct {
+	*pulumi.OutputState
+}
+
+func (OauthAppRedirectUriOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppRedirectUriOutput)(nil)).Elem()
+}
+
+func (o OauthAppRedirectUriOutput) ToOauthAppRedirectUriOutput() OauthAppRedirectUriOutput {
+	return o
+}
+
+func (o OauthAppRedirectUriOutput) ToOauthAppRedirectUriOutputWithContext(ctx context.Context) OauthAppRedirectUriOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OauthAppRedirectUriOutput{})
 }

@@ -4,6 +4,7 @@
 package idp
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A SAML IdP Signing Key can be imported via the key id.
+//
+// ```sh
+//  $ pulumi import okta:idp/samlKey:SamlKey example <key id>
 // ```
 type SamlKey struct {
 	pulumi.CustomResourceState
@@ -138,4 +147,43 @@ type SamlKeyArgs struct {
 
 func (SamlKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlKeyArgs)(nil)).Elem()
+}
+
+type SamlKeyInput interface {
+	pulumi.Input
+
+	ToSamlKeyOutput() SamlKeyOutput
+	ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput
+}
+
+func (SamlKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlKey)(nil)).Elem()
+}
+
+func (i SamlKey) ToSamlKeyOutput() SamlKeyOutput {
+	return i.ToSamlKeyOutputWithContext(context.Background())
+}
+
+func (i SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
+}
+
+type SamlKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlKeyOutput)(nil)).Elem()
+}
+
+func (o SamlKeyOutput) ToSamlKeyOutput() SamlKeyOutput {
+	return o
+}
+
+func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamlKeyOutput{})
 }

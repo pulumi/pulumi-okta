@@ -8,6 +8,14 @@ import * as utilities from "../utilities";
  * Assigns a group to an application.
  *
  * This resource allows you to create an App Group assignment.
+ *
+ * ## Import
+ *
+ * An application group assignment can be imported via the `app_id` and the `group_id`.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+ * ```
  */
 export class GroupAssignment extends pulumi.CustomResource {
     /**

@@ -59,6 +59,14 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             user_identifier_type="ATTRIBUTE")
         ```
 
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy id>/<rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule

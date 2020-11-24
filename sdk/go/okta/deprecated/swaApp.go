@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -238,4 +239,43 @@ type SwaAppArgs struct {
 
 func (SwaAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*swaAppArgs)(nil)).Elem()
+}
+
+type SwaAppInput interface {
+	pulumi.Input
+
+	ToSwaAppOutput() SwaAppOutput
+	ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput
+}
+
+func (SwaApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwaApp)(nil)).Elem()
+}
+
+func (i SwaApp) ToSwaAppOutput() SwaAppOutput {
+	return i.ToSwaAppOutputWithContext(context.Background())
+}
+
+func (i SwaApp) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaAppOutput)
+}
+
+type SwaAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (SwaAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwaAppOutput)(nil)).Elem()
+}
+
+func (o SwaAppOutput) ToSwaAppOutput() SwaAppOutput {
+	return o
+}
+
+func (o SwaAppOutput) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SwaAppOutput{})
 }

@@ -36,6 +36,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta SWA App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/swa:Swa example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class Swa : Pulumi.CustomResource
     {

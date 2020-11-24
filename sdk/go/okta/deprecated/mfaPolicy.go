@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -180,4 +181,43 @@ type MfaPolicyArgs struct {
 
 func (MfaPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaPolicyArgs)(nil)).Elem()
+}
+
+type MfaPolicyInput interface {
+	pulumi.Input
+
+	ToMfaPolicyOutput() MfaPolicyOutput
+	ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput
+}
+
+func (MfaPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicy)(nil)).Elem()
+}
+
+func (i MfaPolicy) ToMfaPolicyOutput() MfaPolicyOutput {
+	return i.ToMfaPolicyOutputWithContext(context.Background())
+}
+
+func (i MfaPolicy) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOutput)
+}
+
+type MfaPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (MfaPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyOutput)(nil)).Elem()
+}
+
+func (o MfaPolicyOutput) ToMfaPolicyOutput() MfaPolicyOutput {
+	return o
+}
+
+func (o MfaPolicyOutput) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MfaPolicyOutput{})
 }
