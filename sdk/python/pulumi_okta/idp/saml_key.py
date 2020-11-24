@@ -33,6 +33,14 @@ class SamlKey(pulumi.CustomResource):
         example = okta.idp.SamlKey("example", x5cs=[okta_app_saml["example"]["certificate"]])
         ```
 
+        ## Import
+
+        A SAML IdP Signing Key can be imported via the key id.
+
+        ```sh
+         $ pulumi import okta:idp/samlKey:SamlKey example <key id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -29,6 +28,14 @@ import * as utilities from "../utilities";
  *     }],
  *     userIdentifierType: "ATTRIBUTE",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy id>/<rule id>
  * ```
  */
 export class RuleIdpDiscovery extends pulumi.CustomResource {

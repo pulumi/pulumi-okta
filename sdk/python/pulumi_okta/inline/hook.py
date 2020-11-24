@@ -53,6 +53,14 @@ class Hook(pulumi.CustomResource):
             version="1.0.0")
         ```
 
+        ## Import
+
+        An inline hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:inline/hook:Hook example <hook id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['HookAuthArgs']] auth: Authentication required for inline hook request.

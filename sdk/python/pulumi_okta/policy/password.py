@@ -65,6 +65,14 @@ class Password(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        A Password Policy can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:policy/password:Password example <policy id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.

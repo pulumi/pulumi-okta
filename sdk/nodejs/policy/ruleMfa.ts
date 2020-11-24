@@ -8,6 +8,14 @@ import * as utilities from "../utilities";
  * Creates an MFA Policy Rule.
  *
  * This resource allows you to create and configure an MFA Policy Rule.
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy id>/<rule id>
+ * ```
  */
 export class RuleMfa extends pulumi.CustomResource {
     /**

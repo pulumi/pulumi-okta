@@ -20,6 +20,14 @@ import * as utilities from "../utilities";
  *     scopes: ["CORS"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A Trusted Origin can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+ * ```
  */
 export class Origin extends pulumi.CustomResource {
     /**

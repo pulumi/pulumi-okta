@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *     type: "string",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An Okta User can be imported via the ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:user/user:User example <user id>
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

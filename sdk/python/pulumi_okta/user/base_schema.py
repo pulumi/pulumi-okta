@@ -42,6 +42,14 @@ class BaseSchema(pulumi.CustomResource):
             type="string")
         ```
 
+        ## Import
+
+        User base schema property can be imported via the property index.
+
+        ```sh
+         $ pulumi import okta:user/baseSchema:BaseSchema example <property name>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] index: The property name.

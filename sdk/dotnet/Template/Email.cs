@@ -47,6 +47,14 @@ namespace Pulumi.Okta.Template
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta Email Template can be imported via the template type.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:template/email:Email example &lt;template type&gt;
+    /// ```
     /// </summary>
     public partial class Email : Pulumi.CustomResource
     {

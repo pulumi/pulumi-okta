@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Assigns a group to an application.
 //
 // This resource allows you to create an App Group assignment.
+//
+// ## Import
+//
+// An application group assignment can be imported via the `app_id` and the `group_id`.
+//
+// ```sh
+//  $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+// ```
 type GroupAssignment struct {
 	pulumi.CustomResourceState
 
@@ -105,4 +114,43 @@ type GroupAssignmentArgs struct {
 
 func (GroupAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupAssignmentArgs)(nil)).Elem()
+}
+
+type GroupAssignmentInput interface {
+	pulumi.Input
+
+	ToGroupAssignmentOutput() GroupAssignmentOutput
+	ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput
+}
+
+func (GroupAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAssignment)(nil)).Elem()
+}
+
+func (i GroupAssignment) ToGroupAssignmentOutput() GroupAssignmentOutput {
+	return i.ToGroupAssignmentOutputWithContext(context.Background())
+}
+
+func (i GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentOutput)
+}
+
+type GroupAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAssignmentOutput)(nil)).Elem()
+}
+
+func (o GroupAssignmentOutput) ToGroupAssignmentOutput() GroupAssignmentOutput {
+	return o
+}
+
+func (o GroupAssignmentOutput) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GroupAssignmentOutput{})
 }

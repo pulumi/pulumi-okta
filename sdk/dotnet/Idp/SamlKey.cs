@@ -35,6 +35,14 @@ namespace Pulumi.Okta.Idp
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A SAML IdP Signing Key can be imported via the key id.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:idp/samlKey:SamlKey example &lt;key id&gt;
+    /// ```
     /// </summary>
     public partial class SamlKey : Pulumi.CustomResource
     {

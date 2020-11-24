@@ -54,6 +54,14 @@ class EventHook(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        An event hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/eventHook:EventHook example <hook id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventHookAuthArgs']] auth: Authentication required for event hook request.

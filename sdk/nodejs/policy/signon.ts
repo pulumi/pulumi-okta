@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A Sign On Policy can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/signon:Signon example <policy id>
+ * ```
  */
 export class Signon extends pulumi.CustomResource {
     /**

@@ -13,6 +13,14 @@ namespace Pulumi.Okta.Policy
     /// Creates an MFA Policy Rule.
     /// 
     /// This resource allows you to create and configure an MFA Policy Rule.
+    /// 
+    /// ## Import
+    /// 
+    /// A Policy Rule can be imported via the Policy and Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:policy/ruleMfa:RuleMfa example &lt;policy id&gt;/&lt;rule id&gt;
+    /// ```
     /// </summary>
     public partial class RuleMfa : Pulumi.CustomResource
     {

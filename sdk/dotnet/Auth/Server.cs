@@ -38,6 +38,14 @@ namespace Pulumi.Okta.Auth
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Authorization Server can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:auth/server:Server example &lt;auth server id&gt;
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

@@ -44,6 +44,14 @@ class ServerPolicy(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicy:ServerPolicy example <auth server id>/<policy id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.

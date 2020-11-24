@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A Password Policy can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/password:Password example <policy id>
+ * ```
  */
 export class Password extends pulumi.CustomResource {
     /**

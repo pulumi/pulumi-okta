@@ -4,6 +4,7 @@
 package auth
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+//
+// ```sh
+//  $ pulumi import okta:auth/serverScope:ServerScope example <auth server id>/<scope id>
 // ```
 type ServerScope struct {
 	pulumi.CustomResourceState
@@ -152,4 +161,43 @@ type ServerScopeArgs struct {
 
 func (ServerScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverScopeArgs)(nil)).Elem()
+}
+
+type ServerScopeInput interface {
+	pulumi.Input
+
+	ToServerScopeOutput() ServerScopeOutput
+	ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput
+}
+
+func (ServerScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerScope)(nil)).Elem()
+}
+
+func (i ServerScope) ToServerScopeOutput() ServerScopeOutput {
+	return i.ToServerScopeOutputWithContext(context.Background())
+}
+
+func (i ServerScope) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeOutput)
+}
+
+type ServerScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerScopeOutput)(nil)).Elem()
+}
+
+func (o ServerScopeOutput) ToServerScopeOutput() ServerScopeOutput {
+	return o
+}
+
+func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerScopeOutput{})
 }

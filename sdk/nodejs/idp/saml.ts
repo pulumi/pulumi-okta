@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     usernameTemplate: "idpuser.email",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An SAML IdP can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:idp/saml:Saml example <idp id>
+ * ```
  */
 export class Saml extends pulumi.CustomResource {
     /**

@@ -13,6 +13,14 @@ namespace Pulumi.Okta.App
     /// Creates an Three Field Application.
     /// 
     /// This resource allows you to create and configure an Three Field Application.
+    /// 
+    /// ## Import
+    /// 
+    /// A Three Field App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/threeField:ThreeField example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class ThreeField : Pulumi.CustomResource
     {

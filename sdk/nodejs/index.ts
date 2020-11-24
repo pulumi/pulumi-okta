@@ -22,4 +22,21 @@ import * as template from "./template";
 import * as trustedorigin from "./trustedorigin";
 import * as types from "./types";
 import * as user from "./user";
-export {app, auth, config, deprecated, factor, group, idp, inline, network, policy, profile, template, trustedorigin, types, user};
+
+export {
+    app,
+    auth,
+    config,
+    deprecated,
+    factor,
+    group,
+    idp,
+    inline,
+    network,
+    policy,
+    profile,
+    template,
+    trustedorigin,
+    types,
+    user,
+};

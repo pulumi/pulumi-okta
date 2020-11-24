@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,4 +83,43 @@ type OAuthRedirectUriArgs struct {
 
 func (OAuthRedirectUriArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthRedirectUriArgs)(nil)).Elem()
+}
+
+type OAuthRedirectUriInput interface {
+	pulumi.Input
+
+	ToOAuthRedirectUriOutput() OAuthRedirectUriOutput
+	ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput
+}
+
+func (OAuthRedirectUri) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthRedirectUri)(nil)).Elem()
+}
+
+func (i OAuthRedirectUri) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
+	return i.ToOAuthRedirectUriOutputWithContext(context.Background())
+}
+
+func (i OAuthRedirectUri) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriOutput)
+}
+
+type OAuthRedirectUriOutput struct {
+	*pulumi.OutputState
+}
+
+func (OAuthRedirectUriOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthRedirectUriOutput)(nil)).Elem()
+}
+
+func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
+	return o
+}
+
+func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OAuthRedirectUriOutput{})
 }

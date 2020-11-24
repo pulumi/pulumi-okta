@@ -49,6 +49,14 @@ namespace Pulumi.Okta.Idp
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An OIDC IdP can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:idp/oidc:Oidc example &lt;idp id&gt;
+    /// ```
     /// </summary>
     public partial class Oidc : Pulumi.CustomResource
     {

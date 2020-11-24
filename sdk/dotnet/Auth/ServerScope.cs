@@ -34,6 +34,14 @@ namespace Pulumi.Okta.Auth
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:auth/serverScope:ServerScope example &lt;auth server id&gt;/&lt;scope id&gt;
+    /// ```
     /// </summary>
     public partial class ServerScope : Pulumi.CustomResource
     {

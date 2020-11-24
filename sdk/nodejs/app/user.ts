@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     username: "example",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An Application User can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/user:User example <app id>/<user id>
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

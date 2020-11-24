@@ -36,6 +36,14 @@ namespace Pulumi.Okta.Group
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Group Role Assignment can be imported via the Okta Group ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:group/roles:Roles example &lt;group id&gt;
+    /// ```
     /// </summary>
     public partial class Roles : Pulumi.CustomResource
     {

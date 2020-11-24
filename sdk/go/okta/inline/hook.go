@@ -4,6 +4,7 @@
 package inline
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An inline hook can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:inline/hook:Hook example <hook id>
 // ```
 type Hook struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type HookArgs struct {
 
 func (HookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookArgs)(nil)).Elem()
+}
+
+type HookInput interface {
+	pulumi.Input
+
+	ToHookOutput() HookOutput
+	ToHookOutputWithContext(ctx context.Context) HookOutput
+}
+
+func (Hook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hook)(nil)).Elem()
+}
+
+func (i Hook) ToHookOutput() HookOutput {
+	return i.ToHookOutputWithContext(context.Background())
+}
+
+func (i Hook) ToHookOutputWithContext(ctx context.Context) HookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HookOutput)
+}
+
+type HookOutput struct {
+	*pulumi.OutputState
+}
+
+func (HookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HookOutput)(nil)).Elem()
+}
+
+func (o HookOutput) ToHookOutput() HookOutput {
+	return o
+}
+
+func (o HookOutput) ToHookOutputWithContext(ctx context.Context) HookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HookOutput{})
 }

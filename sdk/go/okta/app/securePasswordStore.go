@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Secure Password Store Application can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>
 // ```
 type SecurePasswordStore struct {
 	pulumi.CustomResourceState
@@ -347,4 +356,43 @@ type SecurePasswordStoreArgs struct {
 
 func (SecurePasswordStoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securePasswordStoreArgs)(nil)).Elem()
+}
+
+type SecurePasswordStoreInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreOutput() SecurePasswordStoreOutput
+	ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput
+}
+
+func (SecurePasswordStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStore)(nil)).Elem()
+}
+
+func (i SecurePasswordStore) ToSecurePasswordStoreOutput() SecurePasswordStoreOutput {
+	return i.ToSecurePasswordStoreOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreOutput)
+}
+
+type SecurePasswordStoreOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurePasswordStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStoreOutput)(nil)).Elem()
+}
+
+func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutput() SecurePasswordStoreOutput {
+	return o
+}
+
+func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurePasswordStoreOutput{})
 }

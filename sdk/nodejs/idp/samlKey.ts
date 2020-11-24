@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     x5cs: [okta_app_saml_example.certificate],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A SAML IdP Signing Key can be imported via the key id.
+ *
+ * ```sh
+ *  $ pulumi import okta:idp/samlKey:SamlKey example <key id>
+ * ```
  */
 export class SamlKey extends pulumi.CustomResource {
     /**

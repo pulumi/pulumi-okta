@@ -38,6 +38,14 @@ class RuleSignon(pulumi.CustomResource):
         """
         Creates a Sign On Policy Rule.
 
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy id>/<rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.

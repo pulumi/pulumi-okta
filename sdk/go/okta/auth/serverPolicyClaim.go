@@ -4,6 +4,7 @@
 package auth
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example <auth server id>/<policy id>/<policy rule id>
 // ```
 //
 // Deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule
@@ -250,4 +259,43 @@ type ServerPolicyClaimArgs struct {
 
 func (ServerPolicyClaimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverPolicyClaimArgs)(nil)).Elem()
+}
+
+type ServerPolicyClaimInput interface {
+	pulumi.Input
+
+	ToServerPolicyClaimOutput() ServerPolicyClaimOutput
+	ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput
+}
+
+func (ServerPolicyClaim) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyClaim)(nil)).Elem()
+}
+
+func (i ServerPolicyClaim) ToServerPolicyClaimOutput() ServerPolicyClaimOutput {
+	return i.ToServerPolicyClaimOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyClaim) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimOutput)
+}
+
+type ServerPolicyClaimOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerPolicyClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyClaimOutput)(nil)).Elem()
+}
+
+func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutput() ServerPolicyClaimOutput {
+	return o
+}
+
+func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerPolicyClaimOutput{})
 }

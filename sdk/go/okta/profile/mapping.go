@@ -4,6 +4,7 @@
 package profile
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Once the source is deleted this resources will no longer exist.
 type Mapping struct {
 	pulumi.CustomResourceState
 
@@ -182,4 +187,43 @@ type MappingArgs struct {
 
 func (MappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mappingArgs)(nil)).Elem()
+}
+
+type MappingInput interface {
+	pulumi.Input
+
+	ToMappingOutput() MappingOutput
+	ToMappingOutputWithContext(ctx context.Context) MappingOutput
+}
+
+func (Mapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mapping)(nil)).Elem()
+}
+
+func (i Mapping) ToMappingOutput() MappingOutput {
+	return i.ToMappingOutputWithContext(context.Background())
+}
+
+func (i Mapping) ToMappingOutputWithContext(ctx context.Context) MappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingOutput)
+}
+
+type MappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (MappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MappingOutput)(nil)).Elem()
+}
+
+func (o MappingOutput) ToMappingOutput() MappingOutput {
+	return o
+}
+
+func (o MappingOutput) ToMappingOutputWithContext(ctx context.Context) MappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MappingOutput{})
 }

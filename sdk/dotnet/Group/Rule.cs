@@ -38,6 +38,14 @@ namespace Pulumi.Okta.Group
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta Group Rule can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:group/rule:Rule example &lt;group rule id&gt;
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

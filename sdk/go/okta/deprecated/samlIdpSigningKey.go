@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -92,4 +93,43 @@ type SamlIdpSigningKeyArgs struct {
 
 func (SamlIdpSigningKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlIdpSigningKeyArgs)(nil)).Elem()
+}
+
+type SamlIdpSigningKeyInput interface {
+	pulumi.Input
+
+	ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput
+	ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput
+}
+
+func (SamlIdpSigningKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlIdpSigningKey)(nil)).Elem()
+}
+
+func (i SamlIdpSigningKey) ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput {
+	return i.ToSamlIdpSigningKeyOutputWithContext(context.Background())
+}
+
+func (i SamlIdpSigningKey) ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyOutput)
+}
+
+type SamlIdpSigningKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlIdpSigningKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlIdpSigningKeyOutput)(nil)).Elem()
+}
+
+func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamlIdpSigningKeyOutput{})
 }

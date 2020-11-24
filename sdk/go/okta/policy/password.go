@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -12,6 +13,14 @@ import (
 // Creates a Password Policy.
 //
 // This resource allows you to create and configure a Password Policy.
+//
+// ## Import
+//
+// A Password Policy can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/password:Password example <policy id>
+// ```
 type Password struct {
 	pulumi.CustomResourceState
 
@@ -353,4 +362,43 @@ type PasswordArgs struct {
 
 func (PasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordArgs)(nil)).Elem()
+}
+
+type PasswordInput interface {
+	pulumi.Input
+
+	ToPasswordOutput() PasswordOutput
+	ToPasswordOutputWithContext(ctx context.Context) PasswordOutput
+}
+
+func (Password) ElementType() reflect.Type {
+	return reflect.TypeOf((*Password)(nil)).Elem()
+}
+
+func (i Password) ToPasswordOutput() PasswordOutput {
+	return i.ToPasswordOutputWithContext(context.Background())
+}
+
+func (i Password) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordOutput)
+}
+
+type PasswordOutput struct {
+	*pulumi.OutputState
+}
+
+func (PasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordOutput)(nil)).Elem()
+}
+
+func (o PasswordOutput) ToPasswordOutput() PasswordOutput {
+	return o
+}
+
+func (o PasswordOutput) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PasswordOutput{})
 }

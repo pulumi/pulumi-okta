@@ -41,6 +41,14 @@ class Rule(pulumi.CustomResource):
             status="ACTIVE")
         ```
 
+        ## Import
+
+        An Okta Group Rule can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:group/rule:Rule example <group rule id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.

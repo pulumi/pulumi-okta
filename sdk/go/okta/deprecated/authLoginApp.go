@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -248,4 +249,43 @@ type AuthLoginAppArgs struct {
 
 func (AuthLoginAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authLoginAppArgs)(nil)).Elem()
+}
+
+type AuthLoginAppInput interface {
+	pulumi.Input
+
+	ToAuthLoginAppOutput() AuthLoginAppOutput
+	ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput
+}
+
+func (AuthLoginApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthLoginApp)(nil)).Elem()
+}
+
+func (i AuthLoginApp) ToAuthLoginAppOutput() AuthLoginAppOutput {
+	return i.ToAuthLoginAppOutputWithContext(context.Background())
+}
+
+func (i AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppOutput)
+}
+
+type AuthLoginAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthLoginAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthLoginAppOutput)(nil)).Elem()
+}
+
+func (o AuthLoginAppOutput) ToAuthLoginAppOutput() AuthLoginAppOutput {
+	return o
+}
+
+func (o AuthLoginAppOutput) ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthLoginAppOutput{})
 }

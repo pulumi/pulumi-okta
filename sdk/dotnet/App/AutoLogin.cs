@@ -36,6 +36,14 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Auto Login App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;
+    /// ```
     /// </summary>
     public partial class AutoLogin : Pulumi.CustomResource
     {

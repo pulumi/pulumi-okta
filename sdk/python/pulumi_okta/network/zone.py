@@ -46,6 +46,14 @@ class Zone(pulumi.CustomResource):
             type="IP")
         ```
 
+        ## Import
+
+        Okta Network Zone can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:network/zone:Zone example <zone id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.

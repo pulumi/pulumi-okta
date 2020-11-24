@@ -71,6 +71,14 @@ class Social(pulumi.CustomResource):
             username_template="idpuser.email")
         ```
 
+        ## Import
+
+        A Social IdP can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:idp/social:Social example <idp id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
@@ -128,11 +136,11 @@ class Social(pulumi.CustomResource):
             __props__['groups_filters'] = groups_filters
             __props__['issuer_mode'] = issuer_mode
             if match_attribute is not None:
-                warnings.warn("This property was incorrectly added to this resource, you should use \"subject_match_attribute\"", DeprecationWarning)
+                warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
                 pulumi.log.warn("match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"")
             __props__['match_attribute'] = match_attribute
             if match_type is not None:
-                warnings.warn("This property was incorrectly added to this resource, you should use \"subject_match_type\"", DeprecationWarning)
+                warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
                 pulumi.log.warn("match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"")
             __props__['match_type'] = match_type
             __props__['max_clock_skew'] = max_clock_skew

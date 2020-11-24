@@ -38,6 +38,14 @@ class Origin(pulumi.CustomResource):
             scopes=["CORS"])
         ```
 
+        ## Import
+
+        A Trusted Origin can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation.

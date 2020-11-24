@@ -13,6 +13,14 @@ namespace Pulumi.Okta.App
     /// Assigns a group to an application.
     /// 
     /// This resource allows you to create an App Group assignment.
+    /// 
+    /// ## Import
+    /// 
+    /// An application group assignment can be imported via the `app_id` and the `group_id`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/groupAssignment:GroupAssignment example &lt;app_id&gt;/&lt;group_id&gt;
+    /// ```
     /// </summary>
     public partial class GroupAssignment : Pulumi.CustomResource
     {

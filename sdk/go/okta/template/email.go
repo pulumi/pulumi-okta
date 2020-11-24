@@ -4,6 +4,7 @@
 package template
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An Okta Email Template can be imported via the template type.
+//
+// ```sh
+//  $ pulumi import okta:template/email:Email example <template type>
 // ```
 type Email struct {
 	pulumi.CustomResourceState
@@ -137,4 +146,43 @@ type EmailArgs struct {
 
 func (EmailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailArgs)(nil)).Elem()
+}
+
+type EmailInput interface {
+	pulumi.Input
+
+	ToEmailOutput() EmailOutput
+	ToEmailOutputWithContext(ctx context.Context) EmailOutput
+}
+
+func (Email) ElementType() reflect.Type {
+	return reflect.TypeOf((*Email)(nil)).Elem()
+}
+
+func (i Email) ToEmailOutput() EmailOutput {
+	return i.ToEmailOutputWithContext(context.Background())
+}
+
+func (i Email) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailOutput)
+}
+
+type EmailOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailOutput)(nil)).Elem()
+}
+
+func (o EmailOutput) ToEmailOutput() EmailOutput {
+	return o
+}
+
+func (o EmailOutput) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailOutput{})
 }

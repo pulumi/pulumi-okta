@@ -60,6 +60,10 @@ class Mapping(pulumi.CustomResource):
             target_id=user.id)
         ```
 
+        ## Import
+
+        There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Once the source is deleted this resources will no longer exist.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.

@@ -45,6 +45,14 @@ class ServerClaim(pulumi.CustomResource):
             value="String.substringAfter(user.email, \"@\") == \"example.com\"")
         ```
 
+        ## Import
+
+        Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default is is set to `true`.

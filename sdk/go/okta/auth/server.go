@@ -4,6 +4,7 @@
 package auth
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Authorization Server can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:auth/server:Server example <auth server id>
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -179,4 +188,43 @@ type ServerArgs struct {
 
 func (ServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverArgs)(nil)).Elem()
+}
+
+type ServerInput interface {
+	pulumi.Input
+
+	ToServerOutput() ServerOutput
+	ToServerOutputWithContext(ctx context.Context) ServerOutput
+}
+
+func (Server) ElementType() reflect.Type {
+	return reflect.TypeOf((*Server)(nil)).Elem()
+}
+
+func (i Server) ToServerOutput() ServerOutput {
+	return i.ToServerOutputWithContext(context.Background())
+}
+
+func (i Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
+}
+
+type ServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerOutput)(nil)).Elem()
+}
+
+func (o ServerOutput) ToServerOutput() ServerOutput {
+	return o
+}
+
+func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerOutput{})
 }

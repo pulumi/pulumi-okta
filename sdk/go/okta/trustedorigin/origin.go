@@ -4,6 +4,7 @@
 package trustedorigin
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Trusted Origin can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
 // ```
 type Origin struct {
 	pulumi.CustomResourceState
@@ -136,4 +145,43 @@ type OriginArgs struct {
 
 func (OriginArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*originArgs)(nil)).Elem()
+}
+
+type OriginInput interface {
+	pulumi.Input
+
+	ToOriginOutput() OriginOutput
+	ToOriginOutputWithContext(ctx context.Context) OriginOutput
+}
+
+func (Origin) ElementType() reflect.Type {
+	return reflect.TypeOf((*Origin)(nil)).Elem()
+}
+
+func (i Origin) ToOriginOutput() OriginOutput {
+	return i.ToOriginOutputWithContext(context.Background())
+}
+
+func (i Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginOutput)
+}
+
+type OriginOutput struct {
+	*pulumi.OutputState
+}
+
+func (OriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginOutput)(nil)).Elem()
+}
+
+func (o OriginOutput) ToOriginOutput() OriginOutput {
+	return o
+}
+
+func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OriginOutput{})
 }

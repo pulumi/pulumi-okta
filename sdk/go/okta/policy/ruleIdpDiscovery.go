@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Policy Rule can be imported via the Policy and Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy id>/<rule id>
 // ```
 type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
@@ -221,4 +230,43 @@ type RuleIdpDiscoveryArgs struct {
 
 func (RuleIdpDiscoveryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleIdpDiscoveryArgs)(nil)).Elem()
+}
+
+type RuleIdpDiscoveryInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput
+	ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput
+}
+
+func (RuleIdpDiscovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleIdpDiscovery)(nil)).Elem()
+}
+
+func (i RuleIdpDiscovery) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput {
+	return i.ToRuleIdpDiscoveryOutputWithContext(context.Background())
+}
+
+func (i RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryOutput)
+}
+
+type RuleIdpDiscoveryOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleIdpDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleIdpDiscoveryOutput)(nil)).Elem()
+}
+
+func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RuleIdpDiscoveryOutput{})
 }

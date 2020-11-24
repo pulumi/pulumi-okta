@@ -4,6 +4,7 @@
 package auth
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Creates an Authorization Server Claim.
 //
 // This resource allows you to create and configure an Authorization Server Claim.
+//
+// ## Import
+//
+// Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
+//
+// ```sh
+//  $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+// ```
 type ServerClaim struct {
 	pulumi.CustomResourceState
 
@@ -163,4 +172,43 @@ type ServerClaimArgs struct {
 
 func (ServerClaimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverClaimArgs)(nil)).Elem()
+}
+
+type ServerClaimInput interface {
+	pulumi.Input
+
+	ToServerClaimOutput() ServerClaimOutput
+	ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput
+}
+
+func (ServerClaim) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerClaim)(nil)).Elem()
+}
+
+func (i ServerClaim) ToServerClaimOutput() ServerClaimOutput {
+	return i.ToServerClaimOutputWithContext(context.Background())
+}
+
+func (i ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimOutput)
+}
+
+type ServerClaimOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerClaimOutput)(nil)).Elem()
+}
+
+func (o ServerClaimOutput) ToServerClaimOutput() ServerClaimOutput {
+	return o
+}
+
+func (o ServerClaimOutput) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerClaimOutput{})
 }

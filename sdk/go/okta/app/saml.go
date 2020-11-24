@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A SAML App can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/saml:Saml example <app id>
 // ```
 type Saml struct {
 	pulumi.CustomResourceState
@@ -513,4 +522,43 @@ type SamlArgs struct {
 
 func (SamlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlArgs)(nil)).Elem()
+}
+
+type SamlInput interface {
+	pulumi.Input
+
+	ToSamlOutput() SamlOutput
+	ToSamlOutputWithContext(ctx context.Context) SamlOutput
+}
+
+func (Saml) ElementType() reflect.Type {
+	return reflect.TypeOf((*Saml)(nil)).Elem()
+}
+
+func (i Saml) ToSamlOutput() SamlOutput {
+	return i.ToSamlOutputWithContext(context.Background())
+}
+
+func (i Saml) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlOutput)
+}
+
+type SamlOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlOutput)(nil)).Elem()
+}
+
+func (o SamlOutput) ToSamlOutput() SamlOutput {
+	return o
+}
+
+func (o SamlOutput) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamlOutput{})
 }

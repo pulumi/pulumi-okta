@@ -84,6 +84,14 @@ class OAuth(pulumi.CustomResource):
             type="service")
         ```
 
+        ## Import
+
+        An OIDC Application can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/oAuth:OAuth example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
@@ -138,7 +146,7 @@ class OAuth(pulumi.CustomResource):
             __props__['client_uri'] = client_uri
             __props__['consent_method'] = consent_method
             if custom_client_id is not None:
-                warnings.warn("This field is being replaced by client_id. Please set that field instead.", DeprecationWarning)
+                warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
                 pulumi.log.warn("custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.")
             __props__['custom_client_id'] = custom_client_id
             __props__['grant_types'] = grant_types

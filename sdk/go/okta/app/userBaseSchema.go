@@ -4,6 +4,7 @@
 package app
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App user base schema property can be imported via the property index and app id.
+//
+// ```sh
+//  $ pulumi import okta:app/userBaseSchema:UserBaseSchema example <app id>/<property name>
 // ```
 type UserBaseSchema struct {
 	pulumi.CustomResourceState
@@ -173,4 +182,43 @@ type UserBaseSchemaArgs struct {
 
 func (UserBaseSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userBaseSchemaArgs)(nil)).Elem()
+}
+
+type UserBaseSchemaInput interface {
+	pulumi.Input
+
+	ToUserBaseSchemaOutput() UserBaseSchemaOutput
+	ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput
+}
+
+func (UserBaseSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserBaseSchema)(nil)).Elem()
+}
+
+func (i UserBaseSchema) ToUserBaseSchemaOutput() UserBaseSchemaOutput {
+	return i.ToUserBaseSchemaOutputWithContext(context.Background())
+}
+
+func (i UserBaseSchema) ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaOutput)
+}
+
+type UserBaseSchemaOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserBaseSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserBaseSchemaOutput)(nil)).Elem()
+}
+
+func (o UserBaseSchemaOutput) ToUserBaseSchemaOutput() UserBaseSchemaOutput {
+	return o
+}
+
+func (o UserBaseSchemaOutput) ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserBaseSchemaOutput{})
 }

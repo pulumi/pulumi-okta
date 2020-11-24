@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -244,4 +245,43 @@ type SignonPolicyRuleArgs struct {
 
 func (SignonPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonPolicyRuleArgs)(nil)).Elem()
+}
+
+type SignonPolicyRuleInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRuleOutput() SignonPolicyRuleOutput
+	ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput
+}
+
+func (SignonPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRule)(nil)).Elem()
+}
+
+func (i SignonPolicyRule) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
+	return i.ToSignonPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRule) ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleOutput)
+}
+
+type SignonPolicyRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SignonPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRuleOutput)(nil)).Elem()
+}
+
+func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
+	return o
+}
+
+func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SignonPolicyRuleOutput{})
 }

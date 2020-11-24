@@ -58,6 +58,14 @@ class Schema(pulumi.CustomResource):
             type="string")
         ```
 
+        ## Import
+
+        User schema property can be imported via the property index.
+
+        ```sh
+         $ pulumi import okta:user/schema:Schema example <index>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.

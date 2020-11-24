@@ -33,6 +33,14 @@ import * as utilities from "../utilities";
  *     usernameTemplate: "idpuser.email",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An OIDC IdP can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:idp/oidc:Oidc example <idp id>
+ * ```
  */
 export class Oidc extends pulumi.CustomResource {
     /**

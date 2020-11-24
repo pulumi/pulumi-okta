@@ -11,6 +11,14 @@ namespace Pulumi.Okta.Policy
 {
     /// <summary>
     /// Creates a Sign On Policy Rule.
+    /// 
+    /// ## Import
+    /// 
+    /// A Policy Rule can be imported via the Policy and Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:policy/ruleSignon:RuleSignon example &lt;policy id&gt;/&lt;rule id&gt;
+    /// ```
     /// </summary>
     public partial class RuleSignon : Pulumi.CustomResource
     {

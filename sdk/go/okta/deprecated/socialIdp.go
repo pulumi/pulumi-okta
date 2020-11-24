@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -259,4 +260,43 @@ type SocialIdpArgs struct {
 
 func (SocialIdpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*socialIdpArgs)(nil)).Elem()
+}
+
+type SocialIdpInput interface {
+	pulumi.Input
+
+	ToSocialIdpOutput() SocialIdpOutput
+	ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput
+}
+
+func (SocialIdp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocialIdp)(nil)).Elem()
+}
+
+func (i SocialIdp) ToSocialIdpOutput() SocialIdpOutput {
+	return i.ToSocialIdpOutputWithContext(context.Background())
+}
+
+func (i SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpOutput)
+}
+
+type SocialIdpOutput struct {
+	*pulumi.OutputState
+}
+
+func (SocialIdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocialIdpOutput)(nil)).Elem()
+}
+
+func (o SocialIdpOutput) ToSocialIdpOutput() SocialIdpOutput {
+	return o
+}
+
+func (o SocialIdpOutput) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SocialIdpOutput{})
 }

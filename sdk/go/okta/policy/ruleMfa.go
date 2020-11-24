@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Creates an MFA Policy Rule.
 //
 // This resource allows you to create and configure an MFA Policy Rule.
+//
+// ## Import
+//
+// A Policy Rule can be imported via the Policy and Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy id>/<rule id>
+// ```
 type RuleMfa struct {
 	pulumi.CustomResourceState
 
@@ -157,4 +166,43 @@ type RuleMfaArgs struct {
 
 func (RuleMfaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleMfaArgs)(nil)).Elem()
+}
+
+type RuleMfaInput interface {
+	pulumi.Input
+
+	ToRuleMfaOutput() RuleMfaOutput
+	ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput
+}
+
+func (RuleMfa) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfa)(nil)).Elem()
+}
+
+func (i RuleMfa) ToRuleMfaOutput() RuleMfaOutput {
+	return i.ToRuleMfaOutputWithContext(context.Background())
+}
+
+func (i RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaOutput)
+}
+
+type RuleMfaOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleMfaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfaOutput)(nil)).Elem()
+}
+
+func (o RuleMfaOutput) ToRuleMfaOutput() RuleMfaOutput {
+	return o
+}
+
+func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RuleMfaOutput{})
 }

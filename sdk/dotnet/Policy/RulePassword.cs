@@ -13,6 +13,14 @@ namespace Pulumi.Okta.Policy
     /// Creates a Password Policy Rule.
     /// 
     /// This resource allows you to create and configure a Password Policy Rule.
+    /// 
+    /// ## Import
+    /// 
+    /// A Policy Rule can be imported via the Policy and Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:policy/rulePassword:RulePassword example &lt;policy id&gt;/&lt;rule id&gt;
+    /// ```
     /// </summary>
     public partial class RulePassword : Pulumi.CustomResource
     {

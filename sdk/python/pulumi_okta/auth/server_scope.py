@@ -41,6 +41,14 @@ class ServerScope(pulumi.CustomResource):
             metadata_publish="NO_CLIENTS")
         ```
 
+        ## Import
+
+        Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverScope:ServerScope example <auth server id>/<scope id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.

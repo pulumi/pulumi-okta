@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example <auth server id>/<policy id>/<policy rule id>
+ * ```
  */
 export class ServerPolicyRule extends pulumi.CustomResource {
     /**

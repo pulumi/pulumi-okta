@@ -4,6 +4,7 @@
 package group
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Group Role Assignment can be imported via the Okta Group ID.
+//
+// ```sh
+//  $ pulumi import okta:group/roles:Roles example <group id>
 // ```
 type Roles struct {
 	pulumi.CustomResourceState
@@ -113,4 +122,43 @@ type RolesArgs struct {
 
 func (RolesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolesArgs)(nil)).Elem()
+}
+
+type RolesInput interface {
+	pulumi.Input
+
+	ToRolesOutput() RolesOutput
+	ToRolesOutputWithContext(ctx context.Context) RolesOutput
+}
+
+func (Roles) ElementType() reflect.Type {
+	return reflect.TypeOf((*Roles)(nil)).Elem()
+}
+
+func (i Roles) ToRolesOutput() RolesOutput {
+	return i.ToRolesOutputWithContext(context.Background())
+}
+
+func (i Roles) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolesOutput)
+}
+
+type RolesOutput struct {
+	*pulumi.OutputState
+}
+
+func (RolesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolesOutput)(nil)).Elem()
+}
+
+func (o RolesOutput) ToRolesOutput() RolesOutput {
+	return o
+}
+
+func (o RolesOutput) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RolesOutput{})
 }

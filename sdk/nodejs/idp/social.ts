@@ -29,6 +29,14 @@ import * as utilities from "../utilities";
  *     usernameTemplate: "idpuser.email",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A Social IdP can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:idp/social:Social example <idp id>
+ * ```
  */
 export class Social extends pulumi.CustomResource {
     /**

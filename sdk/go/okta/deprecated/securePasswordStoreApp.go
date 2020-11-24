@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -317,4 +318,43 @@ type SecurePasswordStoreAppArgs struct {
 
 func (SecurePasswordStoreAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securePasswordStoreAppArgs)(nil)).Elem()
+}
+
+type SecurePasswordStoreAppInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput
+	ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput
+}
+
+func (SecurePasswordStoreApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStoreApp)(nil)).Elem()
+}
+
+func (i SecurePasswordStoreApp) ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput {
+	return i.ToSecurePasswordStoreAppOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStoreApp) ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppOutput)
+}
+
+type SecurePasswordStoreAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurePasswordStoreAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStoreAppOutput)(nil)).Elem()
+}
+
+func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurePasswordStoreAppOutput{})
 }

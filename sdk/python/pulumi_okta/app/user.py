@@ -46,6 +46,14 @@ class User(pulumi.CustomResource):
             username="example")
         ```
 
+        ## Import
+
+        An Application User can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/user:User example <app id>/<user id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: App to associate user with.

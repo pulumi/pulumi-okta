@@ -41,6 +41,14 @@ class ThreeField(pulumi.CustomResource):
 
         This resource allows you to create and configure an Three Field Application.
 
+        ## Import
+
+        A Three Field App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/threeField:ThreeField example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.

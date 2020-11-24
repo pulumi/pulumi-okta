@@ -45,6 +45,14 @@ class Bookmark(pulumi.CustomResource):
             url="https://example.com")
         ```
 
+        ## Import
+
+        A Bookmark App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/bookmark:Bookmark example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar

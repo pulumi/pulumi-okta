@@ -55,6 +55,14 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_url="https://example.com/login.html")
         ```
 
+        ## Import
+
+        Okta Auto Login App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/autoLogin:AutoLogin example <app id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL

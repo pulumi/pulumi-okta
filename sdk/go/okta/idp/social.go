@@ -4,6 +4,7 @@
 package idp
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Social IdP can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:idp/social:Social example <idp id>
 // ```
 type Social struct {
 	pulumi.CustomResourceState
@@ -407,4 +416,43 @@ type SocialArgs struct {
 
 func (SocialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*socialArgs)(nil)).Elem()
+}
+
+type SocialInput interface {
+	pulumi.Input
+
+	ToSocialOutput() SocialOutput
+	ToSocialOutputWithContext(ctx context.Context) SocialOutput
+}
+
+func (Social) ElementType() reflect.Type {
+	return reflect.TypeOf((*Social)(nil)).Elem()
+}
+
+func (i Social) ToSocialOutput() SocialOutput {
+	return i.ToSocialOutputWithContext(context.Background())
+}
+
+func (i Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialOutput)
+}
+
+type SocialOutput struct {
+	*pulumi.OutputState
+}
+
+func (SocialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocialOutput)(nil)).Elem()
+}
+
+func (o SocialOutput) ToSocialOutput() SocialOutput {
+	return o
+}
+
+func (o SocialOutput) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SocialOutput{})
 }

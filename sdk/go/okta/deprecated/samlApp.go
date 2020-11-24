@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -463,4 +464,43 @@ type SamlAppArgs struct {
 
 func (SamlAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlAppArgs)(nil)).Elem()
+}
+
+type SamlAppInput interface {
+	pulumi.Input
+
+	ToSamlAppOutput() SamlAppOutput
+	ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput
+}
+
+func (SamlApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlApp)(nil)).Elem()
+}
+
+func (i SamlApp) ToSamlAppOutput() SamlAppOutput {
+	return i.ToSamlAppOutputWithContext(context.Background())
+}
+
+func (i SamlApp) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlAppOutput)
+}
+
+type SamlAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlAppOutput)(nil)).Elem()
+}
+
+func (o SamlAppOutput) ToSamlAppOutput() SamlAppOutput {
+	return o
+}
+
+func (o SamlAppOutput) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamlAppOutput{})
 }

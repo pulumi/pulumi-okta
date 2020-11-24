@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ServerPolicyClaim']
 
-warnings.warn("okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule", DeprecationWarning)
+warnings.warn("""okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule""", DeprecationWarning)
 
 
 class ServerPolicyClaim(pulumi.CustomResource):
-    warnings.warn("okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule", DeprecationWarning)
+    warnings.warn("""okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -56,6 +56,14 @@ class ServerPolicyClaim(pulumi.CustomResource):
             policy_id="<auth server policy id>",
             priority=1,
             status="ACTIVE")
+        ```
+
+        ## Import
+
+        Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example <auth server id>/<policy id>/<policy rule id>
         ```
 
         :param str resource_name: The name of the resource.

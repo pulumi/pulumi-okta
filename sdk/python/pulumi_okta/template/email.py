@@ -50,6 +50,14 @@ class Email(pulumi.CustomResource):
             type="email.forgotPassword")
         ```
 
+        ## Import
+
+        An Okta Email Template can be imported via the template type.
+
+        ```sh
+         $ pulumi import okta:template/email:Email example <template type>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.

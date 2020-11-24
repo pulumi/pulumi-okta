@@ -4,6 +4,7 @@
 package deprecated
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -395,4 +396,43 @@ type OauthAppArgs struct {
 
 func (OauthAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthAppArgs)(nil)).Elem()
+}
+
+type OauthAppInput interface {
+	pulumi.Input
+
+	ToOauthAppOutput() OauthAppOutput
+	ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput
+}
+
+func (OauthApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthApp)(nil)).Elem()
+}
+
+func (i OauthApp) ToOauthAppOutput() OauthAppOutput {
+	return i.ToOauthAppOutputWithContext(context.Background())
+}
+
+func (i OauthApp) ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppOutput)
+}
+
+type OauthAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (OauthAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppOutput)(nil)).Elem()
+}
+
+func (o OauthAppOutput) ToOauthAppOutput() OauthAppOutput {
+	return o
+}
+
+func (o OauthAppOutput) ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OauthAppOutput{})
 }

@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Creates a Sign On Policy Rule.
+//
+// ## Import
+//
+// A Policy Rule can be imported via the Policy and Rule ID.
+//
+// ```sh
+//  $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy id>/<rule id>
+// ```
 type RuleSignon struct {
 	pulumi.CustomResourceState
 
@@ -235,4 +244,43 @@ type RuleSignonArgs struct {
 
 func (RuleSignonArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleSignonArgs)(nil)).Elem()
+}
+
+type RuleSignonInput interface {
+	pulumi.Input
+
+	ToRuleSignonOutput() RuleSignonOutput
+	ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput
+}
+
+func (RuleSignon) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignon)(nil)).Elem()
+}
+
+func (i RuleSignon) ToRuleSignonOutput() RuleSignonOutput {
+	return i.ToRuleSignonOutputWithContext(context.Background())
+}
+
+func (i RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonOutput)
+}
+
+type RuleSignonOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleSignonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignonOutput)(nil)).Elem()
+}
+
+func (o RuleSignonOutput) ToRuleSignonOutput() RuleSignonOutput {
+	return o
+}
+
+func (o RuleSignonOutput) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RuleSignonOutput{})
 }
