@@ -49,9 +49,6 @@ export class BookmarkApp extends pulumi.CustomResource {
      * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
-    /**
-     * Pretty name of app.
-     */
     public readonly label!: pulumi.Output<string>;
     /**
      * name of app.
@@ -146,9 +143,6 @@ export interface BookmarkAppState {
      * Do not display application icon to users
      */
     readonly hideWeb?: pulumi.Input<boolean>;
-    /**
-     * Pretty name of app.
-     */
     readonly label?: pulumi.Input<string>;
     /**
      * name of app.
@@ -190,9 +184,6 @@ export interface BookmarkAppArgs {
      * Do not display application icon to users
      */
     readonly hideWeb?: pulumi.Input<boolean>;
-    /**
-     * Pretty name of app.
-     */
     readonly label: pulumi.Input<string>;
     readonly requestIntegration?: pulumi.Input<boolean>;
     /**

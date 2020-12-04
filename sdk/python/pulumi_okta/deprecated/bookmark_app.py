@@ -37,7 +37,6 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
@@ -105,7 +104,6 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] name: name of app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application.
@@ -163,9 +161,6 @@ class BookmarkApp(pulumi.CustomResource):
     @property
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
-        """
-        Pretty name of app.
-        """
         return pulumi.get(self, "label")
 
     @property

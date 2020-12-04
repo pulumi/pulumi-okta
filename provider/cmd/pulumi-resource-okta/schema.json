@@ -2257,34 +2257,34 @@
             "properties": {
                 "accessibilityErrorRedirectUrl": {
                     "type": "string",
-                    "description": "Custom error page URL\n"
+                    "description": "Custom error page URL.\n"
                 },
                 "accessibilitySelfService": {
                     "type": "boolean",
-                    "description": "Enable self service\n"
+                    "description": "Enable self service. By default it is `false`.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "credentialsScheme": {
                     "type": "string",
-                    "description": "Application credentials scheme\n"
+                    "description": "One of: `\"EDIT_USERNAME_AND_PASSWORD\"`, `\"ADMIN_SETS_CREDENTIALS\"`, `\"EDIT_PASSWORD_ONLY\"`, `\"EXTERNAL_PASSWORD_SYNC\"`, or `\"SHARED_USERNAME_AND_PASSWORD\"`.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2304,11 +2304,11 @@
                 },
                 "sharedPassword": {
                     "type": "string",
-                    "description": "Shared password, required for certain schemes.\n"
+                    "description": "Shared password, required for certain schemes\n"
                 },
                 "sharedUsername": {
                     "type": "string",
-                    "description": "Shared username, required for certain schemes.\n"
+                    "description": "Shared username, required for certain schemes\n"
                 },
                 "signOnMode": {
                     "type": "string",
@@ -2316,7 +2316,7 @@
                 },
                 "signOnRedirectUrl": {
                     "type": "string",
-                    "description": "Post login redirect URL\n"
+                    "description": "Redirect URL; if going to the login page URL redirects to another page, then enter that URL here\n"
                 },
                 "signOnUrl": {
                     "type": "string",
@@ -2328,58 +2328,60 @@
                 },
                 "userNameTemplate": {
                     "type": "string",
-                    "description": "Username template\n"
+                    "description": "Username template. Default: `\"${source.login}\"`\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix.\n"
                 },
                 "userNameTemplateType": {
                     "type": "string",
-                    "description": "Username template type\n"
+                    "description": "Username template type. Default: `\"BUILT_IN\"`\n"
                 },
                 "users": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:app/AutoLoginUser:AutoLoginUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n"
                 }
             },
             "required": [
                 "label",
                 "name",
-                "signOnMode",
-                "userNameTemplate",
-                "userNameTemplateType"
+                "signOnMode"
             ],
             "inputProperties": {
                 "accessibilityErrorRedirectUrl": {
                     "type": "string",
-                    "description": "Custom error page URL\n"
+                    "description": "Custom error page URL.\n"
                 },
                 "accessibilitySelfService": {
                     "type": "boolean",
-                    "description": "Enable self service\n"
+                    "description": "Enable self service. By default it is `false`.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "credentialsScheme": {
                     "type": "string",
-                    "description": "Application credentials scheme\n"
+                    "description": "One of: `\"EDIT_USERNAME_AND_PASSWORD\"`, `\"ADMIN_SETS_CREDENTIALS\"`, `\"EDIT_PASSWORD_ONLY\"`, `\"EXTERNAL_PASSWORD_SYNC\"`, or `\"SHARED_USERNAME_AND_PASSWORD\"`.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2395,15 +2397,15 @@
                 },
                 "sharedPassword": {
                     "type": "string",
-                    "description": "Shared password, required for certain schemes.\n"
+                    "description": "Shared password, required for certain schemes\n"
                 },
                 "sharedUsername": {
                     "type": "string",
-                    "description": "Shared username, required for certain schemes.\n"
+                    "description": "Shared username, required for certain schemes\n"
                 },
                 "signOnRedirectUrl": {
                     "type": "string",
-                    "description": "Post login redirect URL\n"
+                    "description": "Redirect URL; if going to the login page URL redirects to another page, then enter that URL here\n"
                 },
                 "signOnUrl": {
                     "type": "string",
@@ -2413,12 +2415,24 @@
                     "type": "string",
                     "description": "The status of the application, by default it is `\"ACTIVE\"`.\n"
                 },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template. Default: `\"${source.login}\"`\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix.\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type. Default: `\"BUILT_IN\"`\n"
+                },
                 "users": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:app/AutoLoginUser:AutoLoginUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n"
                 }
             },
             "requiredInputs": [
@@ -2429,34 +2443,34 @@
                 "properties": {
                     "accessibilityErrorRedirectUrl": {
                         "type": "string",
-                        "description": "Custom error page URL\n"
+                        "description": "Custom error page URL.\n"
                     },
                     "accessibilitySelfService": {
                         "type": "boolean",
-                        "description": "Enable self service\n"
+                        "description": "Enable self service. By default it is `false`.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
-                        "description": "Display auto submit toolbar\n"
+                        "description": "Display auto submit toolbar.\n"
                     },
                     "credentialsScheme": {
                         "type": "string",
-                        "description": "Application credentials scheme\n"
+                        "description": "One of: `\"EDIT_USERNAME_AND_PASSWORD\"`, `\"ADMIN_SETS_CREDENTIALS\"`, `\"EDIT_PASSWORD_ONLY\"`, `\"EXTERNAL_PASSWORD_SYNC\"`, or `\"SHARED_USERNAME_AND_PASSWORD\"`.\n"
                     },
                     "groups": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Groups associated with the application\n"
+                        "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n"
                     },
                     "hideIos": {
                         "type": "boolean",
-                        "description": "Do not display application icon on mobile app\n"
+                        "description": "Do not display application icon on mobile app.\n"
                     },
                     "hideWeb": {
                         "type": "boolean",
-                        "description": "Do not display application icon to users\n"
+                        "description": "Do not display application icon to users.\n"
                     },
                     "label": {
                         "type": "string",
@@ -2476,11 +2490,11 @@
                     },
                     "sharedPassword": {
                         "type": "string",
-                        "description": "Shared password, required for certain schemes.\n"
+                        "description": "Shared password, required for certain schemes\n"
                     },
                     "sharedUsername": {
                         "type": "string",
-                        "description": "Shared username, required for certain schemes.\n"
+                        "description": "Shared username, required for certain schemes\n"
                     },
                     "signOnMode": {
                         "type": "string",
@@ -2488,7 +2502,7 @@
                     },
                     "signOnRedirectUrl": {
                         "type": "string",
-                        "description": "Post login redirect URL\n"
+                        "description": "Redirect URL; if going to the login page URL redirects to another page, then enter that URL here\n"
                     },
                     "signOnUrl": {
                         "type": "string",
@@ -2500,18 +2514,22 @@
                     },
                     "userNameTemplate": {
                         "type": "string",
-                        "description": "Username template\n"
+                        "description": "Username template. Default: `\"${source.login}\"`\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix.\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
-                        "description": "Username template type\n"
+                        "description": "Username template type. Default: `\"BUILT_IN\"`\n"
                     },
                     "users": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/okta:app/AutoLoginUser:AutoLoginUser"
                         },
-                        "description": "Users associated with the application\n"
+                        "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n"
                     }
                 },
                 "type": "object"
@@ -4042,6 +4060,10 @@
                     "type": "string",
                     "description": "The default username assigned to each user.\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "The Username template type.\n"
@@ -4064,8 +4086,6 @@
                 "passwordField",
                 "signOnMode",
                 "url",
-                "userNameTemplate",
-                "userNameTemplateType",
                 "usernameField"
             ],
             "inputProperties": {
@@ -4151,6 +4171,18 @@
                 "url": {
                     "type": "string",
                     "description": "Login URL.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "The default username assigned to each user.\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "The Username template type.\n"
                 },
                 "usernameField": {
                     "type": "string",
@@ -4268,6 +4300,10 @@
                         "type": "string",
                         "description": "The default username assigned to each user.\n"
                     },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
+                    },
                     "userNameTemplateType": {
                         "type": "string",
                         "description": "The Username template type.\n"
@@ -4357,6 +4393,10 @@
                     "type": "string",
                     "description": "The default username assigned to each user.\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "The Username template type.\n"
@@ -4376,9 +4416,7 @@
             "required": [
                 "label",
                 "name",
-                "signOnMode",
-                "userNameTemplate",
-                "userNameTemplateType"
+                "signOnMode"
             ],
             "inputProperties": {
                 "accessibilityErrorRedirectUrl": {
@@ -4435,6 +4473,18 @@
                 "urlRegex": {
                     "type": "string",
                     "description": "A regex that further restricts URL to the specified regex.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "The default username assigned to each user.\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "The Username template type.\n"
                 },
                 "usernameField": {
                     "type": "string",
@@ -4520,6 +4570,10 @@
                     "userNameTemplate": {
                         "type": "string",
                         "description": "The default username assigned to each user.\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
@@ -4614,6 +4668,10 @@
                     "type": "string",
                     "description": "The default username assigned to each user.\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "The Username template type.\n"
@@ -4639,8 +4697,6 @@
                 "passwordSelector",
                 "signOnMode",
                 "url",
-                "userNameTemplate",
-                "userNameTemplateType",
                 "usernameSelector"
             ],
             "inputProperties": {
@@ -4702,6 +4758,18 @@
                 "urlRegex": {
                     "type": "string",
                     "description": "A regex that further restricts URL to the specified regex.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "The default username assigned to each user.\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "The Username template type.\n"
                 },
                 "usernameSelector": {
                     "type": "string",
@@ -4797,6 +4865,10 @@
                     "userNameTemplate": {
                         "type": "string",
                         "description": "The default username assigned to each user.\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
@@ -5717,13 +5789,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be included\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5768,13 +5842,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be excluded\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be included\n"
                 }
             },
             "required": [
@@ -5804,13 +5880,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be included\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5855,13 +5933,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be excluded\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be included\n"
                 }
             },
             "requiredInputs": [
@@ -5892,13 +5972,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Groups whose Users are to be excluded\n"
                     },
                     "groupWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Groups whose Users are to be included\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -5943,13 +6025,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Users to be excluded\n"
                     },
                     "userWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Users to be included\n"
                     }
                 },
                 "type": "object"
@@ -5978,13 +6062,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be included\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -6029,13 +6115,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be excluded\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be included\n"
                 }
             },
             "required": [
@@ -6065,13 +6153,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Groups whose Users are to be included\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -6116,13 +6206,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be excluded\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies a set of Users to be included\n"
                 }
             },
             "requiredInputs": [
@@ -6153,13 +6245,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Groups whose Users are to be excluded\n"
                     },
                     "groupWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Groups whose Users are to be included\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -6204,13 +6298,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Users to be excluded\n"
                     },
                     "userWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies a set of Users to be included\n"
                     }
                 },
                 "type": "object"
@@ -6390,6 +6486,10 @@
                     "type": "string",
                     "description": "Username template\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "Username template type\n"
@@ -6405,9 +6505,7 @@
             "required": [
                 "label",
                 "name",
-                "signOnMode",
-                "userNameTemplate",
-                "userNameTemplateType"
+                "signOnMode"
             ],
             "inputProperties": {
                 "accessibilityErrorRedirectUrl": {
@@ -6472,6 +6570,18 @@
                 "status": {
                     "type": "string",
                     "description": "Status of application.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type\n"
                 },
                 "users": {
                     "type": "array",
@@ -6562,6 +6672,10 @@
                         "type": "string",
                         "description": "Username template\n"
                     },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
+                    },
                     "userNameTemplateType": {
                         "type": "string",
                         "description": "Username template type\n"
@@ -6599,8 +6713,7 @@
                     "description": "Do not display application icon to users\n"
                 },
                 "label": {
-                    "type": "string",
-                    "description": "Pretty name of app.\n"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string",
@@ -6655,8 +6768,7 @@
                     "description": "Do not display application icon to users\n"
                 },
                 "label": {
-                    "type": "string",
-                    "description": "Pretty name of app.\n"
+                    "type": "string"
                 },
                 "requestIntegration": {
                     "type": "boolean"
@@ -6703,8 +6815,7 @@
                         "description": "Do not display application icon to users\n"
                     },
                     "label": {
-                        "type": "string",
-                        "description": "Pretty name of app.\n"
+                        "type": "string"
                     },
                     "name": {
                         "type": "string",
@@ -9642,6 +9753,10 @@
                     "type": "string",
                     "description": "Username template\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "Username template type\n"
@@ -9664,8 +9779,6 @@
                 "passwordField",
                 "signOnMode",
                 "url",
-                "userNameTemplate",
-                "userNameTemplateType",
                 "usernameField"
             ],
             "inputProperties": {
@@ -9751,6 +9864,18 @@
                 "url": {
                     "type": "string",
                     "description": "Login URL\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type\n"
                 },
                 "usernameField": {
                     "type": "string",
@@ -9867,6 +9992,10 @@
                     "userNameTemplate": {
                         "type": "string",
                         "description": "Username template\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
@@ -10651,6 +10780,10 @@
                     "type": "string",
                     "description": "Username template\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "Username template type\n"
@@ -10670,9 +10803,7 @@
             "required": [
                 "label",
                 "name",
-                "signOnMode",
-                "userNameTemplate",
-                "userNameTemplateType"
+                "signOnMode"
             ],
             "inputProperties": {
                 "accessibilityErrorRedirectUrl": {
@@ -10729,6 +10860,18 @@
                 "urlRegex": {
                     "type": "string",
                     "description": "A regex that further restricts URL to the specified regex\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type\n"
                 },
                 "usernameField": {
                     "type": "string",
@@ -10814,6 +10957,10 @@
                     "userNameTemplate": {
                         "type": "string",
                         "description": "Username template\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
@@ -10907,6 +11054,10 @@
                     "type": "string",
                     "description": "Username template\n"
                 },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
                 "userNameTemplateType": {
                     "type": "string",
                     "description": "Username template type\n"
@@ -10932,8 +11083,6 @@
                 "passwordSelector",
                 "signOnMode",
                 "url",
-                "userNameTemplate",
-                "userNameTemplateType",
                 "usernameSelector"
             ],
             "inputProperties": {
@@ -10995,6 +11144,18 @@
                 "urlRegex": {
                     "type": "string",
                     "description": "A regex that further restricts URL to the specified regex\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type\n"
                 },
                 "usernameSelector": {
                     "type": "string",
@@ -11090,6 +11251,10 @@
                     "userNameTemplate": {
                         "type": "string",
                         "description": "Username template\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
@@ -14939,19 +15104,19 @@
             }
         },
         "okta:trustedorigin/origin:Origin": {
-            "description": "Creates a Trusted Origin.\n\nThis resource allows you to create and configure an Trusted Origin.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.trustedorigin.Origin(\"example\", {\n    origin: \"https://example.com\",\n    scopes: [\"CORS\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.trustedorigin.Origin(\"example\",\n    origin=\"https://example.com\",\n    scopes=[\"CORS\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.TrustedOrigin.Origin(\"example\", new Okta.TrustedOrigin.OriginArgs\n        {\n            Origin = \"https://example.com\",\n            Scopes = \n            {\n                \"CORS\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/trustedorigin\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := trustedorigin.NewOrigin(ctx, \"example\", \u0026trustedorigin.OriginArgs{\n\t\t\tOrigin: pulumi.String(\"https://example.com\"),\n\t\t\tScopes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"CORS\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Trusted Origin can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:trustedorigin/origin:Origin example \u003ctrusted origin id\u003e\n```\n\n ",
+            "description": "Creates a Trusted Origin.\n\nThis resource allows you to create and configure a Trusted Origin.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.trustedorigin.Origin(\"example\", {\n    origin: \"https://example.com\",\n    scopes: [\"CORS\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.trustedorigin.Origin(\"example\",\n    origin=\"https://example.com\",\n    scopes=[\"CORS\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.TrustedOrigin.Origin(\"example\", new Okta.TrustedOrigin.OriginArgs\n        {\n            Origin = \"https://example.com\",\n            Scopes = \n            {\n                \"CORS\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/trustedorigin\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := trustedorigin.NewOrigin(ctx, \"example\", \u0026trustedorigin.OriginArgs{\n\t\t\tOrigin: pulumi.String(\"https://example.com\"),\n\t\t\tScopes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"CORS\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Trusted Origin can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:trustedorigin/origin:Origin example \u003ctrusted origin id\u003e\n```\n\n ",
             "properties": {
                 "active": {
                     "type": "boolean",
-                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation.\n"
+                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the Trusted Origin Resource.\n"
+                    "description": "Unique name for this trusted origin.\n"
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The origin to trust.\n",
+                    "description": "Unique origin URL for this trusted origin.\n",
                     "language": {
                         "csharp": {
                             "name": "OriginName"
@@ -14974,15 +15139,15 @@
             "inputProperties": {
                 "active": {
                     "type": "boolean",
-                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation.\n"
+                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the Trusted Origin Resource.\n"
+                    "description": "Unique name for this trusted origin.\n"
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The origin to trust.\n",
+                    "description": "Unique origin URL for this trusted origin.\n",
                     "language": {
                         "csharp": {
                             "name": "OriginName"
@@ -15006,15 +15171,15 @@
                 "properties": {
                     "active": {
                         "type": "boolean",
-                        "description": "Whether the Trusted Origin is active or not - can only be issued post-creation.\n"
+                        "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the Trusted Origin Resource.\n"
+                        "description": "Unique name for this trusted origin.\n"
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The origin to trust.\n",
+                        "description": "Unique origin URL for this trusted origin.\n",
                         "language": {
                             "csharp": {
                                 "name": "OriginName"

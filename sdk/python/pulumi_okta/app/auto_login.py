@@ -32,6 +32,9 @@ class AutoLogin(pulumi.CustomResource):
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -65,22 +68,25 @@ class AutoLogin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password
-        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
-        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_redirect_url: Post login redirect URL
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
+        :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: The status of the application, by default it is `"ACTIVE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,11 +122,12 @@ class AutoLogin(pulumi.CustomResource):
             __props__['sign_on_redirect_url'] = sign_on_redirect_url
             __props__['sign_on_url'] = sign_on_url
             __props__['status'] = status
+            __props__['user_name_template'] = user_name_template
+            __props__['user_name_template_suffix'] = user_name_template_suffix
+            __props__['user_name_template_type'] = user_name_template_type
             __props__['users'] = users
             __props__['name'] = None
             __props__['sign_on_mode'] = None
-            __props__['user_name_template'] = None
-            __props__['user_name_template_type'] = None
         super(AutoLogin, __self__).__init__(
             'okta:app/autoLogin:AutoLogin',
             resource_name,
@@ -149,6 +156,7 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None) -> 'AutoLogin':
         """
@@ -158,26 +166,27 @@ class AutoLogin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password
-        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
-        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] sign_on_redirect_url: Post login redirect URL
+        :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: The status of the application, by default it is `"ACTIVE"`.
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_type: Username template type
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,6 +210,7 @@ class AutoLogin(pulumi.CustomResource):
         __props__["sign_on_url"] = sign_on_url
         __props__["status"] = status
         __props__["user_name_template"] = user_name_template
+        __props__["user_name_template_suffix"] = user_name_template_suffix
         __props__["user_name_template_type"] = user_name_template_type
         __props__["users"] = users
         return AutoLogin(resource_name, opts=opts, __props__=__props__)
@@ -209,7 +219,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom error page URL
+        Custom error page URL.
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -217,7 +227,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self service
+        Enable self service. By default it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -225,7 +235,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar
+        Display auto submit toolbar.
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -233,7 +243,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> pulumi.Output[Optional[str]]:
         """
-        Application credentials scheme
+        One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -241,7 +251,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Groups associated with the application
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         """
         return pulumi.get(self, "groups")
 
@@ -249,7 +259,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app
+        Do not display application icon on mobile app.
         """
         return pulumi.get(self, "hide_ios")
 
@@ -257,7 +267,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users
+        Do not display application icon to users.
         """
         return pulumi.get(self, "hide_web")
 
@@ -297,7 +307,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="sharedPassword")
     def shared_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Shared password, required for certain schemes.
+        Shared password, required for certain schemes
         """
         return pulumi.get(self, "shared_password")
 
@@ -305,7 +315,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="sharedUsername")
     def shared_username(self) -> pulumi.Output[Optional[str]]:
         """
-        Shared username, required for certain schemes.
+        Shared username, required for certain schemes
         """
         return pulumi.get(self, "shared_username")
 
@@ -321,7 +331,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="signOnRedirectUrl")
     def sign_on_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Post login redirect URL
+        Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         """
         return pulumi.get(self, "sign_on_redirect_url")
 
@@ -343,17 +353,25 @@ class AutoLogin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> pulumi.Output[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
     @property
-    @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type
+        Username template suffix.
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template type. Default: `"BUILT_IN"`
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -361,7 +379,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.AutoLoginUser']]]:
         """
-        Users associated with the application
+        The users assigned to the application. See `app.User` for a more flexible approach.
         """
         return pulumi.get(self, "users")
 

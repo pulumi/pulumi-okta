@@ -12,7 +12,7 @@ namespace Pulumi.Okta.TrustedOrigin
     /// <summary>
     /// Creates a Trusted Origin.
     /// 
-    /// This resource allows you to create and configure an Trusted Origin.
+    /// This resource allows you to create and configure a Trusted Origin.
     /// 
     /// ## Example Usage
     /// 
@@ -48,19 +48,19 @@ namespace Pulumi.Okta.TrustedOrigin
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Trusted Origin Resource.
+        /// Unique name for this trusted origin.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The origin to trust.
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Output("origin")]
         public Output<string> OriginName { get; private set; } = null!;
@@ -118,19 +118,19 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Name of the Trusted Origin Resource.
+        /// Unique name for this trusted origin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The origin to trust.
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Input("origin", required: true)]
         public Input<string> OriginName { get; set; } = null!;
@@ -155,19 +155,19 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Name of the Trusted Origin Resource.
+        /// Unique name for this trusted origin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The origin to trust.
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Input("origin")]
         public Input<string>? OriginName { get; set; }

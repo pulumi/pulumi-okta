@@ -104,11 +104,15 @@ export class AuthLoginApp extends pulumi.CustomResource {
     /**
      * Username template
      */
-    public /*out*/ readonly userNameTemplate!: pulumi.Output<string>;
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix
+     */
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
      * Username template type
      */
-    public /*out*/ readonly userNameTemplateType!: pulumi.Output<string>;
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Users associated with the application
      */
@@ -144,6 +148,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["signOnUrl"] = state ? state.signOnUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
@@ -166,11 +171,12 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
             inputs["signOnUrl"] = args ? args.signOnUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
-            inputs["userNameTemplate"] = undefined /*out*/;
-            inputs["userNameTemplateType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -260,6 +266,10 @@ export interface AuthLoginAppState {
      */
     readonly userNameTemplate?: pulumi.Input<string>;
     /**
+     * Username template suffix
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
      * Username template type
      */
     readonly userNameTemplateType?: pulumi.Input<string>;
@@ -333,6 +343,18 @@ export interface AuthLoginAppArgs {
      * Status of application.
      */
     readonly status?: pulumi.Input<string>;
+    /**
+     * Username template
+     */
+    readonly userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type
+     */
+    readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      */

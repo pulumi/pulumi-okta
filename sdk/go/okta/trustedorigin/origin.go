@@ -13,7 +13,7 @@ import (
 
 // Creates a Trusted Origin.
 //
-// This resource allows you to create and configure an Trusted Origin.
+// This resource allows you to create and configure a Trusted Origin.
 //
 // ## Example Usage
 //
@@ -51,11 +51,11 @@ import (
 type Origin struct {
 	pulumi.CustomResourceState
 
-	// Whether the Trusted Origin is active or not - can only be issued post-creation.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// Name of the Trusted Origin Resource.
+	// Unique name for this trusted origin.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The origin to trust.
+	// Unique origin URL for this trusted origin.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
@@ -95,22 +95,22 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
 	Active *bool `pulumi:"active"`
-	// Name of the Trusted Origin Resource.
+	// Unique name for this trusted origin.
 	Name *string `pulumi:"name"`
-	// The origin to trust.
+	// Unique origin URL for this trusted origin.
 	Origin *string `pulumi:"origin"`
 	// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
 	Scopes []string `pulumi:"scopes"`
 }
 
 type OriginState struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
 	Active pulumi.BoolPtrInput
-	// Name of the Trusted Origin Resource.
+	// Unique name for this trusted origin.
 	Name pulumi.StringPtrInput
-	// The origin to trust.
+	// Unique origin URL for this trusted origin.
 	Origin pulumi.StringPtrInput
 	// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
 	Scopes pulumi.StringArrayInput
@@ -121,11 +121,11 @@ func (OriginState) ElementType() reflect.Type {
 }
 
 type originArgs struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
 	Active *bool `pulumi:"active"`
-	// Name of the Trusted Origin Resource.
+	// Unique name for this trusted origin.
 	Name *string `pulumi:"name"`
-	// The origin to trust.
+	// Unique origin URL for this trusted origin.
 	Origin string `pulumi:"origin"`
 	// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
 	Scopes []string `pulumi:"scopes"`
@@ -133,11 +133,11 @@ type originArgs struct {
 
 // The set of arguments for constructing a Origin resource.
 type OriginArgs struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
 	Active pulumi.BoolPtrInput
-	// Name of the Trusted Origin Resource.
+	// Unique name for this trusted origin.
 	Name pulumi.StringPtrInput
-	// The origin to trust.
+	// Unique origin URL for this trusted origin.
 	Origin pulumi.StringInput
 	// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
 	Scopes pulumi.StringArrayInput

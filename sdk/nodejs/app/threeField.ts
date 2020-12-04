@@ -128,11 +128,15 @@ export class ThreeField extends pulumi.CustomResource {
     /**
      * The default username assigned to each user.
      */
-    public /*out*/ readonly userNameTemplate!: pulumi.Output<string>;
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix
+     */
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
      * The Username template type.
      */
-    public /*out*/ readonly userNameTemplateType!: pulumi.Output<string>;
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Login username field CSS selector.
      */
@@ -171,6 +175,7 @@ export class ThreeField extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameSelector"] = state ? state.usernameSelector : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -211,12 +216,13 @@ export class ThreeField extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
+            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameSelector"] = args ? args.usernameSelector : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
-            inputs["userNameTemplate"] = undefined /*out*/;
-            inputs["userNameTemplateType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -302,6 +308,10 @@ export interface ThreeFieldState {
      */
     readonly userNameTemplate?: pulumi.Input<string>;
     /**
+     * Username template suffix
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
      * The Username template type.
      */
     readonly userNameTemplateType?: pulumi.Input<string>;
@@ -375,6 +385,18 @@ export interface ThreeFieldArgs {
      * A regex that further restricts URL to the specified regex.
      */
     readonly urlRegex?: pulumi.Input<string>;
+    /**
+     * The default username assigned to each user.
+     */
+    readonly userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * The Username template type.
+     */
+    readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Login username field CSS selector.
      */

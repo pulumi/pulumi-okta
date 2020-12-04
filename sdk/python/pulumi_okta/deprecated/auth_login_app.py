@@ -32,6 +32,9 @@ class AuthLoginApp(pulumi.CustomResource):
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -55,6 +58,9 @@ class AuthLoginApp(pulumi.CustomResource):
         :param pulumi.Input[str] sign_on_redirect_url: Post login redirect URL
         :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]] users: Users associated with the application
         """
         if __name__ is not None:
@@ -91,11 +97,12 @@ class AuthLoginApp(pulumi.CustomResource):
             __props__['sign_on_redirect_url'] = sign_on_redirect_url
             __props__['sign_on_url'] = sign_on_url
             __props__['status'] = status
+            __props__['user_name_template'] = user_name_template
+            __props__['user_name_template_suffix'] = user_name_template_suffix
+            __props__['user_name_template_type'] = user_name_template_type
             __props__['users'] = users
             __props__['name'] = None
             __props__['sign_on_mode'] = None
-            __props__['user_name_template'] = None
-            __props__['user_name_template_type'] = None
         super(AuthLoginApp, __self__).__init__(
             'okta:deprecated/authLoginApp:AuthLoginApp',
             resource_name,
@@ -124,6 +131,7 @@ class AuthLoginApp(pulumi.CustomResource):
             sign_on_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None) -> 'AuthLoginApp':
         """
@@ -151,6 +159,7 @@ class AuthLoginApp(pulumi.CustomResource):
         :param pulumi.Input[str] sign_on_url: Login URL
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]] users: Users associated with the application
         """
@@ -176,6 +185,7 @@ class AuthLoginApp(pulumi.CustomResource):
         __props__["sign_on_url"] = sign_on_url
         __props__["status"] = status
         __props__["user_name_template"] = user_name_template
+        __props__["user_name_template_suffix"] = user_name_template_suffix
         __props__["user_name_template_type"] = user_name_template_type
         __props__["users"] = users
         return AuthLoginApp(resource_name, opts=opts, __props__=__props__)
@@ -318,15 +328,23 @@ class AuthLoginApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> pulumi.Output[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
         Username template
         """
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> pulumi.Output[str]:
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
         Username template type
         """

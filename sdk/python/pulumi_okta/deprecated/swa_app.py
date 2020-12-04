@@ -30,6 +30,9 @@ class SwaApp(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None,
                  __props__=None,
@@ -52,6 +55,9 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_field: Login username field
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
         """
@@ -87,12 +93,13 @@ class SwaApp(pulumi.CustomResource):
             __props__['status'] = status
             __props__['url'] = url
             __props__['url_regex'] = url_regex
+            __props__['user_name_template'] = user_name_template
+            __props__['user_name_template_suffix'] = user_name_template_suffix
+            __props__['user_name_template_type'] = user_name_template_type
             __props__['username_field'] = username_field
             __props__['users'] = users
             __props__['name'] = None
             __props__['sign_on_mode'] = None
-            __props__['user_name_template'] = None
-            __props__['user_name_template_type'] = None
         super(SwaApp, __self__).__init__(
             'okta:deprecated/swaApp:SwaApp',
             resource_name,
@@ -119,6 +126,7 @@ class SwaApp(pulumi.CustomResource):
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None) -> 'SwaApp':
@@ -145,6 +153,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_field: Login username field
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]] users: Users associated with the application
@@ -169,6 +178,7 @@ class SwaApp(pulumi.CustomResource):
         __props__["url"] = url
         __props__["url_regex"] = url_regex
         __props__["user_name_template"] = user_name_template
+        __props__["user_name_template_suffix"] = user_name_template_suffix
         __props__["user_name_template_type"] = user_name_template_type
         __props__["username_field"] = username_field
         __props__["users"] = users
@@ -296,15 +306,23 @@ class SwaApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> pulumi.Output[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
         Username template
         """
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> pulumi.Output[str]:
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
         Username template type
         """

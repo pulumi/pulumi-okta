@@ -71,6 +71,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
         :param pulumi.Input[str] name: Auth Server Policy Rule name.
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
@@ -80,6 +82,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included
         """
         pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
         if __name__ is not None:
@@ -159,6 +163,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
         :param pulumi.Input[str] name: Auth Server Policy Rule name.
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
@@ -168,6 +174,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -218,11 +226,17 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupBlacklists")
     def group_blacklists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a set of Groups whose Users are to be excluded
+        """
         return pulumi.get(self, "group_blacklists")
 
     @property
     @pulumi.getter(name="groupWhitelists")
     def group_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a set of Groups whose Users are to be included
+        """
         return pulumi.get(self, "group_whitelists")
 
     @property
@@ -300,11 +314,17 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userBlacklists")
     def user_blacklists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a set of Users to be excluded
+        """
         return pulumi.get(self, "user_blacklists")
 
     @property
     @pulumi.getter(name="userWhitelists")
     def user_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a set of Users to be included
+        """
         return pulumi.get(self, "user_whitelists")
 
     def translate_output_property(self, prop):

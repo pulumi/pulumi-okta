@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Creates a Trusted Origin.
  *
- * This resource allows you to create and configure an Trusted Origin.
+ * This resource allows you to create and configure a Trusted Origin.
  *
  * ## Example Usage
  *
@@ -58,15 +58,15 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the Trusted Origin Resource.
+     * Unique name for this trusted origin.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The origin to trust.
+     * Unique origin URL for this trusted origin.
      */
     public readonly origin!: pulumi.Output<string>;
     /**
@@ -119,15 +119,15 @@ export class Origin extends pulumi.CustomResource {
  */
 export interface OriginState {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * Name of the Trusted Origin Resource.
+     * Unique name for this trusted origin.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The origin to trust.
+     * Unique origin URL for this trusted origin.
      */
     readonly origin?: pulumi.Input<string>;
     /**
@@ -141,15 +141,15 @@ export interface OriginState {
  */
 export interface OriginArgs {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * Name of the Trusted Origin Resource.
+     * Unique name for this trusted origin.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The origin to trust.
+     * Unique origin URL for this trusted origin.
      */
     readonly origin: pulumi.Input<string>;
     /**

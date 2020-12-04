@@ -52,19 +52,19 @@ import (
 type AutoLogin struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service
+	// Enable self service. By default it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
@@ -74,23 +74,25 @@ type AutoLogin struct {
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// Allow user to reveal password
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
 	// The status of the application, by default it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Username template
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
-	// Username template type
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
-	// Users associated with the application
+	// Username template. Default: `"${source.login}"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix.
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `"BUILT_IN"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
+	// The users assigned to the application. See `app.User` for a more flexible approach.
 	Users AutoLoginUserArrayOutput `pulumi:"users"`
 }
 
@@ -125,19 +127,19 @@ func GetAutoLogin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoLogin resources.
 type autoLoginState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service
+	// Enable self service. By default it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
@@ -147,40 +149,42 @@ type autoLoginState struct {
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Allow user to reveal password
 	RevealPassword *bool `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
 	// The status of the application, by default it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template type
+	// Username template suffix.
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
 	Users []AutoLoginUser `pulumi:"users"`
 }
 
 type AutoLoginState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self service. By default it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
@@ -190,23 +194,25 @@ type AutoLoginState struct {
 	PreconfiguredApp pulumi.StringPtrInput
 	// Allow user to reveal password
 	RevealPassword pulumi.BoolPtrInput
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
 	// The status of the application, by default it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template type
+	// Username template suffix.
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType pulumi.StringPtrInput
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
 	Users AutoLoginUserArrayInput
 }
 
@@ -215,19 +221,19 @@ func (AutoLoginState) ElementType() reflect.Type {
 }
 
 type autoLoginArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service
+	// Enable self service. By default it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
@@ -235,35 +241,41 @@ type autoLoginArgs struct {
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Allow user to reveal password
 	RevealPassword *bool `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
 	// The status of the application, by default it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Users associated with the application
+	// Username template. Default: `"${source.login}"`
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix.
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `"BUILT_IN"`
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
+	// The users assigned to the application. See `app.User` for a more flexible approach.
 	Users []AutoLoginUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a AutoLogin resource.
 type AutoLoginArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self service. By default it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
@@ -271,17 +283,23 @@ type AutoLoginArgs struct {
 	PreconfiguredApp pulumi.StringPtrInput
 	// Allow user to reveal password
 	RevealPassword pulumi.BoolPtrInput
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrInput
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
 	// The status of the application, by default it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Users associated with the application
+	// Username template. Default: `"${source.login}"`
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix.
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type. Default: `"BUILT_IN"`
+	UserNameTemplateType pulumi.StringPtrInput
+	// The users assigned to the application. See `app.User` for a more flexible approach.
 	Users AutoLoginUserArrayInput
 }
 

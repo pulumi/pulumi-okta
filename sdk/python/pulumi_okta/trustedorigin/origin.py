@@ -25,7 +25,7 @@ class Origin(pulumi.CustomResource):
         """
         Creates a Trusted Origin.
 
-        This resource allows you to create and configure an Trusted Origin.
+        This resource allows you to create and configure a Trusted Origin.
 
         ## Example Usage
 
@@ -48,9 +48,9 @@ class Origin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation.
-        :param pulumi.Input[str] name: Name of the Trusted Origin Resource.
-        :param pulumi.Input[str] origin: The origin to trust.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        :param pulumi.Input[str] name: Unique name for this trusted origin.
+        :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
         if __name__ is not None:
@@ -99,9 +99,9 @@ class Origin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation.
-        :param pulumi.Input[str] name: Name of the Trusted Origin Resource.
-        :param pulumi.Input[str] origin: The origin to trust.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        :param pulumi.Input[str] name: Unique name for this trusted origin.
+        :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -118,7 +118,7 @@ class Origin(pulumi.CustomResource):
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the Trusted Origin is active or not - can only be issued post-creation.
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
         """
         return pulumi.get(self, "active")
 
@@ -126,7 +126,7 @@ class Origin(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Trusted Origin Resource.
+        Unique name for this trusted origin.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +134,7 @@ class Origin(pulumi.CustomResource):
     @pulumi.getter
     def origin(self) -> pulumi.Output[str]:
         """
-        The origin to trust.
+        Unique origin URL for this trusted origin.
         """
         return pulumi.get(self, "origin")
 

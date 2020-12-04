@@ -73,7 +73,13 @@ export class ServerPolicyRule extends pulumi.CustomResource {
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
      */
     public readonly grantTypeWhitelists!: pulumi.Output<string[]>;
+    /**
+     * Specifies a set of Groups whose Users are to be excluded
+     */
     public readonly groupBlacklists!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
     public readonly groupWhitelists!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the inline token to trigger.
@@ -111,7 +117,13 @@ export class ServerPolicyRule extends pulumi.CustomResource {
      * The type of the Auth Server Policy Rule.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a set of Users to be excluded
+     */
     public readonly userBlacklists!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies a set of Users to be included
+     */
     public readonly userWhitelists!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -202,7 +214,13 @@ export interface ServerPolicyRuleState {
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
      */
     readonly grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Groups whose Users are to be excluded
+     */
     readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
     readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the inline token to trigger.
@@ -240,7 +258,13 @@ export interface ServerPolicyRuleState {
      * The type of the Auth Server Policy Rule.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Specifies a set of Users to be excluded
+     */
     readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Users to be included
+     */
     readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -260,7 +284,13 @@ export interface ServerPolicyRuleArgs {
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
      */
     readonly grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Groups whose Users are to be excluded
+     */
     readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
     readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the inline token to trigger.
@@ -298,6 +328,12 @@ export interface ServerPolicyRuleArgs {
      * The type of the Auth Server Policy Rule.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Specifies a set of Users to be excluded
+     */
     readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a set of Users to be included
+     */
     readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

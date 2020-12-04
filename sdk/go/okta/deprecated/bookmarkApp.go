@@ -22,8 +22,7 @@ type BookmarkApp struct {
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// Pretty name of app.
-	Label pulumi.StringOutput `pulumi:"label"`
+	Label   pulumi.StringOutput  `pulumi:"label"`
 	// name of app.
 	Name               pulumi.StringOutput  `pulumi:"name"`
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
@@ -77,9 +76,8 @@ type bookmarkAppState struct {
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
-	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
-	Label *string `pulumi:"label"`
+	HideWeb *bool   `pulumi:"hideWeb"`
+	Label   *string `pulumi:"label"`
 	// name of app.
 	Name               *string `pulumi:"name"`
 	RequestIntegration *bool   `pulumi:"requestIntegration"`
@@ -101,8 +99,7 @@ type BookmarkAppState struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
-	Label pulumi.StringPtrInput
+	Label   pulumi.StringPtrInput
 	// name of app.
 	Name               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
@@ -127,8 +124,7 @@ type bookmarkAppArgs struct {
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
-	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	HideWeb            *bool  `pulumi:"hideWeb"`
 	Label              string `pulumi:"label"`
 	RequestIntegration *bool  `pulumi:"requestIntegration"`
 	// Status of application.
@@ -147,8 +143,7 @@ type BookmarkAppArgs struct {
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
-	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	HideWeb            pulumi.BoolPtrInput
 	Label              pulumi.StringInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Status of application.

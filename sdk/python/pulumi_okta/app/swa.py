@@ -30,6 +30,9 @@ class Swa(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None,
                  __props__=None,
@@ -77,6 +80,9 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
@@ -112,12 +118,13 @@ class Swa(pulumi.CustomResource):
             __props__['status'] = status
             __props__['url'] = url
             __props__['url_regex'] = url_regex
+            __props__['user_name_template'] = user_name_template
+            __props__['user_name_template_suffix'] = user_name_template_suffix
+            __props__['user_name_template_type'] = user_name_template_type
             __props__['username_field'] = username_field
             __props__['users'] = users
             __props__['name'] = None
             __props__['sign_on_mode'] = None
-            __props__['user_name_template'] = None
-            __props__['user_name_template_type'] = None
         super(Swa, __self__).__init__(
             'okta:app/swa:Swa',
             resource_name,
@@ -144,6 +151,7 @@ class Swa(pulumi.CustomResource):
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None) -> 'Swa':
@@ -170,6 +178,7 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
@@ -194,6 +203,7 @@ class Swa(pulumi.CustomResource):
         __props__["url"] = url
         __props__["url_regex"] = url_regex
         __props__["user_name_template"] = user_name_template
+        __props__["user_name_template_suffix"] = user_name_template_suffix
         __props__["user_name_template_type"] = user_name_template_type
         __props__["username_field"] = username_field
         __props__["users"] = users
@@ -321,15 +331,23 @@ class Swa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> pulumi.Output[str]:
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
         The default username assigned to each user.
         """
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> pulumi.Output[str]:
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Username template type.
         """

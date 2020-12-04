@@ -59,9 +59,11 @@ type SecurePasswordStoreApp struct {
 	// Login URL
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Username template
-	UserNameTemplate pulumi.StringOutput `pulumi:"userNameTemplate"`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
-	UserNameTemplateType pulumi.StringOutput `pulumi:"userNameTemplateType"`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
 	// Users associated with the application
@@ -154,6 +156,8 @@ type securePasswordStoreAppState struct {
 	Url *string `pulumi:"url"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field
@@ -209,6 +213,8 @@ type SecurePasswordStoreAppState struct {
 	Url pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field
@@ -262,6 +268,12 @@ type securePasswordStoreAppArgs struct {
 	Status *string `pulumi:"status"`
 	// Login URL
 	Url string `pulumi:"url"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field
 	UsernameField string `pulumi:"usernameField"`
 	// Users associated with the application
@@ -310,6 +322,12 @@ type SecurePasswordStoreAppArgs struct {
 	Status pulumi.StringPtrInput
 	// Login URL
 	Url pulumi.StringInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field
 	UsernameField pulumi.StringInput
 	// Users associated with the application
