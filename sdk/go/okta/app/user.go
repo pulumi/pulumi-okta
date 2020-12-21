@@ -15,7 +15,7 @@ import (
 //
 // This resource allows you to create and configure an Application User.
 //
-// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+// **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
 //
 // ```go
 // package main
@@ -81,17 +81,18 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.AppId == nil {
-		return nil, errors.New("missing required argument 'AppId'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppId == nil {
+		return nil, errors.New("invalid value for required argument 'AppId'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource User
 	err := ctx.RegisterResource("okta:app/user:User", name, args, &resource, opts...)

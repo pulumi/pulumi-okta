@@ -72,14 +72,15 @@ type TemplateSms struct {
 // NewTemplateSms registers a new resource with the given unique name, arguments, and options.
 func NewTemplateSms(ctx *pulumi.Context,
 	name string, args *TemplateSmsArgs, opts ...pulumi.ResourceOption) (*TemplateSms, error) {
-	if args == nil || args.Template == nil {
-		return nil, errors.New("missing required argument 'Template'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &TemplateSmsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Template == nil {
+		return nil, errors.New("invalid value for required argument 'Template'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource TemplateSms
 	err := ctx.RegisterResource("okta:index/templateSms:TemplateSms", name, args, &resource, opts...)

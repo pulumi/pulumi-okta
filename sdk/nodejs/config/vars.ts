@@ -19,6 +19,10 @@ export let backoff: boolean | undefined = __config.getObject<boolean>("backoff")
  */
 export let baseUrl: string | undefined = __config.get("baseUrl") || utilities.getEnv("OKTA_BASE_URL");
 /**
+ * providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+ */
+export let logLevel: number | undefined = __config.getObject<number>("logLevel");
+/**
  * maximum number of retries to attempt before erroring out.
  */
 export let maxRetries: number | undefined = __config.getObject<number>("maxRetries");

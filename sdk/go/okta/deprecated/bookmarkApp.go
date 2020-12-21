@@ -22,7 +22,8 @@ type BookmarkApp struct {
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	Label   pulumi.StringOutput  `pulumi:"label"`
+	// Pretty name of app.
+	Label pulumi.StringOutput `pulumi:"label"`
 	// name of app.
 	Name               pulumi.StringOutput  `pulumi:"name"`
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
@@ -38,14 +39,15 @@ type BookmarkApp struct {
 // NewBookmarkApp registers a new resource with the given unique name, arguments, and options.
 func NewBookmarkApp(ctx *pulumi.Context,
 	name string, args *BookmarkAppArgs, opts ...pulumi.ResourceOption) (*BookmarkApp, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &BookmarkAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource BookmarkApp
 	err := ctx.RegisterResource("okta:deprecated/bookmarkApp:BookmarkApp", name, args, &resource, opts...)
@@ -76,8 +78,9 @@ type bookmarkAppState struct {
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
-	HideWeb *bool   `pulumi:"hideWeb"`
-	Label   *string `pulumi:"label"`
+	HideWeb *bool `pulumi:"hideWeb"`
+	// Pretty name of app.
+	Label *string `pulumi:"label"`
 	// name of app.
 	Name               *string `pulumi:"name"`
 	RequestIntegration *bool   `pulumi:"requestIntegration"`
@@ -99,7 +102,8 @@ type BookmarkAppState struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
-	Label   pulumi.StringPtrInput
+	// Pretty name of app.
+	Label pulumi.StringPtrInput
 	// name of app.
 	Name               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
@@ -124,7 +128,8 @@ type bookmarkAppArgs struct {
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
-	HideWeb            *bool  `pulumi:"hideWeb"`
+	HideWeb *bool `pulumi:"hideWeb"`
+	// Pretty name of app.
 	Label              string `pulumi:"label"`
 	RequestIntegration *bool  `pulumi:"requestIntegration"`
 	// Status of application.
@@ -143,7 +148,8 @@ type BookmarkAppArgs struct {
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
-	HideWeb            pulumi.BoolPtrInput
+	HideWeb pulumi.BoolPtrInput
+	// Pretty name of app.
 	Label              pulumi.StringInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Status of application.

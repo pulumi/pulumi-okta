@@ -46,6 +46,8 @@ type LookupGroupArgs struct {
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// name of group to retrieve.
 	Name string `pulumi:"name"`
+	// type of the group to retrieve.
+	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getGroup.
@@ -57,6 +59,8 @@ type LookupGroupResult struct {
 	IncludeUsers *bool  `pulumi:"includeUsers"`
 	// name of group.
 	Name string `pulumi:"name"`
+	// type of group.
+	Type *string `pulumi:"type"`
 	// user ids that are members of this group, only included if `includeUsers` is set to `true`.
 	Users []string `pulumi:"users"`
 }

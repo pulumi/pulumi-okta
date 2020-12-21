@@ -26,17 +26,17 @@ namespace Pulumi.Okta
     ///     {
     ///         var example = new Okta.EventHook("example", new Okta.EventHookArgs
     ///         {
-    ///             Auth = new Okta.Inputs.EventHookAuthArgs
+    ///             Auth = 
     ///             {
-    ///                 Key = "Authorization",
-    ///                 Type = "HEADER",
-    ///                 Value = "123",
+    ///                 { "key", "Authorization" },
+    ///                 { "type", "HEADER" },
+    ///                 { "value", "123" },
     ///             },
-    ///             Channel = new Okta.Inputs.EventHookChannelArgs
+    ///             Channel = 
     ///             {
-    ///                 Type = "HTTP",
-    ///                 Uri = "https://example.com/test",
-    ///                 Version = "1.0.0",
+    ///                 { "type", "HTTP" },
+    ///                 { "uri", "https://example.com/test" },
+    ///                 { "version", "1.0.0" },
     ///             },
     ///             Events = 
     ///             {
@@ -63,13 +63,13 @@ namespace Pulumi.Okta
         /// Authentication required for event hook request.
         /// </summary>
         [Output("auth")]
-        public Output<Outputs.EventHookAuth?> Auth { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
         /// <summary>
         /// Details of the endpoint the event hook will hit.
         /// </summary>
         [Output("channel")]
-        public Output<Outputs.EventHookChannel> Channel { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
 
         /// <summary>
         /// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
@@ -138,17 +138,29 @@ namespace Pulumi.Okta
 
     public sealed class EventHookArgs : Pulumi.ResourceArgs
     {
+        [Input("auth")]
+        private InputMap<string>? _auth;
+
         /// <summary>
         /// Authentication required for event hook request.
         /// </summary>
-        [Input("auth")]
-        public Input<Inputs.EventHookAuthArgs>? Auth { get; set; }
+        public InputMap<string> Auth
+        {
+            get => _auth ?? (_auth = new InputMap<string>());
+            set => _auth = value;
+        }
+
+        [Input("channel", required: true)]
+        private InputMap<string>? _channel;
 
         /// <summary>
         /// Details of the endpoint the event hook will hit.
         /// </summary>
-        [Input("channel", required: true)]
-        public Input<Inputs.EventHookChannelArgs> Channel { get; set; } = null!;
+        public InputMap<string> Channel
+        {
+            get => _channel ?? (_channel = new InputMap<string>());
+            set => _channel = value;
+        }
 
         [Input("events", required: true)]
         private InputList<string>? _events;
@@ -190,17 +202,29 @@ namespace Pulumi.Okta
 
     public sealed class EventHookState : Pulumi.ResourceArgs
     {
+        [Input("auth")]
+        private InputMap<string>? _auth;
+
         /// <summary>
         /// Authentication required for event hook request.
         /// </summary>
-        [Input("auth")]
-        public Input<Inputs.EventHookAuthGetArgs>? Auth { get; set; }
+        public InputMap<string> Auth
+        {
+            get => _auth ?? (_auth = new InputMap<string>());
+            set => _auth = value;
+        }
+
+        [Input("channel")]
+        private InputMap<string>? _channel;
 
         /// <summary>
         /// Details of the endpoint the event hook will hit.
         /// </summary>
-        [Input("channel")]
-        public Input<Inputs.EventHookChannelGetArgs>? Channel { get; set; }
+        public InputMap<string> Channel
+        {
+            get => _channel ?? (_channel = new InputMap<string>());
+            set => _channel = value;
+        }
 
         [Input("events")]
         private InputList<string>? _events;

@@ -14,7 +14,7 @@ namespace Pulumi.Okta.App
     /// 
     /// This resource allows you to create and configure an Application User.
     /// 
-    /// __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+    /// **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
     /// 
     /// ```csharp
     /// using Pulumi;

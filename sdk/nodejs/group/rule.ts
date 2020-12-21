@@ -99,10 +99,10 @@ export class Rule extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if (!args || args.expressionValue === undefined) {
+            if ((!args || args.expressionValue === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressionValue'");
             }
-            if (!args || args.groupAssignments === undefined) {
+            if ((!args || args.groupAssignments === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupAssignments'");
             }
             inputs["expressionType"] = args ? args.expressionType : undefined;

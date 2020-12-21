@@ -67,7 +67,7 @@ class Roles(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admin_roles'] = admin_roles
-            if group_id is None:
+            if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
         super(Roles, __self__).__init__(

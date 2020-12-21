@@ -76,7 +76,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if audiences is None:
+            if audiences is None and not opts.urn:
                 raise TypeError("Missing required property 'audiences'")
             __props__['audiences'] = audiences
             __props__['credentials_rotation_mode'] = credentials_rotation_mode

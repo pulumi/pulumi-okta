@@ -13,17 +13,20 @@ namespace Pulumi.Okta.Policy.Inputs
     public sealed class RuleIdpDiscoveryAppExcludeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Rule.
+        /// Use if `type` is `"APP"` to indicate the application Id to include.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

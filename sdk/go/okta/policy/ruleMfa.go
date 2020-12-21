@@ -48,11 +48,12 @@ type RuleMfa struct {
 // NewRuleMfa registers a new resource with the given unique name, arguments, and options.
 func NewRuleMfa(ctx *pulumi.Context,
 	name string, args *RuleMfaArgs, opts ...pulumi.ResourceOption) (*RuleMfa, error) {
-	if args == nil || args.Policyid == nil {
-		return nil, errors.New("missing required argument 'Policyid'")
-	}
 	if args == nil {
-		args = &RuleMfaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policyid == nil {
+		return nil, errors.New("invalid value for required argument 'Policyid'")
 	}
 	var resource RuleMfa
 	err := ctx.RegisterResource("okta:policy/ruleMfa:RuleMfa", name, args, &resource, opts...)

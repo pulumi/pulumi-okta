@@ -73,11 +73,11 @@ export class EventHook extends pulumi.CustomResource {
     /**
      * Authentication required for event hook request.
      */
-    public readonly auth!: pulumi.Output<outputs.EventHookAuth | undefined>;
+    public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    public readonly channel!: pulumi.Output<outputs.EventHookChannel>;
+    public readonly channel!: pulumi.Output<{[key: string]: string}>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
@@ -112,10 +112,10 @@ export class EventHook extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHookArgs | undefined;
-            if (!args || args.channel === undefined) {
+            if ((!args || args.channel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'channel'");
             }
-            if (!args || args.events === undefined) {
+            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'events'");
             }
             inputs["auth"] = args ? args.auth : undefined;
@@ -143,11 +143,11 @@ export interface EventHookState {
     /**
      * Authentication required for event hook request.
      */
-    readonly auth?: pulumi.Input<inputs.EventHookAuth>;
+    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    readonly channel?: pulumi.Input<inputs.EventHookChannel>;
+    readonly channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
@@ -170,11 +170,11 @@ export interface EventHookArgs {
     /**
      * Authentication required for event hook request.
      */
-    readonly auth?: pulumi.Input<inputs.EventHookAuth>;
+    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    readonly channel: pulumi.Input<inputs.EventHookChannel>;
+    readonly channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */

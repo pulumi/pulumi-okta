@@ -59,14 +59,15 @@ type SocialIdp struct {
 // NewSocialIdp registers a new resource with the given unique name, arguments, and options.
 func NewSocialIdp(ctx *pulumi.Context,
 	name string, args *SocialIdpArgs, opts ...pulumi.ResourceOption) (*SocialIdp, error) {
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &SocialIdpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource SocialIdp
 	err := ctx.RegisterResource("okta:deprecated/socialIdp:SocialIdp", name, args, &resource, opts...)

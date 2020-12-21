@@ -143,7 +143,7 @@ export class RuleSignon extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleSignonArgs | undefined;
-            if (!args || args.policyid === undefined) {
+            if ((!args || args.policyid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyid'");
             }
             inputs["access"] = args ? args.access : undefined;

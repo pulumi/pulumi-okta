@@ -135,11 +135,11 @@ class Social(pulumi.CustomResource):
             __props__['groups_attribute'] = groups_attribute
             __props__['groups_filters'] = groups_filters
             __props__['issuer_mode'] = issuer_mode
-            if match_attribute is not None:
+            if match_attribute is not None and not opts.urn:
                 warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
                 pulumi.log.warn("match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"")
             __props__['match_attribute'] = match_attribute
-            if match_type is not None:
+            if match_type is not None and not opts.urn:
                 warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
                 pulumi.log.warn("match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"")
             __props__['match_type'] = match_type
@@ -152,14 +152,14 @@ class Social(pulumi.CustomResource):
             __props__['request_signature_scope'] = request_signature_scope
             __props__['response_signature_algorithm'] = response_signature_algorithm
             __props__['response_signature_scope'] = response_signature_scope
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['status'] = status
             __props__['subject_match_attribute'] = subject_match_attribute
             __props__['subject_match_type'] = subject_match_type
             __props__['suspended_action'] = suspended_action
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['username_template'] = username_template

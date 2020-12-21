@@ -93,7 +93,7 @@ class RuleSignon(pulumi.CustomResource):
             __props__['network_connection'] = network_connection
             __props__['network_excludes'] = network_excludes
             __props__['network_includes'] = network_includes
-            if policyid is None:
+            if policyid is None and not opts.urn:
                 raise TypeError("Missing required property 'policyid'")
             __props__['policyid'] = policyid
             __props__['priority'] = priority

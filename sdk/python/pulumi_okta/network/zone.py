@@ -83,7 +83,7 @@ class Zone(pulumi.CustomResource):
             __props__['gateways'] = gateways
             __props__['name'] = name
             __props__['proxies'] = proxies
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(Zone, __self__).__init__(

@@ -124,7 +124,7 @@ export class Server extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if (!args || args.audiences === undefined) {
+            if ((!args || args.audiences === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'audiences'");
             }
             inputs["audiences"] = args ? args.audiences : undefined;

@@ -79,17 +79,17 @@ class ServerPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auth_server_id is None:
+            if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
             __props__['auth_server_id'] = auth_server_id
-            if client_whitelists is None:
+            if client_whitelists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_whitelists'")
             __props__['client_whitelists'] = client_whitelists
-            if description is None:
+            if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__['description'] = description
             __props__['name'] = name
-            if priority is None:
+            if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__['priority'] = priority
             __props__['status'] = status

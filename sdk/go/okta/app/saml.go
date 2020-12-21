@@ -73,6 +73,8 @@ type Saml struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -95,7 +97,7 @@ type Saml struct {
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey pulumi.StringOutput `pulumi:"entityKey"`
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl pulumi.StringOutput `pulumi:"entityUrl"`
 	// features enabled.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
@@ -160,11 +162,12 @@ type Saml struct {
 // NewSaml registers a new resource with the given unique name, arguments, and options.
 func NewSaml(ctx *pulumi.Context,
 	name string, args *SamlArgs, opts ...pulumi.ResourceOption) (*Saml, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &SamlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource Saml
 	err := ctx.RegisterResource("okta:app/saml:Saml", name, args, &resource, opts...)
@@ -194,6 +197,8 @@ type samlState struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -216,7 +221,7 @@ type samlState struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey *string `pulumi:"entityKey"`
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl *string `pulumi:"entityUrl"`
 	// features enabled.
 	Features []string `pulumi:"features"`
@@ -285,6 +290,8 @@ type SamlState struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints pulumi.StringArrayInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.
@@ -307,7 +314,7 @@ type SamlState struct {
 	DigestAlgorithm pulumi.StringPtrInput
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey pulumi.StringPtrInput
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl pulumi.StringPtrInput
 	// features enabled.
 	Features pulumi.StringArrayInput
@@ -380,6 +387,8 @@ type samlArgs struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -454,6 +463,8 @@ type SamlArgs struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints pulumi.StringArrayInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.

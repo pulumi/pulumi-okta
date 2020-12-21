@@ -49,6 +49,9 @@ export class BookmarkApp extends pulumi.CustomResource {
      * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
+    /**
+     * Pretty name of app.
+     */
     public readonly label!: pulumi.Output<string>;
     /**
      * name of app.
@@ -94,10 +97,10 @@ export class BookmarkApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BookmarkAppArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
-            if (!args || args.url === undefined) {
+            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
@@ -143,6 +146,9 @@ export interface BookmarkAppState {
      * Do not display application icon to users
      */
     readonly hideWeb?: pulumi.Input<boolean>;
+    /**
+     * Pretty name of app.
+     */
     readonly label?: pulumi.Input<string>;
     /**
      * name of app.
@@ -184,6 +190,9 @@ export interface BookmarkAppArgs {
      * Do not display application icon to users
      */
     readonly hideWeb?: pulumi.Input<boolean>;
+    /**
+     * Pretty name of app.
+     */
     readonly label: pulumi.Input<string>;
     readonly requestIntegration?: pulumi.Input<boolean>;
     /**

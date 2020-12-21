@@ -12,9 +12,15 @@ namespace Pulumi.Okta.Policy.Inputs
 
     public sealed class RuleIdpDiscoveryUserIdentifierPatternGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+        /// </summary>
         [Input("matchType")]
         public Input<string>? MatchType { get; set; }
 
+        /// <summary>
+        /// The regex or simple match string to match against.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

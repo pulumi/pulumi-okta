@@ -83,17 +83,17 @@ class ServerClaim(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['always_include_in_token'] = always_include_in_token
-            if auth_server_id is None:
+            if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
             __props__['auth_server_id'] = auth_server_id
-            if claim_type is None:
+            if claim_type is None and not opts.urn:
                 raise TypeError("Missing required property 'claim_type'")
             __props__['claim_type'] = claim_type
             __props__['group_filter_type'] = group_filter_type
             __props__['name'] = name
             __props__['scopes'] = scopes
             __props__['status'] = status
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['value_type'] = value_type

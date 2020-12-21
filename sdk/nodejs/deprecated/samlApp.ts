@@ -46,6 +46,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
+     * List of ACS endpoints for this SAML application
+     */
+    public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
+    /**
      * Application settings in JSON format
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
@@ -222,6 +226,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            inputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             inputs["attributeStatements"] = state ? state.attributeStatements : undefined;
@@ -265,12 +270,13 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SamlAppArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            inputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             inputs["attributeStatements"] = args ? args.attributeStatements : undefined;
@@ -340,6 +346,10 @@ export interface SamlAppState {
      * Enable self service
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
+     * List of ACS endpoints for this SAML application
+     */
+    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application settings in JSON format
      */
@@ -519,6 +529,10 @@ export interface SamlAppArgs {
      * Enable self service
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
+     * List of ACS endpoints for this SAML application
+     */
+    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application settings in JSON format
      */

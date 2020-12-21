@@ -62,11 +62,12 @@ type RuleSignon struct {
 // NewRuleSignon registers a new resource with the given unique name, arguments, and options.
 func NewRuleSignon(ctx *pulumi.Context,
 	name string, args *RuleSignonArgs, opts ...pulumi.ResourceOption) (*RuleSignon, error) {
-	if args == nil || args.Policyid == nil {
-		return nil, errors.New("missing required argument 'Policyid'")
-	}
 	if args == nil {
-		args = &RuleSignonArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policyid == nil {
+		return nil, errors.New("invalid value for required argument 'Policyid'")
 	}
 	var resource RuleSignon
 	err := ctx.RegisterResource("okta:policy/ruleSignon:RuleSignon", name, args, &resource, opts...)

@@ -102,7 +102,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -145,7 +145,7 @@ class OAuth(pulumi.CustomResource):
             __props__['client_id'] = client_id
             __props__['client_uri'] = client_uri
             __props__['consent_method'] = consent_method
-            if custom_client_id is not None:
+            if custom_client_id is not None and not opts.urn:
                 warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
                 pulumi.log.warn("custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.")
             __props__['custom_client_id'] = custom_client_id
@@ -155,7 +155,7 @@ class OAuth(pulumi.CustomResource):
             __props__['hide_web'] = hide_web
             __props__['issuer_mode'] = issuer_mode
             __props__['jwks'] = jwks
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['login_uri'] = login_uri
@@ -169,7 +169,7 @@ class OAuth(pulumi.CustomResource):
             __props__['status'] = status
             __props__['token_endpoint_auth_method'] = token_endpoint_auth_method
             __props__['tos_uri'] = tos_uri
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['users'] = users
@@ -232,7 +232,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -359,7 +359,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 

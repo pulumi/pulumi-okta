@@ -62,21 +62,21 @@ export class BasicAuth extends pulumi.CustomResource {
     /**
      * The URL of the authenticating site for this app.
      */
-    public readonly authUrl!: pulumi.Output<string | undefined>;
+    public readonly authUrl!: pulumi.Output<string>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,15 +92,15 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The URL of the sign-in page for this app.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    public readonly url!: pulumi.Output<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     public readonly users!: pulumi.Output<outputs.app.BasicAuthUser[] | undefined>;
 
@@ -129,8 +129,14 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BasicAuthArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.authUrl === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'authUrl'");
+            }
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
+            }
+            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'url'");
             }
             inputs["authUrl"] = args ? args.authUrl : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
@@ -164,19 +170,19 @@ export interface BasicAuthState {
      */
     readonly authUrl?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -192,7 +198,7 @@ export interface BasicAuthState {
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -200,7 +206,7 @@ export interface BasicAuthState {
      */
     readonly url?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BasicAuthUser>[]>;
 }
@@ -212,21 +218,21 @@ export interface BasicAuthArgs {
     /**
      * The URL of the authenticating site for this app.
      */
-    readonly authUrl?: pulumi.Input<string>;
+    readonly authUrl: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -234,15 +240,15 @@ export interface BasicAuthArgs {
      */
     readonly label: pulumi.Input<string>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     readonly status?: pulumi.Input<string>;
     /**
      * The URL of the sign-in page for this app.
      */
-    readonly url?: pulumi.Input<string>;
+    readonly url: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BasicAuthUser>[]>;
 }

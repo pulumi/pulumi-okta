@@ -9,466 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'MfaDuo',
-    'MfaFidoU2f',
-    'MfaFidoWebauthn',
-    'MfaGoogleOtp',
-    'MfaOktaCall',
-    'MfaOktaOtp',
-    'MfaOktaPassword',
-    'MfaOktaPush',
-    'MfaOktaQuestion',
-    'MfaOktaSms',
-    'MfaRsaToken',
-    'MfaSymantecVip',
-    'MfaYubikeyToken',
     'RuleIdpDiscoveryAppExclude',
     'RuleIdpDiscoveryAppInclude',
     'RuleIdpDiscoveryPlatformInclude',
     'RuleIdpDiscoveryUserIdentifierPattern',
 ]
-
-@pulumi.output_type
-class MfaDuo(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaFidoU2f(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaFidoWebauthn(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaGoogleOtp(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaCall(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaOtp(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaPassword(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaPush(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaQuestion(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaOktaSms(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaRsaToken(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaSymantecVip(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MfaYubikeyToken(dict):
-    def __init__(__self__, *,
-                 consent_type: Optional[str] = None,
-                 enroll: Optional[str] = None):
-        """
-        :param str consent_type: User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        :param str enroll: Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        if consent_type is not None:
-            pulumi.set(__self__, "consent_type", consent_type)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-
-    @property
-    @pulumi.getter(name="consentType")
-    def consent_type(self) -> Optional[str]:
-        """
-        User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-        """
-        return pulumi.get(self, "consent_type")
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[str]:
-        """
-        Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-        """
-        return pulumi.get(self, "enroll")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleIdpDiscoveryAppExclude(dict):
@@ -477,8 +22,9 @@ class RuleIdpDiscoveryAppExclude(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str id: ID of the Rule.
-        :param str name: Policy Rule Name.
+        :param str id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -491,7 +37,7 @@ class RuleIdpDiscoveryAppExclude(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the Rule.
+        Use if `type` is `"APP"` to indicate the application Id to include.
         """
         return pulumi.get(self, "id")
 
@@ -499,13 +45,16 @@ class RuleIdpDiscoveryAppExclude(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Policy Rule Name.
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
         return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
@@ -519,8 +68,9 @@ class RuleIdpDiscoveryAppInclude(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str id: ID of the Rule.
-        :param str name: Policy Rule Name.
+        :param str id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -533,7 +83,7 @@ class RuleIdpDiscoveryAppInclude(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the Rule.
+        Use if `type` is `"APP"` to indicate the application Id to include.
         """
         return pulumi.get(self, "id")
 
@@ -541,13 +91,16 @@ class RuleIdpDiscoveryAppInclude(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Policy Rule Name.
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
         return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
@@ -560,6 +113,11 @@ class RuleIdpDiscoveryPlatformInclude(dict):
                  os_expression: Optional[str] = None,
                  os_type: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param str os_expression: Only available when using `os_type = "OTHER"`
+        :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
         if os_type is not None:
@@ -570,16 +128,25 @@ class RuleIdpDiscoveryPlatformInclude(dict):
     @property
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[str]:
+        """
+        Only available when using `os_type = "OTHER"`
+        """
         return pulumi.get(self, "os_expression")
 
     @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+        """
         return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
         return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
@@ -591,6 +158,10 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str match_type: The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+        :param str value: The regex or simple match string to match against.
+        """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
         if value is not None:
@@ -599,11 +170,17 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> Optional[str]:
+        """
+        The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+        """
         return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The regex or simple match string to match against.
+        """
         return pulumi.get(self, "value")
 
     def _translate_property(self, prop):

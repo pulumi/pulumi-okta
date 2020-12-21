@@ -73,20 +73,21 @@ type ServerPolicy struct {
 // NewServerPolicy registers a new resource with the given unique name, arguments, and options.
 func NewServerPolicy(ctx *pulumi.Context,
 	name string, args *ServerPolicyArgs, opts ...pulumi.ResourceOption) (*ServerPolicy, error) {
-	if args == nil || args.AuthServerId == nil {
-		return nil, errors.New("missing required argument 'AuthServerId'")
-	}
-	if args == nil || args.ClientWhitelists == nil {
-		return nil, errors.New("missing required argument 'ClientWhitelists'")
-	}
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.Priority == nil {
-		return nil, errors.New("missing required argument 'Priority'")
-	}
 	if args == nil {
-		args = &ServerPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthServerId == nil {
+		return nil, errors.New("invalid value for required argument 'AuthServerId'")
+	}
+	if args.ClientWhitelists == nil {
+		return nil, errors.New("invalid value for required argument 'ClientWhitelists'")
+	}
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Priority == nil {
+		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
 	var resource ServerPolicy
 	err := ctx.RegisterResource("okta:auth/serverPolicy:ServerPolicy", name, args, &resource, opts...)

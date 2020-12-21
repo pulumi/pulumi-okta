@@ -135,21 +135,21 @@ class User(pulumi.CustomResource):
             __props__['department'] = department
             __props__['display_name'] = display_name
             __props__['division'] = division
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['employee_number'] = employee_number
-            if first_name is None:
+            if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__['first_name'] = first_name
             __props__['group_memberships'] = group_memberships
             __props__['honorific_prefix'] = honorific_prefix
             __props__['honorific_suffix'] = honorific_suffix
-            if last_name is None:
+            if last_name is None and not opts.urn:
                 raise TypeError("Missing required property 'last_name'")
             __props__['last_name'] = last_name
             __props__['locale'] = locale
-            if login is None:
+            if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
             __props__['login'] = login
             __props__['manager'] = manager

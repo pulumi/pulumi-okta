@@ -28,10 +28,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := user.NewBaseSchema(ctx, "example", &user.BaseSchemaArgs{
-// 			Index:  pulumi.String("customPropertyName"),
-// 			Master: pulumi.String("OKTA"),
-// 			Title:  pulumi.String("customPropertyName"),
-// 			Type:   pulumi.String("string"),
+// 			Index:    pulumi.String("customPropertyName"),
+// 			Master:   pulumi.String("OKTA"),
+// 			Title:    pulumi.String("customPropertyName"),
+// 			Type:     pulumi.String("string"),
+// 			UserType: pulumi.Any(data.Okta_user_type.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,10 +44,16 @@ import (
 //
 // ## Import
 //
-// User base schema property can be imported via the property index.
+// User schema property of default user type can be imported via the property index.
 //
 // ```sh
 //  $ pulumi import okta:user/baseSchema:BaseSchema example <property name>
+// ```
+//
+//  User schema property of custom user type can be imported via user type id and property index
+//
+// ```sh
+//  $ pulumi import okta:user/baseSchema:BaseSchema example <user type id>.<property name>
 // ```
 type BaseSchema struct {
 	pulumi.CustomResourceState
@@ -63,22 +70,25 @@ type BaseSchema struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// User type ID
+	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
 // NewBaseSchema registers a new resource with the given unique name, arguments, and options.
 func NewBaseSchema(ctx *pulumi.Context,
 	name string, args *BaseSchemaArgs, opts ...pulumi.ResourceOption) (*BaseSchema, error) {
-	if args == nil || args.Index == nil {
-		return nil, errors.New("missing required argument 'Index'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &BaseSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Index == nil {
+		return nil, errors.New("invalid value for required argument 'Index'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource BaseSchema
 	err := ctx.RegisterResource("okta:user/baseSchema:BaseSchema", name, args, &resource, opts...)
@@ -114,6 +124,8 @@ type baseSchemaState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
+	// User type ID
+	UserType *string `pulumi:"userType"`
 }
 
 type BaseSchemaState struct {
@@ -129,6 +141,8 @@ type BaseSchemaState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
+	// User type ID
+	UserType pulumi.StringPtrInput
 }
 
 func (BaseSchemaState) ElementType() reflect.Type {
@@ -148,6 +162,8 @@ type baseSchemaArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
+	// User type ID
+	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a BaseSchema resource.
@@ -164,6 +180,8 @@ type BaseSchemaArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
+	// User type ID
+	UserType pulumi.StringPtrInput
 }
 
 func (BaseSchemaArgs) ElementType() reflect.Type {

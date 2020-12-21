@@ -39,6 +39,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["apiToken"] = (args ? args.apiToken : undefined) || utilities.getEnv("OKTA_API_TOKEN");
             inputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
             inputs["baseUrl"] = (args ? args.baseUrl : undefined) || utilities.getEnv("OKTA_BASE_URL");
+            inputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             inputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
             inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
@@ -72,6 +73,10 @@ export interface ProviderArgs {
      * The Okta url. (Use 'oktapreview.com' for Okta testing)
      */
     readonly baseUrl?: pulumi.Input<string>;
+    /**
+     * providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+     */
+    readonly logLevel?: pulumi.Input<number>;
     /**
      * maximum number of retries to attempt before erroring out.
      */

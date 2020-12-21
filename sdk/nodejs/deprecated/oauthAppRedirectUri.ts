@@ -54,10 +54,10 @@ export class OauthAppRedirectUri extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as OauthAppRedirectUriArgs | undefined;
-            if (!args || args.appId === undefined) {
+            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (!args || args.uri === undefined) {
+            if ((!args || args.uri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'uri'");
             }
             inputs["appId"] = args ? args.appId : undefined;

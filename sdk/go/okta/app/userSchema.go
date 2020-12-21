@@ -92,25 +92,28 @@ type UserSchema struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Subschema unique restriction
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
+	// Custom subschema user type
+	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
 // NewUserSchema registers a new resource with the given unique name, arguments, and options.
 func NewUserSchema(ctx *pulumi.Context,
 	name string, args *UserSchemaArgs, opts ...pulumi.ResourceOption) (*UserSchema, error) {
-	if args == nil || args.AppId == nil {
-		return nil, errors.New("missing required argument 'AppId'")
-	}
-	if args == nil || args.Index == nil {
-		return nil, errors.New("missing required argument 'Index'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &UserSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppId == nil {
+		return nil, errors.New("invalid value for required argument 'AppId'")
+	}
+	if args.Index == nil {
+		return nil, errors.New("invalid value for required argument 'Index'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource UserSchema
 	err := ctx.RegisterResource("okta:app/userSchema:UserSchema", name, args, &resource, opts...)
@@ -172,6 +175,8 @@ type userSchemaState struct {
 	Type *string `pulumi:"type"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
+	// Custom subschema user type
+	UserType *string `pulumi:"userType"`
 }
 
 type UserSchemaState struct {
@@ -213,6 +218,8 @@ type UserSchemaState struct {
 	Type pulumi.StringPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
+	// Custom subschema user type
+	UserType pulumi.StringPtrInput
 }
 
 func (UserSchemaState) ElementType() reflect.Type {
@@ -258,6 +265,8 @@ type userSchemaArgs struct {
 	Type string `pulumi:"type"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
+	// Custom subschema user type
+	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a UserSchema resource.
@@ -300,6 +309,8 @@ type UserSchemaArgs struct {
 	Type pulumi.StringInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
+	// Custom subschema user type
+	UserType pulumi.StringPtrInput
 }
 
 func (UserSchemaArgs) ElementType() reflect.Type {

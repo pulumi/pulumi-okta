@@ -42,7 +42,7 @@ func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...p
 
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyArgs struct {
-	// type of policy to retrieve.
+	// type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
 	Type string `pulumi:"type"`
 }
 

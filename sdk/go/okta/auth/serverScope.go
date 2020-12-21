@@ -67,11 +67,12 @@ type ServerScope struct {
 // NewServerScope registers a new resource with the given unique name, arguments, and options.
 func NewServerScope(ctx *pulumi.Context,
 	name string, args *ServerScopeArgs, opts ...pulumi.ResourceOption) (*ServerScope, error) {
-	if args == nil || args.AuthServerId == nil {
-		return nil, errors.New("missing required argument 'AuthServerId'")
-	}
 	if args == nil {
-		args = &ServerScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthServerId == nil {
+		return nil, errors.New("invalid value for required argument 'AuthServerId'")
 	}
 	var resource ServerScope
 	err := ctx.RegisterResource("okta:auth/serverScope:ServerScope", name, args, &resource, opts...)

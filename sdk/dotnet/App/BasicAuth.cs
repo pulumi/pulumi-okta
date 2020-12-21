@@ -49,28 +49,28 @@ namespace Pulumi.Okta.App
         /// The URL of the authenticating site for this app.
         /// </summary>
         [Output("authUrl")]
-        public Output<string?> AuthUrl { get; private set; } = null!;
+        public Output<string> AuthUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -103,10 +103,10 @@ namespace Pulumi.Okta.App
         /// The URL of the sign-in page for this app.
         /// </summary>
         [Output("url")]
-        public Output<string?> Url { get; private set; } = null!;
+        public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.BasicAuthUser>> Users { get; private set; } = null!;
@@ -160,11 +160,11 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// The URL of the authenticating site for this app.
         /// </summary>
-        [Input("authUrl")]
-        public Input<string>? AuthUrl { get; set; }
+        [Input("authUrl", required: true)]
+        public Input<string> AuthUrl { get; set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -182,13 +182,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Okta.App
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -208,14 +208,14 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// The URL of the sign-in page for this app.
         /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
+        [Input("url", required: true)]
+        public Input<string> Url { get; set; } = null!;
 
         [Input("users")]
         private InputList<Inputs.BasicAuthUserArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.BasicAuthUserArgs> Users
         {
@@ -237,7 +237,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthUrl { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -255,13 +255,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.BasicAuthUserGetArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.BasicAuthUserGetArgs> Users
         {

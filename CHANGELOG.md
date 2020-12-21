@@ -2,7 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.7.2 of the Okta Terraform Provider
+* Upgrade to v2.16.0 of pulumi-terraform-bridge which includes
+  * Bug fix: Correcting an issue where replacements were not being correctly identified and leading to panics.
+  * Bug fix: Corrects a panic caused by reading sets with partially-known elements.
+  * Preserve unknowns during provider preview
 
 ---
 

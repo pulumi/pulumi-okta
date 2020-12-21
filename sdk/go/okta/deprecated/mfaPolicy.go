@@ -14,29 +14,29 @@ type MfaPolicy struct {
 	pulumi.CustomResourceState
 
 	// Policy Description
-	Description  pulumi.StringPtrOutput         `pulumi:"description"`
-	Duo          MfaPolicyDuoPtrOutput          `pulumi:"duo"`
-	FidoU2f      MfaPolicyFidoU2fPtrOutput      `pulumi:"fidoU2f"`
-	FidoWebauthn MfaPolicyFidoWebauthnPtrOutput `pulumi:"fidoWebauthn"`
-	GoogleOtp    MfaPolicyGoogleOtpPtrOutput    `pulumi:"googleOtp"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	Duo          pulumi.StringMapOutput `pulumi:"duo"`
+	FidoU2f      pulumi.StringMapOutput `pulumi:"fidoU2f"`
+	FidoWebauthn pulumi.StringMapOutput `pulumi:"fidoWebauthn"`
+	GoogleOtp    pulumi.StringMapOutput `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
 	// Policy Name
-	Name         pulumi.StringOutput            `pulumi:"name"`
-	OktaCall     MfaPolicyOktaCallPtrOutput     `pulumi:"oktaCall"`
-	OktaOtp      MfaPolicyOktaOtpPtrOutput      `pulumi:"oktaOtp"`
-	OktaPassword MfaPolicyOktaPasswordPtrOutput `pulumi:"oktaPassword"`
-	OktaPush     MfaPolicyOktaPushPtrOutput     `pulumi:"oktaPush"`
-	OktaQuestion MfaPolicyOktaQuestionPtrOutput `pulumi:"oktaQuestion"`
-	OktaSms      MfaPolicyOktaSmsPtrOutput      `pulumi:"oktaSms"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	OktaCall     pulumi.StringMapOutput `pulumi:"oktaCall"`
+	OktaOtp      pulumi.StringMapOutput `pulumi:"oktaOtp"`
+	OktaPassword pulumi.StringMapOutput `pulumi:"oktaPassword"`
+	OktaPush     pulumi.StringMapOutput `pulumi:"oktaPush"`
+	OktaQuestion pulumi.StringMapOutput `pulumi:"oktaQuestion"`
+	OktaSms      pulumi.StringMapOutput `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 	// priority is provided. API defaults it to the last/lowest if not there.
-	Priority pulumi.IntPtrOutput        `pulumi:"priority"`
-	RsaToken MfaPolicyRsaTokenPtrOutput `pulumi:"rsaToken"`
+	Priority pulumi.IntPtrOutput    `pulumi:"priority"`
+	RsaToken pulumi.StringMapOutput `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
-	Status       pulumi.StringPtrOutput         `pulumi:"status"`
-	SymantecVip  MfaPolicySymantecVipPtrOutput  `pulumi:"symantecVip"`
-	YubikeyToken MfaPolicyYubikeyTokenPtrOutput `pulumi:"yubikeyToken"`
+	Status       pulumi.StringPtrOutput `pulumi:"status"`
+	SymantecVip  pulumi.StringMapOutput `pulumi:"symantecVip"`
+	YubikeyToken pulumi.StringMapOutput `pulumi:"yubikeyToken"`
 }
 
 // NewMfaPolicy registers a new resource with the given unique name, arguments, and options.
@@ -45,6 +45,7 @@ func NewMfaPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &MfaPolicyArgs{}
 	}
+
 	var resource MfaPolicy
 	err := ctx.RegisterResource("okta:deprecated/mfaPolicy:MfaPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -68,56 +69,56 @@ func GetMfaPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MfaPolicy resources.
 type mfaPolicyState struct {
 	// Policy Description
-	Description  *string                `pulumi:"description"`
-	Duo          *MfaPolicyDuo          `pulumi:"duo"`
-	FidoU2f      *MfaPolicyFidoU2f      `pulumi:"fidoU2f"`
-	FidoWebauthn *MfaPolicyFidoWebauthn `pulumi:"fidoWebauthn"`
-	GoogleOtp    *MfaPolicyGoogleOtp    `pulumi:"googleOtp"`
+	Description  *string           `pulumi:"description"`
+	Duo          map[string]string `pulumi:"duo"`
+	FidoU2f      map[string]string `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Name
-	Name         *string                `pulumi:"name"`
-	OktaCall     *MfaPolicyOktaCall     `pulumi:"oktaCall"`
-	OktaOtp      *MfaPolicyOktaOtp      `pulumi:"oktaOtp"`
-	OktaPassword *MfaPolicyOktaPassword `pulumi:"oktaPassword"`
-	OktaPush     *MfaPolicyOktaPush     `pulumi:"oktaPush"`
-	OktaQuestion *MfaPolicyOktaQuestion `pulumi:"oktaQuestion"`
-	OktaSms      *MfaPolicyOktaSms      `pulumi:"oktaSms"`
+	Name         *string           `pulumi:"name"`
+	OktaCall     map[string]string `pulumi:"oktaCall"`
+	OktaOtp      map[string]string `pulumi:"oktaOtp"`
+	OktaPassword map[string]string `pulumi:"oktaPassword"`
+	OktaPush     map[string]string `pulumi:"oktaPush"`
+	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
+	OktaSms      map[string]string `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 	// priority is provided. API defaults it to the last/lowest if not there.
-	Priority *int               `pulumi:"priority"`
-	RsaToken *MfaPolicyRsaToken `pulumi:"rsaToken"`
+	Priority *int              `pulumi:"priority"`
+	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
-	Status       *string                `pulumi:"status"`
-	SymantecVip  *MfaPolicySymantecVip  `pulumi:"symantecVip"`
-	YubikeyToken *MfaPolicyYubikeyToken `pulumi:"yubikeyToken"`
+	Status       *string           `pulumi:"status"`
+	SymantecVip  map[string]string `pulumi:"symantecVip"`
+	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 type MfaPolicyState struct {
 	// Policy Description
 	Description  pulumi.StringPtrInput
-	Duo          MfaPolicyDuoPtrInput
-	FidoU2f      MfaPolicyFidoU2fPtrInput
-	FidoWebauthn MfaPolicyFidoWebauthnPtrInput
-	GoogleOtp    MfaPolicyGoogleOtpPtrInput
+	Duo          pulumi.StringMapInput
+	FidoU2f      pulumi.StringMapInput
+	FidoWebauthn pulumi.StringMapInput
+	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Name
 	Name         pulumi.StringPtrInput
-	OktaCall     MfaPolicyOktaCallPtrInput
-	OktaOtp      MfaPolicyOktaOtpPtrInput
-	OktaPassword MfaPolicyOktaPasswordPtrInput
-	OktaPush     MfaPolicyOktaPushPtrInput
-	OktaQuestion MfaPolicyOktaQuestionPtrInput
-	OktaSms      MfaPolicyOktaSmsPtrInput
+	OktaCall     pulumi.StringMapInput
+	OktaOtp      pulumi.StringMapInput
+	OktaPassword pulumi.StringMapInput
+	OktaPush     pulumi.StringMapInput
+	OktaQuestion pulumi.StringMapInput
+	OktaSms      pulumi.StringMapInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 	// priority is provided. API defaults it to the last/lowest if not there.
 	Priority pulumi.IntPtrInput
-	RsaToken MfaPolicyRsaTokenPtrInput
+	RsaToken pulumi.StringMapInput
 	// Policy Status: ACTIVE or INACTIVE.
 	Status       pulumi.StringPtrInput
-	SymantecVip  MfaPolicySymantecVipPtrInput
-	YubikeyToken MfaPolicyYubikeyTokenPtrInput
+	SymantecVip  pulumi.StringMapInput
+	YubikeyToken pulumi.StringMapInput
 }
 
 func (MfaPolicyState) ElementType() reflect.Type {
@@ -126,57 +127,57 @@ func (MfaPolicyState) ElementType() reflect.Type {
 
 type mfaPolicyArgs struct {
 	// Policy Description
-	Description  *string                `pulumi:"description"`
-	Duo          *MfaPolicyDuo          `pulumi:"duo"`
-	FidoU2f      *MfaPolicyFidoU2f      `pulumi:"fidoU2f"`
-	FidoWebauthn *MfaPolicyFidoWebauthn `pulumi:"fidoWebauthn"`
-	GoogleOtp    *MfaPolicyGoogleOtp    `pulumi:"googleOtp"`
+	Description  *string           `pulumi:"description"`
+	Duo          map[string]string `pulumi:"duo"`
+	FidoU2f      map[string]string `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Name
-	Name         *string                `pulumi:"name"`
-	OktaCall     *MfaPolicyOktaCall     `pulumi:"oktaCall"`
-	OktaOtp      *MfaPolicyOktaOtp      `pulumi:"oktaOtp"`
-	OktaPassword *MfaPolicyOktaPassword `pulumi:"oktaPassword"`
-	OktaPush     *MfaPolicyOktaPush     `pulumi:"oktaPush"`
-	OktaQuestion *MfaPolicyOktaQuestion `pulumi:"oktaQuestion"`
-	OktaSms      *MfaPolicyOktaSms      `pulumi:"oktaSms"`
+	Name         *string           `pulumi:"name"`
+	OktaCall     map[string]string `pulumi:"oktaCall"`
+	OktaOtp      map[string]string `pulumi:"oktaOtp"`
+	OktaPassword map[string]string `pulumi:"oktaPassword"`
+	OktaPush     map[string]string `pulumi:"oktaPush"`
+	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
+	OktaSms      map[string]string `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 	// priority is provided. API defaults it to the last/lowest if not there.
-	Priority *int               `pulumi:"priority"`
-	RsaToken *MfaPolicyRsaToken `pulumi:"rsaToken"`
+	Priority *int              `pulumi:"priority"`
+	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
-	Status       *string                `pulumi:"status"`
-	SymantecVip  *MfaPolicySymantecVip  `pulumi:"symantecVip"`
-	YubikeyToken *MfaPolicyYubikeyToken `pulumi:"yubikeyToken"`
+	Status       *string           `pulumi:"status"`
+	SymantecVip  map[string]string `pulumi:"symantecVip"`
+	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 // The set of arguments for constructing a MfaPolicy resource.
 type MfaPolicyArgs struct {
 	// Policy Description
 	Description  pulumi.StringPtrInput
-	Duo          MfaPolicyDuoPtrInput
-	FidoU2f      MfaPolicyFidoU2fPtrInput
-	FidoWebauthn MfaPolicyFidoWebauthnPtrInput
-	GoogleOtp    MfaPolicyGoogleOtpPtrInput
+	Duo          pulumi.StringMapInput
+	FidoU2f      pulumi.StringMapInput
+	FidoWebauthn pulumi.StringMapInput
+	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Name
 	Name         pulumi.StringPtrInput
-	OktaCall     MfaPolicyOktaCallPtrInput
-	OktaOtp      MfaPolicyOktaOtpPtrInput
-	OktaPassword MfaPolicyOktaPasswordPtrInput
-	OktaPush     MfaPolicyOktaPushPtrInput
-	OktaQuestion MfaPolicyOktaQuestionPtrInput
-	OktaSms      MfaPolicyOktaSmsPtrInput
+	OktaCall     pulumi.StringMapInput
+	OktaOtp      pulumi.StringMapInput
+	OktaPassword pulumi.StringMapInput
+	OktaPush     pulumi.StringMapInput
+	OktaQuestion pulumi.StringMapInput
+	OktaSms      pulumi.StringMapInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
 	// priority is provided. API defaults it to the last/lowest if not there.
 	Priority pulumi.IntPtrInput
-	RsaToken MfaPolicyRsaTokenPtrInput
+	RsaToken pulumi.StringMapInput
 	// Policy Status: ACTIVE or INACTIVE.
 	Status       pulumi.StringPtrInput
-	SymantecVip  MfaPolicySymantecVipPtrInput
-	YubikeyToken MfaPolicyYubikeyTokenPtrInput
+	SymantecVip  pulumi.StringMapInput
+	YubikeyToken pulumi.StringMapInput
 }
 
 func (MfaPolicyArgs) ElementType() reflect.Type {

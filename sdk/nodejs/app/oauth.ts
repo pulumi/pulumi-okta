@@ -116,7 +116,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly customClientId!: pulumi.Output<string | undefined>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -245,10 +245,10 @@ export class OAuth extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as OAuthArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
@@ -333,7 +333,7 @@ export interface OAuthState {
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -455,7 +455,7 @@ export interface OAuthArgs {
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

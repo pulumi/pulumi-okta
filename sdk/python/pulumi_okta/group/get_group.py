@@ -19,7 +19,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, description=None, id=None, include_users=None, name=None, users=None):
+    def __init__(__self__, description=None, id=None, include_users=None, name=None, type=None, users=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -32,6 +32,9 @@ class GetGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
@@ -67,6 +70,14 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        type of group.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
     def users(self) -> Sequence[str]:
         """
         user ids that are members of this group, only included if `include_users` is set to `true`.
@@ -84,11 +95,13 @@ class AwaitableGetGroupResult(GetGroupResult):
             id=self.id,
             include_users=self.include_users,
             name=self.name,
+            type=self.type,
             users=self.users)
 
 
 def get_group(include_users: Optional[bool] = None,
               name: Optional[str] = None,
+              type: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to retrieve a group from Okta.
@@ -105,10 +118,12 @@ def get_group(include_users: Optional[bool] = None,
 
     :param bool include_users: whether or not to retrieve all member ids.
     :param str name: name of group to retrieve.
+    :param str type: type of the group to retrieve.
     """
     __args__ = dict()
     __args__['includeUsers'] = include_users
     __args__['name'] = name
+    __args__['type'] = type
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -120,4 +135,5 @@ def get_group(include_users: Optional[bool] = None,
         id=__ret__.id,
         include_users=__ret__.include_users,
         name=__ret__.name,
+        type=__ret__.type,
         users=__ret__.users)

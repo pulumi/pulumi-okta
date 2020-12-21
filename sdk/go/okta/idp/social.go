@@ -127,14 +127,15 @@ type Social struct {
 // NewSocial registers a new resource with the given unique name, arguments, and options.
 func NewSocial(ctx *pulumi.Context,
 	name string, args *SocialArgs, opts ...pulumi.ResourceOption) (*Social, error) {
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &SocialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Social
 	err := ctx.RegisterResource("okta:idp/social:Social", name, args, &resource, opts...)

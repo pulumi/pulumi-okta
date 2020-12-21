@@ -28,15 +28,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
-// 			Auth: &okta.EventHookAuthArgs{
-// 				Key:   pulumi.String("Authorization"),
-// 				Type:  pulumi.String("HEADER"),
-// 				Value: pulumi.String("123"),
+// 			Auth: pulumi.StringMap{
+// 				"key":   pulumi.String("Authorization"),
+// 				"type":  pulumi.String("HEADER"),
+// 				"value": pulumi.String("123"),
 // 			},
-// 			Channel: &okta.EventHookChannelArgs{
-// 				Type:    pulumi.String("HTTP"),
-// 				Uri:     pulumi.String("https://example.com/test"),
-// 				Version: pulumi.String("1.0.0"),
+// 			Channel: pulumi.StringMap{
+// 				"type":    pulumi.String("HTTP"),
+// 				"uri":     pulumi.String("https://example.com/test"),
+// 				"version": pulumi.String("1.0.0"),
 // 			},
 // 			Events: pulumi.StringArray{
 // 				pulumi.String("user.lifecycle.create"),
@@ -62,9 +62,9 @@ type EventHook struct {
 	pulumi.CustomResourceState
 
 	// Authentication required for event hook request.
-	Auth EventHookAuthPtrOutput `pulumi:"auth"`
+	Auth pulumi.StringMapOutput `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
-	Channel EventHookChannelOutput `pulumi:"channel"`
+	Channel pulumi.StringMapOutput `pulumi:"channel"`
 	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// Map of headers to send along in event hook request.
@@ -77,14 +77,15 @@ type EventHook struct {
 // NewEventHook registers a new resource with the given unique name, arguments, and options.
 func NewEventHook(ctx *pulumi.Context,
 	name string, args *EventHookArgs, opts ...pulumi.ResourceOption) (*EventHook, error) {
-	if args == nil || args.Channel == nil {
-		return nil, errors.New("missing required argument 'Channel'")
-	}
-	if args == nil || args.Events == nil {
-		return nil, errors.New("missing required argument 'Events'")
-	}
 	if args == nil {
-		args = &EventHookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Channel == nil {
+		return nil, errors.New("invalid value for required argument 'Channel'")
+	}
+	if args.Events == nil {
+		return nil, errors.New("invalid value for required argument 'Events'")
 	}
 	var resource EventHook
 	err := ctx.RegisterResource("okta:index/eventHook:EventHook", name, args, &resource, opts...)
@@ -109,9 +110,9 @@ func GetEventHook(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EventHook resources.
 type eventHookState struct {
 	// Authentication required for event hook request.
-	Auth *EventHookAuth `pulumi:"auth"`
+	Auth map[string]string `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
-	Channel *EventHookChannel `pulumi:"channel"`
+	Channel map[string]string `pulumi:"channel"`
 	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events []string `pulumi:"events"`
 	// Map of headers to send along in event hook request.
@@ -123,9 +124,9 @@ type eventHookState struct {
 
 type EventHookState struct {
 	// Authentication required for event hook request.
-	Auth EventHookAuthPtrInput
+	Auth pulumi.StringMapInput
 	// Details of the endpoint the event hook will hit.
-	Channel EventHookChannelPtrInput
+	Channel pulumi.StringMapInput
 	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayInput
 	// Map of headers to send along in event hook request.
@@ -141,9 +142,9 @@ func (EventHookState) ElementType() reflect.Type {
 
 type eventHookArgs struct {
 	// Authentication required for event hook request.
-	Auth *EventHookAuth `pulumi:"auth"`
+	Auth map[string]string `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
-	Channel EventHookChannel `pulumi:"channel"`
+	Channel map[string]string `pulumi:"channel"`
 	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events []string `pulumi:"events"`
 	// Map of headers to send along in event hook request.
@@ -156,9 +157,9 @@ type eventHookArgs struct {
 // The set of arguments for constructing a EventHook resource.
 type EventHookArgs struct {
 	// Authentication required for event hook request.
-	Auth EventHookAuthPtrInput
+	Auth pulumi.StringMapInput
 	// Details of the endpoint the event hook will hit.
-	Channel EventHookChannelInput
+	Channel pulumi.StringMapInput
 	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayInput
 	// Map of headers to send along in event hook request.

@@ -28,7 +28,7 @@ class User(pulumi.CustomResource):
 
         This resource allows you to create and configure an Application User.
 
-        __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+        **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
 
         ```python
         import pulumi
@@ -79,15 +79,15 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_id is None:
+            if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__['app_id'] = app_id
             __props__['password'] = password
             __props__['profile'] = profile
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
         super(User, __self__).__init__(

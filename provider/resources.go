@@ -18,11 +18,10 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/oktadeveloper/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 )
@@ -81,7 +80,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(okta.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(okta.Provider())
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "okta",
@@ -295,6 +294,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(userMod, "Schema"),
 				Docs: &tfbridge.DocInfo{Source: "user_schema.html.markdown"},
 			},
+			"okta_user_type": {Tok: makeResource(userMod, "UserType")},
 
 			// Profile Resources
 			"okta_profile_mapping": {
@@ -384,6 +384,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeDataSource(userMod, "getUserProfileMappingSource"),
 				Docs: &tfbridge.DocInfo{Source: "user_profile_mapping_source.html.markdown"},
 			},
+			"okta_user_type": {Tok: makeDataSource(userMod, "getUserType")},
 
 			// Deprecated DataSources in Upstream Provider
 			"okta_default_policies": {Tok: makeDataSource(deprecatedMod, "getDefaultPolicies")},

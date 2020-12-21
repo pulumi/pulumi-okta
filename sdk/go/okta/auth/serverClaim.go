@@ -48,17 +48,18 @@ type ServerClaim struct {
 // NewServerClaim registers a new resource with the given unique name, arguments, and options.
 func NewServerClaim(ctx *pulumi.Context,
 	name string, args *ServerClaimArgs, opts ...pulumi.ResourceOption) (*ServerClaim, error) {
-	if args == nil || args.AuthServerId == nil {
-		return nil, errors.New("missing required argument 'AuthServerId'")
-	}
-	if args == nil || args.ClaimType == nil {
-		return nil, errors.New("missing required argument 'ClaimType'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ServerClaimArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthServerId == nil {
+		return nil, errors.New("invalid value for required argument 'AuthServerId'")
+	}
+	if args.ClaimType == nil {
+		return nil, errors.New("invalid value for required argument 'ClaimType'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ServerClaim
 	err := ctx.RegisterResource("okta:auth/serverClaim:ServerClaim", name, args, &resource, opts...)

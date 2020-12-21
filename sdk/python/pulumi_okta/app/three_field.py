@@ -94,33 +94,33 @@ class ThreeField(pulumi.CustomResource):
             __props__['accessibility_error_redirect_url'] = accessibility_error_redirect_url
             __props__['accessibility_self_service'] = accessibility_self_service
             __props__['auto_submit_toolbar'] = auto_submit_toolbar
-            if button_selector is None:
+            if button_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'button_selector'")
             __props__['button_selector'] = button_selector
-            if extra_field_selector is None:
+            if extra_field_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'extra_field_selector'")
             __props__['extra_field_selector'] = extra_field_selector
-            if extra_field_value is None:
+            if extra_field_value is None and not opts.urn:
                 raise TypeError("Missing required property 'extra_field_value'")
             __props__['extra_field_value'] = extra_field_value
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
-            if password_selector is None:
+            if password_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'password_selector'")
             __props__['password_selector'] = password_selector
             __props__['status'] = status
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['url_regex'] = url_regex
             __props__['user_name_template'] = user_name_template
             __props__['user_name_template_suffix'] = user_name_template_suffix
             __props__['user_name_template_type'] = user_name_template_type
-            if username_selector is None:
+            if username_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'username_selector'")
             __props__['username_selector'] = username_selector
             __props__['users'] = users

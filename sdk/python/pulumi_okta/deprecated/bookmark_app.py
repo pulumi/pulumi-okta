@@ -37,6 +37,7 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
@@ -61,12 +62,12 @@ class BookmarkApp(pulumi.CustomResource):
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['request_integration'] = request_integration
             __props__['status'] = status
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['users'] = users
@@ -104,6 +105,7 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] name: name of app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application.
@@ -161,6 +163,9 @@ class BookmarkApp(pulumi.CustomResource):
     @property
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
+        """
+        Pretty name of app.
+        """
         return pulumi.get(self, "label")
 
     @property

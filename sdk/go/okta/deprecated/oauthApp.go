@@ -87,14 +87,15 @@ type OauthApp struct {
 // NewOauthApp registers a new resource with the given unique name, arguments, and options.
 func NewOauthApp(ctx *pulumi.Context,
 	name string, args *OauthAppArgs, opts ...pulumi.ResourceOption) (*OauthApp, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &OauthAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource OauthApp
 	err := ctx.RegisterResource("okta:deprecated/oauthApp:OauthApp", name, args, &resource, opts...)

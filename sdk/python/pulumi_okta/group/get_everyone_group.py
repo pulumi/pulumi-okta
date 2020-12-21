@@ -19,13 +19,21 @@ class GetEveryoneGroupResult:
     """
     A collection of values returned by getEveryoneGroup.
     """
-    def __init__(__self__, id=None, include_users=None):
+    def __init__(__self__, description=None, id=None, include_users=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if include_users and not isinstance(include_users, bool):
             raise TypeError("Expected argument 'include_users' to be a bool")
         pulumi.set(__self__, "include_users", include_users)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -47,6 +55,7 @@ class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
         if False:
             yield self
         return GetEveryoneGroupResult(
+            description=self.description,
             id=self.id,
             include_users=self.include_users)
 
@@ -74,5 +83,6 @@ def get_everyone_group(include_users: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts, typ=GetEveryoneGroupResult).value
 
     return AwaitableGetEveryoneGroupResult(
+        description=__ret__.description,
         id=__ret__.id,
         include_users=__ret__.include_users)

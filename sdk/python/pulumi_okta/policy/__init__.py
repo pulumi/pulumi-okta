@@ -14,3 +14,44 @@ from .rule_signon import *
 from .signon import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "okta:policy/mfa:Mfa":
+                return Mfa(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/password:Password":
+                return Password(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery":
+                return RuleIdpDiscovery(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/ruleMfa:RuleMfa":
+                return RuleMfa(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/rulePassword:RulePassword":
+                return RulePassword(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/ruleSignon:RuleSignon":
+                return RuleSignon(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:policy/signon:Signon":
+                return Signon(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("okta", "policy/mfa", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/password", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/ruleIdpDiscovery", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/ruleMfa", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/rulePassword", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/ruleSignon", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "policy/signon", _module_instance)
+
+_register_module()

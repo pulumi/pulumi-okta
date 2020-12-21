@@ -17,8 +17,8 @@ class Hook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[pulumi.InputType['HookAuthArgs']]] = None,
-                 channel: Optional[pulumi.Input[pulumi.InputType['HookChannelArgs']]] = None,
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -39,16 +39,16 @@ class Hook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.inline.Hook("example",
-            auth=okta.inline.HookAuthArgs(
-                key="Authorization",
-                type="HEADER",
-                value="secret",
-            ),
-            channel=okta.inline.HookChannelArgs(
-                method="POST",
-                uri="https://example.com/test",
-                version="1.0.0",
-            ),
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            },
+            channel={
+                "method": "POST",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
             type="com.okta.oauth2.tokens.transform",
             version="1.0.0")
         ```
@@ -63,12 +63,12 @@ class Hook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HookAuthArgs']] auth: Authentication required for inline hook request.
-        :param pulumi.Input[pulumi.InputType['HookChannelArgs']] channel: Details of the endpoint the inline hook will hit.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently only `"HTTP"` is supported.
-        :param pulumi.Input[str] version: The version of the endpoint.
+        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,14 +88,16 @@ class Hook(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auth'] = auth
+            if channel is None and not opts.urn:
+                raise TypeError("Missing required property 'channel'")
             __props__['channel'] = channel
             __props__['headers'] = headers
             __props__['name'] = name
             __props__['status'] = status
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
         super(Hook, __self__).__init__(
@@ -108,8 +110,8 @@ class Hook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth: Optional[pulumi.Input[pulumi.InputType['HookAuthArgs']]] = None,
-            channel: Optional[pulumi.Input[pulumi.InputType['HookChannelArgs']]] = None,
+            auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -122,12 +124,12 @@ class Hook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HookAuthArgs']] auth: Authentication required for inline hook request.
-        :param pulumi.Input[pulumi.InputType['HookChannelArgs']] channel: Details of the endpoint the inline hook will hit.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently only `"HTTP"` is supported.
-        :param pulumi.Input[str] version: The version of the endpoint.
+        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,7 +146,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def auth(self) -> pulumi.Output[Optional['outputs.HookAuth']]:
+    def auth(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Authentication required for inline hook request.
         """
@@ -152,7 +154,7 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def channel(self) -> pulumi.Output[Optional['outputs.HookChannel']]:
+    def channel(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Details of the endpoint the inline hook will hit.
         """
@@ -183,7 +185,7 @@ class Hook(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of hook to trigger. Currently only `"HTTP"` is supported.
+        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         """
         return pulumi.get(self, "type")
 
@@ -191,7 +193,7 @@ class Hook(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        The version of the endpoint.
+        Version of the channel. The currently-supported version is `"1.0.0"`.
         """
         return pulumi.get(self, "version")
 

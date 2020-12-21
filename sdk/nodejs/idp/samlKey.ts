@@ -106,7 +106,7 @@ export class SamlKey extends pulumi.CustomResource {
             inputs["x5tS256"] = state ? state.x5tS256 : undefined;
         } else {
             const args = argsOrState as SamlKeyArgs | undefined;
-            if (!args || args.x5cs === undefined) {
+            if ((!args || args.x5cs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'x5cs'");
             }
             inputs["x5cs"] = args ? args.x5cs : undefined;

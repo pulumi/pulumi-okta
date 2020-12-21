@@ -99,10 +99,10 @@ export class Email extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EmailArgs | undefined;
-            if (!args || args.translations === undefined) {
+            if ((!args || args.translations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'translations'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["defaultLanguage"] = args ? args.defaultLanguage : undefined;

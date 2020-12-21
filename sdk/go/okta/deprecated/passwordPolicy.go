@@ -81,6 +81,7 @@ func NewPasswordPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &PasswordPolicyArgs{}
 	}
+
 	var resource PasswordPolicy
 	err := ctx.RegisterResource("okta:deprecated/passwordPolicy:PasswordPolicy", name, args, &resource, opts...)
 	if err != nil {

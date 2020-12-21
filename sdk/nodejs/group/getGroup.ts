@@ -30,6 +30,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("okta:group/getGroup:getGroup", {
         "includeUsers": args.includeUsers,
         "name": args.name,
+        "type": args.type,
     }, opts);
 }
 
@@ -45,6 +46,10 @@ export interface GetGroupArgs {
      * name of group to retrieve.
      */
     readonly name: string;
+    /**
+     * type of the group to retrieve.
+     */
+    readonly type?: string;
 }
 
 /**
@@ -64,6 +69,10 @@ export interface GetGroupResult {
      * name of group.
      */
     readonly name: string;
+    /**
+     * type of group.
+     */
+    readonly type?: string;
     /**
      * user ids that are members of this group, only included if `includeUsers` is set to `true`.
      */

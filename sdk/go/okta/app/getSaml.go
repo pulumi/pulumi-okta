@@ -49,13 +49,15 @@ type LookupSamlArgs struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
 	AssertionSigned *bool `pulumi:"assertionSigned"`
-	// SAML Attribute statements.
+	// (Optional) List of SAML Attribute statements.
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
@@ -117,12 +119,14 @@ type LookupSamlResult struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
-	ActiveOnly               *bool `pulumi:"activeOnly"`
+	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	ActiveOnly   *bool    `pulumi:"activeOnly"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
 	AssertionSigned *bool `pulumi:"assertionSigned"`
-	// SAML Attribute statements.
+	// (Optional) List of SAML Attribute statements.
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
@@ -155,7 +159,7 @@ type LookupSamlResult struct {
 	// label of application.
 	Label       *string `pulumi:"label"`
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// name of application.
+	// (Required) The name of the attribute statement.
 	Name string `pulumi:"name"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`

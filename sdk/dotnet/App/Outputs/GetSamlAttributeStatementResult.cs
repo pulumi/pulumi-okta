@@ -13,14 +13,29 @@ namespace Pulumi.Okta.App.Outputs
     [OutputType]
     public sealed class GetSamlAttributeStatementResult
     {
+        /// <summary>
+        /// (Optional) Type of group attribute filter.
+        /// </summary>
         public readonly string? FilterType;
+        /// <summary>
+        /// (Optional) Filter value to use.
+        /// </summary>
         public readonly string? FilterValue;
         /// <summary>
-        /// name of application.
+        /// (Required) The name of the attribute statement.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        /// </summary>
         public readonly string? Namespace;
+        /// <summary>
+        /// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// (Optional) Array of values to use.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

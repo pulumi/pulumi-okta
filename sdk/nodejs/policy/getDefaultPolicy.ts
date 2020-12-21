@@ -37,7 +37,7 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
  */
 export interface GetDefaultPolicyArgs {
     /**
-     * type of policy to retrieve.
+     * type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
      */
     readonly type: string;
 }

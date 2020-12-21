@@ -30,6 +30,7 @@ namespace Pulumi.Okta.User
     ///             Master = "OKTA",
     ///             Title = "customPropertyName",
     ///             Type = "string",
+    ///             UserType = data.Okta_user_type.Example.Id,
     ///         });
     ///     }
     /// 
@@ -38,10 +39,16 @@ namespace Pulumi.Okta.User
     /// 
     /// ## Import
     /// 
-    /// User base schema property can be imported via the property index.
+    /// User schema property of default user type can be imported via the property index.
     /// 
     /// ```sh
     ///  $ pulumi import okta:user/baseSchema:BaseSchema example &lt;property name&gt;
+    /// ```
+    /// 
+    ///  User schema property of custom user type can be imported via user type id and property index
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &lt;user type id&gt;.&lt;property name&gt;
     /// ```
     /// </summary>
     public partial class BaseSchema : Pulumi.CustomResource
@@ -81,6 +88,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Output("userType")]
+        public Output<string?> UserType { get; private set; } = null!;
 
 
         /// <summary>
@@ -164,6 +177,12 @@ namespace Pulumi.Okta.User
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
+
         public BaseSchemaArgs()
         {
         }
@@ -206,6 +225,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
 
         public BaseSchemaState()
         {

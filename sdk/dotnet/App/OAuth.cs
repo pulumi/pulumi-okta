@@ -143,7 +143,7 @@ namespace Pulumi.Okta.App
         public Output<string?> CustomClientId { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -364,7 +364,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -578,7 +578,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {

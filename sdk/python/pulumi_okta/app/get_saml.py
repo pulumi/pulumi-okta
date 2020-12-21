@@ -21,7 +21,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, description=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, description=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -31,6 +31,9 @@ class GetSamlResult:
         if accessibility_self_service and not isinstance(accessibility_self_service, bool):
             raise TypeError("Expected argument 'accessibility_self_service' to be a bool")
         pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if acs_endpoints and not isinstance(acs_endpoints, list):
+            raise TypeError("Expected argument 'acs_endpoints' to be a list")
+        pulumi.set(__self__, "acs_endpoints", acs_endpoints)
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -156,6 +159,14 @@ class GetSamlResult:
         return pulumi.get(self, "accessibility_self_service")
 
     @property
+    @pulumi.getter(name="acsEndpoints")
+    def acs_endpoints(self) -> Optional[Sequence[str]]:
+        """
+        An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        """
+        return pulumi.get(self, "acs_endpoints")
+
+    @property
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
         return pulumi.get(self, "active_only")
@@ -180,7 +191,7 @@ class GetSamlResult:
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> Optional[Sequence['outputs.GetSamlAttributeStatementResult']]:
         """
-        SAML Attribute statements.
+        (Optional) List of SAML Attribute statements.
         """
         return pulumi.get(self, "attribute_statements")
 
@@ -313,7 +324,7 @@ class GetSamlResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        name of application.
+        (Required) The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
@@ -423,6 +434,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             accessibility_error_redirect_url=self.accessibility_error_redirect_url,
             accessibility_login_redirect_url=self.accessibility_login_redirect_url,
             accessibility_self_service=self.accessibility_self_service,
+            acs_endpoints=self.acs_endpoints,
             active_only=self.active_only,
             app_settings_json=self.app_settings_json,
             assertion_signed=self.assertion_signed,
@@ -461,6 +473,7 @@ class AwaitableGetSamlResult(GetSamlResult):
 def get_saml(accessibility_error_redirect_url: Optional[str] = None,
              accessibility_login_redirect_url: Optional[str] = None,
              accessibility_self_service: Optional[bool] = None,
+             acs_endpoints: Optional[Sequence[str]] = None,
              active_only: Optional[bool] = None,
              app_settings_json: Optional[str] = None,
              assertion_signed: Optional[bool] = None,
@@ -507,10 +520,11 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param str accessibility_error_redirect_url: Custom error page URL.
     :param str accessibility_login_redirect_url: Custom login page URL.
     :param bool accessibility_self_service: Enable self service.
+    :param Sequence[str] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str app_settings_json: Application settings in JSON format.
     :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
-    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: SAML Attribute statements.
+    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: (Optional) List of SAML Attribute statements.
     :param str audience: Audience restriction.
     :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
     :param bool auto_submit_toolbar: Display auto submit toolbar.
@@ -541,6 +555,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url
     __args__['accessibilityLoginRedirectUrl'] = accessibility_login_redirect_url
     __args__['accessibilitySelfService'] = accessibility_self_service
+    __args__['acsEndpoints'] = acs_endpoints
     __args__['activeOnly'] = active_only
     __args__['appSettingsJson'] = app_settings_json
     __args__['assertionSigned'] = assertion_signed
@@ -580,6 +595,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         accessibility_error_redirect_url=__ret__.accessibility_error_redirect_url,
         accessibility_login_redirect_url=__ret__.accessibility_login_redirect_url,
         accessibility_self_service=__ret__.accessibility_self_service,
+        acs_endpoints=__ret__.acs_endpoints,
         active_only=__ret__.active_only,
         app_settings_json=__ret__.app_settings_json,
         assertion_signed=__ret__.assertion_signed,

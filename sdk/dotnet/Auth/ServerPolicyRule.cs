@@ -67,19 +67,19 @@ namespace Pulumi.Okta.Auth
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         [Output("grantTypeWhitelists")]
         public Output<ImmutableArray<string>> GrantTypeWhitelists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be excluded
+        /// Specifies a set of Groups whose Users are to be excluded.
         /// </summary>
         [Output("groupBlacklists")]
         public Output<ImmutableArray<string>> GroupBlacklists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         /// </summary>
         [Output("groupWhitelists")]
         public Output<ImmutableArray<string>> GroupWhitelists { get; private set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Users to be excluded
+        /// Specifies a set of Users to be excluded.
         /// </summary>
         [Output("userBlacklists")]
         public Output<ImmutableArray<string>> UserBlacklists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Users to be included
+        /// Specifies a set of Users to be included.
         /// </summary>
         [Output("userWhitelists")]
         public Output<ImmutableArray<string>> UserWhitelists { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupBlacklists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be excluded
+        /// Specifies a set of Groups whose Users are to be excluded.
         /// </summary>
         public InputList<string> GroupBlacklists
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _userBlacklists;
 
         /// <summary>
-        /// Specifies a set of Users to be excluded
+        /// Specifies a set of Users to be excluded.
         /// </summary>
         public InputList<string> UserBlacklists
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _userWhitelists;
 
         /// <summary>
-        /// Specifies a set of Users to be included
+        /// Specifies a set of Users to be included.
         /// </summary>
         public InputList<string> UserWhitelists
         {
@@ -355,7 +355,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupBlacklists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be excluded
+        /// Specifies a set of Groups whose Users are to be excluded.
         /// </summary>
         public InputList<string> GroupBlacklists
         {
@@ -379,7 +379,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -451,7 +451,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _userBlacklists;
 
         /// <summary>
-        /// Specifies a set of Users to be excluded
+        /// Specifies a set of Users to be excluded.
         /// </summary>
         public InputList<string> UserBlacklists
         {
@@ -463,7 +463,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _userWhitelists;
 
         /// <summary>
-        /// Specifies a set of Users to be included
+        /// Specifies a set of Users to be included.
         /// </summary>
         public InputList<string> UserWhitelists
         {

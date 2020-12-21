@@ -56,6 +56,12 @@ namespace Pulumi.Okta.Group
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// type of the group to retrieve.
+        /// </summary>
+        [Input("type")]
+        public string? Type { get; set; }
+
         public GetGroupArgs()
         {
         }
@@ -79,6 +85,10 @@ namespace Pulumi.Okta.Group
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// type of group.
+        /// </summary>
+        public readonly string? Type;
+        /// <summary>
         /// user ids that are members of this group, only included if `include_users` is set to `true`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
@@ -93,12 +103,15 @@ namespace Pulumi.Okta.Group
 
             string name,
 
+            string? type,
+
             ImmutableArray<string> users)
         {
             Description = description;
             Id = id;
             IncludeUsers = includeUsers;
             Name = name;
+            Type = type;
             Users = users;
         }
     }

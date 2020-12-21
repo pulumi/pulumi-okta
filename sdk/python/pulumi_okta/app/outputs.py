@@ -561,7 +561,12 @@ class GetSamlAttributeStatementResult(dict):
                  type: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        :param str name: name of application.
+        :param str name: (Required) The name of the attribute statement.
+        :param str filter_type: (Optional) Type of group attribute filter.
+        :param str filter_value: (Optional) Filter value to use.
+        :param str namespace: (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        :param str type: (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        :param Sequence[str] values: (Optional) Array of values to use.
         """
         pulumi.set(__self__, "name", name)
         if filter_type is not None:
@@ -579,33 +584,48 @@ class GetSamlAttributeStatementResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        name of application.
+        (Required) The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[str]:
+        """
+        (Optional) Type of group attribute filter.
+        """
         return pulumi.get(self, "filter_type")
 
     @property
     @pulumi.getter(name="filterValue")
     def filter_value(self) -> Optional[str]:
+        """
+        (Optional) Filter value to use.
+        """
         return pulumi.get(self, "filter_value")
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[str]:
+        """
+        (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) Array of values to use.
+        """
         return pulumi.get(self, "values")
 
 

@@ -45,25 +45,25 @@ namespace Pulumi.Okta.App
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Okta.App
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.BookmarkUser>> Users { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Okta.App
     public sealed class BookmarkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -175,13 +175,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? RequestIntegration { get; set; }
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.BookmarkUserArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.BookmarkUserArgs> Users
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Okta.App
     public sealed class BookmarkState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -248,13 +248,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Status of application.
+        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.BookmarkUserGetArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.BookmarkUserGetArgs> Users
         {

@@ -32,6 +32,7 @@ namespace Pulumi.Okta.User
     ///             Scope = "SELF",
     ///             Title = "customPropertyName",
     ///             Type = "string",
+    ///             UserType = data.Okta_user_type.Example.Id,
     ///         });
     ///     }
     /// 
@@ -40,10 +41,16 @@ namespace Pulumi.Okta.User
     /// 
     /// ## Import
     /// 
-    /// User schema property can be imported via the property index.
+    /// User schema property of default user type can be imported via the property index.
     /// 
     /// ```sh
     ///  $ pulumi import okta:user/schema:Schema example &lt;index&gt;
+    /// ```
+    /// 
+    ///  User schema property of custom user type can be imported via user type id and property index
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/schema:Schema example &lt;user type id&gt;.&lt;index&gt;
     /// ```
     /// </summary>
     public partial class Schema : Pulumi.CustomResource
@@ -155,6 +162,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("unique")]
         public Output<string?> Unique { get; private set; } = null!;
+
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Output("userType")]
+        public Output<string?> UserType { get; private set; } = null!;
 
 
         /// <summary>
@@ -334,6 +347,12 @@ namespace Pulumi.Okta.User
         [Input("unique")]
         public Input<string>? Unique { get; set; }
 
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
+
         public SchemaArgs()
         {
         }
@@ -472,6 +491,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("unique")]
         public Input<string>? Unique { get; set; }
+
+        /// <summary>
+        /// User type ID
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
 
         public SchemaState()
         {

@@ -75,7 +75,7 @@ class ServerScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auth_server_id is None:
+            if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
             __props__['auth_server_id'] = auth_server_id
             __props__['consent'] = consent

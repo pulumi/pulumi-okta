@@ -72,10 +72,10 @@ class Origin(pulumi.CustomResource):
 
             __props__['active'] = active
             __props__['name'] = name
-            if origin is None:
+            if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__['origin'] = origin
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
         super(Origin, __self__).__init__(

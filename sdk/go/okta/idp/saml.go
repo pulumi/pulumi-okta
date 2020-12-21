@@ -126,20 +126,21 @@ type Saml struct {
 // NewSaml registers a new resource with the given unique name, arguments, and options.
 func NewSaml(ctx *pulumi.Context,
 	name string, args *SamlArgs, opts ...pulumi.ResourceOption) (*Saml, error) {
-	if args == nil || args.AcsBinding == nil {
-		return nil, errors.New("missing required argument 'AcsBinding'")
-	}
-	if args == nil || args.Issuer == nil {
-		return nil, errors.New("missing required argument 'Issuer'")
-	}
-	if args == nil || args.Kid == nil {
-		return nil, errors.New("missing required argument 'Kid'")
-	}
-	if args == nil || args.SsoUrl == nil {
-		return nil, errors.New("missing required argument 'SsoUrl'")
-	}
 	if args == nil {
-		args = &SamlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AcsBinding == nil {
+		return nil, errors.New("invalid value for required argument 'AcsBinding'")
+	}
+	if args.Issuer == nil {
+		return nil, errors.New("invalid value for required argument 'Issuer'")
+	}
+	if args.Kid == nil {
+		return nil, errors.New("invalid value for required argument 'Kid'")
+	}
+	if args.SsoUrl == nil {
+		return nil, errors.New("invalid value for required argument 'SsoUrl'")
 	}
 	var resource Saml
 	err := ctx.RegisterResource("okta:idp/saml:Saml", name, args, &resource, opts...)

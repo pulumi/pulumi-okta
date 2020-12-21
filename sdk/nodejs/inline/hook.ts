@@ -71,11 +71,11 @@ export class Hook extends pulumi.CustomResource {
     /**
      * Authentication required for inline hook request.
      */
-    public readonly auth!: pulumi.Output<outputs.inline.HookAuth | undefined>;
+    public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Details of the endpoint the inline hook will hit.
      */
-    public readonly channel!: pulumi.Output<outputs.inline.HookChannel | undefined>;
+    public readonly channel!: pulumi.Output<{[key: string]: string}>;
     /**
      * Map of headers to send along in inline hook request.
      */
@@ -86,11 +86,11 @@ export class Hook extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The version of the endpoint.
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -115,10 +115,13 @@ export class Hook extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as HookArgs | undefined;
-            if (!args || args.type === undefined) {
+            if ((!args || args.channel === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'channel'");
+            }
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["auth"] = args ? args.auth : undefined;
@@ -147,11 +150,11 @@ export interface HookState {
     /**
      * Authentication required for inline hook request.
      */
-    readonly auth?: pulumi.Input<inputs.inline.HookAuth>;
+    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the inline hook will hit.
      */
-    readonly channel?: pulumi.Input<inputs.inline.HookChannel>;
+    readonly channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
      */
@@ -162,11 +165,11 @@ export interface HookState {
     readonly name?: pulumi.Input<string>;
     readonly status?: pulumi.Input<string>;
     /**
-     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * The version of the endpoint.
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -178,11 +181,11 @@ export interface HookArgs {
     /**
      * Authentication required for inline hook request.
      */
-    readonly auth?: pulumi.Input<inputs.inline.HookAuth>;
+    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the inline hook will hit.
      */
-    readonly channel?: pulumi.Input<inputs.inline.HookChannel>;
+    readonly channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
      */
@@ -193,11 +196,11 @@ export interface HookArgs {
     readonly name?: pulumi.Input<string>;
     readonly status?: pulumi.Input<string>;
     /**
-     * The type of hook to trigger. Currently only `"HTTP"` is supported.
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
      */
     readonly type: pulumi.Input<string>;
     /**
-     * The version of the endpoint.
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
      */
     readonly version: pulumi.Input<string>;
 }

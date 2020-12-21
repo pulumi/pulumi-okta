@@ -69,7 +69,7 @@ def get_default_policy(type: Optional[str] = None,
     ```
 
 
-    :param str type: type of policy to retrieve.
+    :param str type: type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
     """
     __args__ = dict()
     __args__['type'] = type

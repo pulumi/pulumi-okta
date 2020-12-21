@@ -42,6 +42,7 @@ export interface GetEveryoneGroupArgs {
  * A collection of values returned by getEveryoneGroup.
  */
 export interface GetEveryoneGroupResult {
+    readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

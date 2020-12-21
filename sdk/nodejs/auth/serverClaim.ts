@@ -119,13 +119,13 @@ export class ServerClaim extends pulumi.CustomResource {
             inputs["valueType"] = state ? state.valueType : undefined;
         } else {
             const args = argsOrState as ServerClaimArgs | undefined;
-            if (!args || args.authServerId === undefined) {
+            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if (!args || args.claimType === undefined) {
+            if ((!args || args.claimType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'claimType'");
             }
-            if (!args || args.value === undefined) {
+            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;

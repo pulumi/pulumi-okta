@@ -60,11 +60,12 @@ type Roles struct {
 // NewRoles registers a new resource with the given unique name, arguments, and options.
 func NewRoles(ctx *pulumi.Context,
 	name string, args *RolesArgs, opts ...pulumi.ResourceOption) (*Roles, error) {
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
 	if args == nil {
-		args = &RolesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	var resource Roles
 	err := ctx.RegisterResource("okta:group/roles:Roles", name, args, &resource, opts...)

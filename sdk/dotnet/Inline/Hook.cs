@@ -26,17 +26,17 @@ namespace Pulumi.Okta.Inline
     ///     {
     ///         var example = new Okta.Inline.Hook("example", new Okta.Inline.HookArgs
     ///         {
-    ///             Auth = new Okta.Inline.Inputs.HookAuthArgs
+    ///             Auth = 
     ///             {
-    ///                 Key = "Authorization",
-    ///                 Type = "HEADER",
-    ///                 Value = "secret",
+    ///                 { "key", "Authorization" },
+    ///                 { "type", "HEADER" },
+    ///                 { "value", "secret" },
     ///             },
-    ///             Channel = new Okta.Inline.Inputs.HookChannelArgs
+    ///             Channel = 
     ///             {
-    ///                 Method = "POST",
-    ///                 Uri = "https://example.com/test",
-    ///                 Version = "1.0.0",
+    ///                 { "method", "POST" },
+    ///                 { "uri", "https://example.com/test" },
+    ///                 { "version", "1.0.0" },
     ///             },
     ///             Type = "com.okta.oauth2.tokens.transform",
     ///             Version = "1.0.0",
@@ -60,13 +60,13 @@ namespace Pulumi.Okta.Inline
         /// Authentication required for inline hook request.
         /// </summary>
         [Output("auth")]
-        public Output<Outputs.HookAuth?> Auth { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
         /// <summary>
         /// Details of the endpoint the inline hook will hit.
         /// </summary>
         [Output("channel")]
-        public Output<Outputs.HookChannel?> Channel { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
 
         /// <summary>
         /// Map of headers to send along in inline hook request.
@@ -84,13 +84,13 @@ namespace Pulumi.Okta.Inline
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
+        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the endpoint.
+        /// Version of the channel. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -141,17 +141,29 @@ namespace Pulumi.Okta.Inline
 
     public sealed class HookArgs : Pulumi.ResourceArgs
     {
+        [Input("auth")]
+        private InputMap<string>? _auth;
+
         /// <summary>
         /// Authentication required for inline hook request.
         /// </summary>
-        [Input("auth")]
-        public Input<Inputs.HookAuthArgs>? Auth { get; set; }
+        public InputMap<string> Auth
+        {
+            get => _auth ?? (_auth = new InputMap<string>());
+            set => _auth = value;
+        }
+
+        [Input("channel", required: true)]
+        private InputMap<string>? _channel;
 
         /// <summary>
         /// Details of the endpoint the inline hook will hit.
         /// </summary>
-        [Input("channel")]
-        public Input<Inputs.HookChannelArgs>? Channel { get; set; }
+        public InputMap<string> Channel
+        {
+            get => _channel ?? (_channel = new InputMap<string>());
+            set => _channel = value;
+        }
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderArgs>? _headers;
@@ -175,13 +187,13 @@ namespace Pulumi.Okta.Inline
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
+        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The version of the endpoint.
+        /// Version of the channel. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -193,17 +205,29 @@ namespace Pulumi.Okta.Inline
 
     public sealed class HookState : Pulumi.ResourceArgs
     {
+        [Input("auth")]
+        private InputMap<string>? _auth;
+
         /// <summary>
         /// Authentication required for inline hook request.
         /// </summary>
-        [Input("auth")]
-        public Input<Inputs.HookAuthGetArgs>? Auth { get; set; }
+        public InputMap<string> Auth
+        {
+            get => _auth ?? (_auth = new InputMap<string>());
+            set => _auth = value;
+        }
+
+        [Input("channel")]
+        private InputMap<string>? _channel;
 
         /// <summary>
         /// Details of the endpoint the inline hook will hit.
         /// </summary>
-        [Input("channel")]
-        public Input<Inputs.HookChannelGetArgs>? Channel { get; set; }
+        public InputMap<string> Channel
+        {
+            get => _channel ?? (_channel = new InputMap<string>());
+            set => _channel = value;
+        }
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderGetArgs>? _headers;
@@ -227,13 +251,13 @@ namespace Pulumi.Okta.Inline
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of hook to trigger. Currently only `"HTTP"` is supported.
+        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The version of the endpoint.
+        /// Version of the channel. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

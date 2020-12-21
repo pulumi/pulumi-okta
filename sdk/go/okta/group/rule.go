@@ -68,14 +68,15 @@ type Rule struct {
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
 	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
-	if args == nil || args.ExpressionValue == nil {
-		return nil, errors.New("missing required argument 'ExpressionValue'")
-	}
-	if args == nil || args.GroupAssignments == nil {
-		return nil, errors.New("missing required argument 'GroupAssignments'")
-	}
 	if args == nil {
-		args = &RuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExpressionValue == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressionValue'")
+	}
+	if args.GroupAssignments == nil {
+		return nil, errors.New("invalid value for required argument 'GroupAssignments'")
 	}
 	var resource Rule
 	err := ctx.RegisterResource("okta:group/rule:Rule", name, args, &resource, opts...)

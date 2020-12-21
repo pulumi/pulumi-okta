@@ -267,37 +267,37 @@ export class Oidc extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as OidcArgs | undefined;
-            if (!args || args.acsBinding === undefined) {
+            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'acsBinding'");
             }
-            if (!args || args.authorizationBinding === undefined) {
+            if ((!args || args.authorizationBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationBinding'");
             }
-            if (!args || args.authorizationUrl === undefined) {
+            if ((!args || args.authorizationUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationUrl'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientSecret === undefined) {
+            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (!args || args.issuerUrl === undefined) {
+            if ((!args || args.issuerUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issuerUrl'");
             }
-            if (!args || args.jwksBinding === undefined) {
+            if ((!args || args.jwksBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jwksBinding'");
             }
-            if (!args || args.jwksUrl === undefined) {
+            if ((!args || args.jwksUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jwksUrl'");
             }
-            if (!args || args.scopes === undefined) {
+            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if (!args || args.tokenBinding === undefined) {
+            if ((!args || args.tokenBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tokenBinding'");
             }
-            if (!args || args.tokenUrl === undefined) {
+            if ((!args || args.tokenUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tokenUrl'");
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;

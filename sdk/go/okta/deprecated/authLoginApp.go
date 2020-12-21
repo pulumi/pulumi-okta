@@ -61,11 +61,12 @@ type AuthLoginApp struct {
 // NewAuthLoginApp registers a new resource with the given unique name, arguments, and options.
 func NewAuthLoginApp(ctx *pulumi.Context,
 	name string, args *AuthLoginAppArgs, opts ...pulumi.ResourceOption) (*AuthLoginApp, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &AuthLoginAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource AuthLoginApp
 	err := ctx.RegisterResource("okta:deprecated/authLoginApp:AuthLoginApp", name, args, &resource, opts...)

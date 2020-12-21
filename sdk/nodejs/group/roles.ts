@@ -82,7 +82,7 @@ export class Roles extends pulumi.CustomResource {
             inputs["groupId"] = state ? state.groupId : undefined;
         } else {
             const args = argsOrState as RolesArgs | undefined;
-            if (!args || args.groupId === undefined) {
+            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["adminRoles"] = args ? args.adminRoles : undefined;

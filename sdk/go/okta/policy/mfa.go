@@ -27,39 +27,39 @@ type Mfa struct {
 	// Policy Description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// DUO MFA policy settings.
-	Duo MfaDuoPtrOutput `pulumi:"duo"`
+	Duo pulumi.StringMapOutput `pulumi:"duo"`
 	// Fido U2F MFA policy settings.
-	FidoU2f MfaFidoU2fPtrOutput `pulumi:"fidoU2f"`
+	FidoU2f pulumi.StringMapOutput `pulumi:"fidoU2f"`
 	// Fido Web Authn MFA policy settings.
-	FidoWebauthn MfaFidoWebauthnPtrOutput `pulumi:"fidoWebauthn"`
+	FidoWebauthn pulumi.StringMapOutput `pulumi:"fidoWebauthn"`
 	// Google OTP MFA policy settings.
-	GoogleOtp MfaGoogleOtpPtrOutput `pulumi:"googleOtp"`
+	GoogleOtp pulumi.StringMapOutput `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
 	// Policy Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Okta Call MFA policy settings.
-	OktaCall MfaOktaCallPtrOutput `pulumi:"oktaCall"`
+	OktaCall pulumi.StringMapOutput `pulumi:"oktaCall"`
 	// Okta OTP MFA policy settings.
-	OktaOtp MfaOktaOtpPtrOutput `pulumi:"oktaOtp"`
+	OktaOtp pulumi.StringMapOutput `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
-	OktaPassword MfaOktaPasswordPtrOutput `pulumi:"oktaPassword"`
+	OktaPassword pulumi.StringMapOutput `pulumi:"oktaPassword"`
 	// Okta Push MFA policy settings.
-	OktaPush MfaOktaPushPtrOutput `pulumi:"oktaPush"`
+	OktaPush pulumi.StringMapOutput `pulumi:"oktaPush"`
 	// Okta Question MFA policy settings.
-	OktaQuestion MfaOktaQuestionPtrOutput `pulumi:"oktaQuestion"`
+	OktaQuestion pulumi.StringMapOutput `pulumi:"oktaQuestion"`
 	// Okta SMS MFA policy settings.
-	OktaSms MfaOktaSmsPtrOutput `pulumi:"oktaSms"`
+	OktaSms pulumi.StringMapOutput `pulumi:"oktaSms"`
 	// Priority of the policy.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// RSA Token MFA policy settings.
-	RsaToken MfaRsaTokenPtrOutput `pulumi:"rsaToken"`
+	RsaToken pulumi.StringMapOutput `pulumi:"rsaToken"`
 	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Symantec VIP MFA policy settings.
-	SymantecVip MfaSymantecVipPtrOutput `pulumi:"symantecVip"`
+	SymantecVip pulumi.StringMapOutput `pulumi:"symantecVip"`
 	// Yubikey Token MFA policy settings.
-	YubikeyToken MfaYubikeyTokenPtrOutput `pulumi:"yubikeyToken"`
+	YubikeyToken pulumi.StringMapOutput `pulumi:"yubikeyToken"`
 }
 
 // NewMfa registers a new resource with the given unique name, arguments, and options.
@@ -68,6 +68,7 @@ func NewMfa(ctx *pulumi.Context,
 	if args == nil {
 		args = &MfaArgs{}
 	}
+
 	var resource Mfa
 	err := ctx.RegisterResource("okta:policy/mfa:Mfa", name, args, &resource, opts...)
 	if err != nil {
@@ -93,78 +94,78 @@ type mfaState struct {
 	// Policy Description.
 	Description *string `pulumi:"description"`
 	// DUO MFA policy settings.
-	Duo *MfaDuo `pulumi:"duo"`
+	Duo map[string]string `pulumi:"duo"`
 	// Fido U2F MFA policy settings.
-	FidoU2f *MfaFidoU2f `pulumi:"fidoU2f"`
+	FidoU2f map[string]string `pulumi:"fidoU2f"`
 	// Fido Web Authn MFA policy settings.
-	FidoWebauthn *MfaFidoWebauthn `pulumi:"fidoWebauthn"`
+	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
 	// Google OTP MFA policy settings.
-	GoogleOtp *MfaGoogleOtp `pulumi:"googleOtp"`
+	GoogleOtp map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Name.
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
-	OktaCall *MfaOktaCall `pulumi:"oktaCall"`
+	OktaCall map[string]string `pulumi:"oktaCall"`
 	// Okta OTP MFA policy settings.
-	OktaOtp *MfaOktaOtp `pulumi:"oktaOtp"`
+	OktaOtp map[string]string `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
-	OktaPassword *MfaOktaPassword `pulumi:"oktaPassword"`
+	OktaPassword map[string]string `pulumi:"oktaPassword"`
 	// Okta Push MFA policy settings.
-	OktaPush *MfaOktaPush `pulumi:"oktaPush"`
+	OktaPush map[string]string `pulumi:"oktaPush"`
 	// Okta Question MFA policy settings.
-	OktaQuestion *MfaOktaQuestion `pulumi:"oktaQuestion"`
+	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
 	// Okta SMS MFA policy settings.
-	OktaSms *MfaOktaSms `pulumi:"oktaSms"`
+	OktaSms map[string]string `pulumi:"oktaSms"`
 	// Priority of the policy.
 	Priority *int `pulumi:"priority"`
 	// RSA Token MFA policy settings.
-	RsaToken *MfaRsaToken `pulumi:"rsaToken"`
+	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Symantec VIP MFA policy settings.
-	SymantecVip *MfaSymantecVip `pulumi:"symantecVip"`
+	SymantecVip map[string]string `pulumi:"symantecVip"`
 	// Yubikey Token MFA policy settings.
-	YubikeyToken *MfaYubikeyToken `pulumi:"yubikeyToken"`
+	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 type MfaState struct {
 	// Policy Description.
 	Description pulumi.StringPtrInput
 	// DUO MFA policy settings.
-	Duo MfaDuoPtrInput
+	Duo pulumi.StringMapInput
 	// Fido U2F MFA policy settings.
-	FidoU2f MfaFidoU2fPtrInput
+	FidoU2f pulumi.StringMapInput
 	// Fido Web Authn MFA policy settings.
-	FidoWebauthn MfaFidoWebauthnPtrInput
+	FidoWebauthn pulumi.StringMapInput
 	// Google OTP MFA policy settings.
-	GoogleOtp MfaGoogleOtpPtrInput
+	GoogleOtp pulumi.StringMapInput
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Name.
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.
-	OktaCall MfaOktaCallPtrInput
+	OktaCall pulumi.StringMapInput
 	// Okta OTP MFA policy settings.
-	OktaOtp MfaOktaOtpPtrInput
+	OktaOtp pulumi.StringMapInput
 	// Okta Password MFA policy settings.
-	OktaPassword MfaOktaPasswordPtrInput
+	OktaPassword pulumi.StringMapInput
 	// Okta Push MFA policy settings.
-	OktaPush MfaOktaPushPtrInput
+	OktaPush pulumi.StringMapInput
 	// Okta Question MFA policy settings.
-	OktaQuestion MfaOktaQuestionPtrInput
+	OktaQuestion pulumi.StringMapInput
 	// Okta SMS MFA policy settings.
-	OktaSms MfaOktaSmsPtrInput
+	OktaSms pulumi.StringMapInput
 	// Priority of the policy.
 	Priority pulumi.IntPtrInput
 	// RSA Token MFA policy settings.
-	RsaToken MfaRsaTokenPtrInput
+	RsaToken pulumi.StringMapInput
 	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Symantec VIP MFA policy settings.
-	SymantecVip MfaSymantecVipPtrInput
+	SymantecVip pulumi.StringMapInput
 	// Yubikey Token MFA policy settings.
-	YubikeyToken MfaYubikeyTokenPtrInput
+	YubikeyToken pulumi.StringMapInput
 }
 
 func (MfaState) ElementType() reflect.Type {
@@ -175,39 +176,39 @@ type mfaArgs struct {
 	// Policy Description.
 	Description *string `pulumi:"description"`
 	// DUO MFA policy settings.
-	Duo *MfaDuo `pulumi:"duo"`
+	Duo map[string]string `pulumi:"duo"`
 	// Fido U2F MFA policy settings.
-	FidoU2f *MfaFidoU2f `pulumi:"fidoU2f"`
+	FidoU2f map[string]string `pulumi:"fidoU2f"`
 	// Fido Web Authn MFA policy settings.
-	FidoWebauthn *MfaFidoWebauthn `pulumi:"fidoWebauthn"`
+	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
 	// Google OTP MFA policy settings.
-	GoogleOtp *MfaGoogleOtp `pulumi:"googleOtp"`
+	GoogleOtp map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Name.
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
-	OktaCall *MfaOktaCall `pulumi:"oktaCall"`
+	OktaCall map[string]string `pulumi:"oktaCall"`
 	// Okta OTP MFA policy settings.
-	OktaOtp *MfaOktaOtp `pulumi:"oktaOtp"`
+	OktaOtp map[string]string `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
-	OktaPassword *MfaOktaPassword `pulumi:"oktaPassword"`
+	OktaPassword map[string]string `pulumi:"oktaPassword"`
 	// Okta Push MFA policy settings.
-	OktaPush *MfaOktaPush `pulumi:"oktaPush"`
+	OktaPush map[string]string `pulumi:"oktaPush"`
 	// Okta Question MFA policy settings.
-	OktaQuestion *MfaOktaQuestion `pulumi:"oktaQuestion"`
+	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
 	// Okta SMS MFA policy settings.
-	OktaSms *MfaOktaSms `pulumi:"oktaSms"`
+	OktaSms map[string]string `pulumi:"oktaSms"`
 	// Priority of the policy.
 	Priority *int `pulumi:"priority"`
 	// RSA Token MFA policy settings.
-	RsaToken *MfaRsaToken `pulumi:"rsaToken"`
+	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Symantec VIP MFA policy settings.
-	SymantecVip *MfaSymantecVip `pulumi:"symantecVip"`
+	SymantecVip map[string]string `pulumi:"symantecVip"`
 	// Yubikey Token MFA policy settings.
-	YubikeyToken *MfaYubikeyToken `pulumi:"yubikeyToken"`
+	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 // The set of arguments for constructing a Mfa resource.
@@ -215,39 +216,39 @@ type MfaArgs struct {
 	// Policy Description.
 	Description pulumi.StringPtrInput
 	// DUO MFA policy settings.
-	Duo MfaDuoPtrInput
+	Duo pulumi.StringMapInput
 	// Fido U2F MFA policy settings.
-	FidoU2f MfaFidoU2fPtrInput
+	FidoU2f pulumi.StringMapInput
 	// Fido Web Authn MFA policy settings.
-	FidoWebauthn MfaFidoWebauthnPtrInput
+	FidoWebauthn pulumi.StringMapInput
 	// Google OTP MFA policy settings.
-	GoogleOtp MfaGoogleOtpPtrInput
+	GoogleOtp pulumi.StringMapInput
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Name.
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.
-	OktaCall MfaOktaCallPtrInput
+	OktaCall pulumi.StringMapInput
 	// Okta OTP MFA policy settings.
-	OktaOtp MfaOktaOtpPtrInput
+	OktaOtp pulumi.StringMapInput
 	// Okta Password MFA policy settings.
-	OktaPassword MfaOktaPasswordPtrInput
+	OktaPassword pulumi.StringMapInput
 	// Okta Push MFA policy settings.
-	OktaPush MfaOktaPushPtrInput
+	OktaPush pulumi.StringMapInput
 	// Okta Question MFA policy settings.
-	OktaQuestion MfaOktaQuestionPtrInput
+	OktaQuestion pulumi.StringMapInput
 	// Okta SMS MFA policy settings.
-	OktaSms MfaOktaSmsPtrInput
+	OktaSms pulumi.StringMapInput
 	// Priority of the policy.
 	Priority pulumi.IntPtrInput
 	// RSA Token MFA policy settings.
-	RsaToken MfaRsaTokenPtrInput
+	RsaToken pulumi.StringMapInput
 	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Symantec VIP MFA policy settings.
-	SymantecVip MfaSymantecVipPtrInput
+	SymantecVip pulumi.StringMapInput
 	// Yubikey Token MFA policy settings.
-	YubikeyToken MfaYubikeyTokenPtrInput
+	YubikeyToken pulumi.StringMapInput
 }
 
 func (MfaArgs) ElementType() reflect.Type {

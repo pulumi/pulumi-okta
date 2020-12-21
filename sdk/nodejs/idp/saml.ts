@@ -240,16 +240,16 @@ export class Saml extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if (!args || args.acsBinding === undefined) {
+            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'acsBinding'");
             }
-            if (!args || args.issuer === undefined) {
+            if ((!args || args.issuer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if (!args || args.kid === undefined) {
+            if ((!args || args.kid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kid'");
             }
-            if (!args || args.ssoUrl === undefined) {
+            if ((!args || args.ssoUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ssoUrl'");
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;

@@ -129,10 +129,10 @@ export class Mapping extends pulumi.CustomResource {
             inputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as MappingArgs | undefined;
-            if (!args || args.sourceId === undefined) {
+            if ((!args || args.sourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            if (!args || args.targetId === undefined) {
+            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetId'");
             }
             inputs["deleteWhenAbsent"] = args ? args.deleteWhenAbsent : undefined;

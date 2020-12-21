@@ -66,25 +66,28 @@ type UserBaseSchema struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Custom subschema user type
+	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
 // NewUserBaseSchema registers a new resource with the given unique name, arguments, and options.
 func NewUserBaseSchema(ctx *pulumi.Context,
 	name string, args *UserBaseSchemaArgs, opts ...pulumi.ResourceOption) (*UserBaseSchema, error) {
-	if args == nil || args.AppId == nil {
-		return nil, errors.New("missing required argument 'AppId'")
-	}
-	if args == nil || args.Index == nil {
-		return nil, errors.New("missing required argument 'Index'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &UserBaseSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppId == nil {
+		return nil, errors.New("invalid value for required argument 'AppId'")
+	}
+	if args.Index == nil {
+		return nil, errors.New("invalid value for required argument 'Index'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource UserBaseSchema
 	err := ctx.RegisterResource("okta:app/userBaseSchema:UserBaseSchema", name, args, &resource, opts...)
@@ -122,6 +125,8 @@ type userBaseSchemaState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
+	// Custom subschema user type
+	UserType *string `pulumi:"userType"`
 }
 
 type UserBaseSchemaState struct {
@@ -139,6 +144,8 @@ type UserBaseSchemaState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
+	// Custom subschema user type
+	UserType pulumi.StringPtrInput
 }
 
 func (UserBaseSchemaState) ElementType() reflect.Type {
@@ -160,6 +167,8 @@ type userBaseSchemaArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
+	// Custom subschema user type
+	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a UserBaseSchema resource.
@@ -178,6 +187,8 @@ type UserBaseSchemaArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
+	// Custom subschema user type
+	UserType pulumi.StringPtrInput
 }
 
 func (UserBaseSchemaArgs) ElementType() reflect.Type {

@@ -12,26 +12,42 @@ namespace Pulumi.Okta.App.Inputs
 
     public sealed class GetSamlAttributeStatementArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (Optional) Type of group attribute filter.
+        /// </summary>
         [Input("filterType")]
         public string? FilterType { get; set; }
 
+        /// <summary>
+        /// (Optional) Filter value to use.
+        /// </summary>
         [Input("filterValue")]
         public string? FilterValue { get; set; }
 
         /// <summary>
-        /// name of application.
+        /// (Required) The name of the attribute statement.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        /// </summary>
         [Input("namespace")]
         public string? Namespace { get; set; }
 
+        /// <summary>
+        /// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
         [Input("values")]
         private List<string>? _values;
+
+        /// <summary>
+        /// (Optional) Array of values to use.
+        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());
