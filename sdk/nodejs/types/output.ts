@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
-export interface EventHookAuth {
-    /**
-     * Key to use for authentication, usually the header name, for example `"Authorization"`.
-     */
-    key: string;
-    /**
-     * The type of hook to trigger. Currently only `"HTTP"` is supported.
-     */
-    type: string;
-    /**
-     * Authentication secret.
-     */
-    value: string;
-}
-
-export interface EventHookChannel {
-    /**
-     * The type of hook to trigger. Currently only `"HTTP"` is supported.
-     */
-    type: string;
-    /**
-     * The URI the hook will hit.
-     */
-    uri: string;
-    /**
-     * The version of the channel. Currently only `"1.0.0"` is supported.
-     */
-    version: string;
-}
-
 export interface EventHookHeader {
     /**
      * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -84,14 +54,29 @@ export namespace app {
     }
 
     export interface GetSamlAttributeStatement {
+        /**
+         * (Optional) Type of group attribute filter.
+         */
         filterType?: string;
+        /**
+         * (Optional) Filter value to use.
+         */
         filterValue?: string;
         /**
-         * name of application.
+         * (Required) The name of the attribute statement.
          */
         name: string;
+        /**
+         * (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+         */
         namespace?: string;
+        /**
+         * (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+         */
         type?: string;
+        /**
+         * (Optional) Array of values to use.
+         */
         values?: string[];
     }
 
@@ -208,71 +193,6 @@ export namespace deprecated {
         username?: string;
     }
 
-    export interface MfaPolicyDuo {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyFidoU2f {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyFidoWebauthn {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyGoogleOtp {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaCall {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaOtp {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaPassword {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaPush {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaQuestion {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyOktaSms {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyRsaToken {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicySymantecVip {
-        consentType?: string;
-        enroll?: string;
-    }
-
-    export interface MfaPolicyYubikeyToken {
-        consentType?: string;
-        enroll?: string;
-    }
-
     export interface OauthAppJwk {
         e?: string;
         kid: string;
@@ -326,40 +246,6 @@ export namespace deprecated {
 }
 
 export namespace inline {
-    export interface HookAuth {
-        /**
-         * Key to use for authentication, usually the header name, for example `"Authorization"`.
-         */
-        key?: string;
-        /**
-         * The type of hook to trigger. Currently only `"HTTP"` is supported.
-         */
-        type?: string;
-        /**
-         * Authentication secret.
-         */
-        value?: string;
-    }
-
-    export interface HookChannel {
-        /**
-         * The request method to use. Default is `"POST"`.
-         */
-        method?: string;
-        /**
-         * The type of hook to trigger. Currently only `"HTTP"` is supported.
-         */
-        type?: boolean;
-        /**
-         * The URI the hook will hit.
-         */
-        uri: string;
-        /**
-         * The version of the endpoint.
-         */
-        version: string;
-    }
-
     export interface HookHeader {
         /**
          * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -373,181 +259,59 @@ export namespace inline {
 }
 
 export namespace policy {
-    export interface MfaDuo {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaFidoU2f {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaFidoWebauthn {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaGoogleOtp {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaCall {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaOtp {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaPassword {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaPush {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaQuestion {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaOktaSms {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaRsaToken {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaSymantecVip {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
-    export interface MfaYubikeyToken {
-        /**
-         * User consent type required before enrolling in the factor: `"NONE"` or `"TERMS_OF_SERVICE"`. By default it is `"NONE"`.
-         */
-        consentType?: string;
-        /**
-         * Requirements for user initiated enrollment. Can be `"NOT_ALLOWED"`, `"OPTIONAL"`, or `"REQUIRED"`. By default it is `"OPTIONAL"`.
-         */
-        enroll?: string;
-    }
-
     export interface RuleIdpDiscoveryAppExclude {
         /**
-         * ID of the Rule.
+         * Use if `type` is `"APP"` to indicate the application Id to include.
          */
         id?: string;
         /**
-         * Policy Rule Name.
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
          */
         name?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type?: string;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
         /**
-         * ID of the Rule.
+         * Use if `type` is `"APP"` to indicate the application Id to include.
          */
         id?: string;
         /**
-         * Policy Rule Name.
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
          */
         name?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type?: string;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {
+        /**
+         * Only available when using `osType = "OTHER"`
+         */
         osExpression?: string;
+        /**
+         * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+         */
         osType?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type?: string;
     }
 
     export interface RuleIdpDiscoveryUserIdentifierPattern {
+        /**
+         * The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+         */
         matchType?: string;
+        /**
+         * The regex or simple match string to match against.
+         */
         value?: string;
     }
 }

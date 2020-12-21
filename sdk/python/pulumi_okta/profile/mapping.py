@@ -90,10 +90,10 @@ class Mapping(pulumi.CustomResource):
 
             __props__['delete_when_absent'] = delete_when_absent
             __props__['mappings'] = mappings
-            if source_id is None:
+            if source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_id'")
             __props__['source_id'] = source_id
-            if target_id is None:
+            if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
             __props__['target_id'] = target_id
             __props__['source_name'] = None

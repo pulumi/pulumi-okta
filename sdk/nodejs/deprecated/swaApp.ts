@@ -148,7 +148,7 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SwaAppArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;

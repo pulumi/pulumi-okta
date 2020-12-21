@@ -62,41 +62,42 @@ type Idp struct {
 // NewIdp registers a new resource with the given unique name, arguments, and options.
 func NewIdp(ctx *pulumi.Context,
 	name string, args *IdpArgs, opts ...pulumi.ResourceOption) (*Idp, error) {
-	if args == nil || args.AcsBinding == nil {
-		return nil, errors.New("missing required argument 'AcsBinding'")
-	}
-	if args == nil || args.AuthorizationBinding == nil {
-		return nil, errors.New("missing required argument 'AuthorizationBinding'")
-	}
-	if args == nil || args.AuthorizationUrl == nil {
-		return nil, errors.New("missing required argument 'AuthorizationUrl'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
-	if args == nil || args.IssuerUrl == nil {
-		return nil, errors.New("missing required argument 'IssuerUrl'")
-	}
-	if args == nil || args.JwksBinding == nil {
-		return nil, errors.New("missing required argument 'JwksBinding'")
-	}
-	if args == nil || args.JwksUrl == nil {
-		return nil, errors.New("missing required argument 'JwksUrl'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
-	if args == nil || args.TokenBinding == nil {
-		return nil, errors.New("missing required argument 'TokenBinding'")
-	}
-	if args == nil || args.TokenUrl == nil {
-		return nil, errors.New("missing required argument 'TokenUrl'")
-	}
 	if args == nil {
-		args = &IdpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AcsBinding == nil {
+		return nil, errors.New("invalid value for required argument 'AcsBinding'")
+	}
+	if args.AuthorizationBinding == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationBinding'")
+	}
+	if args.AuthorizationUrl == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationUrl'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
+	}
+	if args.IssuerUrl == nil {
+		return nil, errors.New("invalid value for required argument 'IssuerUrl'")
+	}
+	if args.JwksBinding == nil {
+		return nil, errors.New("invalid value for required argument 'JwksBinding'")
+	}
+	if args.JwksUrl == nil {
+		return nil, errors.New("invalid value for required argument 'JwksUrl'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
+	}
+	if args.TokenBinding == nil {
+		return nil, errors.New("invalid value for required argument 'TokenBinding'")
+	}
+	if args.TokenUrl == nil {
+		return nil, errors.New("invalid value for required argument 'TokenUrl'")
 	}
 	var resource Idp
 	err := ctx.RegisterResource("okta:deprecated/idp:Idp", name, args, &resource, opts...)

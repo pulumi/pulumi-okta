@@ -90,14 +90,15 @@ type Mapping struct {
 // NewMapping registers a new resource with the given unique name, arguments, and options.
 func NewMapping(ctx *pulumi.Context,
 	name string, args *MappingArgs, opts ...pulumi.ResourceOption) (*Mapping, error) {
-	if args == nil || args.SourceId == nil {
-		return nil, errors.New("missing required argument 'SourceId'")
-	}
-	if args == nil || args.TargetId == nil {
-		return nil, errors.New("missing required argument 'TargetId'")
-	}
 	if args == nil {
-		args = &MappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SourceId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceId'")
+	}
+	if args.TargetId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetId'")
 	}
 	var resource Mapping
 	err := ctx.RegisterResource("okta:profile/mapping:Mapping", name, args, &resource, opts...)

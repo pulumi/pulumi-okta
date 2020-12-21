@@ -49,13 +49,13 @@ import (
 type Bookmark struct {
 	pulumi.CustomResourceState
 
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
@@ -65,25 +65,26 @@ type Bookmark struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the bookmark.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users BookmarkUserArrayOutput `pulumi:"users"`
 }
 
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
 func NewBookmark(ctx *pulumi.Context,
 	name string, args *BookmarkArgs, opts ...pulumi.ResourceOption) (*Bookmark, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &BookmarkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource Bookmark
 	err := ctx.RegisterResource("okta:app/bookmark:Bookmark", name, args, &resource, opts...)
@@ -107,13 +108,13 @@ func GetBookmark(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bookmark resources.
 type bookmarkState struct {
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
@@ -123,22 +124,22 @@ type bookmarkState struct {
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
 	Url *string `pulumi:"url"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users []BookmarkUser `pulumi:"users"`
 }
 
 type BookmarkState struct {
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
@@ -148,11 +149,11 @@ type BookmarkState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
 	Url pulumi.StringPtrInput
-	// Users associated with the application
+	// Users associated with the application.
 	Users BookmarkUserArrayInput
 }
 
@@ -161,45 +162,45 @@ func (BookmarkState) ElementType() reflect.Type {
 }
 
 type bookmarkArgs struct {
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
 	Url string `pulumi:"url"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users []BookmarkUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
 	Url pulumi.StringInput
-	// Users associated with the application
+	// Users associated with the application.
 	Users BookmarkUserArrayInput
 }
 

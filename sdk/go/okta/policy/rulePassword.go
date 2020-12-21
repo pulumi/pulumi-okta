@@ -52,11 +52,12 @@ type RulePassword struct {
 // NewRulePassword registers a new resource with the given unique name, arguments, and options.
 func NewRulePassword(ctx *pulumi.Context,
 	name string, args *RulePasswordArgs, opts ...pulumi.ResourceOption) (*RulePassword, error) {
-	if args == nil || args.Policyid == nil {
-		return nil, errors.New("missing required argument 'Policyid'")
-	}
 	if args == nil {
-		args = &RulePasswordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Policyid == nil {
+		return nil, errors.New("invalid value for required argument 'Policyid'")
 	}
 	var resource RulePassword
 	err := ctx.RegisterResource("okta:policy/rulePassword:RulePassword", name, args, &resource, opts...)

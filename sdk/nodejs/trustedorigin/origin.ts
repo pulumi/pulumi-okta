@@ -92,10 +92,10 @@ export class Origin extends pulumi.CustomResource {
             inputs["scopes"] = state ? state.scopes : undefined;
         } else {
             const args = argsOrState as OriginArgs | undefined;
-            if (!args || args.origin === undefined) {
+            if ((!args || args.origin === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origin'");
             }
-            if (!args || args.scopes === undefined) {
+            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["active"] = args ? args.active : undefined;

@@ -105,7 +105,7 @@ export class RuleMfa extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
-            if (!args || args.policyid === undefined) {
+            if ((!args || args.policyid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyid'");
             }
             inputs["enroll"] = args ? args.enroll : undefined;

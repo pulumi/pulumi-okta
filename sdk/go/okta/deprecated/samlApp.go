@@ -20,6 +20,8 @@ type SamlApp struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// List of ACS endpoints for this SAML application
+	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -106,11 +108,12 @@ type SamlApp struct {
 // NewSamlApp registers a new resource with the given unique name, arguments, and options.
 func NewSamlApp(ctx *pulumi.Context,
 	name string, args *SamlAppArgs, opts ...pulumi.ResourceOption) (*SamlApp, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &SamlAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource SamlApp
 	err := ctx.RegisterResource("okta:deprecated/samlApp:SamlApp", name, args, &resource, opts...)
@@ -140,6 +143,8 @@ type samlAppState struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// List of ACS endpoints for this SAML application
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -230,6 +235,8 @@ type SamlAppState struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// List of ACS endpoints for this SAML application
+	AcsEndpoints pulumi.StringArrayInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
@@ -324,6 +331,8 @@ type samlAppArgs struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// List of ACS endpoints for this SAML application
+	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -397,6 +406,8 @@ type SamlAppArgs struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// List of ACS endpoints for this SAML application
+	AcsEndpoints pulumi.StringArrayInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed

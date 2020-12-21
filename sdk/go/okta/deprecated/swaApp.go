@@ -59,11 +59,12 @@ type SwaApp struct {
 // NewSwaApp registers a new resource with the given unique name, arguments, and options.
 func NewSwaApp(ctx *pulumi.Context,
 	name string, args *SwaAppArgs, opts ...pulumi.ResourceOption) (*SwaApp, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &SwaAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource SwaApp
 	err := ctx.RegisterResource("okta:deprecated/swaApp:SwaApp", name, args, &resource, opts...)

@@ -18,6 +18,7 @@ class Provider(pulumi.ProviderResource):
                  api_token: Optional[pulumi.Input[str]] = None,
                  backoff: Optional[pulumi.Input[bool]] = None,
                  base_url: Optional[pulumi.Input[str]] = None,
+                 log_level: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  max_wait_seconds: Optional[pulumi.Input[int]] = None,
                  min_wait_seconds: Optional[pulumi.Input[int]] = None,
@@ -37,6 +38,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] api_token: API Token granting privileges to Okta API.
         :param pulumi.Input[bool] backoff: Use exponential back off strategy for rate limits.
         :param pulumi.Input[str] base_url: The Okta url. (Use 'oktapreview.com' for Okta testing)
+        :param pulumi.Input[int] log_level: providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
         :param pulumi.Input[int] max_retries: maximum number of retries to attempt before erroring out.
         :param pulumi.Input[int] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
         :param pulumi.Input[int] min_wait_seconds: minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -68,6 +70,7 @@ class Provider(pulumi.ProviderResource):
             if base_url is None:
                 base_url = _utilities.get_env('OKTA_BASE_URL')
             __props__['base_url'] = base_url
+            __props__['log_level'] = pulumi.Output.from_input(log_level).apply(pulumi.runtime.to_json) if log_level is not None else None
             __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__['max_wait_seconds'] = pulumi.Output.from_input(max_wait_seconds).apply(pulumi.runtime.to_json) if max_wait_seconds is not None else None
             __props__['min_wait_seconds'] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None

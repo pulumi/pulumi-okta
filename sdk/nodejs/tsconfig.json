@@ -105,10 +105,12 @@
         "user/baseSchema.ts",
         "user/getUser.ts",
         "user/getUserProfileMappingSource.ts",
+        "user/getUserType.ts",
         "user/getUsers.ts",
         "user/index.ts",
         "user/schema.ts",
         "user/user.ts",
+        "user/userType.ts",
         "utilities.ts"
     ]
 }

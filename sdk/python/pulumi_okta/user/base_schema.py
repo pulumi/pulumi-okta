@@ -21,6 +21,7 @@ class BaseSchema(pulumi.CustomResource):
                  required: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,15 +40,22 @@ class BaseSchema(pulumi.CustomResource):
             index="customPropertyName",
             master="OKTA",
             title="customPropertyName",
-            type="string")
+            type="string",
+            user_type=data["okta_user_type"]["example"]["id"])
         ```
 
         ## Import
 
-        User base schema property can be imported via the property index.
+        User schema property of default user type can be imported via the property index.
 
         ```sh
          $ pulumi import okta:user/baseSchema:BaseSchema example <property name>
+        ```
+
+         User schema property of custom user type can be imported via user type id and property index
+
+        ```sh
+         $ pulumi import okta:user/baseSchema:BaseSchema example <user type id>.<property name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -58,6 +66,7 @@ class BaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] user_type: User type ID
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,18 +85,19 @@ class BaseSchema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if index is None:
+            if index is None and not opts.urn:
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
             __props__['permissions'] = permissions
             __props__['required'] = required
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['user_type'] = user_type
         super(BaseSchema, __self__).__init__(
             'okta:user/baseSchema:BaseSchema',
             resource_name,
@@ -103,7 +113,8 @@ class BaseSchema(pulumi.CustomResource):
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'BaseSchema':
+            type: Optional[pulumi.Input[str]] = None,
+            user_type: Optional[pulumi.Input[str]] = None) -> 'BaseSchema':
         """
         Get an existing BaseSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -117,6 +128,7 @@ class BaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] user_type: User type ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -128,6 +140,7 @@ class BaseSchema(pulumi.CustomResource):
         __props__["required"] = required
         __props__["title"] = title
         __props__["type"] = type
+        __props__["user_type"] = user_type
         return BaseSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -177,6 +190,14 @@ class BaseSchema(pulumi.CustomResource):
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        User type ID
+        """
+        return pulumi.get(self, "user_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

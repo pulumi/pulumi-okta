@@ -27,11 +27,12 @@ type SamlIdpSigningKey struct {
 // NewSamlIdpSigningKey registers a new resource with the given unique name, arguments, and options.
 func NewSamlIdpSigningKey(ctx *pulumi.Context,
 	name string, args *SamlIdpSigningKeyArgs, opts ...pulumi.ResourceOption) (*SamlIdpSigningKey, error) {
-	if args == nil || args.X5cs == nil {
-		return nil, errors.New("missing required argument 'X5cs'")
-	}
 	if args == nil {
-		args = &SamlIdpSigningKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.X5cs == nil {
+		return nil, errors.New("invalid value for required argument 'X5cs'")
 	}
 	var resource SamlIdpSigningKey
 	err := ctx.RegisterResource("okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey", name, args, &resource, opts...)

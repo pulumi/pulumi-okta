@@ -59,19 +59,19 @@ export class Bookmark extends pulumi.CustomResource {
     }
 
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
@@ -91,7 +91,7 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +99,7 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly url!: pulumi.Output<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     public readonly users!: pulumi.Output<outputs.app.BookmarkUser[] | undefined>;
 
@@ -128,10 +128,10 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BookmarkArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
-            if (!args || args.url === undefined) {
+            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
@@ -162,19 +162,19 @@ export class Bookmark extends pulumi.CustomResource {
  */
 export interface BookmarkState {
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -194,7 +194,7 @@ export interface BookmarkState {
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface BookmarkState {
      */
     readonly url?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }
@@ -212,19 +212,19 @@ export interface BookmarkState {
  */
 export interface BookmarkArgs {
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
@@ -236,7 +236,7 @@ export interface BookmarkArgs {
      */
     readonly requestIntegration?: pulumi.Input<boolean>;
     /**
-     * Status of application.
+     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface BookmarkArgs {
      */
     readonly url: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }

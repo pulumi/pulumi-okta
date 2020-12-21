@@ -99,11 +99,12 @@ type AutoLogin struct {
 // NewAutoLogin registers a new resource with the given unique name, arguments, and options.
 func NewAutoLogin(ctx *pulumi.Context,
 	name string, args *AutoLoginArgs, opts ...pulumi.ResourceOption) (*AutoLogin, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &AutoLoginArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource AutoLogin
 	err := ctx.RegisterResource("okta:app/autoLogin:AutoLogin", name, args, &resource, opts...)

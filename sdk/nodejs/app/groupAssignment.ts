@@ -77,10 +77,10 @@ export class GroupAssignment extends pulumi.CustomResource {
             inputs["profile"] = state ? state.profile : undefined;
         } else {
             const args = argsOrState as GroupAssignmentArgs | undefined;
-            if (!args || args.appId === undefined) {
+            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (!args || args.groupId === undefined) {
+            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["appId"] = args ? args.appId : undefined;

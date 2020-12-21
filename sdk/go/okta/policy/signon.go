@@ -42,6 +42,7 @@ func NewSignon(ctx *pulumi.Context,
 	if args == nil {
 		args = &SignonArgs{}
 	}
+
 	var resource Signon
 	err := ctx.RegisterResource("okta:policy/signon:Signon", name, args, &resource, opts...)
 	if err != nil {

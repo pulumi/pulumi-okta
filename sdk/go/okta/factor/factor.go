@@ -50,11 +50,12 @@ type Factor struct {
 // NewFactor registers a new resource with the given unique name, arguments, and options.
 func NewFactor(ctx *pulumi.Context,
 	name string, args *FactorArgs, opts ...pulumi.ResourceOption) (*Factor, error) {
-	if args == nil || args.ProviderId == nil {
-		return nil, errors.New("missing required argument 'ProviderId'")
-	}
 	if args == nil {
-		args = &FactorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderId == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderId'")
 	}
 	var resource Factor
 	err := ctx.RegisterResource("okta:factor/factor:Factor", name, args, &resource, opts...)

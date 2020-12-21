@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 export class MfaPolicy extends pulumi.CustomResource {
@@ -37,10 +36,10 @@ export class MfaPolicy extends pulumi.CustomResource {
      * Policy Description
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly duo!: pulumi.Output<outputs.deprecated.MfaPolicyDuo | undefined>;
-    public readonly fidoU2f!: pulumi.Output<outputs.deprecated.MfaPolicyFidoU2f | undefined>;
-    public readonly fidoWebauthn!: pulumi.Output<outputs.deprecated.MfaPolicyFidoWebauthn | undefined>;
-    public readonly googleOtp!: pulumi.Output<outputs.deprecated.MfaPolicyGoogleOtp | undefined>;
+    public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of Group IDs to Include
      */
@@ -49,24 +48,24 @@ export class MfaPolicy extends pulumi.CustomResource {
      * Policy Name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly oktaCall!: pulumi.Output<outputs.deprecated.MfaPolicyOktaCall | undefined>;
-    public readonly oktaOtp!: pulumi.Output<outputs.deprecated.MfaPolicyOktaOtp | undefined>;
-    public readonly oktaPassword!: pulumi.Output<outputs.deprecated.MfaPolicyOktaPassword | undefined>;
-    public readonly oktaPush!: pulumi.Output<outputs.deprecated.MfaPolicyOktaPush | undefined>;
-    public readonly oktaQuestion!: pulumi.Output<outputs.deprecated.MfaPolicyOktaQuestion | undefined>;
-    public readonly oktaSms!: pulumi.Output<outputs.deprecated.MfaPolicyOktaSms | undefined>;
+    public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaPassword!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last/lowest if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
-    public readonly rsaToken!: pulumi.Output<outputs.deprecated.MfaPolicyRsaToken | undefined>;
+    public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    public readonly symantecVip!: pulumi.Output<outputs.deprecated.MfaPolicySymantecVip | undefined>;
-    public readonly yubikeyToken!: pulumi.Output<outputs.deprecated.MfaPolicyYubikeyToken | undefined>;
+    public readonly symantecVip!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly yubikeyToken!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a MfaPolicy resource with the given unique name, arguments, and options.
@@ -138,10 +137,10 @@ export interface MfaPolicyState {
      * Policy Description
      */
     readonly description?: pulumi.Input<string>;
-    readonly duo?: pulumi.Input<inputs.deprecated.MfaPolicyDuo>;
-    readonly fidoU2f?: pulumi.Input<inputs.deprecated.MfaPolicyFidoU2f>;
-    readonly fidoWebauthn?: pulumi.Input<inputs.deprecated.MfaPolicyFidoWebauthn>;
-    readonly googleOtp?: pulumi.Input<inputs.deprecated.MfaPolicyGoogleOtp>;
+    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include
      */
@@ -150,24 +149,24 @@ export interface MfaPolicyState {
      * Policy Name
      */
     readonly name?: pulumi.Input<string>;
-    readonly oktaCall?: pulumi.Input<inputs.deprecated.MfaPolicyOktaCall>;
-    readonly oktaOtp?: pulumi.Input<inputs.deprecated.MfaPolicyOktaOtp>;
-    readonly oktaPassword?: pulumi.Input<inputs.deprecated.MfaPolicyOktaPassword>;
-    readonly oktaPush?: pulumi.Input<inputs.deprecated.MfaPolicyOktaPush>;
-    readonly oktaQuestion?: pulumi.Input<inputs.deprecated.MfaPolicyOktaQuestion>;
-    readonly oktaSms?: pulumi.Input<inputs.deprecated.MfaPolicyOktaSms>;
+    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
-    readonly rsaToken?: pulumi.Input<inputs.deprecated.MfaPolicyRsaToken>;
+    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     readonly status?: pulumi.Input<string>;
-    readonly symantecVip?: pulumi.Input<inputs.deprecated.MfaPolicySymantecVip>;
-    readonly yubikeyToken?: pulumi.Input<inputs.deprecated.MfaPolicyYubikeyToken>;
+    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -178,10 +177,10 @@ export interface MfaPolicyArgs {
      * Policy Description
      */
     readonly description?: pulumi.Input<string>;
-    readonly duo?: pulumi.Input<inputs.deprecated.MfaPolicyDuo>;
-    readonly fidoU2f?: pulumi.Input<inputs.deprecated.MfaPolicyFidoU2f>;
-    readonly fidoWebauthn?: pulumi.Input<inputs.deprecated.MfaPolicyFidoWebauthn>;
-    readonly googleOtp?: pulumi.Input<inputs.deprecated.MfaPolicyGoogleOtp>;
+    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include
      */
@@ -190,22 +189,22 @@ export interface MfaPolicyArgs {
      * Policy Name
      */
     readonly name?: pulumi.Input<string>;
-    readonly oktaCall?: pulumi.Input<inputs.deprecated.MfaPolicyOktaCall>;
-    readonly oktaOtp?: pulumi.Input<inputs.deprecated.MfaPolicyOktaOtp>;
-    readonly oktaPassword?: pulumi.Input<inputs.deprecated.MfaPolicyOktaPassword>;
-    readonly oktaPush?: pulumi.Input<inputs.deprecated.MfaPolicyOktaPush>;
-    readonly oktaQuestion?: pulumi.Input<inputs.deprecated.MfaPolicyOktaQuestion>;
-    readonly oktaSms?: pulumi.Input<inputs.deprecated.MfaPolicyOktaSms>;
+    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last/lowest if not there.
      */
     readonly priority?: pulumi.Input<number>;
-    readonly rsaToken?: pulumi.Input<inputs.deprecated.MfaPolicyRsaToken>;
+    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     readonly status?: pulumi.Input<string>;
-    readonly symantecVip?: pulumi.Input<inputs.deprecated.MfaPolicySymantecVip>;
-    readonly yubikeyToken?: pulumi.Input<inputs.deprecated.MfaPolicyYubikeyToken>;
+    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

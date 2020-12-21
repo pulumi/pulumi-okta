@@ -87,6 +87,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
+    /**
      * Application settings in JSON format.
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
@@ -131,7 +135,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityKey!: pulumi.Output<string>;
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
      */
     public /*out*/ readonly entityUrl!: pulumi.Output<string>;
     /**
@@ -266,6 +270,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            inputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             inputs["attributeStatements"] = state ? state.attributeStatements : undefined;
@@ -309,12 +314,13 @@ export class Saml extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            inputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             inputs["attributeStatements"] = args ? args.attributeStatements : undefined;
@@ -385,6 +391,10 @@ export interface SamlState {
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Application settings in JSON format.
      */
     readonly appSettingsJson?: pulumi.Input<string>;
@@ -429,7 +439,7 @@ export interface SamlState {
      */
     readonly entityKey?: pulumi.Input<string>;
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
      */
     readonly entityUrl?: pulumi.Input<string>;
     /**
@@ -566,6 +576,10 @@ export interface SamlArgs {
      * Enable self service.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application settings in JSON format.
      */

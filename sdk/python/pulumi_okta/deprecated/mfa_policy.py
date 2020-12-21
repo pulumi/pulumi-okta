@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
-from ._inputs import *
 
 __all__ = ['MfaPolicy']
 
@@ -18,23 +16,23 @@ class MfaPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 duo: Optional[pulumi.Input[pulumi.InputType['MfaPolicyDuoArgs']]] = None,
-                 fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoU2fArgs']]] = None,
-                 fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoWebauthnArgs']]] = None,
-                 google_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyGoogleOtpArgs']]] = None,
+                 duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 okta_call: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaCallArgs']]] = None,
-                 okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaOtpArgs']]] = None,
-                 okta_password: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPasswordArgs']]] = None,
-                 okta_push: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPushArgs']]] = None,
-                 okta_question: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaQuestionArgs']]] = None,
-                 okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaSmsArgs']]] = None,
+                 okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyRsaTokenArgs']]] = None,
+                 rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaPolicySymantecVipArgs']]] = None,
-                 yubikey_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyYubikeyTokenArgs']]] = None,
+                 symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -95,23 +93,23 @@ class MfaPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            duo: Optional[pulumi.Input[pulumi.InputType['MfaPolicyDuoArgs']]] = None,
-            fido_u2f: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoU2fArgs']]] = None,
-            fido_webauthn: Optional[pulumi.Input[pulumi.InputType['MfaPolicyFidoWebauthnArgs']]] = None,
-            google_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyGoogleOtpArgs']]] = None,
+            duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            okta_call: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaCallArgs']]] = None,
-            okta_otp: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaOtpArgs']]] = None,
-            okta_password: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPasswordArgs']]] = None,
-            okta_push: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaPushArgs']]] = None,
-            okta_question: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaQuestionArgs']]] = None,
-            okta_sms: Optional[pulumi.Input[pulumi.InputType['MfaPolicyOktaSmsArgs']]] = None,
+            okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             priority: Optional[pulumi.Input[int]] = None,
-            rsa_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyRsaTokenArgs']]] = None,
+            rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            symantec_vip: Optional[pulumi.Input[pulumi.InputType['MfaPolicySymantecVipArgs']]] = None,
-            yubikey_token: Optional[pulumi.Input[pulumi.InputType['MfaPolicyYubikeyTokenArgs']]] = None) -> 'MfaPolicy':
+            symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'MfaPolicy':
         """
         Get an existing MfaPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -160,22 +158,22 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duo(self) -> pulumi.Output[Optional['outputs.MfaPolicyDuo']]:
+    def duo(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "duo")
 
     @property
     @pulumi.getter(name="fidoU2f")
-    def fido_u2f(self) -> pulumi.Output[Optional['outputs.MfaPolicyFidoU2f']]:
+    def fido_u2f(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "fido_u2f")
 
     @property
     @pulumi.getter(name="fidoWebauthn")
-    def fido_webauthn(self) -> pulumi.Output[Optional['outputs.MfaPolicyFidoWebauthn']]:
+    def fido_webauthn(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "fido_webauthn")
 
     @property
     @pulumi.getter(name="googleOtp")
-    def google_otp(self) -> pulumi.Output[Optional['outputs.MfaPolicyGoogleOtp']]:
+    def google_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "google_otp")
 
     @property
@@ -196,32 +194,32 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oktaCall")
-    def okta_call(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaCall']]:
+    def okta_call(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_call")
 
     @property
     @pulumi.getter(name="oktaOtp")
-    def okta_otp(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaOtp']]:
+    def okta_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_otp")
 
     @property
     @pulumi.getter(name="oktaPassword")
-    def okta_password(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaPassword']]:
+    def okta_password(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_password")
 
     @property
     @pulumi.getter(name="oktaPush")
-    def okta_push(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaPush']]:
+    def okta_push(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_push")
 
     @property
     @pulumi.getter(name="oktaQuestion")
-    def okta_question(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaQuestion']]:
+    def okta_question(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_question")
 
     @property
     @pulumi.getter(name="oktaSms")
-    def okta_sms(self) -> pulumi.Output[Optional['outputs.MfaPolicyOktaSms']]:
+    def okta_sms(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_sms")
 
     @property
@@ -235,7 +233,7 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rsaToken")
-    def rsa_token(self) -> pulumi.Output[Optional['outputs.MfaPolicyRsaToken']]:
+    def rsa_token(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "rsa_token")
 
     @property
@@ -248,12 +246,12 @@ class MfaPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="symantecVip")
-    def symantec_vip(self) -> pulumi.Output[Optional['outputs.MfaPolicySymantecVip']]:
+    def symantec_vip(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "symantec_vip")
 
     @property
     @pulumi.getter(name="yubikeyToken")
-    def yubikey_token(self) -> pulumi.Output[Optional['outputs.MfaPolicyYubikeyToken']]:
+    def yubikey_token(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "yubikey_token")
 
     def translate_output_property(self, prop):

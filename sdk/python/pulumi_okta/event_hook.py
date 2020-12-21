@@ -17,8 +17,8 @@ class EventHook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[pulumi.InputType['EventHookAuthArgs']]] = None,
-                 channel: Optional[pulumi.Input[pulumi.InputType['EventHookChannelArgs']]] = None,
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,16 +38,16 @@ class EventHook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.EventHook("example",
-            auth=okta.EventHookAuthArgs(
-                key="Authorization",
-                type="HEADER",
-                value="123",
-            ),
-            channel=okta.EventHookChannelArgs(
-                type="HTTP",
-                uri="https://example.com/test",
-                version="1.0.0",
-            ),
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "123",
+            },
+            channel={
+                "type": "HTTP",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
             events=[
                 "user.lifecycle.create",
                 "user.lifecycle.delete.initiated",
@@ -64,8 +64,8 @@ class EventHook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHookAuthArgs']] auth: Authentication required for event hook request.
-        :param pulumi.Input[pulumi.InputType['EventHookChannelArgs']] channel: Details of the endpoint the event hook will hit.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for event hook request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
@@ -88,10 +88,10 @@ class EventHook(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auth'] = auth
-            if channel is None:
+            if channel is None and not opts.urn:
                 raise TypeError("Missing required property 'channel'")
             __props__['channel'] = channel
-            if events is None:
+            if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__['events'] = events
             __props__['headers'] = headers
@@ -107,8 +107,8 @@ class EventHook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth: Optional[pulumi.Input[pulumi.InputType['EventHookAuthArgs']]] = None,
-            channel: Optional[pulumi.Input[pulumi.InputType['EventHookChannelArgs']]] = None,
+            auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -120,8 +120,8 @@ class EventHook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHookAuthArgs']] auth: Authentication required for event hook request.
-        :param pulumi.Input[pulumi.InputType['EventHookChannelArgs']] channel: Details of the endpoint the event hook will hit.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for event hook request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
@@ -140,7 +140,7 @@ class EventHook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def auth(self) -> pulumi.Output[Optional['outputs.EventHookAuth']]:
+    def auth(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Authentication required for event hook request.
         """
@@ -148,7 +148,7 @@ class EventHook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def channel(self) -> pulumi.Output['outputs.EventHookChannel']:
+    def channel(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Details of the endpoint the event hook will hit.
         """

@@ -32,6 +32,7 @@ func NewSignonPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &SignonPolicyArgs{}
 	}
+
 	var resource SignonPolicy
 	err := ctx.RegisterResource("okta:deprecated/signonPolicy:SignonPolicy", name, args, &resource, opts...)
 	if err != nil {

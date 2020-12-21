@@ -70,7 +70,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
             __props__['password_change'] = password_change
             __props__['password_reset'] = password_reset
             __props__['password_unlock'] = password_unlock
-            if policyid is None:
+            if policyid is None and not opts.urn:
                 raise TypeError("Missing required property 'policyid'")
             __props__['policyid'] = policyid
             __props__['priority'] = priority

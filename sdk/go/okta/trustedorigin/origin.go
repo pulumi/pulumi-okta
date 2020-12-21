@@ -64,14 +64,15 @@ type Origin struct {
 // NewOrigin registers a new resource with the given unique name, arguments, and options.
 func NewOrigin(ctx *pulumi.Context,
 	name string, args *OriginArgs, opts ...pulumi.ResourceOption) (*Origin, error) {
-	if args == nil || args.Origin == nil {
-		return nil, errors.New("missing required argument 'Origin'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
 	if args == nil {
-		args = &OriginArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Origin == nil {
+		return nil, errors.New("invalid value for required argument 'Origin'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	var resource Origin
 	err := ctx.RegisterResource("okta:trustedorigin/origin:Origin", name, args, &resource, opts...)

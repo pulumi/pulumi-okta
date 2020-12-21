@@ -32,6 +32,7 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "accessibilityErrorRedirectUrl": args.accessibilityErrorRedirectUrl,
         "accessibilityLoginRedirectUrl": args.accessibilityLoginRedirectUrl,
         "accessibilitySelfService": args.accessibilitySelfService,
+        "acsEndpoints": args.acsEndpoints,
         "activeOnly": args.activeOnly,
         "appSettingsJson": args.appSettingsJson,
         "assertionSigned": args.assertionSigned,
@@ -81,6 +82,10 @@ export interface GetSamlArgs {
      */
     readonly accessibilitySelfService?: boolean;
     /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    readonly acsEndpoints?: string[];
+    /**
      * tells the provider to query for only `ACTIVE` applications.
      */
     readonly activeOnly?: boolean;
@@ -93,7 +98,7 @@ export interface GetSamlArgs {
      */
     readonly assertionSigned?: boolean;
     /**
-     * SAML Attribute statements.
+     * (Optional) List of SAML Attribute statements.
      */
     readonly attributeStatements?: inputs.app.GetSamlAttributeStatement[];
     /**
@@ -214,6 +219,10 @@ export interface GetSamlResult {
      * Enable self service.
      */
     readonly accessibilitySelfService?: boolean;
+    /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    readonly acsEndpoints?: string[];
     readonly activeOnly?: boolean;
     /**
      * Application settings in JSON format.
@@ -224,7 +233,7 @@ export interface GetSamlResult {
      */
     readonly assertionSigned?: boolean;
     /**
-     * SAML Attribute statements.
+     * (Optional) List of SAML Attribute statements.
      */
     readonly attributeStatements?: outputs.app.GetSamlAttributeStatement[];
     /**
@@ -289,7 +298,7 @@ export interface GetSamlResult {
     readonly label?: string;
     readonly labelPrefix?: string;
     /**
-     * name of application.
+     * (Required) The name of the attribute statement.
      */
     readonly name: string;
     /**

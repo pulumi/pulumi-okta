@@ -183,16 +183,16 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SecurePasswordStoreAppArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
-            if (!args || args.passwordField === undefined) {
+            if ((!args || args.passwordField === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'passwordField'");
             }
-            if (!args || args.url === undefined) {
+            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'url'");
             }
-            if (!args || args.usernameField === undefined) {
+            if ((!args || args.usernameField === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'usernameField'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;

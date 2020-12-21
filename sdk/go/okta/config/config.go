@@ -31,6 +31,11 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "OKTA_BASE_URL").(string)
 }
 
+// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+func GetLogLevel(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "okta:logLevel")
+}
+
 // maximum number of retries to attempt before erroring out.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:maxRetries")

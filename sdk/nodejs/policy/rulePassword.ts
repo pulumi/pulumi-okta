@@ -115,7 +115,7 @@ export class RulePassword extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RulePasswordArgs | undefined;
-            if (!args || args.policyid === undefined) {
+            if ((!args || args.policyid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyid'");
             }
             inputs["name"] = args ? args.name : undefined;

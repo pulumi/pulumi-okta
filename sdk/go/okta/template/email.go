@@ -73,14 +73,15 @@ type Email struct {
 // NewEmail registers a new resource with the given unique name, arguments, and options.
 func NewEmail(ctx *pulumi.Context,
 	name string, args *EmailArgs, opts ...pulumi.ResourceOption) (*Email, error) {
-	if args == nil || args.Translations == nil {
-		return nil, errors.New("missing required argument 'Translations'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &EmailArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Translations == nil {
+		return nil, errors.New("invalid value for required argument 'Translations'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Email
 	err := ctx.RegisterResource("okta:template/email:Email", name, args, &resource, opts...)

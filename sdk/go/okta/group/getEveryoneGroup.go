@@ -45,6 +45,7 @@ type GetEveryoneGroupArgs struct {
 
 // A collection of values returned by getEveryoneGroup.
 type GetEveryoneGroupResult struct {
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	IncludeUsers *bool  `pulumi:"includeUsers"`

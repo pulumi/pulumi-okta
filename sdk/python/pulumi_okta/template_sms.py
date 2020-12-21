@@ -80,11 +80,11 @@ class TemplateSms(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if template is None:
+            if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__['template'] = template
             __props__['translations'] = translations
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(TemplateSms, __self__).__init__(

@@ -111,20 +111,21 @@ type SecurePasswordStore struct {
 // NewSecurePasswordStore registers a new resource with the given unique name, arguments, and options.
 func NewSecurePasswordStore(ctx *pulumi.Context,
 	name string, args *SecurePasswordStoreArgs, opts ...pulumi.ResourceOption) (*SecurePasswordStore, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.PasswordField == nil {
-		return nil, errors.New("missing required argument 'PasswordField'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
-	if args == nil || args.UsernameField == nil {
-		return nil, errors.New("missing required argument 'UsernameField'")
-	}
 	if args == nil {
-		args = &SecurePasswordStoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.PasswordField == nil {
+		return nil, errors.New("invalid value for required argument 'PasswordField'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
+	}
+	if args.UsernameField == nil {
+		return nil, errors.New("invalid value for required argument 'UsernameField'")
 	}
 	var resource SecurePasswordStore
 	err := ctx.RegisterResource("okta:app/securePasswordStore:SecurePasswordStore", name, args, &resource, opts...)

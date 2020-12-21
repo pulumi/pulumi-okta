@@ -57,14 +57,14 @@ class BasicAuth(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,15 +83,19 @@ class BasicAuth(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if auth_url is None and not opts.urn:
+                raise TypeError("Missing required property 'auth_url'")
             __props__['auth_url'] = auth_url
             __props__['auto_submit_toolbar'] = auto_submit_toolbar
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['status'] = status
+            if url is None and not opts.urn:
+                raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['users'] = users
             __props__['name'] = None
@@ -125,16 +129,16 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] name: name of app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -155,7 +159,7 @@ class BasicAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authUrl")
-    def auth_url(self) -> pulumi.Output[Optional[str]]:
+    def auth_url(self) -> pulumi.Output[str]:
         """
         The URL of the authenticating site for this app.
         """
@@ -165,7 +169,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar
+        Display auto submit toolbar.
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -173,7 +177,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Groups associated with the application
+        Groups associated with the application.
         """
         return pulumi.get(self, "groups")
 
@@ -181,7 +185,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app
+        Do not display application icon on mobile app.
         """
         return pulumi.get(self, "hide_ios")
 
@@ -189,7 +193,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users
+        Do not display application icon to users.
         """
         return pulumi.get(self, "hide_web")
 
@@ -221,13 +225,13 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application.
+        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[Optional[str]]:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL of the sign-in page for this app.
         """
@@ -237,7 +241,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.BasicAuthUser']]]:
         """
-        Users associated with the application
+        Users associated with the application.
         """
         return pulumi.get(self, "users")
 

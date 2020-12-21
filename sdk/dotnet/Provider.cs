@@ -63,6 +63,12 @@ namespace Pulumi.Okta
         public Input<string>? BaseUrl { get; set; }
 
         /// <summary>
+        /// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+        /// </summary>
+        [Input("logLevel", json: true)]
+        public Input<int>? LogLevel { get; set; }
+
+        /// <summary>
         /// maximum number of retries to attempt before erroring out.
         /// </summary>
         [Input("maxRetries", json: true)]

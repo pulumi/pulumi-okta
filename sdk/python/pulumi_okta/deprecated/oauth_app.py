@@ -108,7 +108,7 @@ class OauthApp(pulumi.CustomResource):
             __props__['client_id'] = client_id
             __props__['client_uri'] = client_uri
             __props__['consent_method'] = consent_method
-            if custom_client_id is not None:
+            if custom_client_id is not None and not opts.urn:
                 warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
                 pulumi.log.warn("custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.")
             __props__['custom_client_id'] = custom_client_id
@@ -118,7 +118,7 @@ class OauthApp(pulumi.CustomResource):
             __props__['hide_web'] = hide_web
             __props__['issuer_mode'] = issuer_mode
             __props__['jwks'] = jwks
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['login_uri'] = login_uri
@@ -132,7 +132,7 @@ class OauthApp(pulumi.CustomResource):
             __props__['status'] = status
             __props__['token_endpoint_auth_method'] = token_endpoint_auth_method
             __props__['tos_uri'] = tos_uri
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['users'] = users

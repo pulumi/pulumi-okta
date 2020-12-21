@@ -35,6 +35,7 @@ class Schema(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unique: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -55,15 +56,22 @@ class Schema(pulumi.CustomResource):
             master="OKTA",
             scope="SELF",
             title="customPropertyName",
-            type="string")
+            type="string",
+            user_type=data["okta_user_type"]["example"]["id"])
         ```
 
         ## Import
 
-        User schema property can be imported via the property index.
+        User schema property of default user type can be imported via the property index.
 
         ```sh
          $ pulumi import okta:user/schema:Schema example <index>
+        ```
+
+         User schema property of custom user type can be imported via user type id and property index
+
+        ```sh
+         $ pulumi import okta:user/schema:Schema example <user type id>.<index>
         ```
 
         :param str resource_name: The name of the resource.
@@ -86,6 +94,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] user_type: User type ID
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +120,7 @@ class Schema(pulumi.CustomResource):
             __props__['enums'] = enums
             __props__['external_name'] = external_name
             __props__['external_namespace'] = external_namespace
-            if index is None:
+            if index is None and not opts.urn:
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
@@ -121,13 +130,14 @@ class Schema(pulumi.CustomResource):
             __props__['permissions'] = permissions
             __props__['required'] = required
             __props__['scope'] = scope
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['unique'] = unique
+            __props__['user_type'] = user_type
         super(Schema, __self__).__init__(
             'okta:user/schema:Schema',
             resource_name,
@@ -155,7 +165,8 @@ class Schema(pulumi.CustomResource):
             scope: Optional[pulumi.Input[str]] = None,
             title: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            unique: Optional[pulumi.Input[str]] = None) -> 'Schema':
+            unique: Optional[pulumi.Input[str]] = None,
+            user_type: Optional[pulumi.Input[str]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -181,6 +192,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] user_type: User type ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -204,6 +216,7 @@ class Schema(pulumi.CustomResource):
         __props__["title"] = title
         __props__["type"] = type
         __props__["unique"] = unique
+        __props__["user_type"] = user_type
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,6 +362,14 @@ class Schema(pulumi.CustomResource):
         Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         """
         return pulumi.get(self, "unique")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        User type ID
+        """
+        return pulumi.get(self, "user_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

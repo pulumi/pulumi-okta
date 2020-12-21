@@ -114,7 +114,7 @@ type OAuth struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -162,14 +162,15 @@ type OAuth struct {
 // NewOAuth registers a new resource with the given unique name, arguments, and options.
 func NewOAuth(ctx *pulumi.Context,
 	name string, args *OAuthArgs, opts ...pulumi.ResourceOption) (*OAuth, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &OAuthArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource OAuth
 	err := ctx.RegisterResource("okta:app/oAuth:OAuth", name, args, &resource, opts...)
@@ -212,7 +213,7 @@ type oauthState struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups []string `pulumi:"groups"`
@@ -277,7 +278,7 @@ type OAuthState struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayInput
@@ -344,7 +345,7 @@ type oauthArgs struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups []string `pulumi:"groups"`
@@ -404,7 +405,7 @@ type OAuthArgs struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayInput

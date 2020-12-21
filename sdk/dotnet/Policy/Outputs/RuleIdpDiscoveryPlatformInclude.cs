@@ -13,8 +13,17 @@ namespace Pulumi.Okta.Policy.Outputs
     [OutputType]
     public sealed class RuleIdpDiscoveryPlatformInclude
     {
+        /// <summary>
+        /// Only available when using `os_type = "OTHER"`
+        /// </summary>
         public readonly string? OsExpression;
+        /// <summary>
+        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+        /// </summary>
         public readonly string? OsType;
+        /// <summary>
+        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

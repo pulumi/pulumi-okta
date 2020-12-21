@@ -24,3 +24,77 @@ from .swa_app import *
 from .three_field_app import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "okta:deprecated/authLoginApp:AuthLoginApp":
+                return AuthLoginApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/bookmarkApp:BookmarkApp":
+                return BookmarkApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/idp:Idp":
+                return Idp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/mfaPolicy:MfaPolicy":
+                return MfaPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/mfaPolicyRule:MfaPolicyRule":
+                return MfaPolicyRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/oauthApp:OauthApp":
+                return OauthApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri":
+                return OauthAppRedirectUri(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/passwordPolicy:PasswordPolicy":
+                return PasswordPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/passwordPolicyRule:PasswordPolicyRule":
+                return PasswordPolicyRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/samlApp:SamlApp":
+                return SamlApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/samlIdp:SamlIdp":
+                return SamlIdp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey":
+                return SamlIdpSigningKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp":
+                return SecurePasswordStoreApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/signonPolicy:SignonPolicy":
+                return SignonPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/signonPolicyRule:SignonPolicyRule":
+                return SignonPolicyRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/socialIdp:SocialIdp":
+                return SocialIdp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/swaApp:SwaApp":
+                return SwaApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:deprecated/threeFieldApp:ThreeFieldApp":
+                return ThreeFieldApp(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("okta", "deprecated/authLoginApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/bookmarkApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/idp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/mfaPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/mfaPolicyRule", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/oauthApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/oauthAppRedirectUri", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/passwordPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/passwordPolicyRule", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/samlApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/samlIdp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/samlIdpSigningKey", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/securePasswordStoreApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/signonPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/signonPolicyRule", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/socialIdp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/swaApp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "deprecated/threeFieldApp", _module_instance)
+
+_register_module()

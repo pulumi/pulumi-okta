@@ -90,6 +90,7 @@ func NewPassword(ctx *pulumi.Context,
 	if args == nil {
 		args = &PasswordArgs{}
 	}
+
 	var resource Password
 	err := ctx.RegisterResource("okta:policy/password:Password", name, args, &resource, opts...)
 	if err != nil {

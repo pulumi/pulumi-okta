@@ -24,6 +24,11 @@ namespace Pulumi.Okta
         public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("OKTA_BASE_URL");
 
         /// <summary>
+        /// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+        /// </summary>
+        public static int? LogLevel { get; set; } = __config.GetInt32("logLevel");
+
+        /// <summary>
         /// maximum number of retries to attempt before erroring out.
         /// </summary>
         public static int? MaxRetries { get; set; } = __config.GetInt32("maxRetries");

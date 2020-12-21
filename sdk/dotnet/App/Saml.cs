@@ -83,6 +83,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
 
         /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        [Output("acsEndpoints")]
+        public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
+
+        /// <summary>
         /// Application settings in JSON format.
         /// </summary>
         [Output("appSettingsJson")]
@@ -149,7 +155,7 @@ namespace Pulumi.Okta.App
         public Output<string> EntityKey { get; private set; } = null!;
 
         /// <summary>
-        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         /// </summary>
         [Output("entityUrl")]
         public Output<string> EntityUrl { get; private set; } = null!;
@@ -392,6 +398,18 @@ namespace Pulumi.Okta.App
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
 
+        [Input("acsEndpoints")]
+        private InputList<string>? _acsEndpoints;
+
+        /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        public InputList<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
+            set => _acsEndpoints = value;
+        }
+
         /// <summary>
         /// Application settings in JSON format.
         /// </summary>
@@ -633,6 +651,18 @@ namespace Pulumi.Okta.App
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
 
+        [Input("acsEndpoints")]
+        private InputList<string>? _acsEndpoints;
+
+        /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        public InputList<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
+            set => _acsEndpoints = value;
+        }
+
         /// <summary>
         /// Application settings in JSON format.
         /// </summary>
@@ -706,7 +736,7 @@ namespace Pulumi.Okta.App
         public Input<string>? EntityKey { get; set; }
 
         /// <summary>
-        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.
+        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         /// </summary>
         [Input("entityUrl")]
         public Input<string>? EntityUrl { get; set; }

@@ -97,11 +97,12 @@ type Swa struct {
 // NewSwa registers a new resource with the given unique name, arguments, and options.
 func NewSwa(ctx *pulumi.Context,
 	name string, args *SwaArgs, opts ...pulumi.ResourceOption) (*Swa, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &SwaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
 	}
 	var resource Swa
 	err := ctx.RegisterResource("okta:app/swa:Swa", name, args, &resource, opts...)

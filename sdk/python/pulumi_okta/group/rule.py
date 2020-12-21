@@ -75,10 +75,10 @@ class Rule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['expression_type'] = expression_type
-            if expression_value is None:
+            if expression_value is None and not opts.urn:
                 raise TypeError("Missing required property 'expression_value'")
             __props__['expression_value'] = expression_value
-            if group_assignments is None:
+            if group_assignments is None and not opts.urn:
                 raise TypeError("Missing required property 'group_assignments'")
             __props__['group_assignments'] = group_assignments
             __props__['name'] = name

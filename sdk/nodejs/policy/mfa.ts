@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -69,19 +68,19 @@ export class Mfa extends pulumi.CustomResource {
     /**
      * DUO MFA policy settings.
      */
-    public readonly duo!: pulumi.Output<outputs.policy.MfaDuo | undefined>;
+    public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Fido U2F MFA policy settings.
      */
-    public readonly fidoU2f!: pulumi.Output<outputs.policy.MfaFidoU2f | undefined>;
+    public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Fido Web Authn MFA policy settings.
      */
-    public readonly fidoWebauthn!: pulumi.Output<outputs.policy.MfaFidoWebauthn | undefined>;
+    public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Google OTP MFA policy settings.
      */
-    public readonly googleOtp!: pulumi.Output<outputs.policy.MfaGoogleOtp | undefined>;
+    public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of Group IDs to Include.
      */
@@ -93,27 +92,27 @@ export class Mfa extends pulumi.CustomResource {
     /**
      * Okta Call MFA policy settings.
      */
-    public readonly oktaCall!: pulumi.Output<outputs.policy.MfaOktaCall | undefined>;
+    public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Okta OTP MFA policy settings.
      */
-    public readonly oktaOtp!: pulumi.Output<outputs.policy.MfaOktaOtp | undefined>;
+    public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Okta Password MFA policy settings.
      */
-    public readonly oktaPassword!: pulumi.Output<outputs.policy.MfaOktaPassword | undefined>;
+    public readonly oktaPassword!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Okta Push MFA policy settings.
      */
-    public readonly oktaPush!: pulumi.Output<outputs.policy.MfaOktaPush | undefined>;
+    public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Okta Question MFA policy settings.
      */
-    public readonly oktaQuestion!: pulumi.Output<outputs.policy.MfaOktaQuestion | undefined>;
+    public readonly oktaQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Okta SMS MFA policy settings.
      */
-    public readonly oktaSms!: pulumi.Output<outputs.policy.MfaOktaSms | undefined>;
+    public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Priority of the policy.
      */
@@ -121,7 +120,7 @@ export class Mfa extends pulumi.CustomResource {
     /**
      * RSA Token MFA policy settings.
      */
-    public readonly rsaToken!: pulumi.Output<outputs.policy.MfaRsaToken | undefined>;
+    public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
@@ -129,11 +128,11 @@ export class Mfa extends pulumi.CustomResource {
     /**
      * Symantec VIP MFA policy settings.
      */
-    public readonly symantecVip!: pulumi.Output<outputs.policy.MfaSymantecVip | undefined>;
+    public readonly symantecVip!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Yubikey Token MFA policy settings.
      */
-    public readonly yubikeyToken!: pulumi.Output<outputs.policy.MfaYubikeyToken | undefined>;
+    public readonly yubikeyToken!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Mfa resource with the given unique name, arguments, and options.
@@ -208,19 +207,19 @@ export interface MfaState {
     /**
      * DUO MFA policy settings.
      */
-    readonly duo?: pulumi.Input<inputs.policy.MfaDuo>;
+    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Fido U2F MFA policy settings.
      */
-    readonly fidoU2f?: pulumi.Input<inputs.policy.MfaFidoU2f>;
+    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Fido Web Authn MFA policy settings.
      */
-    readonly fidoWebauthn?: pulumi.Input<inputs.policy.MfaFidoWebauthn>;
+    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Google OTP MFA policy settings.
      */
-    readonly googleOtp?: pulumi.Input<inputs.policy.MfaGoogleOtp>;
+    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include.
      */
@@ -232,27 +231,27 @@ export interface MfaState {
     /**
      * Okta Call MFA policy settings.
      */
-    readonly oktaCall?: pulumi.Input<inputs.policy.MfaOktaCall>;
+    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta OTP MFA policy settings.
      */
-    readonly oktaOtp?: pulumi.Input<inputs.policy.MfaOktaOtp>;
+    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Password MFA policy settings.
      */
-    readonly oktaPassword?: pulumi.Input<inputs.policy.MfaOktaPassword>;
+    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Push MFA policy settings.
      */
-    readonly oktaPush?: pulumi.Input<inputs.policy.MfaOktaPush>;
+    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Question MFA policy settings.
      */
-    readonly oktaQuestion?: pulumi.Input<inputs.policy.MfaOktaQuestion>;
+    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta SMS MFA policy settings.
      */
-    readonly oktaSms?: pulumi.Input<inputs.policy.MfaOktaSms>;
+    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Priority of the policy.
      */
@@ -260,7 +259,7 @@ export interface MfaState {
     /**
      * RSA Token MFA policy settings.
      */
-    readonly rsaToken?: pulumi.Input<inputs.policy.MfaRsaToken>;
+    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
@@ -268,11 +267,11 @@ export interface MfaState {
     /**
      * Symantec VIP MFA policy settings.
      */
-    readonly symantecVip?: pulumi.Input<inputs.policy.MfaSymantecVip>;
+    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Yubikey Token MFA policy settings.
      */
-    readonly yubikeyToken?: pulumi.Input<inputs.policy.MfaYubikeyToken>;
+    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -286,19 +285,19 @@ export interface MfaArgs {
     /**
      * DUO MFA policy settings.
      */
-    readonly duo?: pulumi.Input<inputs.policy.MfaDuo>;
+    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Fido U2F MFA policy settings.
      */
-    readonly fidoU2f?: pulumi.Input<inputs.policy.MfaFidoU2f>;
+    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Fido Web Authn MFA policy settings.
      */
-    readonly fidoWebauthn?: pulumi.Input<inputs.policy.MfaFidoWebauthn>;
+    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Google OTP MFA policy settings.
      */
-    readonly googleOtp?: pulumi.Input<inputs.policy.MfaGoogleOtp>;
+    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include.
      */
@@ -310,27 +309,27 @@ export interface MfaArgs {
     /**
      * Okta Call MFA policy settings.
      */
-    readonly oktaCall?: pulumi.Input<inputs.policy.MfaOktaCall>;
+    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta OTP MFA policy settings.
      */
-    readonly oktaOtp?: pulumi.Input<inputs.policy.MfaOktaOtp>;
+    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Password MFA policy settings.
      */
-    readonly oktaPassword?: pulumi.Input<inputs.policy.MfaOktaPassword>;
+    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Push MFA policy settings.
      */
-    readonly oktaPush?: pulumi.Input<inputs.policy.MfaOktaPush>;
+    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta Question MFA policy settings.
      */
-    readonly oktaQuestion?: pulumi.Input<inputs.policy.MfaOktaQuestion>;
+    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta SMS MFA policy settings.
      */
-    readonly oktaSms?: pulumi.Input<inputs.policy.MfaOktaSms>;
+    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Priority of the policy.
      */
@@ -338,7 +337,7 @@ export interface MfaArgs {
     /**
      * RSA Token MFA policy settings.
      */
-    readonly rsaToken?: pulumi.Input<inputs.policy.MfaRsaToken>;
+    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
@@ -346,9 +345,9 @@ export interface MfaArgs {
     /**
      * Symantec VIP MFA policy settings.
      */
-    readonly symantecVip?: pulumi.Input<inputs.policy.MfaSymantecVip>;
+    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Yubikey Token MFA policy settings.
      */
-    readonly yubikeyToken?: pulumi.Input<inputs.policy.MfaYubikeyToken>;
+    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

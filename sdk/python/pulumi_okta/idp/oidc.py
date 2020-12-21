@@ -148,20 +148,20 @@ class Oidc(pulumi.CustomResource):
 
             __props__['account_link_action'] = account_link_action
             __props__['account_link_group_includes'] = account_link_group_includes
-            if acs_binding is None:
+            if acs_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'acs_binding'")
             __props__['acs_binding'] = acs_binding
             __props__['acs_type'] = acs_type
-            if authorization_binding is None:
+            if authorization_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_binding'")
             __props__['authorization_binding'] = authorization_binding
-            if authorization_url is None:
+            if authorization_url is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_url'")
             __props__['authorization_url'] = authorization_url
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_secret is None:
+            if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
             __props__['deprovisioned_action'] = deprovisioned_action
@@ -170,13 +170,13 @@ class Oidc(pulumi.CustomResource):
             __props__['groups_attribute'] = groups_attribute
             __props__['groups_filters'] = groups_filters
             __props__['issuer_mode'] = issuer_mode
-            if issuer_url is None:
+            if issuer_url is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer_url'")
             __props__['issuer_url'] = issuer_url
-            if jwks_binding is None:
+            if jwks_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'jwks_binding'")
             __props__['jwks_binding'] = jwks_binding
-            if jwks_url is None:
+            if jwks_url is None and not opts.urn:
                 raise TypeError("Missing required property 'jwks_url'")
             __props__['jwks_url'] = jwks_url
             __props__['max_clock_skew'] = max_clock_skew
@@ -188,17 +188,17 @@ class Oidc(pulumi.CustomResource):
             __props__['request_signature_scope'] = request_signature_scope
             __props__['response_signature_algorithm'] = response_signature_algorithm
             __props__['response_signature_scope'] = response_signature_scope
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['status'] = status
             __props__['subject_match_attribute'] = subject_match_attribute
             __props__['subject_match_type'] = subject_match_type
             __props__['suspended_action'] = suspended_action
-            if token_binding is None:
+            if token_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'token_binding'")
             __props__['token_binding'] = token_binding
-            if token_url is None:
+            if token_url is None and not opts.urn:
                 raise TypeError("Missing required property 'token_url'")
             __props__['token_url'] = token_url
             __props__['user_info_binding'] = user_info_binding

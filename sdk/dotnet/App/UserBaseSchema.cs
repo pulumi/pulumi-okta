@@ -89,6 +89,12 @@ namespace Pulumi.Okta.App
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Custom subschema user type
+        /// </summary>
+        [Output("userType")]
+        public Output<string?> UserType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a UserBaseSchema resource with the given unique name, arguments, and options.
@@ -177,6 +183,12 @@ namespace Pulumi.Okta.App
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Custom subschema user type
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
+
         public UserBaseSchemaArgs()
         {
         }
@@ -225,6 +237,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Custom subschema user type
+        /// </summary>
+        [Input("userType")]
+        public Input<string>? UserType { get; set; }
 
         public UserBaseSchemaState()
         {

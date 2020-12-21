@@ -36,6 +36,10 @@
                     ]
                 }
             },
+            "logLevel": {
+                "type": "integer",
+                "description": "providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)\n"
+            },
             "maxRetries": {
                 "type": "integer",
                 "description": "maximum number of retries to attempt before erroring out.\n"
@@ -584,6 +588,7 @@
             "properties": {
                 "filterType": {
                     "type": "string",
+                    "description": "(Optional) Type of group attribute filter.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -592,6 +597,7 @@
                 },
                 "filterValue": {
                     "type": "string",
+                    "description": "(Optional) Filter value to use.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -600,7 +606,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "name of application.\n",
+                    "description": "(Required) The name of the attribute statement.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -609,6 +615,7 @@
                 },
                 "namespace": {
                     "type": "string",
+                    "description": "(Optional) The attribute namespace. It can be set to `\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"`, `\"urn:oasis:names:tc:SAML:2.0:attrname-format:uri\"`, or `\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\"`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -617,6 +624,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "(Optional) The type of attribute statement value. Can be `\"EXPRESSION\"` or `\"GROUP\"`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -628,6 +636,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "(Optional) Array of values to use.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -727,149 +736,6 @@
                     ]
                 }
             }
-        },
-        "okta:deprecated/MfaPolicyDuo:MfaPolicyDuo": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyFidoU2f:MfaPolicyFidoU2f": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyFidoWebauthn:MfaPolicyFidoWebauthn": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyGoogleOtp:MfaPolicyGoogleOtp": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaCall:MfaPolicyOktaCall": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaOtp:MfaPolicyOktaOtp": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaPassword:MfaPolicyOktaPassword": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaPush:MfaPolicyOktaPush": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaQuestion:MfaPolicyOktaQuestion": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyOktaSms:MfaPolicyOktaSms": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyRsaToken:MfaPolicyRsaToken": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicySymantecVip:MfaPolicySymantecVip": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "okta:deprecated/MfaPolicyYubikeyToken:MfaPolicyYubikeyToken": {
-            "properties": {
-                "consentType": {
-                    "type": "string"
-                },
-                "enroll": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
         },
         "okta:deprecated/OauthAppJwk:OauthAppJwk": {
             "properties": {
@@ -1191,50 +1057,6 @@
                 }
             }
         },
-        "okta:index/EventHookAuth:EventHookAuth": {
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
-                },
-                "value": {
-                    "type": "string",
-                    "description": "Authentication secret.\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "key",
-                "type",
-                "value"
-            ]
-        },
-        "okta:index/EventHookChannel:EventHookChannel": {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
-                },
-                "uri": {
-                    "type": "string",
-                    "description": "The URI the hook will hit.\n"
-                },
-                "version": {
-                    "type": "string",
-                    "description": "The version of the channel. Currently only `\"1.0.0\"` is supported.\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "type",
-                "uri",
-                "version"
-            ]
-        },
         "okta:index/EventHookHeader:EventHookHeader": {
             "properties": {
                 "key": {
@@ -1285,48 +1107,6 @@
                 "template"
             ]
         },
-        "okta:inline/HookAuth:HookAuth": {
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
-                },
-                "value": {
-                    "type": "string",
-                    "description": "Authentication secret.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:inline/HookChannel:HookChannel": {
-            "properties": {
-                "method": {
-                    "type": "string",
-                    "description": "The request method to use. Default is `\"POST\"`.\n"
-                },
-                "type": {
-                    "type": "boolean",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
-                },
-                "uri": {
-                    "type": "string",
-                    "description": "The URI the hook will hit.\n"
-                },
-                "version": {
-                    "type": "string",
-                    "description": "The version of the endpoint.\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "uri",
-                "version"
-            ]
-        },
         "okta:inline/HookHeader:HookHeader": {
             "properties": {
                 "key": {
@@ -1350,180 +1130,11 @@
             },
             "type": "object"
         },
-        "okta:policy/MfaDuo:MfaDuo": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaFidoU2f:MfaFidoU2f": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaFidoWebauthn:MfaFidoWebauthn": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaGoogleOtp:MfaGoogleOtp": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaCall:MfaOktaCall": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaOtp:MfaOktaOtp": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaPassword:MfaOktaPassword": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaPush:MfaOktaPush": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaQuestion:MfaOktaQuestion": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaOktaSms:MfaOktaSms": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaRsaToken:MfaRsaToken": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaSymantecVip:MfaSymantecVip": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
-        "okta:policy/MfaYubikeyToken:MfaYubikeyToken": {
-            "properties": {
-                "consentType": {
-                    "type": "string",
-                    "description": "User consent type required before enrolling in the factor: `\"NONE\"` or `\"TERMS_OF_SERVICE\"`. By default it is `\"NONE\"`.\n"
-                },
-                "enroll": {
-                    "type": "string",
-                    "description": "Requirements for user initiated enrollment. Can be `\"NOT_ALLOWED\"`, `\"OPTIONAL\"`, or `\"REQUIRED\"`. By default it is `\"OPTIONAL\"`.\n"
-                }
-            },
-            "type": "object"
-        },
         "okta:policy/RuleIdpDiscoveryAppExclude:RuleIdpDiscoveryAppExclude": {
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the Rule.\n",
+                    "description": "Use if `type` is `\"APP\"` to indicate the application Id to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1532,7 +1143,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n",
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1541,6 +1152,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1554,7 +1166,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the Rule.\n",
+                    "description": "Use if `type` is `\"APP\"` to indicate the application Id to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1563,7 +1175,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n",
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1572,6 +1184,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1585,6 +1198,7 @@
             "properties": {
                 "osExpression": {
                     "type": "string",
+                    "description": "Only available when using `os_type = \"OTHER\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1593,6 +1207,7 @@
                 },
                 "osType": {
                     "type": "string",
+                    "description": "One of: `\"ANY\"`, `\"IOS\"`, `\"WINDOWS\"`, `\"ANDROID\"`, `\"OTHER\"`, `\"OSX\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1601,6 +1216,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1614,6 +1230,7 @@
             "properties": {
                 "matchType": {
                     "type": "string",
+                    "description": "The kind of pattern. For regex, use `\"EXPRESSION\"`. For simple string matches, use one of the following: `\"SUFFIX\"`, `\"EQUALS\"`, `\"STARTS_WITH\"`, `\"CONTAINS\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1622,6 +1239,7 @@
                 },
                 "value": {
                     "type": "string",
+                    "description": "The regex or simple match string to match against.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2224,6 +1842,10 @@
                     ]
                 }
             },
+            "logLevel": {
+                "type": "integer",
+                "description": "providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)\n"
+            },
             "maxRetries": {
                 "type": "integer",
                 "description": "maximum number of retries to attempt before erroring out.\n"
@@ -2544,22 +2166,22 @@
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2575,7 +2197,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of application.\n"
+                    "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                 },
                 "url": {
                     "type": "string",
@@ -2586,13 +2208,15 @@
                     "items": {
                         "$ref": "#/types/okta:app/BasicAuthUser:BasicAuthUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "Users associated with the application.\n"
                 }
             },
             "required": [
+                "authUrl",
                 "label",
                 "name",
-                "signOnMode"
+                "signOnMode",
+                "url"
             ],
             "inputProperties": {
                 "authUrl": {
@@ -2601,22 +2225,22 @@
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2624,7 +2248,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of application.\n"
+                    "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                 },
                 "url": {
                     "type": "string",
@@ -2635,11 +2259,13 @@
                     "items": {
                         "$ref": "#/types/okta:app/BasicAuthUser:BasicAuthUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "Users associated with the application.\n"
                 }
             },
             "requiredInputs": [
-                "label"
+                "authUrl",
+                "label",
+                "url"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering BasicAuth resources.\n",
@@ -2650,22 +2276,22 @@
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
-                        "description": "Display auto submit toolbar\n"
+                        "description": "Display auto submit toolbar.\n"
                     },
                     "groups": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Groups associated with the application\n"
+                        "description": "Groups associated with the application.\n"
                     },
                     "hideIos": {
                         "type": "boolean",
-                        "description": "Do not display application icon on mobile app\n"
+                        "description": "Do not display application icon on mobile app.\n"
                     },
                     "hideWeb": {
                         "type": "boolean",
-                        "description": "Do not display application icon to users\n"
+                        "description": "Do not display application icon to users.\n"
                     },
                     "label": {
                         "type": "string",
@@ -2681,7 +2307,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "Status of application.\n"
+                        "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                     },
                     "url": {
                         "type": "string",
@@ -2692,7 +2318,7 @@
                         "items": {
                             "$ref": "#/types/okta:app/BasicAuthUser:BasicAuthUser"
                         },
-                        "description": "Users associated with the application\n"
+                        "description": "Users associated with the application.\n"
                     }
                 },
                 "type": "object"
@@ -2703,22 +2329,22 @@
             "properties": {
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2738,7 +2364,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of application.\n"
+                    "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                 },
                 "url": {
                     "type": "string",
@@ -2749,7 +2375,7 @@
                     "items": {
                         "$ref": "#/types/okta:app/BookmarkUser:BookmarkUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "Users associated with the application.\n"
                 }
             },
             "required": [
@@ -2761,22 +2387,22 @@
             "inputProperties": {
                 "autoSubmitToolbar": {
                     "type": "boolean",
-                    "description": "Display auto submit toolbar\n"
+                    "description": "Display auto submit toolbar.\n"
                 },
                 "groups": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n"
+                    "description": "Groups associated with the application.\n"
                 },
                 "hideIos": {
                     "type": "boolean",
-                    "description": "Do not display application icon on mobile app\n"
+                    "description": "Do not display application icon on mobile app.\n"
                 },
                 "hideWeb": {
                     "type": "boolean",
-                    "description": "Do not display application icon to users\n"
+                    "description": "Do not display application icon to users.\n"
                 },
                 "label": {
                     "type": "string",
@@ -2788,7 +2414,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of application.\n"
+                    "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                 },
                 "url": {
                     "type": "string",
@@ -2799,7 +2425,7 @@
                     "items": {
                         "$ref": "#/types/okta:app/BookmarkUser:BookmarkUser"
                     },
-                    "description": "Users associated with the application\n"
+                    "description": "Users associated with the application.\n"
                 }
             },
             "requiredInputs": [
@@ -2811,22 +2437,22 @@
                 "properties": {
                     "autoSubmitToolbar": {
                         "type": "boolean",
-                        "description": "Display auto submit toolbar\n"
+                        "description": "Display auto submit toolbar.\n"
                     },
                     "groups": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Groups associated with the application\n"
+                        "description": "Groups associated with the application.\n"
                     },
                     "hideIos": {
                         "type": "boolean",
-                        "description": "Do not display application icon on mobile app\n"
+                        "description": "Do not display application icon on mobile app.\n"
                     },
                     "hideWeb": {
                         "type": "boolean",
-                        "description": "Do not display application icon to users\n"
+                        "description": "Do not display application icon to users.\n"
                     },
                     "label": {
                         "type": "string",
@@ -2846,7 +2472,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "Status of application.\n"
+                        "description": "Status of application. (`\"ACTIVE\"` or `\"INACTIVE\"`).\n"
                     },
                     "url": {
                         "type": "string",
@@ -2857,7 +2483,7 @@
                         "items": {
                             "$ref": "#/types/okta:app/BookmarkUser:BookmarkUser"
                         },
-                        "description": "Users associated with the application\n"
+                        "description": "Users associated with the application.\n"
                     }
                 },
                 "type": "object"
@@ -2970,7 +2596,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.\n"
                 },
                 "groups": {
                     "type": "array",
@@ -3117,7 +2743,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.\n"
                 },
                 "groups": {
                     "type": "array",
@@ -3258,7 +2884,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.\n"
+                        "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.\n"
                     },
                     "groups": {
                         "type": "array",
@@ -3421,6 +3047,13 @@
                     "type": "boolean",
                     "description": "Enable self service.\n"
                 },
+                "acsEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
+                },
                 "appSettingsJson": {
                     "type": "string",
                     "description": "Application settings in JSON format.\n"
@@ -3470,7 +3103,7 @@
                 },
                 "entityUrl": {
                     "type": "string",
-                    "description": "Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.\n"
+                    "description": "Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).\n"
                 },
                 "features": {
                     "type": "array",
@@ -3622,6 +3255,13 @@
                 "accessibilitySelfService": {
                     "type": "boolean",
                     "description": "Enable self service.\n"
+                },
+                "acsEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -3782,6 +3422,13 @@
                         "type": "boolean",
                         "description": "Enable self service.\n"
                     },
+                    "acsEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
+                    },
                     "appSettingsJson": {
                         "type": "string",
                         "description": "Application settings in JSON format.\n"
@@ -3831,7 +3478,7 @@
                     },
                     "entityUrl": {
                         "type": "string",
-                        "description": "Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8.\n"
+                        "description": "Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).\n"
                     },
                     "features": {
                         "type": "array",
@@ -4890,7 +4537,7 @@
             }
         },
         "okta:app/user:User": {
-            "description": "Creates an Application User.\n\nThis resource allows you to create and configure an Application User.\n\n__When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing Pulumi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.User(\"example\", {\n    appId: \"\u003capp_id\u003e\",\n    userId: \"\u003cuser id\u003e\",\n    username: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.User(\"example\",\n    app_id=\"\u003capp_id\u003e\",\n    user_id=\"\u003cuser id\u003e\",\n    username=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.User(\"example\", new Okta.App.UserArgs\n        {\n            AppId = \"\u003capp_id\u003e\",\n            UserId = \"\u003cuser id\u003e\",\n            Username = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewUser(ctx, \"example\", \u0026app.UserArgs{\n\t\t\tAppId:    pulumi.String(\"\u003capp_id\u003e\"),\n\t\t\tUserId:   pulumi.String(\"\u003cuser id\u003e\"),\n\t\t\tUsername: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Application User can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/user:User example \u003capp id\u003e/\u003cuser id\u003e\n```\n\n ",
+            "description": "Creates an Application User.\n\nThis resource allows you to create and configure an Application User.\n\n**When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing Pulumi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.User(\"example\", {\n    appId: \"\u003capp_id\u003e\",\n    userId: \"\u003cuser id\u003e\",\n    username: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.User(\"example\",\n    app_id=\"\u003capp_id\u003e\",\n    user_id=\"\u003cuser id\u003e\",\n    username=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.User(\"example\", new Okta.App.UserArgs\n        {\n            AppId = \"\u003capp_id\u003e\",\n            UserId = \"\u003cuser id\u003e\",\n            Username = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewUser(ctx, \"example\", \u0026app.UserArgs{\n\t\t\tAppId:    pulumi.String(\"\u003capp_id\u003e\"),\n\t\t\tUserId:   pulumi.String(\"\u003cuser id\u003e\"),\n\t\t\tUsername: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Application User can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/user:User example \u003capp id\u003e/\u003cuser id\u003e\n```\n\n ",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -5002,6 +4649,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "Custom subschema user type\n"
                 }
             },
             "required": [
@@ -5038,6 +4689,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "Custom subschema user type\n"
                 }
             },
             "requiredInputs": [
@@ -5076,6 +4731,10 @@
                     "type": {
                         "type": "string",
                         "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                    },
+                    "userType": {
+                        "type": "string",
+                        "description": "Custom subschema user type\n"
                     }
                 },
                 "type": "object"
@@ -5171,6 +4830,10 @@
                 "unique": {
                     "type": "string",
                     "description": "Subschema unique restriction\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "Custom subschema user type\n"
                 }
             },
             "required": [
@@ -5267,6 +4930,10 @@
                 "unique": {
                     "type": "string",
                     "description": "Subschema unique restriction\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "Custom subschema user type\n"
                 }
             },
             "requiredInputs": [
@@ -5365,6 +5032,10 @@
                     "unique": {
                         "type": "string",
                         "description": "Subschema unique restriction\n"
+                    },
+                    "userType": {
+                        "type": "string",
+                        "description": "Custom subschema user type\n"
                     }
                 },
                 "type": "object"
@@ -5783,21 +5454,21 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                    "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5843,14 +5514,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be excluded\n"
+                    "description": "Specifies a set of Users to be excluded.\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be included\n"
+                    "description": "Specifies a set of Users to be included.\n"
                 }
             },
             "required": [
@@ -5874,21 +5545,21 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                    "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5934,14 +5605,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be excluded\n"
+                    "description": "Specifies a set of Users to be excluded.\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be included\n"
+                    "description": "Specifies a set of Users to be included.\n"
                 }
             },
             "requiredInputs": [
@@ -5966,21 +5637,21 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                        "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                     },
                     "groupWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be included\n"
+                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -6026,14 +5697,14 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Users to be excluded\n"
+                        "description": "Specifies a set of Users to be excluded.\n"
                     },
                     "userWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Users to be included\n"
+                        "description": "Specifies a set of Users to be included.\n"
                     }
                 },
                 "type": "object"
@@ -6056,21 +5727,21 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                    "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -6116,14 +5787,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be excluded\n"
+                    "description": "Specifies a set of Users to be excluded.\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be included\n"
+                    "description": "Specifies a set of Users to be included.\n"
                 }
             },
             "required": [
@@ -6147,21 +5818,21 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                    "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                 },
                 "groupWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -6207,14 +5878,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be excluded\n"
+                    "description": "Specifies a set of Users to be excluded.\n"
                 },
                 "userWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Users to be included\n"
+                    "description": "Specifies a set of Users to be included.\n"
                 }
             },
             "requiredInputs": [
@@ -6239,21 +5910,21 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"` or `\"client_credentials\"`. For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be excluded\n"
+                        "description": "Specifies a set of Groups whose Users are to be excluded.\n"
                     },
                     "groupWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be included\n"
+                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: \"EVERYONE\".\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -6299,14 +5970,14 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Users to be excluded\n"
+                        "description": "Specifies a set of Users to be excluded.\n"
                     },
                     "userWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Users to be included\n"
+                        "description": "Specifies a set of Users to be included.\n"
                     }
                 },
                 "type": "object"
@@ -6713,7 +6384,8 @@
                     "description": "Do not display application icon to users\n"
                 },
                 "label": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Pretty name of app.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6768,7 +6440,8 @@
                     "description": "Do not display application icon to users\n"
                 },
                 "label": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Pretty name of app.\n"
                 },
                 "requestIntegration": {
                     "type": "boolean"
@@ -6815,7 +6488,8 @@
                         "description": "Do not display application icon to users\n"
                     },
                     "label": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Pretty name of app.\n"
                     },
                     "name": {
                         "type": "string",
@@ -7277,16 +6951,28 @@
                     "description": "Policy Description\n"
                 },
                 "duo": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyDuo:MfaPolicyDuo"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "fidoU2f": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyFidoU2f:MfaPolicyFidoU2f"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "fidoWebauthn": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyFidoWebauthn:MfaPolicyFidoWebauthn"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "googleOtp": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyGoogleOtp:MfaPolicyGoogleOtp"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "groupsIncludeds": {
                     "type": "array",
@@ -7300,39 +6986,66 @@
                     "description": "Policy Name\n"
                 },
                 "oktaCall": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaCall:MfaPolicyOktaCall"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaOtp": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaOtp:MfaPolicyOktaOtp"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaPassword": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaPassword:MfaPolicyOktaPassword"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaPush": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaPush:MfaPolicyOktaPush"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaQuestion": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaQuestion:MfaPolicyOktaQuestion"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaSms": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaSms:MfaPolicyOktaSms"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last/lowest if not there.\n"
                 },
                 "rsaToken": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyRsaToken:MfaPolicyRsaToken"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: ACTIVE or INACTIVE.\n"
                 },
                 "symantecVip": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicySymantecVip:MfaPolicySymantecVip"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "yubikeyToken": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyYubikeyToken:MfaPolicyYubikeyToken"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 }
             },
             "required": [
@@ -7344,16 +7057,28 @@
                     "description": "Policy Description\n"
                 },
                 "duo": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyDuo:MfaPolicyDuo"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "fidoU2f": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyFidoU2f:MfaPolicyFidoU2f"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "fidoWebauthn": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyFidoWebauthn:MfaPolicyFidoWebauthn"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "googleOtp": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyGoogleOtp:MfaPolicyGoogleOtp"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "groupsIncludeds": {
                     "type": "array",
@@ -7367,39 +7092,66 @@
                     "description": "Policy Name\n"
                 },
                 "oktaCall": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaCall:MfaPolicyOktaCall"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaOtp": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaOtp:MfaPolicyOktaOtp"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaPassword": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaPassword:MfaPolicyOktaPassword"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaPush": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaPush:MfaPolicyOktaPush"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaQuestion": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaQuestion:MfaPolicyOktaQuestion"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "oktaSms": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyOktaSms:MfaPolicyOktaSms"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last/lowest if not there.\n"
                 },
                 "rsaToken": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyRsaToken:MfaPolicyRsaToken"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: ACTIVE or INACTIVE.\n"
                 },
                 "symantecVip": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicySymantecVip:MfaPolicySymantecVip"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "yubikeyToken": {
-                    "$ref": "#/types/okta:deprecated/MfaPolicyYubikeyToken:MfaPolicyYubikeyToken"
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 }
             },
             "stateInputs": {
@@ -7410,16 +7162,28 @@
                         "description": "Policy Description\n"
                     },
                     "duo": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyDuo:MfaPolicyDuo"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "fidoU2f": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyFidoU2f:MfaPolicyFidoU2f"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "fidoWebauthn": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyFidoWebauthn:MfaPolicyFidoWebauthn"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "googleOtp": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyGoogleOtp:MfaPolicyGoogleOtp"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "groupsIncludeds": {
                         "type": "array",
@@ -7433,39 +7197,66 @@
                         "description": "Policy Name\n"
                     },
                     "oktaCall": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaCall:MfaPolicyOktaCall"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "oktaOtp": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaOtp:MfaPolicyOktaOtp"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "oktaPassword": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaPassword:MfaPolicyOktaPassword"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "oktaPush": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaPush:MfaPolicyOktaPush"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "oktaQuestion": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaQuestion:MfaPolicyOktaQuestion"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "oktaSms": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyOktaSms:MfaPolicyOktaSms"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "priority": {
                         "type": "integer",
                         "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last/lowest if not there.\n"
                     },
                     "rsaToken": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyRsaToken:MfaPolicyRsaToken"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "status": {
                         "type": "string",
                         "description": "Policy Status: ACTIVE or INACTIVE.\n"
                     },
                     "symantecVip": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicySymantecVip:MfaPolicySymantecVip"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "yubikeyToken": {
-                        "$ref": "#/types/okta:deprecated/MfaPolicyYubikeyToken:MfaPolicyYubikeyToken"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     }
                 },
                 "type": "object"
@@ -8674,6 +8465,13 @@
                     "type": "boolean",
                     "description": "Enable self service\n"
                 },
+                "acsEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ACS endpoints for this SAML application\n"
+                },
                 "appSettingsJson": {
                     "type": "string",
                     "description": "Application settings in JSON format\n"
@@ -8875,6 +8673,13 @@
                     "type": "boolean",
                     "description": "Enable self service\n"
                 },
+                "acsEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ACS endpoints for this SAML application\n"
+                },
                 "appSettingsJson": {
                     "type": "string",
                     "description": "Application settings in JSON format\n"
@@ -9032,6 +8837,13 @@
                     "accessibilitySelfService": {
                         "type": "boolean",
                         "description": "Enable self service\n"
+                    },
+                    "acsEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of ACS endpoints for this SAML application\n"
                     },
                     "appSettingsJson": {
                         "type": "string",
@@ -13001,14 +12813,20 @@
             }
         },
         "okta:index/eventHook:EventHook": {
-            "description": "Creates an event hook.\n\nThis resource allows you to create and configure an event hook.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EventHook(\"example\", {\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"123\",\n    },\n    channel: {\n        type: \"HTTP\",\n        uri: \"https://example.com/test\",\n        version: \"1.0.0\",\n    },\n    events: [\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EventHook(\"example\",\n    auth=okta.EventHookAuthArgs(\n        key=\"Authorization\",\n        type=\"HEADER\",\n        value=\"123\",\n    ),\n    channel=okta.EventHookChannelArgs(\n        type=\"HTTP\",\n        uri=\"https://example.com/test\",\n        version=\"1.0.0\",\n    ),\n    events=[\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.EventHook(\"example\", new Okta.EventHookArgs\n        {\n            Auth = new Okta.Inputs.EventHookAuthArgs\n            {\n                Key = \"Authorization\",\n                Type = \"HEADER\",\n                Value = \"123\",\n            },\n            Channel = new Okta.Inputs.EventHookChannelArgs\n            {\n                Type = \"HTTP\",\n                Uri = \"https://example.com/test\",\n                Version = \"1.0.0\",\n            },\n            Events = \n            {\n                \"user.lifecycle.create\",\n                \"user.lifecycle.delete.initiated\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEventHook(ctx, \"example\", \u0026okta.EventHookArgs{\n\t\t\tAuth: \u0026okta.EventHookAuthArgs{\n\t\t\t\tKey:   pulumi.String(\"Authorization\"),\n\t\t\t\tType:  pulumi.String(\"HEADER\"),\n\t\t\t\tValue: pulumi.String(\"123\"),\n\t\t\t},\n\t\t\tChannel: \u0026okta.EventHookChannelArgs{\n\t\t\t\tType:    pulumi.String(\"HTTP\"),\n\t\t\t\tUri:     pulumi.String(\"https://example.com/test\"),\n\t\t\t\tVersion: pulumi.String(\"1.0.0\"),\n\t\t\t},\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"user.lifecycle.create\"),\n\t\t\t\tpulumi.String(\"user.lifecycle.delete.initiated\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn event hook can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/eventHook:EventHook example \u003chook id\u003e\n```\n\n ",
+            "description": "Creates an event hook.\n\nThis resource allows you to create and configure an event hook.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EventHook(\"example\", {\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"123\",\n    },\n    channel: {\n        type: \"HTTP\",\n        uri: \"https://example.com/test\",\n        version: \"1.0.0\",\n    },\n    events: [\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EventHook(\"example\",\n    auth={\n        \"key\": \"Authorization\",\n        \"type\": \"HEADER\",\n        \"value\": \"123\",\n    },\n    channel={\n        \"type\": \"HTTP\",\n        \"uri\": \"https://example.com/test\",\n        \"version\": \"1.0.0\",\n    },\n    events=[\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.EventHook(\"example\", new Okta.EventHookArgs\n        {\n            Auth = \n            {\n                { \"key\", \"Authorization\" },\n                { \"type\", \"HEADER\" },\n                { \"value\", \"123\" },\n            },\n            Channel = \n            {\n                { \"type\", \"HTTP\" },\n                { \"uri\", \"https://example.com/test\" },\n                { \"version\", \"1.0.0\" },\n            },\n            Events = \n            {\n                \"user.lifecycle.create\",\n                \"user.lifecycle.delete.initiated\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEventHook(ctx, \"example\", \u0026okta.EventHookArgs{\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"value\": pulumi.String(\"123\"),\n\t\t\t},\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"type\":    pulumi.String(\"HTTP\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t},\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"user.lifecycle.create\"),\n\t\t\t\tpulumi.String(\"user.lifecycle.delete.initiated\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn event hook can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/eventHook:EventHook example \u003chook id\u003e\n```\n\n ",
             "properties": {
                 "auth": {
-                    "$ref": "#/types/okta:index/EventHookAuth:EventHookAuth",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Authentication required for event hook request.\n"
                 },
                 "channel": {
-                    "$ref": "#/types/okta:index/EventHookChannel:EventHookChannel",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Details of the endpoint the event hook will hit.\n"
                 },
                 "events": {
@@ -13040,11 +12858,17 @@
             ],
             "inputProperties": {
                 "auth": {
-                    "$ref": "#/types/okta:index/EventHookAuth:EventHookAuth",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Authentication required for event hook request.\n"
                 },
                 "channel": {
-                    "$ref": "#/types/okta:index/EventHookChannel:EventHookChannel",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Details of the endpoint the event hook will hit.\n"
                 },
                 "events": {
@@ -13077,11 +12901,17 @@
                 "description": "Input properties used for looking up and filtering EventHook resources.\n",
                 "properties": {
                     "auth": {
-                        "$ref": "#/types/okta:index/EventHookAuth:EventHookAuth",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Authentication required for event hook request.\n"
                     },
                     "channel": {
-                        "$ref": "#/types/okta:index/EventHookChannel:EventHookChannel",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Details of the endpoint the event hook will hit.\n"
                     },
                     "events": {
@@ -13176,14 +13006,20 @@
             }
         },
         "okta:inline/hook:Hook": {
-            "description": "Creates an inline hook.\n\nThis resource allows you to create and configure an inline hook.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.inline.Hook(\"example\", {\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"secret\",\n    },\n    channel: {\n        method: \"POST\",\n        uri: \"https://example.com/test\",\n        version: \"1.0.0\",\n    },\n    type: \"com.okta.oauth2.tokens.transform\",\n    version: \"1.0.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.inline.Hook(\"example\",\n    auth=okta.inline.HookAuthArgs(\n        key=\"Authorization\",\n        type=\"HEADER\",\n        value=\"secret\",\n    ),\n    channel=okta.inline.HookChannelArgs(\n        method=\"POST\",\n        uri=\"https://example.com/test\",\n        version=\"1.0.0\",\n    ),\n    type=\"com.okta.oauth2.tokens.transform\",\n    version=\"1.0.0\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Inline.Hook(\"example\", new Okta.Inline.HookArgs\n        {\n            Auth = new Okta.Inline.Inputs.HookAuthArgs\n            {\n                Key = \"Authorization\",\n                Type = \"HEADER\",\n                Value = \"secret\",\n            },\n            Channel = new Okta.Inline.Inputs.HookChannelArgs\n            {\n                Method = \"POST\",\n                Uri = \"https://example.com/test\",\n                Version = \"1.0.0\",\n            },\n            Type = \"com.okta.oauth2.tokens.transform\",\n            Version = \"1.0.0\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/inline\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := inline.NewHook(ctx, \"example\", \u0026inline.HookArgs{\n\t\t\tAuth: \u0026inline.HookAuthArgs{\n\t\t\t\tKey:   pulumi.String(\"Authorization\"),\n\t\t\t\tType:  pulumi.String(\"HEADER\"),\n\t\t\t\tValue: pulumi.String(\"secret\"),\n\t\t\t},\n\t\t\tChannel: \u0026inline.HookChannelArgs{\n\t\t\t\tMethod:  pulumi.String(\"POST\"),\n\t\t\t\tUri:     pulumi.String(\"https://example.com/test\"),\n\t\t\t\tVersion: pulumi.String(\"1.0.0\"),\n\t\t\t},\n\t\t\tType:    pulumi.String(\"com.okta.oauth2.tokens.transform\"),\n\t\t\tVersion: pulumi.String(\"1.0.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn inline hook can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:inline/hook:Hook example \u003chook id\u003e\n```\n\n ",
+            "description": "Creates an inline hook.\n\nThis resource allows you to create and configure an inline hook.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.inline.Hook(\"example\", {\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"secret\",\n    },\n    channel: {\n        method: \"POST\",\n        uri: \"https://example.com/test\",\n        version: \"1.0.0\",\n    },\n    type: \"com.okta.oauth2.tokens.transform\",\n    version: \"1.0.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.inline.Hook(\"example\",\n    auth={\n        \"key\": \"Authorization\",\n        \"type\": \"HEADER\",\n        \"value\": \"secret\",\n    },\n    channel={\n        \"method\": \"POST\",\n        \"uri\": \"https://example.com/test\",\n        \"version\": \"1.0.0\",\n    },\n    type=\"com.okta.oauth2.tokens.transform\",\n    version=\"1.0.0\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Inline.Hook(\"example\", new Okta.Inline.HookArgs\n        {\n            Auth = \n            {\n                { \"key\", \"Authorization\" },\n                { \"type\", \"HEADER\" },\n                { \"value\", \"secret\" },\n            },\n            Channel = \n            {\n                { \"method\", \"POST\" },\n                { \"uri\", \"https://example.com/test\" },\n                { \"version\", \"1.0.0\" },\n            },\n            Type = \"com.okta.oauth2.tokens.transform\",\n            Version = \"1.0.0\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/inline\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := inline.NewHook(ctx, \"example\", \u0026inline.HookArgs{\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"value\": pulumi.String(\"secret\"),\n\t\t\t},\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"method\":  pulumi.String(\"POST\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t},\n\t\t\tType:    pulumi.String(\"com.okta.oauth2.tokens.transform\"),\n\t\t\tVersion: pulumi.String(\"1.0.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn inline hook can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:inline/hook:Hook example \u003chook id\u003e\n```\n\n ",
             "properties": {
                 "auth": {
-                    "$ref": "#/types/okta:inline/HookAuth:HookAuth",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Authentication required for inline hook request.\n"
                 },
                 "channel": {
-                    "$ref": "#/types/okta:inline/HookChannel:HookChannel",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Details of the endpoint the inline hook will hit.\n"
                 },
                 "headers": {
@@ -13202,25 +13038,32 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
+                    "description": "The type of hook to trigger. Currently, the only supported type is `\"HTTP\"`.\n"
                 },
                 "version": {
                     "type": "string",
-                    "description": "The version of the endpoint.\n"
+                    "description": "Version of the channel. The currently-supported version is `\"1.0.0\"`.\n"
                 }
             },
             "required": [
+                "channel",
                 "name",
                 "type",
                 "version"
             ],
             "inputProperties": {
                 "auth": {
-                    "$ref": "#/types/okta:inline/HookAuth:HookAuth",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Authentication required for inline hook request.\n"
                 },
                 "channel": {
-                    "$ref": "#/types/okta:inline/HookChannel:HookChannel",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Details of the endpoint the inline hook will hit.\n"
                 },
                 "headers": {
@@ -13239,14 +13082,15 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
+                    "description": "The type of hook to trigger. Currently, the only supported type is `\"HTTP\"`.\n"
                 },
                 "version": {
                     "type": "string",
-                    "description": "The version of the endpoint.\n"
+                    "description": "Version of the channel. The currently-supported version is `\"1.0.0\"`.\n"
                 }
             },
             "requiredInputs": [
+                "channel",
                 "type",
                 "version"
             ],
@@ -13254,11 +13098,17 @@
                 "description": "Input properties used for looking up and filtering Hook resources.\n",
                 "properties": {
                     "auth": {
-                        "$ref": "#/types/okta:inline/HookAuth:HookAuth",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Authentication required for inline hook request.\n"
                     },
                     "channel": {
-                        "$ref": "#/types/okta:inline/HookChannel:HookChannel",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Details of the endpoint the inline hook will hit.\n"
                     },
                     "headers": {
@@ -13277,11 +13127,11 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of hook to trigger. Currently only `\"HTTP\"` is supported.\n"
+                        "description": "The type of hook to trigger. Currently, the only supported type is `\"HTTP\"`.\n"
                     },
                     "version": {
                         "type": "string",
-                        "description": "The version of the endpoint.\n"
+                        "description": "Version of the channel. The currently-supported version is `\"1.0.0\"`.\n"
                     }
                 },
                 "type": "object"
@@ -13395,26 +13245,38 @@
             }
         },
         "okta:policy/mfa:Mfa": {
-            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Mfa(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Mfa(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    okta_otp=okta.policy.MfaOktaOtpArgs(\n        enroll=\"REQUIRED\",\n    ),\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Mfa(\"example\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            OktaOtp = new Okta.Policy.Inputs.MfaOktaOtpArgs\n            {\n                Enroll = \"REQUIRED\",\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn MFA Policy can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:policy/mfa:Mfa example \u003cpolicy id\u003e\n```\n\n ",
+            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Mfa(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Mfa(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    },\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Mfa(\"example\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            OktaOtp = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn MFA Policy can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:policy/mfa:Mfa example \u003cpolicy id\u003e\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
                     "description": "Policy Description.\n"
                 },
                 "duo": {
-                    "$ref": "#/types/okta:policy/MfaDuo:MfaDuo",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "DUO MFA policy settings.\n"
                 },
                 "fidoU2f": {
-                    "$ref": "#/types/okta:policy/MfaFidoU2f:MfaFidoU2f",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Fido U2F MFA policy settings.\n"
                 },
                 "fidoWebauthn": {
-                    "$ref": "#/types/okta:policy/MfaFidoWebauthn:MfaFidoWebauthn",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Fido Web Authn MFA policy settings.\n"
                 },
                 "googleOtp": {
-                    "$ref": "#/types/okta:policy/MfaGoogleOtp:MfaGoogleOtp",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Google OTP MFA policy settings.\n"
                 },
                 "groupsIncludeds": {
@@ -13429,27 +13291,45 @@
                     "description": "Policy Name.\n"
                 },
                 "oktaCall": {
-                    "$ref": "#/types/okta:policy/MfaOktaCall:MfaOktaCall",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Call MFA policy settings.\n"
                 },
                 "oktaOtp": {
-                    "$ref": "#/types/okta:policy/MfaOktaOtp:MfaOktaOtp",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta OTP MFA policy settings.\n"
                 },
                 "oktaPassword": {
-                    "$ref": "#/types/okta:policy/MfaOktaPassword:MfaOktaPassword",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Password MFA policy settings.\n"
                 },
                 "oktaPush": {
-                    "$ref": "#/types/okta:policy/MfaOktaPush:MfaOktaPush",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Push MFA policy settings.\n"
                 },
                 "oktaQuestion": {
-                    "$ref": "#/types/okta:policy/MfaOktaQuestion:MfaOktaQuestion",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Question MFA policy settings.\n"
                 },
                 "oktaSms": {
-                    "$ref": "#/types/okta:policy/MfaOktaSms:MfaOktaSms",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta SMS MFA policy settings.\n"
                 },
                 "priority": {
@@ -13457,7 +13337,10 @@
                     "description": "Priority of the policy.\n"
                 },
                 "rsaToken": {
-                    "$ref": "#/types/okta:policy/MfaRsaToken:MfaRsaToken",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "RSA Token MFA policy settings.\n"
                 },
                 "status": {
@@ -13465,11 +13348,17 @@
                     "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
                 },
                 "symantecVip": {
-                    "$ref": "#/types/okta:policy/MfaSymantecVip:MfaSymantecVip",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Symantec VIP MFA policy settings.\n"
                 },
                 "yubikeyToken": {
-                    "$ref": "#/types/okta:policy/MfaYubikeyToken:MfaYubikeyToken",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Yubikey Token MFA policy settings.\n"
                 }
             },
@@ -13482,19 +13371,31 @@
                     "description": "Policy Description.\n"
                 },
                 "duo": {
-                    "$ref": "#/types/okta:policy/MfaDuo:MfaDuo",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "DUO MFA policy settings.\n"
                 },
                 "fidoU2f": {
-                    "$ref": "#/types/okta:policy/MfaFidoU2f:MfaFidoU2f",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Fido U2F MFA policy settings.\n"
                 },
                 "fidoWebauthn": {
-                    "$ref": "#/types/okta:policy/MfaFidoWebauthn:MfaFidoWebauthn",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Fido Web Authn MFA policy settings.\n"
                 },
                 "googleOtp": {
-                    "$ref": "#/types/okta:policy/MfaGoogleOtp:MfaGoogleOtp",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Google OTP MFA policy settings.\n"
                 },
                 "groupsIncludeds": {
@@ -13509,27 +13410,45 @@
                     "description": "Policy Name.\n"
                 },
                 "oktaCall": {
-                    "$ref": "#/types/okta:policy/MfaOktaCall:MfaOktaCall",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Call MFA policy settings.\n"
                 },
                 "oktaOtp": {
-                    "$ref": "#/types/okta:policy/MfaOktaOtp:MfaOktaOtp",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta OTP MFA policy settings.\n"
                 },
                 "oktaPassword": {
-                    "$ref": "#/types/okta:policy/MfaOktaPassword:MfaOktaPassword",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Password MFA policy settings.\n"
                 },
                 "oktaPush": {
-                    "$ref": "#/types/okta:policy/MfaOktaPush:MfaOktaPush",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Push MFA policy settings.\n"
                 },
                 "oktaQuestion": {
-                    "$ref": "#/types/okta:policy/MfaOktaQuestion:MfaOktaQuestion",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta Question MFA policy settings.\n"
                 },
                 "oktaSms": {
-                    "$ref": "#/types/okta:policy/MfaOktaSms:MfaOktaSms",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Okta SMS MFA policy settings.\n"
                 },
                 "priority": {
@@ -13537,7 +13456,10 @@
                     "description": "Priority of the policy.\n"
                 },
                 "rsaToken": {
-                    "$ref": "#/types/okta:policy/MfaRsaToken:MfaRsaToken",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "RSA Token MFA policy settings.\n"
                 },
                 "status": {
@@ -13545,11 +13467,17 @@
                     "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
                 },
                 "symantecVip": {
-                    "$ref": "#/types/okta:policy/MfaSymantecVip:MfaSymantecVip",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Symantec VIP MFA policy settings.\n"
                 },
                 "yubikeyToken": {
-                    "$ref": "#/types/okta:policy/MfaYubikeyToken:MfaYubikeyToken",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
                     "description": "Yubikey Token MFA policy settings.\n"
                 }
             },
@@ -13561,19 +13489,31 @@
                         "description": "Policy Description.\n"
                     },
                     "duo": {
-                        "$ref": "#/types/okta:policy/MfaDuo:MfaDuo",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "DUO MFA policy settings.\n"
                     },
                     "fidoU2f": {
-                        "$ref": "#/types/okta:policy/MfaFidoU2f:MfaFidoU2f",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Fido U2F MFA policy settings.\n"
                     },
                     "fidoWebauthn": {
-                        "$ref": "#/types/okta:policy/MfaFidoWebauthn:MfaFidoWebauthn",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Fido Web Authn MFA policy settings.\n"
                     },
                     "googleOtp": {
-                        "$ref": "#/types/okta:policy/MfaGoogleOtp:MfaGoogleOtp",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Google OTP MFA policy settings.\n"
                     },
                     "groupsIncludeds": {
@@ -13588,27 +13528,45 @@
                         "description": "Policy Name.\n"
                     },
                     "oktaCall": {
-                        "$ref": "#/types/okta:policy/MfaOktaCall:MfaOktaCall",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta Call MFA policy settings.\n"
                     },
                     "oktaOtp": {
-                        "$ref": "#/types/okta:policy/MfaOktaOtp:MfaOktaOtp",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta OTP MFA policy settings.\n"
                     },
                     "oktaPassword": {
-                        "$ref": "#/types/okta:policy/MfaOktaPassword:MfaOktaPassword",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta Password MFA policy settings.\n"
                     },
                     "oktaPush": {
-                        "$ref": "#/types/okta:policy/MfaOktaPush:MfaOktaPush",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta Push MFA policy settings.\n"
                     },
                     "oktaQuestion": {
-                        "$ref": "#/types/okta:policy/MfaOktaQuestion:MfaOktaQuestion",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta Question MFA policy settings.\n"
                     },
                     "oktaSms": {
-                        "$ref": "#/types/okta:policy/MfaOktaSms:MfaOktaSms",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Okta SMS MFA policy settings.\n"
                     },
                     "priority": {
@@ -13616,7 +13574,10 @@
                         "description": "Priority of the policy.\n"
                     },
                     "rsaToken": {
-                        "$ref": "#/types/okta:policy/MfaRsaToken:MfaRsaToken",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "RSA Token MFA policy settings.\n"
                     },
                     "status": {
@@ -13624,11 +13585,17 @@
                         "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
                     },
                     "symantecVip": {
-                        "$ref": "#/types/okta:policy/MfaSymantecVip:MfaSymantecVip",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Symantec VIP MFA policy settings.\n"
                     },
                     "yubikeyToken": {
-                        "$ref": "#/types/okta:policy/MfaYubikeyToken:MfaYubikeyToken",
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
                         "description": "Yubikey Token MFA policy settings.\n"
                     }
                 },
@@ -14018,49 +13985,51 @@
             }
         },
         "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery": {
-            "description": "Creates an IdP Discovery Policy Rule.\n\nThis resource allows you to create and configure an IdP Discovery Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.RuleIdpDiscovery(\"example\", {\n    idpId: \"\u003cidp id\u003e\",\n    idpType: \"SAML2\",\n    policyid: \"\u003cpolicy id\u003e\",\n    priority: 1,\n    userIdentifierAttribute: \"company\",\n    userIdentifierPatterns: [{\n        matchType: \"EQUALS\",\n        value: \"Articulate\",\n    }],\n    userIdentifierType: \"ATTRIBUTE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.RuleIdpDiscovery(\"example\",\n    idp_id=\"\u003cidp id\u003e\",\n    idp_type=\"SAML2\",\n    policyid=\"\u003cpolicy id\u003e\",\n    priority=1,\n    user_identifier_attribute=\"company\",\n    user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(\n        match_type=\"EQUALS\",\n        value=\"Articulate\",\n    )],\n    user_identifier_type=\"ATTRIBUTE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.RuleIdpDiscovery(\"example\", new Okta.Policy.RuleIdpDiscoveryArgs\n        {\n            IdpId = \"\u003cidp id\u003e\",\n            IdpType = \"SAML2\",\n            Policyid = \"\u003cpolicy id\u003e\",\n            Priority = 1,\n            UserIdentifierAttribute = \"company\",\n            UserIdentifierPatterns = \n            {\n                new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs\n                {\n                    MatchType = \"EQUALS\",\n                    Value = \"Articulate\",\n                },\n            },\n            UserIdentifierType = \"ATTRIBUTE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRuleIdpDiscovery(ctx, \"example\", \u0026policy.RuleIdpDiscoveryArgs{\n\t\t\tIdpId:                   pulumi.String(\"\u003cidp id\u003e\"),\n\t\t\tIdpType:                 pulumi.String(\"SAML2\"),\n\t\t\tPolicyid:                pulumi.String(\"\u003cpolicy id\u003e\"),\n\t\t\tPriority:                pulumi.Int(1),\n\t\t\tUserIdentifierAttribute: pulumi.String(\"company\"),\n\t\t\tUserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryUserIdentifierPatternArgs{\n\t\t\t\t\tMatchType: pulumi.String(\"EQUALS\"),\n\t\t\t\t\tValue:     pulumi.String(\"Articulate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tUserIdentifierType: pulumi.String(\"ATTRIBUTE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u003cpolicy id\u003e/\u003crule id\u003e\n```\n\n ",
+            "description": "Creates an IdP Discovery Policy Rule.\n\nThis resource allows you to create and configure an IdP Discovery Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.RuleIdpDiscovery(\"example\", {\n    appExcludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"yahoo_mail\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    appIncludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"\u003capp type name\u003e\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    idpId: \"\u003cidp id\u003e\",\n    idpType: \"OIDC\",\n    networkConnection: \"ANYWHERE\",\n    platformIncludes: [{\n        osType: \"OSX\",\n        type: \"MOBILE\",\n    }],\n    policyid: \"\u003cpolicy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n    userIdentifierAttribute: \"company\",\n    userIdentifierPatterns: [{\n        matchType: \"EQUALS\",\n        value: \"Articulate\",\n    }],\n    userIdentifierType: \"ATTRIBUTE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.RuleIdpDiscovery(\"example\",\n    app_excludes=[\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            name=\"yahoo_mail\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    app_includes=[\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            name=\"\u003capp type name\u003e\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    idp_id=\"\u003cidp id\u003e\",\n    idp_type=\"OIDC\",\n    network_connection=\"ANYWHERE\",\n    platform_includes=[okta.policy.RuleIdpDiscoveryPlatformIncludeArgs(\n        os_type=\"OSX\",\n        type=\"MOBILE\",\n    )],\n    policyid=\"\u003cpolicy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\",\n    user_identifier_attribute=\"company\",\n    user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(\n        match_type=\"EQUALS\",\n        value=\"Articulate\",\n    )],\n    user_identifier_type=\"ATTRIBUTE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.RuleIdpDiscovery(\"example\", new Okta.Policy.RuleIdpDiscoveryArgs\n        {\n            AppExcludes = \n            {\n                new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n                {\n                    Id = \"\u003capp id\u003e\",\n                    Type = \"APP\",\n                },\n                new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n                {\n                    Name = \"yahoo_mail\",\n                    Type = \"APP_TYPE\",\n                },\n            },\n            AppIncludes = \n            {\n                new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n                {\n                    Id = \"\u003capp id\u003e\",\n                    Type = \"APP\",\n                },\n                new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n                {\n                    Name = \"\u003capp type name\u003e\",\n                    Type = \"APP_TYPE\",\n                },\n            },\n            IdpId = \"\u003cidp id\u003e\",\n            IdpType = \"OIDC\",\n            NetworkConnection = \"ANYWHERE\",\n            PlatformIncludes = \n            {\n                new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs\n                {\n                    OsType = \"OSX\",\n                    Type = \"MOBILE\",\n                },\n            },\n            Policyid = \"\u003cpolicy id\u003e\",\n            Priority = 1,\n            Status = \"ACTIVE\",\n            UserIdentifierAttribute = \"company\",\n            UserIdentifierPatterns = \n            {\n                new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs\n                {\n                    MatchType = \"EQUALS\",\n                    Value = \"Articulate\",\n                },\n            },\n            UserIdentifierType = \"ATTRIBUTE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRuleIdpDiscovery(ctx, \"example\", \u0026policy.RuleIdpDiscoveryArgs{\n\t\t\tAppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tName: pulumi.String(\"yahoo_mail\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tName: pulumi.String(\"\u003capp type name\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tIdpId:             pulumi.String(\"\u003cidp id\u003e\"),\n\t\t\tIdpType:           pulumi.String(\"OIDC\"),\n\t\t\tNetworkConnection: pulumi.String(\"ANYWHERE\"),\n\t\t\tPlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryPlatformIncludeArgs{\n\t\t\t\t\tOsType: pulumi.String(\"OSX\"),\n\t\t\t\t\tType:   pulumi.String(\"MOBILE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPolicyid:                pulumi.String(\"\u003cpolicy id\u003e\"),\n\t\t\tPriority:                pulumi.Int(1),\n\t\t\tStatus:                  pulumi.String(\"ACTIVE\"),\n\t\t\tUserIdentifierAttribute: pulumi.String(\"company\"),\n\t\t\tUserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryUserIdentifierPatternArgs{\n\t\t\t\t\tMatchType: pulumi.String(\"EQUALS\"),\n\t\t\t\t\tValue:     pulumi.String(\"Articulate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tUserIdentifierType: pulumi.String(\"ATTRIBUTE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u003cpolicy id\u003e/\u003crule id\u003e\n```\n\n ",
             "properties": {
                 "appExcludes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppExclude:RuleIdpDiscoveryAppExclude"
                     },
-                    "description": "Applications to exclude in discovery rule\n"
+                    "description": "Applications to exclude in discovery. See `app_include` for details.\n"
                 },
                 "appIncludes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppInclude:RuleIdpDiscoveryAppInclude"
                     },
-                    "description": "Applications to include in discovery rule\n"
+                    "description": "Applications to include in discovery rule.\n"
                 },
                 "idpId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
                 },
                 "idpType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of Idp. One of: `\"SAML2\"`, `\"IWA\"`, `\"AgentlessDSSO\"`, `\"X509\"`, `\"FACEBOOK\"`, `\"GOOGLE\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"OIDC\"`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n"
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                    "description": "The network selection mode. One of `\"ANYWEHRE\"` or `\"ZONE\"`.\n"
                 },
                 "networkExcludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                    "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to exclude.\n"
                 },
                 "networkIncludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                    "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to include.\n"
                 },
                 "platformIncludes": {
                     "type": "array",
@@ -14074,23 +14043,26 @@
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.\n"
+                    "description": "Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Idp rule status: `\"ACTIVE\"` or `\"INACTIVE\"`. By default it is `\"ACTIVE\"`.\n"
                 },
                 "userIdentifierAttribute": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.\n"
                 },
                 "userIdentifierPatterns": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryUserIdentifierPattern:RuleIdpDiscoveryUserIdentifierPattern"
-                    }
+                    },
+                    "description": "Specifies a User Identifier pattern condition to match against. If `match_type` of `\"EXPRESSION\"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.\n"
                 },
                 "userIdentifierType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of: `\"IDENTIFIER\"`, `\"ATTRIBUTE\"`\n"
                 }
             },
             "required": [
@@ -14103,42 +14075,44 @@
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppExclude:RuleIdpDiscoveryAppExclude"
                     },
-                    "description": "Applications to exclude in discovery rule\n"
+                    "description": "Applications to exclude in discovery. See `app_include` for details.\n"
                 },
                 "appIncludes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppInclude:RuleIdpDiscoveryAppInclude"
                     },
-                    "description": "Applications to include in discovery rule\n"
+                    "description": "Applications to include in discovery rule.\n"
                 },
                 "idpId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
                 },
                 "idpType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of Idp. One of: `\"SAML2\"`, `\"IWA\"`, `\"AgentlessDSSO\"`, `\"X509\"`, `\"FACEBOOK\"`, `\"GOOGLE\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"OIDC\"`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n"
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                    "description": "The network selection mode. One of `\"ANYWEHRE\"` or `\"ZONE\"`.\n"
                 },
                 "networkExcludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                    "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to exclude.\n"
                 },
                 "networkIncludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                    "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to include.\n"
                 },
                 "platformIncludes": {
                     "type": "array",
@@ -14152,23 +14126,26 @@
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.\n"
+                    "description": "Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Idp rule status: `\"ACTIVE\"` or `\"INACTIVE\"`. By default it is `\"ACTIVE\"`.\n"
                 },
                 "userIdentifierAttribute": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.\n"
                 },
                 "userIdentifierPatterns": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryUserIdentifierPattern:RuleIdpDiscoveryUserIdentifierPattern"
-                    }
+                    },
+                    "description": "Specifies a User Identifier pattern condition to match against. If `match_type` of `\"EXPRESSION\"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.\n"
                 },
                 "userIdentifierType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "One of: `\"IDENTIFIER\"`, `\"ATTRIBUTE\"`\n"
                 }
             },
             "requiredInputs": [
@@ -14182,42 +14159,44 @@
                         "items": {
                             "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppExclude:RuleIdpDiscoveryAppExclude"
                         },
-                        "description": "Applications to exclude in discovery rule\n"
+                        "description": "Applications to exclude in discovery. See `app_include` for details.\n"
                     },
                     "appIncludes": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/okta:policy/RuleIdpDiscoveryAppInclude:RuleIdpDiscoveryAppInclude"
                         },
-                        "description": "Applications to include in discovery rule\n"
+                        "description": "Applications to include in discovery rule.\n"
                     },
                     "idpId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
                     },
                     "idpType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Type of Idp. One of: `\"SAML2\"`, `\"IWA\"`, `\"AgentlessDSSO\"`, `\"X509\"`, `\"FACEBOOK\"`, `\"GOOGLE\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"OIDC\"`\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy Rule Name.\n"
+                        "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                     },
                     "networkConnection": {
                         "type": "string",
-                        "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                        "description": "The network selection mode. One of `\"ANYWEHRE\"` or `\"ZONE\"`.\n"
                     },
                     "networkExcludes": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                        "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to exclude.\n"
                     },
                     "networkIncludes": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                        "description": "Required if `network_connection` = `\"ZONE\"`. Indicates the network zones to include.\n"
                     },
                     "platformIncludes": {
                         "type": "array",
@@ -14231,23 +14210,26 @@
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.\n"
+                        "description": "Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                        "description": "Idp rule status: `\"ACTIVE\"` or `\"INACTIVE\"`. By default it is `\"ACTIVE\"`.\n"
                     },
                     "userIdentifierAttribute": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.\n"
                     },
                     "userIdentifierPatterns": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/okta:policy/RuleIdpDiscoveryUserIdentifierPattern:RuleIdpDiscoveryUserIdentifierPattern"
-                        }
+                        },
+                        "description": "Specifies a User Identifier pattern condition to match against. If `match_type` of `\"EXPRESSION\"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.\n"
                     },
                     "userIdentifierType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "One of: `\"IDENTIFIER\"`, `\"ATTRIBUTE\"`\n"
                     }
                 },
                 "type": "object"
@@ -15198,7 +15180,7 @@
             }
         },
         "okta:user/baseSchema:BaseSchema": {
-            "description": "Manages a User Base Schema property.\n\nThis resource allows you to configure a base user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.BaseSchema(\"example\", {\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.BaseSchema(\"example\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.BaseSchema(\"example\", new Okta.User.BaseSchemaArgs\n        {\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewBaseSchema(ctx, \"example\", \u0026user.BaseSchemaArgs{\n\t\t\tIndex:  pulumi.String(\"customPropertyName\"),\n\t\t\tMaster: pulumi.String(\"OKTA\"),\n\t\t\tTitle:  pulumi.String(\"customPropertyName\"),\n\t\t\tType:   pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser base schema property can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cproperty name\u003e\n```\n\n ",
+            "description": "Manages a User Base Schema property.\n\nThis resource allows you to configure a base user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.BaseSchema(\"example\", {\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: okta_user_type_example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.BaseSchema(\"example\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.BaseSchema(\"example\", new Okta.User.BaseSchemaArgs\n        {\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n            UserType = data.Okta_user_type.Example.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewBaseSchema(ctx, \"example\", \u0026user.BaseSchemaArgs{\n\t\t\tIndex:    pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:   pulumi.String(\"OKTA\"),\n\t\t\tTitle:    pulumi.String(\"customPropertyName\"),\n\t\t\tType:     pulumi.String(\"string\"),\n\t\t\tUserType: pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cproperty name\u003e\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cuser type id\u003e.\u003cproperty name\u003e\n```\n\n ",
             "properties": {
                 "index": {
                     "type": "string",
@@ -15223,6 +15205,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "User type ID\n"
                 }
             },
             "required": [
@@ -15254,6 +15240,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "User type ID\n"
                 }
             },
             "requiredInputs": [
@@ -15287,13 +15277,17 @@
                     "type": {
                         "type": "string",
                         "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                    },
+                    "userType": {
+                        "type": "string",
+                        "description": "User type ID\n"
                     }
                 },
                 "type": "object"
             }
         },
         "okta:user/schema:Schema": {
-            "description": "Creates a User Schema property.\n\nThis resource allows you to create and configure a custom user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.Schema(\"example\", {\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.Schema(\"example\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.Schema(\"example\", new Okta.User.SchemaArgs\n        {\n            Description = \"My custom property name\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Scope = \"SELF\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewSchema(ctx, \"example\", \u0026user.SchemaArgs{\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/schema:Schema example \u003cindex\u003e\n```\n\n ",
+            "description": "Creates a User Schema property.\n\nThis resource allows you to create and configure a custom user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.Schema(\"example\", {\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: okta_user_type_example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.Schema(\"example\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.Schema(\"example\", new Okta.User.SchemaArgs\n        {\n            Description = \"My custom property name\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Scope = \"SELF\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n            UserType = data.Okta_user_type.Example.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewSchema(ctx, \"example\", \u0026user.SchemaArgs{\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t\tUserType:    pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/schema:Schema example \u003cindex\u003e\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:user/schema:Schema example \u003cuser type id\u003e.\u003cindex\u003e\n```\n\n ",
             "properties": {
                 "arrayEnums": {
                     "type": "array",
@@ -15378,6 +15372,10 @@
                 "unique": {
                     "type": "string",
                     "description": "Whether the property should be unique. It can be set to `\"UNIQUE_VALIDATED\"` or `\"NOT_UNIQUE\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "User type ID\n"
                 }
             },
             "required": [
@@ -15469,6 +15467,10 @@
                 "unique": {
                     "type": "string",
                     "description": "Whether the property should be unique. It can be set to `\"UNIQUE_VALIDATED\"` or `\"NOT_UNIQUE\"`.\n"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "User type ID\n"
                 }
             },
             "requiredInputs": [
@@ -15562,6 +15564,10 @@
                     "unique": {
                         "type": "string",
                         "description": "Whether the property should be unique. It can be set to `\"UNIQUE_VALIDATED\"` or `\"NOT_UNIQUE\"`.\n"
+                    },
+                    "userType": {
+                        "type": "string",
+                        "description": "User type ID\n"
                     }
                 },
                 "type": "object"
@@ -16074,6 +16080,64 @@
                 },
                 "type": "object"
             }
+        },
+        "okta:user/userType:UserType": {
+            "description": "Creates a User type.\n\nThis resource allows you to create and configure a User Type.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.UserType(\"example\", {\n    description: \"example\",\n    displayName: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.UserType(\"example\",\n    description=\"example\",\n    display_name=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.UserType(\"example\", new Okta.User.UserTypeArgs\n        {\n            Description = \"example\",\n            DisplayName = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewUserType(ctx, \"example\", \u0026user.UserTypeArgs{\n\t\t\tDescription: pulumi.String(\"example\"),\n\t\t\tDisplayName: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA User Type can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:user/userType:UserType example \u003cuser type id\u003e\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the User Type.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display Name of the User Type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the User Type.\n"
+                }
+            },
+            "required": [
+                "description",
+                "displayName",
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the User Type.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display Name of the User Type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the User Type.\n"
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserType resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the User Type.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "Display Name of the User Type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the User Type.\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "functions": {
@@ -16228,6 +16292,13 @@
                         "type": "boolean",
                         "description": "Enable self service.\n"
                     },
+                    "acsEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
+                    },
                     "activeOnly": {
                         "type": "boolean",
                         "description": "tells the provider to query for only `ACTIVE` applications.\n"
@@ -16245,7 +16316,7 @@
                         "items": {
                             "$ref": "#/types/okta:app/getSamlAttributeStatement:getSamlAttributeStatement"
                         },
-                        "description": "SAML Attribute statements.\n"
+                        "description": "(Optional) List of SAML Attribute statements.\n"
                     },
                     "audience": {
                         "type": "string",
@@ -16368,6 +16439,13 @@
                         "type": "boolean",
                         "description": "Enable self service.\n"
                     },
+                    "acsEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
+                    },
                     "activeOnly": {
                         "type": "boolean"
                     },
@@ -16384,7 +16462,7 @@
                         "items": {
                             "$ref": "#/types/okta:app/getSamlAttributeStatement:getSamlAttributeStatement"
                         },
-                        "description": "SAML Attribute statements.\n"
+                        "description": "(Optional) List of SAML Attribute statements.\n"
                     },
                     "audience": {
                         "type": "string",
@@ -16454,7 +16532,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "name of application.\n"
+                        "description": "(Required) The name of the attribute statement.\n"
                     },
                     "recipient": {
                         "type": "string",
@@ -16631,6 +16709,9 @@
             "outputs": {
                 "description": "A collection of values returned by getEveryoneGroup.\n",
                 "properties": {
+                    "description": {
+                        "type": "string"
+                    },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
@@ -16641,6 +16722,7 @@
                 },
                 "type": "object",
                 "required": [
+                    "description",
                     "id"
                 ]
             }
@@ -16657,6 +16739,10 @@
                     "name": {
                         "type": "string",
                         "description": "name of group to retrieve.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "type of the group to retrieve.\n"
                     }
                 },
                 "type": "object",
@@ -16681,6 +16767,10 @@
                     "name": {
                         "type": "string",
                         "description": "name of group.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "type of group.\n"
                     },
                     "users": {
                         "type": "array",
@@ -16871,7 +16961,7 @@
                 "properties": {
                     "type": {
                         "type": "string",
-                        "description": "type of policy to retrieve.\n"
+                        "description": "type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`\n"
                     }
                 },
                 "type": "object",
@@ -17191,6 +17281,56 @@
                 ]
             }
         },
+        "okta:user/getUserType:getUserType": {
+            "description": "Use this data source to retrieve a user type from Okta.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.user.getUserType({\n    name: \"example\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_user_type(name=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.User.GetUserType.InvokeAsync(new Okta.User.GetUserTypeArgs\n        {\n            Name = \"example\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.LookupUserType(ctx, \u0026user.LookupUserTypeArgs{\n\t\t\tName: \"example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUserType.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "description of user type.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "display name of user type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "name of user type to retrieve.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUserType.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "description of user type.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "display name of user type.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "id of user type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "name of user type.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "name"
+                ]
+            }
+        },
         "okta:user/getUsers:getUsers": {
             "description": "Use this data source to retrieve a list of users from Okta.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.user.getUsers({\n    searches: [{\n        comparison: \"sw\",\n        name: \"profile.company\",\n        value: \"Articulate\",\n    }],\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(\n    comparison=\"sw\",\n    name=\"profile.company\",\n    value=\"Articulate\",\n)])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.User.GetUsers.InvokeAsync(new Okta.User.GetUsersArgs\n        {\n            Searches = \n            {\n                new Okta.User.Inputs.GetUsersSearchArgs\n                {\n                    Comparison = \"sw\",\n                    Name = \"profile.company\",\n                    Value = \"Articulate\",\n                },\n            },\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.GetUsers(ctx, \u0026user.GetUsersArgs{\n\t\t\tSearches: []user.GetUsersSearch{\n\t\t\t\tuser.GetUsersSearch{\n\t\t\t\t\tComparison: \"sw\",\n\t\t\t\t\tName:       \"profile.company\",\n\t\t\t\t\tValue:      \"Articulate\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -17287,8 +17427,7 @@
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/oktadeveloper/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`oktadeveloper/terraform-provider-okta` repo](https://github.com/oktadeveloper/terraform-provider-okta/issues).",
             "requires": {
                 "pulumi": "\u003e=2.9.0,\u003c3.0.0"
-            },
-            "usesIOClasses": true
+            }
         }
     }
 }

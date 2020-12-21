@@ -73,15 +73,15 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     public readonly grantTypeWhitelists!: pulumi.Output<string[]>;
     /**
-     * Specifies a set of Groups whose Users are to be excluded
+     * Specifies a set of Groups whose Users are to be excluded.
      */
     public readonly groupBlacklists!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies a set of Groups whose Users are to be included
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
      */
     public readonly groupWhitelists!: pulumi.Output<string[] | undefined>;
     /**
@@ -121,11 +121,11 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a set of Users to be excluded
+     * Specifies a set of Users to be excluded.
      */
     public readonly userBlacklists!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies a set of Users to be included
+     * Specifies a set of Users to be included.
      */
     public readonly userWhitelists!: pulumi.Output<string[] | undefined>;
 
@@ -162,16 +162,16 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             inputs["userWhitelists"] = state ? state.userWhitelists : undefined;
         } else {
             const args = argsOrState as ServerPolicyClaimArgs | undefined;
-            if (!args || args.authServerId === undefined) {
+            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if (!args || args.grantTypeWhitelists === undefined) {
+            if ((!args || args.grantTypeWhitelists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'grantTypeWhitelists'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
@@ -215,15 +215,15 @@ export interface ServerPolicyClaimState {
      */
     readonly authServerId?: pulumi.Input<string>;
     /**
-     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     readonly grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be excluded
+     * Specifies a set of Groups whose Users are to be excluded.
      */
     readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be included
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
      */
     readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -263,11 +263,11 @@ export interface ServerPolicyClaimState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Specifies a set of Users to be excluded
+     * Specifies a set of Users to be excluded.
      */
     readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Users to be included
+     * Specifies a set of Users to be included.
      */
     readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -285,15 +285,15 @@ export interface ServerPolicyClaimArgs {
      */
     readonly authServerId: pulumi.Input<string>;
     /**
-     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+     * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     readonly grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be excluded
+     * Specifies a set of Groups whose Users are to be excluded.
      */
     readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be included
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
      */
     readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -333,11 +333,11 @@ export interface ServerPolicyClaimArgs {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Specifies a set of Users to be excluded
+     * Specifies a set of Users to be excluded.
      */
     readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Users to be included
+     * Specifies a set of Users to be included.
      */
     readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

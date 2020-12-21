@@ -22,6 +22,7 @@ class UserBaseSchema(pulumi.CustomResource):
                  required: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -61,6 +62,7 @@ class UserBaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,21 +81,22 @@ class UserBaseSchema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_id is None:
+            if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__['app_id'] = app_id
-            if index is None:
+            if index is None and not opts.urn:
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
             __props__['permissions'] = permissions
             __props__['required'] = required
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['user_type'] = user_type
         super(UserBaseSchema, __self__).__init__(
             'okta:app/userBaseSchema:UserBaseSchema',
             resource_name,
@@ -110,7 +113,8 @@ class UserBaseSchema(pulumi.CustomResource):
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'UserBaseSchema':
+            type: Optional[pulumi.Input[str]] = None,
+            user_type: Optional[pulumi.Input[str]] = None) -> 'UserBaseSchema':
         """
         Get an existing UserBaseSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,6 +129,7 @@ class UserBaseSchema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -137,6 +142,7 @@ class UserBaseSchema(pulumi.CustomResource):
         __props__["required"] = required
         __props__["title"] = title
         __props__["type"] = type
+        __props__["user_type"] = user_type
         return UserBaseSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -194,6 +200,14 @@ class UserBaseSchema(pulumi.CustomResource):
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom subschema user type
+        """
+        return pulumi.get(self, "user_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

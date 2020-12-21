@@ -110,7 +110,7 @@ class Swa(pulumi.CustomResource):
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['password_field'] = password_field

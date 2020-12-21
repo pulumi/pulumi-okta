@@ -103,7 +103,7 @@ export class ServerScope extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ServerScopeArgs | undefined;
-            if (!args || args.authServerId === undefined) {
+            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authServerId'");
             }
             inputs["authServerId"] = args ? args.authServerId : undefined;

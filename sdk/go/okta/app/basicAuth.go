@@ -51,14 +51,14 @@ type BasicAuth struct {
 	pulumi.CustomResourceState
 
 	// The URL of the authenticating site for this app.
-	AuthUrl pulumi.StringPtrOutput `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
@@ -66,22 +66,29 @@ type BasicAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
-	Url pulumi.StringPtrOutput `pulumi:"url"`
-	// Users associated with the application
+	Url pulumi.StringOutput `pulumi:"url"`
+	// Users associated with the application.
 	Users BasicAuthUserArrayOutput `pulumi:"users"`
 }
 
 // NewBasicAuth registers a new resource with the given unique name, arguments, and options.
 func NewBasicAuth(ctx *pulumi.Context,
 	name string, args *BasicAuthArgs, opts ...pulumi.ResourceOption) (*BasicAuth, error) {
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
 	if args == nil {
-		args = &BasicAuthArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthUrl == nil {
+		return nil, errors.New("invalid value for required argument 'AuthUrl'")
+	}
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource BasicAuth
 	err := ctx.RegisterResource("okta:app/basicAuth:BasicAuth", name, args, &resource, opts...)
@@ -107,13 +114,13 @@ func GetBasicAuth(ctx *pulumi.Context,
 type basicAuthState struct {
 	// The URL of the authenticating site for this app.
 	AuthUrl *string `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
@@ -121,24 +128,24 @@ type basicAuthState struct {
 	Name *string `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users []BasicAuthUser `pulumi:"users"`
 }
 
 type BasicAuthState struct {
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
@@ -146,11 +153,11 @@ type BasicAuthState struct {
 	Name pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
-	// Users associated with the application
+	// Users associated with the application.
 	Users BasicAuthUserArrayInput
 }
 
@@ -160,44 +167,44 @@ func (BasicAuthState) ElementType() reflect.Type {
 
 type basicAuthArgs struct {
 	// The URL of the authenticating site for this app.
-	AuthUrl *string `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	AuthUrl string `pulumi:"authUrl"`
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
-	Url *string `pulumi:"url"`
-	// Users associated with the application
+	Url string `pulumi:"url"`
+	// Users associated with the application.
 	Users []BasicAuthUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a BasicAuth resource.
 type BasicAuthArgs struct {
 	// The URL of the authenticating site for this app.
-	AuthUrl pulumi.StringPtrInput
-	// Display auto submit toolbar
+	AuthUrl pulumi.StringInput
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
-	Url pulumi.StringPtrInput
-	// Users associated with the application
+	Url pulumi.StringInput
+	// Users associated with the application.
 	Users BasicAuthUserArrayInput
 }
 

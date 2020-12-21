@@ -98,10 +98,10 @@ export class TemplateSms extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as TemplateSmsArgs | undefined;
-            if (!args || args.template === undefined) {
+            if ((!args || args.template === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'template'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["template"] = args ? args.template : undefined;

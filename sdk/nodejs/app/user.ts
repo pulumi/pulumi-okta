@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create and configure an Application User.
  *
- * __When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:__
+ * **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -104,13 +104,13 @@ export class User extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.appId === undefined) {
+            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["appId"] = args ? args.appId : undefined;

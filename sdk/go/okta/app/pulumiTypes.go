@@ -1385,13 +1385,18 @@ func (o UserSchemaOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaOneOfOutp
 }
 
 type GetSamlAttributeStatement struct {
-	FilterType  *string `pulumi:"filterType"`
+	// (Optional) Type of group attribute filter.
+	FilterType *string `pulumi:"filterType"`
+	// (Optional) Filter value to use.
 	FilterValue *string `pulumi:"filterValue"`
-	// name of application.
-	Name      string   `pulumi:"name"`
-	Namespace *string  `pulumi:"namespace"`
-	Type      *string  `pulumi:"type"`
-	Values    []string `pulumi:"values"`
+	// (Required) The name of the attribute statement.
+	Name string `pulumi:"name"`
+	// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+	Namespace *string `pulumi:"namespace"`
+	// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+	Type *string `pulumi:"type"`
+	// (Optional) Array of values to use.
+	Values []string `pulumi:"values"`
 }
 
 // GetSamlAttributeStatementInput is an input type that accepts GetSamlAttributeStatementArgs and GetSamlAttributeStatementOutput values.
@@ -1406,13 +1411,18 @@ type GetSamlAttributeStatementInput interface {
 }
 
 type GetSamlAttributeStatementArgs struct {
-	FilterType  pulumi.StringPtrInput `pulumi:"filterType"`
+	// (Optional) Type of group attribute filter.
+	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	// (Optional) Filter value to use.
 	FilterValue pulumi.StringPtrInput `pulumi:"filterValue"`
-	// name of application.
-	Name      pulumi.StringInput      `pulumi:"name"`
-	Namespace pulumi.StringPtrInput   `pulumi:"namespace"`
-	Type      pulumi.StringPtrInput   `pulumi:"type"`
-	Values    pulumi.StringArrayInput `pulumi:"values"`
+	// (Required) The name of the attribute statement.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// (Optional) Array of values to use.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetSamlAttributeStatementArgs) ElementType() reflect.Type {
@@ -1466,27 +1476,32 @@ func (o GetSamlAttributeStatementOutput) ToGetSamlAttributeStatementOutputWithCo
 	return o
 }
 
+// (Optional) Type of group attribute filter.
 func (o GetSamlAttributeStatementOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Filter value to use.
 func (o GetSamlAttributeStatementOutput) FilterValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
 }
 
-// name of application.
+// (Required) The name of the attribute statement.
 func (o GetSamlAttributeStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
 func (o GetSamlAttributeStatementOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
 func (o GetSamlAttributeStatementOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Array of values to use.
 func (o GetSamlAttributeStatementOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

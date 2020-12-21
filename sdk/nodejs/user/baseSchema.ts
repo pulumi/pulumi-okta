@@ -20,15 +20,22 @@ import * as utilities from "../utilities";
  *     master: "OKTA",
  *     title: "customPropertyName",
  *     type: "string",
+ *     userType: okta_user_type_example.id,
  * });
  * ```
  *
  * ## Import
  *
- * User base schema property can be imported via the property index.
+ * User schema property of default user type can be imported via the property index.
  *
  * ```sh
  *  $ pulumi import okta:user/baseSchema:BaseSchema example <property name>
+ * ```
+ *
+ *  User schema property of custom user type can be imported via user type id and property index
+ *
+ * ```sh
+ *  $ pulumi import okta:user/baseSchema:BaseSchema example <user type id>.<property name>
  * ```
  */
 export class BaseSchema extends pulumi.CustomResource {
@@ -83,6 +90,10 @@ export class BaseSchema extends pulumi.CustomResource {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * User type ID
+     */
+    public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BaseSchema resource with the given unique name, arguments, and options.
@@ -102,15 +113,16 @@ export class BaseSchema extends pulumi.CustomResource {
             inputs["required"] = state ? state.required : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as BaseSchemaArgs | undefined;
-            if (!args || args.index === undefined) {
+            if ((!args || args.index === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'index'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["index"] = args ? args.index : undefined;
@@ -119,6 +131,7 @@ export class BaseSchema extends pulumi.CustomResource {
             inputs["required"] = args ? args.required : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["userType"] = args ? args.userType : undefined;
         }
         if (!opts) {
             opts = {}
@@ -159,6 +172,10 @@ export interface BaseSchemaState {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * User type ID
+     */
+    readonly userType?: pulumi.Input<string>;
 }
 
 /**
@@ -189,4 +206,8 @@ export interface BaseSchemaArgs {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * User type ID
+     */
+    readonly userType?: pulumi.Input<string>;
 }

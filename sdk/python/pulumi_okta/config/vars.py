@@ -12,6 +12,7 @@ __all__ = [
     'api_token',
     'backoff',
     'base_url',
+    'log_level',
     'max_retries',
     'max_wait_seconds',
     'min_wait_seconds',
@@ -34,6 +35,11 @@ Use exponential back off strategy for rate limits.
 base_url = __config__.get('baseUrl') or _utilities.get_env('OKTA_BASE_URL')
 """
 The Okta url. (Use 'oktapreview.com' for Okta testing)
+"""
+
+log_level = __config__.get('logLevel')
+"""
+providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 """
 
 max_retries = __config__.get('maxRetries')

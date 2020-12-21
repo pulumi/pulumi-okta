@@ -34,6 +34,7 @@ import (
 // 			Scope:       pulumi.String("SELF"),
 // 			Title:       pulumi.String("customPropertyName"),
 // 			Type:        pulumi.String("string"),
+// 			UserType:    pulumi.Any(data.Okta_user_type.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -45,10 +46,16 @@ import (
 //
 // ## Import
 //
-// User schema property can be imported via the property index.
+// User schema property of default user type can be imported via the property index.
 //
 // ```sh
 //  $ pulumi import okta:user/schema:Schema example <index>
+// ```
+//
+//  User schema property of custom user type can be imported via user type id and property index
+//
+// ```sh
+//  $ pulumi import okta:user/schema:Schema example <user type id>.<index>
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -89,22 +96,25 @@ type Schema struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
+	// User type ID
+	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
 func NewSchema(ctx *pulumi.Context,
 	name string, args *SchemaArgs, opts ...pulumi.ResourceOption) (*Schema, error) {
-	if args == nil || args.Index == nil {
-		return nil, errors.New("missing required argument 'Index'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &SchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Index == nil {
+		return nil, errors.New("invalid value for required argument 'Index'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Schema
 	err := ctx.RegisterResource("okta:user/schema:Schema", name, args, &resource, opts...)
@@ -164,6 +174,8 @@ type schemaState struct {
 	Type *string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
+	// User type ID
+	UserType *string `pulumi:"userType"`
 }
 
 type SchemaState struct {
@@ -203,6 +215,8 @@ type SchemaState struct {
 	Type pulumi.StringPtrInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
+	// User type ID
+	UserType pulumi.StringPtrInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -246,6 +260,8 @@ type schemaArgs struct {
 	Type string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
+	// User type ID
+	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -286,6 +302,8 @@ type SchemaArgs struct {
 	Type pulumi.StringInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
+	// User type ID
+	UserType pulumi.StringPtrInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

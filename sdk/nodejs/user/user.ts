@@ -271,16 +271,16 @@ export class User extends pulumi.CustomResource {
             inputs["zipCode"] = state ? state.zipCode : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if (!args || args.firstName === undefined) {
+            if ((!args || args.firstName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if (!args || args.lastName === undefined) {
+            if ((!args || args.lastName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if (!args || args.login === undefined) {
+            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'login'");
             }
             inputs["adminRoles"] = args ? args.adminRoles : undefined;

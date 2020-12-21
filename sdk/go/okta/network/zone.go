@@ -71,11 +71,12 @@ type Zone struct {
 // NewZone registers a new resource with the given unique name, arguments, and options.
 func NewZone(ctx *pulumi.Context,
 	name string, args *ZoneArgs, opts ...pulumi.ResourceOption) (*Zone, error) {
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &ZoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Zone
 	err := ctx.RegisterResource("okta:network/zone:Zone", name, args, &resource, opts...)

@@ -139,6 +139,10 @@ export class UserSchema extends pulumi.CustomResource {
      * Subschema unique restriction
      */
     public readonly unique!: pulumi.Output<string | undefined>;
+    /**
+     * Custom subschema user type
+     */
+    public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserSchema resource with the given unique name, arguments, and options.
@@ -171,18 +175,19 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["unique"] = state ? state.unique : undefined;
+            inputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as UserSchemaArgs | undefined;
-            if (!args || args.appId === undefined) {
+            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (!args || args.index === undefined) {
+            if ((!args || args.index === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'index'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["appId"] = args ? args.appId : undefined;
@@ -204,6 +209,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["unique"] = args ? args.unique : undefined;
+            inputs["userType"] = args ? args.userType : undefined;
         }
         if (!opts) {
             opts = {}
@@ -296,6 +302,10 @@ export interface UserSchemaState {
      * Subschema unique restriction
      */
     readonly unique?: pulumi.Input<string>;
+    /**
+     * Custom subschema user type
+     */
+    readonly userType?: pulumi.Input<string>;
 }
 
 /**
@@ -378,4 +388,8 @@ export interface UserSchemaArgs {
      * Subschema unique restriction
      */
     readonly unique?: pulumi.Input<string>;
+    /**
+     * Custom subschema user type
+     */
+    readonly userType?: pulumi.Input<string>;
 }

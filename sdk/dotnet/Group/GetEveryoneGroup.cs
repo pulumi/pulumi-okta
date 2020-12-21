@@ -53,6 +53,7 @@ namespace Pulumi.Okta.Group
     [OutputType]
     public sealed class GetEveryoneGroupResult
     {
+        public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -61,10 +62,13 @@ namespace Pulumi.Okta.Group
 
         [OutputConstructor]
         private GetEveryoneGroupResult(
+            string description,
+
             string id,
 
             bool? includeUsers)
         {
+            Description = description;
             Id = id;
             IncludeUsers = includeUsers;
         }

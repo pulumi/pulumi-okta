@@ -110,16 +110,16 @@ export class ServerPolicy extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerPolicyArgs | undefined;
-            if (!args || args.authServerId === undefined) {
+            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if (!args || args.clientWhitelists === undefined) {
+            if ((!args || args.clientWhitelists === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientWhitelists'");
             }
-            if (!args || args.description === undefined) {
+            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'description'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["authServerId"] = args ? args.authServerId : undefined;

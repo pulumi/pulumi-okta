@@ -99,7 +99,7 @@ class SecurePasswordStoreApp(pulumi.CustomResource):
             __props__['groups'] = groups
             __props__['hide_ios'] = hide_ios
             __props__['hide_web'] = hide_web
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['optional_field1'] = optional_field1
@@ -108,20 +108,20 @@ class SecurePasswordStoreApp(pulumi.CustomResource):
             __props__['optional_field2_value'] = optional_field2_value
             __props__['optional_field3'] = optional_field3
             __props__['optional_field3_value'] = optional_field3_value
-            if password_field is None:
+            if password_field is None and not opts.urn:
                 raise TypeError("Missing required property 'password_field'")
             __props__['password_field'] = password_field
             __props__['reveal_password'] = reveal_password
             __props__['shared_password'] = shared_password
             __props__['shared_username'] = shared_username
             __props__['status'] = status
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['user_name_template'] = user_name_template
             __props__['user_name_template_suffix'] = user_name_template_suffix
             __props__['user_name_template_type'] = user_name_template_type
-            if username_field is None:
+            if username_field is None and not opts.urn:
                 raise TypeError("Missing required property 'username_field'")
             __props__['username_field'] = username_field
             __props__['users'] = users

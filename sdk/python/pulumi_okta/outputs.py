@@ -9,97 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
-    'EventHookAuth',
-    'EventHookChannel',
     'EventHookHeader',
     'TemplateSmsTranslation',
 ]
-
-@pulumi.output_type
-class EventHookAuth(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 type: str,
-                 value: str):
-        """
-        :param str key: Key to use for authentication, usually the header name, for example `"Authorization"`.
-        :param str type: The type of hook to trigger. Currently only `"HTTP"` is supported.
-        :param str value: Authentication secret.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        Key to use for authentication, usually the header name, for example `"Authorization"`.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of hook to trigger. Currently only `"HTTP"` is supported.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Authentication secret.
-        """
-        return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class EventHookChannel(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 uri: str,
-                 version: str):
-        """
-        :param str type: The type of hook to trigger. Currently only `"HTTP"` is supported.
-        :param str uri: The URI the hook will hit.
-        :param str version: The version of the channel. Currently only `"1.0.0"` is supported.
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of hook to trigger. Currently only `"HTTP"` is supported.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> str:
-        """
-        The URI the hook will hit.
-        """
-        return pulumi.get(self, "uri")
-
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        The version of the channel. Currently only `"1.0.0"` is supported.
-        """
-        return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHookHeader(dict):

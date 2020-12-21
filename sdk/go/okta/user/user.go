@@ -108,20 +108,21 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
-	if args == nil || args.FirstName == nil {
-		return nil, errors.New("missing required argument 'FirstName'")
-	}
-	if args == nil || args.LastName == nil {
-		return nil, errors.New("missing required argument 'LastName'")
-	}
-	if args == nil || args.Login == nil {
-		return nil, errors.New("missing required argument 'Login'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.FirstName == nil {
+		return nil, errors.New("invalid value for required argument 'FirstName'")
+	}
+	if args.LastName == nil {
+		return nil, errors.New("invalid value for required argument 'LastName'")
+	}
+	if args.Login == nil {
+		return nil, errors.New("invalid value for required argument 'Login'")
 	}
 	var resource User
 	err := ctx.RegisterResource("okta:user/user:User", name, args, &resource, opts...)

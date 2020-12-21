@@ -72,29 +72,30 @@ type ThreeField struct {
 // NewThreeField registers a new resource with the given unique name, arguments, and options.
 func NewThreeField(ctx *pulumi.Context,
 	name string, args *ThreeFieldArgs, opts ...pulumi.ResourceOption) (*ThreeField, error) {
-	if args == nil || args.ButtonSelector == nil {
-		return nil, errors.New("missing required argument 'ButtonSelector'")
-	}
-	if args == nil || args.ExtraFieldSelector == nil {
-		return nil, errors.New("missing required argument 'ExtraFieldSelector'")
-	}
-	if args == nil || args.ExtraFieldValue == nil {
-		return nil, errors.New("missing required argument 'ExtraFieldValue'")
-	}
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.PasswordSelector == nil {
-		return nil, errors.New("missing required argument 'PasswordSelector'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
-	if args == nil || args.UsernameSelector == nil {
-		return nil, errors.New("missing required argument 'UsernameSelector'")
-	}
 	if args == nil {
-		args = &ThreeFieldArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ButtonSelector == nil {
+		return nil, errors.New("invalid value for required argument 'ButtonSelector'")
+	}
+	if args.ExtraFieldSelector == nil {
+		return nil, errors.New("invalid value for required argument 'ExtraFieldSelector'")
+	}
+	if args.ExtraFieldValue == nil {
+		return nil, errors.New("invalid value for required argument 'ExtraFieldValue'")
+	}
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.PasswordSelector == nil {
+		return nil, errors.New("invalid value for required argument 'PasswordSelector'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
+	}
+	if args.UsernameSelector == nil {
+		return nil, errors.New("invalid value for required argument 'UsernameSelector'")
 	}
 	var resource ThreeField
 	err := ctx.RegisterResource("okta:app/threeField:ThreeField", name, args, &resource, opts...)

@@ -132,7 +132,7 @@ class Saml(pulumi.CustomResource):
 
             __props__['account_link_action'] = account_link_action
             __props__['account_link_group_includes'] = account_link_group_includes
-            if acs_binding is None:
+            if acs_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'acs_binding'")
             __props__['acs_binding'] = acs_binding
             __props__['acs_type'] = acs_type
@@ -141,11 +141,11 @@ class Saml(pulumi.CustomResource):
             __props__['groups_assignments'] = groups_assignments
             __props__['groups_attribute'] = groups_attribute
             __props__['groups_filters'] = groups_filters
-            if issuer is None:
+            if issuer is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer'")
             __props__['issuer'] = issuer
             __props__['issuer_mode'] = issuer_mode
-            if kid is None:
+            if kid is None and not opts.urn:
                 raise TypeError("Missing required property 'kid'")
             __props__['kid'] = kid
             __props__['name'] = name
@@ -158,7 +158,7 @@ class Saml(pulumi.CustomResource):
             __props__['response_signature_scope'] = response_signature_scope
             __props__['sso_binding'] = sso_binding
             __props__['sso_destination'] = sso_destination
-            if sso_url is None:
+            if sso_url is None and not opts.urn:
                 raise TypeError("Missing required property 'sso_url'")
             __props__['sso_url'] = sso_url
             __props__['status'] = status

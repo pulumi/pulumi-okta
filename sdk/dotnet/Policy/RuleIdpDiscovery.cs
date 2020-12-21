@@ -26,10 +26,46 @@ namespace Pulumi.Okta.Policy
     ///     {
     ///         var example = new Okta.Policy.RuleIdpDiscovery("example", new Okta.Policy.RuleIdpDiscoveryArgs
     ///         {
+    ///             AppExcludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///                 {
+    ///                     Id = "&lt;app id&gt;",
+    ///                     Type = "APP",
+    ///                 },
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///                 {
+    ///                     Name = "yahoo_mail",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///             },
+    ///             AppIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///                 {
+    ///                     Id = "&lt;app id&gt;",
+    ///                     Type = "APP",
+    ///                 },
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///                 {
+    ///                     Name = "&lt;app type name&gt;",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///             },
     ///             IdpId = "&lt;idp id&gt;",
-    ///             IdpType = "SAML2",
+    ///             IdpType = "OIDC",
+    ///             NetworkConnection = "ANYWHERE",
+    ///             PlatformIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs
+    ///                 {
+    ///                     OsType = "OSX",
+    ///                     Type = "MOBILE",
+    ///                 },
+    ///             },
     ///             Policyid = "&lt;policy id&gt;",
     ///             Priority = 1,
+    ///             Status = "ACTIVE",
     ///             UserIdentifierAttribute = "company",
     ///             UserIdentifierPatterns = 
     ///             {
@@ -57,43 +93,49 @@ namespace Pulumi.Okta.Policy
     public partial class RuleIdpDiscovery : Pulumi.CustomResource
     {
         /// <summary>
-        /// Applications to exclude in discovery rule
+        /// Applications to exclude in discovery. See `app_include` for details.
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Applications to include in discovery rule
+        /// Applications to include in discovery rule.
         /// </summary>
         [Output("appIncludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppInclude>> AppIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the Idp the rule should route to if all conditions are met.
+        /// </summary>
         [Output("idpId")]
         public Output<string?> IdpId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
+        /// </summary>
         [Output("idpType")]
         public Output<string?> IdpType { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
@@ -108,23 +150,32 @@ namespace Pulumi.Okta.Policy
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// </summary>
         [Output("userIdentifierAttribute")]
         public Output<string?> UserIdentifierAttribute { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// </summary>
         [Output("userIdentifierPatterns")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryUserIdentifierPattern>> UserIdentifierPatterns { get; private set; } = null!;
 
+        /// <summary>
+        /// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
+        /// </summary>
         [Output("userIdentifierType")]
         public Output<string?> UserIdentifierType { get; private set; } = null!;
 
@@ -178,7 +229,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude in discovery rule
+        /// Applications to exclude in discovery. See `app_include` for details.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
@@ -190,7 +241,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule
+        /// Applications to include in discovery rule.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs> AppIncludes
         {
@@ -198,20 +249,26 @@ namespace Pulumi.Okta.Policy
             set => _appIncludes = value;
         }
 
+        /// <summary>
+        /// The identifier for the Idp the rule should route to if all conditions are met.
+        /// </summary>
         [Input("idpId")]
         public Input<string>? IdpId { get; set; }
 
+        /// <summary>
+        /// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
+        /// </summary>
         [Input("idpType")]
         public Input<string>? IdpType { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -220,7 +277,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -232,7 +289,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -255,28 +312,38 @@ namespace Pulumi.Okta.Policy
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }
 
         [Input("userIdentifierPatterns")]
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>? _userIdentifierPatterns;
+
+        /// <summary>
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs> UserIdentifierPatterns
         {
             get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>());
             set => _userIdentifierPatterns = value;
         }
 
+        /// <summary>
+        /// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
+        /// </summary>
         [Input("userIdentifierType")]
         public Input<string>? UserIdentifierType { get; set; }
 
@@ -291,7 +358,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude in discovery rule
+        /// Applications to exclude in discovery. See `app_include` for details.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {
@@ -303,7 +370,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule
+        /// Applications to include in discovery rule.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs> AppIncludes
         {
@@ -311,20 +378,26 @@ namespace Pulumi.Okta.Policy
             set => _appIncludes = value;
         }
 
+        /// <summary>
+        /// The identifier for the Idp the rule should route to if all conditions are met.
+        /// </summary>
         [Input("idpId")]
         public Input<string>? IdpId { get; set; }
 
+        /// <summary>
+        /// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
+        /// </summary>
         [Input("idpType")]
         public Input<string>? IdpType { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -333,7 +406,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -345,7 +418,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -368,28 +441,38 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }
 
         [Input("userIdentifierPatterns")]
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>? _userIdentifierPatterns;
+
+        /// <summary>
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs> UserIdentifierPatterns
         {
             get => _userIdentifierPatterns ?? (_userIdentifierPatterns = new InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>());
             set => _userIdentifierPatterns = value;
         }
 
+        /// <summary>
+        /// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
+        /// </summary>
         [Input("userIdentifierType")]
         public Input<string>? UserIdentifierType { get; set; }
 

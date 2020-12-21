@@ -204,10 +204,10 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as OauthAppArgs | undefined;
-            if (!args || args.label === undefined) {
+            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'label'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;

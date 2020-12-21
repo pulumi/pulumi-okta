@@ -61,11 +61,11 @@ type ServerPolicyRule struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayOutput `pulumi:"grantTypeWhitelists"`
-	// Specifies a set of Groups whose Users are to be excluded
+	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
 	GroupWhitelists pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
@@ -85,29 +85,30 @@ type ServerPolicyRule struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Specifies a set of Users to be excluded
+	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayOutput `pulumi:"userBlacklists"`
-	// Specifies a set of Users to be included
+	// Specifies a set of Users to be included.
 	UserWhitelists pulumi.StringArrayOutput `pulumi:"userWhitelists"`
 }
 
 // NewServerPolicyRule registers a new resource with the given unique name, arguments, and options.
 func NewServerPolicyRule(ctx *pulumi.Context,
 	name string, args *ServerPolicyRuleArgs, opts ...pulumi.ResourceOption) (*ServerPolicyRule, error) {
-	if args == nil || args.AuthServerId == nil {
-		return nil, errors.New("missing required argument 'AuthServerId'")
-	}
-	if args == nil || args.GrantTypeWhitelists == nil {
-		return nil, errors.New("missing required argument 'GrantTypeWhitelists'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.Priority == nil {
-		return nil, errors.New("missing required argument 'Priority'")
-	}
 	if args == nil {
-		args = &ServerPolicyRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthServerId == nil {
+		return nil, errors.New("invalid value for required argument 'AuthServerId'")
+	}
+	if args.GrantTypeWhitelists == nil {
+		return nil, errors.New("invalid value for required argument 'GrantTypeWhitelists'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.Priority == nil {
+		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -141,11 +142,11 @@ type serverPolicyRuleState struct {
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId *string `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	// Specifies a set of Groups whose Users are to be excluded
+	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
 	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -165,9 +166,9 @@ type serverPolicyRuleState struct {
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
 	Type *string `pulumi:"type"`
-	// Specifies a set of Users to be excluded
+	// Specifies a set of Users to be excluded.
 	UserBlacklists []string `pulumi:"userBlacklists"`
-	// Specifies a set of Users to be included
+	// Specifies a set of Users to be included.
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
@@ -176,11 +177,11 @@ type ServerPolicyRuleState struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringPtrInput
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be excluded
+	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be included
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
 	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
@@ -200,9 +201,9 @@ type ServerPolicyRuleState struct {
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrInput
-	// Specifies a set of Users to be excluded
+	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayInput
-	// Specifies a set of Users to be included
+	// Specifies a set of Users to be included.
 	UserWhitelists pulumi.StringArrayInput
 }
 
@@ -215,11 +216,11 @@ type serverPolicyRuleArgs struct {
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId string `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
-	// Specifies a set of Groups whose Users are to be excluded
+	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
 	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -239,9 +240,9 @@ type serverPolicyRuleArgs struct {
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy Rule.
 	Type *string `pulumi:"type"`
-	// Specifies a set of Users to be excluded
+	// Specifies a set of Users to be excluded.
 	UserBlacklists []string `pulumi:"userBlacklists"`
-	// Specifies a set of Users to be included
+	// Specifies a set of Users to be included.
 	UserWhitelists []string `pulumi:"userWhitelists"`
 }
 
@@ -251,11 +252,11 @@ type ServerPolicyRuleArgs struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringInput
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be excluded
+	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be included
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
 	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
@@ -275,9 +276,9 @@ type ServerPolicyRuleArgs struct {
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrInput
-	// Specifies a set of Users to be excluded
+	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayInput
-	// Specifies a set of Users to be included
+	// Specifies a set of Users to be included.
 	UserWhitelists pulumi.StringArrayInput
 }
 

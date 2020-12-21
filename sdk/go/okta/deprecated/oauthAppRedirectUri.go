@@ -22,14 +22,15 @@ type OauthAppRedirectUri struct {
 // NewOauthAppRedirectUri registers a new resource with the given unique name, arguments, and options.
 func NewOauthAppRedirectUri(ctx *pulumi.Context,
 	name string, args *OauthAppRedirectUriArgs, opts ...pulumi.ResourceOption) (*OauthAppRedirectUri, error) {
-	if args == nil || args.AppId == nil {
-		return nil, errors.New("missing required argument 'AppId'")
-	}
-	if args == nil || args.Uri == nil {
-		return nil, errors.New("missing required argument 'Uri'")
-	}
 	if args == nil {
-		args = &OauthAppRedirectUriArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppId == nil {
+		return nil, errors.New("invalid value for required argument 'AppId'")
+	}
+	if args.Uri == nil {
+		return nil, errors.New("invalid value for required argument 'Uri'")
 	}
 	var resource OauthAppRedirectUri
 	err := ctx.RegisterResource("okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri", name, args, &resource, opts...)

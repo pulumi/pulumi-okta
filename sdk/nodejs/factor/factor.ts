@@ -74,7 +74,7 @@ export class Factor extends pulumi.CustomResource {
             inputs["providerId"] = state ? state.providerId : undefined;
         } else {
             const args = argsOrState as FactorArgs | undefined;
-            if (!args || args.providerId === undefined) {
+            if ((!args || args.providerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerId'");
             }
             inputs["active"] = args ? args.active : undefined;

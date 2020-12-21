@@ -23,15 +23,22 @@ import * as utilities from "../utilities";
  *     scope: "SELF",
  *     title: "customPropertyName",
  *     type: "string",
+ *     userType: okta_user_type_example.id,
  * });
  * ```
  *
  * ## Import
  *
- * User schema property can be imported via the property index.
+ * User schema property of default user type can be imported via the property index.
  *
  * ```sh
  *  $ pulumi import okta:user/schema:Schema example <index>
+ * ```
+ *
+ *  User schema property of custom user type can be imported via user type id and property index
+ *
+ * ```sh
+ *  $ pulumi import okta:user/schema:Schema example <user type id>.<index>
  * ```
  */
 export class Schema extends pulumi.CustomResource {
@@ -134,6 +141,10 @@ export class Schema extends pulumi.CustomResource {
      * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
      */
     public readonly unique!: pulumi.Output<string | undefined>;
+    /**
+     * User type ID
+     */
+    public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -165,15 +176,16 @@ export class Schema extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["unique"] = state ? state.unique : undefined;
+            inputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
-            if (!args || args.index === undefined) {
+            if ((!args || args.index === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'index'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["arrayEnums"] = args ? args.arrayEnums : undefined;
@@ -194,6 +206,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["unique"] = args ? args.unique : undefined;
+            inputs["userType"] = args ? args.userType : undefined;
         }
         if (!opts) {
             opts = {}
@@ -282,6 +295,10 @@ export interface SchemaState {
      * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
      */
     readonly unique?: pulumi.Input<string>;
+    /**
+     * User type ID
+     */
+    readonly userType?: pulumi.Input<string>;
 }
 
 /**
@@ -360,4 +377,8 @@ export interface SchemaArgs {
      * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
      */
     readonly unique?: pulumi.Input<string>;
+    /**
+     * User type ID
+     */
+    readonly userType?: pulumi.Input<string>;
 }

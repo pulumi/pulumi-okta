@@ -62,6 +62,18 @@ namespace Pulumi.Okta.App
         [Input("accessibilitySelfService")]
         public bool? AccessibilitySelfService { get; set; }
 
+        [Input("acsEndpoints")]
+        private List<string>? _acsEndpoints;
+
+        /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        public List<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new List<string>());
+            set => _acsEndpoints = value;
+        }
+
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
         /// </summary>
@@ -84,7 +96,7 @@ namespace Pulumi.Okta.App
         private List<Inputs.GetSamlAttributeStatementArgs>? _attributeStatements;
 
         /// <summary>
-        /// SAML Attribute statements.
+        /// (Optional) List of SAML Attribute statements.
         /// </summary>
         public List<Inputs.GetSamlAttributeStatementArgs> AttributeStatements
         {
@@ -269,6 +281,10 @@ namespace Pulumi.Okta.App
         /// Enable self service.
         /// </summary>
         public readonly bool? AccessibilitySelfService;
+        /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        public readonly ImmutableArray<string> AcsEndpoints;
         public readonly bool? ActiveOnly;
         /// <summary>
         /// Application settings in JSON format.
@@ -279,7 +295,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool? AssertionSigned;
         /// <summary>
-        /// SAML Attribute statements.
+        /// (Optional) List of SAML Attribute statements.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSamlAttributeStatementResult> AttributeStatements;
         /// <summary>
@@ -344,7 +360,7 @@ namespace Pulumi.Okta.App
         public readonly string? Label;
         public readonly string? LabelPrefix;
         /// <summary>
-        /// name of application.
+        /// (Required) The name of the attribute statement.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -403,6 +419,8 @@ namespace Pulumi.Okta.App
             string? accessibilityLoginRedirectUrl,
 
             bool? accessibilitySelfService,
+
+            ImmutableArray<string> acsEndpoints,
 
             bool? activeOnly,
 
@@ -473,6 +491,7 @@ namespace Pulumi.Okta.App
             AccessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
             AccessibilityLoginRedirectUrl = accessibilityLoginRedirectUrl;
             AccessibilitySelfService = accessibilitySelfService;
+            AcsEndpoints = acsEndpoints;
             ActiveOnly = activeOnly;
             AppSettingsJson = appSettingsJson;
             AssertionSigned = assertionSigned;

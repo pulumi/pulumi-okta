@@ -6,8 +6,42 @@
 from .base_schema import *
 from .get_user import *
 from .get_user_profile_mapping_source import *
+from .get_user_type import *
 from .get_users import *
 from .schema import *
 from .user import *
+from .user_type import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "okta:user/baseSchema:BaseSchema":
+                return BaseSchema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:user/schema:Schema":
+                return Schema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:user/user:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:user/userType:UserType":
+                return UserType(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("okta", "user/baseSchema", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "user/schema", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "user/user", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "user/userType", _module_instance)
+
+_register_module()

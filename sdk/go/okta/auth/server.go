@@ -78,11 +78,12 @@ type Server struct {
 // NewServer registers a new resource with the given unique name, arguments, and options.
 func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOption) (*Server, error) {
-	if args == nil || args.Audiences == nil {
-		return nil, errors.New("missing required argument 'Audiences'")
-	}
 	if args == nil {
-		args = &ServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Audiences == nil {
+		return nil, errors.New("invalid value for required argument 'Audiences'")
 	}
 	var resource Server
 	err := ctx.RegisterResource("okta:auth/server:Server", name, args, &resource, opts...)

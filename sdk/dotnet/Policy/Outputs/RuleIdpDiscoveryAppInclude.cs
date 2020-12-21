@@ -14,13 +14,16 @@ namespace Pulumi.Okta.Policy.Outputs
     public sealed class RuleIdpDiscoveryAppInclude
     {
         /// <summary>
-        /// ID of the Rule.
+        /// Use if `type` is `"APP"` to indicate the application Id to include.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

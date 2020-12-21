@@ -30,6 +30,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
 
         /// <summary>
+        /// List of ACS endpoints for this SAML application
+        /// </summary>
+        [Output("acsEndpoints")]
+        public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
+
+        /// <summary>
         /// Application settings in JSON format
         /// </summary>
         [Output("appSettingsJson")]
@@ -336,6 +342,18 @@ namespace Pulumi.Okta.Deprecated
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
 
+        [Input("acsEndpoints")]
+        private InputList<string>? _acsEndpoints;
+
+        /// <summary>
+        /// List of ACS endpoints for this SAML application
+        /// </summary>
+        public InputList<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
+            set => _acsEndpoints = value;
+        }
+
         /// <summary>
         /// Application settings in JSON format
         /// </summary>
@@ -572,6 +590,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
+
+        [Input("acsEndpoints")]
+        private InputList<string>? _acsEndpoints;
+
+        /// <summary>
+        /// List of ACS endpoints for this SAML application
+        /// </summary>
+        public InputList<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
+            set => _acsEndpoints = value;
+        }
 
         /// <summary>
         /// Application settings in JSON format

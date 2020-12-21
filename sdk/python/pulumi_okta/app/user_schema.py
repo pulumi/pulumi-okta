@@ -36,6 +36,7 @@ class UserSchema(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unique: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -89,6 +90,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +109,7 @@ class UserSchema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_id is None:
+            if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__['app_id'] = app_id
             __props__['array_enums'] = array_enums
@@ -117,7 +119,7 @@ class UserSchema(pulumi.CustomResource):
             __props__['enums'] = enums
             __props__['external_name'] = external_name
             __props__['external_namespace'] = external_namespace
-            if index is None:
+            if index is None and not opts.urn:
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
@@ -127,13 +129,14 @@ class UserSchema(pulumi.CustomResource):
             __props__['permissions'] = permissions
             __props__['required'] = required
             __props__['scope'] = scope
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['unique'] = unique
+            __props__['user_type'] = user_type
         super(UserSchema, __self__).__init__(
             'okta:app/userSchema:UserSchema',
             resource_name,
@@ -162,7 +165,8 @@ class UserSchema(pulumi.CustomResource):
             scope: Optional[pulumi.Input[str]] = None,
             title: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            unique: Optional[pulumi.Input[str]] = None) -> 'UserSchema':
+            unique: Optional[pulumi.Input[str]] = None,
+            user_type: Optional[pulumi.Input[str]] = None) -> 'UserSchema':
         """
         Get an existing UserSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -189,6 +193,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -213,6 +218,7 @@ class UserSchema(pulumi.CustomResource):
         __props__["title"] = title
         __props__["type"] = type
         __props__["unique"] = unique
+        __props__["user_type"] = user_type
         return UserSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -366,6 +372,14 @@ class UserSchema(pulumi.CustomResource):
         Subschema unique restriction
         """
         return pulumi.get(self, "unique")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom subschema user type
+        """
+        return pulumi.get(self, "user_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

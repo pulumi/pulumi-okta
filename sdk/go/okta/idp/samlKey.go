@@ -69,11 +69,12 @@ type SamlKey struct {
 // NewSamlKey registers a new resource with the given unique name, arguments, and options.
 func NewSamlKey(ctx *pulumi.Context,
 	name string, args *SamlKeyArgs, opts ...pulumi.ResourceOption) (*SamlKey, error) {
-	if args == nil || args.X5cs == nil {
-		return nil, errors.New("missing required argument 'X5cs'")
-	}
 	if args == nil {
-		args = &SamlKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.X5cs == nil {
+		return nil, errors.New("invalid value for required argument 'X5cs'")
 	}
 	var resource SamlKey
 	err := ctx.RegisterResource("okta:idp/samlKey:SamlKey", name, args, &resource, opts...)

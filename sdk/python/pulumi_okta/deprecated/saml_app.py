@@ -20,6 +20,7 @@ class SamlApp(pulumi.CustomResource):
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
@@ -62,6 +63,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -114,6 +116,7 @@ class SamlApp(pulumi.CustomResource):
             __props__['accessibility_error_redirect_url'] = accessibility_error_redirect_url
             __props__['accessibility_login_redirect_url'] = accessibility_login_redirect_url
             __props__['accessibility_self_service'] = accessibility_self_service
+            __props__['acs_endpoints'] = acs_endpoints
             __props__['app_settings_json'] = app_settings_json
             __props__['assertion_signed'] = assertion_signed
             __props__['attribute_statements'] = attribute_statements
@@ -131,7 +134,7 @@ class SamlApp(pulumi.CustomResource):
             __props__['idp_issuer'] = idp_issuer
             __props__['key_name'] = key_name
             __props__['key_years_valid'] = key_years_valid
-            if label is None:
+            if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__['label'] = label
             __props__['preconfigured_app'] = preconfigured_app
@@ -170,6 +173,7 @@ class SamlApp(pulumi.CustomResource):
             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+            acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             app_settings_json: Optional[pulumi.Input[str]] = None,
             assertion_signed: Optional[pulumi.Input[bool]] = None,
             attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
@@ -221,6 +225,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -269,6 +274,7 @@ class SamlApp(pulumi.CustomResource):
         __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__["accessibility_self_service"] = accessibility_self_service
+        __props__["acs_endpoints"] = acs_endpoints
         __props__["app_settings_json"] = app_settings_json
         __props__["assertion_signed"] = assertion_signed
         __props__["attribute_statements"] = attribute_statements
@@ -335,6 +341,14 @@ class SamlApp(pulumi.CustomResource):
         Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
+
+    @property
+    @pulumi.getter(name="acsEndpoints")
+    def acs_endpoints(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of ACS endpoints for this SAML application
+        """
+        return pulumi.get(self, "acs_endpoints")
 
     @property
     @pulumi.getter(name="appSettingsJson")

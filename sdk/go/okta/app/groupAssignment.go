@@ -37,14 +37,15 @@ type GroupAssignment struct {
 // NewGroupAssignment registers a new resource with the given unique name, arguments, and options.
 func NewGroupAssignment(ctx *pulumi.Context,
 	name string, args *GroupAssignmentArgs, opts ...pulumi.ResourceOption) (*GroupAssignment, error) {
-	if args == nil || args.AppId == nil {
-		return nil, errors.New("missing required argument 'AppId'")
-	}
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
 	if args == nil {
-		args = &GroupAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppId == nil {
+		return nil, errors.New("invalid value for required argument 'AppId'")
+	}
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	var resource GroupAssignment
 	err := ctx.RegisterResource("okta:app/groupAssignment:GroupAssignment", name, args, &resource, opts...)
