@@ -118,7 +118,8 @@ def get_group(include_users: Optional[bool] = None,
 
     :param bool include_users: whether or not to retrieve all member ids.
     :param str name: name of group to retrieve.
-    :param str type: type of the group to retrieve.
+    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
     """
     __args__ = dict()
     __args__['includeUsers'] = include_users

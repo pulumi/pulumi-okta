@@ -53,6 +53,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("kid")]
         public Output<string> Kid { get; private set; } = null!;
 
+        [Output("maxClockSkew")]
+        public Output<int?> MaxClockSkew { get; private set; } = null!;
+
         /// <summary>
         /// name of idp
         /// </summary>
@@ -225,6 +228,9 @@ namespace Pulumi.Okta.Deprecated
         [Input("kid", required: true)]
         public Input<string> Kid { get; set; } = null!;
 
+        [Input("maxClockSkew")]
+        public Input<int>? MaxClockSkew { get; set; }
+
         /// <summary>
         /// name of idp
         /// </summary>
@@ -362,6 +368,9 @@ namespace Pulumi.Okta.Deprecated
 
         [Input("kid")]
         public Input<string>? Kid { get; set; }
+
+        [Input("maxClockSkew")]
+        public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
         /// name of idp

@@ -26,8 +26,9 @@ type SamlIdp struct {
 	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	Issuer                   pulumi.StringOutput      `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	Kid        pulumi.StringOutput    `pulumi:"kid"`
+	IssuerMode   pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	Kid          pulumi.StringOutput    `pulumi:"kid"`
+	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	NameFormat         pulumi.StringPtrOutput `pulumi:"nameFormat"`
@@ -107,8 +108,9 @@ type samlIdpState struct {
 	GroupsFilters            []string `pulumi:"groupsFilters"`
 	Issuer                   *string  `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode *string `pulumi:"issuerMode"`
-	Kid        *string `pulumi:"kid"`
+	IssuerMode   *string `pulumi:"issuerMode"`
+	Kid          *string `pulumi:"kid"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               *string `pulumi:"name"`
 	NameFormat         *string `pulumi:"nameFormat"`
@@ -148,8 +150,9 @@ type SamlIdpState struct {
 	GroupsFilters            pulumi.StringArrayInput
 	Issuer                   pulumi.StringPtrInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrInput
-	Kid        pulumi.StringPtrInput
+	IssuerMode   pulumi.StringPtrInput
+	Kid          pulumi.StringPtrInput
+	MaxClockSkew pulumi.IntPtrInput
 	// name of idp
 	Name               pulumi.StringPtrInput
 	NameFormat         pulumi.StringPtrInput
@@ -192,8 +195,9 @@ type samlIdpArgs struct {
 	GroupsFilters            []string `pulumi:"groupsFilters"`
 	Issuer                   string   `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode *string `pulumi:"issuerMode"`
-	Kid        string  `pulumi:"kid"`
+	IssuerMode   *string `pulumi:"issuerMode"`
+	Kid          string  `pulumi:"kid"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// name of idp
 	Name               *string `pulumi:"name"`
 	NameFormat         *string `pulumi:"nameFormat"`
@@ -232,8 +236,9 @@ type SamlIdpArgs struct {
 	GroupsFilters            pulumi.StringArrayInput
 	Issuer                   pulumi.StringInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-	IssuerMode pulumi.StringPtrInput
-	Kid        pulumi.StringInput
+	IssuerMode   pulumi.StringPtrInput
+	Kid          pulumi.StringInput
+	MaxClockSkew pulumi.IntPtrInput
 	// name of idp
 	Name               pulumi.StringPtrInput
 	NameFormat         pulumi.StringPtrInput

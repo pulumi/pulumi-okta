@@ -75,6 +75,10 @@ export class BaseSchema extends pulumi.CustomResource {
      */
     public readonly master!: pulumi.Output<string | undefined>;
     /**
+     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+     */
+    public readonly pattern!: pulumi.Output<string | undefined>;
+    /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
@@ -109,6 +113,7 @@ export class BaseSchema extends pulumi.CustomResource {
             const state = argsOrState as BaseSchemaState | undefined;
             inputs["index"] = state ? state.index : undefined;
             inputs["master"] = state ? state.master : undefined;
+            inputs["pattern"] = state ? state.pattern : undefined;
             inputs["permissions"] = state ? state.permissions : undefined;
             inputs["required"] = state ? state.required : undefined;
             inputs["title"] = state ? state.title : undefined;
@@ -127,6 +132,7 @@ export class BaseSchema extends pulumi.CustomResource {
             }
             inputs["index"] = args ? args.index : undefined;
             inputs["master"] = args ? args.master : undefined;
+            inputs["pattern"] = args ? args.pattern : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["required"] = args ? args.required : undefined;
             inputs["title"] = args ? args.title : undefined;
@@ -156,6 +162,10 @@ export interface BaseSchemaState {
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
     readonly master?: pulumi.Input<string>;
+    /**
+     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+     */
+    readonly pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
@@ -190,6 +200,10 @@ export interface BaseSchemaArgs {
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
     readonly master?: pulumi.Input<string>;
+    /**
+     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+     */
+    readonly pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */

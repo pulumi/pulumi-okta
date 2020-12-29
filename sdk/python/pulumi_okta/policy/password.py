@@ -16,6 +16,7 @@ class Password(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_provider: Optional[pulumi.Input[str]] = None,
+                 call_recovery: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  email_recovery: Optional[pulumi.Input[str]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -76,6 +77,7 @@ class Password(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description.
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
@@ -123,6 +125,7 @@ class Password(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auth_provider'] = auth_provider
+            __props__['call_recovery'] = call_recovery
             __props__['description'] = description
             __props__['email_recovery'] = email_recovery
             __props__['groups_includeds'] = groups_includeds
@@ -162,6 +165,7 @@ class Password(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auth_provider: Optional[pulumi.Input[str]] = None,
+            call_recovery: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             email_recovery: Optional[pulumi.Input[str]] = None,
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -198,6 +202,7 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description.
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
@@ -232,6 +237,7 @@ class Password(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["auth_provider"] = auth_provider
+        __props__["call_recovery"] = call_recovery
         __props__["description"] = description
         __props__["email_recovery"] = email_recovery
         __props__["groups_includeds"] = groups_includeds
@@ -269,6 +275,14 @@ class Password(pulumi.CustomResource):
         Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
         """
         return pulumi.get(self, "auth_provider")
+
+    @property
+    @pulumi.getter(name="callRecovery")
+    def call_recovery(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "call_recovery")
 
     @property
     @pulumi.getter

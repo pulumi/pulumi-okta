@@ -83,6 +83,8 @@ type Saml struct {
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the signing key.
 	Kid pulumi.StringOutput `pulumi:"kid"`
+	// Maximum allowable clock-skew when processing messages from the IdP.
+	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
@@ -190,6 +192,8 @@ type samlState struct {
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the signing key.
 	Kid *string `pulumi:"kid"`
+	// Maximum allowable clock-skew when processing messages from the IdP.
+	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name *string `pulumi:"name"`
 	// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
@@ -257,6 +261,8 @@ type SamlState struct {
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the signing key.
 	Kid pulumi.StringPtrInput
+	// Maximum allowable clock-skew when processing messages from the IdP.
+	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
 	Name pulumi.StringPtrInput
 	// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
@@ -326,6 +332,8 @@ type samlArgs struct {
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the signing key.
 	Kid string `pulumi:"kid"`
+	// Maximum allowable clock-skew when processing messages from the IdP.
+	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name *string `pulumi:"name"`
 	// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
@@ -390,6 +398,8 @@ type SamlArgs struct {
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the signing key.
 	Kid pulumi.StringInput
+	// Maximum allowable clock-skew when processing messages from the IdP.
+	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
 	Name pulumi.StringPtrInput
 	// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.

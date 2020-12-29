@@ -65,3 +65,9 @@ func GetOrgName(ctx *pulumi.Context) string {
 func GetParallelism(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:parallelism")
 }
+
+// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+// value can be `100`.
+func GetRequestTimeout(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "okta:requestTimeout")
+}

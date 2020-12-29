@@ -80,6 +80,8 @@ type UserSchema struct {
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayOutput `pulumi:"oneOfs"`
+	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -163,6 +165,8 @@ type userSchemaState struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []UserSchemaOneOf `pulumi:"oneOfs"`
+	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -206,6 +210,8 @@ type UserSchemaState struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayInput
+	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -253,6 +259,8 @@ type userSchemaArgs struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []UserSchemaOneOf `pulumi:"oneOfs"`
+	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -297,6 +305,8 @@ type UserSchemaArgs struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayInput
+	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.

@@ -18,6 +18,7 @@ __all__ = [
     'min_wait_seconds',
     'org_name',
     'parallelism',
+    'request_timeout',
 ]
 
 __config__ = pulumi.Config('okta')
@@ -66,5 +67,11 @@ parallelism = __config__.get('parallelism')
 """
 Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
 https://developer.okta.com/docs/api/getting_started/rate-limits.
+"""
+
+request_timeout = __config__.get('requestTimeout')
+"""
+Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+value can be `100`.
 """
 

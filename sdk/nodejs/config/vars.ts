@@ -43,3 +43,8 @@ export let orgName: string | undefined = __config.get("orgName") || utilities.ge
  * https://developer.okta.com/docs/api/getting_started/rate-limits.
  */
 export let parallelism: number | undefined = __config.getObject<number>("parallelism");
+/**
+ * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+ * value can be `100`.
+ */
+export let requestTimeout: number | undefined = __config.getObject<number>("requestTimeout");

@@ -118,6 +118,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly oneOfs!: pulumi.Output<outputs.user.SchemaOneOf[] | undefined>;
     /**
+     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+     */
+    public readonly pattern!: pulumi.Output<string | undefined>;
+    /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
@@ -170,6 +174,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["maxLength"] = state ? state.maxLength : undefined;
             inputs["minLength"] = state ? state.minLength : undefined;
             inputs["oneOfs"] = state ? state.oneOfs : undefined;
+            inputs["pattern"] = state ? state.pattern : undefined;
             inputs["permissions"] = state ? state.permissions : undefined;
             inputs["required"] = state ? state.required : undefined;
             inputs["scope"] = state ? state.scope : undefined;
@@ -200,6 +205,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["maxLength"] = args ? args.maxLength : undefined;
             inputs["minLength"] = args ? args.minLength : undefined;
             inputs["oneOfs"] = args ? args.oneOfs : undefined;
+            inputs["pattern"] = args ? args.pattern : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["required"] = args ? args.required : undefined;
             inputs["scope"] = args ? args.scope : undefined;
@@ -271,6 +277,10 @@ export interface SchemaState {
      * Array of maps containing a mapping for display name to enum value.
      */
     readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.user.SchemaOneOf>[]>;
+    /**
+     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+     */
+    readonly pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
@@ -353,6 +363,10 @@ export interface SchemaArgs {
      * Array of maps containing a mapping for display name to enum value.
      */
     readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.user.SchemaOneOf>[]>;
+    /**
+     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+     */
+    readonly pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
