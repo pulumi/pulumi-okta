@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.7.4 of the Okta Terraform Provider
+_(none)_
 
 ---
+
+## 2.7.1 (2020-12-30)
+* Upgrade to v3.7.4 of the Okta Terraform Provider
 
 ## 2.7.0 (2020-12-21)
 * Upgrade to v3.7.2 of the Okta Terraform Provider
