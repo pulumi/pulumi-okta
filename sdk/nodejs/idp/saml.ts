@@ -118,6 +118,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly kid!: pulumi.Output<string>;
     /**
+     * Maximum allowable clock-skew when processing messages from the IdP.
+     */
+    public readonly maxClockSkew!: pulumi.Output<number | undefined>;
+    /**
      * The Application's display name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -219,6 +223,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["issuer"] = state ? state.issuer : undefined;
             inputs["issuerMode"] = state ? state.issuerMode : undefined;
             inputs["kid"] = state ? state.kid : undefined;
+            inputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nameFormat"] = state ? state.nameFormat : undefined;
             inputs["profileMaster"] = state ? state.profileMaster : undefined;
@@ -264,6 +269,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["issuer"] = args ? args.issuer : undefined;
             inputs["issuerMode"] = args ? args.issuerMode : undefined;
             inputs["kid"] = args ? args.kid : undefined;
+            inputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nameFormat"] = args ? args.nameFormat : undefined;
             inputs["profileMaster"] = args ? args.profileMaster : undefined;
@@ -352,6 +358,10 @@ export interface SamlState {
      * The ID of the signing key.
      */
     readonly kid?: pulumi.Input<string>;
+    /**
+     * Maximum allowable clock-skew when processing messages from the IdP.
+     */
+    readonly maxClockSkew?: pulumi.Input<number>;
     /**
      * The Application's display name.
      */
@@ -482,6 +492,10 @@ export interface SamlArgs {
      * The ID of the signing key.
      */
     readonly kid: pulumi.Input<string>;
+    /**
+     * Maximum allowable clock-skew when processing messages from the IdP.
+     */
+    readonly maxClockSkew?: pulumi.Input<number>;
     /**
      * The Application's display name.
      */

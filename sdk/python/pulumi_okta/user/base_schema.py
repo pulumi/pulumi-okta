@@ -17,6 +17,7 @@ class BaseSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  index: Optional[pulumi.Input[str]] = None,
                  master: Optional[pulumi.Input[str]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -62,6 +63,7 @@ class BaseSchema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
@@ -89,6 +91,7 @@ class BaseSchema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
+            __props__['pattern'] = pattern
             __props__['permissions'] = permissions
             __props__['required'] = required
             if title is None and not opts.urn:
@@ -110,6 +113,7 @@ class BaseSchema(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             index: Optional[pulumi.Input[str]] = None,
             master: Optional[pulumi.Input[str]] = None,
+            pattern: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
             title: Optional[pulumi.Input[str]] = None,
@@ -124,6 +128,7 @@ class BaseSchema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
@@ -136,6 +141,7 @@ class BaseSchema(pulumi.CustomResource):
 
         __props__["index"] = index
         __props__["master"] = master
+        __props__["pattern"] = pattern
         __props__["permissions"] = permissions
         __props__["required"] = required
         __props__["title"] = title
@@ -158,6 +164,14 @@ class BaseSchema(pulumi.CustomResource):
         Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         """
         return pulumi.get(self, "master")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+        """
+        return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter

@@ -62,6 +62,9 @@ type providerArgs struct {
 	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
 	// https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism *int `pulumi:"parallelism"`
+	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+	// value can be `100`.
+	RequestTimeout *int `pulumi:"requestTimeout"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -85,6 +88,9 @@ type ProviderArgs struct {
 	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
 	// https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism pulumi.IntPtrInput
+	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+	// value can be `100`.
+	RequestTimeout pulumi.IntPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

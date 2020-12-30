@@ -48,6 +48,7 @@ export class SamlIdp extends pulumi.CustomResource {
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     public readonly kid!: pulumi.Output<string>;
+    public readonly maxClockSkew!: pulumi.Output<number | undefined>;
     /**
      * name of idp
      */
@@ -108,6 +109,7 @@ export class SamlIdp extends pulumi.CustomResource {
             inputs["issuer"] = state ? state.issuer : undefined;
             inputs["issuerMode"] = state ? state.issuerMode : undefined;
             inputs["kid"] = state ? state.kid : undefined;
+            inputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nameFormat"] = state ? state.nameFormat : undefined;
             inputs["profileMaster"] = state ? state.profileMaster : undefined;
@@ -153,6 +155,7 @@ export class SamlIdp extends pulumi.CustomResource {
             inputs["issuer"] = args ? args.issuer : undefined;
             inputs["issuerMode"] = args ? args.issuerMode : undefined;
             inputs["kid"] = args ? args.kid : undefined;
+            inputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nameFormat"] = args ? args.nameFormat : undefined;
             inputs["profileMaster"] = args ? args.profileMaster : undefined;
@@ -205,6 +208,7 @@ export interface SamlIdpState {
      */
     readonly issuerMode?: pulumi.Input<string>;
     readonly kid?: pulumi.Input<string>;
+    readonly maxClockSkew?: pulumi.Input<number>;
     /**
      * name of idp
      */
@@ -260,6 +264,7 @@ export interface SamlIdpArgs {
      */
     readonly issuerMode?: pulumi.Input<string>;
     readonly kid: pulumi.Input<string>;
+    readonly maxClockSkew?: pulumi.Input<number>;
     /**
      * name of idp
      */

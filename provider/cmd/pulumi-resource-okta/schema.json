@@ -64,6 +64,10 @@
             "parallelism": {
                 "type": "integer",
                 "description": "Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of\nhttps://developer.okta.com/docs/api/getting_started/rate-limits.\n"
+            },
+            "requestTimeout": {
+                "type": "integer",
+                "description": "Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum\nvalue can be `100`.\n"
             }
         }
     },
@@ -1870,6 +1874,10 @@
             "parallelism": {
                 "type": "integer",
                 "description": "Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of\nhttps://developer.okta.com/docs/api/getting_started/rate-limits.\n"
+            },
+            "requestTimeout": {
+                "type": "integer",
+                "description": "Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum\nvalue can be `100`.\n"
             }
         }
     },
@@ -4634,6 +4642,10 @@
                     "type": "string",
                     "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
                 },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
+                },
                 "permissions": {
                     "type": "string",
                     "description": "Access control permissions for the property. It can be set to `\"READ_WRITE\"`, `\"READ_ONLY\"`, `\"HIDE\"`.\n"
@@ -4673,6 +4685,10 @@
                 "master": {
                     "type": "string",
                     "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -4715,6 +4731,10 @@
                     "master": {
                         "type": "string",
                         "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
                     },
                     "permissions": {
                         "type": "string",
@@ -4806,6 +4826,10 @@
                         "$ref": "#/types/okta:app/UserSchemaOneOf:UserSchemaOneOf"
                     },
                     "description": "Array of maps containing a mapping for display name to enum value.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -4906,6 +4930,10 @@
                         "$ref": "#/types/okta:app/UserSchemaOneOf:UserSchemaOneOf"
                     },
                     "description": "Array of maps containing a mapping for display name to enum value.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -5008,6 +5036,10 @@
                             "$ref": "#/types/okta:app/UserSchemaOneOf:UserSchemaOneOf"
                         },
                         "description": "Array of maps containing a mapping for display name to enum value.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                     },
                     "permissions": {
                         "type": "string",
@@ -7898,6 +7930,10 @@
                     "type": "string",
                     "description": "Authentication Provider: OKTA or ACTIVE_DIRECTORY.\n"
                 },
+                "callRecovery": {
+                    "type": "string",
+                    "description": "Enable or disable voice call recovery: ACTIVE or INACTIVE.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description\n"
@@ -8025,6 +8061,10 @@
                     "type": "string",
                     "description": "Authentication Provider: OKTA or ACTIVE_DIRECTORY.\n"
                 },
+                "callRecovery": {
+                    "type": "string",
+                    "description": "Enable or disable voice call recovery: ACTIVE or INACTIVE.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description\n"
@@ -8150,6 +8190,10 @@
                     "authProvider": {
                         "type": "string",
                         "description": "Authentication Provider: OKTA or ACTIVE_DIRECTORY.\n"
+                    },
+                    "callRecovery": {
+                        "type": "string",
+                        "description": "Enable or disable voice call recovery: ACTIVE or INACTIVE.\n"
                     },
                     "description": {
                         "type": "string",
@@ -9075,6 +9119,9 @@
                 "kid": {
                     "type": "string"
                 },
+                "maxClockSkew": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string",
                     "description": "name of idp\n"
@@ -9197,6 +9244,9 @@
                 "kid": {
                     "type": "string"
                 },
+                "maxClockSkew": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string",
                     "description": "name of idp\n"
@@ -9317,6 +9367,9 @@
                     },
                     "kid": {
                         "type": "string"
+                    },
+                    "maxClockSkew": {
+                        "type": "integer"
                     },
                     "name": {
                         "type": "string",
@@ -11912,6 +11965,10 @@
                     "type": "string",
                     "description": "The ID of the signing key.\n"
                 },
+                "maxClockSkew": {
+                    "type": "integer",
+                    "description": "Maximum allowable clock-skew when processing messages from the IdP.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The Application's display name.\n"
@@ -12059,6 +12116,10 @@
                     "type": "string",
                     "description": "The ID of the signing key.\n"
                 },
+                "maxClockSkew": {
+                    "type": "integer",
+                    "description": "Maximum allowable clock-skew when processing messages from the IdP.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The Application's display name.\n"
@@ -12204,6 +12265,10 @@
                     "kid": {
                         "type": "string",
                         "description": "The ID of the signing key.\n"
+                    },
+                    "maxClockSkew": {
+                        "type": "integer",
+                        "description": "Maximum allowable clock-skew when processing messages from the IdP.\n"
                     },
                     "name": {
                         "type": "string",
@@ -13609,6 +13674,10 @@
                     "type": "string",
                     "description": "Authentication Provider: `\"OKTA\"` or `\"ACTIVE_DIRECTORY\"`. Default is `\"OKTA\"`.\n"
                 },
+                "callRecovery": {
+                    "type": "string",
+                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description.\n"
@@ -13736,6 +13805,10 @@
                     "type": "string",
                     "description": "Authentication Provider: `\"OKTA\"` or `\"ACTIVE_DIRECTORY\"`. Default is `\"OKTA\"`.\n"
                 },
+                "callRecovery": {
+                    "type": "string",
+                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description.\n"
@@ -13861,6 +13934,10 @@
                     "authProvider": {
                         "type": "string",
                         "description": "Authentication Provider: `\"OKTA\"` or `\"ACTIVE_DIRECTORY\"`. Default is `\"OKTA\"`.\n"
+                    },
+                    "callRecovery": {
+                        "type": "string",
+                        "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
                     },
                     "description": {
                         "type": "string",
@@ -15190,6 +15267,10 @@
                     "type": "string",
                     "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
                 },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
+                },
                 "permissions": {
                     "type": "string",
                     "description": "Access control permissions for the property. It can be set to `\"READ_WRITE\"`, `\"READ_ONLY\"`, `\"HIDE\"`.\n"
@@ -15224,6 +15305,10 @@
                 "master": {
                     "type": "string",
                     "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -15261,6 +15346,10 @@
                     "master": {
                         "type": "string",
                         "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[\u003cpattern\u003e]+`.\n"
                     },
                     "permissions": {
                         "type": "string",
@@ -15348,6 +15437,10 @@
                         "$ref": "#/types/okta:user/SchemaOneOf:SchemaOneOf"
                     },
                     "description": "Array of maps containing a mapping for display name to enum value.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -15443,6 +15536,10 @@
                         "$ref": "#/types/okta:user/SchemaOneOf:SchemaOneOf"
                     },
                     "description": "Array of maps containing a mapping for display name to enum value.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                 },
                 "permissions": {
                     "type": "string",
@@ -15540,6 +15637,10 @@
                             "$ref": "#/types/okta:user/SchemaOneOf:SchemaOneOf"
                         },
                         "description": "Array of maps containing a mapping for display name to enum value.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The validation pattern to use for the subschema. Must be in form of '.+', or '[\u003cpattern\u003e]+' if present.'\n"
                     },
                     "permissions": {
                         "type": "string",
@@ -16742,7 +16843,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "type of the group to retrieve.\n"
+                        "description": "type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`\n(Imported App Groups), or `BUILT_IN` (Okta System Groups).\n"
                     }
                 },
                 "type": "object",

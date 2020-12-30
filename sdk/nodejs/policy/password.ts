@@ -64,6 +64,10 @@ export class Password extends pulumi.CustomResource {
      */
     public readonly authProvider!: pulumi.Output<string | undefined>;
     /**
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     */
+    public readonly callRecovery!: pulumi.Output<string | undefined>;
+    /**
      * Policy Description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -189,6 +193,7 @@ export class Password extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as PasswordState | undefined;
             inputs["authProvider"] = state ? state.authProvider : undefined;
+            inputs["callRecovery"] = state ? state.callRecovery : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["emailRecovery"] = state ? state.emailRecovery : undefined;
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
@@ -220,6 +225,7 @@ export class Password extends pulumi.CustomResource {
         } else {
             const args = argsOrState as PasswordArgs | undefined;
             inputs["authProvider"] = args ? args.authProvider : undefined;
+            inputs["callRecovery"] = args ? args.callRecovery : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["emailRecovery"] = args ? args.emailRecovery : undefined;
             inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
@@ -268,6 +274,10 @@ export interface PasswordState {
      * Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
      */
     readonly authProvider?: pulumi.Input<string>;
+    /**
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     */
+    readonly callRecovery?: pulumi.Input<string>;
     /**
      * Policy Description.
      */
@@ -390,6 +400,10 @@ export interface PasswordArgs {
      * Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
      */
     readonly authProvider?: pulumi.Input<string>;
+    /**
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     */
+    readonly callRecovery?: pulumi.Input<string>;
     /**
      * Policy Description.
      */

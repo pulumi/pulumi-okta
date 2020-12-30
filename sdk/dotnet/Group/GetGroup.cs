@@ -57,7 +57,8 @@ namespace Pulumi.Okta.Group
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// type of the group to retrieve.
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }

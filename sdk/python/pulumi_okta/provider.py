@@ -24,6 +24,7 @@ class Provider(pulumi.ProviderResource):
                  min_wait_seconds: Optional[pulumi.Input[int]] = None,
                  org_name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
+                 request_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,6 +46,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] org_name: The organization to manage in Okta.
         :param pulumi.Input[int] parallelism: Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
                https://developer.okta.com/docs/api/getting_started/rate-limits.
+        :param pulumi.Input[int] request_timeout: Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+               value can be `100`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,6 +81,7 @@ class Provider(pulumi.ProviderResource):
                 org_name = _utilities.get_env('OKTA_ORG_NAME')
             __props__['org_name'] = org_name
             __props__['parallelism'] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
+            __props__['request_timeout'] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
         super(Provider, __self__).__init__(
             'okta',
             resource_name,

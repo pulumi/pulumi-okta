@@ -54,5 +54,11 @@ namespace Pulumi.Okta
         /// </summary>
         public static int? Parallelism { get; set; } = __config.GetInt32("parallelism");
 
+        /// <summary>
+        /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+        /// value can be `100`.
+        /// </summary>
+        public static int? RequestTimeout { get; set; } = __config.GetInt32("requestTimeout");
+
     }
 }

@@ -46,7 +46,8 @@ type LookupGroupArgs struct {
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// name of group to retrieve.
 	Name string `pulumi:"name"`
-	// type of the group to retrieve.
+	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
 	Type *string `pulumi:"type"`
 }
 

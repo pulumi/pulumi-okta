@@ -45,6 +45,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
             inputs["orgName"] = (args ? args.orgName : undefined) || utilities.getEnv("OKTA_ORG_NAME");
             inputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
+            inputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
         }
         if (!opts) {
             opts = {}
@@ -98,4 +99,9 @@ export interface ProviderArgs {
      * https://developer.okta.com/docs/api/getting_started/rate-limits.
      */
     readonly parallelism?: pulumi.Input<number>;
+    /**
+     * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+     * value can be `100`.
+     */
+    readonly requestTimeout?: pulumi.Input<number>;
 }

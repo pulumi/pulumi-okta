@@ -15,6 +15,8 @@ type PasswordPolicy struct {
 
 	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
 	AuthProvider pulumi.StringPtrOutput `pulumi:"authProvider"`
+	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrOutput `pulumi:"callRecovery"`
 	// Policy Description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -106,6 +108,8 @@ func GetPasswordPolicy(ctx *pulumi.Context,
 type passwordPolicyState struct {
 	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
 	AuthProvider *string `pulumi:"authProvider"`
+	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+	CallRecovery *string `pulumi:"callRecovery"`
 	// Policy Description
 	Description *string `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -169,6 +173,8 @@ type passwordPolicyState struct {
 type PasswordPolicyState struct {
 	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
 	AuthProvider pulumi.StringPtrInput
+	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrInput
 	// Policy Description
 	Description pulumi.StringPtrInput
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -236,6 +242,8 @@ func (PasswordPolicyState) ElementType() reflect.Type {
 type passwordPolicyArgs struct {
 	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
 	AuthProvider *string `pulumi:"authProvider"`
+	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+	CallRecovery *string `pulumi:"callRecovery"`
 	// Policy Description
 	Description *string `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -300,6 +308,8 @@ type passwordPolicyArgs struct {
 type PasswordPolicyArgs struct {
 	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
 	AuthProvider pulumi.StringPtrInput
+	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrInput
 	// Policy Description
 	Description pulumi.StringPtrInput
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.

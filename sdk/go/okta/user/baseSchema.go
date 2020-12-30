@@ -62,6 +62,8 @@ type BaseSchema struct {
 	Index pulumi.StringOutput `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrOutput `pulumi:"master"`
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -116,6 +118,8 @@ type baseSchemaState struct {
 	Index *string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -133,6 +137,8 @@ type BaseSchemaState struct {
 	Index pulumi.StringPtrInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -154,6 +160,8 @@ type baseSchemaArgs struct {
 	Index string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -172,6 +180,8 @@ type BaseSchemaArgs struct {
 	Index pulumi.StringInput
 	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.

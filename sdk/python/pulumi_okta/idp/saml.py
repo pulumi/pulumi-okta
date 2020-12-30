@@ -27,6 +27,7 @@ class Saml(pulumi.CustomResource):
                  issuer: Optional[pulumi.Input[str]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  kid: Optional[pulumi.Input[str]] = None,
+                 max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_format: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
@@ -94,6 +95,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] kid: The ID of the signing key.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
@@ -148,6 +150,7 @@ class Saml(pulumi.CustomResource):
             if kid is None and not opts.urn:
                 raise TypeError("Missing required property 'kid'")
             __props__['kid'] = kid
+            __props__['max_clock_skew'] = max_clock_skew
             __props__['name'] = name
             __props__['name_format'] = name_format
             __props__['profile_master'] = profile_master
@@ -193,6 +196,7 @@ class Saml(pulumi.CustomResource):
             issuer: Optional[pulumi.Input[str]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             kid: Optional[pulumi.Input[str]] = None,
+            max_clock_skew: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_format: Optional[pulumi.Input[str]] = None,
             profile_master: Optional[pulumi.Input[bool]] = None,
@@ -232,6 +236,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] kid: The ID of the signing key.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
@@ -269,6 +274,7 @@ class Saml(pulumi.CustomResource):
         __props__["issuer"] = issuer
         __props__["issuer_mode"] = issuer_mode
         __props__["kid"] = kid
+        __props__["max_clock_skew"] = max_clock_skew
         __props__["name"] = name
         __props__["name_format"] = name_format
         __props__["profile_master"] = profile_master
@@ -393,6 +399,14 @@ class Saml(pulumi.CustomResource):
         The ID of the signing key.
         """
         return pulumi.get(self, "kid")
+
+    @property
+    @pulumi.getter(name="maxClockSkew")
+    def max_clock_skew(self) -> pulumi.Output[Optional[int]]:
+        """
+        Maximum allowable clock-skew when processing messages from the IdP.
+        """
+        return pulumi.get(self, "max_clock_skew")
 
     @property
     @pulumi.getter

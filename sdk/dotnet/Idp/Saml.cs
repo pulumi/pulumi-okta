@@ -131,6 +131,12 @@ namespace Pulumi.Okta.Idp
         public Output<string> Kid { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum allowable clock-skew when processing messages from the IdP.
+        /// </summary>
+        [Output("maxClockSkew")]
+        public Output<int?> MaxClockSkew { get; private set; } = null!;
+
+        /// <summary>
         /// The Application's display name.
         /// </summary>
         [Output("name")]
@@ -381,6 +387,12 @@ namespace Pulumi.Okta.Idp
         public Input<string> Kid { get; set; } = null!;
 
         /// <summary>
+        /// Maximum allowable clock-skew when processing messages from the IdP.
+        /// </summary>
+        [Input("maxClockSkew")]
+        public Input<int>? MaxClockSkew { get; set; }
+
+        /// <summary>
         /// The Application's display name.
         /// </summary>
         [Input("name")]
@@ -596,6 +608,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("kid")]
         public Input<string>? Kid { get; set; }
+
+        /// <summary>
+        /// Maximum allowable clock-skew when processing messages from the IdP.
+        /// </summary>
+        [Input("maxClockSkew")]
+        public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
         /// The Application's display name.

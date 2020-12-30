@@ -18,6 +18,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> AuthProvider { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// </summary>
+        [Output("callRecovery")]
+        public Output<string?> CallRecovery { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Description
         /// </summary>
         [Output("description")]
@@ -240,6 +246,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AuthProvider { get; set; }
 
         /// <summary>
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// </summary>
+        [Input("callRecovery")]
+        public Input<string>? CallRecovery { get; set; }
+
+        /// <summary>
         /// Policy Description
         /// </summary>
         [Input("description")]
@@ -433,6 +445,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }
+
+        /// <summary>
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// </summary>
+        [Input("callRecovery")]
+        public Input<string>? CallRecovery { get; set; }
 
         /// <summary>
         /// Policy Description

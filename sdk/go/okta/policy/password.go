@@ -26,6 +26,8 @@ type Password struct {
 
 	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrOutput `pulumi:"authProvider"`
+	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrOutput `pulumi:"callRecovery"`
 	// Policy Description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -115,6 +117,8 @@ func GetPassword(ctx *pulumi.Context,
 type passwordState struct {
 	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
 	AuthProvider *string `pulumi:"authProvider"`
+	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+	CallRecovery *string `pulumi:"callRecovery"`
 	// Policy Description.
 	Description *string `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -176,6 +180,8 @@ type passwordState struct {
 type PasswordState struct {
 	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrInput
+	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrInput
 	// Policy Description.
 	Description pulumi.StringPtrInput
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -241,6 +247,8 @@ func (PasswordState) ElementType() reflect.Type {
 type passwordArgs struct {
 	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
 	AuthProvider *string `pulumi:"authProvider"`
+	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+	CallRecovery *string `pulumi:"callRecovery"`
 	// Policy Description.
 	Description *string `pulumi:"description"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -303,6 +311,8 @@ type passwordArgs struct {
 type PasswordArgs struct {
 	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrInput
+	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+	CallRecovery pulumi.StringPtrInput
 	// Policy Description.
 	Description pulumi.StringPtrInput
 	// Enable or disable email password recovery: ACTIVE or INACTIVE.
