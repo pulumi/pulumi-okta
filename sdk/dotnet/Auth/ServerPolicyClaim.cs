@@ -53,6 +53,7 @@ namespace Pulumi.Okta.Auth
     /// ```
     /// </summary>
     [Obsolete(@"okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")]
+    [OktaResourceType("okta:auth/serverPolicyClaim:ServerPolicyClaim")]
     public partial class ServerPolicyClaim : Pulumi.CustomResource
     {
         /// <summary>

@@ -54,6 +54,7 @@ namespace Pulumi.Okta.Inline
     ///  $ pulumi import okta:inline/hook:Hook example &lt;hook id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:inline/hook:Hook")]
     public partial class Hook : Pulumi.CustomResource
     {
         /// <summary>

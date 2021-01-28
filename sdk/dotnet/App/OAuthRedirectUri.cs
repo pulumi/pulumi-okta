@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
+    [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]
     public partial class OAuthRedirectUri : Pulumi.CustomResource
     {
         [Output("appId")]

@@ -254,15 +254,15 @@ type RuleSignonInput interface {
 	ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput
 }
 
-func (RuleSignon) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSignon)(nil)).Elem()
+func (*RuleSignon) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignon)(nil))
 }
 
-func (i RuleSignon) ToRuleSignonOutput() RuleSignonOutput {
+func (i *RuleSignon) ToRuleSignonOutput() RuleSignonOutput {
 	return i.ToRuleSignonOutputWithContext(context.Background())
 }
 
-func (i RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
+func (i *RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonOutput)
 }
 
@@ -271,7 +271,7 @@ type RuleSignonOutput struct {
 }
 
 func (RuleSignonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSignonOutput)(nil)).Elem()
+	return reflect.TypeOf((*RuleSignon)(nil))
 }
 
 func (o RuleSignonOutput) ToRuleSignonOutput() RuleSignonOutput {

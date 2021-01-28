@@ -77,4 +77,11 @@ namespace Pulumi.Okta
             }
         }
     }
+
+    internal sealed class OktaResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public OktaResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

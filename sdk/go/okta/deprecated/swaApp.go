@@ -267,15 +267,15 @@ type SwaAppInput interface {
 	ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput
 }
 
-func (SwaApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SwaApp)(nil)).Elem()
+func (*SwaApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SwaApp)(nil))
 }
 
-func (i SwaApp) ToSwaAppOutput() SwaAppOutput {
+func (i *SwaApp) ToSwaAppOutput() SwaAppOutput {
 	return i.ToSwaAppOutputWithContext(context.Background())
 }
 
-func (i SwaApp) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
+func (i *SwaApp) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaAppOutput)
 }
 
@@ -284,7 +284,7 @@ type SwaAppOutput struct {
 }
 
 func (SwaAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SwaAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*SwaApp)(nil))
 }
 
 func (o SwaAppOutput) ToSwaAppOutput() SwaAppOutput {

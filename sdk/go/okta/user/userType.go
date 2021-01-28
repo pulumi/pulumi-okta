@@ -143,15 +143,15 @@ type UserTypeInput interface {
 	ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput
 }
 
-func (UserType) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserType)(nil)).Elem()
+func (*UserType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil))
 }
 
-func (i UserType) ToUserTypeOutput() UserTypeOutput {
+func (i *UserType) ToUserTypeOutput() UserTypeOutput {
 	return i.ToUserTypeOutputWithContext(context.Background())
 }
 
-func (i UserType) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+func (i *UserType) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
 }
 
@@ -160,7 +160,7 @@ type UserTypeOutput struct {
 }
 
 func (UserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTypeOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserType)(nil))
 }
 
 func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {

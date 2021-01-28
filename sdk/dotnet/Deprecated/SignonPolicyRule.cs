@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/signonPolicyRule:SignonPolicyRule")]
     public partial class SignonPolicyRule : Pulumi.CustomResource
     {
         /// <summary>

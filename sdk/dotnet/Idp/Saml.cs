@@ -50,6 +50,7 @@ namespace Pulumi.Okta.Idp
     ///  $ pulumi import okta:idp/saml:Saml example &lt;idp id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:idp/saml:Saml")]
     public partial class Saml : Pulumi.CustomResource
     {
         /// <summary>

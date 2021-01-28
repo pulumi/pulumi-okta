@@ -47,6 +47,7 @@ namespace Pulumi.Okta.Group
     ///  $ pulumi import okta:group/rule:Rule example &lt;group rule id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:group/rule:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>

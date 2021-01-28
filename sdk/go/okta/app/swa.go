@@ -305,15 +305,15 @@ type SwaInput interface {
 	ToSwaOutputWithContext(ctx context.Context) SwaOutput
 }
 
-func (Swa) ElementType() reflect.Type {
-	return reflect.TypeOf((*Swa)(nil)).Elem()
+func (*Swa) ElementType() reflect.Type {
+	return reflect.TypeOf((*Swa)(nil))
 }
 
-func (i Swa) ToSwaOutput() SwaOutput {
+func (i *Swa) ToSwaOutput() SwaOutput {
 	return i.ToSwaOutputWithContext(context.Background())
 }
 
-func (i Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
+func (i *Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaOutput)
 }
 
@@ -322,7 +322,7 @@ type SwaOutput struct {
 }
 
 func (SwaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SwaOutput)(nil)).Elem()
+	return reflect.TypeOf((*Swa)(nil))
 }
 
 func (o SwaOutput) ToSwaOutput() SwaOutput {

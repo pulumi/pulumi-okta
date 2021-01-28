@@ -45,6 +45,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/userBaseSchema:UserBaseSchema example &lt;app id&gt;/&lt;property name&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/userBaseSchema:UserBaseSchema")]
     public partial class UserBaseSchema : Pulumi.CustomResource
     {
         /// <summary>

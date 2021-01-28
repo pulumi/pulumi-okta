@@ -334,15 +334,15 @@ type UserSchemaInput interface {
 	ToUserSchemaOutputWithContext(ctx context.Context) UserSchemaOutput
 }
 
-func (UserSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSchema)(nil)).Elem()
+func (*UserSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchema)(nil))
 }
 
-func (i UserSchema) ToUserSchemaOutput() UserSchemaOutput {
+func (i *UserSchema) ToUserSchemaOutput() UserSchemaOutput {
 	return i.ToUserSchemaOutputWithContext(context.Background())
 }
 
-func (i UserSchema) ToUserSchemaOutputWithContext(ctx context.Context) UserSchemaOutput {
+func (i *UserSchema) ToUserSchemaOutputWithContext(ctx context.Context) UserSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaOutput)
 }
 
@@ -351,7 +351,7 @@ type UserSchemaOutput struct {
 }
 
 func (UserSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserSchema)(nil))
 }
 
 func (o UserSchemaOutput) ToUserSchemaOutput() UserSchemaOutput {

@@ -219,15 +219,15 @@ type BasicAuthInput interface {
 	ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput
 }
 
-func (BasicAuth) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasicAuth)(nil)).Elem()
+func (*BasicAuth) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuth)(nil))
 }
 
-func (i BasicAuth) ToBasicAuthOutput() BasicAuthOutput {
+func (i *BasicAuth) ToBasicAuthOutput() BasicAuthOutput {
 	return i.ToBasicAuthOutputWithContext(context.Background())
 }
 
-func (i BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
+func (i *BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthOutput)
 }
 
@@ -236,7 +236,7 @@ type BasicAuthOutput struct {
 }
 
 func (BasicAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasicAuthOutput)(nil)).Elem()
+	return reflect.TypeOf((*BasicAuth)(nil))
 }
 
 func (o BasicAuthOutput) ToBasicAuthOutput() BasicAuthOutput {

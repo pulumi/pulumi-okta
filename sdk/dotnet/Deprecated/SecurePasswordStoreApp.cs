@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp")]
     public partial class SecurePasswordStoreApp : Pulumi.CustomResource
     {
         /// <summary>

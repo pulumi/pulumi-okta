@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/authLoginApp:AuthLoginApp")]
     public partial class AuthLoginApp : Pulumi.CustomResource
     {
         /// <summary>

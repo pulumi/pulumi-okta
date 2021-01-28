@@ -45,6 +45,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/securePasswordStore:SecurePasswordStore")]
     public partial class SecurePasswordStore : Pulumi.CustomResource
     {
         /// <summary>

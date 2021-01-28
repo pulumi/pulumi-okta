@@ -182,15 +182,15 @@ type ServerClaimInput interface {
 	ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput
 }
 
-func (ServerClaim) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerClaim)(nil)).Elem()
+func (*ServerClaim) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerClaim)(nil))
 }
 
-func (i ServerClaim) ToServerClaimOutput() ServerClaimOutput {
+func (i *ServerClaim) ToServerClaimOutput() ServerClaimOutput {
 	return i.ToServerClaimOutputWithContext(context.Background())
 }
 
-func (i ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
+func (i *ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimOutput)
 }
 
@@ -199,7 +199,7 @@ type ServerClaimOutput struct {
 }
 
 func (ServerClaimOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerClaimOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerClaim)(nil))
 }
 
 func (o ServerClaimOutput) ToServerClaimOutput() ServerClaimOutput {

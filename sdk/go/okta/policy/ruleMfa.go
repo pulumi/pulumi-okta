@@ -176,15 +176,15 @@ type RuleMfaInput interface {
 	ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput
 }
 
-func (RuleMfa) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMfa)(nil)).Elem()
+func (*RuleMfa) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfa)(nil))
 }
 
-func (i RuleMfa) ToRuleMfaOutput() RuleMfaOutput {
+func (i *RuleMfa) ToRuleMfaOutput() RuleMfaOutput {
 	return i.ToRuleMfaOutputWithContext(context.Background())
 }
 
-func (i RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
+func (i *RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaOutput)
 }
 
@@ -193,7 +193,7 @@ type RuleMfaOutput struct {
 }
 
 func (RuleMfaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMfaOutput)(nil)).Elem()
+	return reflect.TypeOf((*RuleMfa)(nil))
 }
 
 func (o RuleMfaOutput) ToRuleMfaOutput() RuleMfaOutput {

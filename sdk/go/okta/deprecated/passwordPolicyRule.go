@@ -190,15 +190,15 @@ type PasswordPolicyRuleInput interface {
 	ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput
 }
 
-func (PasswordPolicyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*PasswordPolicyRule)(nil)).Elem()
+func (*PasswordPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyRule)(nil))
 }
 
-func (i PasswordPolicyRule) ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput {
+func (i *PasswordPolicyRule) ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput {
 	return i.ToPasswordPolicyRuleOutputWithContext(context.Background())
 }
 
-func (i PasswordPolicyRule) ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput {
+func (i *PasswordPolicyRule) ToPasswordPolicyRuleOutputWithContext(ctx context.Context) PasswordPolicyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleOutput)
 }
 
@@ -207,7 +207,7 @@ type PasswordPolicyRuleOutput struct {
 }
 
 func (PasswordPolicyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PasswordPolicyRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*PasswordPolicyRule)(nil))
 }
 
 func (o PasswordPolicyRuleOutput) ToPasswordPolicyRuleOutput() PasswordPolicyRuleOutput {

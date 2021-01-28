@@ -55,6 +55,7 @@ namespace Pulumi.Okta
     ///  $ pulumi import okta:index/templateSms:TemplateSms example &lt;template type&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:index/templateSms:TemplateSms")]
     public partial class TemplateSms : Pulumi.CustomResource
     {
         /// <summary>

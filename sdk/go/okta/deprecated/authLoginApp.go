@@ -277,15 +277,15 @@ type AuthLoginAppInput interface {
 	ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput
 }
 
-func (AuthLoginApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthLoginApp)(nil)).Elem()
+func (*AuthLoginApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthLoginApp)(nil))
 }
 
-func (i AuthLoginApp) ToAuthLoginAppOutput() AuthLoginAppOutput {
+func (i *AuthLoginApp) ToAuthLoginAppOutput() AuthLoginAppOutput {
 	return i.ToAuthLoginAppOutputWithContext(context.Background())
 }
 
-func (i AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput {
+func (i *AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppOutput)
 }
 
@@ -294,7 +294,7 @@ type AuthLoginAppOutput struct {
 }
 
 func (AuthLoginAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthLoginAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*AuthLoginApp)(nil))
 }
 
 func (o AuthLoginAppOutput) ToAuthLoginAppOutput() AuthLoginAppOutput {

@@ -346,15 +346,15 @@ type SecurePasswordStoreAppInput interface {
 	ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput
 }
 
-func (SecurePasswordStoreApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurePasswordStoreApp)(nil)).Elem()
+func (*SecurePasswordStoreApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStoreApp)(nil))
 }
 
-func (i SecurePasswordStoreApp) ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput {
+func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput {
 	return i.ToSecurePasswordStoreAppOutputWithContext(context.Background())
 }
 
-func (i SecurePasswordStoreApp) ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput {
+func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppOutputWithContext(ctx context.Context) SecurePasswordStoreAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppOutput)
 }
 
@@ -363,7 +363,7 @@ type SecurePasswordStoreAppOutput struct {
 }
 
 func (SecurePasswordStoreAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurePasswordStoreAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurePasswordStoreApp)(nil))
 }
 
 func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppOutput() SecurePasswordStoreAppOutput {

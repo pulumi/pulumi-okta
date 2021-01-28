@@ -52,6 +52,7 @@ namespace Pulumi.Okta.Idp
     ///  $ pulumi import okta:idp/social:Social example &lt;idp id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:idp/social:Social")]
     public partial class Social : Pulumi.CustomResource
     {
         /// <summary>

@@ -42,6 +42,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/bookmark:Bookmark example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/bookmark:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>

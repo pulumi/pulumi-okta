@@ -42,6 +42,7 @@ namespace Pulumi.Okta.User
     ///  $ pulumi import okta:user/userType:UserType example &lt;user type id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:user/userType:UserType")]
     public partial class UserType : Pulumi.CustomResource
     {
         /// <summary>

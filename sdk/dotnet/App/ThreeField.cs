@@ -22,6 +22,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/threeField:ThreeField example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/threeField:ThreeField")]
     public partial class ThreeField : Pulumi.CustomResource
     {
         /// <summary>

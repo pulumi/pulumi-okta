@@ -406,15 +406,15 @@ type OauthAppInput interface {
 	ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput
 }
 
-func (OauthApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthApp)(nil)).Elem()
+func (*OauthApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthApp)(nil))
 }
 
-func (i OauthApp) ToOauthAppOutput() OauthAppOutput {
+func (i *OauthApp) ToOauthAppOutput() OauthAppOutput {
 	return i.ToOauthAppOutputWithContext(context.Background())
 }
 
-func (i OauthApp) ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput {
+func (i *OauthApp) ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OauthAppOutput)
 }
 
@@ -423,7 +423,7 @@ type OauthAppOutput struct {
 }
 
 func (OauthAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*OauthApp)(nil))
 }
 
 func (o OauthAppOutput) ToOauthAppOutput() OauthAppOutput {

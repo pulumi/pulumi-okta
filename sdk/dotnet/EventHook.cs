@@ -57,6 +57,7 @@ namespace Pulumi.Okta
     ///  $ pulumi import okta:index/eventHook:EventHook example &lt;hook id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:index/eventHook:EventHook")]
     public partial class EventHook : Pulumi.CustomResource
     {
         /// <summary>

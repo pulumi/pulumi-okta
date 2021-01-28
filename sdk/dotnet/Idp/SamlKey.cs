@@ -44,6 +44,7 @@ namespace Pulumi.Okta.Idp
     ///  $ pulumi import okta:idp/samlKey:SamlKey example &lt;key id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:idp/samlKey:SamlKey")]
     public partial class SamlKey : Pulumi.CustomResource
     {
         /// <summary>

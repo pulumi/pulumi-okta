@@ -255,15 +255,15 @@ type SignonPolicyRuleInput interface {
 	ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput
 }
 
-func (SignonPolicyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicyRule)(nil)).Elem()
+func (*SignonPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRule)(nil))
 }
 
-func (i SignonPolicyRule) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
+func (i *SignonPolicyRule) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
 	return i.ToSignonPolicyRuleOutputWithContext(context.Background())
 }
 
-func (i SignonPolicyRule) ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput {
+func (i *SignonPolicyRule) ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleOutput)
 }
 
@@ -272,7 +272,7 @@ type SignonPolicyRuleOutput struct {
 }
 
 func (SignonPolicyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicyRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*SignonPolicyRule)(nil))
 }
 
 func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {

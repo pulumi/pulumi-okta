@@ -124,15 +124,15 @@ type GroupAssignmentInput interface {
 	ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput
 }
 
-func (GroupAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupAssignment)(nil)).Elem()
+func (*GroupAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAssignment)(nil))
 }
 
-func (i GroupAssignment) ToGroupAssignmentOutput() GroupAssignmentOutput {
+func (i *GroupAssignment) ToGroupAssignmentOutput() GroupAssignmentOutput {
 	return i.ToGroupAssignmentOutputWithContext(context.Background())
 }
 
-func (i GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
+func (i *GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentOutput)
 }
 
@@ -141,7 +141,7 @@ type GroupAssignmentOutput struct {
 }
 
 func (GroupAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*GroupAssignment)(nil))
 }
 
 func (o GroupAssignmentOutput) ToGroupAssignmentOutput() GroupAssignmentOutput {

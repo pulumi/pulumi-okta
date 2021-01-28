@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/samlApp:SamlApp")]
     public partial class SamlApp : Pulumi.CustomResource
     {
         /// <summary>

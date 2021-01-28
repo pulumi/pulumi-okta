@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/threeFieldApp:ThreeFieldApp")]
     public partial class ThreeFieldApp : Pulumi.CustomResource
     {
         /// <summary>

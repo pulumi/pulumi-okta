@@ -384,15 +384,15 @@ type SecurePasswordStoreInput interface {
 	ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput
 }
 
-func (SecurePasswordStore) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurePasswordStore)(nil)).Elem()
+func (*SecurePasswordStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurePasswordStore)(nil))
 }
 
-func (i SecurePasswordStore) ToSecurePasswordStoreOutput() SecurePasswordStoreOutput {
+func (i *SecurePasswordStore) ToSecurePasswordStoreOutput() SecurePasswordStoreOutput {
 	return i.ToSecurePasswordStoreOutputWithContext(context.Background())
 }
 
-func (i SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput {
+func (i *SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreOutput)
 }
 
@@ -401,7 +401,7 @@ type SecurePasswordStoreOutput struct {
 }
 
 func (SecurePasswordStoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurePasswordStoreOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurePasswordStore)(nil))
 }
 
 func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutput() SecurePasswordStoreOutput {

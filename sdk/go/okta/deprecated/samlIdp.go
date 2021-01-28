@@ -275,15 +275,15 @@ type SamlIdpInput interface {
 	ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput
 }
 
-func (SamlIdp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdp)(nil)).Elem()
+func (*SamlIdp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlIdp)(nil))
 }
 
-func (i SamlIdp) ToSamlIdpOutput() SamlIdpOutput {
+func (i *SamlIdp) ToSamlIdpOutput() SamlIdpOutput {
 	return i.ToSamlIdpOutputWithContext(context.Background())
 }
 
-func (i SamlIdp) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput {
+func (i *SamlIdp) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpOutput)
 }
 
@@ -292,7 +292,7 @@ type SamlIdpOutput struct {
 }
 
 func (SamlIdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdpOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamlIdp)(nil))
 }
 
 func (o SamlIdpOutput) ToSamlIdpOutput() SamlIdpOutput {

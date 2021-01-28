@@ -45,6 +45,7 @@ namespace Pulumi.Okta.Group
     ///  $ pulumi import okta:group/roles:Roles example &lt;group id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:group/roles:Roles")]
     public partial class Roles : Pulumi.CustomResource
     {
         /// <summary>

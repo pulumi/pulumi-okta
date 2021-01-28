@@ -205,15 +205,15 @@ type BaseSchemaInput interface {
 	ToBaseSchemaOutputWithContext(ctx context.Context) BaseSchemaOutput
 }
 
-func (BaseSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaseSchema)(nil)).Elem()
+func (*BaseSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaseSchema)(nil))
 }
 
-func (i BaseSchema) ToBaseSchemaOutput() BaseSchemaOutput {
+func (i *BaseSchema) ToBaseSchemaOutput() BaseSchemaOutput {
 	return i.ToBaseSchemaOutputWithContext(context.Background())
 }
 
-func (i BaseSchema) ToBaseSchemaOutputWithContext(ctx context.Context) BaseSchemaOutput {
+func (i *BaseSchema) ToBaseSchemaOutputWithContext(ctx context.Context) BaseSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BaseSchemaOutput)
 }
 
@@ -222,7 +222,7 @@ type BaseSchemaOutput struct {
 }
 
 func (BaseSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaseSchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*BaseSchema)(nil))
 }
 
 func (o BaseSchemaOutput) ToBaseSchemaOutput() BaseSchemaOutput {

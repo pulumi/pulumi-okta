@@ -45,6 +45,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/swa:Swa example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/swa:Swa")]
     public partial class Swa : Pulumi.CustomResource
     {
         /// <summary>

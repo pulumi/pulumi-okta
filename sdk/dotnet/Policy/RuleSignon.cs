@@ -20,6 +20,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/ruleSignon:RuleSignon example &lt;policy id&gt;/&lt;rule id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/ruleSignon:RuleSignon")]
     public partial class RuleSignon : Pulumi.CustomResource
     {
         /// <summary>

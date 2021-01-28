@@ -47,6 +47,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/password:Password example &lt;policy id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/password:Password")]
     public partial class Password : Pulumi.CustomResource
     {
         /// <summary>

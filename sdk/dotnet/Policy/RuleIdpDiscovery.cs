@@ -90,6 +90,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &lt;policy id&gt;/&lt;rule id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")]
     public partial class RuleIdpDiscovery : Pulumi.CustomResource
     {
         /// <summary>

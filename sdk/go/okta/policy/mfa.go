@@ -262,15 +262,15 @@ type MfaInput interface {
 	ToMfaOutputWithContext(ctx context.Context) MfaOutput
 }
 
-func (Mfa) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mfa)(nil)).Elem()
+func (*Mfa) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mfa)(nil))
 }
 
-func (i Mfa) ToMfaOutput() MfaOutput {
+func (i *Mfa) ToMfaOutput() MfaOutput {
 	return i.ToMfaOutputWithContext(context.Background())
 }
 
-func (i Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
+func (i *Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOutput)
 }
 
@@ -279,7 +279,7 @@ type MfaOutput struct {
 }
 
 func (MfaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MfaOutput)(nil)).Elem()
+	return reflect.TypeOf((*Mfa)(nil))
 }
 
 func (o MfaOutput) ToMfaOutput() MfaOutput {

@@ -46,6 +46,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/signon:Signon example &lt;policy id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/signon:Signon")]
     public partial class Signon : Pulumi.CustomResource
     {
         /// <summary>

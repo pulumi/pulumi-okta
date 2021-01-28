@@ -171,15 +171,15 @@ type ServerScopeInput interface {
 	ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput
 }
 
-func (ServerScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerScope)(nil)).Elem()
+func (*ServerScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerScope)(nil))
 }
 
-func (i ServerScope) ToServerScopeOutput() ServerScopeOutput {
+func (i *ServerScope) ToServerScopeOutput() ServerScopeOutput {
 	return i.ToServerScopeOutputWithContext(context.Background())
 }
 
-func (i ServerScope) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
+func (i *ServerScope) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeOutput)
 }
 
@@ -188,7 +188,7 @@ type ServerScopeOutput struct {
 }
 
 func (ServerScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerScope)(nil))
 }
 
 func (o ServerScopeOutput) ToServerScopeOutput() ServerScopeOutput {

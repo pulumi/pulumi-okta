@@ -191,15 +191,15 @@ type MfaPolicyInput interface {
 	ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput
 }
 
-func (MfaPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*MfaPolicy)(nil)).Elem()
+func (*MfaPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicy)(nil))
 }
 
-func (i MfaPolicy) ToMfaPolicyOutput() MfaPolicyOutput {
+func (i *MfaPolicy) ToMfaPolicyOutput() MfaPolicyOutput {
 	return i.ToMfaPolicyOutputWithContext(context.Background())
 }
 
-func (i MfaPolicy) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput {
+func (i *MfaPolicy) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOutput)
 }
 
@@ -208,7 +208,7 @@ type MfaPolicyOutput struct {
 }
 
 func (MfaPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MfaPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*MfaPolicy)(nil))
 }
 
 func (o MfaPolicyOutput) ToMfaPolicyOutput() MfaPolicyOutput {
