@@ -24,6 +24,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta"
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -155,15 +156,15 @@ type TemplateSmsInput interface {
 	ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput
 }
 
-func (TemplateSms) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSms)(nil)).Elem()
+func (*TemplateSms) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSms)(nil))
 }
 
-func (i TemplateSms) ToTemplateSmsOutput() TemplateSmsOutput {
+func (i *TemplateSms) ToTemplateSmsOutput() TemplateSmsOutput {
 	return i.ToTemplateSmsOutputWithContext(context.Background())
 }
 
-func (i TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
+func (i *TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsOutput)
 }
 
@@ -172,7 +173,7 @@ type TemplateSmsOutput struct {
 }
 
 func (TemplateSmsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSmsOutput)(nil)).Elem()
+	return reflect.TypeOf((*TemplateSms)(nil))
 }
 
 func (o TemplateSmsOutput) ToTemplateSmsOutput() TemplateSmsOutput {

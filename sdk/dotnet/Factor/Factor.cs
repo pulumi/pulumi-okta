@@ -33,6 +33,7 @@ namespace Pulumi.Okta.Factor
     /// }
     /// ```
     /// </summary>
+    [OktaResourceType("okta:factor/factor:Factor")]
     public partial class Factor : Pulumi.CustomResource
     {
         /// <summary>

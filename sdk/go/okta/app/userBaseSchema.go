@@ -212,15 +212,15 @@ type UserBaseSchemaInput interface {
 	ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput
 }
 
-func (UserBaseSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserBaseSchema)(nil)).Elem()
+func (*UserBaseSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserBaseSchema)(nil))
 }
 
-func (i UserBaseSchema) ToUserBaseSchemaOutput() UserBaseSchemaOutput {
+func (i *UserBaseSchema) ToUserBaseSchemaOutput() UserBaseSchemaOutput {
 	return i.ToUserBaseSchemaOutputWithContext(context.Background())
 }
 
-func (i UserBaseSchema) ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput {
+func (i *UserBaseSchema) ToUserBaseSchemaOutputWithContext(ctx context.Context) UserBaseSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaOutput)
 }
 
@@ -229,7 +229,7 @@ type UserBaseSchemaOutput struct {
 }
 
 func (UserBaseSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserBaseSchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserBaseSchema)(nil))
 }
 
 func (o UserBaseSchemaOutput) ToUserBaseSchemaOutput() UserBaseSchemaOutput {

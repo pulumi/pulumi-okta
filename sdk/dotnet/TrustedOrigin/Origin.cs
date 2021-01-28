@@ -45,6 +45,7 @@ namespace Pulumi.Okta.TrustedOrigin
     ///  $ pulumi import okta:trustedorigin/origin:Origin example &lt;trusted origin id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:trustedorigin/origin:Origin")]
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>

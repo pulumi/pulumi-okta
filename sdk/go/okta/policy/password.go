@@ -382,15 +382,15 @@ type PasswordInput interface {
 	ToPasswordOutputWithContext(ctx context.Context) PasswordOutput
 }
 
-func (Password) ElementType() reflect.Type {
-	return reflect.TypeOf((*Password)(nil)).Elem()
+func (*Password) ElementType() reflect.Type {
+	return reflect.TypeOf((*Password)(nil))
 }
 
-func (i Password) ToPasswordOutput() PasswordOutput {
+func (i *Password) ToPasswordOutput() PasswordOutput {
 	return i.ToPasswordOutputWithContext(context.Background())
 }
 
-func (i Password) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
+func (i *Password) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordOutput)
 }
 
@@ -399,7 +399,7 @@ type PasswordOutput struct {
 }
 
 func (PasswordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PasswordOutput)(nil)).Elem()
+	return reflect.TypeOf((*Password)(nil))
 }
 
 func (o PasswordOutput) ToPasswordOutput() PasswordOutput {

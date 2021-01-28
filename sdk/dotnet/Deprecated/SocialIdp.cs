@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/socialIdp:SocialIdp")]
     public partial class SocialIdp : Pulumi.CustomResource
     {
         [Output("accountLinkAction")]

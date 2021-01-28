@@ -126,15 +126,15 @@ type SignonPolicyInput interface {
 	ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput
 }
 
-func (SignonPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicy)(nil)).Elem()
+func (*SignonPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicy)(nil))
 }
 
-func (i SignonPolicy) ToSignonPolicyOutput() SignonPolicyOutput {
+func (i *SignonPolicy) ToSignonPolicyOutput() SignonPolicyOutput {
 	return i.ToSignonPolicyOutputWithContext(context.Background())
 }
 
-func (i SignonPolicy) ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput {
+func (i *SignonPolicy) ToSignonPolicyOutputWithContext(ctx context.Context) SignonPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyOutput)
 }
 
@@ -143,7 +143,7 @@ type SignonPolicyOutput struct {
 }
 
 func (SignonPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SignonPolicy)(nil))
 }
 
 func (o SignonPolicyOutput) ToSignonPolicyOutput() SignonPolicyOutput {

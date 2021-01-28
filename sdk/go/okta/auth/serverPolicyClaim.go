@@ -289,15 +289,15 @@ type ServerPolicyClaimInput interface {
 	ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput
 }
 
-func (ServerPolicyClaim) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPolicyClaim)(nil)).Elem()
+func (*ServerPolicyClaim) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyClaim)(nil))
 }
 
-func (i ServerPolicyClaim) ToServerPolicyClaimOutput() ServerPolicyClaimOutput {
+func (i *ServerPolicyClaim) ToServerPolicyClaimOutput() ServerPolicyClaimOutput {
 	return i.ToServerPolicyClaimOutputWithContext(context.Background())
 }
 
-func (i ServerPolicyClaim) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
+func (i *ServerPolicyClaim) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimOutput)
 }
 
@@ -306,7 +306,7 @@ type ServerPolicyClaimOutput struct {
 }
 
 func (ServerPolicyClaimOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPolicyClaimOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerPolicyClaim)(nil))
 }
 
 func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutput() ServerPolicyClaimOutput {

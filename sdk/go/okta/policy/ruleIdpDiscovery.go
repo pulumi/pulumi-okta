@@ -293,15 +293,15 @@ type RuleIdpDiscoveryInput interface {
 	ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput
 }
 
-func (RuleIdpDiscovery) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleIdpDiscovery)(nil)).Elem()
+func (*RuleIdpDiscovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleIdpDiscovery)(nil))
 }
 
-func (i RuleIdpDiscovery) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput {
+func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput {
 	return i.ToRuleIdpDiscoveryOutputWithContext(context.Background())
 }
 
-func (i RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
+func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryOutput)
 }
 
@@ -310,7 +310,7 @@ type RuleIdpDiscoveryOutput struct {
 }
 
 func (RuleIdpDiscoveryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleIdpDiscoveryOutput)(nil)).Elem()
+	return reflect.TypeOf((*RuleIdpDiscovery)(nil))
 }
 
 func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutput {

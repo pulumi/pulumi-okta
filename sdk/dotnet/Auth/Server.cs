@@ -47,6 +47,7 @@ namespace Pulumi.Okta.Auth
     ///  $ pulumi import okta:auth/server:Server example &lt;auth server id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:auth/server:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

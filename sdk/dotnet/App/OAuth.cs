@@ -91,6 +91,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/oAuth:OAuth example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/oAuth:OAuth")]
     public partial class OAuth : Pulumi.CustomResource
     {
         /// <summary>

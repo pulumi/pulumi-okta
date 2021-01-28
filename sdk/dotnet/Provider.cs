@@ -15,6 +15,7 @@ namespace Pulumi.Okta
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
+    [OktaResourceType("pulumi:providers:okta")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>

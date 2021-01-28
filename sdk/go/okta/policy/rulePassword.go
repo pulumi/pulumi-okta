@@ -196,15 +196,15 @@ type RulePasswordInput interface {
 	ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput
 }
 
-func (RulePassword) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulePassword)(nil)).Elem()
+func (*RulePassword) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePassword)(nil))
 }
 
-func (i RulePassword) ToRulePasswordOutput() RulePasswordOutput {
+func (i *RulePassword) ToRulePasswordOutput() RulePasswordOutput {
 	return i.ToRulePasswordOutputWithContext(context.Background())
 }
 
-func (i RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
+func (i *RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordOutput)
 }
 
@@ -213,7 +213,7 @@ type RulePasswordOutput struct {
 }
 
 func (RulePasswordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulePasswordOutput)(nil)).Elem()
+	return reflect.TypeOf((*RulePassword)(nil))
 }
 
 func (o RulePasswordOutput) ToRulePasswordOutput() RulePasswordOutput {

@@ -56,6 +56,7 @@ namespace Pulumi.Okta.Template
     ///  $ pulumi import okta:template/email:Email example &lt;template type&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:template/email:Email")]
     public partial class Email : Pulumi.CustomResource
     {
         /// <summary>

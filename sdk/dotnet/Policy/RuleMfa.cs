@@ -22,6 +22,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/ruleMfa:RuleMfa example &lt;policy id&gt;/&lt;rule id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/ruleMfa:RuleMfa")]
     public partial class RuleMfa : Pulumi.CustomResource
     {
         /// <summary>

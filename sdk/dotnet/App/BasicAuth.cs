@@ -43,6 +43,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/basicAuth:BasicAuth example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/basicAuth:BasicAuth")]
     public partial class BasicAuth : Pulumi.CustomResource
     {
         /// <summary>

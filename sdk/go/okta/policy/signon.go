@@ -132,15 +132,15 @@ type SignonInput interface {
 	ToSignonOutputWithContext(ctx context.Context) SignonOutput
 }
 
-func (Signon) ElementType() reflect.Type {
-	return reflect.TypeOf((*Signon)(nil)).Elem()
+func (*Signon) ElementType() reflect.Type {
+	return reflect.TypeOf((*Signon)(nil))
 }
 
-func (i Signon) ToSignonOutput() SignonOutput {
+func (i *Signon) ToSignonOutput() SignonOutput {
 	return i.ToSignonOutputWithContext(context.Background())
 }
 
-func (i Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
+func (i *Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonOutput)
 }
 
@@ -149,7 +149,7 @@ type SignonOutput struct {
 }
 
 func (SignonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonOutput)(nil)).Elem()
+	return reflect.TypeOf((*Signon)(nil))
 }
 
 func (o SignonOutput) ToSignonOutput() SignonOutput {

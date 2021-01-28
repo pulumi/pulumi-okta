@@ -293,15 +293,15 @@ type ServerPolicyRuleInput interface {
 	ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput
 }
 
-func (ServerPolicyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPolicyRule)(nil)).Elem()
+func (*ServerPolicyRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPolicyRule)(nil))
 }
 
-func (i ServerPolicyRule) ToServerPolicyRuleOutput() ServerPolicyRuleOutput {
+func (i *ServerPolicyRule) ToServerPolicyRuleOutput() ServerPolicyRuleOutput {
 	return i.ToServerPolicyRuleOutputWithContext(context.Background())
 }
 
-func (i ServerPolicyRule) ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput {
+func (i *ServerPolicyRule) ToServerPolicyRuleOutputWithContext(ctx context.Context) ServerPolicyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleOutput)
 }
 
@@ -310,7 +310,7 @@ type ServerPolicyRuleOutput struct {
 }
 
 func (ServerPolicyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPolicyRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerPolicyRule)(nil))
 }
 
 func (o ServerPolicyRuleOutput) ToServerPolicyRuleOutput() ServerPolicyRuleOutput {

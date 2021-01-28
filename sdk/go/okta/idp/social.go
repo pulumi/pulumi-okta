@@ -426,15 +426,15 @@ type SocialInput interface {
 	ToSocialOutputWithContext(ctx context.Context) SocialOutput
 }
 
-func (Social) ElementType() reflect.Type {
-	return reflect.TypeOf((*Social)(nil)).Elem()
+func (*Social) ElementType() reflect.Type {
+	return reflect.TypeOf((*Social)(nil))
 }
 
-func (i Social) ToSocialOutput() SocialOutput {
+func (i *Social) ToSocialOutput() SocialOutput {
 	return i.ToSocialOutputWithContext(context.Background())
 }
 
-func (i Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
+func (i *Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialOutput)
 }
 
@@ -443,7 +443,7 @@ type SocialOutput struct {
 }
 
 func (SocialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SocialOutput)(nil)).Elem()
+	return reflect.TypeOf((*Social)(nil))
 }
 
 func (o SocialOutput) ToSocialOutput() SocialOutput {

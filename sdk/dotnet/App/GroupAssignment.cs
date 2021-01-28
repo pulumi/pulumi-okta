@@ -22,6 +22,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/groupAssignment:GroupAssignment example &lt;app_id&gt;/&lt;group_id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/groupAssignment:GroupAssignment")]
     public partial class GroupAssignment : Pulumi.CustomResource
     {
         /// <summary>

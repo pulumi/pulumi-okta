@@ -41,6 +41,7 @@ namespace Pulumi.Okta.Group
     ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:group/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

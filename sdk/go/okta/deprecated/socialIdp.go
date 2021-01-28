@@ -270,15 +270,15 @@ type SocialIdpInput interface {
 	ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput
 }
 
-func (SocialIdp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SocialIdp)(nil)).Elem()
+func (*SocialIdp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocialIdp)(nil))
 }
 
-func (i SocialIdp) ToSocialIdpOutput() SocialIdpOutput {
+func (i *SocialIdp) ToSocialIdpOutput() SocialIdpOutput {
 	return i.ToSocialIdpOutputWithContext(context.Background())
 }
 
-func (i SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput {
+func (i *SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpOutput)
 }
 
@@ -287,7 +287,7 @@ type SocialIdpOutput struct {
 }
 
 func (SocialIdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SocialIdpOutput)(nil)).Elem()
+	return reflect.TypeOf((*SocialIdp)(nil))
 }
 
 func (o SocialIdpOutput) ToSocialIdpOutput() SocialIdpOutput {

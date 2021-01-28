@@ -126,15 +126,15 @@ type FactorInput interface {
 	ToFactorOutputWithContext(ctx context.Context) FactorOutput
 }
 
-func (Factor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Factor)(nil)).Elem()
+func (*Factor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Factor)(nil))
 }
 
-func (i Factor) ToFactorOutput() FactorOutput {
+func (i *Factor) ToFactorOutput() FactorOutput {
 	return i.ToFactorOutputWithContext(context.Background())
 }
 
-func (i Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
+func (i *Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactorOutput)
 }
 
@@ -143,7 +143,7 @@ type FactorOutput struct {
 }
 
 func (FactorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactorOutput)(nil)).Elem()
+	return reflect.TypeOf((*Factor)(nil))
 }
 
 func (o FactorOutput) ToFactorOutput() FactorOutput {

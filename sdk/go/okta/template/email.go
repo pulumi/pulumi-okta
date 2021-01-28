@@ -156,15 +156,15 @@ type EmailInput interface {
 	ToEmailOutputWithContext(ctx context.Context) EmailOutput
 }
 
-func (Email) ElementType() reflect.Type {
-	return reflect.TypeOf((*Email)(nil)).Elem()
+func (*Email) ElementType() reflect.Type {
+	return reflect.TypeOf((*Email)(nil))
 }
 
-func (i Email) ToEmailOutput() EmailOutput {
+func (i *Email) ToEmailOutput() EmailOutput {
 	return i.ToEmailOutputWithContext(context.Background())
 }
 
-func (i Email) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
+func (i *Email) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailOutput)
 }
 
@@ -173,7 +173,7 @@ type EmailOutput struct {
 }
 
 func (EmailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailOutput)(nil)).Elem()
+	return reflect.TypeOf((*Email)(nil))
 }
 
 func (o EmailOutput) ToEmailOutput() EmailOutput {

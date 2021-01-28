@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/bookmarkApp:BookmarkApp")]
     public partial class BookmarkApp : Pulumi.CustomResource
     {
         /// <summary>

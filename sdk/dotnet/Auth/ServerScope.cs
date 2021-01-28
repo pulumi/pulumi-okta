@@ -43,6 +43,7 @@ namespace Pulumi.Okta.Auth
     ///  $ pulumi import okta:auth/serverScope:ServerScope example &lt;auth server id&gt;/&lt;scope id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:auth/serverScope:ServerScope")]
     public partial class ServerScope : Pulumi.CustomResource
     {
         /// <summary>

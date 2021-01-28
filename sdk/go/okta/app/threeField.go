@@ -306,15 +306,15 @@ type ThreeFieldInput interface {
 	ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput
 }
 
-func (ThreeField) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeField)(nil)).Elem()
+func (*ThreeField) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreeField)(nil))
 }
 
-func (i ThreeField) ToThreeFieldOutput() ThreeFieldOutput {
+func (i *ThreeField) ToThreeFieldOutput() ThreeFieldOutput {
 	return i.ToThreeFieldOutputWithContext(context.Background())
 }
 
-func (i ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
+func (i *ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldOutput)
 }
 
@@ -323,7 +323,7 @@ type ThreeFieldOutput struct {
 }
 
 func (ThreeFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeFieldOutput)(nil)).Elem()
+	return reflect.TypeOf((*ThreeField)(nil))
 }
 
 func (o ThreeFieldOutput) ToThreeFieldOutput() ThreeFieldOutput {

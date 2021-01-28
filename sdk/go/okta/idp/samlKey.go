@@ -157,15 +157,15 @@ type SamlKeyInput interface {
 	ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput
 }
 
-func (SamlKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlKey)(nil)).Elem()
+func (*SamlKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlKey)(nil))
 }
 
-func (i SamlKey) ToSamlKeyOutput() SamlKeyOutput {
+func (i *SamlKey) ToSamlKeyOutput() SamlKeyOutput {
 	return i.ToSamlKeyOutputWithContext(context.Background())
 }
 
-func (i SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
+func (i *SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
 }
 
@@ -174,7 +174,7 @@ type SamlKeyOutput struct {
 }
 
 func (SamlKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamlKey)(nil))
 }
 
 func (o SamlKeyOutput) ToSamlKeyOutput() SamlKeyOutput {

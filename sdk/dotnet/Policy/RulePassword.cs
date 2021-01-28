@@ -22,6 +22,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/rulePassword:RulePassword example &lt;policy id&gt;/&lt;rule id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/rulePassword:RulePassword")]
     public partial class RulePassword : Pulumi.CustomResource
     {
         /// <summary>

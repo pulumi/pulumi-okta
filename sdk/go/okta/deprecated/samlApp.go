@@ -484,15 +484,15 @@ type SamlAppInput interface {
 	ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput
 }
 
-func (SamlApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlApp)(nil)).Elem()
+func (*SamlApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlApp)(nil))
 }
 
-func (i SamlApp) ToSamlAppOutput() SamlAppOutput {
+func (i *SamlApp) ToSamlAppOutput() SamlAppOutput {
 	return i.ToSamlAppOutputWithContext(context.Background())
 }
 
-func (i SamlApp) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput {
+func (i *SamlApp) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAppOutput)
 }
 
@@ -501,7 +501,7 @@ type SamlAppOutput struct {
 }
 
 func (SamlAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamlApp)(nil))
 }
 
 func (o SamlAppOutput) ToSamlAppOutput() SamlAppOutput {

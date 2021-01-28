@@ -103,15 +103,15 @@ type SamlIdpSigningKeyInput interface {
 	ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput
 }
 
-func (SamlIdpSigningKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdpSigningKey)(nil)).Elem()
+func (*SamlIdpSigningKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlIdpSigningKey)(nil))
 }
 
-func (i SamlIdpSigningKey) ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput {
+func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput {
 	return i.ToSamlIdpSigningKeyOutputWithContext(context.Background())
 }
 
-func (i SamlIdpSigningKey) ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput {
+func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyOutputWithContext(ctx context.Context) SamlIdpSigningKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyOutput)
 }
 
@@ -120,7 +120,7 @@ type SamlIdpSigningKeyOutput struct {
 }
 
 func (SamlIdpSigningKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdpSigningKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SamlIdpSigningKey)(nil))
 }
 
 func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyOutput() SamlIdpSigningKeyOutput {

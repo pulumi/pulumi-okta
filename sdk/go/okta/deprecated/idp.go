@@ -318,15 +318,15 @@ type IdpInput interface {
 	ToIdpOutputWithContext(ctx context.Context) IdpOutput
 }
 
-func (Idp) ElementType() reflect.Type {
-	return reflect.TypeOf((*Idp)(nil)).Elem()
+func (*Idp) ElementType() reflect.Type {
+	return reflect.TypeOf((*Idp)(nil))
 }
 
-func (i Idp) ToIdpOutput() IdpOutput {
+func (i *Idp) ToIdpOutput() IdpOutput {
 	return i.ToIdpOutputWithContext(context.Background())
 }
 
-func (i Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
+func (i *Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdpOutput)
 }
 
@@ -335,7 +335,7 @@ type IdpOutput struct {
 }
 
 func (IdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdpOutput)(nil)).Elem()
+	return reflect.TypeOf((*Idp)(nil))
 }
 
 func (o IdpOutput) ToIdpOutput() IdpOutput {

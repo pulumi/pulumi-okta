@@ -62,6 +62,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/saml:Saml")]
     public partial class Saml : Pulumi.CustomResource
     {
         /// <summary>

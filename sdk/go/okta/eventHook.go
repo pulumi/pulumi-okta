@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta"
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -180,15 +180,15 @@ type EventHookInput interface {
 	ToEventHookOutputWithContext(ctx context.Context) EventHookOutput
 }
 
-func (EventHook) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHook)(nil)).Elem()
+func (*EventHook) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHook)(nil))
 }
 
-func (i EventHook) ToEventHookOutput() EventHookOutput {
+func (i *EventHook) ToEventHookOutput() EventHookOutput {
 	return i.ToEventHookOutputWithContext(context.Background())
 }
 
-func (i EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
+func (i *EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookOutput)
 }
 
@@ -197,7 +197,7 @@ type EventHookOutput struct {
 }
 
 func (EventHookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHookOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHook)(nil))
 }
 
 func (o EventHookOutput) ToEventHookOutput() EventHookOutput {

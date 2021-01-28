@@ -327,15 +327,15 @@ type SchemaInput interface {
 	ToSchemaOutputWithContext(ctx context.Context) SchemaOutput
 }
 
-func (Schema) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schema)(nil)).Elem()
+func (*Schema) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schema)(nil))
 }
 
-func (i Schema) ToSchemaOutput() SchemaOutput {
+func (i *Schema) ToSchemaOutput() SchemaOutput {
 	return i.ToSchemaOutputWithContext(context.Background())
 }
 
-func (i Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
+func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaOutput)
 }
 
@@ -344,7 +344,7 @@ type SchemaOutput struct {
 }
 
 func (SchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*Schema)(nil))
 }
 
 func (o SchemaOutput) ToSchemaOutput() SchemaOutput {

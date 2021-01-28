@@ -50,6 +50,7 @@ namespace Pulumi.Okta.Policy
     ///  $ pulumi import okta:policy/mfa:Mfa example &lt;policy id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:policy/mfa:Mfa")]
     public partial class Mfa : Pulumi.CustomResource
     {
         /// <summary>

@@ -132,15 +132,15 @@ type RolesInput interface {
 	ToRolesOutputWithContext(ctx context.Context) RolesOutput
 }
 
-func (Roles) ElementType() reflect.Type {
-	return reflect.TypeOf((*Roles)(nil)).Elem()
+func (*Roles) ElementType() reflect.Type {
+	return reflect.TypeOf((*Roles)(nil))
 }
 
-func (i Roles) ToRolesOutput() RolesOutput {
+func (i *Roles) ToRolesOutput() RolesOutput {
 	return i.ToRolesOutputWithContext(context.Background())
 }
 
-func (i Roles) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
+func (i *Roles) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolesOutput)
 }
 
@@ -149,7 +149,7 @@ type RolesOutput struct {
 }
 
 func (RolesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolesOutput)(nil)).Elem()
+	return reflect.TypeOf((*Roles)(nil))
 }
 
 func (o RolesOutput) ToRolesOutput() RolesOutput {

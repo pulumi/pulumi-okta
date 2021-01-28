@@ -315,15 +315,15 @@ type AutoLoginInput interface {
 	ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput
 }
 
-func (AutoLogin) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoLogin)(nil)).Elem()
+func (*AutoLogin) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoLogin)(nil))
 }
 
-func (i AutoLogin) ToAutoLoginOutput() AutoLoginOutput {
+func (i *AutoLogin) ToAutoLoginOutput() AutoLoginOutput {
 	return i.ToAutoLoginOutputWithContext(context.Background())
 }
 
-func (i AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
+func (i *AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginOutput)
 }
 
@@ -332,7 +332,7 @@ type AutoLoginOutput struct {
 }
 
 func (AutoLoginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoLoginOutput)(nil)).Elem()
+	return reflect.TypeOf((*AutoLogin)(nil))
 }
 
 func (o AutoLoginOutput) ToAutoLoginOutput() AutoLoginOutput {

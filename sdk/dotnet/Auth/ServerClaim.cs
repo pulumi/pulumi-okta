@@ -47,6 +47,7 @@ namespace Pulumi.Okta.Auth
     ///  $ pulumi import okta:auth/serverClaim:ServerClaim example &lt;auth server id&gt;/&lt;claim id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:auth/serverClaim:ServerClaim")]
     public partial class ServerClaim : Pulumi.CustomResource
     {
         /// <summary>

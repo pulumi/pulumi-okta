@@ -53,6 +53,7 @@ namespace Pulumi.Okta.User
     ///  $ pulumi import okta:user/schema:Schema example &lt;user type id&gt;.&lt;index&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:user/schema:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>

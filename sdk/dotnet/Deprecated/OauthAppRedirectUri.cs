@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri")]
     public partial class OauthAppRedirectUri : Pulumi.CustomResource
     {
         [Output("appId")]

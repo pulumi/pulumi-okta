@@ -45,6 +45,7 @@ namespace Pulumi.Okta.App
     ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:app/autoLogin:AutoLogin")]
     public partial class AutoLogin : Pulumi.CustomResource
     {
         /// <summary>

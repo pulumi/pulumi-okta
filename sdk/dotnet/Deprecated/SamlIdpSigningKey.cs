@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [OktaResourceType("okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey")]
     public partial class SamlIdpSigningKey : Pulumi.CustomResource
     {
         [Output("created")]

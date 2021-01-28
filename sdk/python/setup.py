@@ -48,7 +48,7 @@ setup(name='pulumi_okta',
       packages=find_packages(),
       package_data={
           'pulumi_okta': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

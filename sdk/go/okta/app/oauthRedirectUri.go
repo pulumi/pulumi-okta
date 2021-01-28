@@ -93,15 +93,15 @@ type OAuthRedirectUriInput interface {
 	ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput
 }
 
-func (OAuthRedirectUri) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuthRedirectUri)(nil)).Elem()
+func (*OAuthRedirectUri) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthRedirectUri)(nil))
 }
 
-func (i OAuthRedirectUri) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
+func (i *OAuthRedirectUri) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
 	return i.ToOAuthRedirectUriOutputWithContext(context.Background())
 }
 
-func (i OAuthRedirectUri) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
+func (i *OAuthRedirectUri) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriOutput)
 }
 
@@ -110,7 +110,7 @@ type OAuthRedirectUriOutput struct {
 }
 
 func (OAuthRedirectUriOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuthRedirectUriOutput)(nil)).Elem()
+	return reflect.TypeOf((*OAuthRedirectUri)(nil))
 }
 
 func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {

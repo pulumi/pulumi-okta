@@ -58,6 +58,7 @@ namespace Pulumi.Okta.Idp
     ///  $ pulumi import okta:idp/oidc:Oidc example &lt;idp id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:idp/oidc:Oidc")]
     public partial class Oidc : Pulumi.CustomResource
     {
         /// <summary>

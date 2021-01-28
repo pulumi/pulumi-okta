@@ -51,6 +51,7 @@ namespace Pulumi.Okta.Network
     ///  $ pulumi import okta:network/zone:Zone example &lt;zone id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:network/zone:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

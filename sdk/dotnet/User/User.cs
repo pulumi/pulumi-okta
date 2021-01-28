@@ -22,6 +22,7 @@ namespace Pulumi.Okta.User
     ///  $ pulumi import okta:user/user:User example &lt;user id&gt;
     /// ```
     /// </summary>
+    [OktaResourceType("okta:user/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
