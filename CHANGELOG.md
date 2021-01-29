@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrading pulumi-terraform-bridge to v2.18.0
+_(none)_
 
 ---
+
+## 2.8.0 (2021-01-29)
+* Upgrading pulumi-terraform-bridge to v2.18.0
 
 ## 2.7.1 (2020-12-30)
 * Upgrade to v3.7.4 of the Okta Terraform Provider
