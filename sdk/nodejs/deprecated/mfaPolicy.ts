@@ -49,6 +49,7 @@ export class MfaPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaEmail!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly oktaPassword!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -56,7 +57,7 @@ export class MfaPolicy extends pulumi.CustomResource {
     public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -87,6 +88,7 @@ export class MfaPolicy extends pulumi.CustomResource {
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["oktaCall"] = state ? state.oktaCall : undefined;
+            inputs["oktaEmail"] = state ? state.oktaEmail : undefined;
             inputs["oktaOtp"] = state ? state.oktaOtp : undefined;
             inputs["oktaPassword"] = state ? state.oktaPassword : undefined;
             inputs["oktaPush"] = state ? state.oktaPush : undefined;
@@ -107,6 +109,7 @@ export class MfaPolicy extends pulumi.CustomResource {
             inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["oktaCall"] = args ? args.oktaCall : undefined;
+            inputs["oktaEmail"] = args ? args.oktaEmail : undefined;
             inputs["oktaOtp"] = args ? args.oktaOtp : undefined;
             inputs["oktaPassword"] = args ? args.oktaPassword : undefined;
             inputs["oktaPush"] = args ? args.oktaPush : undefined;
@@ -150,6 +153,7 @@ export interface MfaPolicyState {
      */
     readonly name?: pulumi.Input<string>;
     readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -157,7 +161,7 @@ export interface MfaPolicyState {
     readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -190,6 +194,7 @@ export interface MfaPolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
     readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -197,7 +202,7 @@ export interface MfaPolicyArgs {
     readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

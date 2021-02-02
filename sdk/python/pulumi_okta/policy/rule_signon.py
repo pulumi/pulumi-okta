@@ -51,7 +51,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
         :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
-        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
         :param pulumi.Input[bool] mfa_required: Require MFA. By default is `false`.
         :param pulumi.Input[str] name: Policy Rule Name.
@@ -59,8 +59,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
-        :param pulumi.Input[int] session_idle: Max minutes a session can be idle.",
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -139,7 +139,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
         :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
-        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
         :param pulumi.Input[bool] mfa_required: Require MFA. By default is `false`.
         :param pulumi.Input[str] name: Policy Rule Name.
@@ -147,8 +147,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
-        :param pulumi.Input[int] session_idle: Max minutes a session can be idle.",
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -205,7 +205,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="mfaPrompt")
     def mfa_prompt(self) -> pulumi.Output[Optional[str]]:
         """
-        Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         """
         return pulumi.get(self, "mfa_prompt")
 
@@ -269,7 +269,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
@@ -277,7 +277,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="sessionIdle")
     def session_idle(self) -> pulumi.Output[Optional[int]]:
         """
-        Max minutes a session can be idle.",
+        Max minutes a session can be idle.,
         """
         return pulumi.get(self, "session_idle")
 

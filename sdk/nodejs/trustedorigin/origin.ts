@@ -58,7 +58,7 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
@@ -119,7 +119,7 @@ export class Origin extends pulumi.CustomResource {
  */
 export interface OriginState {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
      */
     readonly active?: pulumi.Input<boolean>;
     /**
@@ -141,7 +141,7 @@ export interface OriginState {
  */
 export interface OriginArgs {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
      */
     readonly active?: pulumi.Input<boolean>;
     /**

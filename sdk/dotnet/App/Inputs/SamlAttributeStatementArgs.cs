@@ -13,7 +13,7 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class SamlAttributeStatementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of group attribute filter.
+        /// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         /// </summary>
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        /// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

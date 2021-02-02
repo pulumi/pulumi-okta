@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
-    /// Creates an Social Identity Provider.
+    /// Creates a Social Identity Provider.
     /// 
-    /// This resource allows you to create and configure an Social Identity Provider.
+    /// This resource allows you to create and configure a Social Identity Provider.
     /// 
     /// ## Example Usage
     /// 
@@ -170,7 +170,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> SubjectMatchAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Output("subjectMatchType")]
         public Output<string?> SubjectMatchType { get; private set; } = null!;
@@ -408,7 +408,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
@@ -613,7 +613,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }

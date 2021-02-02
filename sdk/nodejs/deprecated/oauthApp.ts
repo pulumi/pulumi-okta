@@ -88,6 +88,10 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
      * custom domain URL as the issuer of ID token for this client.
      */
@@ -97,6 +101,14 @@ export class OauthApp extends pulumi.CustomResource {
      * Pretty name of app.
      */
     public readonly label!: pulumi.Output<string>;
+    /**
+     * The type of Idp-Initiated login that the client supports, if any
+     */
+    public readonly loginMode!: pulumi.Output<string | undefined>;
+    /**
+     * List of scopes to use for the request
+     */
+    public readonly loginScopes!: pulumi.Output<string[] | undefined>;
     /**
      * URI that initiates login.
      */
@@ -115,7 +127,7 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * *Early Access Property*. URI to web page providing client policy document.
+     * URI to web page providing client policy document.
      */
     public readonly policyUri!: pulumi.Output<string | undefined>;
     /**
@@ -148,7 +160,7 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
-     * *Early Access Property*. URI to web page providing client tos (terms of service).
+     * URI to web page providing client tos (terms of service).
      */
     public readonly tosUri!: pulumi.Output<string | undefined>;
     /**
@@ -184,9 +196,12 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
+            inputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
             inputs["issuerMode"] = state ? state.issuerMode : undefined;
             inputs["jwks"] = state ? state.jwks : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["loginMode"] = state ? state.loginMode : undefined;
+            inputs["loginScopes"] = state ? state.loginScopes : undefined;
             inputs["loginUri"] = state ? state.loginUri : undefined;
             inputs["logoUri"] = state ? state.logoUri : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -221,9 +236,12 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
+            inputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
             inputs["issuerMode"] = args ? args.issuerMode : undefined;
             inputs["jwks"] = args ? args.jwks : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["loginMode"] = args ? args.loginMode : undefined;
+            inputs["loginScopes"] = args ? args.loginScopes : undefined;
             inputs["loginUri"] = args ? args.loginUri : undefined;
             inputs["logoUri"] = args ? args.logoUri : undefined;
             inputs["omitSecret"] = args ? args.omitSecret : undefined;
@@ -311,6 +329,10 @@ export interface OauthAppState {
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    readonly implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
      * custom domain URL as the issuer of ID token for this client.
      */
@@ -320,6 +342,14 @@ export interface OauthAppState {
      * Pretty name of app.
      */
     readonly label?: pulumi.Input<string>;
+    /**
+     * The type of Idp-Initiated login that the client supports, if any
+     */
+    readonly loginMode?: pulumi.Input<string>;
+    /**
+     * List of scopes to use for the request
+     */
+    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI that initiates login.
      */
@@ -338,7 +368,7 @@ export interface OauthAppState {
      */
     readonly omitSecret?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. URI to web page providing client policy document.
+     * URI to web page providing client policy document.
      */
     readonly policyUri?: pulumi.Input<string>;
     /**
@@ -371,7 +401,7 @@ export interface OauthAppState {
      */
     readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. URI to web page providing client tos (terms of service).
+     * URI to web page providing client tos (terms of service).
      */
     readonly tosUri?: pulumi.Input<string>;
     /**
@@ -439,6 +469,10 @@ export interface OauthAppArgs {
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    readonly implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
      * custom domain URL as the issuer of ID token for this client.
      */
@@ -448,6 +482,14 @@ export interface OauthAppArgs {
      * Pretty name of app.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * The type of Idp-Initiated login that the client supports, if any
+     */
+    readonly loginMode?: pulumi.Input<string>;
+    /**
+     * List of scopes to use for the request
+     */
+    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI that initiates login.
      */
@@ -462,7 +504,7 @@ export interface OauthAppArgs {
      */
     readonly omitSecret?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. URI to web page providing client policy document.
+     * URI to web page providing client policy document.
      */
     readonly policyUri?: pulumi.Input<string>;
     /**
@@ -491,7 +533,7 @@ export interface OauthAppArgs {
      */
     readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. URI to web page providing client tos (terms of service).
+     * URI to web page providing client tos (terms of service).
      */
     readonly tosUri?: pulumi.Input<string>;
     /**

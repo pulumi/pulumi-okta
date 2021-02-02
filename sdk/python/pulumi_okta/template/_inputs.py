@@ -19,7 +19,7 @@ class EmailTranslationArgs:
                  subject: pulumi.Input[str],
                  template: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] language: The language to map tthe template to.
+        :param pulumi.Input[str] language: The language to map the template to.
         :param pulumi.Input[str] subject: The email subject line.
         :param pulumi.Input[str] template: The email body.
         """
@@ -31,7 +31,7 @@ class EmailTranslationArgs:
     @pulumi.getter
     def language(self) -> pulumi.Input[str]:
         """
-        The language to map tthe template to.
+        The language to map the template to.
         """
         return pulumi.get(self, "language")
 

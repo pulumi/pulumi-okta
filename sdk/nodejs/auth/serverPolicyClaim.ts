@@ -65,7 +65,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
     }
 
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
      */
     public readonly accessTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -105,7 +105,8 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly refreshTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     public readonly refreshTokenWindowMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -207,7 +208,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
  */
 export interface ServerPolicyClaimState {
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
      */
     readonly accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
@@ -247,7 +248,8 @@ export interface ServerPolicyClaimState {
      */
     readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
@@ -277,7 +279,7 @@ export interface ServerPolicyClaimState {
  */
 export interface ServerPolicyClaimArgs {
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
      */
     readonly accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
@@ -317,7 +319,8 @@ export interface ServerPolicyClaimArgs {
      */
     readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**

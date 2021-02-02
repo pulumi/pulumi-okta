@@ -49,7 +49,7 @@ export class Factor extends pulumi.CustomResource {
     }
 
     /**
-     * Whether or not to activate the provider, by default it is set to `true`.
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
@@ -96,7 +96,7 @@ export class Factor extends pulumi.CustomResource {
  */
 export interface FactorState {
     /**
-     * Whether or not to activate the provider, by default it is set to `true`.
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     readonly active?: pulumi.Input<boolean>;
     /**
@@ -111,7 +111,7 @@ export interface FactorState {
  */
 export interface FactorArgs {
     /**
-     * Whether or not to activate the provider, by default it is set to `true`.
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     readonly active?: pulumi.Input<boolean>;
     /**

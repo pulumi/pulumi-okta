@@ -15,6 +15,59 @@ import (
 //
 // This resource allows you to create and configure an Okta User.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.NewUser(ctx, "example", &user.UserArgs{
+// 			City:              pulumi.String("New York"),
+// 			CostCenter:        pulumi.String("10"),
+// 			CountryCode:       pulumi.String("US"),
+// 			Department:        pulumi.String("IT"),
+// 			DisplayName:       pulumi.String("Dr. John Smith"),
+// 			Division:          pulumi.String("Acquisitions"),
+// 			Email:             pulumi.String("john.smith@example.com"),
+// 			EmployeeNumber:    pulumi.String("111111"),
+// 			FirstName:         pulumi.String("John"),
+// 			HonorificPrefix:   pulumi.String("Dr."),
+// 			HonorificSuffix:   pulumi.String("Jr."),
+// 			LastName:          pulumi.String("Smith"),
+// 			Locale:            pulumi.String("en_US"),
+// 			Login:             pulumi.String("john.smith@example.com"),
+// 			Manager:           pulumi.String("Jimbo"),
+// 			ManagerId:         pulumi.String("222222"),
+// 			MiddleName:        pulumi.String("John"),
+// 			MobilePhone:       pulumi.String("1112223333"),
+// 			NickName:          pulumi.String("Johnny"),
+// 			Organization:      pulumi.String("Testing Inc."),
+// 			PostalAddress:     pulumi.String("1234 Testing St."),
+// 			PreferredLanguage: pulumi.String("en-us"),
+// 			PrimaryPhone:      pulumi.String("4445556666"),
+// 			ProfileUrl:        pulumi.String("http://www.example.com/profile"),
+// 			SecondEmail:       pulumi.String("john.smith.fun@example.com"),
+// 			State:             pulumi.String("NY"),
+// 			StreetAddress:     pulumi.String("5678 Testing Ave."),
+// 			Timezone:          pulumi.String("America/New_York"),
+// 			Title:             pulumi.String("Director"),
+// 			UserType:          pulumi.String("Employee"),
+// 			ZipCode:           pulumi.String("11111"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An Okta User can be imported via the ID.

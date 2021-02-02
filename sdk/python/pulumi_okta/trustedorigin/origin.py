@@ -48,7 +48,7 @@ class Origin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         :param pulumi.Input[str] name: Unique name for this trusted origin.
         :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
@@ -99,7 +99,7 @@ class Origin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         :param pulumi.Input[str] name: Unique name for this trusted origin.
         :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
@@ -118,7 +118,7 @@ class Origin(pulumi.CustomResource):
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         """
         return pulumi.get(self, "active")
 

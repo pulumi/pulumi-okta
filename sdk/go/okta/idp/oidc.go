@@ -28,8 +28,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := idp.NewOidc(ctx, "example", &idp.OidcArgs{
-// 			AcsBinding:           pulumi.String("HTTP-POST"),
-// 			AcsType:              pulumi.String("INSTANCE"),
 // 			AuthorizationBinding: pulumi.String("HTTP-REDIRECT"),
 // 			AuthorizationUrl:     pulumi.String("https://idp.example.com/authorize"),
 // 			ClientId:             pulumi.String("efg456"),
@@ -68,10 +66,6 @@ type Oidc struct {
 	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding pulumi.StringOutput `pulumi:"acsBinding"`
-	// The type of ACS. Default is `"INSTANCE"`.
-	AcsType pulumi.StringPtrOutput `pulumi:"acsType"`
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding pulumi.StringOutput `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -96,7 +90,7 @@ type Oidc struct {
 	IssuerUrl pulumi.StringOutput `pulumi:"issuerUrl"`
 	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	JwksBinding pulumi.StringOutput `pulumi:"jwksBinding"`
-	// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+	// Endpoint where the keys signer publishes its keys in a JWK Set.
 	JwksUrl pulumi.StringOutput `pulumi:"jwksUrl"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
@@ -122,7 +116,7 @@ type Oidc struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrOutput `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
@@ -146,9 +140,6 @@ func NewOidc(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AcsBinding == nil {
-		return nil, errors.New("invalid value for required argument 'AcsBinding'")
-	}
 	if args.AuthorizationBinding == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizationBinding'")
 	}
@@ -205,10 +196,6 @@ type oidcState struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding *string `pulumi:"acsBinding"`
-	// The type of ACS. Default is `"INSTANCE"`.
-	AcsType *string `pulumi:"acsType"`
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding *string `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -233,7 +220,7 @@ type oidcState struct {
 	IssuerUrl *string `pulumi:"issuerUrl"`
 	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	JwksBinding *string `pulumi:"jwksBinding"`
-	// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+	// Endpoint where the keys signer publishes its keys in a JWK Set.
 	JwksUrl *string `pulumi:"jwksUrl"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
@@ -259,7 +246,7 @@ type oidcState struct {
 	Status *string `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction *string `pulumi:"suspendedAction"`
@@ -281,10 +268,6 @@ type OidcState struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding pulumi.StringPtrInput
-	// The type of ACS. Default is `"INSTANCE"`.
-	AcsType pulumi.StringPtrInput
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding pulumi.StringPtrInput
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -309,7 +292,7 @@ type OidcState struct {
 	IssuerUrl pulumi.StringPtrInput
 	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	JwksBinding pulumi.StringPtrInput
-	// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+	// Endpoint where the keys signer publishes its keys in a JWK Set.
 	JwksUrl pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
@@ -335,7 +318,7 @@ type OidcState struct {
 	Status pulumi.StringPtrInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrInput
@@ -361,10 +344,6 @@ type oidcArgs struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding string `pulumi:"acsBinding"`
-	// The type of ACS. Default is `"INSTANCE"`.
-	AcsType *string `pulumi:"acsType"`
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding string `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -389,7 +368,7 @@ type oidcArgs struct {
 	IssuerUrl string `pulumi:"issuerUrl"`
 	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	JwksBinding string `pulumi:"jwksBinding"`
-	// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+	// Endpoint where the keys signer publishes its keys in a JWK Set.
 	JwksUrl string `pulumi:"jwksUrl"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
@@ -415,7 +394,7 @@ type oidcArgs struct {
 	Status *string `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction *string `pulumi:"suspendedAction"`
@@ -436,10 +415,6 @@ type OidcArgs struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding pulumi.StringInput
-	// The type of ACS. Default is `"INSTANCE"`.
-	AcsType pulumi.StringPtrInput
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding pulumi.StringInput
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -464,7 +439,7 @@ type OidcArgs struct {
 	IssuerUrl pulumi.StringInput
 	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	JwksBinding pulumi.StringInput
-	// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+	// Endpoint where the keys signer publishes its keys in a JWK Set.
 	JwksUrl pulumi.StringInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
@@ -490,7 +465,7 @@ type OidcArgs struct {
 	Status pulumi.StringPtrInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrInput

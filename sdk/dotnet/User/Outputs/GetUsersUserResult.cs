@@ -69,6 +69,7 @@ namespace Pulumi.Okta.User.Outputs
         /// user profile property.
         /// </summary>
         public readonly string HonorificSuffix;
+        public readonly string Id;
         /// <summary>
         /// user profile property.
         /// </summary>
@@ -184,6 +185,8 @@ namespace Pulumi.Okta.User.Outputs
 
             string honorificSuffix,
 
+            string id,
+
             string lastName,
 
             string locale,
@@ -240,6 +243,7 @@ namespace Pulumi.Okta.User.Outputs
             GroupMemberships = groupMemberships;
             HonorificPrefix = honorificPrefix;
             HonorificSuffix = honorificSuffix;
+            Id = id;
             LastName = lastName;
             Locale = locale;
             Login = login;

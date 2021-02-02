@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+// Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy.getPolicy` with default names, this is simply a shortcut.
 //
 // ## Example Usage
 //
@@ -42,7 +42,7 @@ func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...p
 
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyArgs struct {
-	// type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
+	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
 	Type string `pulumi:"type"`
 }
 

@@ -14,41 +14,41 @@ namespace Pulumi.Okta.App.Outputs
     public sealed class GetSamlAttributeStatementResult
     {
         /// <summary>
-        /// (Optional) Type of group attribute filter.
+        /// Type of group attribute filter.
         /// </summary>
-        public readonly string? FilterType;
+        public readonly string FilterType;
         /// <summary>
-        /// (Optional) Filter value to use.
+        /// Filter value to use.
         /// </summary>
-        public readonly string? FilterValue;
+        public readonly string FilterValue;
         /// <summary>
-        /// (Required) The name of the attribute statement.
+        /// The name of the attribute statement.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        /// The attribute namespace.
         /// </summary>
-        public readonly string? Namespace;
+        public readonly string Namespace;
         /// <summary>
-        /// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        /// The type of attribute statement value.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
-        /// (Optional) Array of values to use.
+        /// Array of values to use.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private GetSamlAttributeStatementResult(
-            string? filterType,
+            string filterType,
 
-            string? filterValue,
+            string filterValue,
 
             string name,
 
-            string? @namespace,
+            string @namespace,
 
-            string? type,
+            string type,
 
             ImmutableArray<string> values)
         {

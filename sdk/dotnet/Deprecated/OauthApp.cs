@@ -89,6 +89,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Output("implicitAssignment")]
+        public Output<bool?> ImplicitAssignment { get; private set; } = null!;
+
+        /// <summary>
         /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
         /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
@@ -103,6 +109,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of Idp-Initiated login that the client supports, if any
+        /// </summary>
+        [Output("loginMode")]
+        public Output<string?> LoginMode { get; private set; } = null!;
+
+        /// <summary>
+        /// List of scopes to use for the request
+        /// </summary>
+        [Output("loginScopes")]
+        public Output<ImmutableArray<string>> LoginScopes { get; private set; } = null!;
 
         /// <summary>
         /// URI that initiates login.
@@ -130,7 +148,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client policy document.
+        /// URI to web page providing client policy document.
         /// </summary>
         [Output("policyUri")]
         public Output<string?> PolicyUri { get; private set; } = null!;
@@ -179,7 +197,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client tos (terms of service).
+        /// URI to web page providing client tos (terms of service).
         /// </summary>
         [Output("tosUri")]
         public Output<string?> TosUri { get; private set; } = null!;
@@ -325,6 +343,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
         /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
@@ -346,6 +370,24 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
+        /// The type of Idp-Initiated login that the client supports, if any
+        /// </summary>
+        [Input("loginMode")]
+        public Input<string>? LoginMode { get; set; }
+
+        [Input("loginScopes")]
+        private InputList<string>? _loginScopes;
+
+        /// <summary>
+        /// List of scopes to use for the request
+        /// </summary>
+        public InputList<string> LoginScopes
+        {
+            get => _loginScopes ?? (_loginScopes = new InputList<string>());
+            set => _loginScopes = value;
+        }
+
+        /// <summary>
         /// URI that initiates login.
         /// </summary>
         [Input("loginUri")]
@@ -365,7 +407,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client policy document.
+        /// URI to web page providing client policy document.
         /// </summary>
         [Input("policyUri")]
         public Input<string>? PolicyUri { get; set; }
@@ -426,7 +468,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? TokenEndpointAuthMethod { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client tos (terms of service).
+        /// URI to web page providing client tos (terms of service).
         /// </summary>
         [Input("tosUri")]
         public Input<string>? TosUri { get; set; }
@@ -545,6 +587,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
         /// custom domain URL as the issuer of ID token for this client.
         /// </summary>
@@ -564,6 +612,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// The type of Idp-Initiated login that the client supports, if any
+        /// </summary>
+        [Input("loginMode")]
+        public Input<string>? LoginMode { get; set; }
+
+        [Input("loginScopes")]
+        private InputList<string>? _loginScopes;
+
+        /// <summary>
+        /// List of scopes to use for the request
+        /// </summary>
+        public InputList<string> LoginScopes
+        {
+            get => _loginScopes ?? (_loginScopes = new InputList<string>());
+            set => _loginScopes = value;
+        }
 
         /// <summary>
         /// URI that initiates login.
@@ -591,7 +657,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client policy document.
+        /// URI to web page providing client policy document.
         /// </summary>
         [Input("policyUri")]
         public Input<string>? PolicyUri { get; set; }
@@ -658,7 +724,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? TokenEndpointAuthMethod { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. URI to web page providing client tos (terms of service).
+        /// URI to web page providing client tos (terms of service).
         /// </summary>
         [Input("tosUri")]
         public Input<string>? TosUri { get; set; }

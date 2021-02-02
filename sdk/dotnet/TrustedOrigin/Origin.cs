@@ -49,7 +49,7 @@ namespace Pulumi.Okta.TrustedOrigin
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

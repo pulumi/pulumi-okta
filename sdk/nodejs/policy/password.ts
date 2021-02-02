@@ -100,7 +100,7 @@ export class Password extends pulumi.CustomResource {
      */
     public readonly passwordExcludeLastName!: pulumi.Output<boolean | undefined>;
     /**
-     * If the user name must be excluded from the password.
+     * If the username must be excluded from the password.
      */
     public readonly passwordExcludeUsername!: pulumi.Output<boolean | undefined>;
     /**
@@ -116,7 +116,7 @@ export class Password extends pulumi.CustomResource {
      */
     public readonly passwordLockoutNotificationChannels!: pulumi.Output<string[] | undefined>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.",
+     * Length in days a password is valid before expiry: 0 = no limit.,
      */
     public readonly passwordMaxAgeDays!: pulumi.Output<number | undefined>;
     /**
@@ -132,19 +132,19 @@ export class Password extends pulumi.CustomResource {
      */
     public readonly passwordMinLength!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of lower case characters in password.
+     * Minimum number of lower case characters in a password.
      */
     public readonly passwordMinLowercase!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of numbers in password.
+     * Minimum number of numbers in a password.
      */
     public readonly passwordMinNumber!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of symbols in password.
+     * Minimum number of symbols in a password.
      */
     public readonly passwordMinSymbol!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of upper case characters in password.
+     * Minimum number of upper case characters in a password.
      */
     public readonly passwordMinUppercase!: pulumi.Output<number | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface PasswordState {
      */
     readonly passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the user name must be excluded from the password.
+     * If the username must be excluded from the password.
      */
     readonly passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
@@ -327,7 +327,7 @@ export interface PasswordState {
      */
     readonly passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.",
+     * Length in days a password is valid before expiry: 0 = no limit.,
      */
     readonly passwordMaxAgeDays?: pulumi.Input<number>;
     /**
@@ -343,19 +343,19 @@ export interface PasswordState {
      */
     readonly passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in password.
+     * Minimum number of lower case characters in a password.
      */
     readonly passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in password.
+     * Minimum number of numbers in a password.
      */
     readonly passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in password.
+     * Minimum number of symbols in a password.
      */
     readonly passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in password.
+     * Minimum number of upper case characters in a password.
      */
     readonly passwordMinUppercase?: pulumi.Input<number>;
     /**
@@ -437,7 +437,7 @@ export interface PasswordArgs {
      */
     readonly passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the user name must be excluded from the password.
+     * If the username must be excluded from the password.
      */
     readonly passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
@@ -453,7 +453,7 @@ export interface PasswordArgs {
      */
     readonly passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.",
+     * Length in days a password is valid before expiry: 0 = no limit.,
      */
     readonly passwordMaxAgeDays?: pulumi.Input<number>;
     /**
@@ -469,19 +469,19 @@ export interface PasswordArgs {
      */
     readonly passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in password.
+     * Minimum number of lower case characters in a password.
      */
     readonly passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in password.
+     * Minimum number of numbers in a password.
      */
     readonly passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in password.
+     * Minimum number of symbols in a password.
      */
     readonly passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in password.
+     * Minimum number of upper case characters in a password.
      */
     readonly passwordMinUppercase?: pulumi.Input<number>;
     /**

@@ -66,7 +66,7 @@ namespace Pulumi.Okta.Template
         public Output<string?> DefaultLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// Set of translations for particular template.
+        /// Set of translations for a particular template.
         /// </summary>
         [Output("translations")]
         public Output<ImmutableArray<Outputs.EmailTranslation>> Translations { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Okta.Template
         private InputList<Inputs.EmailTranslationArgs>? _translations;
 
         /// <summary>
-        /// Set of translations for particular template.
+        /// Set of translations for a particular template.
         /// </summary>
         public InputList<Inputs.EmailTranslationArgs> Translations
         {
@@ -164,7 +164,7 @@ namespace Pulumi.Okta.Template
         private InputList<Inputs.EmailTranslationGetArgs>? _translations;
 
         /// <summary>
-        /// Set of translations for particular template.
+        /// Set of translations for a particular template.
         /// </summary>
         public InputList<Inputs.EmailTranslationGetArgs> Translations
         {

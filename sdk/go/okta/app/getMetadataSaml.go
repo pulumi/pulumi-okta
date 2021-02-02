@@ -21,9 +21,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "<cert key id>"
 // 		_, err := app.GetMetadataSaml(ctx, &app.GetMetadataSamlArgs{
 // 			AppId: "<app id>",
-// 			KeyId: "<cert key id>",
+// 			KeyId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -46,7 +47,7 @@ type GetMetadataSamlArgs struct {
 	// The application ID.
 	AppId string `pulumi:"appId"`
 	// Certificate Key ID.
-	KeyId string `pulumi:"keyId"`
+	KeyId *string `pulumi:"keyId"`
 }
 
 // A collection of values returned by getMetadataSaml.
@@ -61,8 +62,8 @@ type GetMetadataSamlResult struct {
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	KeyId string `pulumi:"keyId"`
+	Id    string  `pulumi:"id"`
+	KeyId *string `pulumi:"keyId"`
 	// raw metadata of application.
 	Metadata string `pulumi:"metadata"`
 	// Whether authn requests are signed.

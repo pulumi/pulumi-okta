@@ -107,14 +107,15 @@ type OAuth struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
-	// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
 	// no-op, use client_id for that behavior instead.
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -122,18 +123,24 @@ type OAuth struct {
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	Jwks       OAuthJwkArrayOutput    `pulumi:"jwks"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// URI that initiates login.
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+	LoginMode pulumi.StringPtrOutput `pulumi:"loginMode"`
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
 	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
@@ -145,15 +152,15 @@ type OAuth struct {
 	RedirectUris pulumi.StringArrayOutput `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
-	// The type of OAuth application.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	Users OAuthUserArrayOutput `pulumi:"users"`
@@ -206,14 +213,15 @@ type oauthState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
 	// no-op, use client_id for that behavior instead.
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups []string `pulumi:"groups"`
@@ -221,18 +229,24 @@ type oauthState struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode *string    `pulumi:"issuerMode"`
 	Jwks       []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// URI that initiates login.
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+	LoginMode *string `pulumi:"loginMode"`
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+	LoginScopes []string `pulumi:"loginScopes"`
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
 	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -244,15 +258,15 @@ type oauthState struct {
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type *string `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	Users []OAuthUser `pulumi:"users"`
@@ -271,14 +285,15 @@ type OAuthState struct {
 	ClientSecret pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
 	// no-op, use client_id for that behavior instead.
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayInput
@@ -286,18 +301,24 @@ type OAuthState struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OAuthJwkArrayInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// URI that initiates login.
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+	LoginMode pulumi.StringPtrInput
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+	LoginScopes pulumi.StringArrayInput
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
 	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -309,15 +330,15 @@ type OAuthState struct {
 	RedirectUris pulumi.StringArrayInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	Users OAuthUserArrayInput
@@ -338,14 +359,15 @@ type oauthArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
 	// no-op, use client_id for that behavior instead.
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
-	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups []string `pulumi:"groups"`
@@ -353,16 +375,22 @@ type oauthArgs struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode *string    `pulumi:"issuerMode"`
 	Jwks       []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// URI that initiates login.
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+	LoginMode *string `pulumi:"loginMode"`
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+	LoginScopes []string `pulumi:"loginScopes"`
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -374,13 +402,13 @@ type oauthArgs struct {
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type string `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	Users []OAuthUser `pulumi:"users"`
@@ -398,14 +426,15 @@ type OAuthArgs struct {
 	ClientId pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
 	// no-op, use client_id for that behavior instead.
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	Groups pulumi.StringArrayInput
@@ -413,16 +442,22 @@ type OAuthArgs struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OAuthJwkArrayInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// URI that initiates login.
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+	LoginMode pulumi.StringPtrInput
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+	LoginScopes pulumi.StringArrayInput
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -434,13 +469,13 @@ type OAuthArgs struct {
 	RedirectUris pulumi.StringArrayInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	Users OAuthUserArrayInput

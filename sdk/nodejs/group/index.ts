@@ -8,11 +8,15 @@ import * as utilities from "../utilities";
 export * from "./getEveryoneGroup";
 export * from "./getGroup";
 export * from "./group";
+export * from "./membership";
+export * from "./role";
 export * from "./roles";
 export * from "./rule";
 
 // Import resources to register:
 import { Group } from "./group";
+import { Membership } from "./membership";
+import { Role } from "./role";
 import { Roles } from "./roles";
 import { Rule } from "./rule";
 
@@ -22,6 +26,10 @@ const _module = {
         switch (type) {
             case "okta:group/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "okta:group/membership:Membership":
+                return new Membership(name, <any>undefined, { urn })
+            case "okta:group/role:Role":
+                return new Role(name, <any>undefined, { urn })
             case "okta:group/roles:Roles":
                 return new Roles(name, <any>undefined, { urn })
             case "okta:group/rule:Rule":
@@ -32,5 +40,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("okta", "group/group", _module)
+pulumi.runtime.registerResourceModule("okta", "group/membership", _module)
+pulumi.runtime.registerResourceModule("okta", "group/role", _module)
 pulumi.runtime.registerResourceModule("okta", "group/roles", _module)
 pulumi.runtime.registerResourceModule("okta", "group/rule", _module)

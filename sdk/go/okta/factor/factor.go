@@ -40,7 +40,7 @@ import (
 type Factor struct {
 	pulumi.CustomResourceState
 
-	// Whether or not to activate the provider, by default it is set to `true`.
+	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// The MFA provider name.
 	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
@@ -79,7 +79,7 @@ func GetFactor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factor resources.
 type factorState struct {
-	// Whether or not to activate the provider, by default it is set to `true`.
+	// Whether to activate the provider, by default, it is set to `true`.
 	Active *bool `pulumi:"active"`
 	// The MFA provider name.
 	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
@@ -87,7 +87,7 @@ type factorState struct {
 }
 
 type FactorState struct {
-	// Whether or not to activate the provider, by default it is set to `true`.
+	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrInput
 	// The MFA provider name.
 	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
@@ -99,7 +99,7 @@ func (FactorState) ElementType() reflect.Type {
 }
 
 type factorArgs struct {
-	// Whether or not to activate the provider, by default it is set to `true`.
+	// Whether to activate the provider, by default, it is set to `true`.
 	Active *bool `pulumi:"active"`
 	// The MFA provider name.
 	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.
@@ -108,7 +108,7 @@ type factorArgs struct {
 
 // The set of arguments for constructing a Factor resource.
 type FactorArgs struct {
-	// Whether or not to activate the provider, by default it is set to `true`.
+	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrInput
 	// The MFA provider name.
 	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"rsaToken"`, `"symantecVip"` or `"yubikeyToken"`.

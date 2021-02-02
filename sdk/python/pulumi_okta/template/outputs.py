@@ -19,7 +19,7 @@ class EmailTranslation(dict):
                  subject: str,
                  template: str):
         """
-        :param str language: The language to map tthe template to.
+        :param str language: The language to map the template to.
         :param str subject: The email subject line.
         :param str template: The email body.
         """
@@ -31,7 +31,7 @@ class EmailTranslation(dict):
     @pulumi.getter
     def language(self) -> str:
         """
-        The language to map tthe template to.
+        The language to map the template to.
         """
         return pulumi.get(self, "language")
 

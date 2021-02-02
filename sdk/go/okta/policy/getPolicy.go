@@ -43,9 +43,9 @@ func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getPolicy.
 type GetPolicyArgs struct {
-	// name of policy to retrieve.
+	// Name of policy to retrieve.
 	Name string `pulumi:"name"`
-	// type of policy to retrieve.
+	// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
 	Type string `pulumi:"type"`
 }
 

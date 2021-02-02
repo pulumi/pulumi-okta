@@ -40,6 +40,8 @@ type Mfa struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Okta Call MFA policy settings.
 	OktaCall pulumi.StringMapOutput `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings.
+	OktaEmail pulumi.StringMapOutput `pulumi:"oktaEmail"`
 	// Okta OTP MFA policy settings.
 	OktaOtp pulumi.StringMapOutput `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
@@ -107,6 +109,8 @@ type mfaState struct {
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
 	OktaCall map[string]string `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings.
+	OktaEmail map[string]string `pulumi:"oktaEmail"`
 	// Okta OTP MFA policy settings.
 	OktaOtp map[string]string `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
@@ -146,6 +150,8 @@ type MfaState struct {
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.
 	OktaCall pulumi.StringMapInput
+	// Okta Email MFA policy settings.
+	OktaEmail pulumi.StringMapInput
 	// Okta OTP MFA policy settings.
 	OktaOtp pulumi.StringMapInput
 	// Okta Password MFA policy settings.
@@ -189,6 +195,8 @@ type mfaArgs struct {
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
 	OktaCall map[string]string `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings.
+	OktaEmail map[string]string `pulumi:"oktaEmail"`
 	// Okta OTP MFA policy settings.
 	OktaOtp map[string]string `pulumi:"oktaOtp"`
 	// Okta Password MFA policy settings.
@@ -229,6 +237,8 @@ type MfaArgs struct {
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.
 	OktaCall pulumi.StringMapInput
+	// Okta Email MFA policy settings.
+	OktaEmail pulumi.StringMapInput
 	// Okta OTP MFA policy settings.
 	OktaOtp pulumi.StringMapInput
 	// Okta Password MFA policy settings.

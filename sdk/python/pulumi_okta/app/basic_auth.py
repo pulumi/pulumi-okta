@@ -30,7 +30,7 @@ class BasicAuth(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Creates a Bsaic Auth Application.
+        Creates a Basic Auth Application.
 
         This resource allows you to create and configure a Basic Auth Application.
 

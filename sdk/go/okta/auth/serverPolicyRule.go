@@ -57,7 +57,7 @@ import (
 type ServerPolicyRule struct {
 	pulumi.CustomResourceState
 
-	// Lifetime of access token. Can be set to a value between 5 and 1440.
+	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
 	AccessTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
@@ -77,7 +77,8 @@ type ServerPolicyRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayOutput `pulumi:"scopeWhitelists"`
@@ -138,7 +139,7 @@ func GetServerPolicyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerPolicyRule resources.
 type serverPolicyRuleState struct {
-	// Lifetime of access token. Can be set to a value between 5 and 1440.
+	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId *string `pulumi:"authServerId"`
@@ -158,7 +159,8 @@ type serverPolicyRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
@@ -173,7 +175,7 @@ type serverPolicyRuleState struct {
 }
 
 type ServerPolicyRuleState struct {
-	// Lifetime of access token. Can be set to a value between 5 and 1440.
+	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringPtrInput
@@ -193,7 +195,8 @@ type ServerPolicyRuleState struct {
 	Priority pulumi.IntPtrInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrInput
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput
@@ -212,7 +215,7 @@ func (ServerPolicyRuleState) ElementType() reflect.Type {
 }
 
 type serverPolicyRuleArgs struct {
-	// Lifetime of access token. Can be set to a value between 5 and 1440.
+	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId string `pulumi:"authServerId"`
@@ -232,7 +235,8 @@ type serverPolicyRuleArgs struct {
 	Priority int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
@@ -248,7 +252,7 @@ type serverPolicyRuleArgs struct {
 
 // The set of arguments for constructing a ServerPolicyRule resource.
 type ServerPolicyRuleArgs struct {
-	// Lifetime of access token. Can be set to a value between 5 and 1440.
+	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringInput
@@ -268,7 +272,8 @@ type ServerPolicyRuleArgs struct {
 	Priority pulumi.IntInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrInput
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput

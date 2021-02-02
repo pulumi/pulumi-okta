@@ -44,6 +44,9 @@ class SamlApp(pulumi.CustomResource):
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 single_logout_certificate: Optional[pulumi.Input[str]] = None,
+                 single_logout_issuer: Optional[pulumi.Input[str]] = None,
+                 single_logout_url: Optional[pulumi.Input[str]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -86,6 +89,9 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -142,6 +148,9 @@ class SamlApp(pulumi.CustomResource):
             __props__['request_compressed'] = request_compressed
             __props__['response_signed'] = response_signed
             __props__['signature_algorithm'] = signature_algorithm
+            __props__['single_logout_certificate'] = single_logout_certificate
+            __props__['single_logout_issuer'] = single_logout_issuer
+            __props__['single_logout_url'] = single_logout_url
             __props__['sp_issuer'] = sp_issuer
             __props__['sso_url'] = sso_url
             __props__['status'] = status
@@ -158,6 +167,7 @@ class SamlApp(pulumi.CustomResource):
             __props__['http_redirect_binding'] = None
             __props__['key_id'] = None
             __props__['metadata'] = None
+            __props__['metadata_url'] = None
             __props__['name'] = None
             __props__['sign_on_mode'] = None
         super(SamlApp, __self__).__init__(
@@ -199,6 +209,7 @@ class SamlApp(pulumi.CustomResource):
             key_years_valid: Optional[pulumi.Input[int]] = None,
             label: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
+            metadata_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             preconfigured_app: Optional[pulumi.Input[str]] = None,
             recipient: Optional[pulumi.Input[str]] = None,
@@ -206,6 +217,9 @@ class SamlApp(pulumi.CustomResource):
             response_signed: Optional[pulumi.Input[bool]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             signature_algorithm: Optional[pulumi.Input[str]] = None,
+            single_logout_certificate: Optional[pulumi.Input[str]] = None,
+            single_logout_issuer: Optional[pulumi.Input[str]] = None,
+            single_logout_url: Optional[pulumi.Input[str]] = None,
             sp_issuer: Optional[pulumi.Input[str]] = None,
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -250,6 +264,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] metadata: SAML xml metadata payload
+        :param pulumi.Input[str] metadata_url: SAML xml metadata URL
         :param pulumi.Input[str] name: name of app.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
@@ -257,6 +272,9 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -300,6 +318,7 @@ class SamlApp(pulumi.CustomResource):
         __props__["key_years_valid"] = key_years_valid
         __props__["label"] = label
         __props__["metadata"] = metadata
+        __props__["metadata_url"] = metadata_url
         __props__["name"] = name
         __props__["preconfigured_app"] = preconfigured_app
         __props__["recipient"] = recipient
@@ -307,6 +326,9 @@ class SamlApp(pulumi.CustomResource):
         __props__["response_signed"] = response_signed
         __props__["sign_on_mode"] = sign_on_mode
         __props__["signature_algorithm"] = signature_algorithm
+        __props__["single_logout_certificate"] = single_logout_certificate
+        __props__["single_logout_issuer"] = single_logout_issuer
+        __props__["single_logout_url"] = single_logout_url
         __props__["sp_issuer"] = sp_issuer
         __props__["sso_url"] = sso_url
         __props__["status"] = status
@@ -548,6 +570,14 @@ class SamlApp(pulumi.CustomResource):
         return pulumi.get(self, "metadata")
 
     @property
+    @pulumi.getter(name="metadataUrl")
+    def metadata_url(self) -> pulumi.Output[str]:
+        """
+        SAML xml metadata URL
+        """
+        return pulumi.get(self, "metadata_url")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -602,6 +632,30 @@ class SamlApp(pulumi.CustomResource):
         Signature algorithm used ot digitally sign the assertion and response
         """
         return pulumi.get(self, "signature_algorithm")
+
+    @property
+    @pulumi.getter(name="singleLogoutCertificate")
+    def single_logout_certificate(self) -> pulumi.Output[Optional[str]]:
+        """
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        """
+        return pulumi.get(self, "single_logout_certificate")
+
+    @property
+    @pulumi.getter(name="singleLogoutIssuer")
+    def single_logout_issuer(self) -> pulumi.Output[Optional[str]]:
+        """
+        The issuer of the Service Provider that generates the Single Logout request
+        """
+        return pulumi.get(self, "single_logout_issuer")
+
+    @property
+    @pulumi.getter(name="singleLogoutUrl")
+    def single_logout_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location where the logout response is sent
+        """
+        return pulumi.get(self, "single_logout_url")
 
     @property
     @pulumi.getter(name="spIssuer")

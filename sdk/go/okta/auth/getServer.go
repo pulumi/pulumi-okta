@@ -48,7 +48,7 @@ type LookupServerArgs struct {
 
 // A collection of values returned by getServer.
 type LookupServerResult struct {
-	// array of audiences,
+	// array of audiences.
 	Audiences []string `pulumi:"audiences"`
 	// last time credentials were rotated.
 	CredentialsLastRotated string `pulumi:"credentialsLastRotated"`
@@ -60,6 +60,10 @@ type LookupServerResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+	Issuer string `pulumi:"issuer"`
+	// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode string `pulumi:"issuerMode"`
 	// auth server key id.
 	Kid string `pulumi:"kid"`
 	// The name of the auth server.

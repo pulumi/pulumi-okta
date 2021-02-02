@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create an App Group assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.GroupAssignment("example", {
+ *     appId: "<app id>",
+ *     groupId: "<group id>",
+ *     profile: `{
+ *   "<app_profile_field>": "<value>"
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * !> **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const app = new okta.app.OAuth("app", {});
+ * ```
+ *
  * ## Import
  *
  * An application group assignment can be imported via the `app_id` and the `group_id`.

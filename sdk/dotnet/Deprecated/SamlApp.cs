@@ -184,6 +184,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
+        /// SAML xml metadata URL
+        /// </summary>
+        [Output("metadataUrl")]
+        public Output<string> MetadataUrl { get; private set; } = null!;
+
+        /// <summary>
         /// name of app.
         /// </summary>
         [Output("name")]
@@ -224,6 +230,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("signatureAlgorithm")]
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        /// </summary>
+        [Output("singleLogoutCertificate")]
+        public Output<string?> SingleLogoutCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request
+        /// </summary>
+        [Output("singleLogoutIssuer")]
+        public Output<string?> SingleLogoutIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// The location where the logout response is sent
+        /// </summary>
+        [Output("singleLogoutUrl")]
+        public Output<string?> SingleLogoutUrl { get; private set; } = null!;
 
         /// <summary>
         /// SAML SP issuer ID
@@ -508,6 +532,24 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        /// </summary>
+        [Input("singleLogoutCertificate")]
+        public Input<string>? SingleLogoutCertificate { get; set; }
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request
+        /// </summary>
+        [Input("singleLogoutIssuer")]
+        public Input<string>? SingleLogoutIssuer { get; set; }
+
+        /// <summary>
+        /// The location where the logout response is sent
+        /// </summary>
+        [Input("singleLogoutUrl")]
+        public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
         /// SAML SP issuer ID
         /// </summary>
         [Input("spIssuer")]
@@ -769,6 +811,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
+        /// SAML xml metadata URL
+        /// </summary>
+        [Input("metadataUrl")]
+        public Input<string>? MetadataUrl { get; set; }
+
+        /// <summary>
         /// name of app.
         /// </summary>
         [Input("name")]
@@ -809,6 +857,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("signatureAlgorithm")]
         public Input<string>? SignatureAlgorithm { get; set; }
+
+        /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        /// </summary>
+        [Input("singleLogoutCertificate")]
+        public Input<string>? SingleLogoutCertificate { get; set; }
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request
+        /// </summary>
+        [Input("singleLogoutIssuer")]
+        public Input<string>? SingleLogoutIssuer { get; set; }
+
+        /// <summary>
+        /// The location where the logout response is sent
+        /// </summary>
+        [Input("singleLogoutUrl")]
+        public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
         /// SAML SP issuer ID

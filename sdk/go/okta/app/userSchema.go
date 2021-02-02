@@ -92,6 +92,8 @@ type UserSchema struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	Union pulumi.BoolPtrOutput `pulumi:"union"`
 	// Subschema unique restriction
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
 	// Custom subschema user type
@@ -177,6 +179,8 @@ type userSchemaState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
+	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
 	// Custom subschema user type
@@ -222,6 +226,8 @@ type UserSchemaState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
+	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
 	// Custom subschema user type
@@ -271,6 +277,8 @@ type userSchemaArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
+	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
 	// Custom subschema user type
@@ -317,6 +325,8 @@ type UserSchemaArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
+	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
 	// Custom subschema user type

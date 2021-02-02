@@ -60,7 +60,7 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerResult
     {
         /// <summary>
-        /// array of audiences,
+        /// array of audiences.
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
@@ -83,6 +83,14 @@ namespace Pulumi.Okta.Auth
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+        /// </summary>
+        public readonly string Issuer;
+        /// <summary>
+        /// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// </summary>
+        public readonly string IssuerMode;
         /// <summary>
         /// auth server key id.
         /// </summary>
@@ -110,6 +118,10 @@ namespace Pulumi.Okta.Auth
 
             string id,
 
+            string issuer,
+
+            string issuerMode,
+
             string kid,
 
             string name,
@@ -122,6 +134,8 @@ namespace Pulumi.Okta.Auth
             CredentialsRotationMode = credentialsRotationMode;
             Description = description;
             Id = id;
+            Issuer = issuer;
+            IssuerMode = issuerMode;
             Kid = kid;
             Name = name;
             Status = status;

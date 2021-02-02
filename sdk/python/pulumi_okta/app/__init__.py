@@ -8,6 +8,7 @@ from .basic_auth import *
 from .bookmark import *
 from .get_app import *
 from .get_metadata_saml import *
+from .get_oauth import *
 from .get_saml import *
 from .group_assignment import *
 from .o_auth import *

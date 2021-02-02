@@ -44,12 +44,18 @@ type OauthApp struct {
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	Jwks       OauthAppJwkArrayOutput `pulumi:"jwks"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// The type of Idp-Initiated login that the client supports, if any
+	LoginMode pulumi.StringPtrOutput `pulumi:"loginMode"`
+	// List of scopes to use for the request
+	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
 	// URI that references a logo for the client.
@@ -59,7 +65,7 @@ type OauthApp struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
-	// *Early Access Property*. URI to web page providing client policy document.
+	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
 	// List of URIs for redirection after logout
 	PostLogoutRedirectUris pulumi.StringArrayOutput `pulumi:"postLogoutRedirectUris"`
@@ -76,7 +82,7 @@ type OauthApp struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
-	// *Early Access Property*. URI to web page providing client tos (terms of service).
+	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
 	// The type of client application.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -149,12 +155,18 @@ type oauthAppState struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode *string       `pulumi:"issuerMode"`
 	Jwks       []OauthAppJwk `pulumi:"jwks"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
+	// The type of Idp-Initiated login that the client supports, if any
+	LoginMode *string `pulumi:"loginMode"`
+	// List of scopes to use for the request
+	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri *string `pulumi:"loginUri"`
 	// URI that references a logo for the client.
@@ -164,7 +176,7 @@ type oauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// *Early Access Property*. URI to web page providing client policy document.
+	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
@@ -181,7 +193,7 @@ type oauthAppState struct {
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
-	// *Early Access Property*. URI to web page providing client tos (terms of service).
+	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
 	// The type of client application.
 	Type *string `pulumi:"type"`
@@ -220,12 +232,18 @@ type OauthAppState struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OauthAppJwkArrayInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
+	// The type of Idp-Initiated login that the client supports, if any
+	LoginMode pulumi.StringPtrInput
+	// List of scopes to use for the request
+	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrInput
 	// URI that references a logo for the client.
@@ -235,7 +253,7 @@ type OauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
-	// *Early Access Property*. URI to web page providing client policy document.
+	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout
 	PostLogoutRedirectUris pulumi.StringArrayInput
@@ -252,7 +270,7 @@ type OauthAppState struct {
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
-	// *Early Access Property*. URI to web page providing client tos (terms of service).
+	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
 	// The type of client application.
 	Type pulumi.StringPtrInput
@@ -293,12 +311,18 @@ type oauthAppArgs struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode *string       `pulumi:"issuerMode"`
 	Jwks       []OauthAppJwk `pulumi:"jwks"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
+	// The type of Idp-Initiated login that the client supports, if any
+	LoginMode *string `pulumi:"loginMode"`
+	// List of scopes to use for the request
+	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri *string `pulumi:"loginUri"`
 	// URI that references a logo for the client.
@@ -306,7 +330,7 @@ type oauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// *Early Access Property*. URI to web page providing client policy document.
+	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
@@ -321,7 +345,7 @@ type oauthAppArgs struct {
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
-	// *Early Access Property*. URI to web page providing client tos (terms of service).
+	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
 	// The type of client application.
 	Type string `pulumi:"type"`
@@ -359,12 +383,18 @@ type OauthAppArgs struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
 	// custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OauthAppJwkArrayInput
 	// Pretty name of app.
 	Label pulumi.StringInput
+	// The type of Idp-Initiated login that the client supports, if any
+	LoginMode pulumi.StringPtrInput
+	// List of scopes to use for the request
+	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrInput
 	// URI that references a logo for the client.
@@ -372,7 +402,7 @@ type OauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
-	// *Early Access Property*. URI to web page providing client policy document.
+	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout
 	PostLogoutRedirectUris pulumi.StringArrayInput
@@ -387,7 +417,7 @@ type OauthAppArgs struct {
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
-	// *Early Access Property*. URI to web page providing client tos (terms of service).
+	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
 	// The type of client application.
 	Type pulumi.StringInput

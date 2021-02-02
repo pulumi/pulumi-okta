@@ -19,6 +19,10 @@ export let backoff: boolean | undefined = __config.getObject<boolean>("backoff")
  */
 export let baseUrl: string | undefined = __config.get("baseUrl") || utilities.getEnv("OKTA_BASE_URL");
 /**
+ * API Token granting privileges to Okta API.
+ */
+export let clientId: string | undefined = __config.get("clientId");
+/**
  * providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
  */
 export let logLevel: number | undefined = __config.getObject<number>("logLevel");
@@ -44,7 +48,15 @@ export let orgName: string | undefined = __config.get("orgName") || utilities.ge
  */
 export let parallelism: number | undefined = __config.getObject<number>("parallelism");
 /**
+ * API Token granting privileges to Okta API.
+ */
+export let privateKey: string | undefined = __config.get("privateKey");
+/**
  * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
  * value can be `100`.
  */
 export let requestTimeout: number | undefined = __config.getObject<number>("requestTimeout");
+/**
+ * API Token granting privileges to Okta API.
+ */
+export let scopes: string[] | undefined = __config.getObject<string[]>("scopes");

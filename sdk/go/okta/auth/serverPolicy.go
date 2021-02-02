@@ -56,7 +56,7 @@ type ServerPolicy struct {
 
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayOutput `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -67,6 +67,8 @@ type ServerPolicy struct {
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of the Auth Server Policy.
+	//
+	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -113,7 +115,7 @@ func GetServerPolicy(ctx *pulumi.Context,
 type serverPolicyState struct {
 	// The ID of the Auth Server.
 	AuthServerId *string `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists []string `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description *string `pulumi:"description"`
@@ -124,13 +126,15 @@ type serverPolicyState struct {
 	// The status of the Auth Server Policy.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy.
+	//
+	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
 	Type *string `pulumi:"type"`
 }
 
 type ServerPolicyState struct {
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringPtrInput
-	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayInput
 	// The description of the Auth Server Policy.
 	Description pulumi.StringPtrInput
@@ -141,6 +145,8 @@ type ServerPolicyState struct {
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy.
+	//
+	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
 	Type pulumi.StringPtrInput
 }
 
@@ -151,7 +157,7 @@ func (ServerPolicyState) ElementType() reflect.Type {
 type serverPolicyArgs struct {
 	// The ID of the Auth Server.
 	AuthServerId string `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists []string `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description string `pulumi:"description"`
@@ -162,6 +168,8 @@ type serverPolicyArgs struct {
 	// The status of the Auth Server Policy.
 	Status *string `pulumi:"status"`
 	// The type of the Auth Server Policy.
+	//
+	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
 	Type *string `pulumi:"type"`
 }
 
@@ -169,7 +177,7 @@ type serverPolicyArgs struct {
 type ServerPolicyArgs struct {
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringInput
-	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayInput
 	// The description of the Auth Server Policy.
 	Description pulumi.StringInput
@@ -180,6 +188,8 @@ type ServerPolicyArgs struct {
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrInput
 	// The type of the Auth Server Policy.
+	//
+	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
 	Type pulumi.StringPtrInput
 }
 

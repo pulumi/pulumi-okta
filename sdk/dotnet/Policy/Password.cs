@@ -111,7 +111,7 @@ namespace Pulumi.Okta.Policy
         public Output<bool?> PasswordExcludeLastName { get; private set; } = null!;
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Output("passwordExcludeUsername")]
         public Output<bool?> PasswordExcludeUsername { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> PasswordLockoutNotificationChannels { get; private set; } = null!;
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.",
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Output("passwordMaxAgeDays")]
         public Output<int?> PasswordMaxAgeDays { get; private set; } = null!;
@@ -159,25 +159,25 @@ namespace Pulumi.Okta.Policy
         public Output<int?> PasswordMinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of lower case characters in password.
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Output("passwordMinLowercase")]
         public Output<int?> PasswordMinLowercase { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of numbers in password.
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Output("passwordMinNumber")]
         public Output<int?> PasswordMinNumber { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of symbols in password.
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Output("passwordMinSymbol")]
         public Output<int?> PasswordMinSymbol { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of upper case characters in password.
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Output("passwordMinUppercase")]
         public Output<int?> PasswordMinUppercase { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Okta.Policy
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.",
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
@@ -397,25 +397,25 @@ namespace Pulumi.Okta.Policy
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// Minimum number of lower case characters in password.
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// Minimum number of numbers in password.
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// Minimum number of symbols in password.
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// Minimum number of upper case characters in password.
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Okta.Policy
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -572,7 +572,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.",
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
@@ -596,25 +596,25 @@ namespace Pulumi.Okta.Policy
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// Minimum number of lower case characters in password.
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// Minimum number of numbers in password.
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// Minimum number of symbols in password.
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// Minimum number of upper case characters in password.
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }

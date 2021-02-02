@@ -47,7 +47,7 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * array of audiences,
+     * array of audiences.
      */
     readonly audiences: string[];
     /**
@@ -70,6 +70,14 @@ export interface GetServerResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+     */
+    readonly issuer: string;
+    /**
+     * Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     */
+    readonly issuerMode: string;
     /**
      * auth server key id.
      */

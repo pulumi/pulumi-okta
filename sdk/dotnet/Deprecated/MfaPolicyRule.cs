@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Deprecated
     public partial class MfaPolicyRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>
         [Output("enroll")]
         public Output<string?> Enroll { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Okta.Deprecated
     public sealed class MfaPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>
         [Input("enroll")]
         public Input<string>? Enroll { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Okta.Deprecated
     public sealed class MfaPolicyRuleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>
         [Input("enroll")]
         public Input<string>? Enroll { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

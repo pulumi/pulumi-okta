@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = pulumi.output(okta.idp.getSaml({
- *     label: "Example App",
+ *     name: "Example App",
  * }, { async: true }));
  * ```
  */
@@ -53,7 +53,7 @@ export interface GetSamlArgs {
  */
 export interface GetSamlResult {
     /**
-     * HTTP binding used to receive a SAMLResponse message from the IdP.
+     * HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
      */
     readonly acsBinding: string;
     /**
@@ -85,7 +85,7 @@ export interface GetSamlResult {
      */
     readonly name?: string;
     /**
-     * single sign on binding.
+     * single sign-on binding.
      */
     readonly ssoBinding: string;
     /**
@@ -93,7 +93,7 @@ export interface GetSamlResult {
      */
     readonly ssoDestination: string;
     /**
-     * single sign on url.
+     * single sign-on url.
      */
     readonly ssoUrl: string;
     /**

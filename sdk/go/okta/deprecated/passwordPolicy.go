@@ -60,7 +60,7 @@ type PasswordPolicy struct {
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrOutput `pulumi:"passwordShowLockoutFailures"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Min length of the password recovery question answer.
 	QuestionMinLength pulumi.IntPtrOutput `pulumi:"questionMinLength"`
@@ -153,7 +153,7 @@ type passwordPolicyState struct {
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures *bool `pulumi:"passwordShowLockoutFailures"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Min length of the password recovery question answer.
 	QuestionMinLength *int `pulumi:"questionMinLength"`
@@ -218,7 +218,7 @@ type PasswordPolicyState struct {
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Min length of the password recovery question answer.
 	QuestionMinLength pulumi.IntPtrInput
@@ -287,7 +287,7 @@ type passwordPolicyArgs struct {
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures *bool `pulumi:"passwordShowLockoutFailures"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Min length of the password recovery question answer.
 	QuestionMinLength *int `pulumi:"questionMinLength"`
@@ -353,7 +353,7 @@ type PasswordPolicyArgs struct {
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Min length of the password recovery question answer.
 	QuestionMinLength pulumi.IntPtrInput

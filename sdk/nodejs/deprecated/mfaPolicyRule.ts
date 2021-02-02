@@ -33,7 +33,7 @@ export class MfaPolicyRule extends pulumi.CustomResource {
     }
 
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */
     public readonly enroll!: pulumi.Output<string | undefined>;
     /**
@@ -58,7 +58,7 @@ export class MfaPolicyRule extends pulumi.CustomResource {
     public readonly policyid!: pulumi.Output<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
@@ -122,7 +122,7 @@ export class MfaPolicyRule extends pulumi.CustomResource {
  */
 export interface MfaPolicyRuleState {
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */
     readonly enroll?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface MfaPolicyRuleState {
     readonly policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -165,7 +165,7 @@ export interface MfaPolicyRuleState {
  */
 export interface MfaPolicyRuleArgs {
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */
     readonly enroll?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface MfaPolicyRuleArgs {
     readonly policyid: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**

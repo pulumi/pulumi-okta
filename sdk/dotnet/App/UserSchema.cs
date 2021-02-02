@@ -165,6 +165,12 @@ namespace Pulumi.Okta.App
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
+        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// </summary>
+        [Output("union")]
+        public Output<bool?> Union { get; private set; } = null!;
+
+        /// <summary>
         /// Subschema unique restriction
         /// </summary>
         [Output("unique")]
@@ -361,6 +367,12 @@ namespace Pulumi.Okta.App
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// </summary>
+        [Input("union")]
+        public Input<bool>? Union { get; set; }
+
+        /// <summary>
         /// Subschema unique restriction
         /// </summary>
         [Input("unique")]
@@ -516,6 +528,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// </summary>
+        [Input("union")]
+        public Input<bool>? Union { get; set; }
 
         /// <summary>
         /// Subschema unique restriction

@@ -34,7 +34,10 @@ export class SamlIdp extends pulumi.CustomResource {
 
     public readonly accountLinkAction!: pulumi.Output<string | undefined>;
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
-    public readonly acsBinding!: pulumi.Output<string>;
+    /**
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
+     */
+    public readonly acsBinding!: pulumi.Output<string | undefined>;
     public readonly acsType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly audience!: pulumi.Output<string>;
     public readonly deprovisionedAction!: pulumi.Output<string | undefined>;
@@ -131,9 +134,6 @@ export class SamlIdp extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlIdpArgs | undefined;
-            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'acsBinding'");
-            }
             if ((!args || args.issuer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issuer'");
             }
@@ -194,6 +194,9 @@ export class SamlIdp extends pulumi.CustomResource {
 export interface SamlIdpState {
     readonly accountLinkAction?: pulumi.Input<string>;
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
+     */
     readonly acsBinding?: pulumi.Input<string>;
     readonly acsType?: pulumi.Input<string>;
     readonly audience?: pulumi.Input<string>;
@@ -251,7 +254,10 @@ export interface SamlIdpState {
 export interface SamlIdpArgs {
     readonly accountLinkAction?: pulumi.Input<string>;
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly acsBinding: pulumi.Input<string>;
+    /**
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
+     */
+    readonly acsBinding?: pulumi.Input<string>;
     readonly acsType?: pulumi.Input<string>;
     readonly deprovisionedAction?: pulumi.Input<string>;
     readonly groupsAction?: pulumi.Input<string>;

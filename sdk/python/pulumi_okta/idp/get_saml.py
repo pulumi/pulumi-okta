@@ -67,7 +67,7 @@ class GetSamlResult:
     @pulumi.getter(name="acsBinding")
     def acs_binding(self) -> str:
         """
-        HTTP binding used to receive a SAMLResponse message from the IdP.
+        HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
         """
         return pulumi.get(self, "acs_binding")
 
@@ -131,7 +131,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoBinding")
     def sso_binding(self) -> str:
         """
-        single sign on binding.
+        single sign-on binding.
         """
         return pulumi.get(self, "sso_binding")
 
@@ -147,7 +147,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> str:
         """
-        single sign on url.
+        single sign-on url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -210,7 +210,7 @@ def get_saml(id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.idp.get_saml(label="Example App")
+    example = okta.idp.get_saml(name="Example App")
     ```
 
 

@@ -65,7 +65,8 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
     public readonly dynamicLocations!: pulumi.Output<string[] | undefined>;
     /**
@@ -77,13 +78,17 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
      */
     public readonly proxies!: pulumi.Output<string[] | undefined>;
     /**
-     * Type of the Network Zone - can either be IP or DYNAMIC only.
+     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     */
+    public readonly usage!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -102,6 +107,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["proxies"] = state ? state.proxies : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["usage"] = state ? state.usage : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if ((!args || args.type === undefined) && !(opts && opts.urn)) {
@@ -112,6 +118,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["proxies"] = args ? args.proxies : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["usage"] = args ? args.usage : undefined;
         }
         if (!opts) {
             opts = {}
@@ -129,7 +136,8 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneState {
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
     readonly dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -141,13 +149,17 @@ export interface ZoneState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
      */
     readonly proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of the Network Zone - can either be IP or DYNAMIC only.
+     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     */
+    readonly usage?: pulumi.Input<string>;
 }
 
 /**
@@ -155,7 +167,8 @@ export interface ZoneState {
  */
 export interface ZoneArgs {
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
     readonly dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -167,11 +180,15 @@ export interface ZoneArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
      */
     readonly proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of the Network Zone - can either be IP or DYNAMIC only.
+     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     */
+    readonly usage?: pulumi.Input<string>;
 }

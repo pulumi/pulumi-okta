@@ -42,7 +42,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// whether or not to retrieve all member ids.
+	// whether to retrieve all member ids.
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// name of group to retrieve.
 	Name string `pulumi:"name"`

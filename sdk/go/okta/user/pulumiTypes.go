@@ -481,6 +481,7 @@ type GetUsersUser struct {
 	HonorificPrefix string `pulumi:"honorificPrefix"`
 	// user profile property.
 	HonorificSuffix string `pulumi:"honorificSuffix"`
+	Id              string `pulumi:"id"`
 	// user profile property.
 	LastName string `pulumi:"lastName"`
 	// user profile property.
@@ -565,6 +566,7 @@ type GetUsersUserArgs struct {
 	HonorificPrefix pulumi.StringInput `pulumi:"honorificPrefix"`
 	// user profile property.
 	HonorificSuffix pulumi.StringInput `pulumi:"honorificSuffix"`
+	Id              pulumi.StringInput `pulumi:"id"`
 	// user profile property.
 	LastName pulumi.StringInput `pulumi:"lastName"`
 	// user profile property.
@@ -728,6 +730,10 @@ func (o GetUsersUserOutput) HonorificPrefix() pulumi.StringOutput {
 // user profile property.
 func (o GetUsersUserOutput) HonorificSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.HonorificSuffix }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // user profile property.

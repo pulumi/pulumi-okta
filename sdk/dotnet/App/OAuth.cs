@@ -131,7 +131,7 @@ namespace Pulumi.Okta.App
         public Output<string?> ClientUri { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         /// </summary>
         [Output("consentMethod")]
         public Output<string?> ConsentMethod { get; private set; } = null!;
@@ -144,7 +144,8 @@ namespace Pulumi.Okta.App
         public Output<string?> CustomClientId { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -168,6 +169,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Output("implicitAssignment")]
+        public Output<bool?> ImplicitAssignment { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Output("issuerMode")]
@@ -183,7 +190,19 @@ namespace Pulumi.Okta.App
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// URI that initiates login.
+        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// </summary>
+        [Output("loginMode")]
+        public Output<string?> LoginMode { get; private set; } = null!;
+
+        /// <summary>
+        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// </summary>
+        [Output("loginScopes")]
+        public Output<ImmutableArray<string>> LoginScopes { get; private set; } = null!;
+
+        /// <summary>
+        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         /// </summary>
         [Output("loginUri")]
         public Output<string?> LoginUri { get; private set; } = null!;
@@ -201,7 +220,7 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
@@ -237,13 +256,13 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> ResponseTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the application, by default it is `"ACTIVE"`.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -261,7 +280,7 @@ namespace Pulumi.Okta.App
         public Output<string?> TosUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -349,7 +368,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -365,7 +384,8 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -398,6 +418,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Input("issuerMode")]
@@ -418,7 +444,25 @@ namespace Pulumi.Okta.App
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// URI that initiates login.
+        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// </summary>
+        [Input("loginMode")]
+        public Input<string>? LoginMode { get; set; }
+
+        [Input("loginScopes")]
+        private InputList<string>? _loginScopes;
+
+        /// <summary>
+        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// </summary>
+        public InputList<string> LoginScopes
+        {
+            get => _loginScopes ?? (_loginScopes = new InputList<string>());
+            set => _loginScopes = value;
+        }
+
+        /// <summary>
+        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         /// </summary>
         [Input("loginUri")]
         public Input<string>? LoginUri { get; set; }
@@ -430,7 +474,7 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -484,7 +528,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// The status of the application, by default it is `"ACTIVE"`.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -502,7 +546,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -563,7 +607,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -579,7 +623,8 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -612,6 +657,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         /// </summary>
         [Input("issuerMode")]
@@ -632,7 +683,25 @@ namespace Pulumi.Okta.App
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// URI that initiates login.
+        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// </summary>
+        [Input("loginMode")]
+        public Input<string>? LoginMode { get; set; }
+
+        [Input("loginScopes")]
+        private InputList<string>? _loginScopes;
+
+        /// <summary>
+        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// </summary>
+        public InputList<string> LoginScopes
+        {
+            get => _loginScopes ?? (_loginScopes = new InputList<string>());
+            set => _loginScopes = value;
+        }
+
+        /// <summary>
+        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         /// </summary>
         [Input("loginUri")]
         public Input<string>? LoginUri { get; set; }
@@ -650,7 +719,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
+        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -704,13 +773,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// The status of the application, by default it is `"ACTIVE"`.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -728,7 +797,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

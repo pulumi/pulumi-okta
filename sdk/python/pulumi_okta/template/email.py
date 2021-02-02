@@ -61,7 +61,7 @@ class Email(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for particular template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: Email template type
         """
         if __name__ is not None:
@@ -109,7 +109,7 @@ class Email(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for particular template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: Email template type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -133,7 +133,7 @@ class Email(pulumi.CustomResource):
     @pulumi.getter
     def translations(self) -> pulumi.Output[Sequence['outputs.EmailTranslation']]:
         """
-        Set of translations for particular template.
+        Set of translations for a particular template.
         """
         return pulumi.get(self, "translations")
 

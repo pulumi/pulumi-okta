@@ -6,9 +6,9 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Three Field Application.
+ * Creates a Three Field Application.
  *
- * This resource allows you to create and configure an Three Field Application.
+ * This resource allows you to create and configure a Three Field Application.
  *
  * ## Example Usage
  *
@@ -66,7 +66,7 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -110,11 +110,11 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly passwordSelector!: pulumi.Output<string>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface ThreeFieldState {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -288,11 +288,11 @@ export interface ThreeFieldState {
      */
     readonly passwordSelector?: pulumi.Input<string>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -334,7 +334,7 @@ export interface ThreeFieldArgs {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -374,7 +374,7 @@ export interface ThreeFieldArgs {
      */
     readonly passwordSelector: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Policy.Outputs
     public sealed class RuleIdpDiscoveryAppExclude
     {
         /// <summary>
-        /// Use if `type` is `"APP"` to indicate the application Id to include.
+        /// Use if `type` is `"APP"` to indicate the application id to include.
         /// </summary>
         public readonly string? Id;
         /// <summary>

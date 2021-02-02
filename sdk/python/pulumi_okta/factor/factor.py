@@ -36,7 +36,7 @@ class Factor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether or not to activate the provider, by default it is set to `true`.
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
         :param pulumi.Input[str] provider_id: The MFA provider name.
                Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
@@ -80,7 +80,7 @@ class Factor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Whether or not to activate the provider, by default it is set to `true`.
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
         :param pulumi.Input[str] provider_id: The MFA provider name.
                Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
@@ -96,7 +96,7 @@ class Factor(pulumi.CustomResource):
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether or not to activate the provider, by default it is set to `true`.
+        Whether to activate the provider, by default, it is set to `true`.
         """
         return pulumi.get(self, "active")
 

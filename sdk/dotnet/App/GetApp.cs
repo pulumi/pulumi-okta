@@ -79,10 +79,6 @@ namespace Pulumi.Okta.App
     {
         public readonly bool? ActiveOnly;
         /// <summary>
-        /// `description` of application.
-        /// </summary>
-        public readonly string Description;
-        /// <summary>
         /// `id` of application.
         /// </summary>
         public readonly string? Id;
@@ -104,8 +100,6 @@ namespace Pulumi.Okta.App
         private GetAppResult(
             bool? activeOnly,
 
-            string description,
-
             string? id,
 
             string? label,
@@ -117,7 +111,6 @@ namespace Pulumi.Okta.App
             string status)
         {
             ActiveOnly = activeOnly;
-            Description = description;
             Id = id;
             Label = label;
             LabelPrefix = labelPrefix;

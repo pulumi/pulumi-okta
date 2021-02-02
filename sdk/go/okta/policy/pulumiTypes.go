@@ -11,7 +11,7 @@ import (
 )
 
 type RuleIdpDiscoveryAppExclude struct {
-	// Use if `type` is `"APP"` to indicate the application Id to include.
+	// Use if `type` is `"APP"` to indicate the application id to include.
 	Id *string `pulumi:"id"`
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
@@ -31,7 +31,7 @@ type RuleIdpDiscoveryAppExcludeInput interface {
 }
 
 type RuleIdpDiscoveryAppExcludeArgs struct {
-	// Use if `type` is `"APP"` to indicate the application Id to include.
+	// Use if `type` is `"APP"` to indicate the application id to include.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -90,7 +90,7 @@ func (o RuleIdpDiscoveryAppExcludeOutput) ToRuleIdpDiscoveryAppExcludeOutputWith
 	return o
 }
 
-// Use if `type` is `"APP"` to indicate the application Id to include.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleIdpDiscoveryAppExcludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -126,7 +126,7 @@ func (o RuleIdpDiscoveryAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleIdpD
 }
 
 type RuleIdpDiscoveryAppInclude struct {
-	// Use if `type` is `"APP"` to indicate the application Id to include.
+	// Use if `type` is `"APP"` to indicate the application id to include.
 	Id *string `pulumi:"id"`
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
@@ -146,7 +146,7 @@ type RuleIdpDiscoveryAppIncludeInput interface {
 }
 
 type RuleIdpDiscoveryAppIncludeArgs struct {
-	// Use if `type` is `"APP"` to indicate the application Id to include.
+	// Use if `type` is `"APP"` to indicate the application id to include.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -205,7 +205,7 @@ func (o RuleIdpDiscoveryAppIncludeOutput) ToRuleIdpDiscoveryAppIncludeOutputWith
 	return o
 }
 
-// Use if `type` is `"APP"` to indicate the application Id to include.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleIdpDiscoveryAppIncludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

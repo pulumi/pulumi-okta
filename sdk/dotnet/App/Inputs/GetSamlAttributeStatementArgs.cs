@@ -13,40 +13,40 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class GetSamlAttributeStatementArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional) Type of group attribute filter.
+        /// Type of group attribute filter.
         /// </summary>
-        [Input("filterType")]
-        public string? FilterType { get; set; }
+        [Input("filterType", required: true)]
+        public string FilterType { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Filter value to use.
+        /// Filter value to use.
         /// </summary>
-        [Input("filterValue")]
-        public string? FilterValue { get; set; }
+        [Input("filterValue", required: true)]
+        public string FilterValue { get; set; } = null!;
 
         /// <summary>
-        /// (Required) The name of the attribute statement.
+        /// The name of the attribute statement.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        /// The attribute namespace.
         /// </summary>
-        [Input("namespace")]
-        public string? Namespace { get; set; }
+        [Input("namespace", required: true)]
+        public string Namespace { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        /// The type of attribute statement value.
         /// </summary>
-        [Input("type")]
-        public string? Type { get; set; }
+        [Input("type", required: true)]
+        public string Type { get; set; } = null!;
 
-        [Input("values")]
+        [Input("values", required: true)]
         private List<string>? _values;
 
         /// <summary>
-        /// (Optional) Array of values to use.
+        /// Array of values to use.
         /// </summary>
         public List<string> Values
         {

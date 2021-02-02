@@ -14,7 +14,7 @@ import (
 type MfaPolicyRule struct {
 	pulumi.CustomResourceState
 
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
 	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -27,7 +27,7 @@ type MfaPolicyRule struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -67,7 +67,7 @@ func GetMfaPolicyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MfaPolicyRule resources.
 type mfaPolicyRuleState struct {
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
@@ -80,7 +80,7 @@ type mfaPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -89,7 +89,7 @@ type mfaPolicyRuleState struct {
 }
 
 type MfaPolicyRuleState struct {
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
@@ -102,7 +102,7 @@ type MfaPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
@@ -115,7 +115,7 @@ func (MfaPolicyRuleState) ElementType() reflect.Type {
 }
 
 type mfaPolicyRuleArgs struct {
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
@@ -128,7 +128,7 @@ type mfaPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -138,7 +138,7 @@ type mfaPolicyRuleArgs struct {
 
 // The set of arguments for constructing a MfaPolicyRule resource.
 type MfaPolicyRuleArgs struct {
-	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type MfaPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput

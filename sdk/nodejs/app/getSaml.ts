@@ -78,7 +78,7 @@ export interface GetSamlArgs {
      */
     readonly accessibilityLoginRedirectUrl?: string;
     /**
-     * Enable self service.
+     * Enable self-service.
      */
     readonly accessibilitySelfService?: boolean;
     /**
@@ -98,7 +98,7 @@ export interface GetSamlArgs {
      */
     readonly assertionSigned?: boolean;
     /**
-     * (Optional) List of SAML Attribute statements.
+     * List of SAML Attribute statements.
      */
     readonly attributeStatements?: inputs.app.GetSamlAttributeStatement[];
     /**
@@ -118,7 +118,7 @@ export interface GetSamlArgs {
      */
     readonly defaultRelayState?: string;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     readonly destination?: string;
     /**
@@ -178,7 +178,7 @@ export interface GetSamlArgs {
      */
     readonly spIssuer?: string;
     /**
-     * Single Sign on Url.
+     * Single Sign-on Url.
      */
     readonly ssoUrl?: string;
     /**
@@ -216,7 +216,7 @@ export interface GetSamlResult {
      */
     readonly accessibilityLoginRedirectUrl?: string;
     /**
-     * Enable self service.
+     * Enable self-service.
      */
     readonly accessibilitySelfService?: boolean;
     /**
@@ -233,7 +233,7 @@ export interface GetSamlResult {
      */
     readonly assertionSigned?: boolean;
     /**
-     * (Optional) List of SAML Attribute statements.
+     * List of SAML Attribute statements.
      */
     readonly attributeStatements?: outputs.app.GetSamlAttributeStatement[];
     /**
@@ -253,11 +253,7 @@ export interface GetSamlResult {
      */
     readonly defaultRelayState?: string;
     /**
-     * description of application.
-     */
-    readonly description: string;
-    /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     readonly destination?: string;
     /**
@@ -298,7 +294,7 @@ export interface GetSamlResult {
     readonly label?: string;
     readonly labelPrefix?: string;
     /**
-     * (Required) The name of the attribute statement.
+     * The name of the attribute statement.
      */
     readonly name: string;
     /**
@@ -318,11 +314,23 @@ export interface GetSamlResult {
      */
     readonly signatureAlgorithm?: string;
     /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+     */
+    readonly singleLogoutCertificate: string;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request.
+     */
+    readonly singleLogoutIssuer: string;
+    /**
+     * The location where the logout response is sent.
+     */
+    readonly singleLogoutUrl: string;
+    /**
      * SAML service provider issuer.
      */
     readonly spIssuer?: string;
     /**
-     * Single Sign on Url.
+     * Single Sign-on Url.
      */
     readonly ssoUrl?: string;
     /**

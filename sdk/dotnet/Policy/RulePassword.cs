@@ -50,19 +50,19 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Output("passwordChange")]
         public Output<string?> PasswordChange { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Output("passwordReset")]
         public Output<string?> PasswordReset { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         /// </summary>
         [Output("passwordUnlock")]
         public Output<string?> PasswordUnlock { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -174,19 +174,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Input("passwordChange")]
         public Input<string>? PasswordChange { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Input("passwordReset")]
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Okta.Policy
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -265,19 +265,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Input("passwordChange")]
         public Input<string>? PasswordChange { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         /// </summary>
         [Input("passwordReset")]
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

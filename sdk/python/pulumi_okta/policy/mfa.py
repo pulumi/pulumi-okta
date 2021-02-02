@@ -23,6 +23,7 @@ class Mfa(pulumi.CustomResource):
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -74,6 +75,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
@@ -110,6 +112,7 @@ class Mfa(pulumi.CustomResource):
             __props__['groups_includeds'] = groups_includeds
             __props__['name'] = name
             __props__['okta_call'] = okta_call
+            __props__['okta_email'] = okta_email
             __props__['okta_otp'] = okta_otp
             __props__['okta_password'] = okta_password
             __props__['okta_push'] = okta_push
@@ -138,6 +141,7 @@ class Mfa(pulumi.CustomResource):
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -163,6 +167,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
@@ -186,6 +191,7 @@ class Mfa(pulumi.CustomResource):
         __props__["groups_includeds"] = groups_includeds
         __props__["name"] = name
         __props__["okta_call"] = okta_call
+        __props__["okta_email"] = okta_email
         __props__["okta_otp"] = okta_otp
         __props__["okta_password"] = okta_password
         __props__["okta_push"] = okta_push
@@ -261,6 +267,14 @@ class Mfa(pulumi.CustomResource):
         Okta Call MFA policy settings.
         """
         return pulumi.get(self, "okta_call")
+
+    @property
+    @pulumi.getter(name="oktaEmail")
+    def okta_email(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Okta Email MFA policy settings.
+        """
+        return pulumi.get(self, "okta_email")
 
     @property
     @pulumi.getter(name="oktaOtp")

@@ -66,7 +66,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -114,7 +114,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of the application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly signOnUrl!: pulumi.Output<string | undefined>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface AutoLoginState {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -274,7 +274,7 @@ export interface AutoLoginState {
      */
     readonly sharedUsername?: pulumi.Input<string>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of the application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface AutoLoginState {
      */
     readonly signOnUrl?: pulumi.Input<string>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -316,7 +316,7 @@ export interface AutoLoginArgs {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -368,7 +368,7 @@ export interface AutoLoginArgs {
      */
     readonly signOnUrl?: pulumi.Input<string>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**

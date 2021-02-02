@@ -78,7 +78,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service.
+        /// Enable self-service.
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Okta.App
         public Output<string?> DefaultRelayState { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Okta.App
         public Output<string> EntityUrl { get; private set; } = null!;
 
         /// <summary>
-        /// features enabled.
+        /// features enabled. Notice: you can't currently configure provisioning features via the API.
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -216,13 +216,13 @@ namespace Pulumi.Okta.App
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key.
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         /// </summary>
         [Output("keyName")]
         public Output<string?> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// Number of years the certificate is valid.
+        /// Number of years the certificate is valid (2 - 10 years).
         /// </summary>
         [Output("keyYearsValid")]
         public Output<int?> KeyYearsValid { get; private set; } = null!;
@@ -238,6 +238,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
+
+        /// <summary>
+        /// SAML xml metadata URL.
+        /// </summary>
+        [Output("metadataUrl")]
+        public Output<string> MetadataUrl { get; private set; } = null!;
 
         /// <summary>
         /// The name of the attribute statement.
@@ -270,7 +276,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> ResponseSigned { get; private set; } = null!;
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
@@ -282,13 +288,32 @@ namespace Pulumi.Okta.App
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// </summary>
+        [Output("singleLogoutCertificate")]
+        public Output<string?> SingleLogoutCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// </summary>
+        [Output("singleLogoutIssuer")]
+        public Output<string?> SingleLogoutIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// The location where the logout response is sent.
+        /// </summary>
+        [Output("singleLogoutUrl")]
+        public Output<string?> SingleLogoutUrl { get; private set; } = null!;
+
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Output("spIssuer")]
         public Output<string?> SpIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// Single Sign on Url.
+        /// Single Sign-on Url.
         /// </summary>
         [Output("ssoUrl")]
         public Output<string?> SsoUrl { get; private set; } = null!;
@@ -330,7 +355,7 @@ namespace Pulumi.Okta.App
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.SamlUser>> Users { get; private set; } = null!;
@@ -394,7 +419,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service.
+        /// Enable self-service.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -460,7 +485,7 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -475,7 +500,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _features;
 
         /// <summary>
-        /// features enabled.
+        /// features enabled. Notice: you can't currently configure provisioning features via the API.
         /// </summary>
         public InputList<string> Features
         {
@@ -487,7 +512,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -520,13 +545,13 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key.
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Number of years the certificate is valid.
+        /// Number of years the certificate is valid (2 - 10 years).
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
@@ -568,13 +593,32 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// </summary>
+        [Input("singleLogoutCertificate")]
+        public Input<string>? SingleLogoutCertificate { get; set; }
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// </summary>
+        [Input("singleLogoutIssuer")]
+        public Input<string>? SingleLogoutIssuer { get; set; }
+
+        /// <summary>
+        /// The location where the logout response is sent.
+        /// </summary>
+        [Input("singleLogoutUrl")]
+        public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
         public Input<string>? SpIssuer { get; set; }
 
         /// <summary>
-        /// Single Sign on Url.
+        /// Single Sign-on Url.
         /// </summary>
         [Input("ssoUrl")]
         public Input<string>? SsoUrl { get; set; }
@@ -619,7 +663,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlUserArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.SamlUserArgs> Users
         {
@@ -647,7 +691,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service.
+        /// Enable self-service.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -719,7 +763,7 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -746,7 +790,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _features;
 
         /// <summary>
-        /// features enabled.
+        /// features enabled. Notice: you can't currently configure provisioning features via the API.
         /// </summary>
         public InputList<string> Features
         {
@@ -758,7 +802,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application.
         /// </summary>
         public InputList<string> Groups
         {
@@ -809,13 +853,13 @@ namespace Pulumi.Okta.App
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key.
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Number of years the certificate is valid.
+        /// Number of years the certificate is valid (2 - 10 years).
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
@@ -831,6 +875,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
+
+        /// <summary>
+        /// SAML xml metadata URL.
+        /// </summary>
+        [Input("metadataUrl")]
+        public Input<string>? MetadataUrl { get; set; }
 
         /// <summary>
         /// The name of the attribute statement.
@@ -863,7 +913,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? ResponseSigned { get; set; }
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
@@ -875,13 +925,32 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// </summary>
+        [Input("singleLogoutCertificate")]
+        public Input<string>? SingleLogoutCertificate { get; set; }
+
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// </summary>
+        [Input("singleLogoutIssuer")]
+        public Input<string>? SingleLogoutIssuer { get; set; }
+
+        /// <summary>
+        /// The location where the logout response is sent.
+        /// </summary>
+        [Input("singleLogoutUrl")]
+        public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
         public Input<string>? SpIssuer { get; set; }
 
         /// <summary>
-        /// Single Sign on Url.
+        /// Single Sign-on Url.
         /// </summary>
         [Input("ssoUrl")]
         public Input<string>? SsoUrl { get; set; }
@@ -926,7 +995,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlUserGetArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// Users associated with the application.
         /// </summary>
         public InputList<Inputs.SamlUserGetArgs> Users
         {

@@ -47,7 +47,7 @@ type LookupSamlArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -57,7 +57,7 @@ type LookupSamlArgs struct {
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
 	AssertionSigned *bool `pulumi:"assertionSigned"`
-	// (Optional) List of SAML Attribute statements.
+	// List of SAML Attribute statements.
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
@@ -67,7 +67,7 @@ type LookupSamlArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
@@ -97,7 +97,7 @@ type LookupSamlArgs struct {
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl *string `pulumi:"ssoUrl"`
 	// Identifies the SAML processing rules.
 	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
@@ -117,7 +117,7 @@ type LookupSamlResult struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -126,7 +126,7 @@ type LookupSamlResult struct {
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
 	AssertionSigned *bool `pulumi:"assertionSigned"`
-	// (Optional) List of SAML Attribute statements.
+	// List of SAML Attribute statements.
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
@@ -136,9 +136,7 @@ type LookupSamlResult struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// description of application.
-	Description string `pulumi:"description"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
@@ -159,7 +157,7 @@ type LookupSamlResult struct {
 	// label of application.
 	Label       *string `pulumi:"label"`
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// (Required) The name of the attribute statement.
+	// The name of the attribute statement.
 	Name string `pulumi:"name"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -169,9 +167,15 @@ type LookupSamlResult struct {
 	ResponseSigned *bool `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	SingleLogoutCertificate string `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer string `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent.
+	SingleLogoutUrl string `pulumi:"singleLogoutUrl"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl *string `pulumi:"ssoUrl"`
 	// status of application.
 	Status string `pulumi:"status"`

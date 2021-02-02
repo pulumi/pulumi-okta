@@ -61,6 +61,46 @@ class User(pulumi.CustomResource):
 
         This resource allows you to create and configure an Okta User.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.User("example",
+            city="New York",
+            cost_center="10",
+            country_code="US",
+            department="IT",
+            display_name="Dr. John Smith",
+            division="Acquisitions",
+            email="john.smith@example.com",
+            employee_number="111111",
+            first_name="John",
+            honorific_prefix="Dr.",
+            honorific_suffix="Jr.",
+            last_name="Smith",
+            locale="en_US",
+            login="john.smith@example.com",
+            manager="Jimbo",
+            manager_id="222222",
+            middle_name="John",
+            mobile_phone="1112223333",
+            nick_name="Johnny",
+            organization="Testing Inc.",
+            postal_address="1234 Testing St.",
+            preferred_language="en-us",
+            primary_phone="4445556666",
+            profile_url="http://www.example.com/profile",
+            second_email="john.smith.fun@example.com",
+            state="NY",
+            street_address="5678 Testing Ave.",
+            timezone="America/New_York",
+            title="Director",
+            user_type="Employee",
+            zip_code="11111")
+        ```
+
         ## Import
 
         An Okta User can be imported via the ID.

@@ -71,6 +71,8 @@ type SamlApp struct {
 	Label pulumi.StringOutput `pulumi:"label"`
 	// SAML xml metadata payload
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
+	// SAML xml metadata URL
+	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
 	// name of app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of preexisting SAML application. For instance 'slack'
@@ -85,6 +87,12 @@ type SamlApp struct {
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm pulumi.StringPtrOutput `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+	SingleLogoutCertificate pulumi.StringPtrOutput `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request
+	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent
+	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -194,6 +202,8 @@ type samlAppState struct {
 	Label *string `pulumi:"label"`
 	// SAML xml metadata payload
 	Metadata *string `pulumi:"metadata"`
+	// SAML xml metadata URL
+	MetadataUrl *string `pulumi:"metadataUrl"`
 	// name of app.
 	Name *string `pulumi:"name"`
 	// Name of preexisting SAML application. For instance 'slack'
@@ -208,6 +218,12 @@ type samlAppState struct {
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request
+	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent
+	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -286,6 +302,8 @@ type SamlAppState struct {
 	Label pulumi.StringPtrInput
 	// SAML xml metadata payload
 	Metadata pulumi.StringPtrInput
+	// SAML xml metadata URL
+	MetadataUrl pulumi.StringPtrInput
 	// name of app.
 	Name pulumi.StringPtrInput
 	// Name of preexisting SAML application. For instance 'slack'
@@ -300,6 +318,12 @@ type SamlAppState struct {
 	SignOnMode pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm pulumi.StringPtrInput
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+	SingleLogoutCertificate pulumi.StringPtrInput
+	// The issuer of the Service Provider that generates the Single Logout request
+	SingleLogoutIssuer pulumi.StringPtrInput
+	// The location where the logout response is sent
+	SingleLogoutUrl pulumi.StringPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL
@@ -378,6 +402,12 @@ type samlAppArgs struct {
 	ResponseSigned *bool `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request
+	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent
+	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -453,6 +483,12 @@ type SamlAppArgs struct {
 	ResponseSigned pulumi.BoolPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm pulumi.StringPtrInput
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+	SingleLogoutCertificate pulumi.StringPtrInput
+	// The issuer of the Service Provider that generates the Single Logout request
+	SingleLogoutIssuer pulumi.StringPtrInput
+	// The location where the logout response is sent
+	SingleLogoutUrl pulumi.StringPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL

@@ -55,27 +55,27 @@ export namespace app {
 
     export interface GetSamlAttributeStatement {
         /**
-         * (Optional) Type of group attribute filter.
+         * Type of group attribute filter.
          */
         filterType?: string;
         /**
-         * (Optional) Filter value to use.
+         * Filter value to use.
          */
         filterValue?: string;
         /**
-         * (Required) The name of the attribute statement.
+         * The name of the attribute statement.
          */
-        name: string;
+        name?: string;
         /**
-         * (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+         * The attribute namespace.
          */
         namespace?: string;
         /**
-         * (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+         * The type of attribute statement value.
          */
         type?: string;
         /**
-         * (Optional) Array of values to use.
+         * Array of values to use.
          */
         values?: string[];
     }
@@ -99,7 +99,7 @@ export namespace app {
 
     export interface SamlAttributeStatement {
         /**
-         * Type of group attribute filter.
+         * Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
          */
         filterType?: pulumi.Input<string>;
         /**
@@ -115,7 +115,7 @@ export namespace app {
          */
         namespace?: pulumi.Input<string>;
         /**
-         * The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+         * The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
          */
         type?: pulumi.Input<string>;
         /**
@@ -261,7 +261,7 @@ export namespace inline {
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
         /**
-         * Use if `type` is `"APP"` to indicate the application Id to include.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
         /**
@@ -276,7 +276,7 @@ export namespace policy {
 
     export interface RuleIdpDiscoveryAppInclude {
         /**
-         * Use if `type` is `"APP"` to indicate the application Id to include.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
         /**
@@ -336,7 +336,7 @@ export namespace profile {
 export namespace template {
     export interface EmailTranslation {
         /**
-         * The language to map tthe template to.
+         * The language to map the template to.
          */
         language: pulumi.Input<string>;
         /**
@@ -438,6 +438,7 @@ export namespace user {
          * user profile property.
          */
         honorificSuffix?: string;
+        id?: string;
         /**
          * user profile property.
          */

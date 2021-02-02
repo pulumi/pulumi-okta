@@ -56,8 +56,6 @@ type GetAppArgs struct {
 // A collection of values returned by getApp.
 type GetAppResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// `description` of application.
-	Description string `pulumi:"description"`
 	// `id` of application.
 	Id *string `pulumi:"id"`
 	// `label` of application.

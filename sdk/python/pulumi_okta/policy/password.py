@@ -86,18 +86,18 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
         :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
         :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the user name must be excluded from the password.
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
         :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
         :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.",
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
         :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
         :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in password.
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
         :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
         :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
@@ -211,18 +211,18 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
         :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
         :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the user name must be excluded from the password.
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
         :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
         :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.",
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
         :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
         :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in password.
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
         :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
         :param pulumi.Input[int] priority: Priority of the policy.
         :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
@@ -352,7 +352,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordExcludeUsername")
     def password_exclude_username(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the user name must be excluded from the password.
+        If the username must be excluded from the password.
         """
         return pulumi.get(self, "password_exclude_username")
 
@@ -384,7 +384,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMaxAgeDays")
     def password_max_age_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Length in days a password is valid before expiry: 0 = no limit.",
+        Length in days a password is valid before expiry: 0 = no limit.,
         """
         return pulumi.get(self, "password_max_age_days")
 
@@ -416,7 +416,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinLowercase")
     def password_min_lowercase(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of lower case characters in password.
+        Minimum number of lower case characters in a password.
         """
         return pulumi.get(self, "password_min_lowercase")
 
@@ -424,7 +424,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinNumber")
     def password_min_number(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of numbers in password.
+        Minimum number of numbers in a password.
         """
         return pulumi.get(self, "password_min_number")
 
@@ -432,7 +432,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinSymbol")
     def password_min_symbol(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of symbols in password.
+        Minimum number of symbols in a password.
         """
         return pulumi.get(self, "password_min_symbol")
 
@@ -440,7 +440,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinUppercase")
     def password_min_uppercase(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of upper case characters in password.
+        Minimum number of upper case characters in a password.
         """
         return pulumi.get(self, "password_min_uppercase")
 

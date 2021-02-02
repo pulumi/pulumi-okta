@@ -213,6 +213,7 @@ class GetUsersUserArgs:
                  group_memberships: Sequence[str],
                  honorific_prefix: str,
                  honorific_suffix: str,
+                 id: str,
                  last_name: str,
                  locale: str,
                  login: str,
@@ -285,6 +286,7 @@ class GetUsersUserArgs:
         pulumi.set(__self__, "group_memberships", group_memberships)
         pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "locale", locale)
         pulumi.set(__self__, "login", login)
@@ -474,6 +476,15 @@ class GetUsersUserArgs:
     @honorific_suffix.setter
     def honorific_suffix(self, value: str):
         pulumi.set(self, "honorific_suffix", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="lastName")

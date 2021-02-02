@@ -21,7 +21,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, description=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -58,9 +58,6 @@ class GetSamlResult:
         if default_relay_state and not isinstance(default_relay_state, str):
             raise TypeError("Expected argument 'default_relay_state' to be a str")
         pulumi.set(__self__, "default_relay_state", default_relay_state)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if destination and not isinstance(destination, str):
             raise TypeError("Expected argument 'destination' to be a str")
         pulumi.set(__self__, "destination", destination)
@@ -109,6 +106,15 @@ class GetSamlResult:
         if signature_algorithm and not isinstance(signature_algorithm, str):
             raise TypeError("Expected argument 'signature_algorithm' to be a str")
         pulumi.set(__self__, "signature_algorithm", signature_algorithm)
+        if single_logout_certificate and not isinstance(single_logout_certificate, str):
+            raise TypeError("Expected argument 'single_logout_certificate' to be a str")
+        pulumi.set(__self__, "single_logout_certificate", single_logout_certificate)
+        if single_logout_issuer and not isinstance(single_logout_issuer, str):
+            raise TypeError("Expected argument 'single_logout_issuer' to be a str")
+        pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
+        if single_logout_url and not isinstance(single_logout_url, str):
+            raise TypeError("Expected argument 'single_logout_url' to be a str")
+        pulumi.set(__self__, "single_logout_url", single_logout_url)
         if sp_issuer and not isinstance(sp_issuer, str):
             raise TypeError("Expected argument 'sp_issuer' to be a str")
         pulumi.set(__self__, "sp_issuer", sp_issuer)
@@ -154,7 +160,7 @@ class GetSamlResult:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[bool]:
         """
-        Enable self service.
+        Enable self-service.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -191,7 +197,7 @@ class GetSamlResult:
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> Optional[Sequence['outputs.GetSamlAttributeStatementResult']]:
         """
-        (Optional) List of SAML Attribute statements.
+        List of SAML Attribute statements.
         """
         return pulumi.get(self, "attribute_statements")
 
@@ -229,17 +235,9 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
-        """
-        description of application.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
     def destination(self) -> Optional[str]:
         """
-        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         """
         return pulumi.get(self, "destination")
 
@@ -324,7 +322,7 @@ class GetSamlResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        (Required) The name of the attribute statement.
+        The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
@@ -361,6 +359,30 @@ class GetSamlResult:
         return pulumi.get(self, "signature_algorithm")
 
     @property
+    @pulumi.getter(name="singleLogoutCertificate")
+    def single_logout_certificate(self) -> str:
+        """
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+        """
+        return pulumi.get(self, "single_logout_certificate")
+
+    @property
+    @pulumi.getter(name="singleLogoutIssuer")
+    def single_logout_issuer(self) -> str:
+        """
+        The issuer of the Service Provider that generates the Single Logout request.
+        """
+        return pulumi.get(self, "single_logout_issuer")
+
+    @property
+    @pulumi.getter(name="singleLogoutUrl")
+    def single_logout_url(self) -> str:
+        """
+        The location where the logout response is sent.
+        """
+        return pulumi.get(self, "single_logout_url")
+
+    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[str]:
         """
@@ -372,7 +394,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> Optional[str]:
         """
-        Single Sign on Url.
+        Single Sign-on Url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -443,7 +465,6 @@ class AwaitableGetSamlResult(GetSamlResult):
             authn_context_class_ref=self.authn_context_class_ref,
             auto_submit_toolbar=self.auto_submit_toolbar,
             default_relay_state=self.default_relay_state,
-            description=self.description,
             destination=self.destination,
             digest_algorithm=self.digest_algorithm,
             features=self.features,
@@ -460,6 +481,9 @@ class AwaitableGetSamlResult(GetSamlResult):
             request_compressed=self.request_compressed,
             response_signed=self.response_signed,
             signature_algorithm=self.signature_algorithm,
+            single_logout_certificate=self.single_logout_certificate,
+            single_logout_issuer=self.single_logout_issuer,
+            single_logout_url=self.single_logout_url,
             sp_issuer=self.sp_issuer,
             sso_url=self.sso_url,
             status=self.status,
@@ -519,17 +543,17 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
 
     :param str accessibility_error_redirect_url: Custom error page URL.
     :param str accessibility_login_redirect_url: Custom login page URL.
-    :param bool accessibility_self_service: Enable self service.
+    :param bool accessibility_self_service: Enable self-service.
     :param Sequence[str] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str app_settings_json: Application settings in JSON format.
     :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
-    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: (Optional) List of SAML Attribute statements.
+    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: List of SAML Attribute statements.
     :param str audience: Audience restriction.
     :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
     :param bool auto_submit_toolbar: Display auto submit toolbar.
     :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-    :param str destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+    :param str destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
     :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
     :param Sequence[str] features: features enabled.
     :param bool hide_ios: Do not display application icon on mobile app.
@@ -544,7 +568,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
     :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
     :param str sp_issuer: SAML service provider issuer.
-    :param str sso_url: Single Sign on Url.
+    :param str sso_url: Single Sign-on Url.
     :param str subject_name_id_format: Identifies the SAML processing rules.
     :param str subject_name_id_template: Template for app user's username when a user is assigned to the app.
     :param str user_name_template: Username template.
@@ -604,7 +628,6 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         authn_context_class_ref=__ret__.authn_context_class_ref,
         auto_submit_toolbar=__ret__.auto_submit_toolbar,
         default_relay_state=__ret__.default_relay_state,
-        description=__ret__.description,
         destination=__ret__.destination,
         digest_algorithm=__ret__.digest_algorithm,
         features=__ret__.features,
@@ -621,6 +644,9 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         request_compressed=__ret__.request_compressed,
         response_signed=__ret__.response_signed,
         signature_algorithm=__ret__.signature_algorithm,
+        single_logout_certificate=__ret__.single_logout_certificate,
+        single_logout_issuer=__ret__.single_logout_issuer,
+        single_logout_url=__ret__.single_logout_url,
         sp_issuer=__ret__.sp_issuer,
         sso_url=__ret__.sso_url,
         status=__ret__.status,

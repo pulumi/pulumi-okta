@@ -40,9 +40,9 @@ class ThreeField(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Creates an Three Field Application.
+        Creates a Three Field Application.
 
-        This resource allows you to create and configure an Three Field Application.
+        This resource allows you to create and configure a Three Field Application.
 
         ## Import
 
@@ -55,7 +55,7 @@ class ThreeField(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
@@ -65,7 +65,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
-        :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -165,7 +165,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
@@ -176,8 +176,8 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] label: The display name of the Application.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
-        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
+        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -225,7 +225,7 @@ class ThreeField(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self service. By default it is `false`.
+        Enable self-service. By default, it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -313,7 +313,7 @@ class ThreeField(pulumi.CustomResource):
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[str]:
         """
-        Sign on mode of application.
+        Sign-on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -321,7 +321,7 @@ class ThreeField(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application. By default it is `"ACTIVE"`.
+        Status of application. By default, it is `"ACTIVE"`.
         """
         return pulumi.get(self, "status")
 

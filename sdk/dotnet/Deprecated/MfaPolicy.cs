@@ -45,6 +45,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("oktaCall")]
         public Output<ImmutableDictionary<string, string>?> OktaCall { get; private set; } = null!;
 
+        [Output("oktaEmail")]
+        public Output<ImmutableDictionary<string, string>?> OktaEmail { get; private set; } = null!;
+
         [Output("oktaOtp")]
         public Output<ImmutableDictionary<string, string>?> OktaOtp { get; private set; } = null!;
 
@@ -62,7 +65,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        /// priority is provided. API defaults it to the last/lowest if not there.
+        /// priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -192,6 +195,14 @@ namespace Pulumi.Okta.Deprecated
             set => _oktaCall = value;
         }
 
+        [Input("oktaEmail")]
+        private InputMap<string>? _oktaEmail;
+        public InputMap<string> OktaEmail
+        {
+            get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
+            set => _oktaEmail = value;
+        }
+
         [Input("oktaOtp")]
         private InputMap<string>? _oktaOtp;
         public InputMap<string> OktaOtp
@@ -234,7 +245,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        /// priority is provided. API defaults it to the last/lowest if not there.
+        /// priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -340,6 +351,14 @@ namespace Pulumi.Okta.Deprecated
             set => _oktaCall = value;
         }
 
+        [Input("oktaEmail")]
+        private InputMap<string>? _oktaEmail;
+        public InputMap<string> OktaEmail
+        {
+            get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
+            set => _oktaEmail = value;
+        }
+
         [Input("oktaOtp")]
         private InputMap<string>? _oktaOtp;
         public InputMap<string> OktaOtp
@@ -382,7 +401,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        /// priority is provided. API defaults it to the last/lowest if not there.
+        /// priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

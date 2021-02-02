@@ -24,6 +24,11 @@ namespace Pulumi.Okta
         public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("OKTA_BASE_URL");
 
         /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        public static string? ClientId { get; set; } = __config.Get("clientId");
+
+        /// <summary>
         /// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
         /// </summary>
         public static int? LogLevel { get; set; } = __config.GetInt32("logLevel");
@@ -55,10 +60,20 @@ namespace Pulumi.Okta
         public static int? Parallelism { get; set; } = __config.GetInt32("parallelism");
 
         /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        public static string? PrivateKey { get; set; } = __config.Get("privateKey");
+
+        /// <summary>
         /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
         /// value can be `100`.
         /// </summary>
         public static int? RequestTimeout { get; set; } = __config.GetInt32("requestTimeout");
+
+        /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        public static ImmutableArray<string> Scopes { get; set; } = __config.GetObject<ImmutableArray<string>>("scopes");
 
     }
 }

@@ -26,8 +26,6 @@ namespace Pulumi.Okta.Idp
     ///     {
     ///         var example = new Okta.Idp.Oidc("example", new Okta.Idp.OidcArgs
     ///         {
-    ///             AcsBinding = "HTTP-POST",
-    ///             AcsType = "INSTANCE",
     ///             AuthorizationBinding = "HTTP-REDIRECT",
     ///             AuthorizationUrl = "https://idp.example.com/authorize",
     ///             ClientId = "efg456",
@@ -72,18 +70,6 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Output("accountLinkGroupIncludes")]
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
-
-        /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
-        [Output("acsBinding")]
-        public Output<string> AcsBinding { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of ACS. Default is `"INSTANCE"`.
-        /// </summary>
-        [Output("acsType")]
-        public Output<string?> AcsType { get; private set; } = null!;
 
         /// <summary>
         /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
@@ -158,7 +144,7 @@ namespace Pulumi.Okta.Idp
         public Output<string> JwksBinding { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        /// Endpoint where the keys signer publishes its keys in a JWK Set.
         /// </summary>
         [Output("jwksUrl")]
         public Output<string> JwksUrl { get; private set; } = null!;
@@ -236,7 +222,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> SubjectMatchAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Output("subjectMatchType")]
         public Output<string?> SubjectMatchType { get; private set; } = null!;
@@ -345,18 +331,6 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
-        [Input("acsBinding", required: true)]
-        public Input<string> AcsBinding { get; set; } = null!;
-
-        /// <summary>
-        /// The type of ACS. Default is `"INSTANCE"`.
-        /// </summary>
-        [Input("acsType")]
-        public Input<string>? AcsType { get; set; }
-
-        /// <summary>
         /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         /// </summary>
         [Input("authorizationBinding", required: true)]
@@ -441,7 +415,7 @@ namespace Pulumi.Okta.Idp
         public Input<string> JwksBinding { get; set; } = null!;
 
         /// <summary>
-        /// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        /// Endpoint where the keys signer publishes its keys in a JWK Set.
         /// </summary>
         [Input("jwksUrl", required: true)]
         public Input<string> JwksUrl { get; set; } = null!;
@@ -525,7 +499,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
@@ -587,18 +561,6 @@ namespace Pulumi.Okta.Idp
             get => _accountLinkGroupIncludes ?? (_accountLinkGroupIncludes = new InputList<string>());
             set => _accountLinkGroupIncludes = value;
         }
-
-        /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
-        [Input("acsBinding")]
-        public Input<string>? AcsBinding { get; set; }
-
-        /// <summary>
-        /// The type of ACS. Default is `"INSTANCE"`.
-        /// </summary>
-        [Input("acsType")]
-        public Input<string>? AcsType { get; set; }
 
         /// <summary>
         /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
@@ -685,7 +647,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? JwksBinding { get; set; }
 
         /// <summary>
-        /// Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        /// Endpoint where the keys signer publishes its keys in a JWK Set.
         /// </summary>
         [Input("jwksUrl")]
         public Input<string>? JwksUrl { get; set; }
@@ -769,7 +731,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }

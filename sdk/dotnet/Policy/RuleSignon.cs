@@ -42,7 +42,7 @@ namespace Pulumi.Okta.Policy
         public Output<int?> MfaLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         /// </summary>
         [Output("mfaPrompt")]
         public Output<string?> MfaPrompt { get; private set; } = null!;
@@ -90,13 +90,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Max minutes a session can be idle.",
+        /// Max minutes a session can be idle.,
         /// </summary>
         [Output("sessionIdle")]
         public Output<int?> SessionIdle { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -250,13 +250,13 @@ namespace Pulumi.Okta.Policy
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Max minutes a session can be idle.",
+        /// Max minutes a session can be idle.,
         /// </summary>
         [Input("sessionIdle")]
         public Input<int>? SessionIdle { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -377,13 +377,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Max minutes a session can be idle.",
+        /// Max minutes a session can be idle.,
         /// </summary>
         [Input("sessionIdle")]
         public Input<int>? SessionIdle { get; set; }

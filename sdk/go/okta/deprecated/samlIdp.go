@@ -16,15 +16,16 @@ type SamlIdp struct {
 
 	AccountLinkAction        pulumi.StringPtrOutput   `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               pulumi.StringOutput      `pulumi:"acsBinding"`
-	AcsType                  pulumi.StringPtrOutput   `pulumi:"acsType"`
-	Audience                 pulumi.StringOutput      `pulumi:"audience"`
-	DeprovisionedAction      pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
-	GroupsAction             pulumi.StringPtrOutput   `pulumi:"groupsAction"`
-	GroupsAssignments        pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
-	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
-	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	Issuer                   pulumi.StringOutput      `pulumi:"issuer"`
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding          pulumi.StringPtrOutput   `pulumi:"acsBinding"`
+	AcsType             pulumi.StringPtrOutput   `pulumi:"acsType"`
+	Audience            pulumi.StringOutput      `pulumi:"audience"`
+	DeprovisionedAction pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
+	GroupsAction        pulumi.StringPtrOutput   `pulumi:"groupsAction"`
+	GroupsAssignments   pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
+	GroupsAttribute     pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
+	GroupsFilters       pulumi.StringArrayOutput `pulumi:"groupsFilters"`
+	Issuer              pulumi.StringOutput      `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode   pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	Kid          pulumi.StringOutput    `pulumi:"kid"`
@@ -62,9 +63,6 @@ func NewSamlIdp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AcsBinding == nil {
-		return nil, errors.New("invalid value for required argument 'AcsBinding'")
-	}
 	if args.Issuer == nil {
 		return nil, errors.New("invalid value for required argument 'Issuer'")
 	}
@@ -98,15 +96,16 @@ func GetSamlIdp(ctx *pulumi.Context,
 type samlIdpState struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               *string  `pulumi:"acsBinding"`
-	AcsType                  *string  `pulumi:"acsType"`
-	Audience                 *string  `pulumi:"audience"`
-	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
-	GroupsAction             *string  `pulumi:"groupsAction"`
-	GroupsAssignments        []string `pulumi:"groupsAssignments"`
-	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
-	GroupsFilters            []string `pulumi:"groupsFilters"`
-	Issuer                   *string  `pulumi:"issuer"`
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding          *string  `pulumi:"acsBinding"`
+	AcsType             *string  `pulumi:"acsType"`
+	Audience            *string  `pulumi:"audience"`
+	DeprovisionedAction *string  `pulumi:"deprovisionedAction"`
+	GroupsAction        *string  `pulumi:"groupsAction"`
+	GroupsAssignments   []string `pulumi:"groupsAssignments"`
+	GroupsAttribute     *string  `pulumi:"groupsAttribute"`
+	GroupsFilters       []string `pulumi:"groupsFilters"`
+	Issuer              *string  `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode   *string `pulumi:"issuerMode"`
 	Kid          *string `pulumi:"kid"`
@@ -140,15 +139,16 @@ type samlIdpState struct {
 type SamlIdpState struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AcsBinding               pulumi.StringPtrInput
-	AcsType                  pulumi.StringPtrInput
-	Audience                 pulumi.StringPtrInput
-	DeprovisionedAction      pulumi.StringPtrInput
-	GroupsAction             pulumi.StringPtrInput
-	GroupsAssignments        pulumi.StringArrayInput
-	GroupsAttribute          pulumi.StringPtrInput
-	GroupsFilters            pulumi.StringArrayInput
-	Issuer                   pulumi.StringPtrInput
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding          pulumi.StringPtrInput
+	AcsType             pulumi.StringPtrInput
+	Audience            pulumi.StringPtrInput
+	DeprovisionedAction pulumi.StringPtrInput
+	GroupsAction        pulumi.StringPtrInput
+	GroupsAssignments   pulumi.StringArrayInput
+	GroupsAttribute     pulumi.StringPtrInput
+	GroupsFilters       pulumi.StringArrayInput
+	Issuer              pulumi.StringPtrInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode   pulumi.StringPtrInput
 	Kid          pulumi.StringPtrInput
@@ -186,14 +186,15 @@ func (SamlIdpState) ElementType() reflect.Type {
 type samlIdpArgs struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               string   `pulumi:"acsBinding"`
-	AcsType                  *string  `pulumi:"acsType"`
-	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
-	GroupsAction             *string  `pulumi:"groupsAction"`
-	GroupsAssignments        []string `pulumi:"groupsAssignments"`
-	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
-	GroupsFilters            []string `pulumi:"groupsFilters"`
-	Issuer                   string   `pulumi:"issuer"`
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding          *string  `pulumi:"acsBinding"`
+	AcsType             *string  `pulumi:"acsType"`
+	DeprovisionedAction *string  `pulumi:"deprovisionedAction"`
+	GroupsAction        *string  `pulumi:"groupsAction"`
+	GroupsAssignments   []string `pulumi:"groupsAssignments"`
+	GroupsAttribute     *string  `pulumi:"groupsAttribute"`
+	GroupsFilters       []string `pulumi:"groupsFilters"`
+	Issuer              string   `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode   *string `pulumi:"issuerMode"`
 	Kid          string  `pulumi:"kid"`
@@ -227,14 +228,15 @@ type samlIdpArgs struct {
 type SamlIdpArgs struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AcsBinding               pulumi.StringInput
-	AcsType                  pulumi.StringPtrInput
-	DeprovisionedAction      pulumi.StringPtrInput
-	GroupsAction             pulumi.StringPtrInput
-	GroupsAssignments        pulumi.StringArrayInput
-	GroupsAttribute          pulumi.StringPtrInput
-	GroupsFilters            pulumi.StringArrayInput
-	Issuer                   pulumi.StringInput
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding          pulumi.StringPtrInput
+	AcsType             pulumi.StringPtrInput
+	DeprovisionedAction pulumi.StringPtrInput
+	GroupsAction        pulumi.StringPtrInput
+	GroupsAssignments   pulumi.StringArrayInput
+	GroupsAttribute     pulumi.StringPtrInput
+	GroupsFilters       pulumi.StringArrayInput
+	Issuer              pulumi.StringInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode   pulumi.StringPtrInput
 	Kid          pulumi.StringInput

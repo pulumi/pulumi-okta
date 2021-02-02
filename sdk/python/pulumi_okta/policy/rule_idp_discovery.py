@@ -104,10 +104,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
-        :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         :param pulumi.Input[str] user_identifier_type: One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
         """
         if __name__ is not None:
@@ -185,10 +185,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
-        :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         :param pulumi.Input[str] user_identifier_type: One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -293,7 +293,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+        Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -301,7 +301,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         """
         return pulumi.get(self, "status")
 
@@ -317,7 +317,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="userIdentifierPatterns")
     def user_identifier_patterns(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryUserIdentifierPattern']]]:
         """
-        Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         """
         return pulumi.get(self, "user_identifier_patterns")
 

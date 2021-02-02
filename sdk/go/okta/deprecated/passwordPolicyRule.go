@@ -31,7 +31,7 @@ type PasswordPolicyRule struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -88,7 +88,7 @@ type passwordPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -114,7 +114,7 @@ type PasswordPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type passwordPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -171,7 +171,7 @@ type PasswordPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput

@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .get_server import *
+from .get_server_policy import *
 from .server import *
 from .server_claim import *
 from .server_policy import *

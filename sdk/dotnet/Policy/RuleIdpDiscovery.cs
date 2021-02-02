@@ -151,13 +151,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> UserIdentifierAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         /// </summary>
         [Output("userIdentifierPatterns")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryUserIdentifierPattern>> UserIdentifierPatterns { get; private set; } = null!;
@@ -313,13 +313,13 @@ namespace Pulumi.Okta.Policy
         public Input<string> Policyid { get; set; } = null!;
 
         /// <summary>
-        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>? _userIdentifierPatterns;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs> UserIdentifierPatterns
         {
@@ -442,13 +442,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+        /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+        /// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>? _userIdentifierPatterns;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+        /// Specifies a User Identifier pattern condition to match against. If `match_type` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs> UserIdentifierPatterns
         {

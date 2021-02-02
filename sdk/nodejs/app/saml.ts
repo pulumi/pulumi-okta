@@ -83,7 +83,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service.
+     * Enable self-service.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -123,7 +123,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly defaultRelayState!: pulumi.Output<string | undefined>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     public readonly destination!: pulumi.Output<string | undefined>;
     /**
@@ -139,11 +139,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityUrl!: pulumi.Output<string>;
     /**
-     * features enabled.
+     * features enabled. Notice: you can't currently configure provisioning features via the API.
      */
     public readonly features!: pulumi.Output<string[] | undefined>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -175,11 +175,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key.
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
      */
     public readonly keyName!: pulumi.Output<string | undefined>;
     /**
-     * Number of years the certificate is valid.
+     * Number of years the certificate is valid (2 - 10 years).
      */
     public readonly keyYearsValid!: pulumi.Output<number | undefined>;
     /**
@@ -190,6 +190,10 @@ export class Saml extends pulumi.CustomResource {
      * The raw SAML metadata in XML.
      */
     public /*out*/ readonly metadata!: pulumi.Output<string>;
+    /**
+     * SAML xml metadata URL.
+     */
+    public /*out*/ readonly metadataUrl!: pulumi.Output<string>;
     /**
      * The name of the attribute statement.
      */
@@ -211,7 +215,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly responseSigned!: pulumi.Output<boolean | undefined>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
@@ -219,11 +223,24 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     */
+    public readonly singleLogoutCertificate!: pulumi.Output<string | undefined>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request.
+     */
+    public readonly singleLogoutIssuer!: pulumi.Output<string | undefined>;
+    /**
+     * The location where the logout response is sent.
+     */
+    public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
+    /**
      * SAML service provider issuer.
      */
     public readonly spIssuer!: pulumi.Output<string | undefined>;
     /**
-     * Single Sign on Url.
+     * Single Sign-on Url.
      */
     public readonly ssoUrl!: pulumi.Output<string | undefined>;
     /**
@@ -251,7 +268,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     public readonly users!: pulumi.Output<outputs.app.SamlUser[] | undefined>;
 
@@ -296,6 +313,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
             inputs["label"] = state ? state.label : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
+            inputs["metadataUrl"] = state ? state.metadataUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["recipient"] = state ? state.recipient : undefined;
@@ -303,6 +321,9 @@ export class Saml extends pulumi.CustomResource {
             inputs["responseSigned"] = state ? state.responseSigned : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
+            inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
+            inputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
+            inputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
             inputs["spIssuer"] = state ? state.spIssuer : undefined;
             inputs["ssoUrl"] = state ? state.ssoUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -344,6 +365,9 @@ export class Saml extends pulumi.CustomResource {
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             inputs["responseSigned"] = args ? args.responseSigned : undefined;
             inputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
+            inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
+            inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
+            inputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
             inputs["spIssuer"] = args ? args.spIssuer : undefined;
             inputs["ssoUrl"] = args ? args.ssoUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -360,6 +384,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["httpRedirectBinding"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
+            inputs["metadataUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -387,7 +412,7 @@ export interface SamlState {
      */
     readonly accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service.
+     * Enable self-service.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -427,7 +452,7 @@ export interface SamlState {
      */
     readonly defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     readonly destination?: pulumi.Input<string>;
     /**
@@ -443,11 +468,11 @@ export interface SamlState {
      */
     readonly entityUrl?: pulumi.Input<string>;
     /**
-     * features enabled.
+     * features enabled. Notice: you can't currently configure provisioning features via the API.
      */
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -479,11 +504,11 @@ export interface SamlState {
      */
     readonly keyId?: pulumi.Input<string>;
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key.
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * Number of years the certificate is valid.
+     * Number of years the certificate is valid (2 - 10 years).
      */
     readonly keyYearsValid?: pulumi.Input<number>;
     /**
@@ -494,6 +519,10 @@ export interface SamlState {
      * The raw SAML metadata in XML.
      */
     readonly metadata?: pulumi.Input<string>;
+    /**
+     * SAML xml metadata URL.
+     */
+    readonly metadataUrl?: pulumi.Input<string>;
     /**
      * The name of the attribute statement.
      */
@@ -515,7 +544,7 @@ export interface SamlState {
      */
     readonly responseSigned?: pulumi.Input<boolean>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
@@ -523,11 +552,24 @@ export interface SamlState {
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
     /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     */
+    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request.
+     */
+    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    /**
+     * The location where the logout response is sent.
+     */
+    readonly singleLogoutUrl?: pulumi.Input<string>;
+    /**
      * SAML service provider issuer.
      */
     readonly spIssuer?: pulumi.Input<string>;
     /**
-     * Single Sign on Url.
+     * Single Sign-on Url.
      */
     readonly ssoUrl?: pulumi.Input<string>;
     /**
@@ -555,7 +597,7 @@ export interface SamlState {
      */
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }
@@ -573,7 +615,7 @@ export interface SamlArgs {
      */
     readonly accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service.
+     * Enable self-service.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -609,7 +651,7 @@ export interface SamlArgs {
      */
     readonly defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     readonly destination?: pulumi.Input<string>;
     /**
@@ -617,11 +659,11 @@ export interface SamlArgs {
      */
     readonly digestAlgorithm?: pulumi.Input<string>;
     /**
-     * features enabled.
+     * features enabled. Notice: you can't currently configure provisioning features via the API.
      */
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -641,11 +683,11 @@ export interface SamlArgs {
      */
     readonly idpIssuer?: pulumi.Input<string>;
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key.
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * Number of years the certificate is valid.
+     * Number of years the certificate is valid (2 - 10 years).
      */
     readonly keyYearsValid?: pulumi.Input<number>;
     /**
@@ -673,11 +715,24 @@ export interface SamlArgs {
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
     /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     */
+    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request.
+     */
+    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    /**
+     * The location where the logout response is sent.
+     */
+    readonly singleLogoutUrl?: pulumi.Input<string>;
+    /**
      * SAML service provider issuer.
      */
     readonly spIssuer?: pulumi.Input<string>;
     /**
-     * Single Sign on Url.
+     * Single Sign-on Url.
      */
     readonly ssoUrl?: pulumi.Input<string>;
     /**
@@ -705,7 +760,7 @@ export interface SamlArgs {
      */
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * Users associated with the application.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }

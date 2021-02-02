@@ -94,6 +94,10 @@ export class Mfa extends pulumi.CustomResource {
      */
     public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Okta Email MFA policy settings.
+     */
+    public readonly oktaEmail!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Okta OTP MFA policy settings.
      */
     public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -154,6 +158,7 @@ export class Mfa extends pulumi.CustomResource {
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["oktaCall"] = state ? state.oktaCall : undefined;
+            inputs["oktaEmail"] = state ? state.oktaEmail : undefined;
             inputs["oktaOtp"] = state ? state.oktaOtp : undefined;
             inputs["oktaPassword"] = state ? state.oktaPassword : undefined;
             inputs["oktaPush"] = state ? state.oktaPush : undefined;
@@ -174,6 +179,7 @@ export class Mfa extends pulumi.CustomResource {
             inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["oktaCall"] = args ? args.oktaCall : undefined;
+            inputs["oktaEmail"] = args ? args.oktaEmail : undefined;
             inputs["oktaOtp"] = args ? args.oktaOtp : undefined;
             inputs["oktaPassword"] = args ? args.oktaPassword : undefined;
             inputs["oktaPush"] = args ? args.oktaPush : undefined;
@@ -232,6 +238,10 @@ export interface MfaState {
      * Okta Call MFA policy settings.
      */
     readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Okta Email MFA policy settings.
+     */
+    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta OTP MFA policy settings.
      */
@@ -310,6 +320,10 @@ export interface MfaArgs {
      * Okta Call MFA policy settings.
      */
     readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Okta Email MFA policy settings.
+     */
+    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Okta OTP MFA policy settings.
      */

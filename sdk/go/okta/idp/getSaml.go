@@ -21,8 +21,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Example App"
 // 		_, err := idp.LookupSaml(ctx, &idp.LookupSamlArgs{
-// 			Label: "Example App",
+// 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -50,7 +51,7 @@ type LookupSamlArgs struct {
 
 // A collection of values returned by getSaml.
 type LookupSamlResult struct {
-	// HTTP binding used to receive a SAMLResponse message from the IdP.
+	// HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
 	AcsBinding string `pulumi:"acsBinding"`
 	// Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
 	AcsType string `pulumi:"acsType"`
@@ -66,11 +67,11 @@ type LookupSamlResult struct {
 	Kid string `pulumi:"kid"`
 	// name of the idp.
 	Name *string `pulumi:"name"`
-	// single sign on binding.
+	// single sign-on binding.
 	SsoBinding string `pulumi:"ssoBinding"`
 	// SSO request binding, HTTP-POST or HTTP-REDIRECT.
 	SsoDestination string `pulumi:"ssoDestination"`
-	// single sign on url.
+	// single sign-on url.
 	SsoUrl string `pulumi:"ssoUrl"`
 	// regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter string `pulumi:"subjectFilter"`

@@ -251,10 +251,10 @@ class SamlAttributeStatement(dict):
                  values: Optional[Sequence[str]] = None):
         """
         :param str name: The name of the attribute statement.
-        :param str filter_type: Type of group attribute filter.
+        :param str filter_type: Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         :param str filter_value: Filter value to use.
         :param str namespace: The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        :param str type: The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        :param str type: The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         :param Sequence[str] values: Array of values to use.
         """
         pulumi.set(__self__, "name", name)
@@ -281,7 +281,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[str]:
         """
-        Type of group attribute filter.
+        Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         """
         return pulumi.get(self, "filter_type")
 
@@ -305,7 +305,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
 
@@ -554,77 +554,72 @@ class UserSchemaOneOf(dict):
 @pulumi.output_type
 class GetSamlAttributeStatementResult(dict):
     def __init__(__self__, *,
+                 filter_type: str,
+                 filter_value: str,
                  name: str,
-                 filter_type: Optional[str] = None,
-                 filter_value: Optional[str] = None,
-                 namespace: Optional[str] = None,
-                 type: Optional[str] = None,
-                 values: Optional[Sequence[str]] = None):
+                 namespace: str,
+                 type: str,
+                 values: Sequence[str]):
         """
-        :param str name: (Required) The name of the attribute statement.
-        :param str filter_type: (Optional) Type of group attribute filter.
-        :param str filter_value: (Optional) Filter value to use.
-        :param str namespace: (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        :param str type: (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
-        :param Sequence[str] values: (Optional) Array of values to use.
+        :param str filter_type: Type of group attribute filter.
+        :param str filter_value: Filter value to use.
+        :param str name: The name of the attribute statement.
+        :param str namespace: The attribute namespace.
+        :param str type: The type of attribute statement value.
+        :param Sequence[str] values: Array of values to use.
         """
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "filter_value", filter_value)
         pulumi.set(__self__, "name", name)
-        if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
-        if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
-        if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        (Required) The name of the attribute statement.
-        """
-        return pulumi.get(self, "name")
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[str]:
+    def filter_type(self) -> str:
         """
-        (Optional) Type of group attribute filter.
+        Type of group attribute filter.
         """
         return pulumi.get(self, "filter_type")
 
     @property
     @pulumi.getter(name="filterValue")
-    def filter_value(self) -> Optional[str]:
+    def filter_value(self) -> str:
         """
-        (Optional) Filter value to use.
+        Filter value to use.
         """
         return pulumi.get(self, "filter_value")
 
     @property
     @pulumi.getter
-    def namespace(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        (Optional) The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        The name of the attribute statement.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        The attribute namespace.
         """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
-        (Optional) The type of attribute statement value. Can be `"EXPRESSION"` or `"GROUP"`.
+        The type of attribute statement value.
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[Sequence[str]]:
+    def values(self) -> Sequence[str]:
         """
-        (Optional) Array of values to use.
+        Array of values to use.
         """
         return pulumi.get(self, "values")
 

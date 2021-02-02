@@ -55,7 +55,8 @@ namespace Pulumi.Okta.Network
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>
-        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         /// </summary>
         [Output("dynamicLocations")]
         public Output<ImmutableArray<string>> DynamicLocations { get; private set; } = null!;
@@ -73,16 +74,22 @@ namespace Pulumi.Okta.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
         /// </summary>
         [Output("proxies")]
         public Output<ImmutableArray<string>> Proxies { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Network Zone - can either be IP or DYNAMIC only.
+        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// </summary>
+        [Output("usage")]
+        public Output<string?> Usage { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,7 +141,8 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _dynamicLocations;
 
         /// <summary>
-        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         /// </summary>
         public InputList<string> DynamicLocations
         {
@@ -164,7 +172,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
         /// </summary>
         public InputList<string> Proxies
         {
@@ -173,10 +181,16 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Type of the Network Zone - can either be IP or DYNAMIC only.
+        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// </summary>
+        [Input("usage")]
+        public Input<string>? Usage { get; set; }
 
         public ZoneArgs()
         {
@@ -189,7 +203,8 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _dynamicLocations;
 
         /// <summary>
-        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         /// </summary>
         public InputList<string> DynamicLocations
         {
@@ -219,7 +234,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
         /// </summary>
         public InputList<string> Proxies
         {
@@ -228,10 +243,16 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Type of the Network Zone - can either be IP or DYNAMIC only.
+        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// </summary>
+        [Input("usage")]
+        public Input<string>? Usage { get; set; }
 
         public ZoneState()
         {

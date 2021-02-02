@@ -23,6 +23,7 @@ class MfaPolicy(pulumi.CustomResource):
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -44,7 +45,7 @@ class MfaPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         if __name__ is not None:
@@ -72,6 +73,7 @@ class MfaPolicy(pulumi.CustomResource):
             __props__['groups_includeds'] = groups_includeds
             __props__['name'] = name
             __props__['okta_call'] = okta_call
+            __props__['okta_email'] = okta_email
             __props__['okta_otp'] = okta_otp
             __props__['okta_password'] = okta_password
             __props__['okta_push'] = okta_push
@@ -100,6 +102,7 @@ class MfaPolicy(pulumi.CustomResource):
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -121,7 +124,7 @@ class MfaPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -136,6 +139,7 @@ class MfaPolicy(pulumi.CustomResource):
         __props__["groups_includeds"] = groups_includeds
         __props__["name"] = name
         __props__["okta_call"] = okta_call
+        __props__["okta_email"] = okta_email
         __props__["okta_otp"] = okta_otp
         __props__["okta_password"] = okta_password
         __props__["okta_push"] = okta_push
@@ -198,6 +202,11 @@ class MfaPolicy(pulumi.CustomResource):
         return pulumi.get(self, "okta_call")
 
     @property
+    @pulumi.getter(name="oktaEmail")
+    def okta_email(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "okta_email")
+
+    @property
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "okta_otp")
@@ -227,7 +236,7 @@ class MfaPolicy(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        priority is provided. API defaults it to the last/lowest if not there.
+        priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
