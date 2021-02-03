@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Creates an Three Field Application.
+// Creates a Three Field Application.
 //
-// This resource allows you to create and configure an Three Field Application.
+// This resource allows you to create and configure a Three Field Application.
 //
 // ## Import
 //
@@ -27,7 +27,7 @@ type ThreeField struct {
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -49,9 +49,9 @@ type ThreeField struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringOutput `pulumi:"passwordSelector"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -121,7 +121,7 @@ func GetThreeField(ctx *pulumi.Context,
 type threeFieldState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -143,9 +143,9 @@ type threeFieldState struct {
 	Name *string `pulumi:"name"`
 	// Login password field CSS selector.
 	PasswordSelector *string `pulumi:"passwordSelector"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url *string `pulumi:"url"`
@@ -166,7 +166,7 @@ type threeFieldState struct {
 type ThreeFieldState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -188,9 +188,9 @@ type ThreeFieldState struct {
 	Name pulumi.StringPtrInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringPtrInput
@@ -215,7 +215,7 @@ func (ThreeFieldState) ElementType() reflect.Type {
 type threeFieldArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -235,7 +235,7 @@ type threeFieldArgs struct {
 	Label string `pulumi:"label"`
 	// Login password field CSS selector.
 	PasswordSelector string `pulumi:"passwordSelector"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url string `pulumi:"url"`
@@ -257,7 +257,7 @@ type threeFieldArgs struct {
 type ThreeFieldArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -277,7 +277,7 @@ type ThreeFieldArgs struct {
 	Label pulumi.StringInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringInput

@@ -45,7 +45,7 @@ export interface GetMetadataSamlArgs {
     /**
      * Certificate Key ID.
      */
-    readonly keyId: string;
+    readonly keyId?: string;
 }
 
 /**
@@ -73,7 +73,7 @@ export interface GetMetadataSamlResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly keyId: string;
+    readonly keyId?: string;
     /**
      * raw metadata of application.
      */

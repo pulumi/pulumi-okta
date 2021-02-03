@@ -22,7 +22,7 @@ class RuleIdpDiscoveryAppExclude(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
@@ -37,7 +37,7 @@ class RuleIdpDiscoveryAppExclude(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Use if `type` is `"APP"` to indicate the application Id to include.
+        Use if `type` is `"APP"` to indicate the application id to include.
         """
         return pulumi.get(self, "id")
 
@@ -68,7 +68,7 @@ class RuleIdpDiscoveryAppInclude(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
@@ -83,7 +83,7 @@ class RuleIdpDiscoveryAppInclude(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Use if `type` is `"APP"` to indicate the application Id to include.
+        Use if `type` is `"APP"` to indicate the application id to include.
         """
         return pulumi.get(self, "id")
 

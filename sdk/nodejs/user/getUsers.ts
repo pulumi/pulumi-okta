@@ -42,7 +42,7 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetUsersArgs {
     /**
-     * Map of search criteria to use to find users. It supports the following properties.
+     * Map of search criteria to find users. It supports the following properties.
      */
     readonly searches: inputs.user.GetUsersSearch[];
     /**

@@ -49,6 +49,8 @@ type providerArgs struct {
 	Backoff *bool `pulumi:"backoff"`
 	// The Okta url. (Use 'oktapreview.com' for Okta testing)
 	BaseUrl *string `pulumi:"baseUrl"`
+	// API Token granting privileges to Okta API.
+	ClientId *string `pulumi:"clientId"`
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel *int `pulumi:"logLevel"`
 	// maximum number of retries to attempt before erroring out.
@@ -62,9 +64,13 @@ type providerArgs struct {
 	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
 	// https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism *int `pulumi:"parallelism"`
+	// API Token granting privileges to Okta API.
+	PrivateKey *string `pulumi:"privateKey"`
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 	// value can be `100`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
+	// API Token granting privileges to Okta API.
+	Scopes []string `pulumi:"scopes"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -75,6 +81,8 @@ type ProviderArgs struct {
 	Backoff pulumi.BoolPtrInput
 	// The Okta url. (Use 'oktapreview.com' for Okta testing)
 	BaseUrl pulumi.StringPtrInput
+	// API Token granting privileges to Okta API.
+	ClientId pulumi.StringPtrInput
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel pulumi.IntPtrInput
 	// maximum number of retries to attempt before erroring out.
@@ -88,9 +96,13 @@ type ProviderArgs struct {
 	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
 	// https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism pulumi.IntPtrInput
+	// API Token granting privileges to Okta API.
+	PrivateKey pulumi.StringPtrInput
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 	// value can be `100`.
 	RequestTimeout pulumi.IntPtrInput
+	// API Token granting privileges to Okta API.
+	Scopes pulumi.StringArrayInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

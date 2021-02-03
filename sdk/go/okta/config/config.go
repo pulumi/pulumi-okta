@@ -31,6 +31,11 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "OKTA_BASE_URL").(string)
 }
 
+// API Token granting privileges to Okta API.
+func GetClientId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:clientId")
+}
+
 // providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 func GetLogLevel(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:logLevel")
@@ -66,8 +71,18 @@ func GetParallelism(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:parallelism")
 }
 
+// API Token granting privileges to Okta API.
+func GetPrivateKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:privateKey")
+}
+
 // Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 // value can be `100`.
 func GetRequestTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:requestTimeout")
+}
+
+// API Token granting privileges to Okta API.
+func GetScopes(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:scopes")
 }

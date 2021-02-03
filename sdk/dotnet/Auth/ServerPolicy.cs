@@ -58,7 +58,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         [Output("clientWhitelists")]
         public Output<ImmutableArray<string>> ClientWhitelists { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _clientWhitelists;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         public InputList<string> ClientWhitelists
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _clientWhitelists;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         public InputList<string> ClientWhitelists
         {

@@ -20,7 +20,7 @@ type SignonPolicyRule struct {
 	Authtype pulumi.StringPtrOutput `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrOutput `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
 	MfaPrompt pulumi.StringPtrOutput `pulumi:"mfaPrompt"`
 	// Remember MFA device.
 	MfaRememberDevice pulumi.BoolPtrOutput `pulumi:"mfaRememberDevice"`
@@ -37,7 +37,7 @@ type SignonPolicyRule struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Max minutes a session can be idle.
 	SessionIdle pulumi.IntPtrOutput `pulumi:"sessionIdle"`
@@ -90,7 +90,7 @@ type signonPolicyRuleState struct {
 	Authtype *string `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime *int `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
 	MfaPrompt *string `pulumi:"mfaPrompt"`
 	// Remember MFA device.
 	MfaRememberDevice *bool `pulumi:"mfaRememberDevice"`
@@ -107,7 +107,7 @@ type signonPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Max minutes a session can be idle.
 	SessionIdle *int `pulumi:"sessionIdle"`
@@ -129,7 +129,7 @@ type SignonPolicyRuleState struct {
 	Authtype pulumi.StringPtrInput
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrInput
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
 	MfaPrompt pulumi.StringPtrInput
 	// Remember MFA device.
 	MfaRememberDevice pulumi.BoolPtrInput
@@ -146,7 +146,7 @@ type SignonPolicyRuleState struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Max minutes a session can be idle.
 	SessionIdle pulumi.IntPtrInput
@@ -172,7 +172,7 @@ type signonPolicyRuleArgs struct {
 	Authtype *string `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime *int `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
 	MfaPrompt *string `pulumi:"mfaPrompt"`
 	// Remember MFA device.
 	MfaRememberDevice *bool `pulumi:"mfaRememberDevice"`
@@ -189,7 +189,7 @@ type signonPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Max minutes a session can be idle.
 	SessionIdle *int `pulumi:"sessionIdle"`
@@ -212,7 +212,7 @@ type SignonPolicyRuleArgs struct {
 	Authtype pulumi.StringPtrInput
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrInput
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
 	MfaPrompt pulumi.StringPtrInput
 	// Remember MFA device.
 	MfaRememberDevice pulumi.BoolPtrInput
@@ -229,7 +229,7 @@ type SignonPolicyRuleArgs struct {
 	// Policy ID of the Rule
 	Policyid pulumi.StringInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-	// invalid priority is provided. API defaults it to the last/lowest if not there.
+	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Max minutes a session can be idle.
 	SessionIdle pulumi.IntPtrInput

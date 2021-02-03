@@ -54,8 +54,8 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Certificate Key ID.
         /// </summary>
-        [Input("keyId", required: true)]
-        public string KeyId { get; set; } = null!;
+        [Input("keyId")]
+        public string? KeyId { get; set; }
 
         public GetMetadataSamlArgs()
         {
@@ -87,7 +87,7 @@ namespace Pulumi.Okta.App
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string KeyId;
+        public readonly string? KeyId;
         /// <summary>
         /// raw metadata of application.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.Okta.App
 
             string id,
 
-            string keyId,
+            string? keyId,
 
             string metadata,
 

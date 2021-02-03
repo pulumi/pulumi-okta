@@ -95,7 +95,7 @@ class GetMetadataSamlResult:
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> Optional[str]:
         return pulumi.get(self, "key_id")
 
     @property

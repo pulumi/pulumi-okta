@@ -29,7 +29,7 @@ type RuleSignon struct {
 	Authtype pulumi.StringPtrOutput `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrOutput `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
 	MfaPrompt pulumi.StringPtrOutput `pulumi:"mfaPrompt"`
 	// Remember MFA device. The default `false`.
 	MfaRememberDevice pulumi.BoolPtrOutput `pulumi:"mfaRememberDevice"`
@@ -45,9 +45,9 @@ type RuleSignon struct {
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Max minutes a session can be idle.",
+	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrOutput `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
 	SessionLifetime pulumi.IntPtrOutput `pulumi:"sessionLifetime"`
@@ -97,7 +97,7 @@ type ruleSignonState struct {
 	Authtype *string `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
 	MfaPrompt *string `pulumi:"mfaPrompt"`
 	// Remember MFA device. The default `false`.
 	MfaRememberDevice *bool `pulumi:"mfaRememberDevice"`
@@ -113,9 +113,9 @@ type ruleSignonState struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid *string `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Max minutes a session can be idle.",
+	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
 	SessionLifetime *int `pulumi:"sessionLifetime"`
@@ -134,7 +134,7 @@ type RuleSignonState struct {
 	Authtype pulumi.StringPtrInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
 	MfaPrompt pulumi.StringPtrInput
 	// Remember MFA device. The default `false`.
 	MfaRememberDevice pulumi.BoolPtrInput
@@ -150,9 +150,9 @@ type RuleSignonState struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	Policyid pulumi.StringPtrInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Max minutes a session can be idle.",
+	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.
 	SessionLifetime pulumi.IntPtrInput
@@ -175,7 +175,7 @@ type ruleSignonArgs struct {
 	Authtype *string `pulumi:"authtype"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
 	MfaPrompt *string `pulumi:"mfaPrompt"`
 	// Remember MFA device. The default `false`.
 	MfaRememberDevice *bool `pulumi:"mfaRememberDevice"`
@@ -191,9 +191,9 @@ type ruleSignonArgs struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid string `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Max minutes a session can be idle.",
+	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
 	SessionLifetime *int `pulumi:"sessionLifetime"`
@@ -213,7 +213,7 @@ type RuleSignonArgs struct {
 	Authtype pulumi.StringPtrInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
-	// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
 	MfaPrompt pulumi.StringPtrInput
 	// Remember MFA device. The default `false`.
 	MfaRememberDevice pulumi.BoolPtrInput
@@ -229,9 +229,9 @@ type RuleSignonArgs struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	Policyid pulumi.StringInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Max minutes a session can be idle.",
+	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.
 	SessionLifetime pulumi.IntPtrInput

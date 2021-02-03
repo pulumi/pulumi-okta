@@ -25,7 +25,7 @@ import (
 type ServerClaim struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to include claims in token, by default is is set to `true`.
+	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrOutput `pulumi:"alwaysIncludeInToken"`
 	// The Application's display name.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
@@ -83,7 +83,7 @@ func GetServerClaim(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerClaim resources.
 type serverClaimState struct {
-	// Specifies whether to include claims in token, by default is is set to `true`.
+	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
 	// The Application's display name.
 	AuthServerId *string `pulumi:"authServerId"`
@@ -104,7 +104,7 @@ type serverClaimState struct {
 }
 
 type ServerClaimState struct {
-	// Specifies whether to include claims in token, by default is is set to `true`.
+	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
 	// The Application's display name.
 	AuthServerId pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (ServerClaimState) ElementType() reflect.Type {
 }
 
 type serverClaimArgs struct {
-	// Specifies whether to include claims in token, by default is is set to `true`.
+	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
 	// The Application's display name.
 	AuthServerId string `pulumi:"authServerId"`
@@ -151,7 +151,7 @@ type serverClaimArgs struct {
 
 // The set of arguments for constructing a ServerClaim resource.
 type ServerClaimArgs struct {
-	// Specifies whether to include claims in token, by default is is set to `true`.
+	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
 	// The Application's display name.
 	AuthServerId pulumi.StringInput

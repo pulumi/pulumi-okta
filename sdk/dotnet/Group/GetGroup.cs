@@ -45,7 +45,7 @@ namespace Pulumi.Okta.Group
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// whether or not to retrieve all member ids.
+        /// whether to retrieve all member ids.
         /// </summary>
         [Input("includeUsers")]
         public bool? IncludeUsers { get; set; }

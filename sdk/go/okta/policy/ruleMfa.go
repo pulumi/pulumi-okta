@@ -37,7 +37,7 @@ type RuleMfa struct {
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -89,7 +89,7 @@ type ruleMfaState struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid *string `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
@@ -110,7 +110,7 @@ type RuleMfaState struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	Policyid pulumi.StringPtrInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput
@@ -135,7 +135,7 @@ type ruleMfaArgs struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	Policyid string `pulumi:"policyid"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
@@ -157,7 +157,7 @@ type RuleMfaArgs struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	Policyid pulumi.StringInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput

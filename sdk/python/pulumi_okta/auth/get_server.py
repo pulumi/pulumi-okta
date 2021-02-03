@@ -19,7 +19,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, audiences=None, credentials_last_rotated=None, credentials_next_rotation=None, credentials_rotation_mode=None, description=None, id=None, kid=None, name=None, status=None):
+    def __init__(__self__, audiences=None, credentials_last_rotated=None, credentials_next_rotation=None, credentials_rotation_mode=None, description=None, id=None, issuer=None, issuer_mode=None, kid=None, name=None, status=None):
         if audiences and not isinstance(audiences, list):
             raise TypeError("Expected argument 'audiences' to be a list")
         pulumi.set(__self__, "audiences", audiences)
@@ -38,6 +38,12 @@ class GetServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        pulumi.set(__self__, "issuer", issuer)
+        if issuer_mode and not isinstance(issuer_mode, str):
+            raise TypeError("Expected argument 'issuer_mode' to be a str")
+        pulumi.set(__self__, "issuer_mode", issuer_mode)
         if kid and not isinstance(kid, str):
             raise TypeError("Expected argument 'kid' to be a str")
         pulumi.set(__self__, "kid", kid)
@@ -52,7 +58,7 @@ class GetServerResult:
     @pulumi.getter
     def audiences(self) -> Sequence[str]:
         """
-        array of audiences,
+        array of audiences.
         """
         return pulumi.get(self, "audiences")
 
@@ -98,6 +104,22 @@ class GetServerResult:
 
     @property
     @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> str:
+        """
+        Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @property
+    @pulumi.getter
     def kid(self) -> str:
         """
         auth server key id.
@@ -133,6 +155,8 @@ class AwaitableGetServerResult(GetServerResult):
             credentials_rotation_mode=self.credentials_rotation_mode,
             description=self.description,
             id=self.id,
+            issuer=self.issuer,
+            issuer_mode=self.issuer_mode,
             kid=self.kid,
             name=self.name,
             status=self.status)
@@ -170,6 +194,8 @@ def get_server(name: Optional[str] = None,
         credentials_rotation_mode=__ret__.credentials_rotation_mode,
         description=__ret__.description,
         id=__ret__.id,
+        issuer=__ret__.issuer,
+        issuer_mode=__ret__.issuer_mode,
         kid=__ret__.kid,
         name=__ret__.name,
         status=__ret__.status)

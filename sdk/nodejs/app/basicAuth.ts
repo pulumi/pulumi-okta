@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Bsaic Auth Application.
+ * Creates a Basic Auth Application.
  *
  * This resource allows you to create and configure a Basic Auth Application.
  *

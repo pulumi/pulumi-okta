@@ -57,7 +57,7 @@ namespace Pulumi.Okta.Auth
     public partial class ServerPolicyClaim : Pulumi.CustomResource
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         /// </summary>
         [Output("accessTokenLifetimeMinutes")]
         public Output<int?> AccessTokenLifetimeMinutes { get; private set; } = null!;
@@ -117,7 +117,8 @@ namespace Pulumi.Okta.Auth
         public Output<int?> RefreshTokenLifetimeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Output("refreshTokenWindowMinutes")]
         public Output<int?> RefreshTokenWindowMinutes { get; private set; } = null!;
@@ -199,7 +200,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerPolicyClaimArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         /// </summary>
         [Input("accessTokenLifetimeMinutes")]
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
@@ -277,7 +278,8 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
@@ -338,7 +340,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerPolicyClaimState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         /// </summary>
         [Input("accessTokenLifetimeMinutes")]
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
@@ -416,7 +418,8 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }

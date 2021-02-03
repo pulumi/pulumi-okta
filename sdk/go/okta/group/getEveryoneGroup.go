@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
 //
 // ## Example Usage
 //

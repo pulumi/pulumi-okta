@@ -48,11 +48,11 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -118,11 +118,11 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -179,7 +179,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordChange")
     def password_change(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         """
         return pulumi.get(self, "password_change")
 
@@ -187,7 +187,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordReset")
     def password_reset(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+        Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
         """
         return pulumi.get(self, "password_reset")
 
@@ -195,7 +195,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordUnlock")
     def password_unlock(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+        Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
         """
         return pulumi.get(self, "password_unlock")
 
@@ -211,7 +211,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 

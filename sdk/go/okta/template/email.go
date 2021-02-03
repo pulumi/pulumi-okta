@@ -64,7 +64,7 @@ type Email struct {
 
 	// The default language, by default is set to `"en"`.
 	DefaultLanguage pulumi.StringPtrOutput `pulumi:"defaultLanguage"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations EmailTranslationArrayOutput `pulumi:"translations"`
 	// Email template type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -107,7 +107,7 @@ func GetEmail(ctx *pulumi.Context,
 type emailState struct {
 	// The default language, by default is set to `"en"`.
 	DefaultLanguage *string `pulumi:"defaultLanguage"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations []EmailTranslation `pulumi:"translations"`
 	// Email template type
 	Type *string `pulumi:"type"`
@@ -116,7 +116,7 @@ type emailState struct {
 type EmailState struct {
 	// The default language, by default is set to `"en"`.
 	DefaultLanguage pulumi.StringPtrInput
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations EmailTranslationArrayInput
 	// Email template type
 	Type pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (EmailState) ElementType() reflect.Type {
 type emailArgs struct {
 	// The default language, by default is set to `"en"`.
 	DefaultLanguage *string `pulumi:"defaultLanguage"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations []EmailTranslation `pulumi:"translations"`
 	// Email template type
 	Type string `pulumi:"type"`
@@ -139,7 +139,7 @@ type emailArgs struct {
 type EmailArgs struct {
 	// The default language, by default is set to `"en"`.
 	DefaultLanguage pulumi.StringPtrInput
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations EmailTranslationArrayInput
 	// Email template type
 	Type pulumi.StringInput

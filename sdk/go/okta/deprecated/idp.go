@@ -16,8 +16,6 @@ type Idp struct {
 
 	AccountLinkAction        pulumi.StringPtrOutput   `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               pulumi.StringOutput      `pulumi:"acsBinding"`
-	AcsType                  pulumi.StringPtrOutput   `pulumi:"acsType"`
 	AuthorizationBinding     pulumi.StringOutput      `pulumi:"authorizationBinding"`
 	AuthorizationUrl         pulumi.StringOutput      `pulumi:"authorizationUrl"`
 	ClientId                 pulumi.StringOutput      `pulumi:"clientId"`
@@ -66,9 +64,6 @@ func NewIdp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AcsBinding == nil {
-		return nil, errors.New("invalid value for required argument 'AcsBinding'")
-	}
 	if args.AuthorizationBinding == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizationBinding'")
 	}
@@ -123,8 +118,6 @@ func GetIdp(ctx *pulumi.Context,
 type idpState struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               *string  `pulumi:"acsBinding"`
-	AcsType                  *string  `pulumi:"acsType"`
 	AuthorizationBinding     *string  `pulumi:"authorizationBinding"`
 	AuthorizationUrl         *string  `pulumi:"authorizationUrl"`
 	ClientId                 *string  `pulumi:"clientId"`
@@ -169,8 +162,6 @@ type idpState struct {
 type IdpState struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AcsBinding               pulumi.StringPtrInput
-	AcsType                  pulumi.StringPtrInput
 	AuthorizationBinding     pulumi.StringPtrInput
 	AuthorizationUrl         pulumi.StringPtrInput
 	ClientId                 pulumi.StringPtrInput
@@ -219,8 +210,6 @@ func (IdpState) ElementType() reflect.Type {
 type idpArgs struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AcsBinding               string   `pulumi:"acsBinding"`
-	AcsType                  *string  `pulumi:"acsType"`
 	AuthorizationBinding     string   `pulumi:"authorizationBinding"`
 	AuthorizationUrl         string   `pulumi:"authorizationUrl"`
 	ClientId                 string   `pulumi:"clientId"`
@@ -265,8 +254,6 @@ type idpArgs struct {
 type IdpArgs struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AcsBinding               pulumi.StringInput
-	AcsType                  pulumi.StringPtrInput
 	AuthorizationBinding     pulumi.StringInput
 	AuthorizationUrl         pulumi.StringInput
 	ClientId                 pulumi.StringInput

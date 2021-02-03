@@ -22,7 +22,7 @@ class RuleIdpDiscoveryAppExcludeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
@@ -37,7 +37,7 @@ class RuleIdpDiscoveryAppExcludeArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if `type` is `"APP"` to indicate the application Id to include.
+        Use if `type` is `"APP"` to indicate the application id to include.
         """
         return pulumi.get(self, "id")
 
@@ -77,7 +77,7 @@ class RuleIdpDiscoveryAppIncludeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application Id to include.
+        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
@@ -92,7 +92,7 @@ class RuleIdpDiscoveryAppIncludeArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if `type` is `"APP"` to indicate the application Id to include.
+        Use if `type` is `"APP"` to indicate the application id to include.
         """
         return pulumi.get(self, "id")
 

@@ -66,7 +66,7 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -138,11 +138,11 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface SecurePasswordStoreState {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -343,11 +343,11 @@ export interface SecurePasswordStoreState {
      */
     readonly sharedUsername?: pulumi.Input<string>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -385,7 +385,7 @@ export interface SecurePasswordStoreArgs {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -453,7 +453,7 @@ export interface SecurePasswordStoreArgs {
      */
     readonly sharedUsername?: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**

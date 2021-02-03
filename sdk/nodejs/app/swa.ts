@@ -66,7 +66,7 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,11 +106,11 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface SwaState {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -260,11 +260,11 @@ export interface SwaState {
      */
     readonly preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface SwaArgs {
      */
     readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service. By default it is `false`.
+     * Enable self-service. By default, it is `false`.
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -342,7 +342,7 @@ export interface SwaArgs {
      */
     readonly preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Status of application. By default it is `"ACTIVE"`.
+     * Status of application. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**

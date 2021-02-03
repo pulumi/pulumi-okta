@@ -54,7 +54,7 @@ type Swa struct {
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -74,9 +74,9 @@ type Swa struct {
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -128,7 +128,7 @@ func GetSwa(ctx *pulumi.Context,
 type swaState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -148,9 +148,9 @@ type swaState struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url *string `pulumi:"url"`
@@ -171,7 +171,7 @@ type swaState struct {
 type SwaState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -191,9 +191,9 @@ type SwaState struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringPtrInput
@@ -218,7 +218,7 @@ func (SwaState) ElementType() reflect.Type {
 type swaArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -236,7 +236,7 @@ type swaArgs struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url *string `pulumi:"url"`
@@ -258,7 +258,7 @@ type swaArgs struct {
 type SwaArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -276,7 +276,7 @@ type SwaArgs struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringPtrInput

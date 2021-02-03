@@ -39,7 +39,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * whether or not to retrieve all member ids.
+     * whether to retrieve all member ids.
      */
     readonly includeUsers?: boolean;
     /**

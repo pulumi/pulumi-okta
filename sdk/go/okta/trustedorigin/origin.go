@@ -51,7 +51,7 @@ import (
 type Origin struct {
 	pulumi.CustomResourceState
 
-	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// Unique name for this trusted origin.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -96,7 +96,7 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
 	Active *bool `pulumi:"active"`
 	// Unique name for this trusted origin.
 	Name *string `pulumi:"name"`
@@ -107,7 +107,7 @@ type originState struct {
 }
 
 type OriginState struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
 	Active pulumi.BoolPtrInput
 	// Unique name for this trusted origin.
 	Name pulumi.StringPtrInput
@@ -122,7 +122,7 @@ func (OriginState) ElementType() reflect.Type {
 }
 
 type originArgs struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
 	Active *bool `pulumi:"active"`
 	// Unique name for this trusted origin.
 	Name *string `pulumi:"name"`
@@ -134,7 +134,7 @@ type originArgs struct {
 
 // The set of arguments for constructing a Origin resource.
 type OriginArgs struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default it is 'true'.
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
 	Active pulumi.BoolPtrInput
 	// Unique name for this trusted origin.
 	Name pulumi.StringPtrInput

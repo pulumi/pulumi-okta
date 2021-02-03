@@ -57,7 +57,7 @@ class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
 def get_default_policy(type: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultPolicyResult:
     """
-    Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+    Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy.getPolicy` with default names, this is simply a shortcut.
 
     ## Example Usage
 
@@ -69,7 +69,7 @@ def get_default_policy(type: Optional[str] = None,
     ```
 
 
-    :param str type: type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
+    :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
     """
     __args__ = dict()
     __args__['type'] = type

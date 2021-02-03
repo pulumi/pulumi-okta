@@ -64,6 +64,12 @@ namespace Pulumi.Okta
         public Input<string>? BaseUrl { get; set; }
 
         /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
         /// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
         /// </summary>
         [Input("logLevel", json: true)]
@@ -101,11 +107,29 @@ namespace Pulumi.Okta
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        [Input("privateKey")]
+        public Input<string>? PrivateKey { get; set; }
+
+        /// <summary>
         /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
         /// value can be `100`.
         /// </summary>
         [Input("requestTimeout", json: true)]
         public Input<int>? RequestTimeout { get; set; }
+
+        [Input("scopes", json: true)]
+        private InputList<string>? _scopes;
+
+        /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         public ProviderArgs()
         {

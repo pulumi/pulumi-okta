@@ -11,7 +11,7 @@ import (
 )
 
 type EmailTranslation struct {
-	// The language to map tthe template to.
+	// The language to map the template to.
 	Language string `pulumi:"language"`
 	// The email subject line.
 	Subject string `pulumi:"subject"`
@@ -31,7 +31,7 @@ type EmailTranslationInput interface {
 }
 
 type EmailTranslationArgs struct {
-	// The language to map tthe template to.
+	// The language to map the template to.
 	Language pulumi.StringInput `pulumi:"language"`
 	// The email subject line.
 	Subject pulumi.StringInput `pulumi:"subject"`
@@ -90,7 +90,7 @@ func (o EmailTranslationOutput) ToEmailTranslationOutputWithContext(ctx context.
 	return o
 }
 
-// The language to map tthe template to.
+// The language to map the template to.
 func (o EmailTranslationOutput) Language() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailTranslation) string { return v.Language }).(pulumi.StringOutput)
 }

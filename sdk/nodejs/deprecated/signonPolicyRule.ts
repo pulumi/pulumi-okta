@@ -45,7 +45,7 @@ export class SignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly mfaLifetime!: pulumi.Output<number | undefined>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
      */
     public readonly mfaPrompt!: pulumi.Output<string | undefined>;
     /**
@@ -78,7 +78,7 @@ export class SignonPolicyRule extends pulumi.CustomResource {
     public readonly policyid!: pulumi.Output<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface SignonPolicyRuleState {
      */
     readonly mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
      */
     readonly mfaPrompt?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface SignonPolicyRuleState {
     readonly policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -259,7 +259,7 @@ export interface SignonPolicyRuleArgs {
      */
     readonly mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
      */
     readonly mfaPrompt?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface SignonPolicyRuleArgs {
     readonly policyid: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-     * invalid priority is provided. API defaults it to the last/lowest if not there.
+     * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**

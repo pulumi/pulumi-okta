@@ -12,13 +12,16 @@ __all__ = [
     'api_token',
     'backoff',
     'base_url',
+    'client_id',
     'log_level',
     'max_retries',
     'max_wait_seconds',
     'min_wait_seconds',
     'org_name',
     'parallelism',
+    'private_key',
     'request_timeout',
+    'scopes',
 ]
 
 __config__ = pulumi.Config('okta')
@@ -36,6 +39,11 @@ Use exponential back off strategy for rate limits.
 base_url = __config__.get('baseUrl') or _utilities.get_env('OKTA_BASE_URL')
 """
 The Okta url. (Use 'oktapreview.com' for Okta testing)
+"""
+
+client_id = __config__.get('clientId')
+"""
+API Token granting privileges to Okta API.
 """
 
 log_level = __config__.get('logLevel')
@@ -69,9 +77,19 @@ Number of concurrent requests to make within a resource where bulk operations ar
 https://developer.okta.com/docs/api/getting_started/rate-limits.
 """
 
+private_key = __config__.get('privateKey')
+"""
+API Token granting privileges to Okta API.
+"""
+
 request_timeout = __config__.get('requestTimeout')
 """
 Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 value can be `100`.
+"""
+
+scopes = __config__.get('scopes')
+"""
+API Token granting privileges to Okta API.
 """
 

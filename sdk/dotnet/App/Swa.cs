@@ -55,7 +55,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service. By default it is `false`.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.Okta.App
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application. By default it is `"ACTIVE"`.
+        /// Status of application. By default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. By default it is `false`.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Status of application. By default it is `"ACTIVE"`.
+        /// Status of application. By default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. By default it is `false`.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -414,13 +414,13 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Status of application. By default it is `"ACTIVE"`.
+        /// Status of application. By default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

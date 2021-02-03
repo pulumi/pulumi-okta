@@ -51,7 +51,7 @@ namespace Pulumi.Okta.Auth
     public partial class ServerClaim : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default is is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `true`.
         /// </summary>
         [Output("alwaysIncludeInToken")]
         public Output<bool?> AlwaysIncludeInToken { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerClaimArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default is is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `true`.
         /// </summary>
         [Input("alwaysIncludeInToken")]
         public Input<bool>? AlwaysIncludeInToken { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerClaimState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default is is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `true`.
         /// </summary>
         [Input("alwaysIncludeInToken")]
         public Input<bool>? AlwaysIncludeInToken { get; set; }

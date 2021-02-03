@@ -42,7 +42,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-               invalid priority is provided. API defaults it to the last/lowest if not there.
+               invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -113,7 +113,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-               invalid priority is provided. API defaults it to the last/lowest if not there.
+               invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -203,7 +203,7 @@ class PasswordPolicyRule(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        invalid priority is provided. API defaults it to the last/lowest if not there.
+        invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 

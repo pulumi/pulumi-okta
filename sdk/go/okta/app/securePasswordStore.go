@@ -54,7 +54,7 @@ type SecurePasswordStore struct {
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -90,9 +90,9 @@ type SecurePasswordStore struct {
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -151,7 +151,7 @@ func GetSecurePasswordStore(ctx *pulumi.Context,
 type securePasswordStoreState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -187,9 +187,9 @@ type securePasswordStoreState struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url *string `pulumi:"url"`
@@ -208,7 +208,7 @@ type securePasswordStoreState struct {
 type SecurePasswordStoreState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -244,9 +244,9 @@ type SecurePasswordStoreState struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (SecurePasswordStoreState) ElementType() reflect.Type {
 type securePasswordStoreArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -303,7 +303,7 @@ type securePasswordStoreArgs struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url string `pulumi:"url"`
@@ -323,7 +323,7 @@ type securePasswordStoreArgs struct {
 type SecurePasswordStoreArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -357,7 +357,7 @@ type SecurePasswordStoreArgs struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Status of application. By default it is `"ACTIVE"`.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringInput

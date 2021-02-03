@@ -47,9 +47,9 @@ class Social(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Creates an Social Identity Provider.
+        Creates a Social Identity Provider.
 
-        This resource allows you to create and configure an Social Identity Provider.
+        This resource allows you to create and configure a Social Identity Provider.
 
         ## Example Usage
 
@@ -97,13 +97,13 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
         :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] type: The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
@@ -234,13 +234,13 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
         :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
@@ -443,7 +443,7 @@ class Social(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -491,7 +491,7 @@ class Social(pulumi.CustomResource):
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         """
         return pulumi.get(self, "subject_match_type")
 

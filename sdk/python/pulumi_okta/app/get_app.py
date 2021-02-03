@@ -19,13 +19,10 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, active_only=None, description=None, id=None, label=None, label_prefix=None, name=None, status=None):
+    def __init__(__self__, active_only=None, id=None, label=None, label_prefix=None, name=None, status=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,14 +43,6 @@ class GetAppResult:
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
         return pulumi.get(self, "active_only")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        `description` of application.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -100,7 +89,6 @@ class AwaitableGetAppResult(GetAppResult):
             yield self
         return GetAppResult(
             active_only=self.active_only,
-            description=self.description,
             id=self.id,
             label=self.label,
             label_prefix=self.label_prefix,
@@ -144,7 +132,6 @@ def get_app(active_only: Optional[bool] = None,
 
     return AwaitableGetAppResult(
         active_only=__ret__.active_only,
-        description=__ret__.description,
         id=__ret__.id,
         label=__ret__.label,
         label_prefix=__ret__.label_prefix,

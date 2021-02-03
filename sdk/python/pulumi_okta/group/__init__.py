@@ -6,6 +6,8 @@
 from .get_everyone_group import *
 from .get_group import *
 from .group import *
+from .membership import *
+from .role import *
 from .roles import *
 from .rule import *
 
@@ -23,6 +25,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "okta:group/group:Group":
                 return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:group/membership:Membership":
+                return Membership(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:group/role:Role":
+                return Role(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:group/roles:Roles":
                 return Roles(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:group/rule:Rule":
@@ -33,6 +39,8 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("okta", "group/group", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "group/membership", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "group/role", _module_instance)
     pulumi.runtime.register_resource_module("okta", "group/roles", _module_instance)
     pulumi.runtime.register_resource_module("okta", "group/rule", _module_instance)
 

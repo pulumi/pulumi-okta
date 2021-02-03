@@ -44,7 +44,7 @@ type Password struct {
 	PasswordExcludeFirstName pulumi.BoolPtrOutput `pulumi:"passwordExcludeFirstName"`
 	// User lastName attribute must be excluded from the password.
 	PasswordExcludeLastName pulumi.BoolPtrOutput `pulumi:"passwordExcludeLastName"`
-	// If the user name must be excluded from the password.
+	// If the username must be excluded from the password.
 	PasswordExcludeUsername pulumi.BoolPtrOutput `pulumi:"passwordExcludeUsername"`
 	// Length in days a user will be warned before password expiry: 0 = no warning.
 	PasswordExpireWarnDays pulumi.IntPtrOutput `pulumi:"passwordExpireWarnDays"`
@@ -52,7 +52,7 @@ type Password struct {
 	PasswordHistoryCount pulumi.IntPtrOutput `pulumi:"passwordHistoryCount"`
 	// Notification channels to use to notify a user when their account has been locked.
 	PasswordLockoutNotificationChannels pulumi.StringArrayOutput `pulumi:"passwordLockoutNotificationChannels"`
-	// Length in days a password is valid before expiry: 0 = no limit.",
+	// Length in days a password is valid before expiry: 0 = no limit.,
 	PasswordMaxAgeDays pulumi.IntPtrOutput `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
 	PasswordMaxLockoutAttempts pulumi.IntPtrOutput `pulumi:"passwordMaxLockoutAttempts"`
@@ -60,13 +60,13 @@ type Password struct {
 	PasswordMinAgeMinutes pulumi.IntPtrOutput `pulumi:"passwordMinAgeMinutes"`
 	// Minimum password length. Default is 8.
 	PasswordMinLength pulumi.IntPtrOutput `pulumi:"passwordMinLength"`
-	// Minimum number of lower case characters in password.
+	// Minimum number of lower case characters in a password.
 	PasswordMinLowercase pulumi.IntPtrOutput `pulumi:"passwordMinLowercase"`
-	// Minimum number of numbers in password.
+	// Minimum number of numbers in a password.
 	PasswordMinNumber pulumi.IntPtrOutput `pulumi:"passwordMinNumber"`
-	// Minimum number of symbols in password.
+	// Minimum number of symbols in a password.
 	PasswordMinSymbol pulumi.IntPtrOutput `pulumi:"passwordMinSymbol"`
-	// Minimum number of upper case characters in password.
+	// Minimum number of upper case characters in a password.
 	PasswordMinUppercase pulumi.IntPtrOutput `pulumi:"passwordMinUppercase"`
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrOutput `pulumi:"passwordShowLockoutFailures"`
@@ -135,7 +135,7 @@ type passwordState struct {
 	PasswordExcludeFirstName *bool `pulumi:"passwordExcludeFirstName"`
 	// User lastName attribute must be excluded from the password.
 	PasswordExcludeLastName *bool `pulumi:"passwordExcludeLastName"`
-	// If the user name must be excluded from the password.
+	// If the username must be excluded from the password.
 	PasswordExcludeUsername *bool `pulumi:"passwordExcludeUsername"`
 	// Length in days a user will be warned before password expiry: 0 = no warning.
 	PasswordExpireWarnDays *int `pulumi:"passwordExpireWarnDays"`
@@ -143,7 +143,7 @@ type passwordState struct {
 	PasswordHistoryCount *int `pulumi:"passwordHistoryCount"`
 	// Notification channels to use to notify a user when their account has been locked.
 	PasswordLockoutNotificationChannels []string `pulumi:"passwordLockoutNotificationChannels"`
-	// Length in days a password is valid before expiry: 0 = no limit.",
+	// Length in days a password is valid before expiry: 0 = no limit.,
 	PasswordMaxAgeDays *int `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
 	PasswordMaxLockoutAttempts *int `pulumi:"passwordMaxLockoutAttempts"`
@@ -151,13 +151,13 @@ type passwordState struct {
 	PasswordMinAgeMinutes *int `pulumi:"passwordMinAgeMinutes"`
 	// Minimum password length. Default is 8.
 	PasswordMinLength *int `pulumi:"passwordMinLength"`
-	// Minimum number of lower case characters in password.
+	// Minimum number of lower case characters in a password.
 	PasswordMinLowercase *int `pulumi:"passwordMinLowercase"`
-	// Minimum number of numbers in password.
+	// Minimum number of numbers in a password.
 	PasswordMinNumber *int `pulumi:"passwordMinNumber"`
-	// Minimum number of symbols in password.
+	// Minimum number of symbols in a password.
 	PasswordMinSymbol *int `pulumi:"passwordMinSymbol"`
-	// Minimum number of upper case characters in password.
+	// Minimum number of upper case characters in a password.
 	PasswordMinUppercase *int `pulumi:"passwordMinUppercase"`
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures *bool `pulumi:"passwordShowLockoutFailures"`
@@ -198,7 +198,7 @@ type PasswordState struct {
 	PasswordExcludeFirstName pulumi.BoolPtrInput
 	// User lastName attribute must be excluded from the password.
 	PasswordExcludeLastName pulumi.BoolPtrInput
-	// If the user name must be excluded from the password.
+	// If the username must be excluded from the password.
 	PasswordExcludeUsername pulumi.BoolPtrInput
 	// Length in days a user will be warned before password expiry: 0 = no warning.
 	PasswordExpireWarnDays pulumi.IntPtrInput
@@ -206,7 +206,7 @@ type PasswordState struct {
 	PasswordHistoryCount pulumi.IntPtrInput
 	// Notification channels to use to notify a user when their account has been locked.
 	PasswordLockoutNotificationChannels pulumi.StringArrayInput
-	// Length in days a password is valid before expiry: 0 = no limit.",
+	// Length in days a password is valid before expiry: 0 = no limit.,
 	PasswordMaxAgeDays pulumi.IntPtrInput
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
 	PasswordMaxLockoutAttempts pulumi.IntPtrInput
@@ -214,13 +214,13 @@ type PasswordState struct {
 	PasswordMinAgeMinutes pulumi.IntPtrInput
 	// Minimum password length. Default is 8.
 	PasswordMinLength pulumi.IntPtrInput
-	// Minimum number of lower case characters in password.
+	// Minimum number of lower case characters in a password.
 	PasswordMinLowercase pulumi.IntPtrInput
-	// Minimum number of numbers in password.
+	// Minimum number of numbers in a password.
 	PasswordMinNumber pulumi.IntPtrInput
-	// Minimum number of symbols in password.
+	// Minimum number of symbols in a password.
 	PasswordMinSymbol pulumi.IntPtrInput
-	// Minimum number of upper case characters in password.
+	// Minimum number of upper case characters in a password.
 	PasswordMinUppercase pulumi.IntPtrInput
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrInput
@@ -265,7 +265,7 @@ type passwordArgs struct {
 	PasswordExcludeFirstName *bool `pulumi:"passwordExcludeFirstName"`
 	// User lastName attribute must be excluded from the password.
 	PasswordExcludeLastName *bool `pulumi:"passwordExcludeLastName"`
-	// If the user name must be excluded from the password.
+	// If the username must be excluded from the password.
 	PasswordExcludeUsername *bool `pulumi:"passwordExcludeUsername"`
 	// Length in days a user will be warned before password expiry: 0 = no warning.
 	PasswordExpireWarnDays *int `pulumi:"passwordExpireWarnDays"`
@@ -273,7 +273,7 @@ type passwordArgs struct {
 	PasswordHistoryCount *int `pulumi:"passwordHistoryCount"`
 	// Notification channels to use to notify a user when their account has been locked.
 	PasswordLockoutNotificationChannels []string `pulumi:"passwordLockoutNotificationChannels"`
-	// Length in days a password is valid before expiry: 0 = no limit.",
+	// Length in days a password is valid before expiry: 0 = no limit.,
 	PasswordMaxAgeDays *int `pulumi:"passwordMaxAgeDays"`
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
 	PasswordMaxLockoutAttempts *int `pulumi:"passwordMaxLockoutAttempts"`
@@ -281,13 +281,13 @@ type passwordArgs struct {
 	PasswordMinAgeMinutes *int `pulumi:"passwordMinAgeMinutes"`
 	// Minimum password length. Default is 8.
 	PasswordMinLength *int `pulumi:"passwordMinLength"`
-	// Minimum number of lower case characters in password.
+	// Minimum number of lower case characters in a password.
 	PasswordMinLowercase *int `pulumi:"passwordMinLowercase"`
-	// Minimum number of numbers in password.
+	// Minimum number of numbers in a password.
 	PasswordMinNumber *int `pulumi:"passwordMinNumber"`
-	// Minimum number of symbols in password.
+	// Minimum number of symbols in a password.
 	PasswordMinSymbol *int `pulumi:"passwordMinSymbol"`
-	// Minimum number of upper case characters in password.
+	// Minimum number of upper case characters in a password.
 	PasswordMinUppercase *int `pulumi:"passwordMinUppercase"`
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures *bool `pulumi:"passwordShowLockoutFailures"`
@@ -329,7 +329,7 @@ type PasswordArgs struct {
 	PasswordExcludeFirstName pulumi.BoolPtrInput
 	// User lastName attribute must be excluded from the password.
 	PasswordExcludeLastName pulumi.BoolPtrInput
-	// If the user name must be excluded from the password.
+	// If the username must be excluded from the password.
 	PasswordExcludeUsername pulumi.BoolPtrInput
 	// Length in days a user will be warned before password expiry: 0 = no warning.
 	PasswordExpireWarnDays pulumi.IntPtrInput
@@ -337,7 +337,7 @@ type PasswordArgs struct {
 	PasswordHistoryCount pulumi.IntPtrInput
 	// Notification channels to use to notify a user when their account has been locked.
 	PasswordLockoutNotificationChannels pulumi.StringArrayInput
-	// Length in days a password is valid before expiry: 0 = no limit.",
+	// Length in days a password is valid before expiry: 0 = no limit.,
 	PasswordMaxAgeDays pulumi.IntPtrInput
 	// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
 	PasswordMaxLockoutAttempts pulumi.IntPtrInput
@@ -345,13 +345,13 @@ type PasswordArgs struct {
 	PasswordMinAgeMinutes pulumi.IntPtrInput
 	// Minimum password length. Default is 8.
 	PasswordMinLength pulumi.IntPtrInput
-	// Minimum number of lower case characters in password.
+	// Minimum number of lower case characters in a password.
 	PasswordMinLowercase pulumi.IntPtrInput
-	// Minimum number of numbers in password.
+	// Minimum number of numbers in a password.
 	PasswordMinNumber pulumi.IntPtrInput
-	// Minimum number of symbols in password.
+	// Minimum number of symbols in a password.
 	PasswordMinSymbol pulumi.IntPtrInput
-	// Minimum number of upper case characters in password.
+	// Minimum number of upper case characters in a password.
 	PasswordMinUppercase pulumi.IntPtrInput
 	// If a user should be informed when their account is locked.
 	PasswordShowLockoutFailures pulumi.BoolPtrInput

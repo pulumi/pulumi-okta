@@ -37,7 +37,7 @@ namespace Pulumi.Okta.Factor
     public partial class Factor : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether or not to activate the provider, by default it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `true`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Okta.Factor
     public sealed class FactorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not to activate the provider, by default it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `true`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -116,7 +116,7 @@ namespace Pulumi.Okta.Factor
     public sealed class FactorState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not to activate the provider, by default it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `true`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

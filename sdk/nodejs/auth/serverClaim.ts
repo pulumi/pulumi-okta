@@ -60,7 +60,7 @@ export class ServerClaim extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to include claims in token, by default is is set to `true`.
+     * Specifies whether to include claims in token, by default it is set to `true`.
      */
     public readonly alwaysIncludeInToken!: pulumi.Output<boolean | undefined>;
     /**
@@ -154,7 +154,7 @@ export class ServerClaim extends pulumi.CustomResource {
  */
 export interface ServerClaimState {
     /**
-     * Specifies whether to include claims in token, by default is is set to `true`.
+     * Specifies whether to include claims in token, by default it is set to `true`.
      */
     readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
@@ -196,7 +196,7 @@ export interface ServerClaimState {
  */
 export interface ServerClaimArgs {
     /**
-     * Specifies whether to include claims in token, by default is is set to `true`.
+     * Specifies whether to include claims in token, by default it is set to `true`.
      */
     readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**

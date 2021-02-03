@@ -147,6 +147,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly metadata!: pulumi.Output<string>;
     /**
+     * SAML xml metadata URL
+     */
+    public /*out*/ readonly metadataUrl!: pulumi.Output<string>;
+    /**
      * name of app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -174,6 +178,18 @@ export class SamlApp extends pulumi.CustomResource {
      * Signature algorithm used ot digitally sign the assertion and response
      */
     public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
+    /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     */
+    public readonly singleLogoutCertificate!: pulumi.Output<string | undefined>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request
+     */
+    public readonly singleLogoutIssuer!: pulumi.Output<string | undefined>;
+    /**
+     * The location where the logout response is sent
+     */
+    public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
     /**
      * SAML SP issuer ID
      */
@@ -252,6 +268,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
             inputs["label"] = state ? state.label : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
+            inputs["metadataUrl"] = state ? state.metadataUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["recipient"] = state ? state.recipient : undefined;
@@ -259,6 +276,9 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["responseSigned"] = state ? state.responseSigned : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
+            inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
+            inputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
+            inputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
             inputs["spIssuer"] = state ? state.spIssuer : undefined;
             inputs["ssoUrl"] = state ? state.ssoUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -300,6 +320,9 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             inputs["responseSigned"] = args ? args.responseSigned : undefined;
             inputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
+            inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
+            inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
+            inputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
             inputs["spIssuer"] = args ? args.spIssuer : undefined;
             inputs["ssoUrl"] = args ? args.ssoUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -316,6 +339,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["httpRedirectBinding"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
+            inputs["metadataUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -448,6 +472,10 @@ export interface SamlAppState {
      */
     readonly metadata?: pulumi.Input<string>;
     /**
+     * SAML xml metadata URL
+     */
+    readonly metadataUrl?: pulumi.Input<string>;
+    /**
      * name of app.
      */
     readonly name?: pulumi.Input<string>;
@@ -475,6 +503,18 @@ export interface SamlAppState {
      * Signature algorithm used ot digitally sign the assertion and response
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
+    /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     */
+    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request
+     */
+    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    /**
+     * The location where the logout response is sent
+     */
+    readonly singleLogoutUrl?: pulumi.Input<string>;
     /**
      * SAML SP issuer ID
      */
@@ -622,6 +662,18 @@ export interface SamlAppArgs {
      * Signature algorithm used ot digitally sign the assertion and response
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
+    /**
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     */
+    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    /**
+     * The issuer of the Service Provider that generates the Single Logout request
+     */
+    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    /**
+     * The location where the logout response is sent
+     */
+    readonly singleLogoutUrl?: pulumi.Input<string>;
     /**
      * SAML SP issuer ID
      */

@@ -140,6 +140,10 @@ export class UserSchema extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
+     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     */
+    public readonly union!: pulumi.Output<boolean | undefined>;
+    /**
      * Subschema unique restriction
      */
     public readonly unique!: pulumi.Output<string | undefined>;
@@ -179,6 +183,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["union"] = state ? state.union : undefined;
             inputs["unique"] = state ? state.unique : undefined;
             inputs["userType"] = state ? state.userType : undefined;
         } else {
@@ -214,6 +219,7 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["union"] = args ? args.union : undefined;
             inputs["unique"] = args ? args.unique : undefined;
             inputs["userType"] = args ? args.userType : undefined;
         }
@@ -309,6 +315,10 @@ export interface UserSchemaState {
      */
     readonly type?: pulumi.Input<string>;
     /**
+     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     */
+    readonly union?: pulumi.Input<boolean>;
+    /**
      * Subschema unique restriction
      */
     readonly unique?: pulumi.Input<string>;
@@ -398,6 +408,10 @@ export interface UserSchemaArgs {
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     */
+    readonly union?: pulumi.Input<boolean>;
     /**
      * Subschema unique restriction
      */

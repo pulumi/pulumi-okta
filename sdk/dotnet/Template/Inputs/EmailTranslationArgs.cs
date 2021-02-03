@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Template.Inputs
     public sealed class EmailTranslationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The language to map tthe template to.
+        /// The language to map the template to.
         /// </summary>
         [Input("language", required: true)]
         public Input<string> Language { get; set; } = null!;

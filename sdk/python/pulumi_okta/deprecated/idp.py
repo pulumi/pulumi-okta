@@ -17,8 +17,6 @@ class Idp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[str]] = None,
-                 acs_type: Optional[pulumi.Input[str]] = None,
                  authorization_binding: Optional[pulumi.Input[str]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -84,10 +82,6 @@ class Idp(pulumi.CustomResource):
 
             __props__['account_link_action'] = account_link_action
             __props__['account_link_group_includes'] = account_link_group_includes
-            if acs_binding is None and not opts.urn:
-                raise TypeError("Missing required property 'acs_binding'")
-            __props__['acs_binding'] = acs_binding
-            __props__['acs_type'] = acs_type
             if authorization_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_binding'")
             __props__['authorization_binding'] = authorization_binding
@@ -153,8 +147,6 @@ class Idp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            acs_binding: Optional[pulumi.Input[str]] = None,
-            acs_type: Optional[pulumi.Input[str]] = None,
             authorization_binding: Optional[pulumi.Input[str]] = None,
             authorization_url: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
@@ -208,8 +200,6 @@ class Idp(pulumi.CustomResource):
 
         __props__["account_link_action"] = account_link_action
         __props__["account_link_group_includes"] = account_link_group_includes
-        __props__["acs_binding"] = acs_binding
-        __props__["acs_type"] = acs_type
         __props__["authorization_binding"] = authorization_binding
         __props__["authorization_url"] = authorization_url
         __props__["client_id"] = client_id
@@ -254,16 +244,6 @@ class Idp(pulumi.CustomResource):
     @pulumi.getter(name="accountLinkGroupIncludes")
     def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "account_link_group_includes")
-
-    @property
-    @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "acs_binding")
-
-    @property
-    @pulumi.getter(name="acsType")
-    def acs_type(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "acs_type")
 
     @property
     @pulumi.getter(name="authorizationBinding")

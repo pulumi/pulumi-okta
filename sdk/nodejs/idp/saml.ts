@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.idp.Saml("example", {
- *     acsBinding: "HTTP-POST",
  *     acsType: "INSTANCE",
  *     issuer: "https://idp.example.com",
  *     kid: okta_idp_saml_key_test.id,
@@ -74,9 +73,9 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
      */
-    public readonly acsBinding!: pulumi.Output<string>;
+    public readonly acsBinding!: pulumi.Output<string | undefined>;
     /**
      * The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
      */
@@ -142,7 +141,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +173,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly subjectFilter!: pulumi.Output<string | undefined>;
     /**
-     * The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+     * The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
      */
     public readonly subjectFormats!: pulumi.Output<string[] | undefined>;
     /**
@@ -182,7 +181,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     public readonly subjectMatchType!: pulumi.Output<string | undefined>;
     /**
@@ -245,9 +244,6 @@ export class Saml extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'acsBinding'");
-            }
             if ((!args || args.issuer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issuer'");
             }
@@ -315,7 +311,7 @@ export interface SamlState {
      */
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
      */
     readonly acsBinding?: pulumi.Input<string>;
     /**
@@ -383,7 +379,7 @@ export interface SamlState {
      */
     readonly requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     readonly requestSignatureScope?: pulumi.Input<string>;
     /**
@@ -415,7 +411,7 @@ export interface SamlState {
      */
     readonly subjectFilter?: pulumi.Input<string>;
     /**
-     * The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+     * The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
      */
     readonly subjectFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -423,7 +419,7 @@ export interface SamlState {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**
@@ -453,9 +449,9 @@ export interface SamlArgs {
      */
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
      */
-    readonly acsBinding: pulumi.Input<string>;
+    readonly acsBinding?: pulumi.Input<string>;
     /**
      * The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
      */
@@ -517,7 +513,7 @@ export interface SamlArgs {
      */
     readonly requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     readonly requestSignatureScope?: pulumi.Input<string>;
     /**
@@ -549,7 +545,7 @@ export interface SamlArgs {
      */
     readonly subjectFilter?: pulumi.Input<string>;
     /**
-     * The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+     * The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
      */
     readonly subjectFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -557,7 +553,7 @@ export interface SamlArgs {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**

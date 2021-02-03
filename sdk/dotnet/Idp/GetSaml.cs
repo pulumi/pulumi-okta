@@ -28,7 +28,7 @@ namespace Pulumi.Okta.Idp
         ///     {
         ///         var example = Output.Create(Okta.Idp.GetSaml.InvokeAsync(new Okta.Idp.GetSamlArgs
         ///         {
-        ///             Label = "Example App",
+        ///             Name = "Example App",
         ///         }));
         ///     }
         /// 
@@ -66,7 +66,7 @@ namespace Pulumi.Okta.Idp
     public sealed class GetSamlResult
     {
         /// <summary>
-        /// HTTP binding used to receive a SAMLResponse message from the IdP.
+        /// HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
         /// </summary>
         public readonly string AcsBinding;
         /// <summary>
@@ -98,7 +98,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// single sign on binding.
+        /// single sign-on binding.
         /// </summary>
         public readonly string SsoBinding;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string SsoDestination;
         /// <summary>
-        /// single sign on url.
+        /// single sign-on url.
         /// </summary>
         public readonly string SsoUrl;
         /// <summary>

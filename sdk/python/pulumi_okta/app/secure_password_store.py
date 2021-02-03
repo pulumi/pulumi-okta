@@ -75,7 +75,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -92,7 +92,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
@@ -197,7 +197,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service. By default it is `false`.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -215,8 +215,8 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] status: Status of application. By default it is `"ACTIVE"`.
+        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
@@ -269,7 +269,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self service. By default it is `false`.
+        Enable self-service. By default, it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -413,7 +413,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[str]:
         """
-        Sign on mode of application.
+        Sign-on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -421,7 +421,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application. By default it is `"ACTIVE"`.
+        Status of application. By default, it is `"ACTIVE"`.
         """
         return pulumi.get(self, "status")
 

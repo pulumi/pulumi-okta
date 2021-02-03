@@ -24,13 +24,14 @@ type MfaPolicy struct {
 	// Policy Name
 	Name         pulumi.StringOutput    `pulumi:"name"`
 	OktaCall     pulumi.StringMapOutput `pulumi:"oktaCall"`
+	OktaEmail    pulumi.StringMapOutput `pulumi:"oktaEmail"`
 	OktaOtp      pulumi.StringMapOutput `pulumi:"oktaOtp"`
 	OktaPassword pulumi.StringMapOutput `pulumi:"oktaPassword"`
 	OktaPush     pulumi.StringMapOutput `pulumi:"oktaPush"`
 	OktaQuestion pulumi.StringMapOutput `pulumi:"oktaQuestion"`
 	OktaSms      pulumi.StringMapOutput `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput    `pulumi:"priority"`
 	RsaToken pulumi.StringMapOutput `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
@@ -79,13 +80,14 @@ type mfaPolicyState struct {
 	// Policy Name
 	Name         *string           `pulumi:"name"`
 	OktaCall     map[string]string `pulumi:"oktaCall"`
+	OktaEmail    map[string]string `pulumi:"oktaEmail"`
 	OktaOtp      map[string]string `pulumi:"oktaOtp"`
 	OktaPassword map[string]string `pulumi:"oktaPassword"`
 	OktaPush     map[string]string `pulumi:"oktaPush"`
 	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
 	OktaSms      map[string]string `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int              `pulumi:"priority"`
 	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
@@ -106,13 +108,14 @@ type MfaPolicyState struct {
 	// Policy Name
 	Name         pulumi.StringPtrInput
 	OktaCall     pulumi.StringMapInput
+	OktaEmail    pulumi.StringMapInput
 	OktaOtp      pulumi.StringMapInput
 	OktaPassword pulumi.StringMapInput
 	OktaPush     pulumi.StringMapInput
 	OktaQuestion pulumi.StringMapInput
 	OktaSms      pulumi.StringMapInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	RsaToken pulumi.StringMapInput
 	// Policy Status: ACTIVE or INACTIVE.
@@ -137,13 +140,14 @@ type mfaPolicyArgs struct {
 	// Policy Name
 	Name         *string           `pulumi:"name"`
 	OktaCall     map[string]string `pulumi:"oktaCall"`
+	OktaEmail    map[string]string `pulumi:"oktaEmail"`
 	OktaOtp      map[string]string `pulumi:"oktaOtp"`
 	OktaPassword map[string]string `pulumi:"oktaPassword"`
 	OktaPush     map[string]string `pulumi:"oktaPush"`
 	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
 	OktaSms      map[string]string `pulumi:"oktaSms"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int              `pulumi:"priority"`
 	RsaToken map[string]string `pulumi:"rsaToken"`
 	// Policy Status: ACTIVE or INACTIVE.
@@ -165,13 +169,14 @@ type MfaPolicyArgs struct {
 	// Policy Name
 	Name         pulumi.StringPtrInput
 	OktaCall     pulumi.StringMapInput
+	OktaEmail    pulumi.StringMapInput
 	OktaOtp      pulumi.StringMapInput
 	OktaPassword pulumi.StringMapInput
 	OktaPush     pulumi.StringMapInput
 	OktaQuestion pulumi.StringMapInput
 	OktaSms      pulumi.StringMapInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	RsaToken pulumi.StringMapInput
 	// Policy Status: ACTIVE or INACTIVE.

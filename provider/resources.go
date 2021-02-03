@@ -206,6 +206,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(groupMod, "Rule"),
 				Docs: &tfbridge.DocInfo{Source: "group_rule.html.markdown"},
 			},
+			"okta_group_membership": {Tok: makeResource(groupMod, "Membership")},
+			"okta_group_role":       {Tok: makeResource(groupMod, "Role")},
 
 			// Idp Resources
 			"okta_idp_oidc": {
@@ -343,12 +345,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeDataSource(appMod, "getSaml"),
 				Docs: &tfbridge.DocInfo{Source: "app_saml.html.markdown"},
 			},
+			"okta_app_oauth": {Tok: makeDataSource(appMod, "getOauth")},
 
 			// Auth DataSources
 			"okta_auth_server": {
 				Tok:  makeDataSource(authMod, "getServer"),
 				Docs: &tfbridge.DocInfo{Source: "auth_server.html.markdown"},
 			},
+			"okta_auth_server_policy": {Tok: makeDataSource(authMod, "getServerPolicy")},
 
 			// Group DataSources
 			"okta_group": {
@@ -366,6 +370,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeDataSource(idpMod, "getSaml"),
 				Docs: &tfbridge.DocInfo{Source: "idp_saml.html.markdown"},
 			},
+			"okta_idp_oidc": {Tok: makeDataSource(idpMod, "getOidc")},
 
 			// Policy DataSources
 			"okta_policy": {

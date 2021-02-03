@@ -28,7 +28,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := idp.NewSaml(ctx, "example", &idp.SamlArgs{
-// 			AcsBinding:             pulumi.String("HTTP-POST"),
 // 			AcsType:                pulumi.String("INSTANCE"),
 // 			Issuer:                 pulumi.String("https://idp.example.com"),
 // 			Kid:                    pulumi.Any(okta_idp_saml_key.Test.Id),
@@ -61,8 +60,8 @@ type Saml struct {
 	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding pulumi.StringOutput `pulumi:"acsBinding"`
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding pulumi.StringPtrOutput `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrOutput `pulumi:"acsType"`
 	// The audience restriction for the IdP.
@@ -95,7 +94,7 @@ type Saml struct {
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
 	// The XML digital signature algorithm used when signing an AuthnRequest message.
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
 	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
 	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
@@ -111,11 +110,11 @@ type Saml struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Optional regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter pulumi.StringPtrOutput `pulumi:"subjectFilter"`
-	// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+	// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
 	SubjectFormats pulumi.StringArrayOutput `pulumi:"subjectFormats"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrOutput `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
@@ -132,9 +131,6 @@ func NewSaml(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AcsBinding == nil {
-		return nil, errors.New("invalid value for required argument 'AcsBinding'")
-	}
 	if args.Issuer == nil {
 		return nil, errors.New("invalid value for required argument 'Issuer'")
 	}
@@ -170,7 +166,7 @@ type samlState struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
 	AcsBinding *string `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType *string `pulumi:"acsType"`
@@ -204,7 +200,7 @@ type samlState struct {
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// The XML digital signature algorithm used when signing an AuthnRequest message.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
@@ -220,11 +216,11 @@ type samlState struct {
 	Status *string `pulumi:"status"`
 	// Optional regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter *string `pulumi:"subjectFilter"`
-	// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+	// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
 	SubjectFormats []string `pulumi:"subjectFormats"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction *string `pulumi:"suspendedAction"`
@@ -239,7 +235,7 @@ type SamlState struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
 	AcsBinding pulumi.StringPtrInput
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrInput
@@ -273,7 +269,7 @@ type SamlState struct {
 	ProvisioningAction pulumi.StringPtrInput
 	// The XML digital signature algorithm used when signing an AuthnRequest message.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
 	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
@@ -289,11 +285,11 @@ type SamlState struct {
 	Status pulumi.StringPtrInput
 	// Optional regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter pulumi.StringPtrInput
-	// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+	// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
 	SubjectFormats pulumi.StringArrayInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrInput
@@ -312,8 +308,8 @@ type samlArgs struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding string `pulumi:"acsBinding"`
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding *string `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType *string `pulumi:"acsType"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
@@ -344,7 +340,7 @@ type samlArgs struct {
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// The XML digital signature algorithm used when signing an AuthnRequest message.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
@@ -360,11 +356,11 @@ type samlArgs struct {
 	Status *string `pulumi:"status"`
 	// Optional regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter *string `pulumi:"subjectFilter"`
-	// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+	// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
 	SubjectFormats []string `pulumi:"subjectFormats"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction *string `pulumi:"suspendedAction"`
@@ -378,8 +374,8 @@ type SamlArgs struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AcsBinding pulumi.StringInput
+	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+	AcsBinding pulumi.StringPtrInput
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
@@ -410,7 +406,7 @@ type SamlArgs struct {
 	ProvisioningAction pulumi.StringPtrInput
 	// The XML digital signature algorithm used when signing an AuthnRequest message.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
 	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
@@ -426,11 +422,11 @@ type SamlArgs struct {
 	Status pulumi.StringPtrInput
 	// Optional regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter pulumi.StringPtrInput
-	// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+	// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
 	SubjectFormats pulumi.StringArrayInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrInput

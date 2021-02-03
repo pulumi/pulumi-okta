@@ -65,7 +65,7 @@ export class ServerPolicy extends pulumi.CustomResource {
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     public readonly clientWhitelists!: pulumi.Output<string[]>;
     /**
@@ -86,6 +86,8 @@ export class ServerPolicy extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The type of the Auth Server Policy.
+     *
+     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -150,7 +152,7 @@ export interface ServerPolicyState {
      */
     readonly authServerId?: pulumi.Input<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     readonly clientWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -171,6 +173,8 @@ export interface ServerPolicyState {
     readonly status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy.
+     *
+     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -184,7 +188,7 @@ export interface ServerPolicyArgs {
      */
     readonly authServerId: pulumi.Input<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist for all clients. Otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     readonly clientWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -205,6 +209,8 @@ export interface ServerPolicyArgs {
     readonly status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy.
+     *
+     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
      */
     readonly type?: pulumi.Input<string>;
 }

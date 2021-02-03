@@ -34,8 +34,6 @@ export class Idp extends pulumi.CustomResource {
 
     public readonly accountLinkAction!: pulumi.Output<string | undefined>;
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
-    public readonly acsBinding!: pulumi.Output<string>;
-    public readonly acsType!: pulumi.Output<string | undefined>;
     public readonly authorizationBinding!: pulumi.Output<string>;
     public readonly authorizationUrl!: pulumi.Output<string>;
     public readonly clientId!: pulumi.Output<string>;
@@ -102,8 +100,6 @@ export class Idp extends pulumi.CustomResource {
             const state = argsOrState as IdpState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = state ? state.acsBinding : undefined;
-            inputs["acsType"] = state ? state.acsType : undefined;
             inputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
             inputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -139,9 +135,6 @@ export class Idp extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as IdpArgs | undefined;
-            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'acsBinding'");
-            }
             if ((!args || args.authorizationBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationBinding'");
             }
@@ -174,8 +167,6 @@ export class Idp extends pulumi.CustomResource {
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = args ? args.acsBinding : undefined;
-            inputs["acsType"] = args ? args.acsType : undefined;
             inputs["authorizationBinding"] = args ? args.authorizationBinding : undefined;
             inputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
@@ -227,8 +218,6 @@ export class Idp extends pulumi.CustomResource {
 export interface IdpState {
     readonly accountLinkAction?: pulumi.Input<string>;
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly acsBinding?: pulumi.Input<string>;
-    readonly acsType?: pulumi.Input<string>;
     readonly authorizationBinding?: pulumi.Input<string>;
     readonly authorizationUrl?: pulumi.Input<string>;
     readonly clientId?: pulumi.Input<string>;
@@ -288,8 +277,6 @@ export interface IdpState {
 export interface IdpArgs {
     readonly accountLinkAction?: pulumi.Input<string>;
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly acsBinding: pulumi.Input<string>;
-    readonly acsType?: pulumi.Input<string>;
     readonly authorizationBinding: pulumi.Input<string>;
     readonly authorizationUrl: pulumi.Input<string>;
     readonly clientId: pulumi.Input<string>;

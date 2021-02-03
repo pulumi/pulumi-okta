@@ -18,12 +18,6 @@ namespace Pulumi.Okta.Deprecated
         [Output("accountLinkGroupIncludes")]
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
-        [Output("acsBinding")]
-        public Output<string> AcsBinding { get; private set; } = null!;
-
-        [Output("acsType")]
-        public Output<string?> AcsType { get; private set; } = null!;
-
         [Output("authorizationBinding")]
         public Output<string> AuthorizationBinding { get; private set; } = null!;
 
@@ -198,12 +192,6 @@ namespace Pulumi.Okta.Deprecated
             set => _accountLinkGroupIncludes = value;
         }
 
-        [Input("acsBinding", required: true)]
-        public Input<string> AcsBinding { get; set; } = null!;
-
-        [Input("acsType")]
-        public Input<string>? AcsType { get; set; }
-
         [Input("authorizationBinding", required: true)]
         public Input<string> AuthorizationBinding { get; set; } = null!;
 
@@ -350,12 +338,6 @@ namespace Pulumi.Okta.Deprecated
             get => _accountLinkGroupIncludes ?? (_accountLinkGroupIncludes = new InputList<string>());
             set => _accountLinkGroupIncludes = value;
         }
-
-        [Input("acsBinding")]
-        public Input<string>? AcsBinding { get; set; }
-
-        [Input("acsType")]
-        public Input<string>? AcsType { get; set; }
 
         [Input("authorizationBinding")]
         public Input<string>? AuthorizationBinding { get; set; }

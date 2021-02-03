@@ -39,11 +39,11 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetPolicyArgs {
     /**
-     * name of policy to retrieve.
+     * Name of policy to retrieve.
      */
     readonly name: string;
     /**
-     * type of policy to retrieve.
+     * Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
      */
     readonly type: string;
 }

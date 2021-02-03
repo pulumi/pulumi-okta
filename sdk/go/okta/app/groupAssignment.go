@@ -15,6 +15,54 @@ import (
 //
 // This resource allows you to create an App Group assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewGroupAssignment(ctx, "example", &app.GroupAssignmentArgs{
+// 			AppId:   pulumi.String("<app id>"),
+// 			GroupId: pulumi.String("<group id>"),
+// 			Profile: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"<app_profile_field>\": \"<value>\"\n", "}\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewOAuth(ctx, "app", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An application group assignment can be imported via the `app_id` and the `group_id`.

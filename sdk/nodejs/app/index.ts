@@ -10,6 +10,7 @@ export * from "./basicAuth";
 export * from "./bookmark";
 export * from "./getApp";
 export * from "./getMetadataSaml";
+export * from "./getOauth";
 export * from "./getSaml";
 export * from "./groupAssignment";
 export * from "./oauth";

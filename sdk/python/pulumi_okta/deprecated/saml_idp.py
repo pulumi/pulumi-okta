@@ -79,8 +79,9 @@ class SamlIdp(pulumi.CustomResource):
 
             __props__['account_link_action'] = account_link_action
             __props__['account_link_group_includes'] = account_link_group_includes
-            if acs_binding is None and not opts.urn:
-                raise TypeError("Missing required property 'acs_binding'")
+            if acs_binding is not None and not opts.urn:
+                warnings.warn("""This property will be removed in the future, as it can only be set to 'HTTP-POST'""", DeprecationWarning)
+                pulumi.log.warn("acs_binding is deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'")
             __props__['acs_binding'] = acs_binding
             __props__['acs_type'] = acs_type
             __props__['deprovisioned_action'] = deprovisioned_action
@@ -226,7 +227,7 @@ class SamlIdp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> pulumi.Output[str]:
+    def acs_binding(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "acs_binding")
 
     @property

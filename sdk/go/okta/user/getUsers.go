@@ -48,7 +48,7 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	// Map of search criteria to use to find users. It supports the following properties.
+	// Map of search criteria to find users. It supports the following properties.
 	Searches []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
 	Users []GetUsersUser `pulumi:"users"`

@@ -31,7 +31,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<int?> MfaLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Output("mfaPrompt")]
         public Output<string?> MfaPrompt { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign on attempt: DEVICE, SESSION or ALWAYS
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Okta.Deprecated
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        /// invalid priority is provided. API defaults it to the last/lowest if not there.
+        /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

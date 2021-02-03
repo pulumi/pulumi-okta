@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Template.Outputs
     public sealed class EmailTranslation
     {
         /// <summary>
-        /// The language to map tthe template to.
+        /// The language to map the template to.
         /// </summary>
         public readonly string Language;
         /// <summary>

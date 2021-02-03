@@ -16,8 +16,6 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.idp.Oidc("example", {
- *     acsBinding: "HTTP-POST",
- *     acsType: "INSTANCE",
  *     authorizationBinding: "HTTP-REDIRECT",
  *     authorizationUrl: "https://idp.example.com/authorize",
  *     clientId: "efg456",
@@ -79,14 +77,6 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-     */
-    public readonly acsBinding!: pulumi.Output<string>;
-    /**
-     * The type of ACS. Default is `"INSTANCE"`.
-     */
-    public readonly acsType!: pulumi.Output<string | undefined>;
-    /**
      * The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
      */
     public readonly authorizationBinding!: pulumi.Output<string>;
@@ -135,7 +125,7 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly jwksBinding!: pulumi.Output<string>;
     /**
-     * Endpoint where the signer of the keys publishes its keys in a JWK Set.
+     * Endpoint where the keys signer publishes its keys in a JWK Set.
      */
     public readonly jwksUrl!: pulumi.Output<string>;
     /**
@@ -187,7 +177,7 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     public readonly subjectMatchType!: pulumi.Output<string | undefined>;
     /**
@@ -230,8 +220,6 @@ export class Oidc extends pulumi.CustomResource {
             const state = argsOrState as OidcState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = state ? state.acsBinding : undefined;
-            inputs["acsType"] = state ? state.acsType : undefined;
             inputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
             inputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -267,9 +255,6 @@ export class Oidc extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as OidcArgs | undefined;
-            if ((!args || args.acsBinding === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'acsBinding'");
-            }
             if ((!args || args.authorizationBinding === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationBinding'");
             }
@@ -302,8 +287,6 @@ export class Oidc extends pulumi.CustomResource {
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = args ? args.acsBinding : undefined;
-            inputs["acsType"] = args ? args.acsType : undefined;
             inputs["authorizationBinding"] = args ? args.authorizationBinding : undefined;
             inputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
@@ -362,14 +345,6 @@ export interface OidcState {
      */
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-     */
-    readonly acsBinding?: pulumi.Input<string>;
-    /**
-     * The type of ACS. Default is `"INSTANCE"`.
-     */
-    readonly acsType?: pulumi.Input<string>;
-    /**
      * The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
      */
     readonly authorizationBinding?: pulumi.Input<string>;
@@ -418,7 +393,7 @@ export interface OidcState {
      */
     readonly jwksBinding?: pulumi.Input<string>;
     /**
-     * Endpoint where the signer of the keys publishes its keys in a JWK Set.
+     * Endpoint where the keys signer publishes its keys in a JWK Set.
      */
     readonly jwksUrl?: pulumi.Input<string>;
     /**
@@ -470,7 +445,7 @@ export interface OidcState {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**
@@ -512,14 +487,6 @@ export interface OidcArgs {
      * Group memberships to determine link candidates.
      */
     readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-     */
-    readonly acsBinding: pulumi.Input<string>;
-    /**
-     * The type of ACS. Default is `"INSTANCE"`.
-     */
-    readonly acsType?: pulumi.Input<string>;
     /**
      * The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
      */
@@ -569,7 +536,7 @@ export interface OidcArgs {
      */
     readonly jwksBinding: pulumi.Input<string>;
     /**
-     * Endpoint where the signer of the keys publishes its keys in a JWK Set.
+     * Endpoint where the keys signer publishes its keys in a JWK Set.
      */
     readonly jwksUrl: pulumi.Input<string>;
     /**
@@ -621,7 +588,7 @@ export interface OidcArgs {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**

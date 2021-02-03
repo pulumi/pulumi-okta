@@ -14,6 +14,49 @@ namespace Pulumi.Okta.App
     /// 
     /// This resource allows you to create an App Group assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.GroupAssignment("example", new Okta.App.GroupAssignmentArgs
+    ///         {
+    ///             AppId = "&lt;app id&gt;",
+    ///             GroupId = "&lt;group id&gt;",
+    ///             Profile = @"{
+    ///   ""&lt;app_profile_field&gt;"": ""&lt;value&gt;""
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// !&gt; **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Okta.App.OAuth("app", new Okta.App.OAuthArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An application group assignment can be imported via the `app_id` and the `group_id`.

@@ -17,8 +17,6 @@ class Oidc(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[str]] = None,
-                 acs_type: Optional[pulumi.Input[str]] = None,
                  authorization_binding: Optional[pulumi.Input[str]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -66,8 +64,6 @@ class Oidc(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Oidc("example",
-            acs_binding="HTTP-POST",
-            acs_type="INSTANCE",
             authorization_binding="HTTP-REDIRECT",
             authorization_url="https://idp.example.com/authorize",
             client_id="efg456",
@@ -95,8 +91,6 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        :param pulumi.Input[str] acs_type: The type of ACS. Default is `"INSTANCE"`.
         :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
@@ -109,7 +103,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] issuer_url: URI that identifies the issuer.
         :param pulumi.Input[str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        :param pulumi.Input[str] jwks_url: Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
@@ -122,7 +116,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
@@ -148,10 +142,6 @@ class Oidc(pulumi.CustomResource):
 
             __props__['account_link_action'] = account_link_action
             __props__['account_link_group_includes'] = account_link_group_includes
-            if acs_binding is None and not opts.urn:
-                raise TypeError("Missing required property 'acs_binding'")
-            __props__['acs_binding'] = acs_binding
-            __props__['acs_type'] = acs_type
             if authorization_binding is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_binding'")
             __props__['authorization_binding'] = authorization_binding
@@ -217,8 +207,6 @@ class Oidc(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            acs_binding: Optional[pulumi.Input[str]] = None,
-            acs_type: Optional[pulumi.Input[str]] = None,
             authorization_binding: Optional[pulumi.Input[str]] = None,
             authorization_url: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
@@ -261,8 +249,6 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_binding: The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        :param pulumi.Input[str] acs_type: The type of ACS. Default is `"INSTANCE"`.
         :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
@@ -275,7 +261,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         :param pulumi.Input[str] issuer_url: URI that identifies the issuer.
         :param pulumi.Input[str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        :param pulumi.Input[str] jwks_url: Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
@@ -288,7 +274,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
@@ -302,8 +288,6 @@ class Oidc(pulumi.CustomResource):
 
         __props__["account_link_action"] = account_link_action
         __props__["account_link_group_includes"] = account_link_group_includes
-        __props__["acs_binding"] = acs_binding
-        __props__["acs_type"] = acs_type
         __props__["authorization_binding"] = authorization_binding
         __props__["authorization_url"] = authorization_url
         __props__["client_id"] = client_id
@@ -354,22 +338,6 @@ class Oidc(pulumi.CustomResource):
         Group memberships to determine link candidates.
         """
         return pulumi.get(self, "account_link_group_includes")
-
-    @property
-    @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> pulumi.Output[str]:
-        """
-        The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        """
-        return pulumi.get(self, "acs_binding")
-
-    @property
-    @pulumi.getter(name="acsType")
-    def acs_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of ACS. Default is `"INSTANCE"`.
-        """
-        return pulumi.get(self, "acs_type")
 
     @property
     @pulumi.getter(name="authorizationBinding")
@@ -471,7 +439,7 @@ class Oidc(pulumi.CustomResource):
     @pulumi.getter(name="jwksUrl")
     def jwks_url(self) -> pulumi.Output[str]:
         """
-        Endpoint where the signer of the keys publishes its keys in a JWK Set.
+        Endpoint where the keys signer publishes its keys in a JWK Set.
         """
         return pulumi.get(self, "jwks_url")
 
@@ -575,7 +543,7 @@ class Oidc(pulumi.CustomResource):
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         """
         return pulumi.get(self, "subject_match_type")
 

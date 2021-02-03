@@ -126,7 +126,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
     public readonly passwordShowLockoutFailures!: pulumi.Output<boolean | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
@@ -339,7 +339,7 @@ export interface PasswordPolicyState {
     readonly passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -467,7 +467,7 @@ export interface PasswordPolicyArgs {
     readonly passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-     * priority is provided. API defaults it to the last/lowest if not there.
+     * priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**

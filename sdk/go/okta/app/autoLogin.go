@@ -54,7 +54,7 @@ type AutoLogin struct {
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -78,13 +78,13 @@ type AutoLogin struct {
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
@@ -130,7 +130,7 @@ func GetAutoLogin(ctx *pulumi.Context,
 type autoLoginState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -154,13 +154,13 @@ type autoLoginState struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -175,7 +175,7 @@ type autoLoginState struct {
 type AutoLoginState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -199,13 +199,13 @@ type AutoLoginState struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode pulumi.StringPtrInput
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
@@ -224,7 +224,7 @@ func (AutoLoginState) ElementType() reflect.Type {
 type autoLoginArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -250,7 +250,7 @@ type autoLoginArgs struct {
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -266,7 +266,7 @@ type autoLoginArgs struct {
 type AutoLoginArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Enable self service. By default it is `false`.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -292,7 +292,7 @@ type AutoLoginArgs struct {
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
-	// The status of the application, by default it is `"ACTIVE"`.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput

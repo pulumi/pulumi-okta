@@ -71,7 +71,7 @@ type Saml struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
@@ -91,7 +91,7 @@ type Saml struct {
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrOutput `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
@@ -99,9 +99,9 @@ type Saml struct {
 	EntityKey pulumi.StringOutput `pulumi:"entityKey"`
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl pulumi.StringOutput `pulumi:"entityUrl"`
-	// features enabled.
+	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -117,14 +117,16 @@ type Saml struct {
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
 	// Certificate key ID.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Certificate name. This modulates the rotation of keys. New name == new key.
+	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
-	// Number of years the certificate is valid.
+	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
 	// label of application.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The raw SAML metadata in XML.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
+	// SAML xml metadata URL.
+	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -135,13 +137,20 @@ type Saml struct {
 	RequestCompressed pulumi.BoolPtrOutput `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrOutput `pulumi:"responseSigned"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrOutput `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	SingleLogoutCertificate pulumi.StringPtrOutput `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent.
+	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl pulumi.StringPtrOutput `pulumi:"ssoUrl"`
 	// status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -155,7 +164,7 @@ type Saml struct {
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users SamlUserArrayOutput `pulumi:"users"`
 }
 
@@ -195,7 +204,7 @@ type samlState struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -215,7 +224,7 @@ type samlState struct {
 	Certificate *string `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
@@ -223,9 +232,9 @@ type samlState struct {
 	EntityKey *string `pulumi:"entityKey"`
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl *string `pulumi:"entityUrl"`
-	// features enabled.
+	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -241,14 +250,16 @@ type samlState struct {
 	IdpIssuer *string `pulumi:"idpIssuer"`
 	// Certificate key ID.
 	KeyId *string `pulumi:"keyId"`
-	// Certificate name. This modulates the rotation of keys. New name == new key.
+	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName *string `pulumi:"keyName"`
-	// Number of years the certificate is valid.
+	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label *string `pulumi:"label"`
 	// The raw SAML metadata in XML.
 	Metadata *string `pulumi:"metadata"`
+	// SAML xml metadata URL.
+	MetadataUrl *string `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name *string `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -259,13 +270,20 @@ type samlState struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned *bool `pulumi:"responseSigned"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent.
+	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl *string `pulumi:"ssoUrl"`
 	// status of application.
 	Status *string `pulumi:"status"`
@@ -279,7 +297,7 @@ type samlState struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users []SamlUser `pulumi:"users"`
 }
 
@@ -288,7 +306,7 @@ type SamlState struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -308,7 +326,7 @@ type SamlState struct {
 	Certificate pulumi.StringPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
@@ -316,9 +334,9 @@ type SamlState struct {
 	EntityKey pulumi.StringPtrInput
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
 	EntityUrl pulumi.StringPtrInput
-	// features enabled.
+	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -334,14 +352,16 @@ type SamlState struct {
 	IdpIssuer pulumi.StringPtrInput
 	// Certificate key ID.
 	KeyId pulumi.StringPtrInput
-	// Certificate name. This modulates the rotation of keys. New name == new key.
+	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName pulumi.StringPtrInput
-	// Number of years the certificate is valid.
+	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringPtrInput
 	// The raw SAML metadata in XML.
 	Metadata pulumi.StringPtrInput
+	// SAML xml metadata URL.
+	MetadataUrl pulumi.StringPtrInput
 	// The name of the attribute statement.
 	Name pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -352,13 +372,20 @@ type SamlState struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	SingleLogoutCertificate pulumi.StringPtrInput
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer pulumi.StringPtrInput
+	// The location where the logout response is sent.
+	SingleLogoutUrl pulumi.StringPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl pulumi.StringPtrInput
 	// status of application.
 	Status pulumi.StringPtrInput
@@ -372,7 +399,7 @@ type SamlState struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Users associated with the application
+	// Users associated with the application.
 	Users SamlUserArrayInput
 }
 
@@ -385,7 +412,7 @@ type samlArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -403,13 +430,13 @@ type samlArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
-	// features enabled.
+	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -419,9 +446,9 @@ type samlArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// Certificate name. This modulates the rotation of keys. New name == new key.
+	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName *string `pulumi:"keyName"`
-	// Number of years the certificate is valid.
+	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label string `pulumi:"label"`
@@ -435,9 +462,16 @@ type samlArgs struct {
 	ResponseSigned *bool `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
+	// The location where the logout response is sent.
+	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl *string `pulumi:"ssoUrl"`
 	// status of application.
 	Status *string `pulumi:"status"`
@@ -451,7 +485,7 @@ type samlArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Users associated with the application
+	// Users associated with the application.
 	Users []SamlUser `pulumi:"users"`
 }
 
@@ -461,7 +495,7 @@ type SamlArgs struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Custom login page URL.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service.
+	// Enable self-service.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -479,13 +513,13 @@ type SamlArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
-	// features enabled.
+	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
-	// Groups associated with the application
+	// Groups associated with the application.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -495,9 +529,9 @@ type SamlArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
-	// Certificate name. This modulates the rotation of keys. New name == new key.
+	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName pulumi.StringPtrInput
-	// Number of years the certificate is valid.
+	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringInput
@@ -511,9 +545,16 @@ type SamlArgs struct {
 	ResponseSigned pulumi.BoolPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	SingleLogoutCertificate pulumi.StringPtrInput
+	// The issuer of the Service Provider that generates the Single Logout request.
+	SingleLogoutIssuer pulumi.StringPtrInput
+	// The location where the logout response is sent.
+	SingleLogoutUrl pulumi.StringPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
-	// Single Sign on Url.
+	// Single Sign-on Url.
 	SsoUrl pulumi.StringPtrInput
 	// status of application.
 	Status pulumi.StringPtrInput
@@ -527,7 +568,7 @@ type SamlArgs struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Users associated with the application
+	// Users associated with the application.
 	Users SamlUserArrayInput
 }
 

@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Policy.Inputs
     public sealed class RuleIdpDiscoveryAppIncludeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use if `type` is `"APP"` to indicate the application Id to include.
+        /// Use if `type` is `"APP"` to indicate the application id to include.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

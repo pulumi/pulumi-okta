@@ -73,7 +73,7 @@ export class TemplateSms extends pulumi.CustomResource {
      */
     public readonly template!: pulumi.Output<string>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     public readonly translations!: pulumi.Output<outputs.TemplateSmsTranslation[] | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface TemplateSmsState {
      */
     readonly template?: pulumi.Input<string>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     readonly translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**
@@ -146,7 +146,7 @@ export interface TemplateSmsArgs {
      */
     readonly template: pulumi.Input<string>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     readonly translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**

@@ -105,7 +105,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly clientUri!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+     * Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
      */
     public readonly consentMethod!: pulumi.Output<string | undefined>;
     /**
@@ -116,7 +116,8 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly customClientId!: pulumi.Output<string | undefined>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -132,6 +133,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
@@ -141,7 +146,15 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * URI that initiates login.
+     * The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+     */
+    public readonly loginMode!: pulumi.Output<string | undefined>;
+    /**
+     * List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+     */
+    public readonly loginScopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
      */
     public readonly loginUri!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +166,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
@@ -177,11 +190,11 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly responseTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -193,7 +206,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly tosUri!: pulumi.Output<string | undefined>;
     /**
-     * The type of OAuth application.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -225,9 +238,12 @@ export class OAuth extends pulumi.CustomResource {
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
+            inputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
             inputs["issuerMode"] = state ? state.issuerMode : undefined;
             inputs["jwks"] = state ? state.jwks : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["loginMode"] = state ? state.loginMode : undefined;
+            inputs["loginScopes"] = state ? state.loginScopes : undefined;
             inputs["loginUri"] = state ? state.loginUri : undefined;
             inputs["logoUri"] = state ? state.logoUri : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -262,9 +278,12 @@ export class OAuth extends pulumi.CustomResource {
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
+            inputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
             inputs["issuerMode"] = args ? args.issuerMode : undefined;
             inputs["jwks"] = args ? args.jwks : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["loginMode"] = args ? args.loginMode : undefined;
+            inputs["loginScopes"] = args ? args.loginScopes : undefined;
             inputs["loginUri"] = args ? args.loginUri : undefined;
             inputs["logoUri"] = args ? args.logoUri : undefined;
             inputs["omitSecret"] = args ? args.omitSecret : undefined;
@@ -322,7 +341,7 @@ export interface OAuthState {
      */
     readonly clientUri?: pulumi.Input<string>;
     /**
-     * Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+     * Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
      */
     readonly consentMethod?: pulumi.Input<string>;
     /**
@@ -333,7 +352,8 @@ export interface OAuthState {
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -349,6 +369,10 @@ export interface OAuthState {
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    readonly implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     readonly issuerMode?: pulumi.Input<string>;
@@ -358,7 +382,15 @@ export interface OAuthState {
      */
     readonly label?: pulumi.Input<string>;
     /**
-     * URI that initiates login.
+     * The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+     */
+    readonly loginMode?: pulumi.Input<string>;
+    /**
+     * List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+     */
+    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
      */
     readonly loginUri?: pulumi.Input<string>;
     /**
@@ -370,7 +402,7 @@ export interface OAuthState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
      */
     readonly omitSecret?: pulumi.Input<boolean>;
     /**
@@ -394,11 +426,11 @@ export interface OAuthState {
      */
     readonly responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -410,7 +442,7 @@ export interface OAuthState {
      */
     readonly tosUri?: pulumi.Input<string>;
     /**
-     * The type of OAuth application.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -444,7 +476,7 @@ export interface OAuthArgs {
      */
     readonly clientUri?: pulumi.Input<string>;
     /**
-     * Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED.
+     * Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
      */
     readonly consentMethod?: pulumi.Input<string>;
     /**
@@ -455,7 +487,8 @@ export interface OAuthArgs {
      */
     readonly customClientId?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
      */
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -471,6 +504,10 @@ export interface OAuthArgs {
      */
     readonly hideWeb?: pulumi.Input<boolean>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    readonly implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
     readonly issuerMode?: pulumi.Input<string>;
@@ -480,7 +517,15 @@ export interface OAuthArgs {
      */
     readonly label: pulumi.Input<string>;
     /**
-     * URI that initiates login.
+     * The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+     */
+    readonly loginMode?: pulumi.Input<string>;
+    /**
+     * List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+     */
+    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
      */
     readonly loginUri?: pulumi.Input<string>;
     /**
@@ -488,7 +533,7 @@ export interface OAuthArgs {
      */
     readonly logoUri?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
      */
     readonly omitSecret?: pulumi.Input<boolean>;
     /**
@@ -512,7 +557,7 @@ export interface OAuthArgs {
      */
     readonly responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The status of the application, by default it is `"ACTIVE"`.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -524,7 +569,7 @@ export interface OAuthArgs {
      */
     readonly tosUri?: pulumi.Input<string>;
     /**
-     * The type of OAuth application.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     readonly type: pulumi.Input<string>;
     /**

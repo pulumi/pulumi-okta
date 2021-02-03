@@ -85,7 +85,7 @@ def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']
     ```
 
 
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to use to find users. It supports the following properties.
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
     :param Sequence[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
     """
     __args__ = dict()

@@ -31,14 +31,14 @@ class MfaPolicyRule(pulumi.CustomResource):
         Create a MfaPolicyRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-               invalid priority is provided. API defaults it to the last/lowest if not there.
+               invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -96,14 +96,14 @@ class MfaPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-               invalid priority is provided. API defaults it to the last/lowest if not there.
+               invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -126,7 +126,7 @@ class MfaPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def enroll(self) -> pulumi.Output[Optional[str]]:
         """
-        Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGEd, or NEVER?
+        Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         """
         return pulumi.get(self, "enroll")
 
@@ -175,7 +175,7 @@ class MfaPolicyRule(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        invalid priority is provided. API defaults it to the last/lowest if not there.
+        invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 

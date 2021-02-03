@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the Everyone group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+ * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
  *
  * ## Example Usage
  *

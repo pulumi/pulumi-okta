@@ -106,13 +106,13 @@ type RuleIdpDiscovery struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid pulumi.StringOutput `pulumi:"policyid"`
-	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrOutput `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayOutput `pulumi:"userIdentifierPatterns"`
 	// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
 	UserIdentifierType pulumi.StringPtrOutput `pulumi:"userIdentifierType"`
@@ -169,13 +169,13 @@ type ruleIdpDiscoveryState struct {
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid *string `pulumi:"policyid"`
-	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
-	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
 	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
 	// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
 	UserIdentifierType *string `pulumi:"userIdentifierType"`
@@ -201,13 +201,13 @@ type RuleIdpDiscoveryState struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	Policyid pulumi.StringPtrInput
-	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
-	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrInput
-	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
 	// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
 	UserIdentifierType pulumi.StringPtrInput
@@ -237,13 +237,13 @@ type ruleIdpDiscoveryArgs struct {
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	Policyid string `pulumi:"policyid"`
-	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
-	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
 	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
 	// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
 	UserIdentifierType *string `pulumi:"userIdentifierType"`
@@ -270,13 +270,13 @@ type RuleIdpDiscoveryArgs struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	Policyid pulumi.StringInput
-	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
-	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrInput
-	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+	// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
 	// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
 	UserIdentifierType pulumi.StringPtrInput

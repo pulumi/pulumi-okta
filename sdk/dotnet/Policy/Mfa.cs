@@ -102,6 +102,12 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableDictionary<string, string>?> OktaCall { get; private set; } = null!;
 
         /// <summary>
+        /// Okta Email MFA policy settings.
+        /// </summary>
+        [Output("oktaEmail")]
+        public Output<ImmutableDictionary<string, string>?> OktaEmail { get; private set; } = null!;
+
+        /// <summary>
         /// Okta OTP MFA policy settings.
         /// </summary>
         [Output("oktaOtp")]
@@ -289,6 +295,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _oktaCall ?? (_oktaCall = new InputMap<string>());
             set => _oktaCall = value;
+        }
+
+        [Input("oktaEmail")]
+        private InputMap<string>? _oktaEmail;
+
+        /// <summary>
+        /// Okta Email MFA policy settings.
+        /// </summary>
+        public InputMap<string> OktaEmail
+        {
+            get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
+            set => _oktaEmail = value;
         }
 
         [Input("oktaOtp")]
@@ -488,6 +506,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _oktaCall ?? (_oktaCall = new InputMap<string>());
             set => _oktaCall = value;
+        }
+
+        [Input("oktaEmail")]
+        private InputMap<string>? _oktaEmail;
+
+        /// <summary>
+        /// Okta Email MFA policy settings.
+        /// </summary>
+        public InputMap<string> OktaEmail
+        {
+            get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
+            set => _oktaEmail = value;
         }
 
         [Input("oktaOtp")]

@@ -108,6 +108,9 @@ namespace Pulumi.Okta.User.Inputs
         [Input("honorificSuffix", required: true)]
         public string HonorificSuffix { get; set; } = null!;
 
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
+
         /// <summary>
         /// user profile property.
         /// </summary>

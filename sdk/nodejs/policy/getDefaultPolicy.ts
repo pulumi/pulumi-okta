@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a "Default" policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with `name = "Default"`, this is simply a shortcut.
+ * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
  *
  * ## Example Usage
  *
@@ -37,7 +37,7 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
  */
 export interface GetDefaultPolicyArgs {
     /**
-     * type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY`
+     * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
      */
     readonly type: string;
 }

@@ -76,7 +76,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] password_min_uppercase: If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
         :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
         :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
@@ -203,7 +203,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] password_min_uppercase: If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
         :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
         :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
@@ -437,7 +437,7 @@ class PasswordPolicy(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        priority is provided. API defaults it to the last/lowest if not there.
+        priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 

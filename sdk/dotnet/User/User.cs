@@ -14,6 +14,55 @@ namespace Pulumi.Okta.User
     /// 
     /// This resource allows you to create and configure an Okta User.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.User.User("example", new Okta.User.UserArgs
+    ///         {
+    ///             City = "New York",
+    ///             CostCenter = "10",
+    ///             CountryCode = "US",
+    ///             Department = "IT",
+    ///             DisplayName = "Dr. John Smith",
+    ///             Division = "Acquisitions",
+    ///             Email = "john.smith@example.com",
+    ///             EmployeeNumber = "111111",
+    ///             FirstName = "John",
+    ///             HonorificPrefix = "Dr.",
+    ///             HonorificSuffix = "Jr.",
+    ///             LastName = "Smith",
+    ///             Locale = "en_US",
+    ///             Login = "john.smith@example.com",
+    ///             Manager = "Jimbo",
+    ///             ManagerId = "222222",
+    ///             MiddleName = "John",
+    ///             MobilePhone = "1112223333",
+    ///             NickName = "Johnny",
+    ///             Organization = "Testing Inc.",
+    ///             PostalAddress = "1234 Testing St.",
+    ///             PreferredLanguage = "en-us",
+    ///             PrimaryPhone = "4445556666",
+    ///             ProfileUrl = "http://www.example.com/profile",
+    ///             SecondEmail = "john.smith.fun@example.com",
+    ///             State = "NY",
+    ///             StreetAddress = "5678 Testing Ave.",
+    ///             Timezone = "America/New_York",
+    ///             Title = "Director",
+    ///             UserType = "Employee",
+    ///             ZipCode = "11111",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An Okta User can be imported via the ID.

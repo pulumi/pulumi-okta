@@ -46,13 +46,13 @@ namespace Pulumi.Okta.Policy
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// name of policy to retrieve.
+        /// Name of policy to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// type of policy to retrieve.
+        /// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

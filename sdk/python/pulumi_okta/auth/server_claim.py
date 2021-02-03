@@ -55,7 +55,7 @@ class ServerClaim(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default is is set to `true`.
+        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default it is set to `true`.
         :param pulumi.Input[str] auth_server_id: The Application's display name.
         :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         :param pulumi.Input[str] group_filter_type: Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
@@ -123,7 +123,7 @@ class ServerClaim(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default is is set to `true`.
+        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default it is set to `true`.
         :param pulumi.Input[str] auth_server_id: The Application's display name.
         :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         :param pulumi.Input[str] group_filter_type: Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
@@ -152,7 +152,7 @@ class ServerClaim(pulumi.CustomResource):
     @pulumi.getter(name="alwaysIncludeInToken")
     def always_include_in_token(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether to include claims in token, by default is is set to `true`.
+        Specifies whether to include claims in token, by default it is set to `true`.
         """
         return pulumi.get(self, "always_include_in_token")
 

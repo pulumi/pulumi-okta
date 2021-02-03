@@ -62,15 +62,15 @@ export class RulePassword extends pulumi.CustomResource {
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     public readonly passwordChange!: pulumi.Output<string | undefined>;
     /**
-     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     public readonly passwordReset!: pulumi.Output<string | undefined>;
     /**
-     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
      */
     public readonly passwordUnlock!: pulumi.Output<string | undefined>;
     /**
@@ -78,7 +78,7 @@ export class RulePassword extends pulumi.CustomResource {
      */
     public readonly policyid!: pulumi.Output<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
@@ -162,15 +162,15 @@ export interface RulePasswordState {
      */
     readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     readonly passwordChange?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     readonly passwordReset?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
      */
     readonly passwordUnlock?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface RulePasswordState {
      */
     readonly policyid?: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**
@@ -212,15 +212,15 @@ export interface RulePasswordArgs {
      */
     readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     readonly passwordChange?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default it is `"ALLOW"`.
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
      */
     readonly passwordReset?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default it is `"DENY"`,
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
      */
     readonly passwordUnlock?: pulumi.Input<string>;
     /**
@@ -228,7 +228,7 @@ export interface RulePasswordArgs {
      */
     readonly policyid: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last/lowest if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
     /**

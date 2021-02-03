@@ -130,11 +130,11 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      */
     public readonly policyid!: pulumi.Output<string>;
     /**
-     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -142,7 +142,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      */
     public readonly userIdentifierAttribute!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      */
     public readonly userIdentifierPatterns!: pulumi.Output<outputs.policy.RuleIdpDiscoveryUserIdentifierPattern[] | undefined>;
     /**
@@ -251,11 +251,11 @@ export interface RuleIdpDiscoveryState {
      */
     readonly policyid?: pulumi.Input<string>;
     /**
-     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface RuleIdpDiscoveryState {
      */
     readonly userIdentifierAttribute?: pulumi.Input<string>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      */
     readonly userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**
@@ -314,11 +314,11 @@ export interface RuleIdpDiscoveryArgs {
      */
     readonly policyid: pulumi.Input<string>;
     /**
-     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last/lowest if not provided.
+     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default it is `"ACTIVE"`.
+     * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface RuleIdpDiscoveryArgs {
      */
     readonly userIdentifierAttribute?: pulumi.Input<string>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set. Otherwise multiple elements of matching patterns may be provided.
+     * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      */
     readonly userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**

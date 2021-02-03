@@ -31,7 +31,7 @@ class SignonPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         if __name__ is not None:
@@ -82,7 +82,7 @@ class SignonPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-               priority is provided. API defaults it to the last/lowest if not there.
+               priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -125,7 +125,7 @@ class SignonPolicy(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-        priority is provided. API defaults it to the last/lowest if not there.
+        priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 

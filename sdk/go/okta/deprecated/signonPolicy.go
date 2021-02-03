@@ -20,7 +20,7 @@ type SignonPolicy struct {
 	// Policy Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -62,7 +62,7 @@ type signonPolicyState struct {
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -76,7 +76,7 @@ type SignonPolicyState struct {
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
@@ -94,7 +94,7 @@ type signonPolicyArgs struct {
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -109,7 +109,7 @@ type SignonPolicyArgs struct {
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
-	// priority is provided. API defaults it to the last/lowest if not there.
+	// priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput

@@ -64,7 +64,7 @@ type TemplateSms struct {
 
 	// The SMS message.
 	Template pulumi.StringOutput `pulumi:"template"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayOutput `pulumi:"translations"`
 	// SMS template type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -107,7 +107,7 @@ func GetTemplateSms(ctx *pulumi.Context,
 type templateSmsState struct {
 	// The SMS message.
 	Template *string `pulumi:"template"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
 	// SMS template type
 	Type *string `pulumi:"type"`
@@ -116,7 +116,7 @@ type templateSmsState struct {
 type TemplateSmsState struct {
 	// The SMS message.
 	Template pulumi.StringPtrInput
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
 	// SMS template type
 	Type pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (TemplateSmsState) ElementType() reflect.Type {
 type templateSmsArgs struct {
 	// The SMS message.
 	Template string `pulumi:"template"`
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
 	// SMS template type
 	Type string `pulumi:"type"`
@@ -139,7 +139,7 @@ type templateSmsArgs struct {
 type TemplateSmsArgs struct {
 	// The SMS message.
 	Template pulumi.StringInput
-	// Set of translations for particular template.
+	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
 	// SMS template type
 	Type pulumi.StringInput

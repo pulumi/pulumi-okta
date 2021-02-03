@@ -36,6 +36,7 @@ class UserSchema(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 union: Optional[pulumi.Input[bool]] = None,
                  unique: Optional[pulumi.Input[str]] = None,
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -91,6 +92,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -138,6 +140,7 @@ class UserSchema(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['union'] = union
             __props__['unique'] = unique
             __props__['user_type'] = user_type
         super(UserSchema, __self__).__init__(
@@ -169,6 +172,7 @@ class UserSchema(pulumi.CustomResource):
             scope: Optional[pulumi.Input[str]] = None,
             title: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
+            union: Optional[pulumi.Input[bool]] = None,
             unique: Optional[pulumi.Input[str]] = None,
             user_type: Optional[pulumi.Input[str]] = None) -> 'UserSchema':
         """
@@ -197,6 +201,7 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -223,6 +228,7 @@ class UserSchema(pulumi.CustomResource):
         __props__["scope"] = scope
         __props__["title"] = title
         __props__["type"] = type
+        __props__["union"] = union
         __props__["unique"] = unique
         __props__["user_type"] = user_type
         return UserSchema(resource_name, opts=opts, __props__=__props__)
@@ -378,6 +384,14 @@ class UserSchema(pulumi.CustomResource):
         The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def union(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        """
+        return pulumi.get(self, "union")
 
     @property
     @pulumi.getter

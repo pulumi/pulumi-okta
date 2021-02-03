@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .get_metadata_saml import *
+from .get_oidc import *
 from .get_saml import *
 from .oidc import *
 from .saml import *

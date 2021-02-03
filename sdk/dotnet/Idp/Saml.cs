@@ -26,7 +26,6 @@ namespace Pulumi.Okta.Idp
     ///     {
     ///         var example = new Okta.Idp.Saml("example", new Okta.Idp.SamlArgs
     ///         {
-    ///             AcsBinding = "HTTP-POST",
     ///             AcsType = "INSTANCE",
     ///             Issuer = "https://idp.example.com",
     ///             Kid = okta_idp_saml_key.Test.Id,
@@ -65,11 +64,8 @@ namespace Pulumi.Okta.Idp
         [Output("accountLinkGroupIncludes")]
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
-        /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
         [Output("acsBinding")]
-        public Output<string> AcsBinding { get; private set; } = null!;
+        public Output<string?> AcsBinding { get; private set; } = null!;
 
         /// <summary>
         /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
@@ -168,7 +164,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
@@ -216,7 +212,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> SubjectFilter { get; private set; } = null!;
 
         /// <summary>
-        /// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         /// </summary>
         [Output("subjectFormats")]
         public Output<ImmutableArray<string>> SubjectFormats { get; private set; } = null!;
@@ -228,7 +224,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> SubjectMatchAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Output("subjectMatchType")]
         public Output<string?> SubjectMatchType { get; private set; } = null!;
@@ -315,11 +311,8 @@ namespace Pulumi.Okta.Idp
             set => _accountLinkGroupIncludes = value;
         }
 
-        /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
-        [Input("acsBinding", required: true)]
-        public Input<string> AcsBinding { get; set; } = null!;
+        [Input("acsBinding")]
+        public Input<string>? AcsBinding { get; set; }
 
         /// <summary>
         /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
@@ -424,7 +417,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
@@ -475,7 +468,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _subjectFormats;
 
         /// <summary>
-        /// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         /// </summary>
         public InputList<string> SubjectFormats
         {
@@ -490,7 +483,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
@@ -532,9 +525,6 @@ namespace Pulumi.Okta.Idp
             set => _accountLinkGroupIncludes = value;
         }
 
-        /// <summary>
-        /// The method of making an ACS request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-        /// </summary>
         [Input("acsBinding")]
         public Input<string>? AcsBinding { get; set; }
 
@@ -647,7 +637,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
@@ -698,7 +688,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _subjectFormats;
 
         /// <summary>
-        /// The name formate. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         /// </summary>
         public InputList<string> SubjectFormats
         {
@@ -713,7 +703,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }

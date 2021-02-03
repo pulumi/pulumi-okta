@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Social Identity Provider.
+ * Creates a Social Identity Provider.
  *
- * This resource allows you to create and configure an Social Identity Provider.
+ * This resource allows you to create and configure a Social Identity Provider.
  *
  * ## Example Usage
  *
@@ -147,7 +147,7 @@ export class Social extends pulumi.CustomResource {
      */
     public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export class Social extends pulumi.CustomResource {
      */
     public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     public readonly subjectMatchType!: pulumi.Output<string | undefined>;
     /**
@@ -376,7 +376,7 @@ export interface SocialState {
      */
     readonly requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     readonly requestSignatureScope?: pulumi.Input<string>;
     /**
@@ -400,7 +400,7 @@ export interface SocialState {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**
@@ -502,7 +502,7 @@ export interface SocialArgs {
      */
     readonly requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * Specifies whether or not to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
      */
     readonly requestSignatureScope?: pulumi.Input<string>;
     /**
@@ -526,7 +526,7 @@ export interface SocialArgs {
      */
     readonly subjectMatchAttribute?: pulumi.Input<string>;
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
      */
     readonly subjectMatchType?: pulumi.Input<string>;
     /**

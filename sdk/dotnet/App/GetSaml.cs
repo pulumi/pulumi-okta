@@ -57,7 +57,7 @@ namespace Pulumi.Okta.App
         public string? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service.
+        /// Enable self-service.
         /// </summary>
         [Input("accessibilitySelfService")]
         public bool? AccessibilitySelfService { get; set; }
@@ -96,7 +96,7 @@ namespace Pulumi.Okta.App
         private List<Inputs.GetSamlAttributeStatementArgs>? _attributeStatements;
 
         /// <summary>
-        /// (Optional) List of SAML Attribute statements.
+        /// List of SAML Attribute statements.
         /// </summary>
         public List<Inputs.GetSamlAttributeStatementArgs> AttributeStatements
         {
@@ -129,7 +129,7 @@ namespace Pulumi.Okta.App
         public string? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Input("destination")]
         public string? Destination { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Okta.App
         public string? SpIssuer { get; set; }
 
         /// <summary>
-        /// Single Sign on Url.
+        /// Single Sign-on Url.
         /// </summary>
         [Input("ssoUrl")]
         public string? SsoUrl { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? AccessibilityLoginRedirectUrl;
         /// <summary>
-        /// Enable self service.
+        /// Enable self-service.
         /// </summary>
         public readonly bool? AccessibilitySelfService;
         /// <summary>
@@ -295,7 +295,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool? AssertionSigned;
         /// <summary>
-        /// (Optional) List of SAML Attribute statements.
+        /// List of SAML Attribute statements.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSamlAttributeStatementResult> AttributeStatements;
         /// <summary>
@@ -315,11 +315,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? DefaultRelayState;
         /// <summary>
-        /// description of application.
-        /// </summary>
-        public readonly string Description;
-        /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         public readonly string? Destination;
         /// <summary>
@@ -360,7 +356,7 @@ namespace Pulumi.Okta.App
         public readonly string? Label;
         public readonly string? LabelPrefix;
         /// <summary>
-        /// (Required) The name of the attribute statement.
+        /// The name of the attribute statement.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -380,11 +376,23 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? SignatureAlgorithm;
         /// <summary>
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+        /// </summary>
+        public readonly string SingleLogoutCertificate;
+        /// <summary>
+        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// </summary>
+        public readonly string SingleLogoutIssuer;
+        /// <summary>
+        /// The location where the logout response is sent.
+        /// </summary>
+        public readonly string SingleLogoutUrl;
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         public readonly string? SpIssuer;
         /// <summary>
-        /// Single Sign on Url.
+        /// Single Sign-on Url.
         /// </summary>
         public readonly string? SsoUrl;
         /// <summary>
@@ -438,8 +446,6 @@ namespace Pulumi.Okta.App
 
             string? defaultRelayState,
 
-            string description,
-
             string? destination,
 
             string? digestAlgorithm,
@@ -472,6 +478,12 @@ namespace Pulumi.Okta.App
 
             string? signatureAlgorithm,
 
+            string singleLogoutCertificate,
+
+            string singleLogoutIssuer,
+
+            string singleLogoutUrl,
+
             string? spIssuer,
 
             string? ssoUrl,
@@ -500,7 +512,6 @@ namespace Pulumi.Okta.App
             AuthnContextClassRef = authnContextClassRef;
             AutoSubmitToolbar = autoSubmitToolbar;
             DefaultRelayState = defaultRelayState;
-            Description = description;
             Destination = destination;
             DigestAlgorithm = digestAlgorithm;
             Features = features;
@@ -517,6 +528,9 @@ namespace Pulumi.Okta.App
             RequestCompressed = requestCompressed;
             ResponseSigned = responseSigned;
             SignatureAlgorithm = signatureAlgorithm;
+            SingleLogoutCertificate = singleLogoutCertificate;
+            SingleLogoutIssuer = singleLogoutIssuer;
+            SingleLogoutUrl = singleLogoutUrl;
             SpIssuer = spIssuer;
             SsoUrl = ssoUrl;
             Status = status;

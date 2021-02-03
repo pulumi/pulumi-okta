@@ -68,7 +68,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
+        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
@@ -78,7 +78,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
         :param pulumi.Input[int] priority: Priority of the auth server policy rule.
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
@@ -160,7 +161,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440.
+        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
@@ -170,7 +171,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
         :param pulumi.Input[int] priority: Priority of the auth server policy rule.
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
@@ -203,7 +205,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="accessTokenLifetimeMinutes")
     def access_token_lifetime_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Lifetime of access token. Can be set to a value between 5 and 1440.
+        Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         """
         return pulumi.get(self, "access_token_lifetime_minutes")
 
@@ -283,7 +285,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="refreshTokenWindowMinutes")
     def refresh_token_window_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Window in which a refresh token can be used. It can be a value between 10 and 2628000 (5 years).
+        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 

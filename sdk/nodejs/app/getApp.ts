@@ -64,10 +64,6 @@ export interface GetAppArgs {
 export interface GetAppResult {
     readonly activeOnly?: boolean;
     /**
-     * `description` of application.
-     */
-    readonly description: string;
-    /**
      * `id` of application.
      */
     readonly id?: string;

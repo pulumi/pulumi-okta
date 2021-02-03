@@ -74,7 +74,7 @@ export class Email extends pulumi.CustomResource {
      */
     public readonly defaultLanguage!: pulumi.Output<string | undefined>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     public readonly translations!: pulumi.Output<outputs.template.EmailTranslation[]>;
     /**
@@ -129,7 +129,7 @@ export interface EmailState {
      */
     readonly defaultLanguage?: pulumi.Input<string>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     readonly translations?: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
     /**
@@ -147,7 +147,7 @@ export interface EmailArgs {
      */
     readonly defaultLanguage?: pulumi.Input<string>;
     /**
-     * Set of translations for particular template.
+     * Set of translations for a particular template.
      */
     readonly translations: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
     /**

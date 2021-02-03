@@ -56,7 +56,7 @@ namespace Pulumi.Okta.User
         private List<Inputs.GetUsersSearchArgs>? _searches;
 
         /// <summary>
-        /// Map of search criteria to use to find users. It supports the following properties.
+        /// Map of search criteria to find users. It supports the following properties.
         /// </summary>
         public List<Inputs.GetUsersSearchArgs> Searches
         {
