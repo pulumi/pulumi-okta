@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "adminRoleTargets.ts",
         "app/autoLogin.ts",
         "app/basicAuth.ts",
         "app/bookmark.ts",

@@ -68,6 +68,11 @@ export class Role extends pulumi.CustomResource {
      * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     public readonly roleType!: pulumi.Output<string>;
+    /**
+     * A list of group IDs you would like as the targets of the admin role.
+     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     */
+    public readonly targetGroupLists!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -83,6 +88,7 @@ export class Role extends pulumi.CustomResource {
             const state = argsOrState as RoleState | undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["roleType"] = state ? state.roleType : undefined;
+            inputs["targetGroupLists"] = state ? state.targetGroupLists : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
@@ -93,6 +99,7 @@ export class Role extends pulumi.CustomResource {
             }
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
+            inputs["targetGroupLists"] = args ? args.targetGroupLists : undefined;
         }
         if (!opts) {
             opts = {}
@@ -119,6 +126,11 @@ export interface RoleState {
      * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     readonly roleType?: pulumi.Input<string>;
+    /**
+     * A list of group IDs you would like as the targets of the admin role.
+     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     */
+    readonly targetGroupLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -135,4 +147,9 @@ export interface RoleArgs {
      * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     readonly roleType: pulumi.Input<string>;
+    /**
+     * A list of group IDs you would like as the targets of the admin role.
+     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     */
+    readonly targetGroupLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
