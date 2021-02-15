@@ -308,8 +308,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// All new resources will be put in top level package i.e. mainMod
-			"okta_event_hook":   {Tok: makeResource(mainMod, "EventHook")},
-			"okta_template_sms": {Tok: makeResource(mainMod, "TemplateSms")},
+			"okta_event_hook":         {Tok: makeResource(mainMod, "EventHook")},
+			"okta_template_sms":       {Tok: makeResource(mainMod, "TemplateSms")},
+			"okta_admin_role_targets": {Tok: makeResource(mainMod, "AdminRoleTargets")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .admin_role_targets import *
 from .event_hook import *
 from .provider import *
 from .template_sms import *
@@ -39,7 +40,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "okta:index/eventHook:EventHook":
+            if typ == "okta:index/adminRoleTargets:AdminRoleTargets":
+                return AdminRoleTargets(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/eventHook:EventHook":
                 return EventHook(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/templateSms:TemplateSms":
                 return TemplateSms(name, pulumi.ResourceOptions(urn=urn))
@@ -48,6 +51,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("okta", "index/adminRoleTargets", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/eventHook", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/templateSms", _module_instance)
 

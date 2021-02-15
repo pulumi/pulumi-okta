@@ -56,6 +56,9 @@ type Role struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
+	// A list of group IDs you would like as the targets of the admin role.
+	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+	TargetGroupLists pulumi.StringArrayOutput `pulumi:"targetGroupLists"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +102,9 @@ type roleState struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType *string `pulumi:"roleType"`
+	// A list of group IDs you would like as the targets of the admin role.
+	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+	TargetGroupLists []string `pulumi:"targetGroupLists"`
 }
 
 type RoleState struct {
@@ -108,6 +114,9 @@ type RoleState struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringPtrInput
+	// A list of group IDs you would like as the targets of the admin role.
+	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+	TargetGroupLists pulumi.StringArrayInput
 }
 
 func (RoleState) ElementType() reflect.Type {
@@ -121,6 +130,9 @@ type roleArgs struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType string `pulumi:"roleType"`
+	// A list of group IDs you would like as the targets of the admin role.
+	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+	TargetGroupLists []string `pulumi:"targetGroupLists"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -131,6 +143,9 @@ type RoleArgs struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringInput
+	// A list of group IDs you would like as the targets of the admin role.
+	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+	TargetGroupLists pulumi.StringArrayInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

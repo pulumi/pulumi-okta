@@ -17,6 +17,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
+                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -51,6 +52,8 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
                , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
+               - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +78,7 @@ class Role(pulumi.CustomResource):
             if role_type is None and not opts.urn:
                 raise TypeError("Missing required property 'role_type'")
             __props__['role_type'] = role_type
+            __props__['target_group_lists'] = target_group_lists
         super(Role, __self__).__init__(
             'okta:group/role:Role',
             resource_name,
@@ -86,7 +90,8 @@ class Role(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_id: Optional[pulumi.Input[str]] = None,
-            role_type: Optional[pulumi.Input[str]] = None) -> 'Role':
+            role_type: Optional[pulumi.Input[str]] = None,
+            target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -98,6 +103,8 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
                , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
+               - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -105,6 +112,7 @@ class Role(pulumi.CustomResource):
 
         __props__["group_id"] = group_id
         __props__["role_type"] = role_type
+        __props__["target_group_lists"] = target_group_lists
         return Role(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -124,6 +132,15 @@ class Role(pulumi.CustomResource):
         , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
         """
         return pulumi.get(self, "role_type")
+
+    @property
+    @pulumi.getter(name="targetGroupLists")
+    def target_group_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of group IDs you would like as the targets of the admin role.
+        - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        """
+        return pulumi.get(self, "target_group_lists")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export * from "./adminRoleTargets";
 export * from "./eventHook";
 export * from "./provider";
 export * from "./templateSms";
@@ -45,6 +46,7 @@ export {
 };
 
 // Import resources to register:
+import { AdminRoleTargets } from "./adminRoleTargets";
 import { EventHook } from "./eventHook";
 import { TemplateSms } from "./templateSms";
 
@@ -52,6 +54,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "okta:index/adminRoleTargets:AdminRoleTargets":
+                return new AdminRoleTargets(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
@@ -61,6 +65,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 

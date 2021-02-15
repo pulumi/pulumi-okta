@@ -60,6 +60,13 @@ namespace Pulumi.Okta.Group
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of group IDs you would like as the targets of the admin role.
+        /// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        /// </summary>
+        [Output("targetGroupLists")]
+        public Output<ImmutableArray<string>> TargetGroupLists { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Role resource with the given unique name, arguments, and options.
@@ -120,6 +127,19 @@ namespace Pulumi.Okta.Group
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
 
+        [Input("targetGroupLists")]
+        private InputList<string>? _targetGroupLists;
+
+        /// <summary>
+        /// A list of group IDs you would like as the targets of the admin role.
+        /// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        /// </summary>
+        public InputList<string> TargetGroupLists
+        {
+            get => _targetGroupLists ?? (_targetGroupLists = new InputList<string>());
+            set => _targetGroupLists = value;
+        }
+
         public RoleArgs()
         {
         }
@@ -140,6 +160,19 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
+
+        [Input("targetGroupLists")]
+        private InputList<string>? _targetGroupLists;
+
+        /// <summary>
+        /// A list of group IDs you would like as the targets of the admin role.
+        /// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        /// </summary>
+        public InputList<string> TargetGroupLists
+        {
+            get => _targetGroupLists ?? (_targetGroupLists = new InputList<string>());
+            set => _targetGroupLists = value;
+        }
 
         public RoleState()
         {
