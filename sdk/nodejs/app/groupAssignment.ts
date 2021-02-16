@@ -94,7 +94,8 @@ export class GroupAssignment extends pulumi.CustomResource {
     constructor(name: string, args: GroupAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupAssignmentArgs | GroupAssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupAssignmentState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
@@ -102,10 +103,10 @@ export class GroupAssignment extends pulumi.CustomResource {
             inputs["profile"] = state ? state.profile : undefined;
         } else {
             const args = argsOrState as GroupAssignmentArgs | undefined;
-            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["appId"] = args ? args.appId : undefined;
@@ -113,12 +114,8 @@ export class GroupAssignment extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["profile"] = args ? args.profile : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GroupAssignment.__pulumiType, name, inputs, opts);
     }

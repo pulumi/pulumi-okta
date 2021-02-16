@@ -289,6 +289,85 @@ func (i *SamlIdp) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpOutput)
 }
 
+func (i *SamlIdp) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
+	return i.ToSamlIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *SamlIdp) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpPtrOutput)
+}
+
+type SamlIdpPtrInput interface {
+	pulumi.Input
+
+	ToSamlIdpPtrOutput() SamlIdpPtrOutput
+	ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput
+}
+
+type samlIdpPtrType SamlIdpArgs
+
+func (*samlIdpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlIdp)(nil))
+}
+
+func (i *samlIdpPtrType) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
+	return i.ToSamlIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *samlIdpPtrType) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpPtrOutput)
+}
+
+// SamlIdpArrayInput is an input type that accepts SamlIdpArray and SamlIdpArrayOutput values.
+// You can construct a concrete instance of `SamlIdpArrayInput` via:
+//
+//          SamlIdpArray{ SamlIdpArgs{...} }
+type SamlIdpArrayInput interface {
+	pulumi.Input
+
+	ToSamlIdpArrayOutput() SamlIdpArrayOutput
+	ToSamlIdpArrayOutputWithContext(context.Context) SamlIdpArrayOutput
+}
+
+type SamlIdpArray []SamlIdpInput
+
+func (SamlIdpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SamlIdp)(nil))
+}
+
+func (i SamlIdpArray) ToSamlIdpArrayOutput() SamlIdpArrayOutput {
+	return i.ToSamlIdpArrayOutputWithContext(context.Background())
+}
+
+func (i SamlIdpArray) ToSamlIdpArrayOutputWithContext(ctx context.Context) SamlIdpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpArrayOutput)
+}
+
+// SamlIdpMapInput is an input type that accepts SamlIdpMap and SamlIdpMapOutput values.
+// You can construct a concrete instance of `SamlIdpMapInput` via:
+//
+//          SamlIdpMap{ "key": SamlIdpArgs{...} }
+type SamlIdpMapInput interface {
+	pulumi.Input
+
+	ToSamlIdpMapOutput() SamlIdpMapOutput
+	ToSamlIdpMapOutputWithContext(context.Context) SamlIdpMapOutput
+}
+
+type SamlIdpMap map[string]SamlIdpInput
+
+func (SamlIdpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SamlIdp)(nil))
+}
+
+func (i SamlIdpMap) ToSamlIdpMapOutput() SamlIdpMapOutput {
+	return i.ToSamlIdpMapOutputWithContext(context.Background())
+}
+
+func (i SamlIdpMap) ToSamlIdpMapOutputWithContext(ctx context.Context) SamlIdpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpMapOutput)
+}
+
 type SamlIdpOutput struct {
 	*pulumi.OutputState
 }
@@ -305,6 +384,75 @@ func (o SamlIdpOutput) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOu
 	return o
 }
 
+func (o SamlIdpOutput) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
+	return o.ToSamlIdpPtrOutputWithContext(context.Background())
+}
+
+func (o SamlIdpOutput) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
+	return o.ApplyT(func(v SamlIdp) *SamlIdp {
+		return &v
+	}).(SamlIdpPtrOutput)
+}
+
+type SamlIdpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlIdpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlIdp)(nil))
+}
+
+func (o SamlIdpPtrOutput) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
+	return o
+}
+
+func (o SamlIdpPtrOutput) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
+	return o
+}
+
+type SamlIdpArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlIdpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlIdp)(nil))
+}
+
+func (o SamlIdpArrayOutput) ToSamlIdpArrayOutput() SamlIdpArrayOutput {
+	return o
+}
+
+func (o SamlIdpArrayOutput) ToSamlIdpArrayOutputWithContext(ctx context.Context) SamlIdpArrayOutput {
+	return o
+}
+
+func (o SamlIdpArrayOutput) Index(i pulumi.IntInput) SamlIdpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlIdp {
+		return vs[0].([]SamlIdp)[vs[1].(int)]
+	}).(SamlIdpOutput)
+}
+
+type SamlIdpMapOutput struct{ *pulumi.OutputState }
+
+func (SamlIdpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SamlIdp)(nil))
+}
+
+func (o SamlIdpMapOutput) ToSamlIdpMapOutput() SamlIdpMapOutput {
+	return o
+}
+
+func (o SamlIdpMapOutput) ToSamlIdpMapOutputWithContext(ctx context.Context) SamlIdpMapOutput {
+	return o
+}
+
+func (o SamlIdpMapOutput) MapIndex(k pulumi.StringInput) SamlIdpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlIdp {
+		return vs[0].(map[string]SamlIdp)[vs[1].(string)]
+	}).(SamlIdpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamlIdpOutput{})
+	pulumi.RegisterOutputType(SamlIdpPtrOutput{})
+	pulumi.RegisterOutputType(SamlIdpArrayOutput{})
+	pulumi.RegisterOutputType(SamlIdpMapOutput{})
 }

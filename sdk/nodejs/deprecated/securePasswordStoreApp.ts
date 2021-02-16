@@ -152,7 +152,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
     constructor(name: string, args: SecurePasswordStoreAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurePasswordStoreAppArgs | SecurePasswordStoreAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecurePasswordStoreAppState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
@@ -183,16 +184,16 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SecurePasswordStoreAppArgs | undefined;
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.passwordField === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.passwordField === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'passwordField'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.usernameField === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.usernameField === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usernameField'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
@@ -223,12 +224,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecurePasswordStoreApp.__pulumiType, name, inputs, opts);
     }

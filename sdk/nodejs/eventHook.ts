@@ -102,7 +102,8 @@ export class EventHook extends pulumi.CustomResource {
     constructor(name: string, args: EventHookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventHookArgs | EventHookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventHookState | undefined;
             inputs["auth"] = state ? state.auth : undefined;
             inputs["channel"] = state ? state.channel : undefined;
@@ -112,10 +113,10 @@ export class EventHook extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHookArgs | undefined;
-            if ((!args || args.channel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.channel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
-            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.events === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
             inputs["auth"] = args ? args.auth : undefined;
@@ -125,12 +126,8 @@ export class EventHook extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["status"] = args ? args.status : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventHook.__pulumiType, name, inputs, opts);
     }

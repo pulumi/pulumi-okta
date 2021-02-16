@@ -82,7 +82,8 @@ export class BookmarkApp extends pulumi.CustomResource {
     constructor(name: string, args: BookmarkAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BookmarkAppArgs | BookmarkAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BookmarkAppState | undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["groups"] = state ? state.groups : undefined;
@@ -97,10 +98,10 @@ export class BookmarkApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BookmarkAppArgs | undefined;
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
@@ -115,12 +116,8 @@ export class BookmarkApp extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BookmarkApp.__pulumiType, name, inputs, opts);
     }

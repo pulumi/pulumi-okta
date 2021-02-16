@@ -85,37 +85,15 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(okta.Provider())
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "okta",
-		Description: "A Pulumi package for creating and managing okta resources.",
-		Keywords:    []string{"pulumi", "okta"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "oktadeveloper",
-		Repository:  "https://github.com/pulumi/pulumi-okta",
-		Config: map[string]*tfbridge.SchemaInfo{
-			"org_name": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{
-						"OKTA_ORG_NAME",
-					},
-				},
-			},
-			"base_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{
-						"OKTA_BASE_URL",
-					},
-				},
-			},
-			"api_token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{
-						"OKTA_API_TOKEN",
-					},
-				},
-			},
-		},
+		P:                    p,
+		Name:                 "okta",
+		Description:          "A Pulumi package for creating and managing okta resources.",
+		Keywords:             []string{"pulumi", "okta"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		GitHubOrg:            "oktadeveloper",
+		Repository:           "https://github.com/pulumi/pulumi-okta",
+		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources

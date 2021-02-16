@@ -35,27 +35,24 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
-            inputs["apiToken"] = (args ? args.apiToken : undefined) || utilities.getEnv("OKTA_API_TOKEN");
+            inputs["apiToken"] = args ? args.apiToken : undefined;
             inputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = (args ? args.baseUrl : undefined) || utilities.getEnv("OKTA_BASE_URL");
+            inputs["baseUrl"] = args ? args.baseUrl : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             inputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
             inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
-            inputs["orgName"] = (args ? args.orgName : undefined) || utilities.getEnv("OKTA_ORG_NAME");
+            inputs["orgName"] = args ? args.orgName : undefined;
             inputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
             inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
             inputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

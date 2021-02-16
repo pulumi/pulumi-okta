@@ -396,6 +396,85 @@ func (i *SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreOutput)
 }
 
+func (i *SecurePasswordStore) ToSecurePasswordStorePtrOutput() SecurePasswordStorePtrOutput {
+	return i.ToSecurePasswordStorePtrOutputWithContext(context.Background())
+}
+
+func (i *SecurePasswordStore) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStorePtrOutput)
+}
+
+type SecurePasswordStorePtrInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStorePtrOutput() SecurePasswordStorePtrOutput
+	ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput
+}
+
+type securePasswordStorePtrType SecurePasswordStoreArgs
+
+func (*securePasswordStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurePasswordStore)(nil))
+}
+
+func (i *securePasswordStorePtrType) ToSecurePasswordStorePtrOutput() SecurePasswordStorePtrOutput {
+	return i.ToSecurePasswordStorePtrOutputWithContext(context.Background())
+}
+
+func (i *securePasswordStorePtrType) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStorePtrOutput)
+}
+
+// SecurePasswordStoreArrayInput is an input type that accepts SecurePasswordStoreArray and SecurePasswordStoreArrayOutput values.
+// You can construct a concrete instance of `SecurePasswordStoreArrayInput` via:
+//
+//          SecurePasswordStoreArray{ SecurePasswordStoreArgs{...} }
+type SecurePasswordStoreArrayInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreArrayOutput() SecurePasswordStoreArrayOutput
+	ToSecurePasswordStoreArrayOutputWithContext(context.Context) SecurePasswordStoreArrayOutput
+}
+
+type SecurePasswordStoreArray []SecurePasswordStoreInput
+
+func (SecurePasswordStoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecurePasswordStore)(nil))
+}
+
+func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutput() SecurePasswordStoreArrayOutput {
+	return i.ToSecurePasswordStoreArrayOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutputWithContext(ctx context.Context) SecurePasswordStoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreArrayOutput)
+}
+
+// SecurePasswordStoreMapInput is an input type that accepts SecurePasswordStoreMap and SecurePasswordStoreMapOutput values.
+// You can construct a concrete instance of `SecurePasswordStoreMapInput` via:
+//
+//          SecurePasswordStoreMap{ "key": SecurePasswordStoreArgs{...} }
+type SecurePasswordStoreMapInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreMapOutput() SecurePasswordStoreMapOutput
+	ToSecurePasswordStoreMapOutputWithContext(context.Context) SecurePasswordStoreMapOutput
+}
+
+type SecurePasswordStoreMap map[string]SecurePasswordStoreInput
+
+func (SecurePasswordStoreMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecurePasswordStore)(nil))
+}
+
+func (i SecurePasswordStoreMap) ToSecurePasswordStoreMapOutput() SecurePasswordStoreMapOutput {
+	return i.ToSecurePasswordStoreMapOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStoreMap) ToSecurePasswordStoreMapOutputWithContext(ctx context.Context) SecurePasswordStoreMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreMapOutput)
+}
+
 type SecurePasswordStoreOutput struct {
 	*pulumi.OutputState
 }
@@ -412,6 +491,75 @@ func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutputWithContext(ctx co
 	return o
 }
 
+func (o SecurePasswordStoreOutput) ToSecurePasswordStorePtrOutput() SecurePasswordStorePtrOutput {
+	return o.ToSecurePasswordStorePtrOutputWithContext(context.Background())
+}
+
+func (o SecurePasswordStoreOutput) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
+	return o.ApplyT(func(v SecurePasswordStore) *SecurePasswordStore {
+		return &v
+	}).(SecurePasswordStorePtrOutput)
+}
+
+type SecurePasswordStorePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurePasswordStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurePasswordStore)(nil))
+}
+
+func (o SecurePasswordStorePtrOutput) ToSecurePasswordStorePtrOutput() SecurePasswordStorePtrOutput {
+	return o
+}
+
+func (o SecurePasswordStorePtrOutput) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
+	return o
+}
+
+type SecurePasswordStoreArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurePasswordStoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurePasswordStore)(nil))
+}
+
+func (o SecurePasswordStoreArrayOutput) ToSecurePasswordStoreArrayOutput() SecurePasswordStoreArrayOutput {
+	return o
+}
+
+func (o SecurePasswordStoreArrayOutput) ToSecurePasswordStoreArrayOutputWithContext(ctx context.Context) SecurePasswordStoreArrayOutput {
+	return o
+}
+
+func (o SecurePasswordStoreArrayOutput) Index(i pulumi.IntInput) SecurePasswordStoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurePasswordStore {
+		return vs[0].([]SecurePasswordStore)[vs[1].(int)]
+	}).(SecurePasswordStoreOutput)
+}
+
+type SecurePasswordStoreMapOutput struct{ *pulumi.OutputState }
+
+func (SecurePasswordStoreMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurePasswordStore)(nil))
+}
+
+func (o SecurePasswordStoreMapOutput) ToSecurePasswordStoreMapOutput() SecurePasswordStoreMapOutput {
+	return o
+}
+
+func (o SecurePasswordStoreMapOutput) ToSecurePasswordStoreMapOutputWithContext(ctx context.Context) SecurePasswordStoreMapOutput {
+	return o
+}
+
+func (o SecurePasswordStoreMapOutput) MapIndex(k pulumi.StringInput) SecurePasswordStoreOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurePasswordStore {
+		return vs[0].(map[string]SecurePasswordStore)[vs[1].(string)]
+	}).(SecurePasswordStoreOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurePasswordStoreOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStorePtrOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStoreArrayOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStoreMapOutput{})
 }

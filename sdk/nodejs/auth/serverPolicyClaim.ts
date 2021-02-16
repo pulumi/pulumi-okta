@@ -143,7 +143,8 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerPolicyClaimArgs | ServerPolicyClaimState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerPolicyClaimState | undefined;
             inputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
@@ -163,16 +164,16 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             inputs["userWhitelists"] = state ? state.userWhitelists : undefined;
         } else {
             const args = argsOrState as ServerPolicyClaimArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.grantTypeWhitelists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.grantTypeWhitelists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'grantTypeWhitelists'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
@@ -192,12 +193,8 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             inputs["userBlacklists"] = args ? args.userBlacklists : undefined;
             inputs["userWhitelists"] = args ? args.userWhitelists : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerPolicyClaim.__pulumiType, name, inputs, opts);
     }

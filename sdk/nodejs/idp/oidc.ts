@@ -216,7 +216,8 @@ export class Oidc extends pulumi.CustomResource {
     constructor(name: string, args: OidcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OidcArgs | OidcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OidcState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
@@ -255,34 +256,34 @@ export class Oidc extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as OidcArgs | undefined;
-            if ((!args || args.authorizationBinding === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationBinding === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationBinding'");
             }
-            if ((!args || args.authorizationUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationUrl'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.issuerUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.issuerUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issuerUrl'");
             }
-            if ((!args || args.jwksBinding === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jwksBinding === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jwksBinding'");
             }
-            if ((!args || args.jwksUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jwksUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jwksUrl'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.tokenBinding === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tokenBinding === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenBinding'");
             }
-            if ((!args || args.tokenUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tokenUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenUrl'");
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
@@ -321,12 +322,8 @@ export class Oidc extends pulumi.CustomResource {
             inputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Oidc.__pulumiType, name, inputs, opts);
     }

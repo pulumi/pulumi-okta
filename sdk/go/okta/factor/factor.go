@@ -138,6 +138,85 @@ func (i *Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactorOutput)
 }
 
+func (i *Factor) ToFactorPtrOutput() FactorPtrOutput {
+	return i.ToFactorPtrOutputWithContext(context.Background())
+}
+
+func (i *Factor) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactorPtrOutput)
+}
+
+type FactorPtrInput interface {
+	pulumi.Input
+
+	ToFactorPtrOutput() FactorPtrOutput
+	ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput
+}
+
+type factorPtrType FactorArgs
+
+func (*factorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Factor)(nil))
+}
+
+func (i *factorPtrType) ToFactorPtrOutput() FactorPtrOutput {
+	return i.ToFactorPtrOutputWithContext(context.Background())
+}
+
+func (i *factorPtrType) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactorPtrOutput)
+}
+
+// FactorArrayInput is an input type that accepts FactorArray and FactorArrayOutput values.
+// You can construct a concrete instance of `FactorArrayInput` via:
+//
+//          FactorArray{ FactorArgs{...} }
+type FactorArrayInput interface {
+	pulumi.Input
+
+	ToFactorArrayOutput() FactorArrayOutput
+	ToFactorArrayOutputWithContext(context.Context) FactorArrayOutput
+}
+
+type FactorArray []FactorInput
+
+func (FactorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Factor)(nil))
+}
+
+func (i FactorArray) ToFactorArrayOutput() FactorArrayOutput {
+	return i.ToFactorArrayOutputWithContext(context.Background())
+}
+
+func (i FactorArray) ToFactorArrayOutputWithContext(ctx context.Context) FactorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactorArrayOutput)
+}
+
+// FactorMapInput is an input type that accepts FactorMap and FactorMapOutput values.
+// You can construct a concrete instance of `FactorMapInput` via:
+//
+//          FactorMap{ "key": FactorArgs{...} }
+type FactorMapInput interface {
+	pulumi.Input
+
+	ToFactorMapOutput() FactorMapOutput
+	ToFactorMapOutputWithContext(context.Context) FactorMapOutput
+}
+
+type FactorMap map[string]FactorInput
+
+func (FactorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Factor)(nil))
+}
+
+func (i FactorMap) ToFactorMapOutput() FactorMapOutput {
+	return i.ToFactorMapOutputWithContext(context.Background())
+}
+
+func (i FactorMap) ToFactorMapOutputWithContext(ctx context.Context) FactorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactorMapOutput)
+}
+
 type FactorOutput struct {
 	*pulumi.OutputState
 }
@@ -154,6 +233,75 @@ func (o FactorOutput) ToFactorOutputWithContext(ctx context.Context) FactorOutpu
 	return o
 }
 
+func (o FactorOutput) ToFactorPtrOutput() FactorPtrOutput {
+	return o.ToFactorPtrOutputWithContext(context.Background())
+}
+
+func (o FactorOutput) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
+	return o.ApplyT(func(v Factor) *Factor {
+		return &v
+	}).(FactorPtrOutput)
+}
+
+type FactorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FactorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Factor)(nil))
+}
+
+func (o FactorPtrOutput) ToFactorPtrOutput() FactorPtrOutput {
+	return o
+}
+
+func (o FactorPtrOutput) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
+	return o
+}
+
+type FactorArrayOutput struct{ *pulumi.OutputState }
+
+func (FactorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Factor)(nil))
+}
+
+func (o FactorArrayOutput) ToFactorArrayOutput() FactorArrayOutput {
+	return o
+}
+
+func (o FactorArrayOutput) ToFactorArrayOutputWithContext(ctx context.Context) FactorArrayOutput {
+	return o
+}
+
+func (o FactorArrayOutput) Index(i pulumi.IntInput) FactorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Factor {
+		return vs[0].([]Factor)[vs[1].(int)]
+	}).(FactorOutput)
+}
+
+type FactorMapOutput struct{ *pulumi.OutputState }
+
+func (FactorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Factor)(nil))
+}
+
+func (o FactorMapOutput) ToFactorMapOutput() FactorMapOutput {
+	return o
+}
+
+func (o FactorMapOutput) ToFactorMapOutputWithContext(ctx context.Context) FactorMapOutput {
+	return o
+}
+
+func (o FactorMapOutput) MapIndex(k pulumi.StringInput) FactorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Factor {
+		return vs[0].(map[string]Factor)[vs[1].(string)]
+	}).(FactorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FactorOutput{})
+	pulumi.RegisterOutputType(FactorPtrOutput{})
+	pulumi.RegisterOutputType(FactorArrayOutput{})
+	pulumi.RegisterOutputType(FactorMapOutput{})
 }

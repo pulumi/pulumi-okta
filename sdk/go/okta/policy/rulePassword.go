@@ -208,6 +208,85 @@ func (i *RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) Rule
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordOutput)
 }
 
+func (i *RulePassword) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
+	return i.ToRulePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *RulePassword) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPtrOutput)
+}
+
+type RulePasswordPtrInput interface {
+	pulumi.Input
+
+	ToRulePasswordPtrOutput() RulePasswordPtrOutput
+	ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput
+}
+
+type rulePasswordPtrType RulePasswordArgs
+
+func (*rulePasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePassword)(nil))
+}
+
+func (i *rulePasswordPtrType) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
+	return i.ToRulePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *rulePasswordPtrType) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPtrOutput)
+}
+
+// RulePasswordArrayInput is an input type that accepts RulePasswordArray and RulePasswordArrayOutput values.
+// You can construct a concrete instance of `RulePasswordArrayInput` via:
+//
+//          RulePasswordArray{ RulePasswordArgs{...} }
+type RulePasswordArrayInput interface {
+	pulumi.Input
+
+	ToRulePasswordArrayOutput() RulePasswordArrayOutput
+	ToRulePasswordArrayOutputWithContext(context.Context) RulePasswordArrayOutput
+}
+
+type RulePasswordArray []RulePasswordInput
+
+func (RulePasswordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RulePassword)(nil))
+}
+
+func (i RulePasswordArray) ToRulePasswordArrayOutput() RulePasswordArrayOutput {
+	return i.ToRulePasswordArrayOutputWithContext(context.Background())
+}
+
+func (i RulePasswordArray) ToRulePasswordArrayOutputWithContext(ctx context.Context) RulePasswordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordArrayOutput)
+}
+
+// RulePasswordMapInput is an input type that accepts RulePasswordMap and RulePasswordMapOutput values.
+// You can construct a concrete instance of `RulePasswordMapInput` via:
+//
+//          RulePasswordMap{ "key": RulePasswordArgs{...} }
+type RulePasswordMapInput interface {
+	pulumi.Input
+
+	ToRulePasswordMapOutput() RulePasswordMapOutput
+	ToRulePasswordMapOutputWithContext(context.Context) RulePasswordMapOutput
+}
+
+type RulePasswordMap map[string]RulePasswordInput
+
+func (RulePasswordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RulePassword)(nil))
+}
+
+func (i RulePasswordMap) ToRulePasswordMapOutput() RulePasswordMapOutput {
+	return i.ToRulePasswordMapOutputWithContext(context.Background())
+}
+
+func (i RulePasswordMap) ToRulePasswordMapOutputWithContext(ctx context.Context) RulePasswordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordMapOutput)
+}
+
 type RulePasswordOutput struct {
 	*pulumi.OutputState
 }
@@ -224,6 +303,75 @@ func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o RulePasswordOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
+	return o.ToRulePasswordPtrOutputWithContext(context.Background())
+}
+
+func (o RulePasswordOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
+	return o.ApplyT(func(v RulePassword) *RulePassword {
+		return &v
+	}).(RulePasswordPtrOutput)
+}
+
+type RulePasswordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulePasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePassword)(nil))
+}
+
+func (o RulePasswordPtrOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
+	return o
+}
+
+func (o RulePasswordPtrOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
+	return o
+}
+
+type RulePasswordArrayOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulePassword)(nil))
+}
+
+func (o RulePasswordArrayOutput) ToRulePasswordArrayOutput() RulePasswordArrayOutput {
+	return o
+}
+
+func (o RulePasswordArrayOutput) ToRulePasswordArrayOutputWithContext(ctx context.Context) RulePasswordArrayOutput {
+	return o
+}
+
+func (o RulePasswordArrayOutput) Index(i pulumi.IntInput) RulePasswordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulePassword {
+		return vs[0].([]RulePassword)[vs[1].(int)]
+	}).(RulePasswordOutput)
+}
+
+type RulePasswordMapOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RulePassword)(nil))
+}
+
+func (o RulePasswordMapOutput) ToRulePasswordMapOutput() RulePasswordMapOutput {
+	return o
+}
+
+func (o RulePasswordMapOutput) ToRulePasswordMapOutputWithContext(ctx context.Context) RulePasswordMapOutput {
+	return o
+}
+
+func (o RulePasswordMapOutput) MapIndex(k pulumi.StringInput) RulePasswordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RulePassword {
+		return vs[0].(map[string]RulePassword)[vs[1].(string)]
+	}).(RulePasswordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RulePasswordOutput{})
+	pulumi.RegisterOutputType(RulePasswordPtrOutput{})
+	pulumi.RegisterOutputType(RulePasswordArrayOutput{})
+	pulumi.RegisterOutputType(RulePasswordMapOutput{})
 }

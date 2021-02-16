@@ -104,7 +104,8 @@ export class Hook extends pulumi.CustomResource {
     constructor(name: string, args: HookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HookArgs | HookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HookState | undefined;
             inputs["auth"] = state ? state.auth : undefined;
             inputs["channel"] = state ? state.channel : undefined;
@@ -115,13 +116,13 @@ export class Hook extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as HookArgs | undefined;
-            if ((!args || args.channel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.channel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["auth"] = args ? args.auth : undefined;
@@ -132,12 +133,8 @@ export class Hook extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Hook.__pulumiType, name, inputs, opts);
     }

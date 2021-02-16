@@ -106,7 +106,8 @@ export class ServerClaim extends pulumi.CustomResource {
     constructor(name: string, args: ServerClaimArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerClaimArgs | ServerClaimState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerClaimState | undefined;
             inputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
@@ -119,13 +120,13 @@ export class ServerClaim extends pulumi.CustomResource {
             inputs["valueType"] = state ? state.valueType : undefined;
         } else {
             const args = argsOrState as ServerClaimArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.claimType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.claimType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'claimType'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
@@ -138,12 +139,8 @@ export class ServerClaim extends pulumi.CustomResource {
             inputs["value"] = args ? args.value : undefined;
             inputs["valueType"] = args ? args.valueType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerClaim.__pulumiType, name, inputs, opts);
     }

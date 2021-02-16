@@ -209,6 +209,85 @@ func (i *Mapping) ToMappingOutputWithContext(ctx context.Context) MappingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MappingOutput)
 }
 
+func (i *Mapping) ToMappingPtrOutput() MappingPtrOutput {
+	return i.ToMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *Mapping) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingPtrOutput)
+}
+
+type MappingPtrInput interface {
+	pulumi.Input
+
+	ToMappingPtrOutput() MappingPtrOutput
+	ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput
+}
+
+type mappingPtrType MappingArgs
+
+func (*mappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mapping)(nil))
+}
+
+func (i *mappingPtrType) ToMappingPtrOutput() MappingPtrOutput {
+	return i.ToMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *mappingPtrType) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingPtrOutput)
+}
+
+// MappingArrayInput is an input type that accepts MappingArray and MappingArrayOutput values.
+// You can construct a concrete instance of `MappingArrayInput` via:
+//
+//          MappingArray{ MappingArgs{...} }
+type MappingArrayInput interface {
+	pulumi.Input
+
+	ToMappingArrayOutput() MappingArrayOutput
+	ToMappingArrayOutputWithContext(context.Context) MappingArrayOutput
+}
+
+type MappingArray []MappingInput
+
+func (MappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Mapping)(nil))
+}
+
+func (i MappingArray) ToMappingArrayOutput() MappingArrayOutput {
+	return i.ToMappingArrayOutputWithContext(context.Background())
+}
+
+func (i MappingArray) ToMappingArrayOutputWithContext(ctx context.Context) MappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingArrayOutput)
+}
+
+// MappingMapInput is an input type that accepts MappingMap and MappingMapOutput values.
+// You can construct a concrete instance of `MappingMapInput` via:
+//
+//          MappingMap{ "key": MappingArgs{...} }
+type MappingMapInput interface {
+	pulumi.Input
+
+	ToMappingMapOutput() MappingMapOutput
+	ToMappingMapOutputWithContext(context.Context) MappingMapOutput
+}
+
+type MappingMap map[string]MappingInput
+
+func (MappingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Mapping)(nil))
+}
+
+func (i MappingMap) ToMappingMapOutput() MappingMapOutput {
+	return i.ToMappingMapOutputWithContext(context.Background())
+}
+
+func (i MappingMap) ToMappingMapOutputWithContext(ctx context.Context) MappingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingMapOutput)
+}
+
 type MappingOutput struct {
 	*pulumi.OutputState
 }
@@ -225,6 +304,75 @@ func (o MappingOutput) ToMappingOutputWithContext(ctx context.Context) MappingOu
 	return o
 }
 
+func (o MappingOutput) ToMappingPtrOutput() MappingPtrOutput {
+	return o.ToMappingPtrOutputWithContext(context.Background())
+}
+
+func (o MappingOutput) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
+	return o.ApplyT(func(v Mapping) *Mapping {
+		return &v
+	}).(MappingPtrOutput)
+}
+
+type MappingPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mapping)(nil))
+}
+
+func (o MappingPtrOutput) ToMappingPtrOutput() MappingPtrOutput {
+	return o
+}
+
+func (o MappingPtrOutput) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
+	return o
+}
+
+type MappingArrayOutput struct{ *pulumi.OutputState }
+
+func (MappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Mapping)(nil))
+}
+
+func (o MappingArrayOutput) ToMappingArrayOutput() MappingArrayOutput {
+	return o
+}
+
+func (o MappingArrayOutput) ToMappingArrayOutputWithContext(ctx context.Context) MappingArrayOutput {
+	return o
+}
+
+func (o MappingArrayOutput) Index(i pulumi.IntInput) MappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Mapping {
+		return vs[0].([]Mapping)[vs[1].(int)]
+	}).(MappingOutput)
+}
+
+type MappingMapOutput struct{ *pulumi.OutputState }
+
+func (MappingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Mapping)(nil))
+}
+
+func (o MappingMapOutput) ToMappingMapOutput() MappingMapOutput {
+	return o
+}
+
+func (o MappingMapOutput) ToMappingMapOutputWithContext(ctx context.Context) MappingMapOutput {
+	return o
+}
+
+func (o MappingMapOutput) MapIndex(k pulumi.StringInput) MappingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Mapping {
+		return vs[0].(map[string]Mapping)[vs[1].(string)]
+	}).(MappingOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MappingOutput{})
+	pulumi.RegisterOutputType(MappingPtrOutput{})
+	pulumi.RegisterOutputType(MappingArrayOutput{})
+	pulumi.RegisterOutputType(MappingMapOutput{})
 }

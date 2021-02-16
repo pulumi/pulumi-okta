@@ -284,6 +284,85 @@ func (i *Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOutput)
 }
 
+func (i *Mfa) ToMfaPtrOutput() MfaPtrOutput {
+	return i.ToMfaPtrOutputWithContext(context.Background())
+}
+
+func (i *Mfa) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPtrOutput)
+}
+
+type MfaPtrInput interface {
+	pulumi.Input
+
+	ToMfaPtrOutput() MfaPtrOutput
+	ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput
+}
+
+type mfaPtrType MfaArgs
+
+func (*mfaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mfa)(nil))
+}
+
+func (i *mfaPtrType) ToMfaPtrOutput() MfaPtrOutput {
+	return i.ToMfaPtrOutputWithContext(context.Background())
+}
+
+func (i *mfaPtrType) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPtrOutput)
+}
+
+// MfaArrayInput is an input type that accepts MfaArray and MfaArrayOutput values.
+// You can construct a concrete instance of `MfaArrayInput` via:
+//
+//          MfaArray{ MfaArgs{...} }
+type MfaArrayInput interface {
+	pulumi.Input
+
+	ToMfaArrayOutput() MfaArrayOutput
+	ToMfaArrayOutputWithContext(context.Context) MfaArrayOutput
+}
+
+type MfaArray []MfaInput
+
+func (MfaArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Mfa)(nil))
+}
+
+func (i MfaArray) ToMfaArrayOutput() MfaArrayOutput {
+	return i.ToMfaArrayOutputWithContext(context.Background())
+}
+
+func (i MfaArray) ToMfaArrayOutputWithContext(ctx context.Context) MfaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaArrayOutput)
+}
+
+// MfaMapInput is an input type that accepts MfaMap and MfaMapOutput values.
+// You can construct a concrete instance of `MfaMapInput` via:
+//
+//          MfaMap{ "key": MfaArgs{...} }
+type MfaMapInput interface {
+	pulumi.Input
+
+	ToMfaMapOutput() MfaMapOutput
+	ToMfaMapOutputWithContext(context.Context) MfaMapOutput
+}
+
+type MfaMap map[string]MfaInput
+
+func (MfaMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Mfa)(nil))
+}
+
+func (i MfaMap) ToMfaMapOutput() MfaMapOutput {
+	return i.ToMfaMapOutputWithContext(context.Background())
+}
+
+func (i MfaMap) ToMfaMapOutputWithContext(ctx context.Context) MfaMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaMapOutput)
+}
+
 type MfaOutput struct {
 	*pulumi.OutputState
 }
@@ -300,6 +379,75 @@ func (o MfaOutput) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return o
 }
 
+func (o MfaOutput) ToMfaPtrOutput() MfaPtrOutput {
+	return o.ToMfaPtrOutputWithContext(context.Background())
+}
+
+func (o MfaOutput) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
+	return o.ApplyT(func(v Mfa) *Mfa {
+		return &v
+	}).(MfaPtrOutput)
+}
+
+type MfaPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MfaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Mfa)(nil))
+}
+
+func (o MfaPtrOutput) ToMfaPtrOutput() MfaPtrOutput {
+	return o
+}
+
+func (o MfaPtrOutput) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
+	return o
+}
+
+type MfaArrayOutput struct{ *pulumi.OutputState }
+
+func (MfaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Mfa)(nil))
+}
+
+func (o MfaArrayOutput) ToMfaArrayOutput() MfaArrayOutput {
+	return o
+}
+
+func (o MfaArrayOutput) ToMfaArrayOutputWithContext(ctx context.Context) MfaArrayOutput {
+	return o
+}
+
+func (o MfaArrayOutput) Index(i pulumi.IntInput) MfaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Mfa {
+		return vs[0].([]Mfa)[vs[1].(int)]
+	}).(MfaOutput)
+}
+
+type MfaMapOutput struct{ *pulumi.OutputState }
+
+func (MfaMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Mfa)(nil))
+}
+
+func (o MfaMapOutput) ToMfaMapOutput() MfaMapOutput {
+	return o
+}
+
+func (o MfaMapOutput) ToMfaMapOutputWithContext(ctx context.Context) MfaMapOutput {
+	return o
+}
+
+func (o MfaMapOutput) MapIndex(k pulumi.StringInput) MfaOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Mfa {
+		return vs[0].(map[string]Mfa)[vs[1].(string)]
+	}).(MfaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MfaOutput{})
+	pulumi.RegisterOutputType(MfaPtrOutput{})
+	pulumi.RegisterOutputType(MfaArrayOutput{})
+	pulumi.RegisterOutputType(MfaMapOutput{})
 }

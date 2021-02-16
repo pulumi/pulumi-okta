@@ -128,7 +128,8 @@ export class ThreeFieldApp extends pulumi.CustomResource {
     constructor(name: string, args: ThreeFieldAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThreeFieldAppArgs | ThreeFieldAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ThreeFieldAppState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
@@ -153,25 +154,25 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as ThreeFieldAppArgs | undefined;
-            if ((!args || args.buttonSelector === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.buttonSelector === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'buttonSelector'");
             }
-            if ((!args || args.extraFieldSelector === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.extraFieldSelector === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extraFieldSelector'");
             }
-            if ((!args || args.extraFieldValue === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.extraFieldValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extraFieldValue'");
             }
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.passwordSelector === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.passwordSelector === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'passwordSelector'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.usernameSelector === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.usernameSelector === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usernameSelector'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
@@ -196,12 +197,8 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ThreeFieldApp.__pulumiType, name, inputs, opts);
     }

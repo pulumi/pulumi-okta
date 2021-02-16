@@ -310,6 +310,85 @@ func (i *ServerPolicyRule) ToServerPolicyRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleOutput)
 }
 
+func (i *ServerPolicyRule) ToServerPolicyRulePtrOutput() ServerPolicyRulePtrOutput {
+	return i.ToServerPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i *ServerPolicyRule) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRulePtrOutput)
+}
+
+type ServerPolicyRulePtrInput interface {
+	pulumi.Input
+
+	ToServerPolicyRulePtrOutput() ServerPolicyRulePtrOutput
+	ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput
+}
+
+type serverPolicyRulePtrType ServerPolicyRuleArgs
+
+func (*serverPolicyRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerPolicyRule)(nil))
+}
+
+func (i *serverPolicyRulePtrType) ToServerPolicyRulePtrOutput() ServerPolicyRulePtrOutput {
+	return i.ToServerPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i *serverPolicyRulePtrType) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRulePtrOutput)
+}
+
+// ServerPolicyRuleArrayInput is an input type that accepts ServerPolicyRuleArray and ServerPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `ServerPolicyRuleArrayInput` via:
+//
+//          ServerPolicyRuleArray{ ServerPolicyRuleArgs{...} }
+type ServerPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToServerPolicyRuleArrayOutput() ServerPolicyRuleArrayOutput
+	ToServerPolicyRuleArrayOutputWithContext(context.Context) ServerPolicyRuleArrayOutput
+}
+
+type ServerPolicyRuleArray []ServerPolicyRuleInput
+
+func (ServerPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerPolicyRule)(nil))
+}
+
+func (i ServerPolicyRuleArray) ToServerPolicyRuleArrayOutput() ServerPolicyRuleArrayOutput {
+	return i.ToServerPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyRuleArray) ToServerPolicyRuleArrayOutputWithContext(ctx context.Context) ServerPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleArrayOutput)
+}
+
+// ServerPolicyRuleMapInput is an input type that accepts ServerPolicyRuleMap and ServerPolicyRuleMapOutput values.
+// You can construct a concrete instance of `ServerPolicyRuleMapInput` via:
+//
+//          ServerPolicyRuleMap{ "key": ServerPolicyRuleArgs{...} }
+type ServerPolicyRuleMapInput interface {
+	pulumi.Input
+
+	ToServerPolicyRuleMapOutput() ServerPolicyRuleMapOutput
+	ToServerPolicyRuleMapOutputWithContext(context.Context) ServerPolicyRuleMapOutput
+}
+
+type ServerPolicyRuleMap map[string]ServerPolicyRuleInput
+
+func (ServerPolicyRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerPolicyRule)(nil))
+}
+
+func (i ServerPolicyRuleMap) ToServerPolicyRuleMapOutput() ServerPolicyRuleMapOutput {
+	return i.ToServerPolicyRuleMapOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyRuleMap) ToServerPolicyRuleMapOutputWithContext(ctx context.Context) ServerPolicyRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleMapOutput)
+}
+
 type ServerPolicyRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -326,6 +405,75 @@ func (o ServerPolicyRuleOutput) ToServerPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
+func (o ServerPolicyRuleOutput) ToServerPolicyRulePtrOutput() ServerPolicyRulePtrOutput {
+	return o.ToServerPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (o ServerPolicyRuleOutput) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
+	return o.ApplyT(func(v ServerPolicyRule) *ServerPolicyRule {
+		return &v
+	}).(ServerPolicyRulePtrOutput)
+}
+
+type ServerPolicyRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerPolicyRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerPolicyRule)(nil))
+}
+
+func (o ServerPolicyRulePtrOutput) ToServerPolicyRulePtrOutput() ServerPolicyRulePtrOutput {
+	return o
+}
+
+func (o ServerPolicyRulePtrOutput) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
+	return o
+}
+
+type ServerPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPolicyRule)(nil))
+}
+
+func (o ServerPolicyRuleArrayOutput) ToServerPolicyRuleArrayOutput() ServerPolicyRuleArrayOutput {
+	return o
+}
+
+func (o ServerPolicyRuleArrayOutput) ToServerPolicyRuleArrayOutputWithContext(ctx context.Context) ServerPolicyRuleArrayOutput {
+	return o
+}
+
+func (o ServerPolicyRuleArrayOutput) Index(i pulumi.IntInput) ServerPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPolicyRule {
+		return vs[0].([]ServerPolicyRule)[vs[1].(int)]
+	}).(ServerPolicyRuleOutput)
+}
+
+type ServerPolicyRuleMapOutput struct{ *pulumi.OutputState }
+
+func (ServerPolicyRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerPolicyRule)(nil))
+}
+
+func (o ServerPolicyRuleMapOutput) ToServerPolicyRuleMapOutput() ServerPolicyRuleMapOutput {
+	return o
+}
+
+func (o ServerPolicyRuleMapOutput) ToServerPolicyRuleMapOutputWithContext(ctx context.Context) ServerPolicyRuleMapOutput {
+	return o
+}
+
+func (o ServerPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) ServerPolicyRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerPolicyRule {
+		return vs[0].(map[string]ServerPolicyRule)[vs[1].(string)]
+	}).(ServerPolicyRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerPolicyRuleOutput{})
+	pulumi.RegisterOutputType(ServerPolicyRulePtrOutput{})
+	pulumi.RegisterOutputType(ServerPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(ServerPolicyRuleMapOutput{})
 }

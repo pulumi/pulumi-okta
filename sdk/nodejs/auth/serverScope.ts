@@ -93,7 +93,8 @@ export class ServerScope extends pulumi.CustomResource {
     constructor(name: string, args: ServerScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerScopeArgs | ServerScopeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerScopeState | undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
             inputs["consent"] = state ? state.consent : undefined;
@@ -103,7 +104,7 @@ export class ServerScope extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ServerScopeArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
             inputs["authServerId"] = args ? args.authServerId : undefined;
@@ -113,12 +114,8 @@ export class ServerScope extends pulumi.CustomResource {
             inputs["metadataPublish"] = args ? args.metadataPublish : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerScope.__pulumiType, name, inputs, opts);
     }

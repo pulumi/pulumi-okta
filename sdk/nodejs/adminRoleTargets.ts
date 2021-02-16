@@ -93,7 +93,8 @@ export class AdminRoleTargets extends pulumi.CustomResource {
     constructor(name: string, args: AdminRoleTargetsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdminRoleTargetsArgs | AdminRoleTargetsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AdminRoleTargetsState | undefined;
             inputs["apps"] = state ? state.apps : undefined;
             inputs["groups"] = state ? state.groups : undefined;
@@ -102,10 +103,10 @@ export class AdminRoleTargets extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as AdminRoleTargetsArgs | undefined;
-            if ((!args || args.roleType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
-            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apps"] = args ? args.apps : undefined;
@@ -114,12 +115,8 @@ export class AdminRoleTargets extends pulumi.CustomResource {
             inputs["userId"] = args ? args.userId : undefined;
             inputs["roleId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AdminRoleTargets.__pulumiType, name, inputs, opts);
     }

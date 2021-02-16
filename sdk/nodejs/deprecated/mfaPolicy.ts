@@ -78,7 +78,8 @@ export class MfaPolicy extends pulumi.CustomResource {
     constructor(name: string, args?: MfaPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MfaPolicyArgs | MfaPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MfaPolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["duo"] = state ? state.duo : undefined;
@@ -121,12 +122,8 @@ export class MfaPolicy extends pulumi.CustomResource {
             inputs["symantecVip"] = args ? args.symantecVip : undefined;
             inputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MfaPolicy.__pulumiType, name, inputs, opts);
     }

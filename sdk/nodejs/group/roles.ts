@@ -76,24 +76,21 @@ export class Roles extends pulumi.CustomResource {
     constructor(name: string, args: RolesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RolesArgs | RolesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RolesState | undefined;
             inputs["adminRoles"] = state ? state.adminRoles : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
         } else {
             const args = argsOrState as RolesArgs | undefined;
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["adminRoles"] = args ? args.adminRoles : undefined;
             inputs["groupId"] = args ? args.groupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Roles.__pulumiType, name, inputs, opts);
     }

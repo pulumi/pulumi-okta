@@ -115,6 +115,85 @@ func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyOutput)
 }
 
+func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKeyPtrOutput {
+	return i.ToSamlIdpSigningKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyPtrOutput)
+}
+
+type SamlIdpSigningKeyPtrInput interface {
+	pulumi.Input
+
+	ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKeyPtrOutput
+	ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput
+}
+
+type samlIdpSigningKeyPtrType SamlIdpSigningKeyArgs
+
+func (*samlIdpSigningKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlIdpSigningKey)(nil))
+}
+
+func (i *samlIdpSigningKeyPtrType) ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKeyPtrOutput {
+	return i.ToSamlIdpSigningKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *samlIdpSigningKeyPtrType) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyPtrOutput)
+}
+
+// SamlIdpSigningKeyArrayInput is an input type that accepts SamlIdpSigningKeyArray and SamlIdpSigningKeyArrayOutput values.
+// You can construct a concrete instance of `SamlIdpSigningKeyArrayInput` via:
+//
+//          SamlIdpSigningKeyArray{ SamlIdpSigningKeyArgs{...} }
+type SamlIdpSigningKeyArrayInput interface {
+	pulumi.Input
+
+	ToSamlIdpSigningKeyArrayOutput() SamlIdpSigningKeyArrayOutput
+	ToSamlIdpSigningKeyArrayOutputWithContext(context.Context) SamlIdpSigningKeyArrayOutput
+}
+
+type SamlIdpSigningKeyArray []SamlIdpSigningKeyInput
+
+func (SamlIdpSigningKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SamlIdpSigningKey)(nil))
+}
+
+func (i SamlIdpSigningKeyArray) ToSamlIdpSigningKeyArrayOutput() SamlIdpSigningKeyArrayOutput {
+	return i.ToSamlIdpSigningKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SamlIdpSigningKeyArray) ToSamlIdpSigningKeyArrayOutputWithContext(ctx context.Context) SamlIdpSigningKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyArrayOutput)
+}
+
+// SamlIdpSigningKeyMapInput is an input type that accepts SamlIdpSigningKeyMap and SamlIdpSigningKeyMapOutput values.
+// You can construct a concrete instance of `SamlIdpSigningKeyMapInput` via:
+//
+//          SamlIdpSigningKeyMap{ "key": SamlIdpSigningKeyArgs{...} }
+type SamlIdpSigningKeyMapInput interface {
+	pulumi.Input
+
+	ToSamlIdpSigningKeyMapOutput() SamlIdpSigningKeyMapOutput
+	ToSamlIdpSigningKeyMapOutputWithContext(context.Context) SamlIdpSigningKeyMapOutput
+}
+
+type SamlIdpSigningKeyMap map[string]SamlIdpSigningKeyInput
+
+func (SamlIdpSigningKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SamlIdpSigningKey)(nil))
+}
+
+func (i SamlIdpSigningKeyMap) ToSamlIdpSigningKeyMapOutput() SamlIdpSigningKeyMapOutput {
+	return i.ToSamlIdpSigningKeyMapOutputWithContext(context.Background())
+}
+
+func (i SamlIdpSigningKeyMap) ToSamlIdpSigningKeyMapOutputWithContext(ctx context.Context) SamlIdpSigningKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyMapOutput)
+}
+
 type SamlIdpSigningKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -131,6 +210,75 @@ func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyOutputWithContext(ctx contex
 	return o
 }
 
+func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKeyPtrOutput {
+	return o.ToSamlIdpSigningKeyPtrOutputWithContext(context.Background())
+}
+
+func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
+	return o.ApplyT(func(v SamlIdpSigningKey) *SamlIdpSigningKey {
+		return &v
+	}).(SamlIdpSigningKeyPtrOutput)
+}
+
+type SamlIdpSigningKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlIdpSigningKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlIdpSigningKey)(nil))
+}
+
+func (o SamlIdpSigningKeyPtrOutput) ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKeyPtrOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyPtrOutput) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
+	return o
+}
+
+type SamlIdpSigningKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlIdpSigningKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlIdpSigningKey)(nil))
+}
+
+func (o SamlIdpSigningKeyArrayOutput) ToSamlIdpSigningKeyArrayOutput() SamlIdpSigningKeyArrayOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyArrayOutput) ToSamlIdpSigningKeyArrayOutputWithContext(ctx context.Context) SamlIdpSigningKeyArrayOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyArrayOutput) Index(i pulumi.IntInput) SamlIdpSigningKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlIdpSigningKey {
+		return vs[0].([]SamlIdpSigningKey)[vs[1].(int)]
+	}).(SamlIdpSigningKeyOutput)
+}
+
+type SamlIdpSigningKeyMapOutput struct{ *pulumi.OutputState }
+
+func (SamlIdpSigningKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SamlIdpSigningKey)(nil))
+}
+
+func (o SamlIdpSigningKeyMapOutput) ToSamlIdpSigningKeyMapOutput() SamlIdpSigningKeyMapOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyMapOutput) ToSamlIdpSigningKeyMapOutputWithContext(ctx context.Context) SamlIdpSigningKeyMapOutput {
+	return o
+}
+
+func (o SamlIdpSigningKeyMapOutput) MapIndex(k pulumi.StringInput) SamlIdpSigningKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlIdpSigningKey {
+		return vs[0].(map[string]SamlIdpSigningKey)[vs[1].(string)]
+	}).(SamlIdpSigningKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamlIdpSigningKeyOutput{})
+	pulumi.RegisterOutputType(SamlIdpSigningKeyPtrOutput{})
+	pulumi.RegisterOutputType(SamlIdpSigningKeyArrayOutput{})
+	pulumi.RegisterOutputType(SamlIdpSigningKeyMapOutput{})
 }

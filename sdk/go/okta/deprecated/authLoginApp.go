@@ -289,6 +289,85 @@ func (i *AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) Auth
 	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppOutput)
 }
 
+func (i *AuthLoginApp) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
+	return i.ToAuthLoginAppPtrOutputWithContext(context.Background())
+}
+
+func (i *AuthLoginApp) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppPtrOutput)
+}
+
+type AuthLoginAppPtrInput interface {
+	pulumi.Input
+
+	ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput
+	ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput
+}
+
+type authLoginAppPtrType AuthLoginAppArgs
+
+func (*authLoginAppPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthLoginApp)(nil))
+}
+
+func (i *authLoginAppPtrType) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
+	return i.ToAuthLoginAppPtrOutputWithContext(context.Background())
+}
+
+func (i *authLoginAppPtrType) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppPtrOutput)
+}
+
+// AuthLoginAppArrayInput is an input type that accepts AuthLoginAppArray and AuthLoginAppArrayOutput values.
+// You can construct a concrete instance of `AuthLoginAppArrayInput` via:
+//
+//          AuthLoginAppArray{ AuthLoginAppArgs{...} }
+type AuthLoginAppArrayInput interface {
+	pulumi.Input
+
+	ToAuthLoginAppArrayOutput() AuthLoginAppArrayOutput
+	ToAuthLoginAppArrayOutputWithContext(context.Context) AuthLoginAppArrayOutput
+}
+
+type AuthLoginAppArray []AuthLoginAppInput
+
+func (AuthLoginAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AuthLoginApp)(nil))
+}
+
+func (i AuthLoginAppArray) ToAuthLoginAppArrayOutput() AuthLoginAppArrayOutput {
+	return i.ToAuthLoginAppArrayOutputWithContext(context.Background())
+}
+
+func (i AuthLoginAppArray) ToAuthLoginAppArrayOutputWithContext(ctx context.Context) AuthLoginAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppArrayOutput)
+}
+
+// AuthLoginAppMapInput is an input type that accepts AuthLoginAppMap and AuthLoginAppMapOutput values.
+// You can construct a concrete instance of `AuthLoginAppMapInput` via:
+//
+//          AuthLoginAppMap{ "key": AuthLoginAppArgs{...} }
+type AuthLoginAppMapInput interface {
+	pulumi.Input
+
+	ToAuthLoginAppMapOutput() AuthLoginAppMapOutput
+	ToAuthLoginAppMapOutputWithContext(context.Context) AuthLoginAppMapOutput
+}
+
+type AuthLoginAppMap map[string]AuthLoginAppInput
+
+func (AuthLoginAppMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AuthLoginApp)(nil))
+}
+
+func (i AuthLoginAppMap) ToAuthLoginAppMapOutput() AuthLoginAppMapOutput {
+	return i.ToAuthLoginAppMapOutputWithContext(context.Background())
+}
+
+func (i AuthLoginAppMap) ToAuthLoginAppMapOutputWithContext(ctx context.Context) AuthLoginAppMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppMapOutput)
+}
+
 type AuthLoginAppOutput struct {
 	*pulumi.OutputState
 }
@@ -305,6 +384,75 @@ func (o AuthLoginAppOutput) ToAuthLoginAppOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
+	return o.ToAuthLoginAppPtrOutputWithContext(context.Background())
+}
+
+func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
+	return o.ApplyT(func(v AuthLoginApp) *AuthLoginApp {
+		return &v
+	}).(AuthLoginAppPtrOutput)
+}
+
+type AuthLoginAppPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthLoginAppPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthLoginApp)(nil))
+}
+
+func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
+	return o
+}
+
+func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
+	return o
+}
+
+type AuthLoginAppArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthLoginAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthLoginApp)(nil))
+}
+
+func (o AuthLoginAppArrayOutput) ToAuthLoginAppArrayOutput() AuthLoginAppArrayOutput {
+	return o
+}
+
+func (o AuthLoginAppArrayOutput) ToAuthLoginAppArrayOutputWithContext(ctx context.Context) AuthLoginAppArrayOutput {
+	return o
+}
+
+func (o AuthLoginAppArrayOutput) Index(i pulumi.IntInput) AuthLoginAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthLoginApp {
+		return vs[0].([]AuthLoginApp)[vs[1].(int)]
+	}).(AuthLoginAppOutput)
+}
+
+type AuthLoginAppMapOutput struct{ *pulumi.OutputState }
+
+func (AuthLoginAppMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AuthLoginApp)(nil))
+}
+
+func (o AuthLoginAppMapOutput) ToAuthLoginAppMapOutput() AuthLoginAppMapOutput {
+	return o
+}
+
+func (o AuthLoginAppMapOutput) ToAuthLoginAppMapOutputWithContext(ctx context.Context) AuthLoginAppMapOutput {
+	return o
+}
+
+func (o AuthLoginAppMapOutput) MapIndex(k pulumi.StringInput) AuthLoginAppOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AuthLoginApp {
+		return vs[0].(map[string]AuthLoginApp)[vs[1].(string)]
+	}).(AuthLoginAppOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthLoginAppOutput{})
+	pulumi.RegisterOutputType(AuthLoginAppPtrOutput{})
+	pulumi.RegisterOutputType(AuthLoginAppArrayOutput{})
+	pulumi.RegisterOutputType(AuthLoginAppMapOutput{})
 }

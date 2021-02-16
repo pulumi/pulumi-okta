@@ -282,6 +282,85 @@ func (i *SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpO
 	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpOutput)
 }
 
+func (i *SocialIdp) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
+	return i.ToSocialIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *SocialIdp) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpPtrOutput)
+}
+
+type SocialIdpPtrInput interface {
+	pulumi.Input
+
+	ToSocialIdpPtrOutput() SocialIdpPtrOutput
+	ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput
+}
+
+type socialIdpPtrType SocialIdpArgs
+
+func (*socialIdpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocialIdp)(nil))
+}
+
+func (i *socialIdpPtrType) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
+	return i.ToSocialIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *socialIdpPtrType) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpPtrOutput)
+}
+
+// SocialIdpArrayInput is an input type that accepts SocialIdpArray and SocialIdpArrayOutput values.
+// You can construct a concrete instance of `SocialIdpArrayInput` via:
+//
+//          SocialIdpArray{ SocialIdpArgs{...} }
+type SocialIdpArrayInput interface {
+	pulumi.Input
+
+	ToSocialIdpArrayOutput() SocialIdpArrayOutput
+	ToSocialIdpArrayOutputWithContext(context.Context) SocialIdpArrayOutput
+}
+
+type SocialIdpArray []SocialIdpInput
+
+func (SocialIdpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SocialIdp)(nil))
+}
+
+func (i SocialIdpArray) ToSocialIdpArrayOutput() SocialIdpArrayOutput {
+	return i.ToSocialIdpArrayOutputWithContext(context.Background())
+}
+
+func (i SocialIdpArray) ToSocialIdpArrayOutputWithContext(ctx context.Context) SocialIdpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpArrayOutput)
+}
+
+// SocialIdpMapInput is an input type that accepts SocialIdpMap and SocialIdpMapOutput values.
+// You can construct a concrete instance of `SocialIdpMapInput` via:
+//
+//          SocialIdpMap{ "key": SocialIdpArgs{...} }
+type SocialIdpMapInput interface {
+	pulumi.Input
+
+	ToSocialIdpMapOutput() SocialIdpMapOutput
+	ToSocialIdpMapOutputWithContext(context.Context) SocialIdpMapOutput
+}
+
+type SocialIdpMap map[string]SocialIdpInput
+
+func (SocialIdpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SocialIdp)(nil))
+}
+
+func (i SocialIdpMap) ToSocialIdpMapOutput() SocialIdpMapOutput {
+	return i.ToSocialIdpMapOutputWithContext(context.Background())
+}
+
+func (i SocialIdpMap) ToSocialIdpMapOutputWithContext(ctx context.Context) SocialIdpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpMapOutput)
+}
+
 type SocialIdpOutput struct {
 	*pulumi.OutputState
 }
@@ -298,6 +377,75 @@ func (o SocialIdpOutput) ToSocialIdpOutputWithContext(ctx context.Context) Socia
 	return o
 }
 
+func (o SocialIdpOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
+	return o.ToSocialIdpPtrOutputWithContext(context.Background())
+}
+
+func (o SocialIdpOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
+	return o.ApplyT(func(v SocialIdp) *SocialIdp {
+		return &v
+	}).(SocialIdpPtrOutput)
+}
+
+type SocialIdpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SocialIdpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocialIdp)(nil))
+}
+
+func (o SocialIdpPtrOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
+	return o
+}
+
+func (o SocialIdpPtrOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
+	return o
+}
+
+type SocialIdpArrayOutput struct{ *pulumi.OutputState }
+
+func (SocialIdpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SocialIdp)(nil))
+}
+
+func (o SocialIdpArrayOutput) ToSocialIdpArrayOutput() SocialIdpArrayOutput {
+	return o
+}
+
+func (o SocialIdpArrayOutput) ToSocialIdpArrayOutputWithContext(ctx context.Context) SocialIdpArrayOutput {
+	return o
+}
+
+func (o SocialIdpArrayOutput) Index(i pulumi.IntInput) SocialIdpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SocialIdp {
+		return vs[0].([]SocialIdp)[vs[1].(int)]
+	}).(SocialIdpOutput)
+}
+
+type SocialIdpMapOutput struct{ *pulumi.OutputState }
+
+func (SocialIdpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SocialIdp)(nil))
+}
+
+func (o SocialIdpMapOutput) ToSocialIdpMapOutput() SocialIdpMapOutput {
+	return o
+}
+
+func (o SocialIdpMapOutput) ToSocialIdpMapOutputWithContext(ctx context.Context) SocialIdpMapOutput {
+	return o
+}
+
+func (o SocialIdpMapOutput) MapIndex(k pulumi.StringInput) SocialIdpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SocialIdp {
+		return vs[0].(map[string]SocialIdp)[vs[1].(string)]
+	}).(SocialIdpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SocialIdpOutput{})
+	pulumi.RegisterOutputType(SocialIdpPtrOutput{})
+	pulumi.RegisterOutputType(SocialIdpArrayOutput{})
+	pulumi.RegisterOutputType(SocialIdpMapOutput{})
 }

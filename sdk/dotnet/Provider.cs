@@ -133,9 +133,6 @@ namespace Pulumi.Okta
 
         public ProviderArgs()
         {
-            ApiToken = Utilities.GetEnv("OKTA_API_TOKEN");
-            BaseUrl = Utilities.GetEnv("OKTA_BASE_URL");
-            OrgName = Utilities.GetEnv("OKTA_ORG_NAME");
         }
     }
 }

@@ -22,7 +22,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/"
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -176,6 +176,85 @@ func (i *AdminRoleTargets) ToAdminRoleTargetsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsOutput)
 }
 
+func (i *AdminRoleTargets) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
+	return i.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *AdminRoleTargets) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsPtrOutput)
+}
+
+type AdminRoleTargetsPtrInput interface {
+	pulumi.Input
+
+	ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput
+	ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput
+}
+
+type adminRoleTargetsPtrType AdminRoleTargetsArgs
+
+func (*adminRoleTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminRoleTargets)(nil))
+}
+
+func (i *adminRoleTargetsPtrType) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
+	return i.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *adminRoleTargetsPtrType) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsPtrOutput)
+}
+
+// AdminRoleTargetsArrayInput is an input type that accepts AdminRoleTargetsArray and AdminRoleTargetsArrayOutput values.
+// You can construct a concrete instance of `AdminRoleTargetsArrayInput` via:
+//
+//          AdminRoleTargetsArray{ AdminRoleTargetsArgs{...} }
+type AdminRoleTargetsArrayInput interface {
+	pulumi.Input
+
+	ToAdminRoleTargetsArrayOutput() AdminRoleTargetsArrayOutput
+	ToAdminRoleTargetsArrayOutputWithContext(context.Context) AdminRoleTargetsArrayOutput
+}
+
+type AdminRoleTargetsArray []AdminRoleTargetsInput
+
+func (AdminRoleTargetsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AdminRoleTargets)(nil))
+}
+
+func (i AdminRoleTargetsArray) ToAdminRoleTargetsArrayOutput() AdminRoleTargetsArrayOutput {
+	return i.ToAdminRoleTargetsArrayOutputWithContext(context.Background())
+}
+
+func (i AdminRoleTargetsArray) ToAdminRoleTargetsArrayOutputWithContext(ctx context.Context) AdminRoleTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsArrayOutput)
+}
+
+// AdminRoleTargetsMapInput is an input type that accepts AdminRoleTargetsMap and AdminRoleTargetsMapOutput values.
+// You can construct a concrete instance of `AdminRoleTargetsMapInput` via:
+//
+//          AdminRoleTargetsMap{ "key": AdminRoleTargetsArgs{...} }
+type AdminRoleTargetsMapInput interface {
+	pulumi.Input
+
+	ToAdminRoleTargetsMapOutput() AdminRoleTargetsMapOutput
+	ToAdminRoleTargetsMapOutputWithContext(context.Context) AdminRoleTargetsMapOutput
+}
+
+type AdminRoleTargetsMap map[string]AdminRoleTargetsInput
+
+func (AdminRoleTargetsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AdminRoleTargets)(nil))
+}
+
+func (i AdminRoleTargetsMap) ToAdminRoleTargetsMapOutput() AdminRoleTargetsMapOutput {
+	return i.ToAdminRoleTargetsMapOutputWithContext(context.Background())
+}
+
+func (i AdminRoleTargetsMap) ToAdminRoleTargetsMapOutputWithContext(ctx context.Context) AdminRoleTargetsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsMapOutput)
+}
+
 type AdminRoleTargetsOutput struct {
 	*pulumi.OutputState
 }
@@ -192,6 +271,75 @@ func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutputWithContext(ctx context.
 	return o
 }
 
+func (o AdminRoleTargetsOutput) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
+	return o.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o AdminRoleTargetsOutput) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
+	return o.ApplyT(func(v AdminRoleTargets) *AdminRoleTargets {
+		return &v
+	}).(AdminRoleTargetsPtrOutput)
+}
+
+type AdminRoleTargetsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdminRoleTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdminRoleTargets)(nil))
+}
+
+func (o AdminRoleTargetsPtrOutput) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
+	return o
+}
+
+func (o AdminRoleTargetsPtrOutput) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
+	return o
+}
+
+type AdminRoleTargetsArrayOutput struct{ *pulumi.OutputState }
+
+func (AdminRoleTargetsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdminRoleTargets)(nil))
+}
+
+func (o AdminRoleTargetsArrayOutput) ToAdminRoleTargetsArrayOutput() AdminRoleTargetsArrayOutput {
+	return o
+}
+
+func (o AdminRoleTargetsArrayOutput) ToAdminRoleTargetsArrayOutputWithContext(ctx context.Context) AdminRoleTargetsArrayOutput {
+	return o
+}
+
+func (o AdminRoleTargetsArrayOutput) Index(i pulumi.IntInput) AdminRoleTargetsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdminRoleTargets {
+		return vs[0].([]AdminRoleTargets)[vs[1].(int)]
+	}).(AdminRoleTargetsOutput)
+}
+
+type AdminRoleTargetsMapOutput struct{ *pulumi.OutputState }
+
+func (AdminRoleTargetsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AdminRoleTargets)(nil))
+}
+
+func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutput() AdminRoleTargetsMapOutput {
+	return o
+}
+
+func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutputWithContext(ctx context.Context) AdminRoleTargetsMapOutput {
+	return o
+}
+
+func (o AdminRoleTargetsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleTargetsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdminRoleTargets {
+		return vs[0].(map[string]AdminRoleTargets)[vs[1].(string)]
+	}).(AdminRoleTargetsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdminRoleTargetsOutput{})
+	pulumi.RegisterOutputType(AdminRoleTargetsPtrOutput{})
+	pulumi.RegisterOutputType(AdminRoleTargetsArrayOutput{})
+	pulumi.RegisterOutputType(AdminRoleTargetsMapOutput{})
 }

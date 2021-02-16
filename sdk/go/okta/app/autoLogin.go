@@ -327,6 +327,85 @@ func (i *AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginO
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginOutput)
 }
 
+func (i *AutoLogin) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
+	return i.ToAutoLoginPtrOutputWithContext(context.Background())
+}
+
+func (i *AutoLogin) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginPtrOutput)
+}
+
+type AutoLoginPtrInput interface {
+	pulumi.Input
+
+	ToAutoLoginPtrOutput() AutoLoginPtrOutput
+	ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput
+}
+
+type autoLoginPtrType AutoLoginArgs
+
+func (*autoLoginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoLogin)(nil))
+}
+
+func (i *autoLoginPtrType) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
+	return i.ToAutoLoginPtrOutputWithContext(context.Background())
+}
+
+func (i *autoLoginPtrType) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginPtrOutput)
+}
+
+// AutoLoginArrayInput is an input type that accepts AutoLoginArray and AutoLoginArrayOutput values.
+// You can construct a concrete instance of `AutoLoginArrayInput` via:
+//
+//          AutoLoginArray{ AutoLoginArgs{...} }
+type AutoLoginArrayInput interface {
+	pulumi.Input
+
+	ToAutoLoginArrayOutput() AutoLoginArrayOutput
+	ToAutoLoginArrayOutputWithContext(context.Context) AutoLoginArrayOutput
+}
+
+type AutoLoginArray []AutoLoginInput
+
+func (AutoLoginArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AutoLogin)(nil))
+}
+
+func (i AutoLoginArray) ToAutoLoginArrayOutput() AutoLoginArrayOutput {
+	return i.ToAutoLoginArrayOutputWithContext(context.Background())
+}
+
+func (i AutoLoginArray) ToAutoLoginArrayOutputWithContext(ctx context.Context) AutoLoginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginArrayOutput)
+}
+
+// AutoLoginMapInput is an input type that accepts AutoLoginMap and AutoLoginMapOutput values.
+// You can construct a concrete instance of `AutoLoginMapInput` via:
+//
+//          AutoLoginMap{ "key": AutoLoginArgs{...} }
+type AutoLoginMapInput interface {
+	pulumi.Input
+
+	ToAutoLoginMapOutput() AutoLoginMapOutput
+	ToAutoLoginMapOutputWithContext(context.Context) AutoLoginMapOutput
+}
+
+type AutoLoginMap map[string]AutoLoginInput
+
+func (AutoLoginMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AutoLogin)(nil))
+}
+
+func (i AutoLoginMap) ToAutoLoginMapOutput() AutoLoginMapOutput {
+	return i.ToAutoLoginMapOutputWithContext(context.Background())
+}
+
+func (i AutoLoginMap) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoLoginMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginMapOutput)
+}
+
 type AutoLoginOutput struct {
 	*pulumi.OutputState
 }
@@ -343,6 +422,75 @@ func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoL
 	return o
 }
 
+func (o AutoLoginOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
+	return o.ToAutoLoginPtrOutputWithContext(context.Background())
+}
+
+func (o AutoLoginOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
+	return o.ApplyT(func(v AutoLogin) *AutoLogin {
+		return &v
+	}).(AutoLoginPtrOutput)
+}
+
+type AutoLoginPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutoLoginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoLogin)(nil))
+}
+
+func (o AutoLoginPtrOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
+	return o
+}
+
+func (o AutoLoginPtrOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
+	return o
+}
+
+type AutoLoginArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoLoginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoLogin)(nil))
+}
+
+func (o AutoLoginArrayOutput) ToAutoLoginArrayOutput() AutoLoginArrayOutput {
+	return o
+}
+
+func (o AutoLoginArrayOutput) ToAutoLoginArrayOutputWithContext(ctx context.Context) AutoLoginArrayOutput {
+	return o
+}
+
+func (o AutoLoginArrayOutput) Index(i pulumi.IntInput) AutoLoginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoLogin {
+		return vs[0].([]AutoLogin)[vs[1].(int)]
+	}).(AutoLoginOutput)
+}
+
+type AutoLoginMapOutput struct{ *pulumi.OutputState }
+
+func (AutoLoginMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AutoLogin)(nil))
+}
+
+func (o AutoLoginMapOutput) ToAutoLoginMapOutput() AutoLoginMapOutput {
+	return o
+}
+
+func (o AutoLoginMapOutput) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoLoginMapOutput {
+	return o
+}
+
+func (o AutoLoginMapOutput) MapIndex(k pulumi.StringInput) AutoLoginOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AutoLogin {
+		return vs[0].(map[string]AutoLogin)[vs[1].(string)]
+	}).(AutoLoginOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoLoginOutput{})
+	pulumi.RegisterOutputType(AutoLoginPtrOutput{})
+	pulumi.RegisterOutputType(AutoLoginArrayOutput{})
+	pulumi.RegisterOutputType(AutoLoginMapOutput{})
 }

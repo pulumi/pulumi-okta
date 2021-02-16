@@ -208,6 +208,85 @@ func (i *MfaPolicy) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyO
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyOutput)
 }
 
+func (i *MfaPolicy) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
+	return i.ToMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *MfaPolicy) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyPtrOutput)
+}
+
+type MfaPolicyPtrInput interface {
+	pulumi.Input
+
+	ToMfaPolicyPtrOutput() MfaPolicyPtrOutput
+	ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput
+}
+
+type mfaPolicyPtrType MfaPolicyArgs
+
+func (*mfaPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MfaPolicy)(nil))
+}
+
+func (i *mfaPolicyPtrType) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
+	return i.ToMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *mfaPolicyPtrType) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyPtrOutput)
+}
+
+// MfaPolicyArrayInput is an input type that accepts MfaPolicyArray and MfaPolicyArrayOutput values.
+// You can construct a concrete instance of `MfaPolicyArrayInput` via:
+//
+//          MfaPolicyArray{ MfaPolicyArgs{...} }
+type MfaPolicyArrayInput interface {
+	pulumi.Input
+
+	ToMfaPolicyArrayOutput() MfaPolicyArrayOutput
+	ToMfaPolicyArrayOutputWithContext(context.Context) MfaPolicyArrayOutput
+}
+
+type MfaPolicyArray []MfaPolicyInput
+
+func (MfaPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MfaPolicy)(nil))
+}
+
+func (i MfaPolicyArray) ToMfaPolicyArrayOutput() MfaPolicyArrayOutput {
+	return i.ToMfaPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyArray) ToMfaPolicyArrayOutputWithContext(ctx context.Context) MfaPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyArrayOutput)
+}
+
+// MfaPolicyMapInput is an input type that accepts MfaPolicyMap and MfaPolicyMapOutput values.
+// You can construct a concrete instance of `MfaPolicyMapInput` via:
+//
+//          MfaPolicyMap{ "key": MfaPolicyArgs{...} }
+type MfaPolicyMapInput interface {
+	pulumi.Input
+
+	ToMfaPolicyMapOutput() MfaPolicyMapOutput
+	ToMfaPolicyMapOutputWithContext(context.Context) MfaPolicyMapOutput
+}
+
+type MfaPolicyMap map[string]MfaPolicyInput
+
+func (MfaPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MfaPolicy)(nil))
+}
+
+func (i MfaPolicyMap) ToMfaPolicyMapOutput() MfaPolicyMapOutput {
+	return i.ToMfaPolicyMapOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyMap) ToMfaPolicyMapOutputWithContext(ctx context.Context) MfaPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyMapOutput)
+}
+
 type MfaPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -224,6 +303,75 @@ func (o MfaPolicyOutput) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPo
 	return o
 }
 
+func (o MfaPolicyOutput) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
+	return o.ToMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o MfaPolicyOutput) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
+	return o.ApplyT(func(v MfaPolicy) *MfaPolicy {
+		return &v
+	}).(MfaPolicyPtrOutput)
+}
+
+type MfaPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MfaPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MfaPolicy)(nil))
+}
+
+func (o MfaPolicyPtrOutput) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
+	return o
+}
+
+func (o MfaPolicyPtrOutput) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
+	return o
+}
+
+type MfaPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MfaPolicy)(nil))
+}
+
+func (o MfaPolicyArrayOutput) ToMfaPolicyArrayOutput() MfaPolicyArrayOutput {
+	return o
+}
+
+func (o MfaPolicyArrayOutput) ToMfaPolicyArrayOutputWithContext(ctx context.Context) MfaPolicyArrayOutput {
+	return o
+}
+
+func (o MfaPolicyArrayOutput) Index(i pulumi.IntInput) MfaPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MfaPolicy {
+		return vs[0].([]MfaPolicy)[vs[1].(int)]
+	}).(MfaPolicyOutput)
+}
+
+type MfaPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MfaPolicy)(nil))
+}
+
+func (o MfaPolicyMapOutput) ToMfaPolicyMapOutput() MfaPolicyMapOutput {
+	return o
+}
+
+func (o MfaPolicyMapOutput) ToMfaPolicyMapOutputWithContext(ctx context.Context) MfaPolicyMapOutput {
+	return o
+}
+
+func (o MfaPolicyMapOutput) MapIndex(k pulumi.StringInput) MfaPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MfaPolicy {
+		return vs[0].(map[string]MfaPolicy)[vs[1].(string)]
+	}).(MfaPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MfaPolicyOutput{})
+	pulumi.RegisterOutputType(MfaPolicyPtrOutput{})
+	pulumi.RegisterOutputType(MfaPolicyArrayOutput{})
+	pulumi.RegisterOutputType(MfaPolicyMapOutput{})
 }

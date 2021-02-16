@@ -101,7 +101,8 @@ export class ServerPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ServerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerPolicyArgs | ServerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerPolicyState | undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
             inputs["clientWhitelists"] = state ? state.clientWhitelists : undefined;
@@ -112,16 +113,16 @@ export class ServerPolicy extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerPolicyArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.clientWhitelists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientWhitelists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientWhitelists'");
             }
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["authServerId"] = args ? args.authServerId : undefined;
@@ -132,12 +133,8 @@ export class ServerPolicy extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerPolicy.__pulumiType, name, inputs, opts);
     }

@@ -114,7 +114,8 @@ export class BasicAuth extends pulumi.CustomResource {
     constructor(name: string, args: BasicAuthArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BasicAuthArgs | BasicAuthState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BasicAuthState | undefined;
             inputs["authUrl"] = state ? state.authUrl : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
@@ -129,13 +130,13 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BasicAuthArgs | undefined;
-            if ((!args || args.authUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authUrl'");
             }
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["authUrl"] = args ? args.authUrl : undefined;
@@ -150,12 +151,8 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BasicAuth.__pulumiType, name, inputs, opts);
     }

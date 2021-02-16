@@ -100,7 +100,8 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
             inputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
             inputs["gateways"] = state ? state.gateways : undefined;
@@ -110,7 +111,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["usage"] = state ? state.usage : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
@@ -120,12 +121,8 @@ export class Zone extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["usage"] = args ? args.usage : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Zone.__pulumiType, name, inputs, opts);
     }

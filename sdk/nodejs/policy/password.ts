@@ -190,7 +190,8 @@ export class Password extends pulumi.CustomResource {
     constructor(name: string, args?: PasswordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PasswordArgs | PasswordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PasswordState | undefined;
             inputs["authProvider"] = state ? state.authProvider : undefined;
             inputs["callRecovery"] = state ? state.callRecovery : undefined;
@@ -255,12 +256,8 @@ export class Password extends pulumi.CustomResource {
             inputs["smsRecovery"] = args ? args.smsRecovery : undefined;
             inputs["status"] = args ? args.status : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Password.__pulumiType, name, inputs, opts);
     }

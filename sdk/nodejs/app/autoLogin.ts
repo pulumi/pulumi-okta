@@ -156,7 +156,8 @@ export class AutoLogin extends pulumi.CustomResource {
     constructor(name: string, args: AutoLoginArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutoLoginArgs | AutoLoginState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AutoLoginState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
@@ -181,7 +182,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as AutoLoginArgs | undefined;
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
@@ -206,12 +207,8 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AutoLogin.__pulumiType, name, inputs, opts);
     }

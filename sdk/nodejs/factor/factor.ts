@@ -68,24 +68,21 @@ export class Factor extends pulumi.CustomResource {
     constructor(name: string, args: FactorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FactorArgs | FactorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FactorState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["providerId"] = state ? state.providerId : undefined;
         } else {
             const args = argsOrState as FactorArgs | undefined;
-            if ((!args || args.providerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerId'");
             }
             inputs["active"] = args ? args.active : undefined;
             inputs["providerId"] = args ? args.providerId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Factor.__pulumiType, name, inputs, opts);
     }
