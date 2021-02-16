@@ -438,6 +438,85 @@ func (i *Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialOutput)
 }
 
+func (i *Social) ToSocialPtrOutput() SocialPtrOutput {
+	return i.ToSocialPtrOutputWithContext(context.Background())
+}
+
+func (i *Social) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialPtrOutput)
+}
+
+type SocialPtrInput interface {
+	pulumi.Input
+
+	ToSocialPtrOutput() SocialPtrOutput
+	ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput
+}
+
+type socialPtrType SocialArgs
+
+func (*socialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Social)(nil))
+}
+
+func (i *socialPtrType) ToSocialPtrOutput() SocialPtrOutput {
+	return i.ToSocialPtrOutputWithContext(context.Background())
+}
+
+func (i *socialPtrType) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialPtrOutput)
+}
+
+// SocialArrayInput is an input type that accepts SocialArray and SocialArrayOutput values.
+// You can construct a concrete instance of `SocialArrayInput` via:
+//
+//          SocialArray{ SocialArgs{...} }
+type SocialArrayInput interface {
+	pulumi.Input
+
+	ToSocialArrayOutput() SocialArrayOutput
+	ToSocialArrayOutputWithContext(context.Context) SocialArrayOutput
+}
+
+type SocialArray []SocialInput
+
+func (SocialArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Social)(nil))
+}
+
+func (i SocialArray) ToSocialArrayOutput() SocialArrayOutput {
+	return i.ToSocialArrayOutputWithContext(context.Background())
+}
+
+func (i SocialArray) ToSocialArrayOutputWithContext(ctx context.Context) SocialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialArrayOutput)
+}
+
+// SocialMapInput is an input type that accepts SocialMap and SocialMapOutput values.
+// You can construct a concrete instance of `SocialMapInput` via:
+//
+//          SocialMap{ "key": SocialArgs{...} }
+type SocialMapInput interface {
+	pulumi.Input
+
+	ToSocialMapOutput() SocialMapOutput
+	ToSocialMapOutputWithContext(context.Context) SocialMapOutput
+}
+
+type SocialMap map[string]SocialInput
+
+func (SocialMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Social)(nil))
+}
+
+func (i SocialMap) ToSocialMapOutput() SocialMapOutput {
+	return i.ToSocialMapOutputWithContext(context.Background())
+}
+
+func (i SocialMap) ToSocialMapOutputWithContext(ctx context.Context) SocialMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocialMapOutput)
+}
+
 type SocialOutput struct {
 	*pulumi.OutputState
 }
@@ -454,6 +533,75 @@ func (o SocialOutput) ToSocialOutputWithContext(ctx context.Context) SocialOutpu
 	return o
 }
 
+func (o SocialOutput) ToSocialPtrOutput() SocialPtrOutput {
+	return o.ToSocialPtrOutputWithContext(context.Background())
+}
+
+func (o SocialOutput) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
+	return o.ApplyT(func(v Social) *Social {
+		return &v
+	}).(SocialPtrOutput)
+}
+
+type SocialPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SocialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Social)(nil))
+}
+
+func (o SocialPtrOutput) ToSocialPtrOutput() SocialPtrOutput {
+	return o
+}
+
+func (o SocialPtrOutput) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
+	return o
+}
+
+type SocialArrayOutput struct{ *pulumi.OutputState }
+
+func (SocialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Social)(nil))
+}
+
+func (o SocialArrayOutput) ToSocialArrayOutput() SocialArrayOutput {
+	return o
+}
+
+func (o SocialArrayOutput) ToSocialArrayOutputWithContext(ctx context.Context) SocialArrayOutput {
+	return o
+}
+
+func (o SocialArrayOutput) Index(i pulumi.IntInput) SocialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Social {
+		return vs[0].([]Social)[vs[1].(int)]
+	}).(SocialOutput)
+}
+
+type SocialMapOutput struct{ *pulumi.OutputState }
+
+func (SocialMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Social)(nil))
+}
+
+func (o SocialMapOutput) ToSocialMapOutput() SocialMapOutput {
+	return o
+}
+
+func (o SocialMapOutput) ToSocialMapOutputWithContext(ctx context.Context) SocialMapOutput {
+	return o
+}
+
+func (o SocialMapOutput) MapIndex(k pulumi.StringInput) SocialOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Social {
+		return vs[0].(map[string]Social)[vs[1].(string)]
+	}).(SocialOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SocialOutput{})
+	pulumi.RegisterOutputType(SocialPtrOutput{})
+	pulumi.RegisterOutputType(SocialArrayOutput{})
+	pulumi.RegisterOutputType(SocialMapOutput{})
 }

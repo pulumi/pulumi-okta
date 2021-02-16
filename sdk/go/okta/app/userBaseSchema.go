@@ -224,6 +224,85 @@ func (i *UserBaseSchema) ToUserBaseSchemaOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaOutput)
 }
 
+func (i *UserBaseSchema) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutput {
+	return i.ToUserBaseSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *UserBaseSchema) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPtrOutput)
+}
+
+type UserBaseSchemaPtrInput interface {
+	pulumi.Input
+
+	ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutput
+	ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput
+}
+
+type userBaseSchemaPtrType UserBaseSchemaArgs
+
+func (*userBaseSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserBaseSchema)(nil))
+}
+
+func (i *userBaseSchemaPtrType) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutput {
+	return i.ToUserBaseSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *userBaseSchemaPtrType) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPtrOutput)
+}
+
+// UserBaseSchemaArrayInput is an input type that accepts UserBaseSchemaArray and UserBaseSchemaArrayOutput values.
+// You can construct a concrete instance of `UserBaseSchemaArrayInput` via:
+//
+//          UserBaseSchemaArray{ UserBaseSchemaArgs{...} }
+type UserBaseSchemaArrayInput interface {
+	pulumi.Input
+
+	ToUserBaseSchemaArrayOutput() UserBaseSchemaArrayOutput
+	ToUserBaseSchemaArrayOutputWithContext(context.Context) UserBaseSchemaArrayOutput
+}
+
+type UserBaseSchemaArray []UserBaseSchemaInput
+
+func (UserBaseSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserBaseSchema)(nil))
+}
+
+func (i UserBaseSchemaArray) ToUserBaseSchemaArrayOutput() UserBaseSchemaArrayOutput {
+	return i.ToUserBaseSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i UserBaseSchemaArray) ToUserBaseSchemaArrayOutputWithContext(ctx context.Context) UserBaseSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaArrayOutput)
+}
+
+// UserBaseSchemaMapInput is an input type that accepts UserBaseSchemaMap and UserBaseSchemaMapOutput values.
+// You can construct a concrete instance of `UserBaseSchemaMapInput` via:
+//
+//          UserBaseSchemaMap{ "key": UserBaseSchemaArgs{...} }
+type UserBaseSchemaMapInput interface {
+	pulumi.Input
+
+	ToUserBaseSchemaMapOutput() UserBaseSchemaMapOutput
+	ToUserBaseSchemaMapOutputWithContext(context.Context) UserBaseSchemaMapOutput
+}
+
+type UserBaseSchemaMap map[string]UserBaseSchemaInput
+
+func (UserBaseSchemaMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserBaseSchema)(nil))
+}
+
+func (i UserBaseSchemaMap) ToUserBaseSchemaMapOutput() UserBaseSchemaMapOutput {
+	return i.ToUserBaseSchemaMapOutputWithContext(context.Background())
+}
+
+func (i UserBaseSchemaMap) ToUserBaseSchemaMapOutputWithContext(ctx context.Context) UserBaseSchemaMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaMapOutput)
+}
+
 type UserBaseSchemaOutput struct {
 	*pulumi.OutputState
 }
@@ -240,6 +319,75 @@ func (o UserBaseSchemaOutput) ToUserBaseSchemaOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o UserBaseSchemaOutput) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutput {
+	return o.ToUserBaseSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o UserBaseSchemaOutput) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
+	return o.ApplyT(func(v UserBaseSchema) *UserBaseSchema {
+		return &v
+	}).(UserBaseSchemaPtrOutput)
+}
+
+type UserBaseSchemaPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserBaseSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserBaseSchema)(nil))
+}
+
+func (o UserBaseSchemaPtrOutput) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutput {
+	return o
+}
+
+func (o UserBaseSchemaPtrOutput) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
+	return o
+}
+
+type UserBaseSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (UserBaseSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserBaseSchema)(nil))
+}
+
+func (o UserBaseSchemaArrayOutput) ToUserBaseSchemaArrayOutput() UserBaseSchemaArrayOutput {
+	return o
+}
+
+func (o UserBaseSchemaArrayOutput) ToUserBaseSchemaArrayOutputWithContext(ctx context.Context) UserBaseSchemaArrayOutput {
+	return o
+}
+
+func (o UserBaseSchemaArrayOutput) Index(i pulumi.IntInput) UserBaseSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserBaseSchema {
+		return vs[0].([]UserBaseSchema)[vs[1].(int)]
+	}).(UserBaseSchemaOutput)
+}
+
+type UserBaseSchemaMapOutput struct{ *pulumi.OutputState }
+
+func (UserBaseSchemaMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserBaseSchema)(nil))
+}
+
+func (o UserBaseSchemaMapOutput) ToUserBaseSchemaMapOutput() UserBaseSchemaMapOutput {
+	return o
+}
+
+func (o UserBaseSchemaMapOutput) ToUserBaseSchemaMapOutputWithContext(ctx context.Context) UserBaseSchemaMapOutput {
+	return o
+}
+
+func (o UserBaseSchemaMapOutput) MapIndex(k pulumi.StringInput) UserBaseSchemaOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserBaseSchema {
+		return vs[0].(map[string]UserBaseSchema)[vs[1].(string)]
+	}).(UserBaseSchemaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserBaseSchemaOutput{})
+	pulumi.RegisterOutputType(UserBaseSchemaPtrOutput{})
+	pulumi.RegisterOutputType(UserBaseSchemaArrayOutput{})
+	pulumi.RegisterOutputType(UserBaseSchemaMapOutput{})
 }

@@ -358,6 +358,85 @@ func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppOutput)
 }
 
+func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppPtrOutput() SecurePasswordStoreAppPtrOutput {
+	return i.ToSecurePasswordStoreAppPtrOutputWithContext(context.Background())
+}
+
+func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppPtrOutput)
+}
+
+type SecurePasswordStoreAppPtrInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreAppPtrOutput() SecurePasswordStoreAppPtrOutput
+	ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput
+}
+
+type securePasswordStoreAppPtrType SecurePasswordStoreAppArgs
+
+func (*securePasswordStoreAppPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurePasswordStoreApp)(nil))
+}
+
+func (i *securePasswordStoreAppPtrType) ToSecurePasswordStoreAppPtrOutput() SecurePasswordStoreAppPtrOutput {
+	return i.ToSecurePasswordStoreAppPtrOutputWithContext(context.Background())
+}
+
+func (i *securePasswordStoreAppPtrType) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppPtrOutput)
+}
+
+// SecurePasswordStoreAppArrayInput is an input type that accepts SecurePasswordStoreAppArray and SecurePasswordStoreAppArrayOutput values.
+// You can construct a concrete instance of `SecurePasswordStoreAppArrayInput` via:
+//
+//          SecurePasswordStoreAppArray{ SecurePasswordStoreAppArgs{...} }
+type SecurePasswordStoreAppArrayInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreAppArrayOutput() SecurePasswordStoreAppArrayOutput
+	ToSecurePasswordStoreAppArrayOutputWithContext(context.Context) SecurePasswordStoreAppArrayOutput
+}
+
+type SecurePasswordStoreAppArray []SecurePasswordStoreAppInput
+
+func (SecurePasswordStoreAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecurePasswordStoreApp)(nil))
+}
+
+func (i SecurePasswordStoreAppArray) ToSecurePasswordStoreAppArrayOutput() SecurePasswordStoreAppArrayOutput {
+	return i.ToSecurePasswordStoreAppArrayOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStoreAppArray) ToSecurePasswordStoreAppArrayOutputWithContext(ctx context.Context) SecurePasswordStoreAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppArrayOutput)
+}
+
+// SecurePasswordStoreAppMapInput is an input type that accepts SecurePasswordStoreAppMap and SecurePasswordStoreAppMapOutput values.
+// You can construct a concrete instance of `SecurePasswordStoreAppMapInput` via:
+//
+//          SecurePasswordStoreAppMap{ "key": SecurePasswordStoreAppArgs{...} }
+type SecurePasswordStoreAppMapInput interface {
+	pulumi.Input
+
+	ToSecurePasswordStoreAppMapOutput() SecurePasswordStoreAppMapOutput
+	ToSecurePasswordStoreAppMapOutputWithContext(context.Context) SecurePasswordStoreAppMapOutput
+}
+
+type SecurePasswordStoreAppMap map[string]SecurePasswordStoreAppInput
+
+func (SecurePasswordStoreAppMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecurePasswordStoreApp)(nil))
+}
+
+func (i SecurePasswordStoreAppMap) ToSecurePasswordStoreAppMapOutput() SecurePasswordStoreAppMapOutput {
+	return i.ToSecurePasswordStoreAppMapOutputWithContext(context.Background())
+}
+
+func (i SecurePasswordStoreAppMap) ToSecurePasswordStoreAppMapOutputWithContext(ctx context.Context) SecurePasswordStoreAppMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppMapOutput)
+}
+
 type SecurePasswordStoreAppOutput struct {
 	*pulumi.OutputState
 }
@@ -374,6 +453,75 @@ func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppOutputWithContext(
 	return o
 }
 
+func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppPtrOutput() SecurePasswordStoreAppPtrOutput {
+	return o.ToSecurePasswordStoreAppPtrOutputWithContext(context.Background())
+}
+
+func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
+	return o.ApplyT(func(v SecurePasswordStoreApp) *SecurePasswordStoreApp {
+		return &v
+	}).(SecurePasswordStoreAppPtrOutput)
+}
+
+type SecurePasswordStoreAppPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurePasswordStoreAppPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurePasswordStoreApp)(nil))
+}
+
+func (o SecurePasswordStoreAppPtrOutput) ToSecurePasswordStoreAppPtrOutput() SecurePasswordStoreAppPtrOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppPtrOutput) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
+	return o
+}
+
+type SecurePasswordStoreAppArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurePasswordStoreAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurePasswordStoreApp)(nil))
+}
+
+func (o SecurePasswordStoreAppArrayOutput) ToSecurePasswordStoreAppArrayOutput() SecurePasswordStoreAppArrayOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppArrayOutput) ToSecurePasswordStoreAppArrayOutputWithContext(ctx context.Context) SecurePasswordStoreAppArrayOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppArrayOutput) Index(i pulumi.IntInput) SecurePasswordStoreAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurePasswordStoreApp {
+		return vs[0].([]SecurePasswordStoreApp)[vs[1].(int)]
+	}).(SecurePasswordStoreAppOutput)
+}
+
+type SecurePasswordStoreAppMapOutput struct{ *pulumi.OutputState }
+
+func (SecurePasswordStoreAppMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurePasswordStoreApp)(nil))
+}
+
+func (o SecurePasswordStoreAppMapOutput) ToSecurePasswordStoreAppMapOutput() SecurePasswordStoreAppMapOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppMapOutput) ToSecurePasswordStoreAppMapOutputWithContext(ctx context.Context) SecurePasswordStoreAppMapOutput {
+	return o
+}
+
+func (o SecurePasswordStoreAppMapOutput) MapIndex(k pulumi.StringInput) SecurePasswordStoreAppOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurePasswordStoreApp {
+		return vs[0].(map[string]SecurePasswordStoreApp)[vs[1].(string)]
+	}).(SecurePasswordStoreAppOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurePasswordStoreAppOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStoreAppPtrOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStoreAppArrayOutput{})
+	pulumi.RegisterOutputType(SecurePasswordStoreAppMapOutput{})
 }

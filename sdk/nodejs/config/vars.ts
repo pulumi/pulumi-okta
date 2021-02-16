@@ -9,7 +9,7 @@ let __config = new pulumi.Config("okta");
 /**
  * API Token granting privileges to Okta API.
  */
-export let apiToken: string | undefined = __config.get("apiToken") || utilities.getEnv("OKTA_API_TOKEN");
+export let apiToken: string | undefined = __config.get("apiToken");
 /**
  * Use exponential back off strategy for rate limits.
  */
@@ -17,7 +17,7 @@ export let backoff: boolean | undefined = __config.getObject<boolean>("backoff")
 /**
  * The Okta url. (Use 'oktapreview.com' for Okta testing)
  */
-export let baseUrl: string | undefined = __config.get("baseUrl") || utilities.getEnv("OKTA_BASE_URL");
+export let baseUrl: string | undefined = __config.get("baseUrl");
 /**
  * API Token granting privileges to Okta API.
  */
@@ -41,7 +41,7 @@ export let minWaitSeconds: number | undefined = __config.getObject<number>("minW
 /**
  * The organization to manage in Okta.
  */
-export let orgName: string | undefined = __config.get("orgName") || utilities.getEnv("OKTA_ORG_NAME");
+export let orgName: string | undefined = __config.get("orgName");
 /**
  * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
  * https://developer.okta.com/docs/api/getting_started/rate-limits.

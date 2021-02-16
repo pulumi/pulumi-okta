@@ -109,7 +109,8 @@ export class BaseSchema extends pulumi.CustomResource {
     constructor(name: string, args: BaseSchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BaseSchemaArgs | BaseSchemaState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BaseSchemaState | undefined;
             inputs["index"] = state ? state.index : undefined;
             inputs["master"] = state ? state.master : undefined;
@@ -121,13 +122,13 @@ export class BaseSchema extends pulumi.CustomResource {
             inputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as BaseSchemaArgs | undefined;
-            if ((!args || args.index === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.index === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'index'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["index"] = args ? args.index : undefined;
@@ -139,12 +140,8 @@ export class BaseSchema extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["userType"] = args ? args.userType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BaseSchema.__pulumiType, name, inputs, opts);
     }

@@ -305,6 +305,85 @@ func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryOutput)
 }
 
+func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPtrOutput {
+	return i.ToRuleIdpDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryPtrOutput)
+}
+
+type RuleIdpDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPtrOutput
+	ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput
+}
+
+type ruleIdpDiscoveryPtrType RuleIdpDiscoveryArgs
+
+func (*ruleIdpDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleIdpDiscovery)(nil))
+}
+
+func (i *ruleIdpDiscoveryPtrType) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPtrOutput {
+	return i.ToRuleIdpDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleIdpDiscoveryPtrType) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryPtrOutput)
+}
+
+// RuleIdpDiscoveryArrayInput is an input type that accepts RuleIdpDiscoveryArray and RuleIdpDiscoveryArrayOutput values.
+// You can construct a concrete instance of `RuleIdpDiscoveryArrayInput` via:
+//
+//          RuleIdpDiscoveryArray{ RuleIdpDiscoveryArgs{...} }
+type RuleIdpDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryArrayOutput() RuleIdpDiscoveryArrayOutput
+	ToRuleIdpDiscoveryArrayOutputWithContext(context.Context) RuleIdpDiscoveryArrayOutput
+}
+
+type RuleIdpDiscoveryArray []RuleIdpDiscoveryInput
+
+func (RuleIdpDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RuleIdpDiscovery)(nil))
+}
+
+func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutput() RuleIdpDiscoveryArrayOutput {
+	return i.ToRuleIdpDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryArrayOutput)
+}
+
+// RuleIdpDiscoveryMapInput is an input type that accepts RuleIdpDiscoveryMap and RuleIdpDiscoveryMapOutput values.
+// You can construct a concrete instance of `RuleIdpDiscoveryMapInput` via:
+//
+//          RuleIdpDiscoveryMap{ "key": RuleIdpDiscoveryArgs{...} }
+type RuleIdpDiscoveryMapInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryMapOutput() RuleIdpDiscoveryMapOutput
+	ToRuleIdpDiscoveryMapOutputWithContext(context.Context) RuleIdpDiscoveryMapOutput
+}
+
+type RuleIdpDiscoveryMap map[string]RuleIdpDiscoveryInput
+
+func (RuleIdpDiscoveryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RuleIdpDiscovery)(nil))
+}
+
+func (i RuleIdpDiscoveryMap) ToRuleIdpDiscoveryMapOutput() RuleIdpDiscoveryMapOutput {
+	return i.ToRuleIdpDiscoveryMapOutputWithContext(context.Background())
+}
+
+func (i RuleIdpDiscoveryMap) ToRuleIdpDiscoveryMapOutputWithContext(ctx context.Context) RuleIdpDiscoveryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryMapOutput)
+}
+
 type RuleIdpDiscoveryOutput struct {
 	*pulumi.OutputState
 }
@@ -321,6 +400,75 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.
 	return o
 }
 
+func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPtrOutput {
+	return o.ToRuleIdpDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
+	return o.ApplyT(func(v RuleIdpDiscovery) *RuleIdpDiscovery {
+		return &v
+	}).(RuleIdpDiscoveryPtrOutput)
+}
+
+type RuleIdpDiscoveryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleIdpDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleIdpDiscovery)(nil))
+}
+
+func (o RuleIdpDiscoveryPtrOutput) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPtrOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryPtrOutput) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
+	return o
+}
+
+type RuleIdpDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleIdpDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleIdpDiscovery)(nil))
+}
+
+func (o RuleIdpDiscoveryArrayOutput) ToRuleIdpDiscoveryArrayOutput() RuleIdpDiscoveryArrayOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryArrayOutput) ToRuleIdpDiscoveryArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryArrayOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscovery {
+		return vs[0].([]RuleIdpDiscovery)[vs[1].(int)]
+	}).(RuleIdpDiscoveryOutput)
+}
+
+type RuleIdpDiscoveryMapOutput struct{ *pulumi.OutputState }
+
+func (RuleIdpDiscoveryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleIdpDiscovery)(nil))
+}
+
+func (o RuleIdpDiscoveryMapOutput) ToRuleIdpDiscoveryMapOutput() RuleIdpDiscoveryMapOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryMapOutput) ToRuleIdpDiscoveryMapOutputWithContext(ctx context.Context) RuleIdpDiscoveryMapOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryMapOutput) MapIndex(k pulumi.StringInput) RuleIdpDiscoveryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleIdpDiscovery {
+		return vs[0].(map[string]RuleIdpDiscovery)[vs[1].(string)]
+	}).(RuleIdpDiscoveryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleIdpDiscoveryOutput{})
+	pulumi.RegisterOutputType(RuleIdpDiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(RuleIdpDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(RuleIdpDiscoveryMapOutput{})
 }

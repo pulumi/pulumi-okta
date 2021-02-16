@@ -90,7 +90,8 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RuleState | undefined;
             inputs["expressionType"] = state ? state.expressionType : undefined;
             inputs["expressionValue"] = state ? state.expressionValue : undefined;
@@ -99,10 +100,10 @@ export class Rule extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if ((!args || args.expressionValue === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.expressionValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressionValue'");
             }
-            if ((!args || args.groupAssignments === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupAssignments === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupAssignments'");
             }
             inputs["expressionType"] = args ? args.expressionType : undefined;
@@ -111,12 +112,8 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["status"] = args ? args.status : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Rule.__pulumiType, name, inputs, opts);
     }

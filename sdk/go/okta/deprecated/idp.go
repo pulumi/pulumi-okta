@@ -317,6 +317,85 @@ func (i *Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdpOutput)
 }
 
+func (i *Idp) ToIdpPtrOutput() IdpPtrOutput {
+	return i.ToIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *Idp) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdpPtrOutput)
+}
+
+type IdpPtrInput interface {
+	pulumi.Input
+
+	ToIdpPtrOutput() IdpPtrOutput
+	ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput
+}
+
+type idpPtrType IdpArgs
+
+func (*idpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Idp)(nil))
+}
+
+func (i *idpPtrType) ToIdpPtrOutput() IdpPtrOutput {
+	return i.ToIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *idpPtrType) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdpPtrOutput)
+}
+
+// IdpArrayInput is an input type that accepts IdpArray and IdpArrayOutput values.
+// You can construct a concrete instance of `IdpArrayInput` via:
+//
+//          IdpArray{ IdpArgs{...} }
+type IdpArrayInput interface {
+	pulumi.Input
+
+	ToIdpArrayOutput() IdpArrayOutput
+	ToIdpArrayOutputWithContext(context.Context) IdpArrayOutput
+}
+
+type IdpArray []IdpInput
+
+func (IdpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Idp)(nil))
+}
+
+func (i IdpArray) ToIdpArrayOutput() IdpArrayOutput {
+	return i.ToIdpArrayOutputWithContext(context.Background())
+}
+
+func (i IdpArray) ToIdpArrayOutputWithContext(ctx context.Context) IdpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdpArrayOutput)
+}
+
+// IdpMapInput is an input type that accepts IdpMap and IdpMapOutput values.
+// You can construct a concrete instance of `IdpMapInput` via:
+//
+//          IdpMap{ "key": IdpArgs{...} }
+type IdpMapInput interface {
+	pulumi.Input
+
+	ToIdpMapOutput() IdpMapOutput
+	ToIdpMapOutputWithContext(context.Context) IdpMapOutput
+}
+
+type IdpMap map[string]IdpInput
+
+func (IdpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Idp)(nil))
+}
+
+func (i IdpMap) ToIdpMapOutput() IdpMapOutput {
+	return i.ToIdpMapOutputWithContext(context.Background())
+}
+
+func (i IdpMap) ToIdpMapOutputWithContext(ctx context.Context) IdpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdpMapOutput)
+}
+
 type IdpOutput struct {
 	*pulumi.OutputState
 }
@@ -333,6 +412,75 @@ func (o IdpOutput) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return o
 }
 
+func (o IdpOutput) ToIdpPtrOutput() IdpPtrOutput {
+	return o.ToIdpPtrOutputWithContext(context.Background())
+}
+
+func (o IdpOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
+	return o.ApplyT(func(v Idp) *Idp {
+		return &v
+	}).(IdpPtrOutput)
+}
+
+type IdpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Idp)(nil))
+}
+
+func (o IdpPtrOutput) ToIdpPtrOutput() IdpPtrOutput {
+	return o
+}
+
+func (o IdpPtrOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
+	return o
+}
+
+type IdpArrayOutput struct{ *pulumi.OutputState }
+
+func (IdpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Idp)(nil))
+}
+
+func (o IdpArrayOutput) ToIdpArrayOutput() IdpArrayOutput {
+	return o
+}
+
+func (o IdpArrayOutput) ToIdpArrayOutputWithContext(ctx context.Context) IdpArrayOutput {
+	return o
+}
+
+func (o IdpArrayOutput) Index(i pulumi.IntInput) IdpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Idp {
+		return vs[0].([]Idp)[vs[1].(int)]
+	}).(IdpOutput)
+}
+
+type IdpMapOutput struct{ *pulumi.OutputState }
+
+func (IdpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Idp)(nil))
+}
+
+func (o IdpMapOutput) ToIdpMapOutput() IdpMapOutput {
+	return o
+}
+
+func (o IdpMapOutput) ToIdpMapOutputWithContext(ctx context.Context) IdpMapOutput {
+	return o
+}
+
+func (o IdpMapOutput) MapIndex(k pulumi.StringInput) IdpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Idp {
+		return vs[0].(map[string]Idp)[vs[1].(string)]
+	}).(IdpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdpOutput{})
+	pulumi.RegisterOutputType(IdpPtrOutput{})
+	pulumi.RegisterOutputType(IdpArrayOutput{})
+	pulumi.RegisterOutputType(IdpMapOutput{})
 }

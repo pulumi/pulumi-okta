@@ -160,7 +160,8 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
     constructor(name: string, args: RuleIdpDiscoveryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleIdpDiscoveryArgs | RuleIdpDiscoveryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RuleIdpDiscoveryState | undefined;
             inputs["appExcludes"] = state ? state.appExcludes : undefined;
             inputs["appIncludes"] = state ? state.appIncludes : undefined;
@@ -179,7 +180,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             inputs["userIdentifierType"] = state ? state.userIdentifierType : undefined;
         } else {
             const args = argsOrState as RuleIdpDiscoveryArgs | undefined;
-            if ((!args || args.policyid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyid'");
             }
             inputs["appExcludes"] = args ? args.appExcludes : undefined;
@@ -198,12 +199,8 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             inputs["userIdentifierPatterns"] = args ? args.userIdentifierPatterns : undefined;
             inputs["userIdentifierType"] = args ? args.userIdentifierType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RuleIdpDiscovery.__pulumiType, name, inputs, opts);
     }

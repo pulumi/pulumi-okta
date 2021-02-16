@@ -84,7 +84,8 @@ export class Origin extends pulumi.CustomResource {
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginArgs | OriginState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OriginState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -92,10 +93,10 @@ export class Origin extends pulumi.CustomResource {
             inputs["scopes"] = state ? state.scopes : undefined;
         } else {
             const args = argsOrState as OriginArgs | undefined;
-            if ((!args || args.origin === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.origin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -103,12 +104,8 @@ export class Origin extends pulumi.CustomResource {
             inputs["origin"] = args ? args.origin : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Origin.__pulumiType, name, inputs, opts);
     }

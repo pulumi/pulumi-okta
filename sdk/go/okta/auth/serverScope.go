@@ -183,6 +183,85 @@ func (i *ServerScope) ToServerScopeOutputWithContext(ctx context.Context) Server
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeOutput)
 }
 
+func (i *ServerScope) ToServerScopePtrOutput() ServerScopePtrOutput {
+	return i.ToServerScopePtrOutputWithContext(context.Background())
+}
+
+func (i *ServerScope) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerScopePtrOutput)
+}
+
+type ServerScopePtrInput interface {
+	pulumi.Input
+
+	ToServerScopePtrOutput() ServerScopePtrOutput
+	ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput
+}
+
+type serverScopePtrType ServerScopeArgs
+
+func (*serverScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerScope)(nil))
+}
+
+func (i *serverScopePtrType) ToServerScopePtrOutput() ServerScopePtrOutput {
+	return i.ToServerScopePtrOutputWithContext(context.Background())
+}
+
+func (i *serverScopePtrType) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerScopePtrOutput)
+}
+
+// ServerScopeArrayInput is an input type that accepts ServerScopeArray and ServerScopeArrayOutput values.
+// You can construct a concrete instance of `ServerScopeArrayInput` via:
+//
+//          ServerScopeArray{ ServerScopeArgs{...} }
+type ServerScopeArrayInput interface {
+	pulumi.Input
+
+	ToServerScopeArrayOutput() ServerScopeArrayOutput
+	ToServerScopeArrayOutputWithContext(context.Context) ServerScopeArrayOutput
+}
+
+type ServerScopeArray []ServerScopeInput
+
+func (ServerScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerScope)(nil))
+}
+
+func (i ServerScopeArray) ToServerScopeArrayOutput() ServerScopeArrayOutput {
+	return i.ToServerScopeArrayOutputWithContext(context.Background())
+}
+
+func (i ServerScopeArray) ToServerScopeArrayOutputWithContext(ctx context.Context) ServerScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeArrayOutput)
+}
+
+// ServerScopeMapInput is an input type that accepts ServerScopeMap and ServerScopeMapOutput values.
+// You can construct a concrete instance of `ServerScopeMapInput` via:
+//
+//          ServerScopeMap{ "key": ServerScopeArgs{...} }
+type ServerScopeMapInput interface {
+	pulumi.Input
+
+	ToServerScopeMapOutput() ServerScopeMapOutput
+	ToServerScopeMapOutputWithContext(context.Context) ServerScopeMapOutput
+}
+
+type ServerScopeMap map[string]ServerScopeInput
+
+func (ServerScopeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerScope)(nil))
+}
+
+func (i ServerScopeMap) ToServerScopeMapOutput() ServerScopeMapOutput {
+	return i.ToServerScopeMapOutputWithContext(context.Background())
+}
+
+func (i ServerScopeMap) ToServerScopeMapOutputWithContext(ctx context.Context) ServerScopeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeMapOutput)
+}
+
 type ServerScopeOutput struct {
 	*pulumi.OutputState
 }
@@ -199,6 +278,75 @@ func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ServerScopeOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
+	return o.ToServerScopePtrOutputWithContext(context.Background())
+}
+
+func (o ServerScopeOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
+	return o.ApplyT(func(v ServerScope) *ServerScope {
+		return &v
+	}).(ServerScopePtrOutput)
+}
+
+type ServerScopePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerScope)(nil))
+}
+
+func (o ServerScopePtrOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
+	return o
+}
+
+func (o ServerScopePtrOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
+	return o
+}
+
+type ServerScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerScope)(nil))
+}
+
+func (o ServerScopeArrayOutput) ToServerScopeArrayOutput() ServerScopeArrayOutput {
+	return o
+}
+
+func (o ServerScopeArrayOutput) ToServerScopeArrayOutputWithContext(ctx context.Context) ServerScopeArrayOutput {
+	return o
+}
+
+func (o ServerScopeArrayOutput) Index(i pulumi.IntInput) ServerScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerScope {
+		return vs[0].([]ServerScope)[vs[1].(int)]
+	}).(ServerScopeOutput)
+}
+
+type ServerScopeMapOutput struct{ *pulumi.OutputState }
+
+func (ServerScopeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerScope)(nil))
+}
+
+func (o ServerScopeMapOutput) ToServerScopeMapOutput() ServerScopeMapOutput {
+	return o
+}
+
+func (o ServerScopeMapOutput) ToServerScopeMapOutputWithContext(ctx context.Context) ServerScopeMapOutput {
+	return o
+}
+
+func (o ServerScopeMapOutput) MapIndex(k pulumi.StringInput) ServerScopeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerScope {
+		return vs[0].(map[string]ServerScope)[vs[1].(string)]
+	}).(ServerScopeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerScopeOutput{})
+	pulumi.RegisterOutputType(ServerScopePtrOutput{})
+	pulumi.RegisterOutputType(ServerScopeArrayOutput{})
+	pulumi.RegisterOutputType(ServerScopeMapOutput{})
 }

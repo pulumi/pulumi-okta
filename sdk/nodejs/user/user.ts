@@ -253,7 +253,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["adminRoles"] = state ? state.adminRoles : undefined;
             inputs["city"] = state ? state.city : undefined;
@@ -296,16 +297,16 @@ export class User extends pulumi.CustomResource {
             inputs["zipCode"] = state ? state.zipCode : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firstName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lastName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
             inputs["adminRoles"] = args ? args.adminRoles : undefined;
@@ -348,12 +349,8 @@ export class User extends pulumi.CustomResource {
             inputs["zipCode"] = args ? args.zipCode : undefined;
             inputs["rawStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }

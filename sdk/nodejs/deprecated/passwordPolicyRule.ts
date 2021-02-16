@@ -88,7 +88,8 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
     constructor(name: string, args: PasswordPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PasswordPolicyRuleArgs | PasswordPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PasswordPolicyRuleState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
@@ -103,7 +104,7 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as PasswordPolicyRuleArgs | undefined;
-            if ((!args || args.policyid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyid'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -118,12 +119,8 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PasswordPolicyRule.__pulumiType, name, inputs, opts);
     }

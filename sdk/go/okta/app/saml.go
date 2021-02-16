@@ -595,6 +595,85 @@ func (i *Saml) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlOutput)
 }
 
+func (i *Saml) ToSamlPtrOutput() SamlPtrOutput {
+	return i.ToSamlPtrOutputWithContext(context.Background())
+}
+
+func (i *Saml) ToSamlPtrOutputWithContext(ctx context.Context) SamlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlPtrOutput)
+}
+
+type SamlPtrInput interface {
+	pulumi.Input
+
+	ToSamlPtrOutput() SamlPtrOutput
+	ToSamlPtrOutputWithContext(ctx context.Context) SamlPtrOutput
+}
+
+type samlPtrType SamlArgs
+
+func (*samlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Saml)(nil))
+}
+
+func (i *samlPtrType) ToSamlPtrOutput() SamlPtrOutput {
+	return i.ToSamlPtrOutputWithContext(context.Background())
+}
+
+func (i *samlPtrType) ToSamlPtrOutputWithContext(ctx context.Context) SamlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlPtrOutput)
+}
+
+// SamlArrayInput is an input type that accepts SamlArray and SamlArrayOutput values.
+// You can construct a concrete instance of `SamlArrayInput` via:
+//
+//          SamlArray{ SamlArgs{...} }
+type SamlArrayInput interface {
+	pulumi.Input
+
+	ToSamlArrayOutput() SamlArrayOutput
+	ToSamlArrayOutputWithContext(context.Context) SamlArrayOutput
+}
+
+type SamlArray []SamlInput
+
+func (SamlArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Saml)(nil))
+}
+
+func (i SamlArray) ToSamlArrayOutput() SamlArrayOutput {
+	return i.ToSamlArrayOutputWithContext(context.Background())
+}
+
+func (i SamlArray) ToSamlArrayOutputWithContext(ctx context.Context) SamlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlArrayOutput)
+}
+
+// SamlMapInput is an input type that accepts SamlMap and SamlMapOutput values.
+// You can construct a concrete instance of `SamlMapInput` via:
+//
+//          SamlMap{ "key": SamlArgs{...} }
+type SamlMapInput interface {
+	pulumi.Input
+
+	ToSamlMapOutput() SamlMapOutput
+	ToSamlMapOutputWithContext(context.Context) SamlMapOutput
+}
+
+type SamlMap map[string]SamlInput
+
+func (SamlMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Saml)(nil))
+}
+
+func (i SamlMap) ToSamlMapOutput() SamlMapOutput {
+	return i.ToSamlMapOutputWithContext(context.Background())
+}
+
+func (i SamlMap) ToSamlMapOutputWithContext(ctx context.Context) SamlMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlMapOutput)
+}
+
 type SamlOutput struct {
 	*pulumi.OutputState
 }
@@ -611,6 +690,75 @@ func (o SamlOutput) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 	return o
 }
 
+func (o SamlOutput) ToSamlPtrOutput() SamlPtrOutput {
+	return o.ToSamlPtrOutputWithContext(context.Background())
+}
+
+func (o SamlOutput) ToSamlPtrOutputWithContext(ctx context.Context) SamlPtrOutput {
+	return o.ApplyT(func(v Saml) *Saml {
+		return &v
+	}).(SamlPtrOutput)
+}
+
+type SamlPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Saml)(nil))
+}
+
+func (o SamlPtrOutput) ToSamlPtrOutput() SamlPtrOutput {
+	return o
+}
+
+func (o SamlPtrOutput) ToSamlPtrOutputWithContext(ctx context.Context) SamlPtrOutput {
+	return o
+}
+
+type SamlArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Saml)(nil))
+}
+
+func (o SamlArrayOutput) ToSamlArrayOutput() SamlArrayOutput {
+	return o
+}
+
+func (o SamlArrayOutput) ToSamlArrayOutputWithContext(ctx context.Context) SamlArrayOutput {
+	return o
+}
+
+func (o SamlArrayOutput) Index(i pulumi.IntInput) SamlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml {
+		return vs[0].([]Saml)[vs[1].(int)]
+	}).(SamlOutput)
+}
+
+type SamlMapOutput struct{ *pulumi.OutputState }
+
+func (SamlMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Saml)(nil))
+}
+
+func (o SamlMapOutput) ToSamlMapOutput() SamlMapOutput {
+	return o
+}
+
+func (o SamlMapOutput) ToSamlMapOutputWithContext(ctx context.Context) SamlMapOutput {
+	return o
+}
+
+func (o SamlMapOutput) MapIndex(k pulumi.StringInput) SamlOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Saml {
+		return vs[0].(map[string]Saml)[vs[1].(string)]
+	}).(SamlOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamlOutput{})
+	pulumi.RegisterOutputType(SamlPtrOutput{})
+	pulumi.RegisterOutputType(SamlArrayOutput{})
+	pulumi.RegisterOutputType(SamlMapOutput{})
 }

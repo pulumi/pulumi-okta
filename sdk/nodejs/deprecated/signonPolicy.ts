@@ -64,7 +64,8 @@ export class SignonPolicy extends pulumi.CustomResource {
     constructor(name: string, args?: SignonPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SignonPolicyArgs | SignonPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SignonPolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
@@ -79,12 +80,8 @@ export class SignonPolicy extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["status"] = args ? args.status : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SignonPolicy.__pulumiType, name, inputs, opts);
     }

@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/"
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -192,6 +192,85 @@ func (i *EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookO
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookOutput)
 }
 
+func (i *EventHook) ToEventHookPtrOutput() EventHookPtrOutput {
+	return i.ToEventHookPtrOutputWithContext(context.Background())
+}
+
+func (i *EventHook) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHookPtrOutput)
+}
+
+type EventHookPtrInput interface {
+	pulumi.Input
+
+	ToEventHookPtrOutput() EventHookPtrOutput
+	ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput
+}
+
+type eventHookPtrType EventHookArgs
+
+func (*eventHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHook)(nil))
+}
+
+func (i *eventHookPtrType) ToEventHookPtrOutput() EventHookPtrOutput {
+	return i.ToEventHookPtrOutputWithContext(context.Background())
+}
+
+func (i *eventHookPtrType) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHookPtrOutput)
+}
+
+// EventHookArrayInput is an input type that accepts EventHookArray and EventHookArrayOutput values.
+// You can construct a concrete instance of `EventHookArrayInput` via:
+//
+//          EventHookArray{ EventHookArgs{...} }
+type EventHookArrayInput interface {
+	pulumi.Input
+
+	ToEventHookArrayOutput() EventHookArrayOutput
+	ToEventHookArrayOutputWithContext(context.Context) EventHookArrayOutput
+}
+
+type EventHookArray []EventHookInput
+
+func (EventHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventHook)(nil))
+}
+
+func (i EventHookArray) ToEventHookArrayOutput() EventHookArrayOutput {
+	return i.ToEventHookArrayOutputWithContext(context.Background())
+}
+
+func (i EventHookArray) ToEventHookArrayOutputWithContext(ctx context.Context) EventHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHookArrayOutput)
+}
+
+// EventHookMapInput is an input type that accepts EventHookMap and EventHookMapOutput values.
+// You can construct a concrete instance of `EventHookMapInput` via:
+//
+//          EventHookMap{ "key": EventHookArgs{...} }
+type EventHookMapInput interface {
+	pulumi.Input
+
+	ToEventHookMapOutput() EventHookMapOutput
+	ToEventHookMapOutputWithContext(context.Context) EventHookMapOutput
+}
+
+type EventHookMap map[string]EventHookInput
+
+func (EventHookMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventHook)(nil))
+}
+
+func (i EventHookMap) ToEventHookMapOutput() EventHookMapOutput {
+	return i.ToEventHookMapOutputWithContext(context.Background())
+}
+
+func (i EventHookMap) ToEventHookMapOutputWithContext(ctx context.Context) EventHookMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHookMapOutput)
+}
+
 type EventHookOutput struct {
 	*pulumi.OutputState
 }
@@ -208,6 +287,75 @@ func (o EventHookOutput) ToEventHookOutputWithContext(ctx context.Context) Event
 	return o
 }
 
+func (o EventHookOutput) ToEventHookPtrOutput() EventHookPtrOutput {
+	return o.ToEventHookPtrOutputWithContext(context.Background())
+}
+
+func (o EventHookOutput) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
+	return o.ApplyT(func(v EventHook) *EventHook {
+		return &v
+	}).(EventHookPtrOutput)
+}
+
+type EventHookPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHook)(nil))
+}
+
+func (o EventHookPtrOutput) ToEventHookPtrOutput() EventHookPtrOutput {
+	return o
+}
+
+func (o EventHookPtrOutput) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
+	return o
+}
+
+type EventHookArrayOutput struct{ *pulumi.OutputState }
+
+func (EventHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHook)(nil))
+}
+
+func (o EventHookArrayOutput) ToEventHookArrayOutput() EventHookArrayOutput {
+	return o
+}
+
+func (o EventHookArrayOutput) ToEventHookArrayOutputWithContext(ctx context.Context) EventHookArrayOutput {
+	return o
+}
+
+func (o EventHookArrayOutput) Index(i pulumi.IntInput) EventHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHook {
+		return vs[0].([]EventHook)[vs[1].(int)]
+	}).(EventHookOutput)
+}
+
+type EventHookMapOutput struct{ *pulumi.OutputState }
+
+func (EventHookMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHook)(nil))
+}
+
+func (o EventHookMapOutput) ToEventHookMapOutput() EventHookMapOutput {
+	return o
+}
+
+func (o EventHookMapOutput) ToEventHookMapOutputWithContext(ctx context.Context) EventHookMapOutput {
+	return o
+}
+
+func (o EventHookMapOutput) MapIndex(k pulumi.StringInput) EventHookOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHook {
+		return vs[0].(map[string]EventHook)[vs[1].(string)]
+	}).(EventHookOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHookOutput{})
+	pulumi.RegisterOutputType(EventHookPtrOutput{})
+	pulumi.RegisterOutputType(EventHookArrayOutput{})
+	pulumi.RegisterOutputType(EventHookMapOutput{})
 }

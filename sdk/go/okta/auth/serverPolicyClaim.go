@@ -306,6 +306,85 @@ func (i *ServerPolicyClaim) ToServerPolicyClaimOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimOutput)
 }
 
+func (i *ServerPolicyClaim) ToServerPolicyClaimPtrOutput() ServerPolicyClaimPtrOutput {
+	return i.ToServerPolicyClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *ServerPolicyClaim) ToServerPolicyClaimPtrOutputWithContext(ctx context.Context) ServerPolicyClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimPtrOutput)
+}
+
+type ServerPolicyClaimPtrInput interface {
+	pulumi.Input
+
+	ToServerPolicyClaimPtrOutput() ServerPolicyClaimPtrOutput
+	ToServerPolicyClaimPtrOutputWithContext(ctx context.Context) ServerPolicyClaimPtrOutput
+}
+
+type serverPolicyClaimPtrType ServerPolicyClaimArgs
+
+func (*serverPolicyClaimPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerPolicyClaim)(nil))
+}
+
+func (i *serverPolicyClaimPtrType) ToServerPolicyClaimPtrOutput() ServerPolicyClaimPtrOutput {
+	return i.ToServerPolicyClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *serverPolicyClaimPtrType) ToServerPolicyClaimPtrOutputWithContext(ctx context.Context) ServerPolicyClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimPtrOutput)
+}
+
+// ServerPolicyClaimArrayInput is an input type that accepts ServerPolicyClaimArray and ServerPolicyClaimArrayOutput values.
+// You can construct a concrete instance of `ServerPolicyClaimArrayInput` via:
+//
+//          ServerPolicyClaimArray{ ServerPolicyClaimArgs{...} }
+type ServerPolicyClaimArrayInput interface {
+	pulumi.Input
+
+	ToServerPolicyClaimArrayOutput() ServerPolicyClaimArrayOutput
+	ToServerPolicyClaimArrayOutputWithContext(context.Context) ServerPolicyClaimArrayOutput
+}
+
+type ServerPolicyClaimArray []ServerPolicyClaimInput
+
+func (ServerPolicyClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerPolicyClaim)(nil))
+}
+
+func (i ServerPolicyClaimArray) ToServerPolicyClaimArrayOutput() ServerPolicyClaimArrayOutput {
+	return i.ToServerPolicyClaimArrayOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyClaimArray) ToServerPolicyClaimArrayOutputWithContext(ctx context.Context) ServerPolicyClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimArrayOutput)
+}
+
+// ServerPolicyClaimMapInput is an input type that accepts ServerPolicyClaimMap and ServerPolicyClaimMapOutput values.
+// You can construct a concrete instance of `ServerPolicyClaimMapInput` via:
+//
+//          ServerPolicyClaimMap{ "key": ServerPolicyClaimArgs{...} }
+type ServerPolicyClaimMapInput interface {
+	pulumi.Input
+
+	ToServerPolicyClaimMapOutput() ServerPolicyClaimMapOutput
+	ToServerPolicyClaimMapOutputWithContext(context.Context) ServerPolicyClaimMapOutput
+}
+
+type ServerPolicyClaimMap map[string]ServerPolicyClaimInput
+
+func (ServerPolicyClaimMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerPolicyClaim)(nil))
+}
+
+func (i ServerPolicyClaimMap) ToServerPolicyClaimMapOutput() ServerPolicyClaimMapOutput {
+	return i.ToServerPolicyClaimMapOutputWithContext(context.Background())
+}
+
+func (i ServerPolicyClaimMap) ToServerPolicyClaimMapOutputWithContext(ctx context.Context) ServerPolicyClaimMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimMapOutput)
+}
+
 type ServerPolicyClaimOutput struct {
 	*pulumi.OutputState
 }
@@ -322,6 +401,75 @@ func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServerPolicyClaimOutput) ToServerPolicyClaimPtrOutput() ServerPolicyClaimPtrOutput {
+	return o.ToServerPolicyClaimPtrOutputWithContext(context.Background())
+}
+
+func (o ServerPolicyClaimOutput) ToServerPolicyClaimPtrOutputWithContext(ctx context.Context) ServerPolicyClaimPtrOutput {
+	return o.ApplyT(func(v ServerPolicyClaim) *ServerPolicyClaim {
+		return &v
+	}).(ServerPolicyClaimPtrOutput)
+}
+
+type ServerPolicyClaimPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerPolicyClaimPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerPolicyClaim)(nil))
+}
+
+func (o ServerPolicyClaimPtrOutput) ToServerPolicyClaimPtrOutput() ServerPolicyClaimPtrOutput {
+	return o
+}
+
+func (o ServerPolicyClaimPtrOutput) ToServerPolicyClaimPtrOutputWithContext(ctx context.Context) ServerPolicyClaimPtrOutput {
+	return o
+}
+
+type ServerPolicyClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerPolicyClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPolicyClaim)(nil))
+}
+
+func (o ServerPolicyClaimArrayOutput) ToServerPolicyClaimArrayOutput() ServerPolicyClaimArrayOutput {
+	return o
+}
+
+func (o ServerPolicyClaimArrayOutput) ToServerPolicyClaimArrayOutputWithContext(ctx context.Context) ServerPolicyClaimArrayOutput {
+	return o
+}
+
+func (o ServerPolicyClaimArrayOutput) Index(i pulumi.IntInput) ServerPolicyClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPolicyClaim {
+		return vs[0].([]ServerPolicyClaim)[vs[1].(int)]
+	}).(ServerPolicyClaimOutput)
+}
+
+type ServerPolicyClaimMapOutput struct{ *pulumi.OutputState }
+
+func (ServerPolicyClaimMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerPolicyClaim)(nil))
+}
+
+func (o ServerPolicyClaimMapOutput) ToServerPolicyClaimMapOutput() ServerPolicyClaimMapOutput {
+	return o
+}
+
+func (o ServerPolicyClaimMapOutput) ToServerPolicyClaimMapOutputWithContext(ctx context.Context) ServerPolicyClaimMapOutput {
+	return o
+}
+
+func (o ServerPolicyClaimMapOutput) MapIndex(k pulumi.StringInput) ServerPolicyClaimOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerPolicyClaim {
+		return vs[0].(map[string]ServerPolicyClaim)[vs[1].(string)]
+	}).(ServerPolicyClaimOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerPolicyClaimOutput{})
+	pulumi.RegisterOutputType(ServerPolicyClaimPtrOutput{})
+	pulumi.RegisterOutputType(ServerPolicyClaimArrayOutput{})
+	pulumi.RegisterOutputType(ServerPolicyClaimMapOutput{})
 }

@@ -162,7 +162,8 @@ export class UserSchema extends pulumi.CustomResource {
     constructor(name: string, args: UserSchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserSchemaArgs | UserSchemaState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserSchemaState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["arrayEnums"] = state ? state.arrayEnums : undefined;
@@ -188,16 +189,16 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as UserSchemaArgs | undefined;
-            if ((!args || args.appId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.index === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.index === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'index'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["appId"] = args ? args.appId : undefined;
@@ -223,12 +224,8 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["unique"] = args ? args.unique : undefined;
             inputs["userType"] = args ? args.userType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserSchema.__pulumiType, name, inputs, opts);
     }

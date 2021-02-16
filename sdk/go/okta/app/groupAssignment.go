@@ -184,6 +184,85 @@ func (i *GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentOutput)
 }
 
+func (i *GroupAssignment) ToGroupAssignmentPtrOutput() GroupAssignmentPtrOutput {
+	return i.ToGroupAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *GroupAssignment) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentPtrOutput)
+}
+
+type GroupAssignmentPtrInput interface {
+	pulumi.Input
+
+	ToGroupAssignmentPtrOutput() GroupAssignmentPtrOutput
+	ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput
+}
+
+type groupAssignmentPtrType GroupAssignmentArgs
+
+func (*groupAssignmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupAssignment)(nil))
+}
+
+func (i *groupAssignmentPtrType) ToGroupAssignmentPtrOutput() GroupAssignmentPtrOutput {
+	return i.ToGroupAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *groupAssignmentPtrType) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentPtrOutput)
+}
+
+// GroupAssignmentArrayInput is an input type that accepts GroupAssignmentArray and GroupAssignmentArrayOutput values.
+// You can construct a concrete instance of `GroupAssignmentArrayInput` via:
+//
+//          GroupAssignmentArray{ GroupAssignmentArgs{...} }
+type GroupAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGroupAssignmentArrayOutput() GroupAssignmentArrayOutput
+	ToGroupAssignmentArrayOutputWithContext(context.Context) GroupAssignmentArrayOutput
+}
+
+type GroupAssignmentArray []GroupAssignmentInput
+
+func (GroupAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GroupAssignment)(nil))
+}
+
+func (i GroupAssignmentArray) ToGroupAssignmentArrayOutput() GroupAssignmentArrayOutput {
+	return i.ToGroupAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GroupAssignmentArray) ToGroupAssignmentArrayOutputWithContext(ctx context.Context) GroupAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentArrayOutput)
+}
+
+// GroupAssignmentMapInput is an input type that accepts GroupAssignmentMap and GroupAssignmentMapOutput values.
+// You can construct a concrete instance of `GroupAssignmentMapInput` via:
+//
+//          GroupAssignmentMap{ "key": GroupAssignmentArgs{...} }
+type GroupAssignmentMapInput interface {
+	pulumi.Input
+
+	ToGroupAssignmentMapOutput() GroupAssignmentMapOutput
+	ToGroupAssignmentMapOutputWithContext(context.Context) GroupAssignmentMapOutput
+}
+
+type GroupAssignmentMap map[string]GroupAssignmentInput
+
+func (GroupAssignmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GroupAssignment)(nil))
+}
+
+func (i GroupAssignmentMap) ToGroupAssignmentMapOutput() GroupAssignmentMapOutput {
+	return i.ToGroupAssignmentMapOutputWithContext(context.Background())
+}
+
+func (i GroupAssignmentMap) ToGroupAssignmentMapOutputWithContext(ctx context.Context) GroupAssignmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentMapOutput)
+}
+
 type GroupAssignmentOutput struct {
 	*pulumi.OutputState
 }
@@ -200,6 +279,75 @@ func (o GroupAssignmentOutput) ToGroupAssignmentOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o GroupAssignmentOutput) ToGroupAssignmentPtrOutput() GroupAssignmentPtrOutput {
+	return o.ToGroupAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (o GroupAssignmentOutput) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
+	return o.ApplyT(func(v GroupAssignment) *GroupAssignment {
+		return &v
+	}).(GroupAssignmentPtrOutput)
+}
+
+type GroupAssignmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupAssignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupAssignment)(nil))
+}
+
+func (o GroupAssignmentPtrOutput) ToGroupAssignmentPtrOutput() GroupAssignmentPtrOutput {
+	return o
+}
+
+func (o GroupAssignmentPtrOutput) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
+	return o
+}
+
+type GroupAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupAssignment)(nil))
+}
+
+func (o GroupAssignmentArrayOutput) ToGroupAssignmentArrayOutput() GroupAssignmentArrayOutput {
+	return o
+}
+
+func (o GroupAssignmentArrayOutput) ToGroupAssignmentArrayOutputWithContext(ctx context.Context) GroupAssignmentArrayOutput {
+	return o
+}
+
+func (o GroupAssignmentArrayOutput) Index(i pulumi.IntInput) GroupAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupAssignment {
+		return vs[0].([]GroupAssignment)[vs[1].(int)]
+	}).(GroupAssignmentOutput)
+}
+
+type GroupAssignmentMapOutput struct{ *pulumi.OutputState }
+
+func (GroupAssignmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GroupAssignment)(nil))
+}
+
+func (o GroupAssignmentMapOutput) ToGroupAssignmentMapOutput() GroupAssignmentMapOutput {
+	return o
+}
+
+func (o GroupAssignmentMapOutput) ToGroupAssignmentMapOutputWithContext(ctx context.Context) GroupAssignmentMapOutput {
+	return o
+}
+
+func (o GroupAssignmentMapOutput) MapIndex(k pulumi.StringInput) GroupAssignmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupAssignment {
+		return vs[0].(map[string]GroupAssignment)[vs[1].(string)]
+	}).(GroupAssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupAssignmentOutput{})
+	pulumi.RegisterOutputType(GroupAssignmentPtrOutput{})
+	pulumi.RegisterOutputType(GroupAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(GroupAssignmentMapOutput{})
 }

@@ -205,7 +205,8 @@ export class Social extends pulumi.CustomResource {
     constructor(name: string, args: SocialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SocialArgs | SocialState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SocialState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
@@ -241,10 +242,10 @@ export class Social extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SocialArgs | undefined;
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
@@ -280,12 +281,8 @@ export class Social extends pulumi.CustomResource {
             inputs["tokenBinding"] = undefined /*out*/;
             inputs["tokenUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Social.__pulumiType, name, inputs, opts);
     }

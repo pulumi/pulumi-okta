@@ -169,6 +169,85 @@ func (i *SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
 }
 
+func (i *SamlKey) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
+	return i.ToSamlKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *SamlKey) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyPtrOutput)
+}
+
+type SamlKeyPtrInput interface {
+	pulumi.Input
+
+	ToSamlKeyPtrOutput() SamlKeyPtrOutput
+	ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput
+}
+
+type samlKeyPtrType SamlKeyArgs
+
+func (*samlKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlKey)(nil))
+}
+
+func (i *samlKeyPtrType) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
+	return i.ToSamlKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *samlKeyPtrType) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyPtrOutput)
+}
+
+// SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
+// You can construct a concrete instance of `SamlKeyArrayInput` via:
+//
+//          SamlKeyArray{ SamlKeyArgs{...} }
+type SamlKeyArrayInput interface {
+	pulumi.Input
+
+	ToSamlKeyArrayOutput() SamlKeyArrayOutput
+	ToSamlKeyArrayOutputWithContext(context.Context) SamlKeyArrayOutput
+}
+
+type SamlKeyArray []SamlKeyInput
+
+func (SamlKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SamlKey)(nil))
+}
+
+func (i SamlKeyArray) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
+	return i.ToSamlKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SamlKeyArray) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyArrayOutput)
+}
+
+// SamlKeyMapInput is an input type that accepts SamlKeyMap and SamlKeyMapOutput values.
+// You can construct a concrete instance of `SamlKeyMapInput` via:
+//
+//          SamlKeyMap{ "key": SamlKeyArgs{...} }
+type SamlKeyMapInput interface {
+	pulumi.Input
+
+	ToSamlKeyMapOutput() SamlKeyMapOutput
+	ToSamlKeyMapOutputWithContext(context.Context) SamlKeyMapOutput
+}
+
+type SamlKeyMap map[string]SamlKeyInput
+
+func (SamlKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SamlKey)(nil))
+}
+
+func (i SamlKeyMap) ToSamlKeyMapOutput() SamlKeyMapOutput {
+	return i.ToSamlKeyMapOutputWithContext(context.Background())
+}
+
+func (i SamlKeyMap) ToSamlKeyMapOutputWithContext(ctx context.Context) SamlKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyMapOutput)
+}
+
 type SamlKeyOutput struct {
 	*pulumi.OutputState
 }
@@ -185,6 +264,75 @@ func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOu
 	return o
 }
 
+func (o SamlKeyOutput) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
+	return o.ToSamlKeyPtrOutputWithContext(context.Background())
+}
+
+func (o SamlKeyOutput) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
+	return o.ApplyT(func(v SamlKey) *SamlKey {
+		return &v
+	}).(SamlKeyPtrOutput)
+}
+
+type SamlKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamlKey)(nil))
+}
+
+func (o SamlKeyPtrOutput) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
+	return o
+}
+
+func (o SamlKeyPtrOutput) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
+	return o
+}
+
+type SamlKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlKey)(nil))
+}
+
+func (o SamlKeyArrayOutput) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
+	return o
+}
+
+func (o SamlKeyArrayOutput) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlKeyArrayOutput {
+	return o
+}
+
+func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlKey {
+		return vs[0].([]SamlKey)[vs[1].(int)]
+	}).(SamlKeyOutput)
+}
+
+type SamlKeyMapOutput struct{ *pulumi.OutputState }
+
+func (SamlKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SamlKey)(nil))
+}
+
+func (o SamlKeyMapOutput) ToSamlKeyMapOutput() SamlKeyMapOutput {
+	return o
+}
+
+func (o SamlKeyMapOutput) ToSamlKeyMapOutputWithContext(ctx context.Context) SamlKeyMapOutput {
+	return o
+}
+
+func (o SamlKeyMapOutput) MapIndex(k pulumi.StringInput) SamlKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlKey {
+		return vs[0].(map[string]SamlKey)[vs[1].(string)]
+	}).(SamlKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SamlKeyOutput{})
+	pulumi.RegisterOutputType(SamlKeyPtrOutput{})
+	pulumi.RegisterOutputType(SamlKeyArrayOutput{})
+	pulumi.RegisterOutputType(SamlKeyMapOutput{})
 }

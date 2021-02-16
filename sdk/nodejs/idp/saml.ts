@@ -207,7 +207,8 @@ export class Saml extends pulumi.CustomResource {
     constructor(name: string, args: SamlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlArgs | SamlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SamlState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
@@ -244,13 +245,13 @@ export class Saml extends pulumi.CustomResource {
             inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if ((!args || args.issuer === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.issuer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.kid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kid'");
             }
-            if ((!args || args.ssoUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ssoUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ssoUrl'");
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
@@ -287,12 +288,8 @@ export class Saml extends pulumi.CustomResource {
             inputs["audience"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Saml.__pulumiType, name, inputs, opts);
     }

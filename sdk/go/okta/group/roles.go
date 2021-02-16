@@ -144,6 +144,85 @@ func (i *Roles) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolesOutput)
 }
 
+func (i *Roles) ToRolesPtrOutput() RolesPtrOutput {
+	return i.ToRolesPtrOutputWithContext(context.Background())
+}
+
+func (i *Roles) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolesPtrOutput)
+}
+
+type RolesPtrInput interface {
+	pulumi.Input
+
+	ToRolesPtrOutput() RolesPtrOutput
+	ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput
+}
+
+type rolesPtrType RolesArgs
+
+func (*rolesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Roles)(nil))
+}
+
+func (i *rolesPtrType) ToRolesPtrOutput() RolesPtrOutput {
+	return i.ToRolesPtrOutputWithContext(context.Background())
+}
+
+func (i *rolesPtrType) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolesPtrOutput)
+}
+
+// RolesArrayInput is an input type that accepts RolesArray and RolesArrayOutput values.
+// You can construct a concrete instance of `RolesArrayInput` via:
+//
+//          RolesArray{ RolesArgs{...} }
+type RolesArrayInput interface {
+	pulumi.Input
+
+	ToRolesArrayOutput() RolesArrayOutput
+	ToRolesArrayOutputWithContext(context.Context) RolesArrayOutput
+}
+
+type RolesArray []RolesInput
+
+func (RolesArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Roles)(nil))
+}
+
+func (i RolesArray) ToRolesArrayOutput() RolesArrayOutput {
+	return i.ToRolesArrayOutputWithContext(context.Background())
+}
+
+func (i RolesArray) ToRolesArrayOutputWithContext(ctx context.Context) RolesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolesArrayOutput)
+}
+
+// RolesMapInput is an input type that accepts RolesMap and RolesMapOutput values.
+// You can construct a concrete instance of `RolesMapInput` via:
+//
+//          RolesMap{ "key": RolesArgs{...} }
+type RolesMapInput interface {
+	pulumi.Input
+
+	ToRolesMapOutput() RolesMapOutput
+	ToRolesMapOutputWithContext(context.Context) RolesMapOutput
+}
+
+type RolesMap map[string]RolesInput
+
+func (RolesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Roles)(nil))
+}
+
+func (i RolesMap) ToRolesMapOutput() RolesMapOutput {
+	return i.ToRolesMapOutputWithContext(context.Background())
+}
+
+func (i RolesMap) ToRolesMapOutputWithContext(ctx context.Context) RolesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolesMapOutput)
+}
+
 type RolesOutput struct {
 	*pulumi.OutputState
 }
@@ -160,6 +239,75 @@ func (o RolesOutput) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
 	return o
 }
 
+func (o RolesOutput) ToRolesPtrOutput() RolesPtrOutput {
+	return o.ToRolesPtrOutputWithContext(context.Background())
+}
+
+func (o RolesOutput) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
+	return o.ApplyT(func(v Roles) *Roles {
+		return &v
+	}).(RolesPtrOutput)
+}
+
+type RolesPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RolesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Roles)(nil))
+}
+
+func (o RolesPtrOutput) ToRolesPtrOutput() RolesPtrOutput {
+	return o
+}
+
+func (o RolesPtrOutput) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
+	return o
+}
+
+type RolesArrayOutput struct{ *pulumi.OutputState }
+
+func (RolesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Roles)(nil))
+}
+
+func (o RolesArrayOutput) ToRolesArrayOutput() RolesArrayOutput {
+	return o
+}
+
+func (o RolesArrayOutput) ToRolesArrayOutputWithContext(ctx context.Context) RolesArrayOutput {
+	return o
+}
+
+func (o RolesArrayOutput) Index(i pulumi.IntInput) RolesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Roles {
+		return vs[0].([]Roles)[vs[1].(int)]
+	}).(RolesOutput)
+}
+
+type RolesMapOutput struct{ *pulumi.OutputState }
+
+func (RolesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Roles)(nil))
+}
+
+func (o RolesMapOutput) ToRolesMapOutput() RolesMapOutput {
+	return o
+}
+
+func (o RolesMapOutput) ToRolesMapOutputWithContext(ctx context.Context) RolesMapOutput {
+	return o
+}
+
+func (o RolesMapOutput) MapIndex(k pulumi.StringInput) RolesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Roles {
+		return vs[0].(map[string]Roles)[vs[1].(string)]
+	}).(RolesOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RolesOutput{})
+	pulumi.RegisterOutputType(RolesPtrOutput{})
+	pulumi.RegisterOutputType(RolesArrayOutput{})
+	pulumi.RegisterOutputType(RolesMapOutput{})
 }

@@ -137,7 +137,8 @@ export class ServerPolicyRule extends pulumi.CustomResource {
     constructor(name: string, args: ServerPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerPolicyRuleArgs | ServerPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerPolicyRuleState | undefined;
             inputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
             inputs["authServerId"] = state ? state.authServerId : undefined;
@@ -157,16 +158,16 @@ export class ServerPolicyRule extends pulumi.CustomResource {
             inputs["userWhitelists"] = state ? state.userWhitelists : undefined;
         } else {
             const args = argsOrState as ServerPolicyRuleArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.grantTypeWhitelists === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.grantTypeWhitelists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'grantTypeWhitelists'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
@@ -186,15 +187,11 @@ export class ServerPolicyRule extends pulumi.CustomResource {
             inputs["userBlacklists"] = args ? args.userBlacklists : undefined;
             inputs["userWhitelists"] = args ? args.userWhitelists : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "okta:auth/serverPolicyClaim:ServerPolicyClaim" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerPolicyRule.__pulumiType, name, inputs, opts);
     }
 }

@@ -202,6 +202,85 @@ func (i *PasswordPolicyRule) ToPasswordPolicyRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleOutput)
 }
 
+func (i *PasswordPolicyRule) ToPasswordPolicyRulePtrOutput() PasswordPolicyRulePtrOutput {
+	return i.ToPasswordPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i *PasswordPolicyRule) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRulePtrOutput)
+}
+
+type PasswordPolicyRulePtrInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyRulePtrOutput() PasswordPolicyRulePtrOutput
+	ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput
+}
+
+type passwordPolicyRulePtrType PasswordPolicyRuleArgs
+
+func (*passwordPolicyRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PasswordPolicyRule)(nil))
+}
+
+func (i *passwordPolicyRulePtrType) ToPasswordPolicyRulePtrOutput() PasswordPolicyRulePtrOutput {
+	return i.ToPasswordPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i *passwordPolicyRulePtrType) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRulePtrOutput)
+}
+
+// PasswordPolicyRuleArrayInput is an input type that accepts PasswordPolicyRuleArray and PasswordPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `PasswordPolicyRuleArrayInput` via:
+//
+//          PasswordPolicyRuleArray{ PasswordPolicyRuleArgs{...} }
+type PasswordPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyRuleArrayOutput() PasswordPolicyRuleArrayOutput
+	ToPasswordPolicyRuleArrayOutputWithContext(context.Context) PasswordPolicyRuleArrayOutput
+}
+
+type PasswordPolicyRuleArray []PasswordPolicyRuleInput
+
+func (PasswordPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PasswordPolicyRule)(nil))
+}
+
+func (i PasswordPolicyRuleArray) ToPasswordPolicyRuleArrayOutput() PasswordPolicyRuleArrayOutput {
+	return i.ToPasswordPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyRuleArray) ToPasswordPolicyRuleArrayOutputWithContext(ctx context.Context) PasswordPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleArrayOutput)
+}
+
+// PasswordPolicyRuleMapInput is an input type that accepts PasswordPolicyRuleMap and PasswordPolicyRuleMapOutput values.
+// You can construct a concrete instance of `PasswordPolicyRuleMapInput` via:
+//
+//          PasswordPolicyRuleMap{ "key": PasswordPolicyRuleArgs{...} }
+type PasswordPolicyRuleMapInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyRuleMapOutput() PasswordPolicyRuleMapOutput
+	ToPasswordPolicyRuleMapOutputWithContext(context.Context) PasswordPolicyRuleMapOutput
+}
+
+type PasswordPolicyRuleMap map[string]PasswordPolicyRuleInput
+
+func (PasswordPolicyRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PasswordPolicyRule)(nil))
+}
+
+func (i PasswordPolicyRuleMap) ToPasswordPolicyRuleMapOutput() PasswordPolicyRuleMapOutput {
+	return i.ToPasswordPolicyRuleMapOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyRuleMap) ToPasswordPolicyRuleMapOutputWithContext(ctx context.Context) PasswordPolicyRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleMapOutput)
+}
+
 type PasswordPolicyRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -218,6 +297,75 @@ func (o PasswordPolicyRuleOutput) ToPasswordPolicyRuleOutputWithContext(ctx cont
 	return o
 }
 
+func (o PasswordPolicyRuleOutput) ToPasswordPolicyRulePtrOutput() PasswordPolicyRulePtrOutput {
+	return o.ToPasswordPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (o PasswordPolicyRuleOutput) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
+	return o.ApplyT(func(v PasswordPolicyRule) *PasswordPolicyRule {
+		return &v
+	}).(PasswordPolicyRulePtrOutput)
+}
+
+type PasswordPolicyRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PasswordPolicyRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PasswordPolicyRule)(nil))
+}
+
+func (o PasswordPolicyRulePtrOutput) ToPasswordPolicyRulePtrOutput() PasswordPolicyRulePtrOutput {
+	return o
+}
+
+func (o PasswordPolicyRulePtrOutput) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
+	return o
+}
+
+type PasswordPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordPolicyRule)(nil))
+}
+
+func (o PasswordPolicyRuleArrayOutput) ToPasswordPolicyRuleArrayOutput() PasswordPolicyRuleArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyRuleArrayOutput) ToPasswordPolicyRuleArrayOutputWithContext(ctx context.Context) PasswordPolicyRuleArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyRuleArrayOutput) Index(i pulumi.IntInput) PasswordPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordPolicyRule {
+		return vs[0].([]PasswordPolicyRule)[vs[1].(int)]
+	}).(PasswordPolicyRuleOutput)
+}
+
+type PasswordPolicyRuleMapOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PasswordPolicyRule)(nil))
+}
+
+func (o PasswordPolicyRuleMapOutput) ToPasswordPolicyRuleMapOutput() PasswordPolicyRuleMapOutput {
+	return o
+}
+
+func (o PasswordPolicyRuleMapOutput) ToPasswordPolicyRuleMapOutputWithContext(ctx context.Context) PasswordPolicyRuleMapOutput {
+	return o
+}
+
+func (o PasswordPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) PasswordPolicyRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PasswordPolicyRule {
+		return vs[0].(map[string]PasswordPolicyRule)[vs[1].(string)]
+	}).(PasswordPolicyRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PasswordPolicyRuleOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyRulePtrOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyRuleMapOutput{})
 }

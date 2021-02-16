@@ -194,6 +194,85 @@ func (i *ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) Server
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimOutput)
 }
 
+func (i *ServerClaim) ToServerClaimPtrOutput() ServerClaimPtrOutput {
+	return i.ToServerClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *ServerClaim) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimPtrOutput)
+}
+
+type ServerClaimPtrInput interface {
+	pulumi.Input
+
+	ToServerClaimPtrOutput() ServerClaimPtrOutput
+	ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput
+}
+
+type serverClaimPtrType ServerClaimArgs
+
+func (*serverClaimPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerClaim)(nil))
+}
+
+func (i *serverClaimPtrType) ToServerClaimPtrOutput() ServerClaimPtrOutput {
+	return i.ToServerClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *serverClaimPtrType) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimPtrOutput)
+}
+
+// ServerClaimArrayInput is an input type that accepts ServerClaimArray and ServerClaimArrayOutput values.
+// You can construct a concrete instance of `ServerClaimArrayInput` via:
+//
+//          ServerClaimArray{ ServerClaimArgs{...} }
+type ServerClaimArrayInput interface {
+	pulumi.Input
+
+	ToServerClaimArrayOutput() ServerClaimArrayOutput
+	ToServerClaimArrayOutputWithContext(context.Context) ServerClaimArrayOutput
+}
+
+type ServerClaimArray []ServerClaimInput
+
+func (ServerClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerClaim)(nil))
+}
+
+func (i ServerClaimArray) ToServerClaimArrayOutput() ServerClaimArrayOutput {
+	return i.ToServerClaimArrayOutputWithContext(context.Background())
+}
+
+func (i ServerClaimArray) ToServerClaimArrayOutputWithContext(ctx context.Context) ServerClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimArrayOutput)
+}
+
+// ServerClaimMapInput is an input type that accepts ServerClaimMap and ServerClaimMapOutput values.
+// You can construct a concrete instance of `ServerClaimMapInput` via:
+//
+//          ServerClaimMap{ "key": ServerClaimArgs{...} }
+type ServerClaimMapInput interface {
+	pulumi.Input
+
+	ToServerClaimMapOutput() ServerClaimMapOutput
+	ToServerClaimMapOutputWithContext(context.Context) ServerClaimMapOutput
+}
+
+type ServerClaimMap map[string]ServerClaimInput
+
+func (ServerClaimMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerClaim)(nil))
+}
+
+func (i ServerClaimMap) ToServerClaimMapOutput() ServerClaimMapOutput {
+	return i.ToServerClaimMapOutputWithContext(context.Background())
+}
+
+func (i ServerClaimMap) ToServerClaimMapOutputWithContext(ctx context.Context) ServerClaimMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimMapOutput)
+}
+
 type ServerClaimOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o ServerClaimOutput) ToServerClaimOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ServerClaimOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
+	return o.ToServerClaimPtrOutputWithContext(context.Background())
+}
+
+func (o ServerClaimOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
+	return o.ApplyT(func(v ServerClaim) *ServerClaim {
+		return &v
+	}).(ServerClaimPtrOutput)
+}
+
+type ServerClaimPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerClaimPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerClaim)(nil))
+}
+
+func (o ServerClaimPtrOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
+	return o
+}
+
+func (o ServerClaimPtrOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
+	return o
+}
+
+type ServerClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerClaim)(nil))
+}
+
+func (o ServerClaimArrayOutput) ToServerClaimArrayOutput() ServerClaimArrayOutput {
+	return o
+}
+
+func (o ServerClaimArrayOutput) ToServerClaimArrayOutputWithContext(ctx context.Context) ServerClaimArrayOutput {
+	return o
+}
+
+func (o ServerClaimArrayOutput) Index(i pulumi.IntInput) ServerClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerClaim {
+		return vs[0].([]ServerClaim)[vs[1].(int)]
+	}).(ServerClaimOutput)
+}
+
+type ServerClaimMapOutput struct{ *pulumi.OutputState }
+
+func (ServerClaimMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerClaim)(nil))
+}
+
+func (o ServerClaimMapOutput) ToServerClaimMapOutput() ServerClaimMapOutput {
+	return o
+}
+
+func (o ServerClaimMapOutput) ToServerClaimMapOutputWithContext(ctx context.Context) ServerClaimMapOutput {
+	return o
+}
+
+func (o ServerClaimMapOutput) MapIndex(k pulumi.StringInput) ServerClaimOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerClaim {
+		return vs[0].(map[string]ServerClaim)[vs[1].(string)]
+	}).(ServerClaimOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerClaimOutput{})
+	pulumi.RegisterOutputType(ServerClaimPtrOutput{})
+	pulumi.RegisterOutputType(ServerClaimArrayOutput{})
+	pulumi.RegisterOutputType(ServerClaimMapOutput{})
 }

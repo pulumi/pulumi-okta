@@ -182,7 +182,8 @@ export class OauthApp extends pulumi.CustomResource {
     constructor(name: string, args: OauthAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OauthAppArgs | OauthAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OauthAppState | undefined;
             inputs["autoKeyRotation"] = state ? state.autoKeyRotation : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
@@ -219,10 +220,10 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as OauthAppArgs | undefined;
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
@@ -259,12 +260,8 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OauthApp.__pulumiType, name, inputs, opts);
     }

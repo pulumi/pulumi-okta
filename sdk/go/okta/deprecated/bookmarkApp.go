@@ -182,6 +182,85 @@ func (i *BookmarkApp) ToBookmarkAppOutputWithContext(ctx context.Context) Bookma
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppOutput)
 }
 
+func (i *BookmarkApp) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
+	return i.ToBookmarkAppPtrOutputWithContext(context.Background())
+}
+
+func (i *BookmarkApp) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppPtrOutput)
+}
+
+type BookmarkAppPtrInput interface {
+	pulumi.Input
+
+	ToBookmarkAppPtrOutput() BookmarkAppPtrOutput
+	ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput
+}
+
+type bookmarkAppPtrType BookmarkAppArgs
+
+func (*bookmarkAppPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkApp)(nil))
+}
+
+func (i *bookmarkAppPtrType) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
+	return i.ToBookmarkAppPtrOutputWithContext(context.Background())
+}
+
+func (i *bookmarkAppPtrType) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppPtrOutput)
+}
+
+// BookmarkAppArrayInput is an input type that accepts BookmarkAppArray and BookmarkAppArrayOutput values.
+// You can construct a concrete instance of `BookmarkAppArrayInput` via:
+//
+//          BookmarkAppArray{ BookmarkAppArgs{...} }
+type BookmarkAppArrayInput interface {
+	pulumi.Input
+
+	ToBookmarkAppArrayOutput() BookmarkAppArrayOutput
+	ToBookmarkAppArrayOutputWithContext(context.Context) BookmarkAppArrayOutput
+}
+
+type BookmarkAppArray []BookmarkAppInput
+
+func (BookmarkAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BookmarkApp)(nil))
+}
+
+func (i BookmarkAppArray) ToBookmarkAppArrayOutput() BookmarkAppArrayOutput {
+	return i.ToBookmarkAppArrayOutputWithContext(context.Background())
+}
+
+func (i BookmarkAppArray) ToBookmarkAppArrayOutputWithContext(ctx context.Context) BookmarkAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppArrayOutput)
+}
+
+// BookmarkAppMapInput is an input type that accepts BookmarkAppMap and BookmarkAppMapOutput values.
+// You can construct a concrete instance of `BookmarkAppMapInput` via:
+//
+//          BookmarkAppMap{ "key": BookmarkAppArgs{...} }
+type BookmarkAppMapInput interface {
+	pulumi.Input
+
+	ToBookmarkAppMapOutput() BookmarkAppMapOutput
+	ToBookmarkAppMapOutputWithContext(context.Context) BookmarkAppMapOutput
+}
+
+type BookmarkAppMap map[string]BookmarkAppInput
+
+func (BookmarkAppMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BookmarkApp)(nil))
+}
+
+func (i BookmarkAppMap) ToBookmarkAppMapOutput() BookmarkAppMapOutput {
+	return i.ToBookmarkAppMapOutputWithContext(context.Background())
+}
+
+func (i BookmarkAppMap) ToBookmarkAppMapOutputWithContext(ctx context.Context) BookmarkAppMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppMapOutput)
+}
+
 type BookmarkAppOutput struct {
 	*pulumi.OutputState
 }
@@ -198,6 +277,75 @@ func (o BookmarkAppOutput) ToBookmarkAppOutputWithContext(ctx context.Context) B
 	return o
 }
 
+func (o BookmarkAppOutput) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
+	return o.ToBookmarkAppPtrOutputWithContext(context.Background())
+}
+
+func (o BookmarkAppOutput) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
+	return o.ApplyT(func(v BookmarkApp) *BookmarkApp {
+		return &v
+	}).(BookmarkAppPtrOutput)
+}
+
+type BookmarkAppPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BookmarkAppPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkApp)(nil))
+}
+
+func (o BookmarkAppPtrOutput) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
+	return o
+}
+
+func (o BookmarkAppPtrOutput) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
+	return o
+}
+
+type BookmarkAppArrayOutput struct{ *pulumi.OutputState }
+
+func (BookmarkAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BookmarkApp)(nil))
+}
+
+func (o BookmarkAppArrayOutput) ToBookmarkAppArrayOutput() BookmarkAppArrayOutput {
+	return o
+}
+
+func (o BookmarkAppArrayOutput) ToBookmarkAppArrayOutputWithContext(ctx context.Context) BookmarkAppArrayOutput {
+	return o
+}
+
+func (o BookmarkAppArrayOutput) Index(i pulumi.IntInput) BookmarkAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BookmarkApp {
+		return vs[0].([]BookmarkApp)[vs[1].(int)]
+	}).(BookmarkAppOutput)
+}
+
+type BookmarkAppMapOutput struct{ *pulumi.OutputState }
+
+func (BookmarkAppMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BookmarkApp)(nil))
+}
+
+func (o BookmarkAppMapOutput) ToBookmarkAppMapOutput() BookmarkAppMapOutput {
+	return o
+}
+
+func (o BookmarkAppMapOutput) ToBookmarkAppMapOutputWithContext(ctx context.Context) BookmarkAppMapOutput {
+	return o
+}
+
+func (o BookmarkAppMapOutput) MapIndex(k pulumi.StringInput) BookmarkAppOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BookmarkApp {
+		return vs[0].(map[string]BookmarkApp)[vs[1].(string)]
+	}).(BookmarkAppOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BookmarkAppOutput{})
+	pulumi.RegisterOutputType(BookmarkAppPtrOutput{})
+	pulumi.RegisterOutputType(BookmarkAppArrayOutput{})
+	pulumi.RegisterOutputType(BookmarkAppMapOutput{})
 }

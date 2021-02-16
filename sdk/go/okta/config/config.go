@@ -10,11 +10,7 @@ import (
 
 // API Token granting privileges to Okta API.
 func GetApiToken(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "okta:apiToken")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "OKTA_API_TOKEN").(string)
+	return config.Get(ctx, "okta:apiToken")
 }
 
 // Use exponential back off strategy for rate limits.
@@ -24,11 +20,7 @@ func GetBackoff(ctx *pulumi.Context) bool {
 
 // The Okta url. (Use 'oktapreview.com' for Okta testing)
 func GetBaseUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "okta:baseUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "OKTA_BASE_URL").(string)
+	return config.Get(ctx, "okta:baseUrl")
 }
 
 // API Token granting privileges to Okta API.
@@ -58,11 +50,7 @@ func GetMinWaitSeconds(ctx *pulumi.Context) int {
 
 // The organization to manage in Okta.
 func GetOrgName(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "okta:orgName")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "OKTA_ORG_NAME").(string)
+	return config.Get(ctx, "okta:orgName")
 }
 
 // Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of

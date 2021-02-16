@@ -72,20 +72,14 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_token is None:
-                api_token = _utilities.get_env('OKTA_API_TOKEN')
             __props__['api_token'] = api_token
             __props__['backoff'] = pulumi.Output.from_input(backoff).apply(pulumi.runtime.to_json) if backoff is not None else None
-            if base_url is None:
-                base_url = _utilities.get_env('OKTA_BASE_URL')
             __props__['base_url'] = base_url
             __props__['client_id'] = client_id
             __props__['log_level'] = pulumi.Output.from_input(log_level).apply(pulumi.runtime.to_json) if log_level is not None else None
             __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__['max_wait_seconds'] = pulumi.Output.from_input(max_wait_seconds).apply(pulumi.runtime.to_json) if max_wait_seconds is not None else None
             __props__['min_wait_seconds'] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None
-            if org_name is None:
-                org_name = _utilities.get_env('OKTA_ORG_NAME')
             __props__['org_name'] = org_name
             __props__['parallelism'] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
             __props__['private_key'] = private_key

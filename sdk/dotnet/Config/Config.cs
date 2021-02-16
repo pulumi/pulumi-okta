@@ -11,7 +11,7 @@ namespace Pulumi.Okta
         /// <summary>
         /// API Token granting privileges to Okta API.
         /// </summary>
-        public static string? ApiToken { get; set; } = __config.Get("apiToken") ?? Utilities.GetEnv("OKTA_API_TOKEN");
+        public static string? ApiToken { get; set; } = __config.Get("apiToken");
 
         /// <summary>
         /// Use exponential back off strategy for rate limits.
@@ -21,7 +21,7 @@ namespace Pulumi.Okta
         /// <summary>
         /// The Okta url. (Use 'oktapreview.com' for Okta testing)
         /// </summary>
-        public static string? BaseUrl { get; set; } = __config.Get("baseUrl") ?? Utilities.GetEnv("OKTA_BASE_URL");
+        public static string? BaseUrl { get; set; } = __config.Get("baseUrl");
 
         /// <summary>
         /// API Token granting privileges to Okta API.
@@ -51,7 +51,7 @@ namespace Pulumi.Okta
         /// <summary>
         /// The organization to manage in Okta.
         /// </summary>
-        public static string? OrgName { get; set; } = __config.Get("orgName") ?? Utilities.GetEnv("OKTA_ORG_NAME");
+        public static string? OrgName { get; set; } = __config.Get("orgName");
 
         /// <summary>
         /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of

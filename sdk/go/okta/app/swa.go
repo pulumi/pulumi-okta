@@ -317,6 +317,85 @@ func (i *Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaOutput)
 }
 
+func (i *Swa) ToSwaPtrOutput() SwaPtrOutput {
+	return i.ToSwaPtrOutputWithContext(context.Background())
+}
+
+func (i *Swa) ToSwaPtrOutputWithContext(ctx context.Context) SwaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaPtrOutput)
+}
+
+type SwaPtrInput interface {
+	pulumi.Input
+
+	ToSwaPtrOutput() SwaPtrOutput
+	ToSwaPtrOutputWithContext(ctx context.Context) SwaPtrOutput
+}
+
+type swaPtrType SwaArgs
+
+func (*swaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Swa)(nil))
+}
+
+func (i *swaPtrType) ToSwaPtrOutput() SwaPtrOutput {
+	return i.ToSwaPtrOutputWithContext(context.Background())
+}
+
+func (i *swaPtrType) ToSwaPtrOutputWithContext(ctx context.Context) SwaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaPtrOutput)
+}
+
+// SwaArrayInput is an input type that accepts SwaArray and SwaArrayOutput values.
+// You can construct a concrete instance of `SwaArrayInput` via:
+//
+//          SwaArray{ SwaArgs{...} }
+type SwaArrayInput interface {
+	pulumi.Input
+
+	ToSwaArrayOutput() SwaArrayOutput
+	ToSwaArrayOutputWithContext(context.Context) SwaArrayOutput
+}
+
+type SwaArray []SwaInput
+
+func (SwaArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Swa)(nil))
+}
+
+func (i SwaArray) ToSwaArrayOutput() SwaArrayOutput {
+	return i.ToSwaArrayOutputWithContext(context.Background())
+}
+
+func (i SwaArray) ToSwaArrayOutputWithContext(ctx context.Context) SwaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaArrayOutput)
+}
+
+// SwaMapInput is an input type that accepts SwaMap and SwaMapOutput values.
+// You can construct a concrete instance of `SwaMapInput` via:
+//
+//          SwaMap{ "key": SwaArgs{...} }
+type SwaMapInput interface {
+	pulumi.Input
+
+	ToSwaMapOutput() SwaMapOutput
+	ToSwaMapOutputWithContext(context.Context) SwaMapOutput
+}
+
+type SwaMap map[string]SwaInput
+
+func (SwaMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Swa)(nil))
+}
+
+func (i SwaMap) ToSwaMapOutput() SwaMapOutput {
+	return i.ToSwaMapOutputWithContext(context.Background())
+}
+
+func (i SwaMap) ToSwaMapOutputWithContext(ctx context.Context) SwaMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SwaMapOutput)
+}
+
 type SwaOutput struct {
 	*pulumi.OutputState
 }
@@ -333,6 +412,75 @@ func (o SwaOutput) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return o
 }
 
+func (o SwaOutput) ToSwaPtrOutput() SwaPtrOutput {
+	return o.ToSwaPtrOutputWithContext(context.Background())
+}
+
+func (o SwaOutput) ToSwaPtrOutputWithContext(ctx context.Context) SwaPtrOutput {
+	return o.ApplyT(func(v Swa) *Swa {
+		return &v
+	}).(SwaPtrOutput)
+}
+
+type SwaPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SwaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Swa)(nil))
+}
+
+func (o SwaPtrOutput) ToSwaPtrOutput() SwaPtrOutput {
+	return o
+}
+
+func (o SwaPtrOutput) ToSwaPtrOutputWithContext(ctx context.Context) SwaPtrOutput {
+	return o
+}
+
+type SwaArrayOutput struct{ *pulumi.OutputState }
+
+func (SwaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Swa)(nil))
+}
+
+func (o SwaArrayOutput) ToSwaArrayOutput() SwaArrayOutput {
+	return o
+}
+
+func (o SwaArrayOutput) ToSwaArrayOutputWithContext(ctx context.Context) SwaArrayOutput {
+	return o
+}
+
+func (o SwaArrayOutput) Index(i pulumi.IntInput) SwaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Swa {
+		return vs[0].([]Swa)[vs[1].(int)]
+	}).(SwaOutput)
+}
+
+type SwaMapOutput struct{ *pulumi.OutputState }
+
+func (SwaMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Swa)(nil))
+}
+
+func (o SwaMapOutput) ToSwaMapOutput() SwaMapOutput {
+	return o
+}
+
+func (o SwaMapOutput) ToSwaMapOutputWithContext(ctx context.Context) SwaMapOutput {
+	return o
+}
+
+func (o SwaMapOutput) MapIndex(k pulumi.StringInput) SwaOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Swa {
+		return vs[0].(map[string]Swa)[vs[1].(string)]
+	}).(SwaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SwaOutput{})
+	pulumi.RegisterOutputType(SwaPtrOutput{})
+	pulumi.RegisterOutputType(SwaArrayOutput{})
+	pulumi.RegisterOutputType(SwaMapOutput{})
 }

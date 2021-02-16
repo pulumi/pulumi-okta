@@ -53,7 +53,8 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
     constructor(name: string, args: SamlIdpSigningKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlIdpSigningKeyArgs | SamlIdpSigningKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SamlIdpSigningKeyState | undefined;
             inputs["created"] = state ? state.created : undefined;
             inputs["expiresAt"] = state ? state.expiresAt : undefined;
@@ -64,7 +65,7 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
             inputs["x5tS256"] = state ? state.x5tS256 : undefined;
         } else {
             const args = argsOrState as SamlIdpSigningKeyArgs | undefined;
-            if ((!args || args.x5cs === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.x5cs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'x5cs'");
             }
             inputs["x5cs"] = args ? args.x5cs : undefined;
@@ -75,12 +76,8 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
             inputs["use"] = undefined /*out*/;
             inputs["x5tS256"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SamlIdpSigningKey.__pulumiType, name, inputs, opts);
     }

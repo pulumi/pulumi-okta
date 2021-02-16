@@ -24,7 +24,6 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -168,6 +167,85 @@ func (i *TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) Templa
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsOutput)
 }
 
+func (i *TemplateSms) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
+	return i.ToTemplateSmsPtrOutputWithContext(context.Background())
+}
+
+func (i *TemplateSms) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsPtrOutput)
+}
+
+type TemplateSmsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSmsPtrOutput() TemplateSmsPtrOutput
+	ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput
+}
+
+type templateSmsPtrType TemplateSmsArgs
+
+func (*templateSmsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSms)(nil))
+}
+
+func (i *templateSmsPtrType) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
+	return i.ToTemplateSmsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateSmsPtrType) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsPtrOutput)
+}
+
+// TemplateSmsArrayInput is an input type that accepts TemplateSmsArray and TemplateSmsArrayOutput values.
+// You can construct a concrete instance of `TemplateSmsArrayInput` via:
+//
+//          TemplateSmsArray{ TemplateSmsArgs{...} }
+type TemplateSmsArrayInput interface {
+	pulumi.Input
+
+	ToTemplateSmsArrayOutput() TemplateSmsArrayOutput
+	ToTemplateSmsArrayOutputWithContext(context.Context) TemplateSmsArrayOutput
+}
+
+type TemplateSmsArray []TemplateSmsInput
+
+func (TemplateSmsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TemplateSms)(nil))
+}
+
+func (i TemplateSmsArray) ToTemplateSmsArrayOutput() TemplateSmsArrayOutput {
+	return i.ToTemplateSmsArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateSmsArray) ToTemplateSmsArrayOutputWithContext(ctx context.Context) TemplateSmsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsArrayOutput)
+}
+
+// TemplateSmsMapInput is an input type that accepts TemplateSmsMap and TemplateSmsMapOutput values.
+// You can construct a concrete instance of `TemplateSmsMapInput` via:
+//
+//          TemplateSmsMap{ "key": TemplateSmsArgs{...} }
+type TemplateSmsMapInput interface {
+	pulumi.Input
+
+	ToTemplateSmsMapOutput() TemplateSmsMapOutput
+	ToTemplateSmsMapOutputWithContext(context.Context) TemplateSmsMapOutput
+}
+
+type TemplateSmsMap map[string]TemplateSmsInput
+
+func (TemplateSmsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TemplateSms)(nil))
+}
+
+func (i TemplateSmsMap) ToTemplateSmsMapOutput() TemplateSmsMapOutput {
+	return i.ToTemplateSmsMapOutputWithContext(context.Background())
+}
+
+func (i TemplateSmsMap) ToTemplateSmsMapOutputWithContext(ctx context.Context) TemplateSmsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsMapOutput)
+}
+
 type TemplateSmsOutput struct {
 	*pulumi.OutputState
 }
@@ -184,6 +262,75 @@ func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TemplateSmsOutput) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
+	return o.ToTemplateSmsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSmsOutput) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
+	return o.ApplyT(func(v TemplateSms) *TemplateSms {
+		return &v
+	}).(TemplateSmsPtrOutput)
+}
+
+type TemplateSmsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateSmsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSms)(nil))
+}
+
+func (o TemplateSmsPtrOutput) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
+	return o
+}
+
+func (o TemplateSmsPtrOutput) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
+	return o
+}
+
+type TemplateSmsArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateSmsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSms)(nil))
+}
+
+func (o TemplateSmsArrayOutput) ToTemplateSmsArrayOutput() TemplateSmsArrayOutput {
+	return o
+}
+
+func (o TemplateSmsArrayOutput) ToTemplateSmsArrayOutputWithContext(ctx context.Context) TemplateSmsArrayOutput {
+	return o
+}
+
+func (o TemplateSmsArrayOutput) Index(i pulumi.IntInput) TemplateSmsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSms {
+		return vs[0].([]TemplateSms)[vs[1].(int)]
+	}).(TemplateSmsOutput)
+}
+
+type TemplateSmsMapOutput struct{ *pulumi.OutputState }
+
+func (TemplateSmsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TemplateSms)(nil))
+}
+
+func (o TemplateSmsMapOutput) ToTemplateSmsMapOutput() TemplateSmsMapOutput {
+	return o
+}
+
+func (o TemplateSmsMapOutput) ToTemplateSmsMapOutputWithContext(ctx context.Context) TemplateSmsMapOutput {
+	return o
+}
+
+func (o TemplateSmsMapOutput) MapIndex(k pulumi.StringInput) TemplateSmsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TemplateSms {
+		return vs[0].(map[string]TemplateSms)[vs[1].(string)]
+	}).(TemplateSmsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TemplateSmsOutput{})
+	pulumi.RegisterOutputType(TemplateSmsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSmsArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSmsMapOutput{})
 }
