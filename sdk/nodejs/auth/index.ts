@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getServer";
 export * from "./getServerPolicy";
+export * from "./getServerScopes";
 export * from "./server";
 export * from "./serverClaim";
 export * from "./serverPolicy";

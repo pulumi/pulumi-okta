@@ -178,6 +178,39 @@ export namespace app {
     }
 }
 
+export namespace auth {
+    export interface GetServerScopesScope {
+        /**
+         * Indicates whether a consent dialog is needed for the Scope
+         */
+        consent: string;
+        /**
+         * Whether the Scope is a default Scope
+         */
+        default: boolean;
+        /**
+         * Description of the Scope
+         */
+        description: string;
+        /**
+         * ID of the Scope
+         */
+        id: string;
+        /**
+         * Whether the Scope should be included in the metadata
+         */
+        metadataPublish: string;
+        /**
+         * Name of the Scope
+         */
+        name: string;
+        /**
+         * Whether Okta created the Scope
+         */
+        system: boolean;
+    }
+}
+
 export namespace deprecated {
     export interface AuthLoginAppUser {
         id?: string;
