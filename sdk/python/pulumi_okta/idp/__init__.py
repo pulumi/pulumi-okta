@@ -6,6 +6,7 @@
 from .get_metadata_saml import *
 from .get_oidc import *
 from .get_saml import *
+from .get_social import *
 from .oidc import *
 from .saml import *
 from .saml_key import *

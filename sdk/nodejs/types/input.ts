@@ -178,6 +178,9 @@ export namespace app {
     }
 }
 
+export namespace auth {
+}
+
 export namespace deprecated {
     export interface AuthLoginAppUser {
         id?: pulumi.Input<string>;

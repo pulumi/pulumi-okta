@@ -663,6 +663,88 @@
                 }
             }
         },
+        "okta:auth/getServerScopesScope:getServerScopesScope": {
+            "properties": {
+                "consent": {
+                    "type": "string",
+                    "description": "Indicates whether a consent dialog is needed for the Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "Whether the Scope is a default Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "ID of the Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metadataPublish": {
+                    "type": "string",
+                    "description": "Whether the Scope should be included in the metadata\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "system": {
+                    "type": "boolean",
+                    "description": "Whether Okta created the Scope\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "consent",
+                "default",
+                "description",
+                "id",
+                "metadataPublish",
+                "name",
+                "system"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:deprecated/AuthLoginAppUser:AuthLoginAppUser": {
             "properties": {
                 "id": {
@@ -17386,6 +17468,47 @@
                 ]
             }
         },
+        "okta:auth/getServerScopes:getServerScopes": {
+            "description": "Use this data source to retrieve a list of authorization server scopes from Okta.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = pulumi.output(okta.auth.getServerScopes({\n    authServerId: \"default\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.auth.get_server_scopes(auth_server_id=\"default\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Okta.Auth.GetServerScopes.InvokeAsync(new Okta.Auth.GetServerScopesArgs\n        {\n            AuthServerId = \"default\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.GetServerScopes(ctx, \u0026auth.GetServerScopesArgs{\n\t\t\tAuthServerId: \"default\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServerScopes.\n",
+                "properties": {
+                    "authServerId": {
+                        "type": "string",
+                        "description": "Auth server ID.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authServerId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServerScopes.\n",
+                "properties": {
+                    "authServerId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:auth/getServerScopesScope:getServerScopesScope"
+                        },
+                        "description": "collection of authorization server scopes retrieved from Okta with the following properties.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authServerId",
+                    "scopes",
+                    "id"
+                ]
+            }
+        },
         "okta:deprecated/getDefaultPolicies:getDefaultPolicies": {
             "inputs": {
                 "description": "A collection of arguments for invoking getDefaultPolicies.\n",
@@ -17789,6 +17912,174 @@
                     "subjectFilter",
                     "subjectFormats",
                     "type"
+                ]
+            }
+        },
+        "okta:idp/getSocial:getSocial": {
+            "description": "Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.idp.getSocial({\n    name: \"My Facebook IdP\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.idp.get_social(name=\"My Facebook IdP\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.Idp.GetSocial.InvokeAsync(new Okta.Idp.GetSocialArgs\n        {\n            Name = \"My Facebook IdP\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/idp\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"My Facebook IdP\"\n\t\t_, err := idp.LookupSocial(ctx, \u0026idp.LookupSocialArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSocial.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The id of the social idp to retrieve, conflicts with `name`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the social idp to retrieve, conflicts with `id`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSocial.\n",
+                "properties": {
+                    "accountLinkAction": {
+                        "type": "string",
+                        "description": "Specifies the account linking action for an IdP user.\n"
+                    },
+                    "accountLinkGroupIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Group memberships to determine link candidates.\n"
+                    },
+                    "authorizationBinding": {
+                        "type": "string",
+                        "description": "The method of making an authorization request.\n"
+                    },
+                    "authorizationUrl": {
+                        "type": "string",
+                        "description": "IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.\n"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "Unique identifier issued by AS for the Okta IdP instance.\n"
+                    },
+                    "clientSecret": {
+                        "type": "string",
+                        "description": "Client secret issued by AS for the Okta IdP instance.\n"
+                    },
+                    "deprovisionedAction": {
+                        "type": "string",
+                        "description": "Action for a previously deprovisioned IdP user during authentication.\n"
+                    },
+                    "groupsAction": {
+                        "type": "string",
+                        "description": "Provisioning action for IdP user's group memberships.\n"
+                    },
+                    "groupsAssignments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of Okta Group IDs.\n"
+                    },
+                    "groupsAttribute": {
+                        "type": "string",
+                        "description": "IdP user profile attribute name for an array value that contains group memberships.\n"
+                    },
+                    "groupsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Whitelist of Okta Group identifiers.\n"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "issuerMode": {
+                        "type": "string",
+                        "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.\n"
+                    },
+                    "maxClockSkew": {
+                        "type": "integer",
+                        "description": "Maximum allowable clock-skew when processing messages from the IdP.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "profileMaster": {
+                        "type": "boolean",
+                        "description": "Determines if the IdP should act as a source of truth for user profile attributes.\n"
+                    },
+                    "protocolType": {
+                        "type": "string",
+                        "description": "The type of protocol to use.\n"
+                    },
+                    "provisioningAction": {
+                        "type": "string",
+                        "description": "Provisioning action for an IdP user during authentication.\n"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The scopes of the IdP.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the IdP.\n"
+                    },
+                    "subjectMatchAttribute": {
+                        "type": "string",
+                        "description": "Okta user profile attribute for matching transformed IdP username.\n"
+                    },
+                    "subjectMatchType": {
+                        "type": "string",
+                        "description": "Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username.\n"
+                    },
+                    "suspendedAction": {
+                        "type": "string",
+                        "description": "Action for a previously suspended IdP user during authentication.\n"
+                    },
+                    "tokenBinding": {
+                        "type": "string",
+                        "description": "The method of making a token request.\n"
+                    },
+                    "tokenUrl": {
+                        "type": "string",
+                        "description": "IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of Social IdP.\n"
+                    },
+                    "usernameTemplate": {
+                        "type": "string",
+                        "description": "Okta EL Expression to generate or transform a unique username for the IdP user.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accountLinkAction",
+                    "accountLinkGroupIncludes",
+                    "authorizationBinding",
+                    "authorizationUrl",
+                    "clientId",
+                    "clientSecret",
+                    "deprovisionedAction",
+                    "groupsAction",
+                    "groupsAssignments",
+                    "groupsAttribute",
+                    "groupsFilters",
+                    "issuerMode",
+                    "maxClockSkew",
+                    "profileMaster",
+                    "protocolType",
+                    "provisioningAction",
+                    "scopes",
+                    "status",
+                    "subjectMatchAttribute",
+                    "subjectMatchType",
+                    "suspendedAction",
+                    "tokenBinding",
+                    "tokenUrl",
+                    "type",
+                    "usernameTemplate"
                 ]
             }
         },

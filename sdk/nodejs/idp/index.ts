@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getMetadataSaml";
 export * from "./getOidc";
 export * from "./getSaml";
+export * from "./getSocial";
 export * from "./oidc";
 export * from "./saml";
 export * from "./samlKey";

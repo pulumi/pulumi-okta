@@ -127,7 +127,7 @@ github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
 github.com/bflad/gopaniccheck v0.1.0/go.mod h1:ZCj2vSr7EqVeDaqVsWN4n2MwdROx1YL+LFo47TSWtsA=
-github.com/bflad/tfproviderlint v0.21.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
+github.com/bflad/tfproviderlint v0.22.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d/go.mod h1:6QX/PXZ00z/TKoufEY6K/a0k6AhaJrQKdFe6OfVXsa4=
 github.com/bgentry/speakeasy v0.1.0 h1:ByYyxL9InA1OWqxJqqp2A5pYHUrCiAL6K3J+LKSsQkY=
@@ -520,10 +520,10 @@ github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
-github.com/okta/okta-sdk-golang/v2 v2.2.3-0.20210128194458-cd2db61a1e78 h1:4aYEo4nUCMi6ye5u6F2sJKvaMs+1jh2jNYksyFfNzpg=
-github.com/okta/okta-sdk-golang/v2 v2.2.3-0.20210128194458-cd2db61a1e78/go.mod h1:G4GCqqnZJCt91zMqYhDMLhg2INVbjiiFKkQ2mnia1J0=
-github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210212104935-2f51196b9e81 h1:I2mYgqC5ZyppJQYTTpu7TcAlwzusKpdinX8jgKiYsu8=
-github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210212104935-2f51196b9e81/go.mod h1:CaO8MAt2HjOQASY5ZLesmvYMWdbNwZ0jhLyfir4307A=
+github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210216151023-cbbf1a06178b h1:WlkxYFB13ikIoSdOPM3eYU2i5XGzHEMw2mYNA8nbsQc=
+github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210216151023-cbbf1a06178b/go.mod h1:G4GCqqnZJCt91zMqYhDMLhg2INVbjiiFKkQ2mnia1J0=
+github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210219131203-d5df84efde2e h1:BCsTg/kd11O3aN8q6RBshDm++/Us/CCr810dnEqr04Y=
+github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210219131203-d5df84efde2e/go.mod h1:hAewfXntqP3iV6ppWwbwLMK88H1Nik5fsIy2NSQ1lCI=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
