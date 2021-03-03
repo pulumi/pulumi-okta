@@ -11,58 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Assigns a group to an application.
-//
-// This resource allows you to create an App Group assignment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewGroupAssignment(ctx, "example", &app.GroupAssignmentArgs{
-// 			AppId:   pulumi.String("<app id>"),
-// 			GroupId: pulumi.String("<group id>"),
-// 			Profile: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"<app_profile_field>\": \"<value>\"\n", "}\n", "\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewOAuth(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // An application group assignment can be imported via the `app_id` and the `group_id`.
@@ -80,6 +28,8 @@ type GroupAssignment struct {
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
+	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrOutput `pulumi:"retainAssignment"`
 }
 
 // NewGroupAssignment registers a new resource with the given unique name, arguments, and options.
@@ -124,6 +74,8 @@ type groupAssignmentState struct {
 	Priority *int    `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile *string `pulumi:"profile"`
+	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment *bool `pulumi:"retainAssignment"`
 }
 
 type GroupAssignmentState struct {
@@ -134,6 +86,8 @@ type GroupAssignmentState struct {
 	Priority pulumi.IntPtrInput
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrInput
+	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrInput
 }
 
 func (GroupAssignmentState) ElementType() reflect.Type {
@@ -148,6 +102,8 @@ type groupAssignmentArgs struct {
 	Priority *int   `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile *string `pulumi:"profile"`
+	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment *bool `pulumi:"retainAssignment"`
 }
 
 // The set of arguments for constructing a GroupAssignment resource.
@@ -159,6 +115,8 @@ type GroupAssignmentArgs struct {
 	Priority pulumi.IntPtrInput
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrInput
+	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrInput
 }
 
 func (GroupAssignmentArgs) ElementType() reflect.Type {

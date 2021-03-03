@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'SchemaArrayOneOf',
+    'SchemaMasterOverridePriority',
     'SchemaOneOf',
     'GetUserSearchResult',
     'GetUsersSearchResult',
@@ -43,6 +44,39 @@ class SchemaArrayOneOf(dict):
         display name for the enum value.
         """
         return pulumi.get(self, "title")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SchemaMasterOverridePriority(dict):
+    def __init__(__self__, *,
+                 value: str,
+                 type: Optional[str] = None):
+        """
+        :param str value: - ID of profile source.
+        :param str type: - Type of profile source.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        - ID of profile source.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        - Type of profile source.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

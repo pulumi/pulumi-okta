@@ -102,9 +102,13 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly index!: pulumi.Output<string>;
     /**
-     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
      */
     public readonly master!: pulumi.Output<string | undefined>;
+    /**
+     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     */
+    public readonly masterOverridePriorities!: pulumi.Output<outputs.user.SchemaMasterOverridePriority[] | undefined>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
@@ -138,7 +142,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * - Type of profile source.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -172,6 +176,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["externalNamespace"] = state ? state.externalNamespace : undefined;
             inputs["index"] = state ? state.index : undefined;
             inputs["master"] = state ? state.master : undefined;
+            inputs["masterOverridePriorities"] = state ? state.masterOverridePriorities : undefined;
             inputs["maxLength"] = state ? state.maxLength : undefined;
             inputs["minLength"] = state ? state.minLength : undefined;
             inputs["oneOfs"] = state ? state.oneOfs : undefined;
@@ -203,6 +208,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["externalNamespace"] = args ? args.externalNamespace : undefined;
             inputs["index"] = args ? args.index : undefined;
             inputs["master"] = args ? args.master : undefined;
+            inputs["masterOverridePriorities"] = args ? args.masterOverridePriorities : undefined;
             inputs["maxLength"] = args ? args.maxLength : undefined;
             inputs["minLength"] = args ? args.minLength : undefined;
             inputs["oneOfs"] = args ? args.oneOfs : undefined;
@@ -259,9 +265,13 @@ export interface SchemaState {
      */
     readonly index?: pulumi.Input<string>;
     /**
-     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
      */
     readonly master?: pulumi.Input<string>;
+    /**
+     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     */
+    readonly masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.user.SchemaMasterOverridePriority>[]>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
@@ -295,7 +305,7 @@ export interface SchemaState {
      */
     readonly title?: pulumi.Input<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * - Type of profile source.
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -345,9 +355,13 @@ export interface SchemaArgs {
      */
     readonly index: pulumi.Input<string>;
     /**
-     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+     * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
      */
     readonly master?: pulumi.Input<string>;
+    /**
+     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     */
+    readonly masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.user.SchemaMasterOverridePriority>[]>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
@@ -381,7 +395,7 @@ export interface SchemaArgs {
      */
     readonly title: pulumi.Input<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * - Type of profile source.
      */
     readonly type: pulumi.Input<string>;
     /**

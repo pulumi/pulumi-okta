@@ -19,39 +19,11 @@ class GroupAssignment(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Assigns a group to an application.
-
-        This resource allows you to create an App Group assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.app.GroupAssignment("example",
-            app_id="<app id>",
-            group_id="<group id>",
-            profile=\"\"\"{
-          "<app_profile_field>": "<value>"
-        }
-
-        \"\"\")
-        ```
-
-        !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        app = okta.app.OAuth("app")
-        ```
-
         ## Import
 
         An application group assignment can be imported via the `app_id` and the `group_id`.
@@ -65,6 +37,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,6 +64,7 @@ class GroupAssignment(pulumi.CustomResource):
             __props__['group_id'] = group_id
             __props__['priority'] = priority
             __props__['profile'] = profile
+            __props__['retain_assignment'] = retain_assignment
         super(GroupAssignment, __self__).__init__(
             'okta:app/groupAssignment:GroupAssignment',
             resource_name,
@@ -104,7 +78,8 @@ class GroupAssignment(pulumi.CustomResource):
             app_id: Optional[pulumi.Input[str]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
-            profile: Optional[pulumi.Input[str]] = None) -> 'GroupAssignment':
+            profile: Optional[pulumi.Input[str]] = None,
+            retain_assignment: Optional[pulumi.Input[bool]] = None) -> 'GroupAssignment':
         """
         Get an existing GroupAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,6 +90,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -124,6 +100,7 @@ class GroupAssignment(pulumi.CustomResource):
         __props__["group_id"] = group_id
         __props__["priority"] = priority
         __props__["profile"] = profile
+        __props__["retain_assignment"] = retain_assignment
         return GroupAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -154,6 +131,14 @@ class GroupAssignment(pulumi.CustomResource):
         JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         """
         return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="retainAssignment")
+    def retain_assignment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        return pulumi.get(self, "retain_assignment")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

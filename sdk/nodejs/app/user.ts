@@ -5,29 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Application User.
- *
- * This resource allows you to create and configure an Application User.
- *
- * **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.User("example", {
- *     appId: "<app_id>",
- *     userId: "<user id>",
- *     username: "example",
- * });
- * ```
- *
  * ## Import
  *
  * An Application User can be imported via the Okta ID.
@@ -77,6 +54,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly profile!: pulumi.Output<string | undefined>;
     /**
+     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    public readonly retainAssignment!: pulumi.Output<boolean | undefined>;
+    /**
      * User to associate the application with.
      */
     public readonly userId!: pulumi.Output<string>;
@@ -101,6 +82,7 @@ export class User extends pulumi.CustomResource {
             inputs["appId"] = state ? state.appId : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["profile"] = state ? state.profile : undefined;
+            inputs["retainAssignment"] = state ? state.retainAssignment : undefined;
             inputs["userId"] = state ? state.userId : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
@@ -117,6 +99,7 @@ export class User extends pulumi.CustomResource {
             inputs["appId"] = args ? args.appId : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["profile"] = args ? args.profile : undefined;
+            inputs["retainAssignment"] = args ? args.retainAssignment : undefined;
             inputs["userId"] = args ? args.userId : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
@@ -144,6 +127,10 @@ export interface UserState {
      */
     readonly profile?: pulumi.Input<string>;
     /**
+     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    readonly retainAssignment?: pulumi.Input<boolean>;
+    /**
      * User to associate the application with.
      */
     readonly userId?: pulumi.Input<string>;
@@ -169,6 +156,10 @@ export interface UserArgs {
      * The JSON profile of the App User.
      */
     readonly profile?: pulumi.Input<string>;
+    /**
+     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    readonly retainAssignment?: pulumi.Input<boolean>;
     /**
      * User to associate the application with.
      */

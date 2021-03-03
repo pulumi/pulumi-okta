@@ -76,8 +76,10 @@ type Schema struct {
 	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
 	// The property name.
 	Index pulumi.StringOutput `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
 	Master pulumi.StringPtrOutput `pulumi:"master"`
+	// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+	MasterOverridePriorities SchemaMasterOverridePriorityArrayOutput `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `"string"`.
@@ -94,7 +96,7 @@ type Schema struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// display name for the enum value.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// - Type of profile source.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -156,8 +158,10 @@ type schemaState struct {
 	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index *string `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
+	// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+	MasterOverridePriorities []SchemaMasterOverridePriority `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `"string"`.
@@ -174,7 +178,7 @@ type schemaState struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title *string `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// - Type of profile source.
 	Type *string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -199,8 +203,10 @@ type SchemaState struct {
 	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringPtrInput
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
+	// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+	MasterOverridePriorities SchemaMasterOverridePriorityArrayInput
 	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `"string"`.
@@ -217,7 +223,7 @@ type SchemaState struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringPtrInput
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// - Type of profile source.
 	Type pulumi.StringPtrInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -246,8 +252,10 @@ type schemaArgs struct {
 	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// The property name.
 	Index string `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
+	// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+	MasterOverridePriorities []SchemaMasterOverridePriority `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `"string"`.
@@ -264,7 +272,7 @@ type schemaArgs struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// - Type of profile source.
 	Type string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -290,8 +298,10 @@ type SchemaArgs struct {
 	ExternalNamespace pulumi.StringPtrInput
 	// The property name.
 	Index pulumi.StringInput
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
+	// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+	MasterOverridePriorities SchemaMasterOverridePriorityArrayInput
 	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `"string"`.
@@ -308,7 +318,7 @@ type SchemaArgs struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringInput
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// - Type of profile source.
 	Type pulumi.StringInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput

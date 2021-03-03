@@ -539,6 +539,17 @@ export namespace user {
         title: pulumi.Input<string>;
     }
 
+    export interface SchemaMasterOverridePriority {
+        /**
+         * - Type of profile source.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * - ID of profile source.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface SchemaOneOf {
         /**
          * value mapping to member of `enum`.

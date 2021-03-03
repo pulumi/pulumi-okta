@@ -17,6 +17,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
+                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,6 +53,10 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
                , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
+               facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+               the targets of the admin role.
+               - Only supported when used with the role type `"APP_ADMIN"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
@@ -78,6 +83,7 @@ class Role(pulumi.CustomResource):
             if role_type is None and not opts.urn:
                 raise TypeError("Missing required property 'role_type'")
             __props__['role_type'] = role_type
+            __props__['target_app_lists'] = target_app_lists
             __props__['target_group_lists'] = target_group_lists
         super(Role, __self__).__init__(
             'okta:group/role:Role',
@@ -91,6 +97,7 @@ class Role(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             group_id: Optional[pulumi.Input[str]] = None,
             role_type: Optional[pulumi.Input[str]] = None,
+            target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
@@ -103,6 +110,10 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
                , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
+               facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+               the targets of the admin role.
+               - Only supported when used with the role type `"APP_ADMIN"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
@@ -112,6 +123,7 @@ class Role(pulumi.CustomResource):
 
         __props__["group_id"] = group_id
         __props__["role_type"] = role_type
+        __props__["target_app_lists"] = target_app_lists
         __props__["target_group_lists"] = target_group_lists
         return Role(resource_name, opts=opts, __props__=__props__)
 
@@ -132,6 +144,17 @@ class Role(pulumi.CustomResource):
         , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
         """
         return pulumi.get(self, "role_type")
+
+    @property
+    @pulumi.getter(name="targetAppLists")
+    def target_app_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of app names (name represents set of app instances, like 'salesforce' or '
+        facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+        the targets of the admin role.
+        - Only supported when used with the role type `"APP_ADMIN"`.
+        """
+        return pulumi.get(self, "target_app_lists")
 
     @property
     @pulumi.getter(name="targetGroupLists")

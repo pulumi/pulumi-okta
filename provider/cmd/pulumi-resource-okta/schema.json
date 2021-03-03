@@ -1445,6 +1445,32 @@
                 "title"
             ]
         },
+        "okta:user/SchemaMasterOverridePriority:SchemaMasterOverridePriority": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "- Type of profile source.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "- ID of profile source.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
         "okta:user/SchemaOneOf:SchemaOneOf": {
             "properties": {
                 "const": {
@@ -2599,7 +2625,7 @@
             }
         },
         "okta:app/groupAssignment:GroupAssignment": {
-            "description": "Assigns a group to an application.\n\nThis resource allows you to create an App Group assignment.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.GroupAssignment(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    groupId: \"\u003cgroup id\u003e\",\n    profile: `{\n  \"\u003capp_profile_field\u003e\": \"\u003cvalue\u003e\"\n}\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.GroupAssignment(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    group_id=\"\u003cgroup id\u003e\",\n    profile=\"\"\"{\n  \"\u003capp_profile_field\u003e\": \"\u003cvalue\u003e\"\n}\n\n\"\"\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.GroupAssignment(\"example\", new Okta.App.GroupAssignmentArgs\n        {\n            AppId = \"\u003capp id\u003e\",\n            GroupId = \"\u003cgroup id\u003e\",\n            Profile = @\"{\n  \"\"\u003capp_profile_field\u003e\"\": \"\"\u003cvalue\u003e\"\"\n}\n\n\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewGroupAssignment(ctx, \"example\", \u0026app.GroupAssignmentArgs{\n\t\t\tAppId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tGroupId: pulumi.String(\"\u003cgroup id\u003e\"),\n\t\t\tProfile: pulumi.String(fmt.Sprintf(\"%v%v%v%v\", \"{\\n\", \"  \\\"\u003capp_profile_field\u003e\\\": \\\"\u003cvalue\u003e\\\"\\n\", \"}\\n\", \"\\n\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n!\u003e **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst app = new okta.app.OAuth(\"app\", {});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\napp = okta.app.OAuth(\"app\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var app = new Okta.App.OAuth(\"app\", new Okta.App.OAuthArgs\n        {\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewOAuth(ctx, \"app\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn application group assignment can be imported via the `app_id` and the `group_id`.\n\n```sh\n $ pulumi import okta:app/groupAssignment:GroupAssignment example \u003capp_id\u003e/\u003cgroup_id\u003e\n```\n\n ",
+            "description": "\n\n\n## Import\n\nAn application group assignment can be imported via the `app_id` and the `group_id`.\n\n```sh\n $ pulumi import okta:app/groupAssignment:GroupAssignment example \u003capp_id\u003e/\u003cgroup_id\u003e\n```\n\n ",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -2615,6 +2641,10 @@
                 "profile": {
                     "type": "string",
                     "description": "JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)\n"
+                },
+                "retainAssignment": {
+                    "type": "boolean",
+                    "description": "Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                 }
             },
             "required": [
@@ -2636,6 +2666,10 @@
                 "profile": {
                     "type": "string",
                     "description": "JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)\n"
+                },
+                "retainAssignment": {
+                    "type": "boolean",
+                    "description": "Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                 }
             },
             "requiredInputs": [
@@ -2659,6 +2693,10 @@
                     "profile": {
                         "type": "string",
                         "description": "JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)\n"
+                    },
+                    "retainAssignment": {
+                        "type": "boolean",
+                        "description": "Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                     }
                 },
                 "type": "object"
@@ -4736,7 +4774,7 @@
             }
         },
         "okta:app/user:User": {
-            "description": "Creates an Application User.\n\nThis resource allows you to create and configure an Application User.\n\n**When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing Pulumi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.User(\"example\", {\n    appId: \"\u003capp_id\u003e\",\n    userId: \"\u003cuser id\u003e\",\n    username: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.User(\"example\",\n    app_id=\"\u003capp_id\u003e\",\n    user_id=\"\u003cuser id\u003e\",\n    username=\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.User(\"example\", new Okta.App.UserArgs\n        {\n            AppId = \"\u003capp_id\u003e\",\n            UserId = \"\u003cuser id\u003e\",\n            Username = \"example\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewUser(ctx, \"example\", \u0026app.UserArgs{\n\t\t\tAppId:    pulumi.String(\"\u003capp_id\u003e\"),\n\t\t\tUserId:   pulumi.String(\"\u003cuser id\u003e\"),\n\t\t\tUsername: pulumi.String(\"example\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Application User can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/user:User example \u003capp id\u003e/\u003cuser id\u003e\n```\n\n ",
+            "description": "\n\n\n## Import\n\nAn Application User can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/user:User example \u003capp id\u003e/\u003cuser id\u003e\n```\n\n ",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -4749,6 +4787,10 @@
                 "profile": {
                     "type": "string",
                     "description": "The JSON profile of the App User.\n"
+                },
+                "retainAssignment": {
+                    "type": "boolean",
+                    "description": "Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                 },
                 "userId": {
                     "type": "string",
@@ -4776,6 +4818,10 @@
                 "profile": {
                     "type": "string",
                     "description": "The JSON profile of the App User.\n"
+                },
+                "retainAssignment": {
+                    "type": "boolean",
+                    "description": "Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                 },
                 "userId": {
                     "type": "string",
@@ -4805,6 +4851,10 @@
                     "profile": {
                         "type": "string",
                         "description": "The JSON profile of the App User.\n"
+                    },
+                    "retainAssignment": {
+                        "type": "boolean",
+                        "description": "Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.\n"
                     },
                     "userId": {
                         "type": "string",
@@ -11594,6 +11644,13 @@
                     "type": "string",
                     "description": "Admin role assigned to the group. It can be any one of the following values `\"SUPER_ADMIN\"`\n, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`\n, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
                 },
+                "targetAppLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of app names (name represents set of app instances, like 'salesforce' or '\nfacebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as\nthe targets of the admin role.\n- Only supported when used with the role type `\"APP_ADMIN\"`.\n"
+                },
                 "targetGroupLists": {
                     "type": "array",
                     "items": {
@@ -11614,6 +11671,13 @@
                 "roleType": {
                     "type": "string",
                     "description": "Admin role assigned to the group. It can be any one of the following values `\"SUPER_ADMIN\"`\n, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`\n, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                },
+                "targetAppLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of app names (name represents set of app instances, like 'salesforce' or '\nfacebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as\nthe targets of the admin role.\n- Only supported when used with the role type `\"APP_ADMIN\"`.\n"
                 },
                 "targetGroupLists": {
                     "type": "array",
@@ -11637,6 +11701,13 @@
                     "roleType": {
                         "type": "string",
                         "description": "Admin role assigned to the group. It can be any one of the following values `\"SUPER_ADMIN\"`\n, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`\n, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                    },
+                    "targetAppLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of app names (name represents set of app instances, like 'salesforce' or '\nfacebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as\nthe targets of the admin role.\n- Only supported when used with the role type `\"APP_ADMIN\"`.\n"
                     },
                     "targetGroupLists": {
                         "type": "array",
@@ -15927,7 +15998,14 @@
                 },
                 "master": {
                     "type": "string",
-                    "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                    "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"`, `\"OVERRIDE\"` or `\"OKTA\"`.\n"
+                },
+                "masterOverridePriorities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:user/SchemaMasterOverridePriority:SchemaMasterOverridePriority"
+                    },
+                    "description": "Prioritized list of profile sources (required when `master` is `\"OVERRIDE\"`).\n"
                 },
                 "maxLength": {
                     "type": "integer",
@@ -15966,7 +16044,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                    "description": "- Type of profile source.\n"
                 },
                 "unique": {
                     "type": "string",
@@ -16026,7 +16104,14 @@
                 },
                 "master": {
                     "type": "string",
-                    "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                    "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"`, `\"OVERRIDE\"` or `\"OKTA\"`.\n"
+                },
+                "masterOverridePriorities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:user/SchemaMasterOverridePriority:SchemaMasterOverridePriority"
+                    },
+                    "description": "Prioritized list of profile sources (required when `master` is `\"OVERRIDE\"`).\n"
                 },
                 "maxLength": {
                     "type": "integer",
@@ -16065,7 +16150,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                    "description": "- Type of profile source.\n"
                 },
                 "unique": {
                     "type": "string",
@@ -16127,7 +16212,14 @@
                     },
                     "master": {
                         "type": "string",
-                        "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"` or `\"OKTA\"`.\n"
+                        "description": "Master priority for the user schema property. It can be set to `\"PROFILE_MASTER\"`, `\"OVERRIDE\"` or `\"OKTA\"`.\n"
+                    },
+                    "masterOverridePriorities": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:user/SchemaMasterOverridePriority:SchemaMasterOverridePriority"
+                        },
+                        "description": "Prioritized list of profile sources (required when `master` is `\"OVERRIDE\"`).\n"
                     },
                     "maxLength": {
                         "type": "integer",
@@ -16166,7 +16258,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of the schema property. It can be `\"string\"`, `\"boolean\"`, `\"number\"`, `\"integer\"`, `\"array\"`, or `\"object\"`.\n"
+                        "description": "- Type of profile source.\n"
                     },
                     "unique": {
                         "type": "string",

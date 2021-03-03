@@ -69,6 +69,13 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
+     * A list of app names (name represents set of app instances, like 'salesforce' or '
+     * facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+     * the targets of the admin role.
+     * - Only supported when used with the role type `"APP_ADMIN"`.
+     */
+    public readonly targetAppLists!: pulumi.Output<string[] | undefined>;
+    /**
      * A list of group IDs you would like as the targets of the admin role.
      * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
      */
@@ -89,6 +96,7 @@ export class Role extends pulumi.CustomResource {
             const state = argsOrState as RoleState | undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["roleType"] = state ? state.roleType : undefined;
+            inputs["targetAppLists"] = state ? state.targetAppLists : undefined;
             inputs["targetGroupLists"] = state ? state.targetGroupLists : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
@@ -100,6 +108,7 @@ export class Role extends pulumi.CustomResource {
             }
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
+            inputs["targetAppLists"] = args ? args.targetAppLists : undefined;
             inputs["targetGroupLists"] = args ? args.targetGroupLists : undefined;
         }
         if (!opts.version) {
@@ -124,6 +133,13 @@ export interface RoleState {
      */
     readonly roleType?: pulumi.Input<string>;
     /**
+     * A list of app names (name represents set of app instances, like 'salesforce' or '
+     * facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+     * the targets of the admin role.
+     * - Only supported when used with the role type `"APP_ADMIN"`.
+     */
+    readonly targetAppLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A list of group IDs you would like as the targets of the admin role.
      * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
      */
@@ -144,6 +160,13 @@ export interface RoleArgs {
      * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     readonly roleType: pulumi.Input<string>;
+    /**
+     * A list of app names (name represents set of app instances, like 'salesforce' or '
+     * facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+     * the targets of the admin role.
+     * - Only supported when used with the role type `"APP_ADMIN"`.
+     */
+    readonly targetAppLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of group IDs you would like as the targets of the admin role.
      * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.

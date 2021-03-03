@@ -10,53 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Assigns a group to an application.
-    /// 
-    /// This resource allows you to create an App Group assignment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Okta.App.GroupAssignment("example", new Okta.App.GroupAssignmentArgs
-    ///         {
-    ///             AppId = "&lt;app id&gt;",
-    ///             GroupId = "&lt;group id&gt;",
-    ///             Profile = @"{
-    ///   ""&lt;app_profile_field&gt;"": ""&lt;value&gt;""
-    /// }
-    /// 
-    /// ",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// !&gt; **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Okta.App.OAuth("app", new Okta.App.OAuthArgs
-    ///         {
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// An application group assignment can be imported via the `app_id` and the `group_id`.
@@ -88,6 +41,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("profile")]
         public Output<string?> Profile { get; private set; } = null!;
+
+        /// <summary>
+        /// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Output("retainAssignment")]
+        public Output<bool?> RetainAssignment { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,6 +115,12 @@ namespace Pulumi.Okta.App
         [Input("profile")]
         public Input<string>? Profile { get; set; }
 
+        /// <summary>
+        /// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Input("retainAssignment")]
+        public Input<bool>? RetainAssignment { get; set; }
+
         public GroupAssignmentArgs()
         {
         }
@@ -183,6 +148,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
+
+        /// <summary>
+        /// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Input("retainAssignment")]
+        public Input<bool>? RetainAssignment { get; set; }
 
         public GroupAssignmentState()
         {

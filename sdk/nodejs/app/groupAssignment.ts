@@ -5,35 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Assigns a group to an application.
- *
- * This resource allows you to create an App Group assignment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.GroupAssignment("example", {
- *     appId: "<app id>",
- *     groupId: "<group id>",
- *     profile: `{
- *   "<app_profile_field>": "<value>"
- * }
- * `,
- * });
- * ```
- *
- * !> **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const app = new okta.app.OAuth("app", {});
- * ```
- *
  * ## Import
  *
  * An application group assignment can be imported via the `app_id` and the `group_id`.
@@ -83,6 +54,10 @@ export class GroupAssignment extends pulumi.CustomResource {
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
     public readonly profile!: pulumi.Output<string | undefined>;
+    /**
+     * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    public readonly retainAssignment!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GroupAssignment resource with the given unique name, arguments, and options.
@@ -101,6 +76,7 @@ export class GroupAssignment extends pulumi.CustomResource {
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["profile"] = state ? state.profile : undefined;
+            inputs["retainAssignment"] = state ? state.retainAssignment : undefined;
         } else {
             const args = argsOrState as GroupAssignmentArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -113,6 +89,7 @@ export class GroupAssignment extends pulumi.CustomResource {
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["profile"] = args ? args.profile : undefined;
+            inputs["retainAssignment"] = args ? args.retainAssignment : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -138,6 +115,10 @@ export interface GroupAssignmentState {
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
     readonly profile?: pulumi.Input<string>;
+    /**
+     * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    readonly retainAssignment?: pulumi.Input<boolean>;
 }
 
 /**
@@ -157,4 +138,8 @@ export interface GroupAssignmentArgs {
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
     readonly profile?: pulumi.Input<string>;
+    /**
+     * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     */
+    readonly retainAssignment?: pulumi.Input<boolean>;
 }

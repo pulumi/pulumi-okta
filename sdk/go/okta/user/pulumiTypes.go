@@ -116,6 +116,112 @@ func (o SchemaArrayOneOfArrayOutput) Index(i pulumi.IntInput) SchemaArrayOneOfOu
 	}).(SchemaArrayOneOfOutput)
 }
 
+type SchemaMasterOverridePriority struct {
+	// - Type of profile source.
+	Type *string `pulumi:"type"`
+	// - ID of profile source.
+	Value string `pulumi:"value"`
+}
+
+// SchemaMasterOverridePriorityInput is an input type that accepts SchemaMasterOverridePriorityArgs and SchemaMasterOverridePriorityOutput values.
+// You can construct a concrete instance of `SchemaMasterOverridePriorityInput` via:
+//
+//          SchemaMasterOverridePriorityArgs{...}
+type SchemaMasterOverridePriorityInput interface {
+	pulumi.Input
+
+	ToSchemaMasterOverridePriorityOutput() SchemaMasterOverridePriorityOutput
+	ToSchemaMasterOverridePriorityOutputWithContext(context.Context) SchemaMasterOverridePriorityOutput
+}
+
+type SchemaMasterOverridePriorityArgs struct {
+	// - Type of profile source.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// - ID of profile source.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SchemaMasterOverridePriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMasterOverridePriority)(nil)).Elem()
+}
+
+func (i SchemaMasterOverridePriorityArgs) ToSchemaMasterOverridePriorityOutput() SchemaMasterOverridePriorityOutput {
+	return i.ToSchemaMasterOverridePriorityOutputWithContext(context.Background())
+}
+
+func (i SchemaMasterOverridePriorityArgs) ToSchemaMasterOverridePriorityOutputWithContext(ctx context.Context) SchemaMasterOverridePriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMasterOverridePriorityOutput)
+}
+
+// SchemaMasterOverridePriorityArrayInput is an input type that accepts SchemaMasterOverridePriorityArray and SchemaMasterOverridePriorityArrayOutput values.
+// You can construct a concrete instance of `SchemaMasterOverridePriorityArrayInput` via:
+//
+//          SchemaMasterOverridePriorityArray{ SchemaMasterOverridePriorityArgs{...} }
+type SchemaMasterOverridePriorityArrayInput interface {
+	pulumi.Input
+
+	ToSchemaMasterOverridePriorityArrayOutput() SchemaMasterOverridePriorityArrayOutput
+	ToSchemaMasterOverridePriorityArrayOutputWithContext(context.Context) SchemaMasterOverridePriorityArrayOutput
+}
+
+type SchemaMasterOverridePriorityArray []SchemaMasterOverridePriorityInput
+
+func (SchemaMasterOverridePriorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaMasterOverridePriority)(nil)).Elem()
+}
+
+func (i SchemaMasterOverridePriorityArray) ToSchemaMasterOverridePriorityArrayOutput() SchemaMasterOverridePriorityArrayOutput {
+	return i.ToSchemaMasterOverridePriorityArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaMasterOverridePriorityArray) ToSchemaMasterOverridePriorityArrayOutputWithContext(ctx context.Context) SchemaMasterOverridePriorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMasterOverridePriorityArrayOutput)
+}
+
+type SchemaMasterOverridePriorityOutput struct{ *pulumi.OutputState }
+
+func (SchemaMasterOverridePriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMasterOverridePriority)(nil)).Elem()
+}
+
+func (o SchemaMasterOverridePriorityOutput) ToSchemaMasterOverridePriorityOutput() SchemaMasterOverridePriorityOutput {
+	return o
+}
+
+func (o SchemaMasterOverridePriorityOutput) ToSchemaMasterOverridePriorityOutputWithContext(ctx context.Context) SchemaMasterOverridePriorityOutput {
+	return o
+}
+
+// - Type of profile source.
+func (o SchemaMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// - ID of profile source.
+func (o SchemaMasterOverridePriorityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SchemaMasterOverridePriorityArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaMasterOverridePriorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaMasterOverridePriority)(nil)).Elem()
+}
+
+func (o SchemaMasterOverridePriorityArrayOutput) ToSchemaMasterOverridePriorityArrayOutput() SchemaMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o SchemaMasterOverridePriorityArrayOutput) ToSchemaMasterOverridePriorityArrayOutputWithContext(ctx context.Context) SchemaMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o SchemaMasterOverridePriorityArrayOutput) Index(i pulumi.IntInput) SchemaMasterOverridePriorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaMasterOverridePriority {
+		return vs[0].([]SchemaMasterOverridePriority)[vs[1].(int)]
+	}).(SchemaMasterOverridePriorityOutput)
+}
+
 type SchemaOneOf struct {
 	// value mapping to member of `enum`.
 	Const string `pulumi:"const"`
@@ -864,6 +970,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 func init() {
 	pulumi.RegisterOutputType(SchemaArrayOneOfOutput{})
 	pulumi.RegisterOutputType(SchemaArrayOneOfArrayOutput{})
+	pulumi.RegisterOutputType(SchemaMasterOverridePriorityOutput{})
+	pulumi.RegisterOutputType(SchemaMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(SchemaOneOfOutput{})
 	pulumi.RegisterOutputType(SchemaOneOfArrayOutput{})
 	pulumi.RegisterOutputType(GetUserSearchOutput{})

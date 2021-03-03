@@ -10,45 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates an Application User.
-    /// 
-    /// This resource allows you to create and configure an Application User.
-    /// 
-    /// **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Okta.App.User("example", new Okta.App.UserArgs
-    ///         {
-    ///             AppId = "&lt;app_id&gt;",
-    ///             UserId = "&lt;user id&gt;",
-    ///             Username = "example",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// An Application User can be imported via the Okta ID.
@@ -77,6 +38,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("profile")]
         public Output<string?> Profile { get; private set; } = null!;
+
+        /// <summary>
+        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Output("retainAssignment")]
+        public Output<bool?> RetainAssignment { get; private set; } = null!;
 
         /// <summary>
         /// User to associate the application with.
@@ -155,6 +122,12 @@ namespace Pulumi.Okta.App
         public Input<string>? Profile { get; set; }
 
         /// <summary>
+        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Input("retainAssignment")]
+        public Input<bool>? RetainAssignment { get; set; }
+
+        /// <summary>
         /// User to associate the application with.
         /// </summary>
         [Input("userId", required: true)]
@@ -190,6 +163,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
+
+        /// <summary>
+        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// </summary>
+        [Input("retainAssignment")]
+        public Input<bool>? RetainAssignment { get; set; }
 
         /// <summary>
         /// User to associate the application with.
