@@ -520,10 +520,10 @@ github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
-github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210216151023-cbbf1a06178b h1:WlkxYFB13ikIoSdOPM3eYU2i5XGzHEMw2mYNA8nbsQc=
-github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210216151023-cbbf1a06178b/go.mod h1:G4GCqqnZJCt91zMqYhDMLhg2INVbjiiFKkQ2mnia1J0=
-github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210219131203-d5df84efde2e h1:BCsTg/kd11O3aN8q6RBshDm++/Us/CCr810dnEqr04Y=
-github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210219131203-d5df84efde2e/go.mod h1:hAewfXntqP3iV6ppWwbwLMK88H1Nik5fsIy2NSQ1lCI=
+github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210217192106-6bdd7e6b5582 h1:KTddTYagGWsF33IDPBVtj4MQsSrmrigB0Qo6HpUKs8c=
+github.com/okta/okta-sdk-golang/v2 v2.3.1-0.20210217192106-6bdd7e6b5582/go.mod h1:G4GCqqnZJCt91zMqYhDMLhg2INVbjiiFKkQ2mnia1J0=
+github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210226124852-641c3b4a63d5 h1:ZsjGRnnnpqO3J+Mu+2ikM7WaFDWGi3efme+FPJbfeMQ=
+github.com/oktadeveloper/terraform-provider-okta v0.0.0-20210226124852-641c3b4a63d5/go.mod h1:74A0WBrxXC+XfUTXGMNPq/yOtXK8jhdrLrhDk+G9CZs=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=

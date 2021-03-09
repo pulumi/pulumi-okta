@@ -18,34 +18,13 @@ class User(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Creates an Application User.
-
-        This resource allows you to create and configure an Application User.
-
-        **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
-
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.app.User("example",
-            app_id="<app_id>",
-            user_id="<user id>",
-            username="example")
-        ```
-
         ## Import
 
         An Application User can be imported via the Okta ID.
@@ -59,6 +38,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: App to associate user with.
         :param pulumi.Input[str] password: The password to use.
         :param pulumi.Input[str] profile: The JSON profile of the App User.
+        :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
         """
@@ -84,6 +64,7 @@ class User(pulumi.CustomResource):
             __props__['app_id'] = app_id
             __props__['password'] = password
             __props__['profile'] = profile
+            __props__['retain_assignment'] = retain_assignment
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
@@ -103,6 +84,7 @@ class User(pulumi.CustomResource):
             app_id: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             profile: Optional[pulumi.Input[str]] = None,
+            retain_assignment: Optional[pulumi.Input[bool]] = None,
             user_id: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'User':
         """
@@ -115,6 +97,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: App to associate user with.
         :param pulumi.Input[str] password: The password to use.
         :param pulumi.Input[str] profile: The JSON profile of the App User.
+        :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
         """
@@ -125,6 +108,7 @@ class User(pulumi.CustomResource):
         __props__["app_id"] = app_id
         __props__["password"] = password
         __props__["profile"] = profile
+        __props__["retain_assignment"] = retain_assignment
         __props__["user_id"] = user_id
         __props__["username"] = username
         return User(resource_name, opts=opts, __props__=__props__)
@@ -152,6 +136,14 @@ class User(pulumi.CustomResource):
         The JSON profile of the App User.
         """
         return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="retainAssignment")
+    def retain_assignment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        return pulumi.get(self, "retain_assignment")
 
     @property
     @pulumi.getter(name="userId")

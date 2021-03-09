@@ -11,51 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Creates an Application User.
-//
-// This resource allows you to create and configure an Application User.
-//
-// **When using this resource, make sure to add the following `lifefycle` argument to the application resource you are assigning to:**
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewUser(ctx, "example", &app.UserArgs{
-// 			AppId:    pulumi.String("<app_id>"),
-// 			UserId:   pulumi.String("<user id>"),
-// 			Username: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // An Application User can be imported via the Okta ID.
@@ -72,6 +27,8 @@ type User struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
+	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrOutput `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// The username to use for the app user.
@@ -122,6 +79,8 @@ type userState struct {
 	Password *string `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile *string `pulumi:"profile"`
+	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment *bool `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId *string `pulumi:"userId"`
 	// The username to use for the app user.
@@ -135,6 +94,8 @@ type UserState struct {
 	Password pulumi.StringPtrInput
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrInput
+	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrInput
 	// User to associate the application with.
 	UserId pulumi.StringPtrInput
 	// The username to use for the app user.
@@ -152,6 +113,8 @@ type userArgs struct {
 	Password *string `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile *string `pulumi:"profile"`
+	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment *bool `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId string `pulumi:"userId"`
 	// The username to use for the app user.
@@ -166,6 +129,8 @@ type UserArgs struct {
 	Password pulumi.StringPtrInput
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrInput
+	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	RetainAssignment pulumi.BoolPtrInput
 	// User to associate the application with.
 	UserId pulumi.StringInput
 	// The username to use for the app user.

@@ -56,6 +56,11 @@ type Role struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
+	// A list of app names (name represents set of app instances, like 'salesforce' or '
+	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+	// the targets of the admin role.
+	// - Only supported when used with the role type `"APP_ADMIN"`.
+	TargetAppLists pulumi.StringArrayOutput `pulumi:"targetAppLists"`
 	// A list of group IDs you would like as the targets of the admin role.
 	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
 	TargetGroupLists pulumi.StringArrayOutput `pulumi:"targetGroupLists"`
@@ -102,6 +107,11 @@ type roleState struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType *string `pulumi:"roleType"`
+	// A list of app names (name represents set of app instances, like 'salesforce' or '
+	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+	// the targets of the admin role.
+	// - Only supported when used with the role type `"APP_ADMIN"`.
+	TargetAppLists []string `pulumi:"targetAppLists"`
 	// A list of group IDs you would like as the targets of the admin role.
 	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
 	TargetGroupLists []string `pulumi:"targetGroupLists"`
@@ -114,6 +124,11 @@ type RoleState struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringPtrInput
+	// A list of app names (name represents set of app instances, like 'salesforce' or '
+	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+	// the targets of the admin role.
+	// - Only supported when used with the role type `"APP_ADMIN"`.
+	TargetAppLists pulumi.StringArrayInput
 	// A list of group IDs you would like as the targets of the admin role.
 	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
 	TargetGroupLists pulumi.StringArrayInput
@@ -130,6 +145,11 @@ type roleArgs struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType string `pulumi:"roleType"`
+	// A list of app names (name represents set of app instances, like 'salesforce' or '
+	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+	// the targets of the admin role.
+	// - Only supported when used with the role type `"APP_ADMIN"`.
+	TargetAppLists []string `pulumi:"targetAppLists"`
 	// A list of group IDs you would like as the targets of the admin role.
 	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
 	TargetGroupLists []string `pulumi:"targetGroupLists"`
@@ -143,6 +163,11 @@ type RoleArgs struct {
 	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
 	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringInput
+	// A list of app names (name represents set of app instances, like 'salesforce' or '
+	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+	// the targets of the admin role.
+	// - Only supported when used with the role type `"APP_ADMIN"`.
+	TargetAppLists pulumi.StringArrayInput
 	// A list of group IDs you would like as the targets of the admin role.
 	// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
 	TargetGroupLists pulumi.StringArrayInput

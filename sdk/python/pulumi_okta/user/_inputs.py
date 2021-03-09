@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'SchemaArrayOneOfArgs',
+    'SchemaMasterOverridePriorityArgs',
     'SchemaOneOfArgs',
     'GetUserSearchArgs',
     'GetUsersSearchArgs',
@@ -51,6 +52,44 @@ class SchemaArrayOneOfArgs:
     @title.setter
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class SchemaMasterOverridePriorityArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: - ID of profile source.
+        :param pulumi.Input[str] type: - Type of profile source.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        - ID of profile source.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - Type of profile source.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

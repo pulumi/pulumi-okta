@@ -105,10 +105,16 @@ namespace Pulumi.Okta.User
         public Output<string> Index { get; private set; } = null!;
 
         /// <summary>
-        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Output("master")]
         public Output<string?> Master { get; private set; } = null!;
+
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
+        [Output("masterOverridePriorities")]
+        public Output<ImmutableArray<Outputs.SchemaMasterOverridePriority>> MasterOverridePriorities { get; private set; } = null!;
 
         /// <summary>
         /// The maximum length of the user property value. Only applies to type `"string"`.
@@ -159,7 +165,7 @@ namespace Pulumi.Okta.User
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        /// - Type of profile source.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -289,10 +295,22 @@ namespace Pulumi.Okta.User
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
+
+        [Input("masterOverridePriorities")]
+        private InputList<Inputs.SchemaMasterOverridePriorityArgs>? _masterOverridePriorities;
+
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
+        public InputList<Inputs.SchemaMasterOverridePriorityArgs> MasterOverridePriorities
+        {
+            get => _masterOverridePriorities ?? (_masterOverridePriorities = new InputList<Inputs.SchemaMasterOverridePriorityArgs>());
+            set => _masterOverridePriorities = value;
+        }
 
         /// <summary>
         /// The maximum length of the user property value. Only applies to type `"string"`.
@@ -349,7 +367,7 @@ namespace Pulumi.Okta.User
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        /// - Type of profile source.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -440,10 +458,22 @@ namespace Pulumi.Okta.User
         public Input<string>? Index { get; set; }
 
         /// <summary>
-        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
+
+        [Input("masterOverridePriorities")]
+        private InputList<Inputs.SchemaMasterOverridePriorityGetArgs>? _masterOverridePriorities;
+
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
+        public InputList<Inputs.SchemaMasterOverridePriorityGetArgs> MasterOverridePriorities
+        {
+            get => _masterOverridePriorities ?? (_masterOverridePriorities = new InputList<Inputs.SchemaMasterOverridePriorityGetArgs>());
+            set => _masterOverridePriorities = value;
+        }
 
         /// <summary>
         /// The maximum length of the user property value. Only applies to type `"string"`.
@@ -500,7 +530,7 @@ namespace Pulumi.Okta.User
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        /// - Type of profile source.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

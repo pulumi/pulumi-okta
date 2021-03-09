@@ -26,6 +26,7 @@ class Schema(pulumi.CustomResource):
                  external_namespace: Optional[pulumi.Input[str]] = None,
                  index: Optional[pulumi.Input[str]] = None,
                  master: Optional[pulumi.Input[str]] = None,
+                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMasterOverridePriorityArgs']]]]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]]] = None,
@@ -85,7 +86,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] external_name: External name of the user schema property.
         :param pulumi.Input[str] external_namespace: External name of the user schema property.
         :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
@@ -94,7 +96,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] type: - Type of profile source.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
         """
@@ -126,6 +128,7 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index'")
             __props__['index'] = index
             __props__['master'] = master
+            __props__['master_override_priorities'] = master_override_priorities
             __props__['max_length'] = max_length
             __props__['min_length'] = min_length
             __props__['one_ofs'] = one_ofs
@@ -160,6 +163,7 @@ class Schema(pulumi.CustomResource):
             external_namespace: Optional[pulumi.Input[str]] = None,
             index: Optional[pulumi.Input[str]] = None,
             master: Optional[pulumi.Input[str]] = None,
+            master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMasterOverridePriorityArgs']]]]] = None,
             max_length: Optional[pulumi.Input[int]] = None,
             min_length: Optional[pulumi.Input[int]] = None,
             one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]]] = None,
@@ -186,7 +190,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] external_name: External name of the user schema property.
         :param pulumi.Input[str] external_namespace: External name of the user schema property.
         :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
@@ -195,7 +200,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] type: - Type of profile source.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
         """
@@ -212,6 +217,7 @@ class Schema(pulumi.CustomResource):
         __props__["external_namespace"] = external_namespace
         __props__["index"] = index
         __props__["master"] = master
+        __props__["master_override_priorities"] = master_override_priorities
         __props__["max_length"] = max_length
         __props__["min_length"] = min_length
         __props__["one_ofs"] = one_ofs
@@ -293,9 +299,17 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def master(self) -> pulumi.Output[Optional[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         """
         return pulumi.get(self, "master")
+
+    @property
+    @pulumi.getter(name="masterOverridePriorities")
+    def master_override_priorities(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaMasterOverridePriority']]]:
+        """
+        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        """
+        return pulumi.get(self, "master_override_priorities")
 
     @property
     @pulumi.getter(name="maxLength")
@@ -365,7 +379,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        - Type of profile source.
         """
         return pulumi.get(self, "type")
 

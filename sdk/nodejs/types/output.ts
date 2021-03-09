@@ -569,6 +569,17 @@ export namespace user {
         title: string;
     }
 
+    export interface SchemaMasterOverridePriority {
+        /**
+         * - Type of profile source.
+         */
+        type?: string;
+        /**
+         * - ID of profile source.
+         */
+        value: string;
+    }
+
     export interface SchemaOneOf {
         /**
          * value mapping to member of `enum`.

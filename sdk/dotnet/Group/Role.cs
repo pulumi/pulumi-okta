@@ -61,6 +61,15 @@ namespace Pulumi.Okta.Group
         public Output<string> RoleType { get; private set; } = null!;
 
         /// <summary>
+        /// A list of app names (name represents set of app instances, like 'salesforce' or '
+        /// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+        /// the targets of the admin role.
+        /// - Only supported when used with the role type `"APP_ADMIN"`.
+        /// </summary>
+        [Output("targetAppLists")]
+        public Output<ImmutableArray<string>> TargetAppLists { get; private set; } = null!;
+
+        /// <summary>
         /// A list of group IDs you would like as the targets of the admin role.
         /// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         /// </summary>
@@ -127,6 +136,21 @@ namespace Pulumi.Okta.Group
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
 
+        [Input("targetAppLists")]
+        private InputList<string>? _targetAppLists;
+
+        /// <summary>
+        /// A list of app names (name represents set of app instances, like 'salesforce' or '
+        /// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+        /// the targets of the admin role.
+        /// - Only supported when used with the role type `"APP_ADMIN"`.
+        /// </summary>
+        public InputList<string> TargetAppLists
+        {
+            get => _targetAppLists ?? (_targetAppLists = new InputList<string>());
+            set => _targetAppLists = value;
+        }
+
         [Input("targetGroupLists")]
         private InputList<string>? _targetGroupLists;
 
@@ -160,6 +184,21 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
+
+        [Input("targetAppLists")]
+        private InputList<string>? _targetAppLists;
+
+        /// <summary>
+        /// A list of app names (name represents set of app instances, like 'salesforce' or '
+        /// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+        /// the targets of the admin role.
+        /// - Only supported when used with the role type `"APP_ADMIN"`.
+        /// </summary>
+        public InputList<string> TargetAppLists
+        {
+            get => _targetAppLists ?? (_targetAppLists = new InputList<string>());
+            set => _targetAppLists = value;
+        }
 
         [Input("targetGroupLists")]
         private InputList<string>? _targetGroupLists;
