@@ -137,11 +137,11 @@ class Social(pulumi.CustomResource):
             __props__['issuer_mode'] = issuer_mode
             if match_attribute is not None and not opts.urn:
                 warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
-                pulumi.log.warn("match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"")
+                pulumi.log.warn("""match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""")
             __props__['match_attribute'] = match_attribute
             if match_type is not None and not opts.urn:
                 warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
-                pulumi.log.warn("match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"")
+                pulumi.log.warn("""match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"""")
             __props__['match_type'] = match_type
             __props__['max_clock_skew'] = max_clock_skew
             __props__['name'] = name

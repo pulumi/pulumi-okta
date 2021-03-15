@@ -154,7 +154,7 @@ class OAuth(pulumi.CustomResource):
             __props__['consent_method'] = consent_method
             if custom_client_id is not None and not opts.urn:
                 warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
-                pulumi.log.warn("custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.")
+                pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
             __props__['custom_client_id'] = custom_client_id
             __props__['grant_types'] = grant_types
             __props__['groups'] = groups

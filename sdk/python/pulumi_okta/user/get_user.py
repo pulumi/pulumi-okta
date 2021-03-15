@@ -488,24 +488,6 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
     """
     Use this data source to retrieve a users from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_user(searches=[
-        okta.user.GetUserSearchArgs(
-            name="profile.firstName",
-            value="John",
-        ),
-        okta.user.GetUserSearchArgs(
-            name="profile.lastName",
-            value="Doe",
-        ),
-    ])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param str user_id: String representing a specific user's id value

@@ -86,7 +86,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
-        pulumi.log.warn("ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")
+        pulumi.log.warn("""ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
