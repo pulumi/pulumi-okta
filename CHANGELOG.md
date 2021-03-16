@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.21.0
-* Release macOS arm64 binaryc
+_(none)_
 
 ---
+
+## 2.12.0 (2021-03-16)
+* Upgrade to pulumi-terraform-bridge v2.21.0
+* Release macOS arm64 binaryc
 
 ## 2.11.1 (2021-03-10)
 * Upgrade to v3.10.1 of the Okta Terraform Provider
