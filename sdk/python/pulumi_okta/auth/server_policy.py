@@ -95,7 +95,7 @@ class ServerPolicy(pulumi.CustomResource):
             __props__['status'] = status
             if type is not None and not opts.urn:
                 warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
-                pulumi.log.warn("type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value")
+                pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
             __props__['type'] = type
         super(ServerPolicy, __self__).__init__(
             'okta:auth/serverPolicy:ServerPolicy',
