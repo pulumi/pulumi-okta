@@ -36,6 +36,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("groupsIncludeds")]
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
+        [Output("hotp")]
+        public Output<ImmutableDictionary<string, string>?> Hotp { get; private set; } = null!;
+
         /// <summary>
         /// Policy Name
         /// </summary>
@@ -179,6 +182,14 @@ namespace Pulumi.Okta.Deprecated
         {
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
+        }
+
+        [Input("hotp")]
+        private InputMap<string>? _hotp;
+        public InputMap<string> Hotp
+        {
+            get => _hotp ?? (_hotp = new InputMap<string>());
+            set => _hotp = value;
         }
 
         /// <summary>
@@ -335,6 +346,14 @@ namespace Pulumi.Okta.Deprecated
         {
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
+        }
+
+        [Input("hotp")]
+        private InputMap<string>? _hotp;
+        public InputMap<string> Hotp
+        {
+            get => _hotp ?? (_hotp = new InputMap<string>());
+            set => _hotp = value;
         }
 
         /// <summary>

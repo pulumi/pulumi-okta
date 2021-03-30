@@ -21,8 +21,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Example App"
 // 		_, err := group.LookupGroup(ctx, &group.LookupGroupArgs{
-// 			Name: "Example App",
+// 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -42,10 +43,12 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
+	// ID of the group. Conflicts with `"name"` and `"type"`.
+	Id *string `pulumi:"id"`
 	// whether to retrieve all member ids.
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// name of group to retrieve.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
 	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
 	Type *string `pulumi:"type"`
@@ -55,11 +58,11 @@ type LookupGroupArgs struct {
 type LookupGroupResult struct {
 	// description of group.
 	Description string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
-	IncludeUsers *bool  `pulumi:"includeUsers"`
+	// ID of group.
+	Id           *string `pulumi:"id"`
+	IncludeUsers *bool   `pulumi:"includeUsers"`
 	// name of group.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// type of group.
 	Type *string `pulumi:"type"`
 	// user ids that are members of this group, only included if `includeUsers` is set to `true`.

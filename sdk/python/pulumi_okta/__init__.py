@@ -4,7 +4,13 @@
 
 # Export this package's modules as members:
 from .admin_role_targets import *
+from .app_oauth_api_scope import *
+from .auth_server_claim_default import *
+from .auth_server_default import *
 from .event_hook import *
+from .get_groups import *
+from .policy_mfa_default import *
+from .policy_password_default import *
 from .provider import *
 from .template_sms import *
 from ._inputs import *
@@ -42,8 +48,18 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "okta:index/adminRoleTargets:AdminRoleTargets":
                 return AdminRoleTargets(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/appOauthApiScope:AppOauthApiScope":
+                return AppOauthApiScope(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/authServerClaimDefault:AuthServerClaimDefault":
+                return AuthServerClaimDefault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/authServerDefault:AuthServerDefault":
+                return AuthServerDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/eventHook:EventHook":
                 return EventHook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/policyMfaDefault:PolicyMfaDefault":
+                return PolicyMfaDefault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/policyPasswordDefault:PolicyPasswordDefault":
+                return PolicyPasswordDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/templateSms:TemplateSms":
                 return TemplateSms(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -52,7 +68,12 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("okta", "index/adminRoleTargets", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/appOauthApiScope", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/authServerClaimDefault", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/authServerDefault", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/eventHook", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/policyMfaDefault", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/policyPasswordDefault", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/templateSms", _module_instance)
 
 

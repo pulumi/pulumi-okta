@@ -44,6 +44,7 @@ export class MfaPolicy extends pulumi.CustomResource {
      * List of Group IDs to Include
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
+    public readonly hotp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Name
      */
@@ -87,6 +88,7 @@ export class MfaPolicy extends pulumi.CustomResource {
             inputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
             inputs["googleOtp"] = state ? state.googleOtp : undefined;
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            inputs["hotp"] = state ? state.hotp : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["oktaCall"] = state ? state.oktaCall : undefined;
             inputs["oktaEmail"] = state ? state.oktaEmail : undefined;
@@ -108,6 +110,7 @@ export class MfaPolicy extends pulumi.CustomResource {
             inputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
             inputs["googleOtp"] = args ? args.googleOtp : undefined;
             inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            inputs["hotp"] = args ? args.hotp : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["oktaCall"] = args ? args.oktaCall : undefined;
             inputs["oktaEmail"] = args ? args.oktaEmail : undefined;
@@ -145,6 +148,7 @@ export interface MfaPolicyState {
      * List of Group IDs to Include
      */
     readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name
      */
@@ -186,6 +190,7 @@ export interface MfaPolicyArgs {
      * List of Group IDs to Include
      */
     readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name
      */

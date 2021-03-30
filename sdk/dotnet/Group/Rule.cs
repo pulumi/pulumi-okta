@@ -51,7 +51,8 @@ namespace Pulumi.Okta.Group
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        /// The expression type to use to invoke the rule. The default
+        /// is `"urn:okta:expression:1.0"`.
         /// </summary>
         [Output("expressionType")]
         public Output<string?> ExpressionType { get; private set; } = null!;
@@ -73,6 +74,13 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// This tells the provider to remove users added by this rule from the assigned
+        /// group after destroying this resource. Default is `false`.
+        /// </summary>
+        [Output("removeAssignedUsers")]
+        public Output<bool?> RemoveAssignedUsers { get; private set; } = null!;
 
         /// <summary>
         /// The status of the group rule.
@@ -127,7 +135,8 @@ namespace Pulumi.Okta.Group
     public sealed class RuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        /// The expression type to use to invoke the rule. The default
+        /// is `"urn:okta:expression:1.0"`.
         /// </summary>
         [Input("expressionType")]
         public Input<string>? ExpressionType { get; set; }
@@ -157,6 +166,13 @@ namespace Pulumi.Okta.Group
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// This tells the provider to remove users added by this rule from the assigned
+        /// group after destroying this resource. Default is `false`.
+        /// </summary>
+        [Input("removeAssignedUsers")]
+        public Input<bool>? RemoveAssignedUsers { get; set; }
+
+        /// <summary>
         /// The status of the group rule.
         /// </summary>
         [Input("status")]
@@ -170,7 +186,8 @@ namespace Pulumi.Okta.Group
     public sealed class RuleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        /// The expression type to use to invoke the rule. The default
+        /// is `"urn:okta:expression:1.0"`.
         /// </summary>
         [Input("expressionType")]
         public Input<string>? ExpressionType { get; set; }
@@ -198,6 +215,13 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// This tells the provider to remove users added by this rule from the assigned
+        /// group after destroying this resource. Default is `false`.
+        /// </summary>
+        [Input("removeAssignedUsers")]
+        public Input<bool>? RemoveAssignedUsers { get; set; }
 
         /// <summary>
         /// The status of the group rule.

@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetApp
     {
         /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
+        /// Use this data source to retrieve an application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -50,6 +50,18 @@ namespace Pulumi.Okta.App
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
+        [Input("groups")]
+        private List<string>? _groups;
+
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public List<string> Groups
+        {
+            get => _groups ?? (_groups = new List<string>());
+            set => _groups = value;
+        }
+
         /// <summary>
         /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
@@ -57,16 +69,31 @@ namespace Pulumi.Okta.App
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
+
+        [Input("users")]
+        private List<string>? _users;
+
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public List<string> Users
+        {
+            get => _users ?? (_users = new List<string>());
+            set => _users = value;
+        }
 
         public GetAppArgs()
         {
@@ -79,6 +106,10 @@ namespace Pulumi.Okta.App
     {
         public readonly bool? ActiveOnly;
         /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Groups;
+        /// <summary>
         /// `id` of application.
         /// </summary>
         public readonly string? Id;
@@ -88,6 +119,10 @@ namespace Pulumi.Okta.App
         public readonly string? Label;
         public readonly string? LabelPrefix;
         /// <summary>
+        /// Generic JSON containing discoverable resources related to the app
+        /// </summary>
+        public readonly string Links;
+        /// <summary>
         /// `name` of application.
         /// </summary>
         public readonly string Name;
@@ -95,10 +130,16 @@ namespace Pulumi.Okta.App
         /// `status` of application.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
         private GetAppResult(
             bool? activeOnly,
+
+            ImmutableArray<string> groups,
 
             string? id,
 
@@ -106,16 +147,23 @@ namespace Pulumi.Okta.App
 
             string? labelPrefix,
 
+            string links,
+
             string name,
 
-            string status)
+            string status,
+
+            ImmutableArray<string> users)
         {
             ActiveOnly = activeOnly;
+            Groups = groups;
             Id = id;
             Label = label;
             LabelPrefix = labelPrefix;
+            Links = links;
             Name = name;
             Status = status;
+            Users = users;
         }
     }
 }

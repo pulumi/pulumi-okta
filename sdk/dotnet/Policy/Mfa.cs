@@ -90,6 +90,12 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
         /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings.
+        /// </summary>
+        [Output("hotp")]
+        public Output<ImmutableDictionary<string, string>?> Hotp { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Name.
         /// </summary>
         [Output("name")]
@@ -277,6 +283,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
+        }
+
+        [Input("hotp")]
+        private InputMap<string>? _hotp;
+
+        /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings.
+        /// </summary>
+        public InputMap<string> Hotp
+        {
+            get => _hotp ?? (_hotp = new InputMap<string>());
+            set => _hotp = value;
         }
 
         /// <summary>
@@ -488,6 +506,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
+        }
+
+        [Input("hotp")]
+        private InputMap<string>? _hotp;
+
+        /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings.
+        /// </summary>
+        public InputMap<string> Hotp
+        {
+            get => _hotp ?? (_hotp = new InputMap<string>());
+            set => _hotp = value;
         }
 
         /// <summary>

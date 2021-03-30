@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the collaborators for a given repository.
+ * Use this data source to retrieve an SAML application from Okta.
  *
  * ## Example Usage
  *
@@ -44,6 +44,7 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "destination": args.destination,
         "digestAlgorithm": args.digestAlgorithm,
         "features": args.features,
+        "groups": args.groups,
         "hideIos": args.hideIos,
         "hideWeb": args.hideWeb,
         "honorForceAuthn": args.honorForceAuthn,
@@ -62,6 +63,7 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "userNameTemplate": args.userNameTemplate,
         "userNameTemplateSuffix": args.userNameTemplateSuffix,
         "userNameTemplateType": args.userNameTemplateType,
+        "users": args.users,
     }, opts);
 }
 
@@ -106,7 +108,8 @@ export interface GetSamlArgs {
      */
     readonly audience?: string;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication
+     * statement.
      */
     readonly authnContextClassRef?: string;
     /**
@@ -130,6 +133,10 @@ export interface GetSamlArgs {
      */
     readonly features?: string[];
     /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
+    /**
      * Do not display application icon on mobile app.
      */
     readonly hideIos?: boolean;
@@ -150,11 +157,14 @@ export interface GetSamlArgs {
      */
     readonly idpIssuer?: string;
     /**
-     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`.
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
      */
     readonly label?: string;
     /**
-     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      */
     readonly labelPrefix?: string;
     /**
@@ -201,6 +211,10 @@ export interface GetSamlArgs {
      * Username template type.
      */
     readonly userNameTemplateType?: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }
 
 /**
@@ -241,7 +255,8 @@ export interface GetSamlResult {
      */
     readonly audience?: string;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication
+     * statement.
      */
     readonly authnContextClassRef?: string;
     /**
@@ -264,6 +279,10 @@ export interface GetSamlResult {
      * features enabled.
      */
     readonly features?: string[];
+    /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
     /**
      * Do not display application icon on mobile app.
      */
@@ -293,6 +312,10 @@ export interface GetSamlResult {
      */
     readonly label?: string;
     readonly labelPrefix?: string;
+    /**
+     * Generic JSON containing discoverable resources related to the app
+     */
+    readonly links: string;
     /**
      * The name of the attribute statement.
      */
@@ -357,4 +380,8 @@ export interface GetSamlResult {
      * Username template type.
      */
     readonly userNameTemplateType?: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }

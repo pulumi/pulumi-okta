@@ -18,20 +18,27 @@ __all__ = [
 @pulumi.output_type
 class RuleIdpDiscoveryAppExclude(dict):
     def __init__(__self__, *,
+                 type: str,
                  id: Optional[str] = None,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
+                 name: Optional[str] = None):
         """
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
+        pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -48,14 +55,6 @@ class RuleIdpDiscoveryAppExclude(dict):
         Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
-        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -64,20 +63,27 @@ class RuleIdpDiscoveryAppExclude(dict):
 @pulumi.output_type
 class RuleIdpDiscoveryAppInclude(dict):
     def __init__(__self__, *,
+                 type: str,
                  id: Optional[str] = None,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
+                 name: Optional[str] = None):
         """
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
+        pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -94,14 +100,6 @@ class RuleIdpDiscoveryAppInclude(dict):
         Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
-        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

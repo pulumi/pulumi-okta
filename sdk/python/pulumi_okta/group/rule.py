@@ -19,6 +19,7 @@ class Rule(pulumi.CustomResource):
                  expression_value: Optional[pulumi.Input[str]] = None,
                  group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remove_assigned_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,10 +52,13 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default
+               is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
+               group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
         """
         if __name__ is not None:
@@ -82,6 +86,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_assignments'")
             __props__['group_assignments'] = group_assignments
             __props__['name'] = name
+            __props__['remove_assigned_users'] = remove_assigned_users
             __props__['status'] = status
         super(Rule, __self__).__init__(
             'okta:group/rule:Rule',
@@ -97,6 +102,7 @@ class Rule(pulumi.CustomResource):
             expression_value: Optional[pulumi.Input[str]] = None,
             group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            remove_assigned_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
@@ -105,10 +111,13 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default
+               is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
+               group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,6 +128,7 @@ class Rule(pulumi.CustomResource):
         __props__["expression_value"] = expression_value
         __props__["group_assignments"] = group_assignments
         __props__["name"] = name
+        __props__["remove_assigned_users"] = remove_assigned_users
         __props__["status"] = status
         return Rule(resource_name, opts=opts, __props__=__props__)
 
@@ -126,7 +136,8 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="expressionType")
     def expression_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+        The expression type to use to invoke the rule. The default
+        is `"urn:okta:expression:1.0"`.
         """
         return pulumi.get(self, "expression_type")
 
@@ -153,6 +164,15 @@ class Rule(pulumi.CustomResource):
         The name of the Group Rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="removeAssignedUsers")
+    def remove_assigned_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This tells the provider to remove users added by this rule from the assigned
+        group after destroying this resource. Default is `false`.
+        """
+        return pulumi.get(self, "remove_assigned_users")
 
     @property
     @pulumi.getter

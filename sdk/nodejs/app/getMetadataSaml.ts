@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the collaborators for a given repository.
+ * Use this data source to retrieve the metadata for SAML application from Okta.
  *
  * ## Example Usage
  *

@@ -24,7 +24,7 @@ namespace Pulumi.Okta.Policy.Outputs
         /// <summary>
         /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private RuleIdpDiscoveryAppExclude(
@@ -32,7 +32,7 @@ namespace Pulumi.Okta.Policy.Outputs
 
             string? name,
 
-            string? type)
+            string type)
         {
             Id = id;
             Name = name;

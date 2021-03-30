@@ -20,7 +20,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/oktadeveloper/terraform-provider-okta/okta"
+	"github.com/okta/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-okta/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
@@ -91,7 +91,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:             []string{"pulumi", "okta"},
 		License:              "Apache-2.0",
 		Homepage:             "https://pulumi.io",
-		GitHubOrg:            "oktadeveloper",
+		GitHubOrg:            "okta",
 		Repository:           "https://github.com/pulumi/pulumi-okta",
 		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
@@ -286,9 +286,15 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// All new resources will be put in top level package i.e. mainMod
-			"okta_event_hook":         {Tok: makeResource(mainMod, "EventHook")},
-			"okta_template_sms":       {Tok: makeResource(mainMod, "TemplateSms")},
-			"okta_admin_role_targets": {Tok: makeResource(mainMod, "AdminRoleTargets")},
+			"okta_event_hook":                {Tok: makeResource(mainMod, "EventHook")},
+			"okta_template_sms":              {Tok: makeResource(mainMod, "TemplateSms")},
+			"okta_admin_role_targets":        {Tok: makeResource(mainMod, "AdminRoleTargets")},
+			"okta_app_oauth_api_scope":       {Tok: makeResource(mainMod, "AppOauthApiScope")},
+			"okta_auth_server_default":       {Tok: makeResource(mainMod, "AuthServerDefault")},
+			"okta_policy_mfa_default":        {Tok: makeResource(mainMod, "PolicyMfaDefault")},
+			"auth_server_claim_default":      {Tok: makeResource(mainMod, "ServerClaimDefault")},
+			"okta_policy_password_default":   {Tok: makeResource(mainMod, "PolicyPasswordDefault")},
+			"okta_auth_server_claim_default": {Tok: makeResource(mainMod, "AuthServerClaimDefault")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},
@@ -374,6 +380,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{Source: "user_profile_mapping_source.html.markdown"},
 			},
 			"okta_user_type": {Tok: makeDataSource(userMod, "getUserType")},
+
+			// all new data sources will go in the mainmod
+			"okta_groups": {Tok: makeDataSource(mainMod, "getGroups")},
 
 			// Deprecated DataSources in Upstream Provider
 			"okta_default_policies": {Tok: makeDataSource(deprecatedMod, "getDefaultPolicies")},

@@ -36,6 +36,8 @@ type Mfa struct {
 	GoogleOtp pulumi.StringMapOutput `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	// HMAC-based One-Time Password MFA policy settings.
+	Hotp pulumi.StringMapOutput `pulumi:"hotp"`
 	// Policy Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Okta Call MFA policy settings.
@@ -105,6 +107,8 @@ type mfaState struct {
 	GoogleOtp map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	// HMAC-based One-Time Password MFA policy settings.
+	Hotp map[string]string `pulumi:"hotp"`
 	// Policy Name.
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
@@ -146,6 +150,8 @@ type MfaState struct {
 	GoogleOtp pulumi.StringMapInput
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayInput
+	// HMAC-based One-Time Password MFA policy settings.
+	Hotp pulumi.StringMapInput
 	// Policy Name.
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.
@@ -191,6 +197,8 @@ type mfaArgs struct {
 	GoogleOtp map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	// HMAC-based One-Time Password MFA policy settings.
+	Hotp map[string]string `pulumi:"hotp"`
 	// Policy Name.
 	Name *string `pulumi:"name"`
 	// Okta Call MFA policy settings.
@@ -233,6 +241,8 @@ type MfaArgs struct {
 	GoogleOtp pulumi.StringMapInput
 	// List of Group IDs to Include.
 	GroupsIncludeds pulumi.StringArrayInput
+	// HMAC-based One-Time Password MFA policy settings.
+	Hotp pulumi.StringMapInput
 	// Policy Name.
 	Name pulumi.StringPtrInput
 	// Okta Call MFA policy settings.

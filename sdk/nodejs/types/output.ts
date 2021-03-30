@@ -15,6 +15,26 @@ export interface EventHookHeader {
     value?: string;
 }
 
+export interface GetGroupsGroup {
+    /**
+     * Group description.
+     */
+    description: string;
+    /**
+     * Group ID.
+     */
+    id: string;
+    /**
+     * Group name.
+     */
+    name: string;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
+    type: string;
+}
+
 export interface TemplateSmsTranslation {
     /**
      * The language to map the template to.
@@ -304,7 +324,7 @@ export namespace policy {
         /**
          * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
          */
-        type?: string;
+        type: string;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
@@ -319,7 +339,7 @@ export namespace policy {
         /**
          * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
          */
-        type?: string;
+        type: string;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {

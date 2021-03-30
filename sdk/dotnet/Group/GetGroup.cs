@@ -37,13 +37,19 @@ namespace Pulumi.Okta.Group
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("okta:group/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
 
 
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the group. Conflicts with `"name"` and `"type"`.
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// whether to retrieve all member ids.
         /// </summary>
@@ -53,8 +59,8 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// name of group to retrieve.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
@@ -77,14 +83,14 @@ namespace Pulumi.Okta.Group
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// ID of group.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? IncludeUsers;
         /// <summary>
         /// name of group.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// type of group.
         /// </summary>
@@ -98,11 +104,11 @@ namespace Pulumi.Okta.Group
         private GetGroupResult(
             string description,
 
-            string id,
+            string? id,
 
             bool? includeUsers,
 
-            string name,
+            string? name,
 
             string? type,
 

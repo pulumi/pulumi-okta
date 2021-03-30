@@ -11,6 +11,32 @@ namespace Pulumi.Okta.App
 {
     public static class GetOauth
     {
+        /// <summary>
+        /// Use this data source to retrieve an OIDC application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Okta.App.GetOauth.InvokeAsync(new Okta.App.GetOauthArgs
+        ///         {
+        ///             Label = "Example App",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetOauthResult> InvokeAsync(GetOauthArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithVersion());
     }
@@ -18,26 +44,56 @@ namespace Pulumi.Okta.App
 
     public sealed class GetOauthArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// tells the provider to query for only `ACTIVE` applications.
+        /// </summary>
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
-        [Input("autoSubmitToolbar")]
-        public bool? AutoSubmitToolbar { get; set; }
+        [Input("groups")]
+        private List<string>? _groups;
 
-        [Input("hideIos")]
-        public bool? HideIos { get; set; }
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public List<string> Groups
+        {
+            get => _groups ?? (_groups = new List<string>());
+            set => _groups = value;
+        }
 
-        [Input("hideWeb")]
-        public bool? HideWeb { get; set; }
-
+        /// <summary>
+        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
+        /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
+        /// <summary>
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
+        /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
+
+        [Input("users")]
+        private List<string>? _users;
+
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public List<string> Users
+        {
+            get => _users ?? (_users = new List<string>());
+            set => _users = value;
+        }
 
         public GetOauthArgs()
         {
@@ -49,32 +105,101 @@ namespace Pulumi.Okta.App
     public sealed class GetOauthResult
     {
         public readonly bool? ActiveOnly;
-        public readonly bool? AutoSubmitToolbar;
+        /// <summary>
+        /// Display auto submit toolbar.
+        /// </summary>
+        public readonly bool AutoSubmitToolbar;
+        /// <summary>
+        /// OAuth client ID. If set during creation, app is created with this id.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// URI to a web page providing information about the client.
+        /// </summary>
         public readonly string ClientUri;
+        /// <summary>
+        /// List of OAuth 2.0 grant types.
+        /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
-        public readonly bool? HideIos;
-        public readonly bool? HideWeb;
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// Do not display application icon on mobile app.
+        /// </summary>
+        public readonly bool HideIos;
+        /// <summary>
+        /// Do not display application icon to users.
+        /// </summary>
+        public readonly bool HideWeb;
+        /// <summary>
+        /// ID of application.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Label of application.
+        /// </summary>
         public readonly string? Label;
         public readonly string? LabelPrefix;
+        /// <summary>
+        /// generic JSON containing discoverable resources related to the app
+        /// </summary>
+        public readonly string Links;
+        /// <summary>
+        /// The type of Idp-Initiated login that the client supports, if any.
+        /// </summary>
         public readonly string LoginMode;
+        /// <summary>
+        /// List of scopes to use for the request.
+        /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
+        /// <summary>
+        /// URI that initiates login.
+        /// </summary>
         public readonly string LoginUri;
+        /// <summary>
+        /// URI that references a logo for the client.
+        /// </summary>
         public readonly string LogoUri;
+        /// <summary>
+        /// Name of application.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// URI to web page providing client policy document.
+        /// </summary>
         public readonly string PolicyUri;
+        /// <summary>
+        /// List of URIs for redirection after logout.
+        /// </summary>
         public readonly ImmutableArray<string> PostLogoutRedirectUris;
+        /// <summary>
+        /// List of URIs for use in the redirect-based flow.
+        /// </summary>
         public readonly ImmutableArray<string> RedirectUris;
+        /// <summary>
+        /// List of OAuth 2.0 response type strings.
+        /// </summary>
         public readonly ImmutableArray<string> ResponseTypes;
+        /// <summary>
+        /// Status of application.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The type of OAuth application.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
         private GetOauthResult(
             bool? activeOnly,
 
-            bool? autoSubmitToolbar,
+            bool autoSubmitToolbar,
 
             string clientId,
 
@@ -82,15 +207,19 @@ namespace Pulumi.Okta.App
 
             ImmutableArray<string> grantTypes,
 
-            bool? hideIos,
+            ImmutableArray<string> groups,
 
-            bool? hideWeb,
+            bool hideIos,
+
+            bool hideWeb,
 
             string? id,
 
             string? label,
 
             string? labelPrefix,
+
+            string links,
 
             string loginMode,
 
@@ -112,18 +241,22 @@ namespace Pulumi.Okta.App
 
             string status,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> users)
         {
             ActiveOnly = activeOnly;
             AutoSubmitToolbar = autoSubmitToolbar;
             ClientId = clientId;
             ClientUri = clientUri;
             GrantTypes = grantTypes;
+            Groups = groups;
             HideIos = hideIos;
             HideWeb = hideWeb;
             Id = id;
             Label = label;
             LabelPrefix = labelPrefix;
+            Links = links;
             LoginMode = loginMode;
             LoginScopes = loginScopes;
             LoginUri = loginUri;
@@ -135,6 +268,7 @@ namespace Pulumi.Okta.App
             ResponseTypes = responseTypes;
             Status = status;
             Type = type;
+            Users = users;
         }
     }
 }

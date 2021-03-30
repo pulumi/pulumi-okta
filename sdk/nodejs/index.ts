@@ -6,7 +6,13 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./adminRoleTargets";
+export * from "./appOauthApiScope";
+export * from "./authServerClaimDefault";
+export * from "./authServerDefault";
 export * from "./eventHook";
+export * from "./getGroups";
+export * from "./policyMfaDefault";
+export * from "./policyPasswordDefault";
 export * from "./provider";
 export * from "./templateSms";
 
@@ -47,7 +53,12 @@ export {
 
 // Import resources to register:
 import { AdminRoleTargets } from "./adminRoleTargets";
+import { AppOauthApiScope } from "./appOauthApiScope";
+import { AuthServerClaimDefault } from "./authServerClaimDefault";
+import { AuthServerDefault } from "./authServerDefault";
 import { EventHook } from "./eventHook";
+import { PolicyMfaDefault } from "./policyMfaDefault";
+import { PolicyPasswordDefault } from "./policyPasswordDefault";
 import { TemplateSms } from "./templateSms";
 
 const _module = {
@@ -56,8 +67,18 @@ const _module = {
         switch (type) {
             case "okta:index/adminRoleTargets:AdminRoleTargets":
                 return new AdminRoleTargets(name, <any>undefined, { urn })
+            case "okta:index/appOauthApiScope:AppOauthApiScope":
+                return new AppOauthApiScope(name, <any>undefined, { urn })
+            case "okta:index/authServerClaimDefault:AuthServerClaimDefault":
+                return new AuthServerClaimDefault(name, <any>undefined, { urn })
+            case "okta:index/authServerDefault:AuthServerDefault":
+                return new AuthServerDefault(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
+            case "okta:index/policyMfaDefault:PolicyMfaDefault":
+                return new PolicyMfaDefault(name, <any>undefined, { urn })
+            case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
+                return new PolicyPasswordDefault(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
                 return new TemplateSms(name, <any>undefined, { urn })
             default:
@@ -66,7 +87,12 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
+pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _module)
+pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
+pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
+pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 
 import { Provider } from "./provider";

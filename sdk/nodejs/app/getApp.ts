@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the collaborators for a given repository.
+ * Use this data source to retrieve an application from Okta.
  *
  * ## Example Usage
  *
@@ -30,9 +30,11 @@ export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<
     }
     return pulumi.runtime.invoke("okta:app/getApp:getApp", {
         "activeOnly": args.activeOnly,
+        "groups": args.groups,
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "users": args.users,
     }, opts);
 }
 
@@ -45,17 +47,28 @@ export interface GetAppArgs {
      */
     readonly activeOnly?: boolean;
     /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
+    /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     readonly id?: string;
     /**
-     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
      */
     readonly label?: string;
     /**
-     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      */
     readonly labelPrefix?: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }
 
 /**
@@ -63,6 +76,10 @@ export interface GetAppArgs {
  */
 export interface GetAppResult {
     readonly activeOnly?: boolean;
+    /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
     /**
      * `id` of application.
      */
@@ -73,6 +90,10 @@ export interface GetAppResult {
     readonly label?: string;
     readonly labelPrefix?: string;
     /**
+     * Generic JSON containing discoverable resources related to the app
+     */
+    readonly links: string;
+    /**
      * `name` of application.
      */
     readonly name: string;
@@ -80,4 +101,8 @@ export interface GetAppResult {
      * `status` of application.
      */
     readonly status: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }

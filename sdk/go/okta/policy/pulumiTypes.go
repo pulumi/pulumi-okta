@@ -16,7 +16,7 @@ type RuleIdpDiscoveryAppExclude struct {
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // RuleIdpDiscoveryAppExcludeInput is an input type that accepts RuleIdpDiscoveryAppExcludeArgs and RuleIdpDiscoveryAppExcludeOutput values.
@@ -36,7 +36,7 @@ type RuleIdpDiscoveryAppExcludeArgs struct {
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryAppExcludeArgs) ElementType() reflect.Type {
@@ -101,8 +101,8 @@ func (o RuleIdpDiscoveryAppExcludeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-func (o RuleIdpDiscoveryAppExcludeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o RuleIdpDiscoveryAppExcludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type RuleIdpDiscoveryAppExcludeArrayOutput struct{ *pulumi.OutputState }
@@ -131,7 +131,7 @@ type RuleIdpDiscoveryAppInclude struct {
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // RuleIdpDiscoveryAppIncludeInput is an input type that accepts RuleIdpDiscoveryAppIncludeArgs and RuleIdpDiscoveryAppIncludeOutput values.
@@ -151,7 +151,7 @@ type RuleIdpDiscoveryAppIncludeArgs struct {
 	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryAppIncludeArgs) ElementType() reflect.Type {
@@ -216,8 +216,8 @@ func (o RuleIdpDiscoveryAppIncludeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-func (o RuleIdpDiscoveryAppIncludeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o RuleIdpDiscoveryAppIncludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type RuleIdpDiscoveryAppIncludeArrayOutput struct{ *pulumi.OutputState }

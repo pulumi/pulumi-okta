@@ -11,6 +11,7 @@ from . import _utilities, _tables
 __all__ = [
     'EventHookHeader',
     'TemplateSmsTranslation',
+    'GetGroupsGroupResult',
 ]
 
 @pulumi.output_type
@@ -77,5 +78,58 @@ class TemplateSmsTranslation(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 id: str,
+                 name: str,
+                 type: str):
+        """
+        :param str description: Group description.
+        :param str id: Group ID.
+        :param str name: Group name.
+        :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+               (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Group description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Group ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Group name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        """
+        return pulumi.get(self, "type")
 
 

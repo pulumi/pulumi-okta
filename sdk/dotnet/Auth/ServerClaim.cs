@@ -57,7 +57,7 @@ namespace Pulumi.Okta.Auth
         public Output<bool?> AlwaysIncludeInToken { get; private set; } = null!;
 
         /// <summary>
-        /// The Application's display name.
+        /// ID of the authorization server.
         /// </summary>
         [Output("authServerId")]
         public Output<string> AuthServerId { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Okta.Auth
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// ID of the authorization server.
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Okta.Auth
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// ID of the authorization server.
         /// </summary>
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }

@@ -19,10 +19,13 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, active_only=None, id=None, label=None, label_prefix=None, name=None, status=None):
+    def __init__(__self__, active_only=None, groups=None, id=None, label=None, label_prefix=None, links=None, name=None, status=None, users=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
+        if groups and not isinstance(groups, list):
+            raise TypeError("Expected argument 'groups' to be a list")
+        pulumi.set(__self__, "groups", groups)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,17 +35,31 @@ class GetAppResult:
         if label_prefix and not isinstance(label_prefix, str):
             raise TypeError("Expected argument 'label_prefix' to be a str")
         pulumi.set(__self__, "label_prefix", label_prefix)
+        if links and not isinstance(links, str):
+            raise TypeError("Expected argument 'links' to be a str")
+        pulumi.set(__self__, "links", links)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
         return pulumi.get(self, "active_only")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        List of groups IDs assigned to the application.
+        """
+        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
@@ -67,6 +84,14 @@ class GetAppResult:
 
     @property
     @pulumi.getter
+    def links(self) -> str:
+        """
+        Generic JSON containing discoverable resources related to the app
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         `name` of application.
@@ -81,6 +106,14 @@ class GetAppResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        List of users IDs assigned to the application.
+        """
+        return pulumi.get(self, "users")
+
 
 class AwaitableGetAppResult(GetAppResult):
     # pylint: disable=using-constant-test
@@ -89,20 +122,25 @@ class AwaitableGetAppResult(GetAppResult):
             yield self
         return GetAppResult(
             active_only=self.active_only,
+            groups=self.groups,
             id=self.id,
             label=self.label,
             label_prefix=self.label_prefix,
+            links=self.links,
             name=self.name,
-            status=self.status)
+            status=self.status,
+            users=self.users)
 
 
 def get_app(active_only: Optional[bool] = None,
+            groups: Optional[Sequence[str]] = None,
             id: Optional[str] = None,
             label: Optional[str] = None,
             label_prefix: Optional[str] = None,
+            users: Optional[Sequence[str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to retrieve the collaborators for a given repository.
+    Use this data source to retrieve an application from Okta.
 
     ## Example Usage
 
@@ -115,15 +153,22 @@ def get_app(active_only: Optional[bool] = None,
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
+    :param Sequence[str] groups: List of groups IDs assigned to the application.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name` and `label`. This is used to avoid paginating through all applications.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+           and `label`. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+           provider to do a `starts with` query as opposed to an `equals` query.
+    :param Sequence[str] users: List of users IDs assigned to the application.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
+    __args__['groups'] = groups
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -132,8 +177,11 @@ def get_app(active_only: Optional[bool] = None,
 
     return AwaitableGetAppResult(
         active_only=__ret__.active_only,
+        groups=__ret__.groups,
         id=__ret__.id,
         label=__ret__.label,
         label_prefix=__ret__.label_prefix,
+        links=__ret__.links,
         name=__ret__.name,
-        status=__ret__.status)
+        status=__ret__.status,
+        users=__ret__.users)

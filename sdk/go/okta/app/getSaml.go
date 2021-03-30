@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to retrieve the collaborators for a given repository.
+// Use this data source to retrieve an SAML application from Okta.
 //
 // ## Example Usage
 //
@@ -61,7 +61,8 @@ type LookupSamlArgs struct {
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication
+	// statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -73,6 +74,8 @@ type LookupSamlArgs struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// features enabled.
 	Features []string `pulumi:"features"`
+	// List of groups IDs assigned to the application.
+	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
@@ -83,9 +86,12 @@ type LookupSamlArgs struct {
 	Id *string `pulumi:"id"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`.
+	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+	// and `label`. This is used to avoid paginating through all applications.
 	Label *string `pulumi:"label"`
-	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -109,6 +115,8 @@ type LookupSamlArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
+	// List of users IDs assigned to the application.
+	Users []string `pulumi:"users"`
 }
 
 // A collection of values returned by getSaml.
@@ -130,7 +138,8 @@ type LookupSamlResult struct {
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication
+	// statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -142,6 +151,8 @@ type LookupSamlResult struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// features enabled.
 	Features []string `pulumi:"features"`
+	// List of groups IDs assigned to the application.
+	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
@@ -157,6 +168,8 @@ type LookupSamlResult struct {
 	// label of application.
 	Label       *string `pulumi:"label"`
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Generic JSON containing discoverable resources related to the app
+	Links string `pulumi:"links"`
 	// The name of the attribute statement.
 	Name string `pulumi:"name"`
 	// The location where the app may present the SAML assertion.
@@ -189,4 +202,6 @@ type LookupSamlResult struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
+	// List of users IDs assigned to the application.
+	Users []string `pulumi:"users"`
 }

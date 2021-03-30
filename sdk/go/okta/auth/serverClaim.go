@@ -27,7 +27,7 @@ type ServerClaim struct {
 
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrOutput `pulumi:"alwaysIncludeInToken"`
-	// The Application's display name.
+	// ID of the authorization server.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
 	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringOutput `pulumi:"claimType"`
@@ -85,7 +85,7 @@ func GetServerClaim(ctx *pulumi.Context,
 type serverClaimState struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// The Application's display name.
+	// ID of the authorization server.
 	AuthServerId *string `pulumi:"authServerId"`
 	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType *string `pulumi:"claimType"`
@@ -106,7 +106,7 @@ type serverClaimState struct {
 type ServerClaimState struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// The Application's display name.
+	// ID of the authorization server.
 	AuthServerId pulumi.StringPtrInput
 	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringPtrInput
@@ -131,7 +131,7 @@ func (ServerClaimState) ElementType() reflect.Type {
 type serverClaimArgs struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// The Application's display name.
+	// ID of the authorization server.
 	AuthServerId string `pulumi:"authServerId"`
 	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType string `pulumi:"claimType"`
@@ -153,7 +153,7 @@ type serverClaimArgs struct {
 type ServerClaimArgs struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// The Application's display name.
+	// ID of the authorization server.
 	AuthServerId pulumi.StringInput
 	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringInput

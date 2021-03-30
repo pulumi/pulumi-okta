@@ -274,7 +274,7 @@ export namespace policy {
         /**
          * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
@@ -289,7 +289,7 @@ export namespace policy {
         /**
          * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {

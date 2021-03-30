@@ -64,7 +64,7 @@ export class ServerClaim extends pulumi.CustomResource {
      */
     public readonly alwaysIncludeInToken!: pulumi.Output<boolean | undefined>;
     /**
-     * The Application's display name.
+     * ID of the authorization server.
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface ServerClaimState {
      */
     readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * The Application's display name.
+     * ID of the authorization server.
      */
     readonly authServerId?: pulumi.Input<string>;
     /**
@@ -197,7 +197,7 @@ export interface ServerClaimArgs {
      */
     readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * The Application's display name.
+     * ID of the authorization server.
      */
     readonly authServerId: pulumi.Input<string>;
     /**
