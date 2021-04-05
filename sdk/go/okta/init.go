@@ -22,8 +22,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
 		r, err = NewAdminRoleTargets(ctx, name, nil, pulumi.URN_(urn))
+	case "okta:index/appOauthApiScope:AppOauthApiScope":
+		r, err = NewAppOauthApiScope(ctx, name, nil, pulumi.URN_(urn))
+	case "okta:index/authServerClaimDefault:AuthServerClaimDefault":
+		r, err = NewAuthServerClaimDefault(ctx, name, nil, pulumi.URN_(urn))
+	case "okta:index/authServerDefault:AuthServerDefault":
+		r, err = NewAuthServerDefault(ctx, name, nil, pulumi.URN_(urn))
 	case "okta:index/eventHook:EventHook":
 		r, err = NewEventHook(ctx, name, nil, pulumi.URN_(urn))
+	case "okta:index/policyMfaDefault:PolicyMfaDefault":
+		r, err = NewPolicyMfaDefault(ctx, name, nil, pulumi.URN_(urn))
+	case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
+		r, err = NewPolicyPasswordDefault(ctx, name, nil, pulumi.URN_(urn))
 	case "okta:index/templateSms:TemplateSms":
 		r, err = NewTemplateSms(ctx, name, nil, pulumi.URN_(urn))
 	default:
@@ -61,7 +71,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/appOauthApiScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/authServerClaimDefault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/authServerDefault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/eventHook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/policyMfaDefault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/policyPasswordDefault",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to retrieve an OIDC application from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v2/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Example App"
+// 		_, err := app.GetOauth(ctx, &app.GetOauthArgs{
+// 			Label: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOption) (*GetOauthResult, error) {
 	var rv GetOauthResult
 	err := ctx.Invoke("okta:app/getOauth:getOauth", args, &rv, opts...)
@@ -18,36 +43,69 @@ func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getOauth.
 type GetOauthArgs struct {
-	ActiveOnly        *bool   `pulumi:"activeOnly"`
-	AutoSubmitToolbar *bool   `pulumi:"autoSubmitToolbar"`
-	HideIos           *bool   `pulumi:"hideIos"`
-	HideWeb           *bool   `pulumi:"hideWeb"`
-	Id                *string `pulumi:"id"`
-	Label             *string `pulumi:"label"`
-	LabelPrefix       *string `pulumi:"labelPrefix"`
+	// tells the provider to query for only `ACTIVE` applications.
+	ActiveOnly *bool `pulumi:"activeOnly"`
+	// List of groups IDs assigned to the application.
+	Groups []string `pulumi:"groups"`
+	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	Id *string `pulumi:"id"`
+	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+	// and `label`. This is used to avoid paginating through all applications.
+	Label *string `pulumi:"label"`
+	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+	// provider to do a `starts with` query as opposed to an `equals` query.
+	LabelPrefix *string `pulumi:"labelPrefix"`
+	// List of users IDs assigned to the application.
+	Users []string `pulumi:"users"`
 }
 
 // A collection of values returned by getOauth.
 type GetOauthResult struct {
-	ActiveOnly             *bool    `pulumi:"activeOnly"`
-	AutoSubmitToolbar      *bool    `pulumi:"autoSubmitToolbar"`
-	ClientId               string   `pulumi:"clientId"`
-	ClientUri              string   `pulumi:"clientUri"`
-	GrantTypes             []string `pulumi:"grantTypes"`
-	HideIos                *bool    `pulumi:"hideIos"`
-	HideWeb                *bool    `pulumi:"hideWeb"`
-	Id                     *string  `pulumi:"id"`
-	Label                  *string  `pulumi:"label"`
-	LabelPrefix            *string  `pulumi:"labelPrefix"`
-	LoginMode              string   `pulumi:"loginMode"`
-	LoginScopes            []string `pulumi:"loginScopes"`
-	LoginUri               string   `pulumi:"loginUri"`
-	LogoUri                string   `pulumi:"logoUri"`
-	Name                   string   `pulumi:"name"`
-	PolicyUri              string   `pulumi:"policyUri"`
+	ActiveOnly *bool `pulumi:"activeOnly"`
+	// Display auto submit toolbar.
+	AutoSubmitToolbar bool `pulumi:"autoSubmitToolbar"`
+	// OAuth client ID. If set during creation, app is created with this id.
+	ClientId string `pulumi:"clientId"`
+	// URI to a web page providing information about the client.
+	ClientUri string `pulumi:"clientUri"`
+	// List of OAuth 2.0 grant types.
+	GrantTypes []string `pulumi:"grantTypes"`
+	// List of groups IDs assigned to the application.
+	Groups []string `pulumi:"groups"`
+	// Do not display application icon on mobile app.
+	HideIos bool `pulumi:"hideIos"`
+	// Do not display application icon to users.
+	HideWeb bool `pulumi:"hideWeb"`
+	// ID of application.
+	Id *string `pulumi:"id"`
+	// Label of application.
+	Label       *string `pulumi:"label"`
+	LabelPrefix *string `pulumi:"labelPrefix"`
+	// generic JSON containing discoverable resources related to the app
+	Links string `pulumi:"links"`
+	// The type of Idp-Initiated login that the client supports, if any.
+	LoginMode string `pulumi:"loginMode"`
+	// List of scopes to use for the request.
+	LoginScopes []string `pulumi:"loginScopes"`
+	// URI that initiates login.
+	LoginUri string `pulumi:"loginUri"`
+	// URI that references a logo for the client.
+	LogoUri string `pulumi:"logoUri"`
+	// Name of application.
+	Name string `pulumi:"name"`
+	// URI to web page providing client policy document.
+	PolicyUri string `pulumi:"policyUri"`
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
-	RedirectUris           []string `pulumi:"redirectUris"`
-	ResponseTypes          []string `pulumi:"responseTypes"`
-	Status                 string   `pulumi:"status"`
-	Type                   string   `pulumi:"type"`
+	// List of URIs for use in the redirect-based flow.
+	RedirectUris []string `pulumi:"redirectUris"`
+	// List of OAuth 2.0 response type strings.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// Status of application.
+	Status string `pulumi:"status"`
+	// The type of OAuth application.
+	Type string `pulumi:"type"`
+	// List of users IDs assigned to the application.
+	Users []string `pulumi:"users"`
 }

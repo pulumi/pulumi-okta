@@ -136,7 +136,7 @@ def get_metadata_saml(app_id: Optional[str] = None,
                       key_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataSamlResult:
     """
-    Use this data source to retrieve the collaborators for a given repository.
+    Use this data source to retrieve the metadata for SAML application from Okta.
 
     ## Example Usage
 

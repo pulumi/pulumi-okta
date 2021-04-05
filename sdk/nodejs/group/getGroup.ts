@@ -19,7 +19,8 @@ import * as utilities from "../utilities";
  * }, { async: true }));
  * ```
  */
-export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
+export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -28,6 +29,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("okta:group/getGroup:getGroup", {
+        "id": args.id,
         "includeUsers": args.includeUsers,
         "name": args.name,
         "type": args.type,
@@ -39,13 +41,17 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
+     * ID of the group. Conflicts with `"name"` and `"type"`.
+     */
+    readonly id?: string;
+    /**
      * whether to retrieve all member ids.
      */
     readonly includeUsers?: boolean;
     /**
      * name of group to retrieve.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
@@ -62,14 +68,14 @@ export interface GetGroupResult {
      */
     readonly description: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * ID of group.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly includeUsers?: boolean;
     /**
      * name of group.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * type of group.
      */

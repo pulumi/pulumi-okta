@@ -21,7 +21,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -67,6 +67,9 @@ class GetSamlResult:
         if features and not isinstance(features, list):
             raise TypeError("Expected argument 'features' to be a list")
         pulumi.set(__self__, "features", features)
+        if groups and not isinstance(groups, list):
+            raise TypeError("Expected argument 'groups' to be a list")
+        pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
         pulumi.set(__self__, "hide_ios", hide_ios)
@@ -91,6 +94,9 @@ class GetSamlResult:
         if label_prefix and not isinstance(label_prefix, str):
             raise TypeError("Expected argument 'label_prefix' to be a str")
         pulumi.set(__self__, "label_prefix", label_prefix)
+        if links and not isinstance(links, str):
+            raise TypeError("Expected argument 'links' to be a str")
+        pulumi.set(__self__, "links", links)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -139,6 +145,9 @@ class GetSamlResult:
         if user_name_template_type and not isinstance(user_name_template_type, str):
             raise TypeError("Expected argument 'user_name_template_type' to be a str")
         pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -213,7 +222,8 @@ class GetSamlResult:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> Optional[str]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement.
+        Identifies the SAML authentication context class for the assertion’s authentication
+        statement.
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -256,6 +266,14 @@ class GetSamlResult:
         features enabled.
         """
         return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        List of groups IDs assigned to the application.
+        """
+        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="hideIos")
@@ -317,6 +335,14 @@ class GetSamlResult:
     @pulumi.getter(name="labelPrefix")
     def label_prefix(self) -> Optional[str]:
         return pulumi.get(self, "label_prefix")
+
+    @property
+    @pulumi.getter
+    def links(self) -> str:
+        """
+        Generic JSON containing discoverable resources related to the app
+        """
+        return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
@@ -446,6 +472,14 @@ class GetSamlResult:
         """
         return pulumi.get(self, "user_name_template_type")
 
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        List of users IDs assigned to the application.
+        """
+        return pulumi.get(self, "users")
+
 
 class AwaitableGetSamlResult(GetSamlResult):
     # pylint: disable=using-constant-test
@@ -468,6 +502,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             destination=self.destination,
             digest_algorithm=self.digest_algorithm,
             features=self.features,
+            groups=self.groups,
             hide_ios=self.hide_ios,
             hide_web=self.hide_web,
             honor_force_authn=self.honor_force_authn,
@@ -476,6 +511,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             key_id=self.key_id,
             label=self.label,
             label_prefix=self.label_prefix,
+            links=self.links,
             name=self.name,
             recipient=self.recipient,
             request_compressed=self.request_compressed,
@@ -491,7 +527,8 @@ class AwaitableGetSamlResult(GetSamlResult):
             subject_name_id_template=self.subject_name_id_template,
             user_name_template=self.user_name_template,
             user_name_template_suffix=self.user_name_template_suffix,
-            user_name_template_type=self.user_name_template_type)
+            user_name_template_type=self.user_name_template_type,
+            users=self.users)
 
 
 def get_saml(accessibility_error_redirect_url: Optional[str] = None,
@@ -509,6 +546,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
              destination: Optional[str] = None,
              digest_algorithm: Optional[str] = None,
              features: Optional[Sequence[str]] = None,
+             groups: Optional[Sequence[str]] = None,
              hide_ios: Optional[bool] = None,
              hide_web: Optional[bool] = None,
              honor_force_authn: Optional[bool] = None,
@@ -527,9 +565,10 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
              user_name_template: Optional[str] = None,
              user_name_template_suffix: Optional[str] = None,
              user_name_template_type: Optional[str] = None,
+             users: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
-    Use this data source to retrieve the collaborators for a given repository.
+    Use this data source to retrieve an SAML application from Okta.
 
     ## Example Usage
 
@@ -550,19 +589,24 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
     :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: List of SAML Attribute statements.
     :param str audience: Audience restriction.
-    :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+    :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication
+           statement.
     :param bool auto_submit_toolbar: Display auto submit toolbar.
     :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
     :param str destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
     :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
     :param Sequence[str] features: features enabled.
+    :param Sequence[str] groups: List of groups IDs assigned to the application.
     :param bool hide_ios: Do not display application icon on mobile app.
     :param bool hide_web: Do not display application icon to users
     :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str idp_issuer: SAML issuer ID.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+           and `label`. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+           provider to do a `starts with` query as opposed to an `equals` query.
     :param str recipient: The location where the app may present the SAML assertion.
     :param bool request_compressed: Denotes whether the request is compressed or not.
     :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
@@ -574,6 +618,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param str user_name_template: Username template.
     :param str user_name_template_suffix: Username template suffix.
     :param str user_name_template_type: Username template type.
+    :param Sequence[str] users: List of users IDs assigned to the application.
     """
     __args__ = dict()
     __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url
@@ -591,6 +636,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     __args__['destination'] = destination
     __args__['digestAlgorithm'] = digest_algorithm
     __args__['features'] = features
+    __args__['groups'] = groups
     __args__['hideIos'] = hide_ios
     __args__['hideWeb'] = hide_web
     __args__['honorForceAuthn'] = honor_force_authn
@@ -609,6 +655,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     __args__['userNameTemplate'] = user_name_template
     __args__['userNameTemplateSuffix'] = user_name_template_suffix
     __args__['userNameTemplateType'] = user_name_template_type
+    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -631,6 +678,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         destination=__ret__.destination,
         digest_algorithm=__ret__.digest_algorithm,
         features=__ret__.features,
+        groups=__ret__.groups,
         hide_ios=__ret__.hide_ios,
         hide_web=__ret__.hide_web,
         honor_force_authn=__ret__.honor_force_authn,
@@ -639,6 +687,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         key_id=__ret__.key_id,
         label=__ret__.label,
         label_prefix=__ret__.label_prefix,
+        links=__ret__.links,
         name=__ret__.name,
         recipient=__ret__.recipient,
         request_compressed=__ret__.request_compressed,
@@ -654,4 +703,5 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         subject_name_id_template=__ret__.subject_name_id_template,
         user_name_template=__ret__.user_name_template,
         user_name_template_suffix=__ret__.user_name_template_suffix,
-        user_name_template_type=__ret__.user_name_template_type)
+        user_name_template_type=__ret__.user_name_template_type,
+        users=__ret__.users)

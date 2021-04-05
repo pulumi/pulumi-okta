@@ -21,6 +21,7 @@ type MfaPolicy struct {
 	GoogleOtp    pulumi.StringMapOutput `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	Hotp            pulumi.StringMapOutput   `pulumi:"hotp"`
 	// Policy Name
 	Name         pulumi.StringOutput    `pulumi:"name"`
 	OktaCall     pulumi.StringMapOutput `pulumi:"oktaCall"`
@@ -76,7 +77,8 @@ type mfaPolicyState struct {
 	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
 	GoogleOtp    map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
+	Hotp            map[string]string `pulumi:"hotp"`
 	// Policy Name
 	Name         *string           `pulumi:"name"`
 	OktaCall     map[string]string `pulumi:"oktaCall"`
@@ -105,6 +107,7 @@ type MfaPolicyState struct {
 	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
+	Hotp            pulumi.StringMapInput
 	// Policy Name
 	Name         pulumi.StringPtrInput
 	OktaCall     pulumi.StringMapInput
@@ -136,7 +139,8 @@ type mfaPolicyArgs struct {
 	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
 	GoogleOtp    map[string]string `pulumi:"googleOtp"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
+	Hotp            map[string]string `pulumi:"hotp"`
 	// Policy Name
 	Name         *string           `pulumi:"name"`
 	OktaCall     map[string]string `pulumi:"oktaCall"`
@@ -166,6 +170,7 @@ type MfaPolicyArgs struct {
 	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
+	Hotp            pulumi.StringMapInput
 	// Policy Name
 	Name         pulumi.StringPtrInput
 	OktaCall     pulumi.StringMapInput

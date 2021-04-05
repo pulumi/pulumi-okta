@@ -86,6 +86,10 @@ export class Mfa extends pulumi.CustomResource {
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     /**
+     * HMAC-based One-Time Password MFA policy settings.
+     */
+    public readonly hotp!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Policy Name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -157,6 +161,7 @@ export class Mfa extends pulumi.CustomResource {
             inputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
             inputs["googleOtp"] = state ? state.googleOtp : undefined;
             inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            inputs["hotp"] = state ? state.hotp : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["oktaCall"] = state ? state.oktaCall : undefined;
             inputs["oktaEmail"] = state ? state.oktaEmail : undefined;
@@ -178,6 +183,7 @@ export class Mfa extends pulumi.CustomResource {
             inputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
             inputs["googleOtp"] = args ? args.googleOtp : undefined;
             inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            inputs["hotp"] = args ? args.hotp : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["oktaCall"] = args ? args.oktaCall : undefined;
             inputs["oktaEmail"] = args ? args.oktaEmail : undefined;
@@ -227,6 +233,10 @@ export interface MfaState {
      * List of Group IDs to Include.
      */
     readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * HMAC-based One-Time Password MFA policy settings.
+     */
+    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name.
      */
@@ -309,6 +319,10 @@ export interface MfaArgs {
      * List of Group IDs to Include.
      */
     readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * HMAC-based One-Time Password MFA policy settings.
+     */
+    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name.
      */

@@ -21,6 +21,7 @@ class MfaPolicy(pulumi.CustomResource):
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -71,6 +72,7 @@ class MfaPolicy(pulumi.CustomResource):
             __props__['fido_webauthn'] = fido_webauthn
             __props__['google_otp'] = google_otp
             __props__['groups_includeds'] = groups_includeds
+            __props__['hotp'] = hotp
             __props__['name'] = name
             __props__['okta_call'] = okta_call
             __props__['okta_email'] = okta_email
@@ -100,6 +102,7 @@ class MfaPolicy(pulumi.CustomResource):
             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -137,6 +140,7 @@ class MfaPolicy(pulumi.CustomResource):
         __props__["fido_webauthn"] = fido_webauthn
         __props__["google_otp"] = google_otp
         __props__["groups_includeds"] = groups_includeds
+        __props__["hotp"] = hotp
         __props__["name"] = name
         __props__["okta_call"] = okta_call
         __props__["okta_email"] = okta_email
@@ -187,6 +191,11 @@ class MfaPolicy(pulumi.CustomResource):
         List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
+
+    @property
+    @pulumi.getter
+    def hotp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "hotp")
 
     @property
     @pulumi.getter

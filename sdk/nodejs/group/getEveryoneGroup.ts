@@ -6,7 +6,8 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+ * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
+ * source with `name = "Everyone"`. This is simply a shortcut.
  *
  * ## Example Usage
  *
@@ -35,6 +36,9 @@ export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getEveryoneGroup.
  */
 export interface GetEveryoneGroupArgs {
+    /**
+     * whether to retrieve all member ids.
+     */
     readonly includeUsers?: boolean;
 }
 
@@ -42,6 +46,9 @@ export interface GetEveryoneGroupArgs {
  * A collection of values returned by getEveryoneGroup.
  */
 export interface GetEveryoneGroupResult {
+    /**
+     * description of group.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.

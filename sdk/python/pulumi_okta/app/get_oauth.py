@@ -19,7 +19,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None, users=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -35,6 +35,9 @@ class GetOauthResult:
         if grant_types and not isinstance(grant_types, list):
             raise TypeError("Expected argument 'grant_types' to be a list")
         pulumi.set(__self__, "grant_types", grant_types)
+        if groups and not isinstance(groups, list):
+            raise TypeError("Expected argument 'groups' to be a list")
+        pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
         pulumi.set(__self__, "hide_ios", hide_ios)
@@ -50,6 +53,9 @@ class GetOauthResult:
         if label_prefix and not isinstance(label_prefix, str):
             raise TypeError("Expected argument 'label_prefix' to be a str")
         pulumi.set(__self__, "label_prefix", label_prefix)
+        if links and not isinstance(links, str):
+            raise TypeError("Expected argument 'links' to be a str")
+        pulumi.set(__self__, "links", links)
         if login_mode and not isinstance(login_mode, str):
             raise TypeError("Expected argument 'login_mode' to be a str")
         pulumi.set(__self__, "login_mode", login_mode)
@@ -83,6 +89,9 @@ class GetOauthResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="activeOnly")
@@ -91,42 +100,74 @@ class GetOauthResult:
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> bool:
+        """
+        Display auto submit toolbar.
+        """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
+        """
+        OAuth client ID. If set during creation, app is created with this id.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientUri")
     def client_uri(self) -> str:
+        """
+        URI to a web page providing information about the client.
+        """
         return pulumi.get(self, "client_uri")
 
     @property
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Sequence[str]:
+        """
+        List of OAuth 2.0 grant types.
+        """
         return pulumi.get(self, "grant_types")
 
     @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        List of groups IDs assigned to the application.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> bool:
+        """
+        Do not display application icon on mobile app.
+        """
         return pulumi.get(self, "hide_ios")
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> bool:
+        """
+        Do not display application icon to users.
+        """
         return pulumi.get(self, "hide_web")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        ID of application.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def label(self) -> Optional[str]:
+        """
+        Label of application.
+        """
         return pulumi.get(self, "label")
 
     @property
@@ -135,59 +176,108 @@ class GetOauthResult:
         return pulumi.get(self, "label_prefix")
 
     @property
+    @pulumi.getter
+    def links(self) -> str:
+        """
+        generic JSON containing discoverable resources related to the app
+        """
+        return pulumi.get(self, "links")
+
+    @property
     @pulumi.getter(name="loginMode")
     def login_mode(self) -> str:
+        """
+        The type of Idp-Initiated login that the client supports, if any.
+        """
         return pulumi.get(self, "login_mode")
 
     @property
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Sequence[str]:
+        """
+        List of scopes to use for the request.
+        """
         return pulumi.get(self, "login_scopes")
 
     @property
     @pulumi.getter(name="loginUri")
     def login_uri(self) -> str:
+        """
+        URI that initiates login.
+        """
         return pulumi.get(self, "login_uri")
 
     @property
     @pulumi.getter(name="logoUri")
     def logo_uri(self) -> str:
+        """
+        URI that references a logo for the client.
+        """
         return pulumi.get(self, "logo_uri")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of application.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="policyUri")
     def policy_uri(self) -> str:
+        """
+        URI to web page providing client policy document.
+        """
         return pulumi.get(self, "policy_uri")
 
     @property
     @pulumi.getter(name="postLogoutRedirectUris")
     def post_logout_redirect_uris(self) -> Sequence[str]:
+        """
+        List of URIs for redirection after logout.
+        """
         return pulumi.get(self, "post_logout_redirect_uris")
 
     @property
     @pulumi.getter(name="redirectUris")
     def redirect_uris(self) -> Sequence[str]:
+        """
+        List of URIs for use in the redirect-based flow.
+        """
         return pulumi.get(self, "redirect_uris")
 
     @property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[str]:
+        """
+        List of OAuth 2.0 response type strings.
+        """
         return pulumi.get(self, "response_types")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of application.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of OAuth application.
+        """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        List of users IDs assigned to the application.
+        """
+        return pulumi.get(self, "users")
 
 
 class AwaitableGetOauthResult(GetOauthResult):
@@ -201,11 +291,13 @@ class AwaitableGetOauthResult(GetOauthResult):
             client_id=self.client_id,
             client_uri=self.client_uri,
             grant_types=self.grant_types,
+            groups=self.groups,
             hide_ios=self.hide_ios,
             hide_web=self.hide_web,
             id=self.id,
             label=self.label,
             label_prefix=self.label_prefix,
+            links=self.links,
             login_mode=self.login_mode,
             login_scopes=self.login_scopes,
             login_uri=self.login_uri,
@@ -216,28 +308,47 @@ class AwaitableGetOauthResult(GetOauthResult):
             redirect_uris=self.redirect_uris,
             response_types=self.response_types,
             status=self.status,
-            type=self.type)
+            type=self.type,
+            users=self.users)
 
 
 def get_oauth(active_only: Optional[bool] = None,
-              auto_submit_toolbar: Optional[bool] = None,
-              hide_ios: Optional[bool] = None,
-              hide_web: Optional[bool] = None,
+              groups: Optional[Sequence[str]] = None,
               id: Optional[str] = None,
               label: Optional[str] = None,
               label_prefix: Optional[str] = None,
+              users: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOauthResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve an OIDC application from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.app.get_oauth(label="Example App")
+    ```
+
+
+    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
+    :param Sequence[str] groups: List of groups IDs assigned to the application.
+    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+           and `label`. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+           provider to do a `starts with` query as opposed to an `equals` query.
+    :param Sequence[str] users: List of users IDs assigned to the application.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
-    __args__['autoSubmitToolbar'] = auto_submit_toolbar
-    __args__['hideIos'] = hide_ios
-    __args__['hideWeb'] = hide_web
+    __args__['groups'] = groups
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -250,11 +361,13 @@ def get_oauth(active_only: Optional[bool] = None,
         client_id=__ret__.client_id,
         client_uri=__ret__.client_uri,
         grant_types=__ret__.grant_types,
+        groups=__ret__.groups,
         hide_ios=__ret__.hide_ios,
         hide_web=__ret__.hide_web,
         id=__ret__.id,
         label=__ret__.label,
         label_prefix=__ret__.label_prefix,
+        links=__ret__.links,
         login_mode=__ret__.login_mode,
         login_scopes=__ret__.login_scopes,
         login_uri=__ret__.login_uri,
@@ -265,4 +378,5 @@ def get_oauth(active_only: Optional[bool] = None,
         redirect_uris=__ret__.redirect_uris,
         response_types=__ret__.response_types,
         status=__ret__.status,
-        type=__ret__.type)
+        type=__ret__.type,
+        users=__ret__.users)

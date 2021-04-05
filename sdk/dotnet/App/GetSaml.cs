@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetSaml
     {
         /// <summary>
-        /// Use this data source to retrieve the collaborators for a given repository.
+        /// Use this data source to retrieve an SAML application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -111,7 +111,8 @@ namespace Pulumi.Okta.App
         public string? Audience { get; set; }
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication
+        /// statement.
         /// </summary>
         [Input("authnContextClassRef")]
         public string? AuthnContextClassRef { get; set; }
@@ -152,6 +153,18 @@ namespace Pulumi.Okta.App
             set => _features = value;
         }
 
+        [Input("groups")]
+        private List<string>? _groups;
+
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public List<string> Groups
+        {
+            get => _groups ?? (_groups = new List<string>());
+            set => _groups = value;
+        }
+
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -183,13 +196,16 @@ namespace Pulumi.Okta.App
         public string? IdpIssuer { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`.
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the provider to do a `starts with` query as opposed to an `equals` query.
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
@@ -260,6 +276,18 @@ namespace Pulumi.Okta.App
         [Input("userNameTemplateType")]
         public string? UserNameTemplateType { get; set; }
 
+        [Input("users")]
+        private List<string>? _users;
+
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public List<string> Users
+        {
+            get => _users ?? (_users = new List<string>());
+            set => _users = value;
+        }
+
         public GetSamlArgs()
         {
         }
@@ -303,7 +331,8 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? Audience;
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication
+        /// statement.
         /// </summary>
         public readonly string? AuthnContextClassRef;
         /// <summary>
@@ -326,6 +355,10 @@ namespace Pulumi.Okta.App
         /// features enabled.
         /// </summary>
         public readonly ImmutableArray<string> Features;
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Groups;
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -355,6 +388,10 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? Label;
         public readonly string? LabelPrefix;
+        /// <summary>
+        /// Generic JSON containing discoverable resources related to the app
+        /// </summary>
+        public readonly string Links;
         /// <summary>
         /// The name of the attribute statement.
         /// </summary>
@@ -419,6 +456,10 @@ namespace Pulumi.Okta.App
         /// Username template type.
         /// </summary>
         public readonly string? UserNameTemplateType;
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// </summary>
+        public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
         private GetSamlResult(
@@ -452,6 +493,8 @@ namespace Pulumi.Okta.App
 
             ImmutableArray<string> features,
 
+            ImmutableArray<string> groups,
+
             bool? hideIos,
 
             bool? hideWeb,
@@ -467,6 +510,8 @@ namespace Pulumi.Okta.App
             string? label,
 
             string? labelPrefix,
+
+            string links,
 
             string name,
 
@@ -498,7 +543,9 @@ namespace Pulumi.Okta.App
 
             string? userNameTemplateSuffix,
 
-            string? userNameTemplateType)
+            string? userNameTemplateType,
+
+            ImmutableArray<string> users)
         {
             AccessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
             AccessibilityLoginRedirectUrl = accessibilityLoginRedirectUrl;
@@ -515,6 +562,7 @@ namespace Pulumi.Okta.App
             Destination = destination;
             DigestAlgorithm = digestAlgorithm;
             Features = features;
+            Groups = groups;
             HideIos = hideIos;
             HideWeb = hideWeb;
             HonorForceAuthn = honorForceAuthn;
@@ -523,6 +571,7 @@ namespace Pulumi.Okta.App
             KeyId = keyId;
             Label = label;
             LabelPrefix = labelPrefix;
+            Links = links;
             Name = name;
             Recipient = recipient;
             RequestCompressed = requestCompressed;
@@ -539,6 +588,7 @@ namespace Pulumi.Okta.App
             UserNameTemplate = userNameTemplate;
             UserNameTemplateSuffix = userNameTemplateSuffix;
             UserNameTemplateType = userNameTemplateType;
+            Users = users;
         }
     }
 }

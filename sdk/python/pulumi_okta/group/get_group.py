@@ -49,9 +49,9 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
-        The provider-assigned unique ID for this managed resource.
+        ID of group.
         """
         return pulumi.get(self, "id")
 
@@ -62,7 +62,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         name of group.
         """
@@ -99,7 +99,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             users=self.users)
 
 
-def get_group(include_users: Optional[bool] = None,
+def get_group(id: Optional[str] = None,
+              include_users: Optional[bool] = None,
               name: Optional[str] = None,
               type: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
@@ -116,12 +117,14 @@ def get_group(include_users: Optional[bool] = None,
     ```
 
 
+    :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
     :param bool include_users: whether to retrieve all member ids.
     :param str name: name of group to retrieve.
     :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
            (Imported App Groups), or `BUILT_IN` (Okta System Groups).
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['includeUsers'] = include_users
     __args__['name'] = name
     __args__['type'] = type

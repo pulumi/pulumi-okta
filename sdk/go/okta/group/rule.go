@@ -53,7 +53,8 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+	// The expression type to use to invoke the rule. The default
+	// is `"urn:okta:expression:1.0"`.
 	ExpressionType pulumi.StringPtrOutput `pulumi:"expressionType"`
 	// The expression value.
 	ExpressionValue pulumi.StringOutput `pulumi:"expressionValue"`
@@ -61,6 +62,9 @@ type Rule struct {
 	GroupAssignments pulumi.StringArrayOutput `pulumi:"groupAssignments"`
 	// The name of the Group Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// This tells the provider to remove users added by this rule from the assigned
+	// group after destroying this resource. Default is `false`.
+	RemoveAssignedUsers pulumi.BoolPtrOutput `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
@@ -100,7 +104,8 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+	// The expression type to use to invoke the rule. The default
+	// is `"urn:okta:expression:1.0"`.
 	ExpressionType *string `pulumi:"expressionType"`
 	// The expression value.
 	ExpressionValue *string `pulumi:"expressionValue"`
@@ -108,12 +113,16 @@ type ruleState struct {
 	GroupAssignments []string `pulumi:"groupAssignments"`
 	// The name of the Group Rule.
 	Name *string `pulumi:"name"`
+	// This tells the provider to remove users added by this rule from the assigned
+	// group after destroying this resource. Default is `false`.
+	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status *string `pulumi:"status"`
 }
 
 type RuleState struct {
-	// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+	// The expression type to use to invoke the rule. The default
+	// is `"urn:okta:expression:1.0"`.
 	ExpressionType pulumi.StringPtrInput
 	// The expression value.
 	ExpressionValue pulumi.StringPtrInput
@@ -121,6 +130,9 @@ type RuleState struct {
 	GroupAssignments pulumi.StringArrayInput
 	// The name of the Group Rule.
 	Name pulumi.StringPtrInput
+	// This tells the provider to remove users added by this rule from the assigned
+	// group after destroying this resource. Default is `false`.
+	RemoveAssignedUsers pulumi.BoolPtrInput
 	// The status of the group rule.
 	Status pulumi.StringPtrInput
 }
@@ -130,7 +142,8 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+	// The expression type to use to invoke the rule. The default
+	// is `"urn:okta:expression:1.0"`.
 	ExpressionType *string `pulumi:"expressionType"`
 	// The expression value.
 	ExpressionValue string `pulumi:"expressionValue"`
@@ -138,13 +151,17 @@ type ruleArgs struct {
 	GroupAssignments []string `pulumi:"groupAssignments"`
 	// The name of the Group Rule.
 	Name *string `pulumi:"name"`
+	// This tells the provider to remove users added by this rule from the assigned
+	// group after destroying this resource. Default is `false`.
+	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// The expression type to use to invoke the rule. The default is `"urn:okta:expression:1.0"`.
+	// The expression type to use to invoke the rule. The default
+	// is `"urn:okta:expression:1.0"`.
 	ExpressionType pulumi.StringPtrInput
 	// The expression value.
 	ExpressionValue pulumi.StringInput
@@ -152,6 +169,9 @@ type RuleArgs struct {
 	GroupAssignments pulumi.StringArrayInput
 	// The name of the Group Rule.
 	Name pulumi.StringPtrInput
+	// This tells the provider to remove users added by this rule from the assigned
+	// group after destroying this resource. Default is `false`.
+	RemoveAssignedUsers pulumi.BoolPtrInput
 	// The status of the group rule.
 	Status pulumi.StringPtrInput
 }

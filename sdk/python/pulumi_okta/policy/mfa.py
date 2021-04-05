@@ -21,6 +21,7 @@ class Mfa(pulumi.CustomResource):
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -73,6 +74,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
@@ -110,6 +112,7 @@ class Mfa(pulumi.CustomResource):
             __props__['fido_webauthn'] = fido_webauthn
             __props__['google_otp'] = google_otp
             __props__['groups_includeds'] = groups_includeds
+            __props__['hotp'] = hotp
             __props__['name'] = name
             __props__['okta_call'] = okta_call
             __props__['okta_email'] = okta_email
@@ -139,6 +142,7 @@ class Mfa(pulumi.CustomResource):
             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -165,6 +169,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
@@ -189,6 +194,7 @@ class Mfa(pulumi.CustomResource):
         __props__["fido_webauthn"] = fido_webauthn
         __props__["google_otp"] = google_otp
         __props__["groups_includeds"] = groups_includeds
+        __props__["hotp"] = hotp
         __props__["name"] = name
         __props__["okta_call"] = okta_call
         __props__["okta_email"] = okta_email
@@ -251,6 +257,14 @@ class Mfa(pulumi.CustomResource):
         List of Group IDs to Include.
         """
         return pulumi.get(self, "groups_includeds")
+
+    @property
+    @pulumi.getter
+    def hotp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        HMAC-based One-Time Password MFA policy settings.
+        """
+        return pulumi.get(self, "hotp")
 
     @property
     @pulumi.getter

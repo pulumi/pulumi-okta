@@ -7,7 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data
+// source with `name = "Everyone"`. This is simply a shortcut.
 //
 // ## Example Usage
 //
@@ -40,11 +41,13 @@ func GetEveryoneGroup(ctx *pulumi.Context, args *GetEveryoneGroupArgs, opts ...p
 
 // A collection of arguments for invoking getEveryoneGroup.
 type GetEveryoneGroupArgs struct {
+	// whether to retrieve all member ids.
 	IncludeUsers *bool `pulumi:"includeUsers"`
 }
 
 // A collection of values returned by getEveryoneGroup.
 type GetEveryoneGroupResult struct {
+	// description of group.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`

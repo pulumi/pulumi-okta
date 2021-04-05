@@ -12,7 +12,8 @@ namespace Pulumi.Okta.Group
     public static class GetEveryoneGroup
     {
         /// <summary>
-        /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data source with `name = "Everyone"`. This is simply a shortcut.
+        /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
+        /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,6 +42,9 @@ namespace Pulumi.Okta.Group
 
     public sealed class GetEveryoneGroupArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// whether to retrieve all member ids.
+        /// </summary>
         [Input("includeUsers")]
         public bool? IncludeUsers { get; set; }
 
@@ -53,6 +57,9 @@ namespace Pulumi.Okta.Group
     [OutputType]
     public sealed class GetEveryoneGroupResult
     {
+        /// <summary>
+        /// description of group.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

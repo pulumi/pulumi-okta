@@ -5,6 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to retrieve an OIDC application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = pulumi.output(okta.app.getOauth({
+ *     label: "Example App",
+ * }, { async: true }));
+ * ```
+ */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
     args = args || {};
     if (!opts) {
@@ -16,12 +30,11 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
     }
     return pulumi.runtime.invoke("okta:app/getOauth:getOauth", {
         "activeOnly": args.activeOnly,
-        "autoSubmitToolbar": args.autoSubmitToolbar,
-        "hideIos": args.hideIos,
-        "hideWeb": args.hideWeb,
+        "groups": args.groups,
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "users": args.users,
     }, opts);
 }
 
@@ -29,13 +42,33 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getOauth.
  */
 export interface GetOauthArgs {
+    /**
+     * tells the provider to query for only `ACTIVE` applications.
+     */
     readonly activeOnly?: boolean;
-    readonly autoSubmitToolbar?: boolean;
-    readonly hideIos?: boolean;
-    readonly hideWeb?: boolean;
+    /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
+    /**
+     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+     */
     readonly id?: string;
+    /**
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
+     */
     readonly label?: string;
+    /**
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
+     */
     readonly labelPrefix?: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }
 
 /**
@@ -43,24 +76,93 @@ export interface GetOauthArgs {
  */
 export interface GetOauthResult {
     readonly activeOnly?: boolean;
-    readonly autoSubmitToolbar?: boolean;
+    /**
+     * Display auto submit toolbar.
+     */
+    readonly autoSubmitToolbar: boolean;
+    /**
+     * OAuth client ID. If set during creation, app is created with this id.
+     */
     readonly clientId: string;
+    /**
+     * URI to a web page providing information about the client.
+     */
     readonly clientUri: string;
+    /**
+     * List of OAuth 2.0 grant types.
+     */
     readonly grantTypes: string[];
-    readonly hideIos?: boolean;
-    readonly hideWeb?: boolean;
+    /**
+     * List of groups IDs assigned to the application.
+     */
+    readonly groups?: string[];
+    /**
+     * Do not display application icon on mobile app.
+     */
+    readonly hideIos: boolean;
+    /**
+     * Do not display application icon to users.
+     */
+    readonly hideWeb: boolean;
+    /**
+     * ID of application.
+     */
     readonly id?: string;
+    /**
+     * Label of application.
+     */
     readonly label?: string;
     readonly labelPrefix?: string;
+    /**
+     * generic JSON containing discoverable resources related to the app
+     */
+    readonly links: string;
+    /**
+     * The type of Idp-Initiated login that the client supports, if any.
+     */
     readonly loginMode: string;
+    /**
+     * List of scopes to use for the request.
+     */
     readonly loginScopes: string[];
+    /**
+     * URI that initiates login.
+     */
     readonly loginUri: string;
+    /**
+     * URI that references a logo for the client.
+     */
     readonly logoUri: string;
+    /**
+     * Name of application.
+     */
     readonly name: string;
+    /**
+     * URI to web page providing client policy document.
+     */
     readonly policyUri: string;
+    /**
+     * List of URIs for redirection after logout.
+     */
     readonly postLogoutRedirectUris: string[];
+    /**
+     * List of URIs for use in the redirect-based flow.
+     */
     readonly redirectUris: string[];
+    /**
+     * List of OAuth 2.0 response type strings.
+     */
     readonly responseTypes: string[];
+    /**
+     * Status of application.
+     */
     readonly status: string;
+    /**
+     * The type of OAuth application.
+     */
     readonly type: string;
+    /**
+     * List of users IDs assigned to the application.
+     */
+    readonly users?: string[];
 }
