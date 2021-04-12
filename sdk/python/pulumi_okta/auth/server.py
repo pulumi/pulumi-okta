@@ -5,13 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Server']
+__all__ = ['ServerArgs', 'Server']
+
+@pulumi.input_type
+class ServerArgs:
+    def __init__(__self__, *,
+                 audiences: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Server resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        :param pulumi.Input[str] description: The description of the authorization server.
+        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        :param pulumi.Input[str] name: The name of the authorization server.
+        :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
+        """
+        pulumi.set(__self__, "audiences", audiences)
+        if credentials_rotation_mode is not None:
+            pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if issuer_mode is not None:
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        """
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "audiences", value)
+
+    @property
+    @pulumi.getter(name="credentialsRotationMode")
+    def credentials_rotation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        """
+        return pulumi.get(self, "credentials_rotation_mode")
+
+    @credentials_rotation_mode.setter
+    def credentials_rotation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_rotation_mode", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the authorization server.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @issuer_mode.setter
+    def issuer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the authorization server.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the auth server. It defaults to `"ACTIVE"`
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class Server(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +162,62 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Authorization Server.
+
+        This resource allows you to create and configure an Authorization Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.Server("example",
+            audiences=["api://example"],
+            description="My Example Auth Server",
+            issuer_mode="CUSTOM_URL",
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        Authorization Server can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:auth/server:Server example <auth server id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

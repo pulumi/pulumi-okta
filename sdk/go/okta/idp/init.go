@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:idp/oidc:Oidc":
-		r, err = NewOidc(ctx, name, nil, pulumi.URN_(urn))
+		r = &Oidc{}
 	case "okta:idp/saml:Saml":
-		r, err = NewSaml(ctx, name, nil, pulumi.URN_(urn))
+		r = &Saml{}
 	case "okta:idp/samlKey:SamlKey":
-		r, err = NewSamlKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SamlKey{}
 	case "okta:idp/social:Social":
-		r, err = NewSocial(ctx, name, nil, pulumi.URN_(urn))
+		r = &Social{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,13 +5,72 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AuthServerClaimDefault']
+__all__ = ['AuthServerClaimDefaultArgs', 'AuthServerClaimDefault']
+
+@pulumi.input_type
+class AuthServerClaimDefaultArgs:
+    def __init__(__self__, *,
+                 auth_server_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AuthServerClaimDefault resource.
+        :param pulumi.Input[str] auth_server_id: ID of the authorization server.
+        :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+               `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
+               `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
+        """
+        pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> pulumi.Input[str]:
+        """
+        ID of the authorization server.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+        `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
+        `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the claim. Only required for `"sub"` claim.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 class AuthServerClaimDefault(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +118,63 @@ class AuthServerClaimDefault(pulumi.CustomResource):
                `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
         :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AuthServerClaimDefaultArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Configures Default Authorization Server Claim.
+
+        This resource allows you to configure Default Authorization Server Claims.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.AuthServerClaimDefault("example",
+            auth_server_id="<auth server id>",
+            value="(appuser != null) ? appuser.userName : app.clientId")
+        ```
+
+        ## Import
+
+        Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
+
+        ```sh
+         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth server id>/<claim id>
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth server id>/<claim name>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AuthServerClaimDefaultArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AuthServerClaimDefaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

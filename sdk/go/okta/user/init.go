@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:user/baseSchema:BaseSchema":
-		r, err = NewBaseSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &BaseSchema{}
 	case "okta:user/schema:Schema":
-		r, err = NewSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schema{}
 	case "okta:user/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "okta:user/userType:UserType":
-		r, err = NewUserType(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserType{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

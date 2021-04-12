@@ -5,13 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Rule']
+__all__ = ['RuleArgs', 'Rule']
+
+@pulumi.input_type
+class RuleArgs:
+    def __init__(__self__, *,
+                 expression_value: pulumi.Input[str],
+                 group_assignments: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 expression_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remove_assigned_users: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Rule resource.
+        :param pulumi.Input[str] expression_value: The expression value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
+        :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default
+               is `"urn:okta:expression:1.0"`.
+        :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
+               group after destroying this resource. Default is `false`.
+        :param pulumi.Input[str] status: The status of the group rule.
+        """
+        pulumi.set(__self__, "expression_value", expression_value)
+        pulumi.set(__self__, "group_assignments", group_assignments)
+        if expression_type is not None:
+            pulumi.set(__self__, "expression_type", expression_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remove_assigned_users is not None:
+            pulumi.set(__self__, "remove_assigned_users", remove_assigned_users)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="expressionValue")
+    def expression_value(self) -> pulumi.Input[str]:
+        """
+        The expression value.
+        """
+        return pulumi.get(self, "expression_value")
+
+    @expression_value.setter
+    def expression_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression_value", value)
+
+    @property
+    @pulumi.getter(name="groupAssignments")
+    def group_assignments(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of group ids to assign the users to.
+        """
+        return pulumi.get(self, "group_assignments")
+
+    @group_assignments.setter
+    def group_assignments(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "group_assignments", value)
+
+    @property
+    @pulumi.getter(name="expressionType")
+    def expression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expression type to use to invoke the rule. The default
+        is `"urn:okta:expression:1.0"`.
+        """
+        return pulumi.get(self, "expression_type")
+
+    @expression_type.setter
+    def expression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Group Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="removeAssignedUsers")
+    def remove_assigned_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This tells the provider to remove users added by this rule from the assigned
+        group after destroying this resource. Default is `false`.
+        """
+        return pulumi.get(self, "remove_assigned_users")
+
+    @remove_assigned_users.setter
+    def remove_assigned_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remove_assigned_users", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the group rule.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class Rule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +167,62 @@ class Rule(pulumi.CustomResource):
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Okta Group Rule.
+
+        This resource allows you to create and configure an Okta Group Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Rule("example",
+            expression_type="urn:okta:expression:1.0",
+            expression_value="String.startsWith(user.firstName,\"andy\")",
+            group_assignments=["<group id>"],
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        An Okta Group Rule can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:group/rule:Rule example <group rule id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 expression_type: Optional[pulumi.Input[str]] = None,
+                 expression_value: Optional[pulumi.Input[str]] = None,
+                 group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remove_assigned_users: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

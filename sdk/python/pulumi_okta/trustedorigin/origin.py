@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Origin']
+__all__ = ['OriginArgs', 'Origin']
+
+@pulumi.input_type
+class OriginArgs:
+    def __init__(__self__, *,
+                 origin: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 active: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Origin resource.
+        :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+        :param pulumi.Input[str] name: Unique name for this trusted origin.
+        """
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "scopes", scopes)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> pulumi.Input[str]:
+        """
+        Unique origin URL for this trusted origin.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name for this trusted origin.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Origin(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +123,58 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OriginArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a Trusted Origin.
+
+        This resource allows you to create and configure a Trusted Origin.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.trustedorigin.Origin("example",
+            origin="https://example.com",
+            scopes=["CORS"])
+        ```
+
+        ## Import
+
+        A Trusted Origin can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OriginArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OriginArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:auth/server:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "okta:auth/serverClaim:ServerClaim":
-		r, err = NewServerClaim(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerClaim{}
 	case "okta:auth/serverPolicy:ServerPolicy":
-		r, err = NewServerPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerPolicy{}
 	case "okta:auth/serverPolicyClaim:ServerPolicyClaim":
-		r, err = NewServerPolicyClaim(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerPolicyClaim{}
 	case "okta:auth/serverPolicyRule:ServerPolicyRule":
-		r, err = NewServerPolicyRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerPolicyRule{}
 	case "okta:auth/serverScope:ServerScope":
-		r, err = NewServerScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerScope{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

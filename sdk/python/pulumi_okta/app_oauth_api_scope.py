@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AppOauthApiScope']
+__all__ = ['AppOauthApiScopeArgs', 'AppOauthApiScope']
+
+@pulumi.input_type
+class AppOauthApiScopeArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 issuer: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a AppOauthApiScope resource.
+        :param pulumi.Input[str] app_id: ID of the application.
+        :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        ID of the application.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[str]:
+        """
+        The issuer of your Org Authorization Server, your Org URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of scopes for which consent is granted.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
 
 
 class AppOauthApiScope(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +112,65 @@ class AppOauthApiScope(pulumi.CustomResource):
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AppOauthApiScopeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages API scopes for OAuth applications.
+
+        This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
+
+        ```python
+        import pulumi
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.AppOauthApiScope("example",
+            app_id="<application_id>",
+            issuer="<your org domain>",
+            scopes=[
+                "okta.users.read",
+                "okta.users.manage",
+            ])
+        ```
+
+        ## Import
+
+        OAuth API scopes can be imported via the Okta Application ID.
+
+        ```sh
+         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AppOauthApiScopeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AppOauthApiScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

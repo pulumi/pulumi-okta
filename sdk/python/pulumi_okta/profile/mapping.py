@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Mapping']
+__all__ = ['MappingArgs', 'Mapping']
+
+@pulumi.input_type
+class MappingArgs:
+    def __init__(__self__, *,
+                 source_id: pulumi.Input[str],
+                 target_id: pulumi.Input[str],
+                 delete_when_absent: Optional[pulumi.Input[bool]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
+        """
+        The set of arguments for constructing a Mapping resource.
+        :param pulumi.Input[str] source_id: Source id of the profile mapping.
+        :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
+        """
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "target_id", target_id)
+        if delete_when_absent is not None:
+            pulumi.set(__self__, "delete_when_absent", delete_when_absent)
+        if mappings is not None:
+            pulumi.set(__self__, "mappings", mappings)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[str]:
+        """
+        Source id of the profile mapping.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_id", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input[str]:
+        """
+        ID of the mapping target.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_id", value)
+
+    @property
+    @pulumi.getter(name="deleteWhenAbsent")
+    def delete_when_absent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        """
+        return pulumi.get(self, "delete_when_absent")
+
+    @delete_when_absent.setter
+    def delete_when_absent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_when_absent", value)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
+        """
+        Priority of the policy.
+        """
+        return pulumi.get(self, "mappings")
+
+    @mappings.setter
+    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]):
+        pulumi.set(self, "mappings", value)
 
 
 class Mapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +141,74 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
         :param pulumi.Input[str] target_id: ID of the mapping target.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a profile mapping.
+
+        This resource allows you to manage a profile mapping by source id.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        user = okta.user.get_user_profile_mapping_source()
+        example = okta.profile.Mapping("example",
+            delete_when_absent=True,
+            mappings=[
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.firstName",
+                    id="firstName",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.lastName",
+                    id="lastName",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.email",
+                    id="email",
+                ),
+                okta.profile.MappingMappingArgs(
+                    expression="appuser.email",
+                    id="login",
+                ),
+            ],
+            source_id="<source id>",
+            target_id=user.id)
+        ```
+
+        ## Import
+
+        There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
+
+        :param str resource_name: The name of the resource.
+        :param MappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_when_absent: Optional[pulumi.Input[bool]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

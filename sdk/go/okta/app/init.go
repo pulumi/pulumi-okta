@@ -22,35 +22,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:app/autoLogin:AutoLogin":
-		r, err = NewAutoLogin(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutoLogin{}
 	case "okta:app/basicAuth:BasicAuth":
-		r, err = NewBasicAuth(ctx, name, nil, pulumi.URN_(urn))
+		r = &BasicAuth{}
 	case "okta:app/bookmark:Bookmark":
-		r, err = NewBookmark(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bookmark{}
 	case "okta:app/groupAssignment:GroupAssignment":
-		r, err = NewGroupAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupAssignment{}
 	case "okta:app/oAuth:OAuth":
-		r, err = NewOAuth(ctx, name, nil, pulumi.URN_(urn))
+		r = &OAuth{}
 	case "okta:app/oAuthRedirectUri:OAuthRedirectUri":
-		r, err = NewOAuthRedirectUri(ctx, name, nil, pulumi.URN_(urn))
+		r = &OAuthRedirectUri{}
 	case "okta:app/saml:Saml":
-		r, err = NewSaml(ctx, name, nil, pulumi.URN_(urn))
+		r = &Saml{}
 	case "okta:app/securePasswordStore:SecurePasswordStore":
-		r, err = NewSecurePasswordStore(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurePasswordStore{}
 	case "okta:app/swa:Swa":
-		r, err = NewSwa(ctx, name, nil, pulumi.URN_(urn))
+		r = &Swa{}
 	case "okta:app/threeField:ThreeField":
-		r, err = NewThreeField(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThreeField{}
 	case "okta:app/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "okta:app/userBaseSchema:UserBaseSchema":
-		r, err = NewUserBaseSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserBaseSchema{}
 	case "okta:app/userSchema:UserSchema":
-		r, err = NewUserSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserSchema{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

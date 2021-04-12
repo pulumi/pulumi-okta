@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:policy/mfa:Mfa":
-		r, err = NewMfa(ctx, name, nil, pulumi.URN_(urn))
+		r = &Mfa{}
 	case "okta:policy/password:Password":
-		r, err = NewPassword(ctx, name, nil, pulumi.URN_(urn))
+		r = &Password{}
 	case "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery":
-		r, err = NewRuleIdpDiscovery(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleIdpDiscovery{}
 	case "okta:policy/ruleMfa:RuleMfa":
-		r, err = NewRuleMfa(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleMfa{}
 	case "okta:policy/rulePassword:RulePassword":
-		r, err = NewRulePassword(ctx, name, nil, pulumi.URN_(urn))
+		r = &RulePassword{}
 	case "okta:policy/ruleSignon:RuleSignon":
-		r, err = NewRuleSignon(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleSignon{}
 	case "okta:policy/signon:Signon":
-		r, err = NewSignon(ctx, name, nil, pulumi.URN_(urn))
+		r = &Signon{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

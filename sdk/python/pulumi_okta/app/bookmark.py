@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Bookmark']
+__all__ = ['BookmarkArgs', 'Bookmark']
+
+@pulumi.input_type
+class BookmarkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 request_integration: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]] = None):
+        """
+        The set of arguments for constructing a Bookmark resource.
+        :param pulumi.Input[str] label: The Application's display name.
+        :param pulumi.Input[str] url: The URL of the bookmark.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
+        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]] users: Users associated with the application.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "url", url)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if request_integration is not None:
+            pulumi.set(__self__, "request_integration", request_integration)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        The Application's display name.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of the bookmark.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar.
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app.
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users.
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter(name="requestIntegration")
+    def request_integration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Would you like Okta to add an integration for this app?
+        """
+        return pulumi.get(self, "request_integration")
+
+    @request_integration.setter
+    def request_integration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_integration", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]]:
+        """
+        Users associated with the application.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]]):
+        pulumi.set(self, "users", value)
 
 
 class Bookmark(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +215,63 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL of the bookmark.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BookmarkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a Bookmark Application.
+
+        This resource allows you to create and configure a Bookmark Application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Bookmark("example",
+            label="Example",
+            url="https://example.com")
+        ```
+
+        ## Import
+
+        A Bookmark App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/bookmark:Bookmark example <app id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BookmarkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BookmarkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 request_integration: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
