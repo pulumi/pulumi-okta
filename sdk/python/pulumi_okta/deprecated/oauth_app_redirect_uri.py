@@ -5,13 +5,47 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['OauthAppRedirectUri']
+__all__ = ['OauthAppRedirectUriArgs', 'OauthAppRedirectUri']
+
+@pulumi.input_type
+class OauthAppRedirectUriArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 uri: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a OauthAppRedirectUri resource.
+        :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        Redirect URI to append to Okta OIDC application.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
 
 
 class OauthAppRedirectUri(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -26,6 +60,34 @@ class OauthAppRedirectUri(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OauthAppRedirectUriArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a OauthAppRedirectUri resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param OauthAppRedirectUriArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OauthAppRedirectUriArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

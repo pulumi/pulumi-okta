@@ -5,15 +5,128 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Hook']
+__all__ = ['HookArgs', 'Hook']
+
+@pulumi.input_type
+class HookArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 type: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Hook resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
+        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
+        :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
+        :param pulumi.Input[str] name: The inline hook display name.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Details of the endpoint the inline hook will hit.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Version of the channel. The currently-supported version is `"1.0.0"`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Authentication required for inline hook request.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]]:
+        """
+        Map of headers to send along in inline hook request.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inline hook display name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class Hook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +183,71 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an inline hook.
+
+        This resource allows you to create and configure an inline hook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.inline.Hook("example",
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            },
+            channel={
+                "method": "POST",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
+            type="com.okta.oauth2.tokens.transform",
+            version="1.0.0")
+        ```
+
+        ## Import
+
+        An inline hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:inline/hook:Hook example <hook id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param HookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

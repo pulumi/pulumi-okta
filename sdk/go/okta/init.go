@@ -21,25 +21,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
-		r, err = NewAdminRoleTargets(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdminRoleTargets{}
 	case "okta:index/appOauthApiScope:AppOauthApiScope":
-		r, err = NewAppOauthApiScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppOauthApiScope{}
 	case "okta:index/authServerClaimDefault:AuthServerClaimDefault":
-		r, err = NewAuthServerClaimDefault(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthServerClaimDefault{}
 	case "okta:index/authServerDefault:AuthServerDefault":
-		r, err = NewAuthServerDefault(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthServerDefault{}
 	case "okta:index/eventHook:EventHook":
-		r, err = NewEventHook(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventHook{}
 	case "okta:index/policyMfaDefault:PolicyMfaDefault":
-		r, err = NewPolicyMfaDefault(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyMfaDefault{}
 	case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
-		r, err = NewPolicyPasswordDefault(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyPasswordDefault{}
 	case "okta:index/templateSms:TemplateSms":
-		r, err = NewTemplateSms(ctx, name, nil, pulumi.URN_(urn))
+		r = &TemplateSms{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -56,7 +57,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

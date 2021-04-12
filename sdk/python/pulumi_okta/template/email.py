@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Email']
+__all__ = ['EmailArgs', 'Email']
+
+@pulumi.input_type
+class EmailArgs:
+    def __init__(__self__, *,
+                 translations: pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]],
+                 type: pulumi.Input[str],
+                 default_language: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Email resource.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]] translations: Set of translations for a particular template.
+        :param pulumi.Input[str] type: Email template type
+        :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
+        """
+        pulumi.set(__self__, "translations", translations)
+        pulumi.set(__self__, "type", type)
+        if default_language is not None:
+            pulumi.set(__self__, "default_language", default_language)
+
+    @property
+    @pulumi.getter
+    def translations(self) -> pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]]:
+        """
+        Set of translations for a particular template.
+        """
+        return pulumi.get(self, "translations")
+
+    @translations.setter
+    def translations(self, value: pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]]):
+        pulumi.set(self, "translations", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Email template type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="defaultLanguage")
+    def default_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default language, by default is set to `"en"`.
+        """
+        return pulumi.get(self, "default_language")
+
+    @default_language.setter
+    def default_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_language", value)
 
 
 class Email(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +118,68 @@ class Email(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: Email template type
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EmailArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Okta Email Template.
+
+        This resource allows you to create and configure an Okta Email Template.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.template.Email("example",
+            translations=[
+                okta.template.EmailTranslationArgs(
+                    language="en",
+                    subject="Stuff",
+                    template=f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
+                ),
+                okta.template.EmailTranslationArgs(
+                    language="es",
+                    subject="Cosas",
+                    template=f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
+                ),
+            ],
+            type="email.forgotPassword")
+        ```
+
+        ## Import
+
+        An Okta Email Template can be imported via the template type.
+
+        ```sh
+         $ pulumi import okta:template/email:Email example <template type>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EmailArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EmailArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_language: Optional[pulumi.Input[str]] = None,
+                 translations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTranslationArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

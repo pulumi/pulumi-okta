@@ -5,13 +5,95 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Role']
+__all__ = ['RoleArgs', 'Role']
+
+@pulumi.input_type
+class RoleArgs:
+    def __init__(__self__, *,
+                 group_id: pulumi.Input[str],
+                 role_type: pulumi.Input[str],
+                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Role resource.
+        :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
+        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
+               , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
+               , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
+               facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+               the targets of the admin role.
+               - Only supported when used with the role type `"APP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
+               - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "role_type", role_type)
+        if target_app_lists is not None:
+            pulumi.set(__self__, "target_app_lists", target_app_lists)
+        if target_group_lists is not None:
+            pulumi.set(__self__, "target_group_lists", target_group_lists)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of group to attach admin roles to.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> pulumi.Input[str]:
+        """
+        Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
+        , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
+        , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        """
+        return pulumi.get(self, "role_type")
+
+    @role_type.setter
+    def role_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_type", value)
+
+    @property
+    @pulumi.getter(name="targetAppLists")
+    def target_app_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of app names (name represents set of app instances, like 'salesforce' or '
+        facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+        the targets of the admin role.
+        - Only supported when used with the role type `"APP_ADMIN"`.
+        """
+        return pulumi.get(self, "target_app_lists")
+
+    @target_app_lists.setter
+    def target_app_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_app_lists", value)
+
+    @property
+    @pulumi.getter(name="targetGroupLists")
+    def target_group_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of group IDs you would like as the targets of the admin role.
+        - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+        """
+        return pulumi.get(self, "target_group_lists")
+
+    @target_group_lists.setter
+    def target_group_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_group_lists", value)
 
 
 class Role(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +142,59 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RoleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Assigns Admin roles to Okta Groups.
+
+        This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one
+        interface between the Okta group and the admin role.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Role("example",
+            group_id="<group id>",
+            role_type="READ_ONLY_ADMIN")
+        ```
+
+        ## Import
+
+        Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
+
+        ```sh
+         $ pulumi import okta:group/role:Role example <group id>/<role id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RoleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RoleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 role_type: Optional[pulumi.Input[str]] = None,
+                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

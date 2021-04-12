@@ -5,15 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventHook']
+__all__ = ['EventHookArgs', 'EventHook']
+
+@pulumi.input_type
+class EventHookArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 events: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventHook resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the event hook will hit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for event hook request.
+        :param pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]] headers: Map of headers to send along in event hook request.
+        :param pulumi.Input[str] name: The event hook display name.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "events", events)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Details of the endpoint the event hook will hit.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Authentication required for event hook request.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]]:
+        """
+        Map of headers to send along in event hook request.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event hook display name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class EventHook(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +168,72 @@ class EventHook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventHookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an event hook.
+
+        This resource allows you to create and configure an event hook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.EventHook("example",
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "123",
+            },
+            channel={
+                "type": "HTTP",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
+            events=[
+                "user.lifecycle.create",
+                "user.lifecycle.delete.initiated",
+            ])
+        ```
+
+        ## Import
+
+        An event hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/eventHook:EventHook example <hook id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventHookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventHookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,551 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Oidc']
+__all__ = ['OidcArgs', 'Oidc']
+
+@pulumi.input_type
+class OidcArgs:
+    def __init__(__self__, *,
+                 authorization_binding: pulumi.Input[str],
+                 authorization_url: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 issuer_url: pulumi.Input[str],
+                 jwks_binding: pulumi.Input[str],
+                 jwks_url: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 token_binding: pulumi.Input[str],
+                 token_url: pulumi.Input[str],
+                 account_link_action: Optional[pulumi.Input[str]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deprovisioned_action: Optional[pulumi.Input[str]] = None,
+                 groups_action: Optional[pulumi.Input[str]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_attribute: Optional[pulumi.Input[str]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 max_clock_skew: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_master: Optional[pulumi.Input[bool]] = None,
+                 protocol_type: Optional[pulumi.Input[str]] = None,
+                 provisioning_action: Optional[pulumi.Input[str]] = None,
+                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 request_signature_scope: Optional[pulumi.Input[str]] = None,
+                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 response_signature_scope: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 subject_match_attribute: Optional[pulumi.Input[str]] = None,
+                 subject_match_type: Optional[pulumi.Input[str]] = None,
+                 suspended_action: Optional[pulumi.Input[str]] = None,
+                 user_info_binding: Optional[pulumi.Input[str]] = None,
+                 user_info_url: Optional[pulumi.Input[str]] = None,
+                 username_template: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Oidc resource.
+        :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] issuer_url: URI that identifies the issuer.
+        :param pulumi.Input[str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
+        :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
+        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        :param pulumi.Input[str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
+        """
+        pulumi.set(__self__, "authorization_binding", authorization_binding)
+        pulumi.set(__self__, "authorization_url", authorization_url)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        pulumi.set(__self__, "jwks_binding", jwks_binding)
+        pulumi.set(__self__, "jwks_url", jwks_url)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "token_binding", token_binding)
+        pulumi.set(__self__, "token_url", token_url)
+        if account_link_action is not None:
+            pulumi.set(__self__, "account_link_action", account_link_action)
+        if account_link_group_includes is not None:
+            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+        if deprovisioned_action is not None:
+            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+        if groups_action is not None:
+            pulumi.set(__self__, "groups_action", groups_action)
+        if groups_assignments is not None:
+            pulumi.set(__self__, "groups_assignments", groups_assignments)
+        if groups_attribute is not None:
+            pulumi.set(__self__, "groups_attribute", groups_attribute)
+        if groups_filters is not None:
+            pulumi.set(__self__, "groups_filters", groups_filters)
+        if issuer_mode is not None:
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
+        if max_clock_skew is not None:
+            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if profile_master is not None:
+            pulumi.set(__self__, "profile_master", profile_master)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
+        if provisioning_action is not None:
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
+        if request_signature_algorithm is not None:
+            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
+        if request_signature_scope is not None:
+            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+        if response_signature_algorithm is not None:
+            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
+        if response_signature_scope is not None:
+            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subject_match_attribute is not None:
+            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
+        if subject_match_type is not None:
+            pulumi.set(__self__, "subject_match_type", subject_match_type)
+        if suspended_action is not None:
+            pulumi.set(__self__, "suspended_action", suspended_action)
+        if user_info_binding is not None:
+            pulumi.set(__self__, "user_info_binding", user_info_binding)
+        if user_info_url is not None:
+            pulumi.set(__self__, "user_info_url", user_info_url)
+        if username_template is not None:
+            pulumi.set(__self__, "username_template", username_template)
+
+    @property
+    @pulumi.getter(name="authorizationBinding")
+    def authorization_binding(self) -> pulumi.Input[str]:
+        """
+        The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
+        return pulumi.get(self, "authorization_binding")
+
+    @authorization_binding.setter
+    def authorization_binding(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_binding", value)
+
+    @property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> pulumi.Input[str]:
+        """
+        IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        """
+        return pulumi.get(self, "authorization_url")
+
+    @authorization_url.setter
+    def authorization_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_url", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Unique identifier issued by AS for the Okta IdP instance.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        Client secret issued by AS for the Okta IdP instance.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> pulumi.Input[str]:
+        """
+        URI that identifies the issuer.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @issuer_url.setter
+    def issuer_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer_url", value)
+
+    @property
+    @pulumi.getter(name="jwksBinding")
+    def jwks_binding(self) -> pulumi.Input[str]:
+        """
+        The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
+        return pulumi.get(self, "jwks_binding")
+
+    @jwks_binding.setter
+    def jwks_binding(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jwks_binding", value)
+
+    @property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> pulumi.Input[str]:
+        """
+        Endpoint where the keys signer publishes its keys in a JWK Set.
+        """
+        return pulumi.get(self, "jwks_url")
+
+    @jwks_url.setter
+    def jwks_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jwks_url", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The scopes of the IdP.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenBinding")
+    def token_binding(self) -> pulumi.Input[str]:
+        """
+        The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
+        return pulumi.get(self, "token_binding")
+
+    @token_binding.setter
+    def token_binding(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_binding", value)
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> pulumi.Input[str]:
+        """
+        IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        """
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_url", value)
+
+    @property
+    @pulumi.getter(name="accountLinkAction")
+    def account_link_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the account linking action for an IdP user.
+        """
+        return pulumi.get(self, "account_link_action")
+
+    @account_link_action.setter
+    def account_link_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_link_action", value)
+
+    @property
+    @pulumi.getter(name="accountLinkGroupIncludes")
+    def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Group memberships to determine link candidates.
+        """
+        return pulumi.get(self, "account_link_group_includes")
+
+    @account_link_group_includes.setter
+    def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "account_link_group_includes", value)
+
+    @property
+    @pulumi.getter(name="deprovisionedAction")
+    def deprovisioned_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        """
+        return pulumi.get(self, "deprovisioned_action")
+
+    @deprovisioned_action.setter
+    def deprovisioned_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deprovisioned_action", value)
+
+    @property
+    @pulumi.getter(name="groupsAction")
+    def groups_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        """
+        return pulumi.get(self, "groups_action")
+
+    @groups_action.setter
+    def groups_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "groups_action", value)
+
+    @property
+    @pulumi.getter(name="groupsAssignments")
+    def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        """
+        return pulumi.get(self, "groups_assignments")
+
+    @groups_assignments.setter
+    def groups_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups_assignments", value)
+
+    @property
+    @pulumi.getter(name="groupsAttribute")
+    def groups_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        """
+        return pulumi.get(self, "groups_attribute")
+
+    @groups_attribute.setter
+    def groups_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "groups_attribute", value)
+
+    @property
+    @pulumi.getter(name="groupsFilters")
+    def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        """
+        return pulumi.get(self, "groups_filters")
+
+    @groups_filters.setter
+    def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups_filters", value)
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @issuer_mode.setter
+    def issuer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_mode", value)
+
+    @property
+    @pulumi.getter(name="maxClockSkew")
+    def max_clock_skew(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum allowable clock-skew when processing messages from the IdP.
+        """
+        return pulumi.get(self, "max_clock_skew")
+
+    @max_clock_skew.setter
+    def max_clock_skew(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_clock_skew", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application's display name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="profileMaster")
+    def profile_master(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the IdP should act as a source of truth for user profile attributes.
+        """
+        return pulumi.get(self, "profile_master")
+
+    @profile_master.setter
+    def profile_master(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "profile_master", value)
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol_type", value)
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for an IdP user during authentication.
+        """
+        return pulumi.get(self, "provisioning_action")
+
+    @provisioning_action.setter
+    def provisioning_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_action", value)
+
+    @property
+    @pulumi.getter(name="requestSignatureAlgorithm")
+    def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        algorithm to use to sign requests
+        """
+        return pulumi.get(self, "request_signature_algorithm")
+
+    @request_signature_algorithm.setter
+    def request_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_signature_algorithm", value)
+
+    @property
+    @pulumi.getter(name="requestSignatureScope")
+    def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        algorithm to use to sign response
+        """
+        return pulumi.get(self, "request_signature_scope")
+
+    @request_signature_scope.setter
+    def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_signature_scope", value)
+
+    @property
+    @pulumi.getter(name="responseSignatureAlgorithm")
+    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        algorithm to use to sign requests
+        """
+        return pulumi.get(self, "response_signature_algorithm")
+
+    @response_signature_algorithm.setter
+    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_signature_algorithm", value)
+
+    @property
+    @pulumi.getter(name="responseSignatureScope")
+    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        algorithm to use to sign response
+        """
+        return pulumi.get(self, "response_signature_scope")
+
+    @response_signature_scope.setter
+    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_signature_scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the IdP.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="subjectMatchAttribute")
+    def subject_match_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        """
+        return pulumi.get(self, "subject_match_attribute")
+
+    @subject_match_attribute.setter
+    def subject_match_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_match_attribute", value)
+
+    @property
+    @pulumi.getter(name="subjectMatchType")
+    def subject_match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        """
+        return pulumi.get(self, "subject_match_type")
+
+    @subject_match_type.setter
+    def subject_match_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_match_type", value)
+
+    @property
+    @pulumi.getter(name="suspendedAction")
+    def suspended_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        """
+        return pulumi.get(self, "suspended_action")
+
+    @suspended_action.setter
+    def suspended_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suspended_action", value)
+
+    @property
+    @pulumi.getter(name="userInfoBinding")
+    def user_info_binding(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_info_binding")
+
+    @user_info_binding.setter
+    def user_info_binding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_info_binding", value)
+
+    @property
+    @pulumi.getter(name="userInfoUrl")
+    def user_info_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protected resource endpoint that returns claims about the authenticated user.
+        """
+        return pulumi.get(self, "user_info_url")
+
+    @user_info_url.setter
+    def user_info_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_info_url", value)
+
+    @property
+    @pulumi.getter(name="usernameTemplate")
+    def username_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta EL Expression to generate or transform a unique username for the IdP user.
+        """
+        return pulumi.get(self, "username_template")
+
+    @username_template.setter
+    def username_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_template", value)
 
 
 class Oidc(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -123,6 +661,99 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OidcArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an OIDC Identity Provider.
+
+        This resource allows you to create and configure an OIDC Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.Oidc("example",
+            authorization_binding="HTTP-REDIRECT",
+            authorization_url="https://idp.example.com/authorize",
+            client_id="efg456",
+            client_secret="efg456",
+            issuer_url="https://id.example.com",
+            jwks_binding="HTTP-REDIRECT",
+            jwks_url="https://idp.example.com/keys",
+            scopes=["openid"],
+            token_binding="HTTP-POST",
+            token_url="https://idp.example.com/token",
+            user_info_binding="HTTP-REDIRECT",
+            user_info_url="https://idp.example.com/userinfo",
+            username_template="idpuser.email")
+        ```
+
+        ## Import
+
+        An OIDC IdP can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:idp/oidc:Oidc example <idp id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OidcArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OidcArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_link_action: Optional[pulumi.Input[str]] = None,
+                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authorization_binding: Optional[pulumi.Input[str]] = None,
+                 authorization_url: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 deprovisioned_action: Optional[pulumi.Input[str]] = None,
+                 groups_action: Optional[pulumi.Input[str]] = None,
+                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_attribute: Optional[pulumi.Input[str]] = None,
+                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 issuer_url: Optional[pulumi.Input[str]] = None,
+                 jwks_binding: Optional[pulumi.Input[str]] = None,
+                 jwks_url: Optional[pulumi.Input[str]] = None,
+                 max_clock_skew: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_master: Optional[pulumi.Input[bool]] = None,
+                 protocol_type: Optional[pulumi.Input[str]] = None,
+                 provisioning_action: Optional[pulumi.Input[str]] = None,
+                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 request_signature_scope: Optional[pulumi.Input[str]] = None,
+                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+                 response_signature_scope: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 subject_match_attribute: Optional[pulumi.Input[str]] = None,
+                 subject_match_type: Optional[pulumi.Input[str]] = None,
+                 suspended_action: Optional[pulumi.Input[str]] = None,
+                 token_binding: Optional[pulumi.Input[str]] = None,
+                 token_url: Optional[pulumi.Input[str]] = None,
+                 user_info_binding: Optional[pulumi.Input[str]] = None,
+                 user_info_url: Optional[pulumi.Input[str]] = None,
+                 username_template: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,320 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ThreeFieldApp']
+__all__ = ['ThreeFieldAppArgs', 'ThreeFieldApp']
+
+@pulumi.input_type
+class ThreeFieldAppArgs:
+    def __init__(__self__, *,
+                 button_selector: pulumi.Input[str],
+                 extra_field_selector: pulumi.Input[str],
+                 extra_field_value: pulumi.Input[str],
+                 label: pulumi.Input[str],
+                 password_selector: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 username_selector: pulumi.Input[str],
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]]] = None):
+        """
+        The set of arguments for constructing a ThreeFieldApp resource.
+        :param pulumi.Input[str] button_selector: Login button field CSS selector
+        :param pulumi.Input[str] extra_field_selector: Extra field CSS selector
+        :param pulumi.Input[str] extra_field_value: Value for extra form field
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] password_selector: Login password field CSS selector
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] username_selector: Login username field CSS selector
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]] users: Users associated with the application
+        """
+        pulumi.set(__self__, "button_selector", button_selector)
+        pulumi.set(__self__, "extra_field_selector", extra_field_selector)
+        pulumi.set(__self__, "extra_field_value", extra_field_value)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "password_selector", password_selector)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username_selector", username_selector)
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url_regex is not None:
+            pulumi.set(__self__, "url_regex", url_regex)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="buttonSelector")
+    def button_selector(self) -> pulumi.Input[str]:
+        """
+        Login button field CSS selector
+        """
+        return pulumi.get(self, "button_selector")
+
+    @button_selector.setter
+    def button_selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "button_selector", value)
+
+    @property
+    @pulumi.getter(name="extraFieldSelector")
+    def extra_field_selector(self) -> pulumi.Input[str]:
+        """
+        Extra field CSS selector
+        """
+        return pulumi.get(self, "extra_field_selector")
+
+    @extra_field_selector.setter
+    def extra_field_selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extra_field_selector", value)
+
+    @property
+    @pulumi.getter(name="extraFieldValue")
+    def extra_field_value(self) -> pulumi.Input[str]:
+        """
+        Value for extra form field
+        """
+        return pulumi.get(self, "extra_field_value")
+
+    @extra_field_value.setter
+    def extra_field_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extra_field_value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        Pretty name of app.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="passwordSelector")
+    def password_selector(self) -> pulumi.Input[str]:
+        """
+        Login password field CSS selector
+        """
+        return pulumi.get(self, "password_selector")
+
+    @password_selector.setter
+    def password_selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password_selector", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Login URL
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="usernameSelector")
+    def username_selector(self) -> pulumi.Input[str]:
+        """
+        Login username field CSS selector
+        """
+        return pulumi.get(self, "username_selector")
+
+    @username_selector.setter
+    def username_selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username_selector", value)
+
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="urlRegex")
+    def url_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regex that further restricts URL to the specified regex
+        """
+        return pulumi.get(self, "url_regex")
+
+    @url_regex.setter
+    def url_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_regex", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]]]:
+        """
+        Users associated with the application
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]]]):
+        pulumi.set(self, "users", value)
 
 
 class ThreeFieldApp(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +368,51 @@ class ThreeFieldApp(pulumi.CustomResource):
         :param pulumi.Input[str] username_selector: Login username field CSS selector
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldAppUserArgs']]]] users: Users associated with the application
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ThreeFieldAppArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a ThreeFieldApp resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ThreeFieldAppArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ThreeFieldAppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 button_selector: Optional[pulumi.Input[str]] = None,
+                 extra_field_selector: Optional[pulumi.Input[str]] = None,
+                 extra_field_value: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 password_selector: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 username_selector: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldAppUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,132 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ServerPolicy']
+__all__ = ['ServerPolicyArgs', 'ServerPolicy']
+
+@pulumi.input_type
+class ServerPolicyArgs:
+    def __init__(__self__, *,
+                 auth_server_id: pulumi.Input[str],
+                 client_whitelists: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 description: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServerPolicy resource.
+        :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[str] description: The description of the Auth Server Policy.
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
+        :param pulumi.Input[str] name: The name of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
+        :param pulumi.Input[str] type: The type of the Auth Server Policy.
+        """
+        pulumi.set(__self__, "auth_server_id", auth_server_id)
+        pulumi.set(__self__, "client_whitelists", client_whitelists)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "priority", priority)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Auth Server.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter(name="clientWhitelists")
+    def client_whitelists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        """
+        return pulumi.get(self, "client_whitelists")
+
+    @client_whitelists.setter
+    def client_whitelists(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "client_whitelists", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        The description of the Auth Server Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the Auth Server Policy.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Auth Server Policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Auth Server Policy.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Auth Server Policy.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class ServerPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +181,64 @@ class ServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
         :param pulumi.Input[str] type: The type of the Auth Server Policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Authorization Server Policy.
+
+        This resource allows you to create and configure an Authorization Server Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerPolicy("example",
+            auth_server_id="<auth server id>",
+            client_whitelists=["ALL_CLIENTS"],
+            description="example",
+            priority=1,
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicy:ServerPolicy example <auth server id>/<policy id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServerPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

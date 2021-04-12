@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AdminRoleTargets']
+__all__ = ['AdminRoleTargetsArgs', 'AdminRoleTargets']
+
+@pulumi.input_type
+class AdminRoleTargetsArgs:
+    def __init__(__self__, *,
+                 role_type: pulumi.Input[str],
+                 user_id: pulumi.Input[str],
+                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AdminRoleTargets resource.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] user_id: ID of the user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
+        """
+        pulumi.set(__self__, "role_type", role_type)
+        pulumi.set(__self__, "user_id", user_id)
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> pulumi.Input[str]:
+        """
+        Name of the role associated with the user.
+        """
+        return pulumi.get(self, "role_type")
+
+    @role_type.setter
+    def role_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_type", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        ID of the user.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        """
+        return pulumi.get(self, "apps")
+
+    @apps.setter
+    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "apps", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of group IDs. Conflicts with `apps`.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
 
 
 class AdminRoleTargets(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +128,63 @@ class AdminRoleTargets(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: Name of the role associated with the user.
         :param pulumi.Input[str] user_id: ID of the user.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AdminRoleTargetsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages targets for administrator roles.
+
+        This resource allows you to define permissions for admin roles into a smaller subset of Groups or Apps within your org.
+        You can define admin roles to target Groups, Applications, and Application Instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.AdminRoleTargets("example",
+            apps=[
+                "oidc_client.<app_id>",
+                "facebook",
+            ],
+            role_type="APP_ADMIN",
+            user_id="<user_id>")
+        ```
+
+        ## Import
+
+        Okta Admin Role Targets can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user id>/<role type>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AdminRoleTargetsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AdminRoleTargetsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_type: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

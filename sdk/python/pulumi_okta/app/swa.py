@@ -5,15 +5,310 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Swa']
+__all__ = ['SwaArgs', 'Swa']
+
+@pulumi.input_type
+class SwaArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 button_field: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 username_field: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]] = None):
+        """
+        The set of arguments for constructing a Swa resource.
+        :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] button_field: Login button field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[str] password_field: Login password field.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
+        :param pulumi.Input[str] url: Login URL.
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] username_field: Login username field.
+        :param pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        """
+        pulumi.set(__self__, "label", label)
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if button_field is not None:
+            pulumi.set(__self__, "button_field", button_field)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if preconfigured_app is not None:
+            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if url_regex is not None:
+            pulumi.set(__self__, "url_regex", url_regex)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        The display name of the Application.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL.
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self-service. By default, it is `false`.
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar.
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter(name="buttonField")
+    def button_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login button field.
+        """
+        return pulumi.get(self, "button_field")
+
+    @button_field.setter
+    def button_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "button_field", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app.
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users.
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login password field.
+        """
+        return pulumi.get(self, "password_field")
+
+    @password_field.setter
+    def password_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_field", value)
+
+    @property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of application from the Okta Integration Network, if not included a custom app will be created.
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @preconfigured_app.setter
+    def preconfigured_app(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preconfigured_app", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application. By default, it is `"ACTIVE"`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="urlRegex")
+    def url_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regex that further restricts URL to the specified regex.
+        """
+        return pulumi.get(self, "url_regex")
+
+    @url_regex.setter
+    def url_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_regex", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default username assigned to each user.
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Username template type.
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login username field.
+        """
+        return pulumi.get(self, "username_field")
+
+    @username_field.setter
+    def username_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_field", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]:
+        """
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]):
+        pulumi.set(self, "users", value)
 
 
 class Swa(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -86,6 +381,75 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SwaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an SWA Application.
+
+        This resource allows you to create and configure an SWA Application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Swa("example",
+            button_field="btn-login",
+            label="example",
+            password_field="txtbox-password",
+            url="https://example.com/login.html",
+            username_field="txtbox-username")
+        ```
+
+        ## Import
+
+        Okta SWA App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/swa:Swa example <app id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SwaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SwaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 button_field: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 url_regex: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 username_field: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

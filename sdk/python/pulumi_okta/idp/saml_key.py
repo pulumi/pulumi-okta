@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SamlKey']
+__all__ = ['SamlKeyArgs', 'SamlKey']
+
+@pulumi.input_type
+class SamlKeyArgs:
+    def __init__(__self__, *,
+                 x5cs: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a SamlKey resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
+        """
+        pulumi.set(__self__, "x5cs", x5cs)
+
+    @property
+    @pulumi.getter
+    def x5cs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        base64-encoded X.509 certificate chain with DER encoding.
+        """
+        return pulumi.get(self, "x5cs")
+
+    @x5cs.setter
+    def x5cs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "x5cs", value)
 
 
 class SamlKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +68,53 @@ class SamlKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SamlKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a SAML Identity Provider Signing Key.
+
+        This resource allows you to create and configure a SAML Identity Provider Signing Key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.SamlKey("example", x5cs=[okta_app_saml["example"]["certificate"]])
+        ```
+
+        ## Import
+
+        A SAML IdP Signing Key can be imported via the key id.
+
+        ```sh
+         $ pulumi import okta:idp/samlKey:SamlKey example <key id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SamlKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SamlKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

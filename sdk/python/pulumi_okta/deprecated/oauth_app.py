@@ -5,15 +5,514 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OauthApp']
+__all__ = ['OauthAppArgs', 'OauthApp']
+
+@pulumi.input_type
+class OauthAppArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 auto_key_rotation: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 client_basic_secret: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_uri: Optional[pulumi.Input[str]] = None,
+                 consent_method: Optional[pulumi.Input[str]] = None,
+                 custom_client_id: Optional[pulumi.Input[str]] = None,
+                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppJwkArgs']]]] = None,
+                 login_mode: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_uri: Optional[pulumi.Input[str]] = None,
+                 logo_uri: Optional[pulumi.Input[str]] = None,
+                 omit_secret: Optional[pulumi.Input[bool]] = None,
+                 policy_uri: Optional[pulumi.Input[str]] = None,
+                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
+                 tos_uri: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]] = None):
+        """
+        The set of arguments for constructing a OauthApp resource.
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
+        :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
+        :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
+               Default value is TRUSTED
+        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+               no-op, use client_id for that behavior instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
+               https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+               app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
+        :param pulumi.Input[str] issuer_mode: *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
+               custom domain URL as the issuer of ID token for this client.
+        :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request
+        :param pulumi.Input[str] login_uri: URI that initiates login.
+        :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
+               your app will be recreated.
+        :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout
+        :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+               okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
+        :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
+        :param pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]] users: Users associated with the application
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "type", type)
+        if auto_key_rotation is not None:
+            pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if client_basic_secret is not None:
+            pulumi.set(__self__, "client_basic_secret", client_basic_secret)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_uri is not None:
+            pulumi.set(__self__, "client_uri", client_uri)
+        if consent_method is not None:
+            pulumi.set(__self__, "consent_method", consent_method)
+        if custom_client_id is not None:
+            warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
+            pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
+        if custom_client_id is not None:
+            pulumi.set(__self__, "custom_client_id", custom_client_id)
+        if grant_types is not None:
+            pulumi.set(__self__, "grant_types", grant_types)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if implicit_assignment is not None:
+            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
+        if issuer_mode is not None:
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
+        if jwks is not None:
+            pulumi.set(__self__, "jwks", jwks)
+        if login_mode is not None:
+            pulumi.set(__self__, "login_mode", login_mode)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+        if login_uri is not None:
+            pulumi.set(__self__, "login_uri", login_uri)
+        if logo_uri is not None:
+            pulumi.set(__self__, "logo_uri", logo_uri)
+        if omit_secret is not None:
+            pulumi.set(__self__, "omit_secret", omit_secret)
+        if policy_uri is not None:
+            pulumi.set(__self__, "policy_uri", policy_uri)
+        if post_logout_redirect_uris is not None:
+            pulumi.set(__self__, "post_logout_redirect_uris", post_logout_redirect_uris)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if redirect_uris is not None:
+            pulumi.set(__self__, "redirect_uris", redirect_uris)
+        if response_types is not None:
+            pulumi.set(__self__, "response_types", response_types)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if token_endpoint_auth_method is not None:
+            pulumi.set(__self__, "token_endpoint_auth_method", token_endpoint_auth_method)
+        if tos_uri is not None:
+            pulumi.set(__self__, "tos_uri", tos_uri)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        Pretty name of app.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of client application.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="autoKeyRotation")
+    def auto_key_rotation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Requested key rotation mode.
+        """
+        return pulumi.get(self, "auto_key_rotation")
+
+    @auto_key_rotation.setter
+    def auto_key_rotation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_key_rotation", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter(name="clientBasicSecret")
+    def client_basic_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        """
+        return pulumi.get(self, "client_basic_secret")
+
+    @client_basic_secret.setter
+    def client_basic_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_basic_secret", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        OAuth client ID. If set during creation, app is created with this id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientUri")
+    def client_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI to a web page providing information about the client.
+        """
+        return pulumi.get(self, "client_uri")
+
+    @client_uri.setter
+    def client_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_uri", value)
+
+    @property
+    @pulumi.getter(name="consentMethod")
+    def consent_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
+        Default value is TRUSTED
+        """
+        return pulumi.get(self, "consent_method")
+
+    @consent_method.setter
+    def consent_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consent_method", value)
+
+    @property
+    @pulumi.getter(name="customClientId")
+    def custom_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
+        no-op, use client_id for that behavior instead.
+        """
+        return pulumi.get(self, "custom_client_id")
+
+    @custom_client_id.setter
+    def custom_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_client_id", value)
+
+    @property
+    @pulumi.getter(name="grantTypes")
+    def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of OAuth 2.0 grant types. Conditional validation params found here
+        https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
+        app type.
+        """
+        return pulumi.get(self, "grant_types")
+
+    @grant_types.setter
+    def grant_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "grant_types", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter(name="implicitAssignment")
+    def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        *Early Access Property*. Enable Federation Broker Mode.
+        """
+        return pulumi.get(self, "implicit_assignment")
+
+    @implicit_assignment.setter
+    def implicit_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "implicit_assignment", value)
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
+        custom domain URL as the issuer of ID token for this client.
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @issuer_mode.setter
+    def issuer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_mode", value)
+
+    @property
+    @pulumi.getter
+    def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppJwkArgs']]]]:
+        return pulumi.get(self, "jwks")
+
+    @jwks.setter
+    def jwks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppJwkArgs']]]]):
+        pulumi.set(self, "jwks", value)
+
+    @property
+    @pulumi.getter(name="loginMode")
+    def login_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of Idp-Initiated login that the client supports, if any
+        """
+        return pulumi.get(self, "login_mode")
+
+    @login_mode.setter
+    def login_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login_mode", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of scopes to use for the request
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+    @property
+    @pulumi.getter(name="loginUri")
+    def login_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI that initiates login.
+        """
+        return pulumi.get(self, "login_uri")
+
+    @login_uri.setter
+    def login_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login_uri", value)
+
+    @property
+    @pulumi.getter(name="logoUri")
+    def logo_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI that references a logo for the client.
+        """
+        return pulumi.get(self, "logo_uri")
+
+    @logo_uri.setter
+    def logo_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_uri", value)
+
+    @property
+    @pulumi.getter(name="omitSecret")
+    def omit_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
+        your app will be recreated.
+        """
+        return pulumi.get(self, "omit_secret")
+
+    @omit_secret.setter
+    def omit_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "omit_secret", value)
+
+    @property
+    @pulumi.getter(name="policyUri")
+    def policy_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI to web page providing client policy document.
+        """
+        return pulumi.get(self, "policy_uri")
+
+    @policy_uri.setter
+    def policy_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_uri", value)
+
+    @property
+    @pulumi.getter(name="postLogoutRedirectUris")
+    def post_logout_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of URIs for redirection after logout
+        """
+        return pulumi.get(self, "post_logout_redirect_uris")
+
+    @post_logout_redirect_uris.setter
+    def post_logout_redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "post_logout_redirect_uris", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom JSON that represents an OAuth application's profile
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="redirectUris")
+    def redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
+        okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
+        """
+        return pulumi.get(self, "redirect_uris")
+
+    @redirect_uris.setter
+    def redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "redirect_uris", value)
+
+    @property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of OAuth 2.0 response type strings.
+        """
+        return pulumi.get(self, "response_types")
+
+    @response_types.setter
+    def response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "response_types", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpointAuthMethod")
+    def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Requested authentication method for the token endpoint.
+        """
+        return pulumi.get(self, "token_endpoint_auth_method")
+
+    @token_endpoint_auth_method.setter
+    def token_endpoint_auth_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint_auth_method", value)
+
+    @property
+    @pulumi.getter(name="tosUri")
+    def tos_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI to web page providing client tos (terms of service).
+        """
+        return pulumi.get(self, "tos_uri")
+
+    @tos_uri.setter
+    def tos_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tos_uri", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]]:
+        """
+        Users associated with the application
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]]):
+        pulumi.set(self, "users", value)
 
 
 class OauthApp(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +590,62 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of client application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]] users: Users associated with the application
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OauthAppArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a OauthApp resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param OauthAppArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OauthAppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_key_rotation: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 client_basic_secret: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_uri: Optional[pulumi.Input[str]] = None,
+                 consent_method: Optional[pulumi.Input[str]] = None,
+                 custom_client_id: Optional[pulumi.Input[str]] = None,
+                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
+                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppJwkArgs']]]]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 login_mode: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_uri: Optional[pulumi.Input[str]] = None,
+                 logo_uri: Optional[pulumi.Input[str]] = None,
+                 omit_secret: Optional[pulumi.Input[bool]] = None,
+                 policy_uri: Optional[pulumi.Input[str]] = None,
+                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
+                 tos_uri: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

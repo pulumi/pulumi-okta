@@ -5,13 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Factor']
+__all__ = ['FactorArgs', 'Factor']
+
+@pulumi.input_type
+class FactorArgs:
+    def __init__(__self__, *,
+                 provider_id: pulumi.Input[str],
+                 active: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Factor resource.
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
+        """
+        pulumi.set(__self__, "provider_id", provider_id)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> pulumi.Input[str]:
+        """
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        """
+        return pulumi.get(self, "provider_id")
+
+    @provider_id.setter
+    def provider_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_id", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to activate the provider, by default, it is set to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
 
 
 class Factor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +81,46 @@ class Factor(pulumi.CustomResource):
         :param pulumi.Input[str] provider_id: The MFA provider name.
                Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FactorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Allows you to manage the activation of Okta MFA methods.
+
+        This resource allows you to manage Okta MFA methods.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.factor.Factor("example", provider_id="google_otp")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FactorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FactorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 provider_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

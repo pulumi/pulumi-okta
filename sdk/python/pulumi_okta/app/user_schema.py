@@ -5,15 +5,371 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserSchema']
+__all__ = ['UserSchemaArgs', 'UserSchema']
+
+@pulumi.input_type
+class UserSchemaArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 index: pulumi.Input[str],
+                 title: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaArrayOneOfArgs']]]] = None,
+                 array_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_name: Optional[pulumi.Input[str]] = None,
+                 external_namespace: Optional[pulumi.Input[str]] = None,
+                 master: Optional[pulumi.Input[str]] = None,
+                 max_length: Optional[pulumi.Input[int]] = None,
+                 min_length: Optional[pulumi.Input[int]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaOneOfArgs']]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[bool]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 union: Optional[pulumi.Input[bool]] = None,
+                 unique: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a UserSchema resource.
+        :param pulumi.Input[str] app_id: The Application's ID the user custom schema property should be assigned to.
+        :param pulumi.Input[str] index: The property name.
+        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
+        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
+        :param pulumi.Input[str] description: The description of the user schema property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
+        :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
+        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
+        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
+        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
+        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "type", type)
+        if array_enums is not None:
+            pulumi.set(__self__, "array_enums", array_enums)
+        if array_one_ofs is not None:
+            pulumi.set(__self__, "array_one_ofs", array_one_ofs)
+        if array_type is not None:
+            pulumi.set(__self__, "array_type", array_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enums is not None:
+            pulumi.set(__self__, "enums", enums)
+        if external_name is not None:
+            pulumi.set(__self__, "external_name", external_name)
+        if external_namespace is not None:
+            pulumi.set(__self__, "external_namespace", external_namespace)
+        if master is not None:
+            pulumi.set(__self__, "master", master)
+        if max_length is not None:
+            pulumi.set(__self__, "max_length", max_length)
+        if min_length is not None:
+            pulumi.set(__self__, "min_length", min_length)
+        if one_ofs is not None:
+            pulumi.set(__self__, "one_ofs", one_ofs)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if union is not None:
+            pulumi.set(__self__, "union", union)
+        if unique is not None:
+            pulumi.set(__self__, "unique", unique)
+        if user_type is not None:
+            pulumi.set(__self__, "user_type", user_type)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The Application's ID the user custom schema property should be assigned to.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter
+    def index(self) -> pulumi.Input[str]:
+        """
+        The property name.
+        """
+        return pulumi.get(self, "index")
+
+    @index.setter
+    def index(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="arrayEnums")
+    def array_enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of values that an array property's items can be set to.
+        """
+        return pulumi.get(self, "array_enums")
+
+    @array_enums.setter
+    def array_enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "array_enums", value)
+
+    @property
+    @pulumi.getter(name="arrayOneOfs")
+    def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaArrayOneOfArgs']]]]:
+        """
+        Display name and value an enum array can be set to.
+        """
+        return pulumi.get(self, "array_one_ofs")
+
+    @array_one_ofs.setter
+    def array_one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaArrayOneOfArgs']]]]):
+        pulumi.set(self, "array_one_ofs", value)
+
+    @property
+    @pulumi.getter(name="arrayType")
+    def array_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the array elements if `type` is set to `"array"`.
+        """
+        return pulumi.get(self, "array_type")
+
+    @array_type.setter
+    def array_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "array_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the user schema property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of values a primitive property can be set to. See `array_enum` for arrays.
+        """
+        return pulumi.get(self, "enums")
+
+    @enums.setter
+    def enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enums", value)
+
+    @property
+    @pulumi.getter(name="externalName")
+    def external_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        External name of the user schema property.
+        """
+        return pulumi.get(self, "external_name")
+
+    @external_name.setter
+    def external_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_name", value)
+
+    @property
+    @pulumi.getter(name="externalNamespace")
+    def external_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        External namespace of the user schema property.
+        """
+        return pulumi.get(self, "external_namespace")
+
+    @external_namespace.setter
+    def external_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_namespace", value)
+
+    @property
+    @pulumi.getter
+    def master(self) -> Optional[pulumi.Input[str]]:
+        """
+        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        """
+        return pulumi.get(self, "master")
+
+    @master.setter
+    def master(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master", value)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum length of the user property value. Only applies to type `"string"`.
+        """
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_length", value)
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum length of the user property value. Only applies to type `"string"`.
+        """
+        return pulumi.get(self, "min_length")
+
+    @min_length.setter
+    def min_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_length", value)
+
+    @property
+    @pulumi.getter(name="oneOfs")
+    def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaOneOfArgs']]]]:
+        """
+        Array of maps containing a mapping for display name to enum value.
+        """
+        return pulumi.get(self, "one_ofs")
+
+    @one_ofs.setter
+    def one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaOneOfArgs']]]]):
+        pulumi.set(self, "one_ofs", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the property is required for this application's users.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        determines whether an app user attribute can be set at the Individual or Group Level.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def union(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        """
+        return pulumi.get(self, "union")
+
+    @union.setter
+    def union(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "union", value)
+
+    @property
+    @pulumi.getter
+    def unique(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subschema unique restriction
+        """
+        return pulumi.get(self, "unique")
+
+    @unique.setter
+    def unique(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unique", value)
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom subschema user type
+        """
+        return pulumi.get(self, "user_type")
+
+    @user_type.setter
+    def user_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_type", value)
 
 
 class UserSchema(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -96,6 +452,81 @@ class UserSchema(pulumi.CustomResource):
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserSchemaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Application User Schema property.
+
+        This resource allows you to create and configure a custom user schema property and associate it with an application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.UserSchema("example",
+            app_id="<app id>",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string")
+        ```
+
+        ## Import
+
+        App user schema property can be imported via the property index and app id.
+
+        ```sh
+         $ pulumi import okta:app/userSchema:UserSchema example <app id>/<property name>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserSchemaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserSchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaArrayOneOfArgs']]]]] = None,
+                 array_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_name: Optional[pulumi.Input[str]] = None,
+                 external_namespace: Optional[pulumi.Input[str]] = None,
+                 index: Optional[pulumi.Input[str]] = None,
+                 master: Optional[pulumi.Input[str]] = None,
+                 max_length: Optional[pulumi.Input[int]] = None,
+                 min_length: Optional[pulumi.Input[int]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaOneOfArgs']]]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[bool]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 union: Optional[pulumi.Input[bool]] = None,
+                 unique: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

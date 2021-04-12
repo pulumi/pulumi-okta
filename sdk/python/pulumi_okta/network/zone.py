@@ -5,13 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Zone']
+__all__ = ['ZoneArgs', 'Zone']
+
+@pulumi.input_type
+class ZoneArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 usage: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Zone resource.
+        :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+               and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
+        :param pulumi.Input[str] name: Name of the Network Zone Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        """
+        pulumi.set(__self__, "type", type)
+        if dynamic_locations is not None:
+            pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if gateways is not None:
+            pulumi.set(__self__, "gateways", gateways)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if proxies is not None:
+            pulumi.set(__self__, "proxies", proxies)
+        if usage is not None:
+            pulumi.set(__self__, "usage", usage)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dynamicLocations")
+    def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        """
+        return pulumi.get(self, "dynamic_locations")
+
+    @dynamic_locations.setter
+    def dynamic_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dynamic_locations", value)
+
+    @property
+    @pulumi.getter
+    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of values in CIDR/range form.
+        """
+        return pulumi.get(self, "gateways")
+
+    @gateways.setter
+    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "gateways", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Network Zone Resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        """
+        return pulumi.get(self, "proxies")
+
+    @proxies.setter
+    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "proxies", value)
+
+    @property
+    @pulumi.getter
+    def usage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        """
+        return pulumi.get(self, "usage")
+
+    @usage.setter
+    def usage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage", value)
 
 
 class Zone(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +170,67 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ZoneArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Okta Network Zone.
+
+        This resource allows you to create and configure an Okta Network Zone.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.network.Zone("example",
+            gateways=[
+                "1.2.3.4/24",
+                "2.3.4.5-2.3.4.15",
+            ],
+            proxies=[
+                "2.2.3.4/24",
+                "3.3.4.5-3.3.4.15",
+            ],
+            type="IP")
+        ```
+
+        ## Import
+
+        Okta Network Zone can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:network/zone:Zone example <zone id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ZoneArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 usage: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

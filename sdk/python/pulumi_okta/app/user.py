@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['User']
+__all__ = ['UserArgs', 'User']
+
+@pulumi.input_type
+class UserArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 user_id: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a User resource.
+        :param pulumi.Input[str] app_id: App to associate user with.
+        :param pulumi.Input[str] user_id: User to associate the application with.
+        :param pulumi.Input[str] username: The username to use for the app user.
+        :param pulumi.Input[str] password: The password to use.
+        :param pulumi.Input[str] profile: The JSON profile of the App User.
+        :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "username", username)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if retain_assignment is not None:
+            pulumi.set(__self__, "retain_assignment", retain_assignment)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        App to associate user with.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        User to associate the application with.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username to use for the app user.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to use.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON profile of the App User.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="retainAssignment")
+    def retain_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        return pulumi.get(self, "retain_assignment")
+
+    @retain_assignment.setter
+    def retain_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_assignment", value)
 
 
 class User(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +143,45 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] user_id: User to associate the application with.
         :param pulumi.Input[str] username: The username to use for the app user.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        An Application User can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/user:User example <app id>/<user id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

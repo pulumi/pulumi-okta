@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SamlIdpSigningKey']
+__all__ = ['SamlIdpSigningKeyArgs', 'SamlIdpSigningKey']
+
+@pulumi.input_type
+class SamlIdpSigningKeyArgs:
+    def __init__(__self__, *,
+                 x5cs: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a SamlIdpSigningKey resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
+        """
+        pulumi.set(__self__, "x5cs", x5cs)
+
+    @property
+    @pulumi.getter
+    def x5cs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        base64-encoded X.509 certificate chain with DER encoding
+        """
+        return pulumi.get(self, "x5cs")
+
+    @x5cs.setter
+    def x5cs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "x5cs", value)
 
 
 class SamlIdpSigningKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,6 +48,33 @@ class SamlIdpSigningKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SamlIdpSigningKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a SamlIdpSigningKey resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param SamlIdpSigningKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SamlIdpSigningKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

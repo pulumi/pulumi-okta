@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TemplateSms']
+__all__ = ['TemplateSmsArgs', 'TemplateSms']
+
+@pulumi.input_type
+class TemplateSmsArgs:
+    def __init__(__self__, *,
+                 template: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None):
+        """
+        The set of arguments for constructing a TemplateSms resource.
+        :param pulumi.Input[str] template: The SMS message.
+        :param pulumi.Input[str] type: SMS template type
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]] translations: Set of translations for a particular template.
+        """
+        pulumi.set(__self__, "template", template)
+        pulumi.set(__self__, "type", type)
+        if translations is not None:
+            pulumi.set(__self__, "translations", translations)
+
+    @property
+    @pulumi.getter
+    def template(self) -> pulumi.Input[str]:
+        """
+        The SMS message.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "template", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        SMS template type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def translations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]]:
+        """
+        Set of translations for a particular template.
+        """
+        return pulumi.get(self, "translations")
+
+    @translations.setter
+    def translations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]]):
+        pulumi.set(self, "translations", value)
 
 
 class TemplateSms(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +117,67 @@ class TemplateSms(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: SMS template type
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TemplateSmsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Okta SMS Template.
+
+        This resource allows you to create and configure an Okta SMS Template.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.TemplateSms("example",
+            template=f"Your {org['name']} code is: {code}",
+            translations=[
+                okta.TemplateSmsTranslationArgs(
+                    language="en",
+                    template=f"Your {org['name']} code is: {code}",
+                ),
+                okta.TemplateSmsTranslationArgs(
+                    language="es",
+                    template=f"Tu código de {org['name']} es: {code}.",
+                ),
+            ],
+            type="SMS_VERIFY_CODE")
+        ```
+
+        ## Import
+
+        An Okta SMS Template can be imported via the template type.
+
+        ```sh
+         $ pulumi import okta:index/templateSms:TemplateSms example <template type>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TemplateSmsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateSmsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 template: Optional[pulumi.Input[str]] = None,
+                 translations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

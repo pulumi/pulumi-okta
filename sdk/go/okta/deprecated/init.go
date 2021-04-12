@@ -22,45 +22,46 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "okta:deprecated/authLoginApp:AuthLoginApp":
-		r, err = NewAuthLoginApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthLoginApp{}
 	case "okta:deprecated/bookmarkApp:BookmarkApp":
-		r, err = NewBookmarkApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &BookmarkApp{}
 	case "okta:deprecated/idp:Idp":
-		r, err = NewIdp(ctx, name, nil, pulumi.URN_(urn))
+		r = &Idp{}
 	case "okta:deprecated/mfaPolicy:MfaPolicy":
-		r, err = NewMfaPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &MfaPolicy{}
 	case "okta:deprecated/mfaPolicyRule:MfaPolicyRule":
-		r, err = NewMfaPolicyRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &MfaPolicyRule{}
 	case "okta:deprecated/oauthApp:OauthApp":
-		r, err = NewOauthApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &OauthApp{}
 	case "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri":
-		r, err = NewOauthAppRedirectUri(ctx, name, nil, pulumi.URN_(urn))
+		r = &OauthAppRedirectUri{}
 	case "okta:deprecated/passwordPolicy:PasswordPolicy":
-		r, err = NewPasswordPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &PasswordPolicy{}
 	case "okta:deprecated/passwordPolicyRule:PasswordPolicyRule":
-		r, err = NewPasswordPolicyRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &PasswordPolicyRule{}
 	case "okta:deprecated/samlApp:SamlApp":
-		r, err = NewSamlApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SamlApp{}
 	case "okta:deprecated/samlIdp:SamlIdp":
-		r, err = NewSamlIdp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SamlIdp{}
 	case "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey":
-		r, err = NewSamlIdpSigningKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SamlIdpSigningKey{}
 	case "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp":
-		r, err = NewSecurePasswordStoreApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurePasswordStoreApp{}
 	case "okta:deprecated/signonPolicy:SignonPolicy":
-		r, err = NewSignonPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SignonPolicy{}
 	case "okta:deprecated/signonPolicyRule:SignonPolicyRule":
-		r, err = NewSignonPolicyRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SignonPolicyRule{}
 	case "okta:deprecated/socialIdp:SocialIdp":
-		r, err = NewSocialIdp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SocialIdp{}
 	case "okta:deprecated/swaApp:SwaApp":
-		r, err = NewSwaApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SwaApp{}
 	case "okta:deprecated/threeFieldApp:ThreeFieldApp":
-		r, err = NewThreeFieldApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThreeFieldApp{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
