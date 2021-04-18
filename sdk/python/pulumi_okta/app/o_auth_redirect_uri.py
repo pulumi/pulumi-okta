@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['OAuthRedirectUriArgs', 'OAuthRedirectUri']
 
@@ -41,6 +41,42 @@ class OAuthRedirectUriArgs:
 
     @uri.setter
     def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class _OAuthRedirectUriState:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OAuthRedirectUri resources.
+        :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redirect URI to append to Okta OIDC application.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -103,14 +139,14 @@ class OAuthRedirectUri(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OAuthRedirectUriArgs.__new__(OAuthRedirectUriArgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
-            __props__['app_id'] = app_id
+            __props__.__dict__["app_id"] = app_id
             if uri is None and not opts.urn:
                 raise TypeError("Missing required property 'uri'")
-            __props__['uri'] = uri
+            __props__.__dict__["uri"] = uri
         super(OAuthRedirectUri, __self__).__init__(
             'okta:app/oAuthRedirectUri:OAuthRedirectUri',
             resource_name,
@@ -134,10 +170,10 @@ class OAuthRedirectUri(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OAuthRedirectUriState.__new__(_OAuthRedirectUriState)
 
-        __props__["app_id"] = app_id
-        __props__["uri"] = uri
+        __props__.__dict__["app_id"] = app_id
+        __props__.__dict__["uri"] = uri
         return OAuthRedirectUri(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -152,10 +188,4 @@ class OAuthRedirectUri(pulumi.CustomResource):
         Redirect URI to append to Okta OIDC application.
         """
         return pulumi.get(self, "uri")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

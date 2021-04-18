@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
 
@@ -111,6 +111,110 @@ class UserArgs:
         pulumi.set(self, "retain_assignment", value)
 
 
+@pulumi.input_type
+class _UserState:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] app_id: App to associate user with.
+        :param pulumi.Input[str] password: The password to use.
+        :param pulumi.Input[str] profile: The JSON profile of the App User.
+        :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        :param pulumi.Input[str] user_id: User to associate the application with.
+        :param pulumi.Input[str] username: The username to use for the app user.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if retain_assignment is not None:
+            pulumi.set(__self__, "retain_assignment", retain_assignment)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        App to associate user with.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to use.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON profile of the App User.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="retainAssignment")
+    def retain_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        return pulumi.get(self, "retain_assignment")
+
+    @retain_assignment.setter
+    def retain_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_assignment", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        User to associate the application with.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username to use for the app user.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
 class User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -197,20 +301,20 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserArgs.__new__(UserArgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
-            __props__['app_id'] = app_id
-            __props__['password'] = password
-            __props__['profile'] = profile
-            __props__['retain_assignment'] = retain_assignment
+            __props__.__dict__["app_id"] = app_id
+            __props__.__dict__["password"] = password
+            __props__.__dict__["profile"] = profile
+            __props__.__dict__["retain_assignment"] = retain_assignment
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
+            __props__.__dict__["user_id"] = user_id
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
-            __props__['username'] = username
+            __props__.__dict__["username"] = username
         super(User, __self__).__init__(
             'okta:app/user:User',
             resource_name,
@@ -243,14 +347,14 @@ class User(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserState.__new__(_UserState)
 
-        __props__["app_id"] = app_id
-        __props__["password"] = password
-        __props__["profile"] = profile
-        __props__["retain_assignment"] = retain_assignment
-        __props__["user_id"] = user_id
-        __props__["username"] = username
+        __props__.__dict__["app_id"] = app_id
+        __props__.__dict__["password"] = password
+        __props__.__dict__["profile"] = profile
+        __props__.__dict__["retain_assignment"] = retain_assignment
+        __props__.__dict__["user_id"] = user_id
+        __props__.__dict__["username"] = username
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -300,10 +404,4 @@ class User(pulumi.CustomResource):
         The username to use for the app user.
         """
         return pulumi.get(self, "username")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

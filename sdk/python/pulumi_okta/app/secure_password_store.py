@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -416,6 +416,446 @@ class SecurePasswordStoreArgs:
         pulumi.set(self, "users", value)
 
 
+@pulumi.input_type
+class _SecurePasswordStoreState:
+    def __init__(__self__, *,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 optional_field1: Optional[pulumi.Input[str]] = None,
+                 optional_field1_value: Optional[pulumi.Input[str]] = None,
+                 optional_field2: Optional[pulumi.Input[str]] = None,
+                 optional_field2_value: Optional[pulumi.Input[str]] = None,
+                 optional_field3: Optional[pulumi.Input[str]] = None,
+                 optional_field3_value: Optional[pulumi.Input[str]] = None,
+                 password_field: Optional[pulumi.Input[str]] = None,
+                 reveal_password: Optional[pulumi.Input[bool]] = None,
+                 shared_password: Optional[pulumi.Input[str]] = None,
+                 shared_username: Optional[pulumi.Input[str]] = None,
+                 sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
+                 username_field: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering SecurePasswordStore resources.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] name: Name assigned to the application by Okta.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
+        :param pulumi.Input[str] password_field: Login password field.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
+        :param pulumi.Input[str] url: Login URL.
+        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] username_field: Login username field.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+        """
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if credentials_scheme is not None:
+            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if optional_field1 is not None:
+            pulumi.set(__self__, "optional_field1", optional_field1)
+        if optional_field1_value is not None:
+            pulumi.set(__self__, "optional_field1_value", optional_field1_value)
+        if optional_field2 is not None:
+            pulumi.set(__self__, "optional_field2", optional_field2)
+        if optional_field2_value is not None:
+            pulumi.set(__self__, "optional_field2_value", optional_field2_value)
+        if optional_field3 is not None:
+            pulumi.set(__self__, "optional_field3", optional_field3)
+        if optional_field3_value is not None:
+            pulumi.set(__self__, "optional_field3_value", optional_field3_value)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if reveal_password is not None:
+            pulumi.set(__self__, "reveal_password", reveal_password)
+        if shared_password is not None:
+            pulumi.set(__self__, "shared_password", shared_password)
+        if shared_username is not None:
+            pulumi.set(__self__, "shared_username", shared_username)
+        if sign_on_mode is not None:
+            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL.
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self-service. By default, it is `false`.
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar.
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @credentials_scheme.setter
+    def credentials_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_scheme", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app.
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users.
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the Application.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name assigned to the application by Okta.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="optionalField1")
+    def optional_field1(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional param in the login form.
+        """
+        return pulumi.get(self, "optional_field1")
+
+    @optional_field1.setter
+    def optional_field1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field1", value)
+
+    @property
+    @pulumi.getter(name="optionalField1Value")
+    def optional_field1_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional value in the login form.
+        """
+        return pulumi.get(self, "optional_field1_value")
+
+    @optional_field1_value.setter
+    def optional_field1_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field1_value", value)
+
+    @property
+    @pulumi.getter(name="optionalField2")
+    def optional_field2(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional param in the login form.
+        """
+        return pulumi.get(self, "optional_field2")
+
+    @optional_field2.setter
+    def optional_field2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field2", value)
+
+    @property
+    @pulumi.getter(name="optionalField2Value")
+    def optional_field2_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional value in the login form.
+        """
+        return pulumi.get(self, "optional_field2_value")
+
+    @optional_field2_value.setter
+    def optional_field2_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field2_value", value)
+
+    @property
+    @pulumi.getter(name="optionalField3")
+    def optional_field3(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional param in the login form.
+        """
+        return pulumi.get(self, "optional_field3")
+
+    @optional_field3.setter
+    def optional_field3(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field3", value)
+
+    @property
+    @pulumi.getter(name="optionalField3Value")
+    def optional_field3_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of optional value in the login form.
+        """
+        return pulumi.get(self, "optional_field3_value")
+
+    @optional_field3_value.setter
+    def optional_field3_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optional_field3_value", value)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login password field.
+        """
+        return pulumi.get(self, "password_field")
+
+    @password_field.setter
+    def password_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_field", value)
+
+    @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow user to reveal password.
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @reveal_password.setter
+    def reveal_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reveal_password", value)
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @shared_password.setter
+    def shared_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_password", value)
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @shared_username.setter
+    def shared_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_username", value)
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sign-on mode of application.
+        """
+        return pulumi.get(self, "sign_on_mode")
+
+    @sign_on_mode.setter
+    def sign_on_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sign_on_mode", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application. By default, it is `"ACTIVE"`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default username assigned to each user.
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Username template type.
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login username field.
+        """
+        return pulumi.get(self, "username_field")
+
+    @username_field.setter
+    def username_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_field", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]:
+        """
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]):
+        pulumi.set(self, "users", value)
+
+
 class SecurePasswordStore(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -595,43 +1035,43 @@ class SecurePasswordStore(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecurePasswordStoreArgs.__new__(SecurePasswordStoreArgs)
 
-            __props__['accessibility_error_redirect_url'] = accessibility_error_redirect_url
-            __props__['accessibility_self_service'] = accessibility_self_service
-            __props__['auto_submit_toolbar'] = auto_submit_toolbar
-            __props__['credentials_scheme'] = credentials_scheme
-            __props__['groups'] = groups
-            __props__['hide_ios'] = hide_ios
-            __props__['hide_web'] = hide_web
+            __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+            __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+            __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+            __props__.__dict__["credentials_scheme"] = credentials_scheme
+            __props__.__dict__["groups"] = groups
+            __props__.__dict__["hide_ios"] = hide_ios
+            __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
-            __props__['label'] = label
-            __props__['optional_field1'] = optional_field1
-            __props__['optional_field1_value'] = optional_field1_value
-            __props__['optional_field2'] = optional_field2
-            __props__['optional_field2_value'] = optional_field2_value
-            __props__['optional_field3'] = optional_field3
-            __props__['optional_field3_value'] = optional_field3_value
+            __props__.__dict__["label"] = label
+            __props__.__dict__["optional_field1"] = optional_field1
+            __props__.__dict__["optional_field1_value"] = optional_field1_value
+            __props__.__dict__["optional_field2"] = optional_field2
+            __props__.__dict__["optional_field2_value"] = optional_field2_value
+            __props__.__dict__["optional_field3"] = optional_field3
+            __props__.__dict__["optional_field3_value"] = optional_field3_value
             if password_field is None and not opts.urn:
                 raise TypeError("Missing required property 'password_field'")
-            __props__['password_field'] = password_field
-            __props__['reveal_password'] = reveal_password
-            __props__['shared_password'] = shared_password
-            __props__['shared_username'] = shared_username
-            __props__['status'] = status
+            __props__.__dict__["password_field"] = password_field
+            __props__.__dict__["reveal_password"] = reveal_password
+            __props__.__dict__["shared_password"] = shared_password
+            __props__.__dict__["shared_username"] = shared_username
+            __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
-            __props__['url'] = url
-            __props__['user_name_template'] = user_name_template
-            __props__['user_name_template_suffix'] = user_name_template_suffix
-            __props__['user_name_template_type'] = user_name_template_type
+            __props__.__dict__["url"] = url
+            __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+            __props__.__dict__["user_name_template_type"] = user_name_template_type
             if username_field is None and not opts.urn:
                 raise TypeError("Missing required property 'username_field'")
-            __props__['username_field'] = username_field
-            __props__['users'] = users
-            __props__['name'] = None
-            __props__['sign_on_mode'] = None
+            __props__.__dict__["username_field"] = username_field
+            __props__.__dict__["users"] = users
+            __props__.__dict__["name"] = None
+            __props__.__dict__["sign_on_mode"] = None
         super(SecurePasswordStore, __self__).__init__(
             'okta:app/securePasswordStore:SecurePasswordStore',
             resource_name,
@@ -706,35 +1146,35 @@ class SecurePasswordStore(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SecurePasswordStoreState.__new__(_SecurePasswordStoreState)
 
-        __props__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
-        __props__["accessibility_self_service"] = accessibility_self_service
-        __props__["auto_submit_toolbar"] = auto_submit_toolbar
-        __props__["credentials_scheme"] = credentials_scheme
-        __props__["groups"] = groups
-        __props__["hide_ios"] = hide_ios
-        __props__["hide_web"] = hide_web
-        __props__["label"] = label
-        __props__["name"] = name
-        __props__["optional_field1"] = optional_field1
-        __props__["optional_field1_value"] = optional_field1_value
-        __props__["optional_field2"] = optional_field2
-        __props__["optional_field2_value"] = optional_field2_value
-        __props__["optional_field3"] = optional_field3
-        __props__["optional_field3_value"] = optional_field3_value
-        __props__["password_field"] = password_field
-        __props__["reveal_password"] = reveal_password
-        __props__["shared_password"] = shared_password
-        __props__["shared_username"] = shared_username
-        __props__["sign_on_mode"] = sign_on_mode
-        __props__["status"] = status
-        __props__["url"] = url
-        __props__["user_name_template"] = user_name_template
-        __props__["user_name_template_suffix"] = user_name_template_suffix
-        __props__["user_name_template_type"] = user_name_template_type
-        __props__["username_field"] = username_field
-        __props__["users"] = users
+        __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+        __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+        __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+        __props__.__dict__["credentials_scheme"] = credentials_scheme
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["hide_ios"] = hide_ios
+        __props__.__dict__["hide_web"] = hide_web
+        __props__.__dict__["label"] = label
+        __props__.__dict__["name"] = name
+        __props__.__dict__["optional_field1"] = optional_field1
+        __props__.__dict__["optional_field1_value"] = optional_field1_value
+        __props__.__dict__["optional_field2"] = optional_field2
+        __props__.__dict__["optional_field2_value"] = optional_field2_value
+        __props__.__dict__["optional_field3"] = optional_field3
+        __props__.__dict__["optional_field3_value"] = optional_field3_value
+        __props__.__dict__["password_field"] = password_field
+        __props__.__dict__["reveal_password"] = reveal_password
+        __props__.__dict__["shared_password"] = shared_password
+        __props__.__dict__["shared_username"] = shared_username
+        __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["status"] = status
+        __props__.__dict__["url"] = url
+        __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+        __props__.__dict__["user_name_template_type"] = user_name_template_type
+        __props__.__dict__["username_field"] = username_field
+        __props__.__dict__["users"] = users
         return SecurePasswordStore(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -952,10 +1392,4 @@ class SecurePasswordStore(pulumi.CustomResource):
         The users assigned to the application. See `app.User` for a more flexible approach.
         """
         return pulumi.get(self, "users")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

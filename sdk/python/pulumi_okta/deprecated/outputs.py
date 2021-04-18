@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'AuthLoginAppUser',
@@ -56,9 +56,6 @@ class AuthLoginAppUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BookmarkAppUser(dict):
@@ -96,9 +93,6 @@ class BookmarkAppUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OauthAppJwk(dict):
@@ -133,9 +127,6 @@ class OauthAppJwk(dict):
     @pulumi.getter
     def n(self) -> Optional[str]:
         return pulumi.get(self, "n")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -174,12 +165,28 @@ class OauthAppUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SamlAppAttributeStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+        elif key == "filterValue":
+            suggest = "filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SamlAppAttributeStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SamlAppAttributeStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SamlAppAttributeStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  filter_type: Optional[str] = None,
@@ -229,9 +236,6 @@ class SamlAppAttributeStatement(dict):
     def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SamlAppUser(dict):
@@ -268,9 +272,6 @@ class SamlAppUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -309,9 +310,6 @@ class SecurePasswordStoreAppUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SwaAppUser(dict):
@@ -349,9 +347,6 @@ class SwaAppUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThreeFieldAppUser(dict):
@@ -388,8 +383,5 @@ class ThreeFieldAppUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

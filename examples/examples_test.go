@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
 func skipIfNoOktaTokens(t *testing.T) {
@@ -38,4 +38,3 @@ func getBaseOptions() integration.ProgramTestOptions {
 		ExpectRefreshChanges: true,
 	}
 }
-

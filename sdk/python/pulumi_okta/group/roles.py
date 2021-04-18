@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RolesArgs', 'Roles']
 
@@ -47,6 +47,46 @@ class RolesArgs:
     @admin_roles.setter
     def admin_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "admin_roles", value)
+
+
+@pulumi.input_type
+class _RolesState:
+    def __init__(__self__, *,
+                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Roles resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
+        """
+        if admin_roles is not None:
+            pulumi.set(__self__, "admin_roles", admin_roles)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+
+    @property
+    @pulumi.getter(name="adminRoles")
+    def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        """
+        return pulumi.get(self, "admin_roles")
+
+    @admin_roles.setter
+    def admin_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_roles", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of group to attach admin roles to.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
 
 
 class Roles(pulumi.CustomResource):
@@ -153,12 +193,12 @@ class Roles(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RolesArgs.__new__(RolesArgs)
 
-            __props__['admin_roles'] = admin_roles
+            __props__.__dict__["admin_roles"] = admin_roles
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
-            __props__['group_id'] = group_id
+            __props__.__dict__["group_id"] = group_id
         super(Roles, __self__).__init__(
             'okta:group/roles:Roles',
             resource_name,
@@ -183,10 +223,10 @@ class Roles(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RolesState.__new__(_RolesState)
 
-        __props__["admin_roles"] = admin_roles
-        __props__["group_id"] = group_id
+        __props__.__dict__["admin_roles"] = admin_roles
+        __props__.__dict__["group_id"] = group_id
         return Roles(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -204,10 +244,4 @@ class Roles(pulumi.CustomResource):
         The ID of group to attach admin roles to.
         """
         return pulumi.get(self, "group_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

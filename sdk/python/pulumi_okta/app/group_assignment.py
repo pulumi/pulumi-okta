@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['GroupAssignmentArgs', 'GroupAssignment']
 
@@ -56,6 +56,90 @@ class GroupAssignmentArgs:
 
     @group_id.setter
     def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="retainAssignment")
+    def retain_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        return pulumi.get(self, "retain_assignment")
+
+    @retain_assignment.setter
+    def retain_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_assignment", value)
+
+
+@pulumi.input_type
+class _GroupAssignmentState:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 retain_assignment: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering GroupAssignment resources.
+        :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
+        :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if retain_assignment is not None:
+            pulumi.set(__self__, "retain_assignment", retain_assignment)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the application to assign a group to.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the group to assign the app to.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_id", value)
 
     @property
@@ -174,17 +258,17 @@ class GroupAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupAssignmentArgs.__new__(GroupAssignmentArgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
-            __props__['app_id'] = app_id
+            __props__.__dict__["app_id"] = app_id
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
-            __props__['group_id'] = group_id
-            __props__['priority'] = priority
-            __props__['profile'] = profile
-            __props__['retain_assignment'] = retain_assignment
+            __props__.__dict__["group_id"] = group_id
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["profile"] = profile
+            __props__.__dict__["retain_assignment"] = retain_assignment
         super(GroupAssignment, __self__).__init__(
             'okta:app/groupAssignment:GroupAssignment',
             resource_name,
@@ -214,13 +298,13 @@ class GroupAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupAssignmentState.__new__(_GroupAssignmentState)
 
-        __props__["app_id"] = app_id
-        __props__["group_id"] = group_id
-        __props__["priority"] = priority
-        __props__["profile"] = profile
-        __props__["retain_assignment"] = retain_assignment
+        __props__.__dict__["app_id"] = app_id
+        __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["profile"] = profile
+        __props__.__dict__["retain_assignment"] = retain_assignment
         return GroupAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -259,10 +343,4 @@ class GroupAssignment(pulumi.CustomResource):
         Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
         return pulumi.get(self, "retain_assignment")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

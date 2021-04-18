@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServerScopeArgs', 'ServerScope']
 
@@ -50,6 +50,110 @@ class ServerScopeArgs:
 
     @auth_server_id.setter
     def auth_server_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter
+    def consent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+        """
+        return pulumi.get(self, "consent")
+
+    @consent.setter
+    def consent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consent", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the Auth Server Scope.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="metadataPublish")
+    def metadata_publish(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        """
+        return pulumi.get(self, "metadata_publish")
+
+    @metadata_publish.setter
+    def metadata_publish(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_publish", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Auth Server scope name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _ServerScopeState:
+    def __init__(__self__, *,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 consent: Optional[pulumi.Input[str]] = None,
+                 default: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 metadata_publish: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerScope resources.
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+        :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
+        :param pulumi.Input[str] description: Description of the Auth Server Scope.
+        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        :param pulumi.Input[str] name: Auth Server scope name.
+        """
+        if auth_server_id is not None:
+            pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if consent is not None:
+            pulumi.set(__self__, "consent", consent)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata_publish is not None:
+            pulumi.set(__self__, "metadata_publish", metadata_publish)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Auth Server ID.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @property
@@ -231,16 +335,16 @@ class ServerScope(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerScopeArgs.__new__(ServerScopeArgs)
 
             if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
-            __props__['auth_server_id'] = auth_server_id
-            __props__['consent'] = consent
-            __props__['default'] = default
-            __props__['description'] = description
-            __props__['metadata_publish'] = metadata_publish
-            __props__['name'] = name
+            __props__.__dict__["auth_server_id"] = auth_server_id
+            __props__.__dict__["consent"] = consent
+            __props__.__dict__["default"] = default
+            __props__.__dict__["description"] = description
+            __props__.__dict__["metadata_publish"] = metadata_publish
+            __props__.__dict__["name"] = name
         super(ServerScope, __self__).__init__(
             'okta:auth/serverScope:ServerScope',
             resource_name,
@@ -273,14 +377,14 @@ class ServerScope(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerScopeState.__new__(_ServerScopeState)
 
-        __props__["auth_server_id"] = auth_server_id
-        __props__["consent"] = consent
-        __props__["default"] = default
-        __props__["description"] = description
-        __props__["metadata_publish"] = metadata_publish
-        __props__["name"] = name
+        __props__.__dict__["auth_server_id"] = auth_server_id
+        __props__.__dict__["consent"] = consent
+        __props__.__dict__["default"] = default
+        __props__.__dict__["description"] = description
+        __props__.__dict__["metadata_publish"] = metadata_publish
+        __props__.__dict__["name"] = name
         return ServerScope(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -330,10 +434,4 @@ class ServerScope(pulumi.CustomResource):
         Auth Server scope name.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

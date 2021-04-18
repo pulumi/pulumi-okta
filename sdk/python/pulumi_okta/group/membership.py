@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MembershipArgs', 'Membership']
 
@@ -45,6 +45,46 @@ class MembershipArgs:
 
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+
+@pulumi.input_type
+class _MembershipState:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Membership resources.
+        :param pulumi.Input[str] group_id: The ID of the Okta Group.
+        :param pulumi.Input[str] user_id: The ID of the Okta User.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Okta Group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Okta User.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -108,14 +148,14 @@ class Membership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MembershipArgs.__new__(MembershipArgs)
 
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
-            __props__['group_id'] = group_id
+            __props__.__dict__["group_id"] = group_id
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
+            __props__.__dict__["user_id"] = user_id
         super(Membership, __self__).__init__(
             'okta:group/membership:Membership',
             resource_name,
@@ -140,10 +180,10 @@ class Membership(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MembershipState.__new__(_MembershipState)
 
-        __props__["group_id"] = group_id
-        __props__["user_id"] = user_id
+        __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["user_id"] = user_id
         return Membership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -161,10 +201,4 @@ class Membership(pulumi.CustomResource):
         The ID of the Okta User.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

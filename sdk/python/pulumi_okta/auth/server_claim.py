@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServerClaimArgs', 'ServerClaim']
 
@@ -159,6 +159,158 @@ class ServerClaimArgs:
         pulumi.set(self, "value_type", value)
 
 
+@pulumi.input_type
+class _ServerClaimState:
+    def __init__(__self__, *,
+                 always_include_in_token: Optional[pulumi.Input[bool]] = None,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 claim_type: Optional[pulumi.Input[str]] = None,
+                 group_filter_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerClaim resources.
+        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token, by default it is set to `true`.
+        :param pulumi.Input[str] auth_server_id: ID of the authorization server.
+        :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        :param pulumi.Input[str] group_filter_type: Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+        :param pulumi.Input[str] name: The name of the claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
+        :param pulumi.Input[str] status: The status of the application. It defaults to `"ACTIVE"`.
+        :param pulumi.Input[str] value: The value of the claim.
+        :param pulumi.Input[str] value_type: The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+        """
+        if always_include_in_token is not None:
+            pulumi.set(__self__, "always_include_in_token", always_include_in_token)
+        if auth_server_id is not None:
+            pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if claim_type is not None:
+            pulumi.set(__self__, "claim_type", claim_type)
+        if group_filter_type is not None:
+            pulumi.set(__self__, "group_filter_type", group_filter_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter(name="alwaysIncludeInToken")
+    def always_include_in_token(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to include claims in token, by default it is set to `true`.
+        """
+        return pulumi.get(self, "always_include_in_token")
+
+    @always_include_in_token.setter
+    def always_include_in_token(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_include_in_token", value)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the authorization server.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        """
+        return pulumi.get(self, "claim_type")
+
+    @claim_type.setter
+    def claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "claim_type", value)
+
+    @property
+    @pulumi.getter(name="groupFilterType")
+    def group_filter_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+        """
+        return pulumi.get(self, "group_filter_type")
+
+    @group_filter_type.setter
+    def group_filter_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_filter_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of scopes the auth server claim is tied to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the application. It defaults to `"ACTIVE"`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the claim.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_type", value)
+
+
 class ServerClaim(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -288,23 +440,23 @@ class ServerClaim(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerClaimArgs.__new__(ServerClaimArgs)
 
-            __props__['always_include_in_token'] = always_include_in_token
+            __props__.__dict__["always_include_in_token"] = always_include_in_token
             if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
-            __props__['auth_server_id'] = auth_server_id
+            __props__.__dict__["auth_server_id"] = auth_server_id
             if claim_type is None and not opts.urn:
                 raise TypeError("Missing required property 'claim_type'")
-            __props__['claim_type'] = claim_type
-            __props__['group_filter_type'] = group_filter_type
-            __props__['name'] = name
-            __props__['scopes'] = scopes
-            __props__['status'] = status
+            __props__.__dict__["claim_type"] = claim_type
+            __props__.__dict__["group_filter_type"] = group_filter_type
+            __props__.__dict__["name"] = name
+            __props__.__dict__["scopes"] = scopes
+            __props__.__dict__["status"] = status
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
-            __props__['value_type'] = value_type
+            __props__.__dict__["value"] = value
+            __props__.__dict__["value_type"] = value_type
         super(ServerClaim, __self__).__init__(
             'okta:auth/serverClaim:ServerClaim',
             resource_name,
@@ -343,17 +495,17 @@ class ServerClaim(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerClaimState.__new__(_ServerClaimState)
 
-        __props__["always_include_in_token"] = always_include_in_token
-        __props__["auth_server_id"] = auth_server_id
-        __props__["claim_type"] = claim_type
-        __props__["group_filter_type"] = group_filter_type
-        __props__["name"] = name
-        __props__["scopes"] = scopes
-        __props__["status"] = status
-        __props__["value"] = value
-        __props__["value_type"] = value_type
+        __props__.__dict__["always_include_in_token"] = always_include_in_token
+        __props__.__dict__["auth_server_id"] = auth_server_id
+        __props__.__dict__["claim_type"] = claim_type
+        __props__.__dict__["group_filter_type"] = group_filter_type
+        __props__.__dict__["name"] = name
+        __props__.__dict__["scopes"] = scopes
+        __props__.__dict__["status"] = status
+        __props__.__dict__["value"] = value
+        __props__.__dict__["value_type"] = value_type
         return ServerClaim(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,10 +579,4 @@ class ServerClaim(pulumi.CustomResource):
         The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
         """
         return pulumi.get(self, "value_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

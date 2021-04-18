@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -161,6 +161,190 @@ class BasicAuthArgs:
         pulumi.set(self, "users", value)
 
 
+@pulumi.input_type
+class _BasicAuthState:
+    def __init__(__self__, *,
+                 auth_url: Optional[pulumi.Input[str]] = None,
+                 auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hide_ios: Optional[pulumi.Input[bool]] = None,
+                 hide_web: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering BasicAuth resources.
+        :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[str] label: The Application's display name.
+        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]] users: Users associated with the application.
+        """
+        if auth_url is not None:
+            pulumi.set(__self__, "auth_url", auth_url)
+        if auto_submit_toolbar is not None:
+            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if hide_ios is not None:
+            pulumi.set(__self__, "hide_ios", hide_ios)
+        if hide_web is not None:
+            pulumi.set(__self__, "hide_web", hide_web)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sign_on_mode is not None:
+            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="authUrl")
+    def auth_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the authenticating site for this app.
+        """
+        return pulumi.get(self, "auth_url")
+
+    @auth_url.setter
+    def auth_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_url", value)
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Display auto submit toolbar.
+        """
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @auto_submit_toolbar.setter
+    def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Groups associated with the application.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="hideIos")
+    def hide_ios(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon on mobile app.
+        """
+        return pulumi.get(self, "hide_ios")
+
+    @hide_ios.setter
+    def hide_ios(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_ios", value)
+
+    @property
+    @pulumi.getter(name="hideWeb")
+    def hide_web(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not display application icon to users.
+        """
+        return pulumi.get(self, "hide_web")
+
+    @hide_web.setter
+    def hide_web(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application's display name.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of app.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sign on mode of application.
+        """
+        return pulumi.get(self, "sign_on_mode")
+
+    @sign_on_mode.setter
+    def sign_on_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sign_on_mode", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the sign-in page for this app.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]:
+        """
+        Users associated with the application.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]):
+        pulumi.set(self, "users", value)
+
+
 class BasicAuth(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -288,25 +472,25 @@ class BasicAuth(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BasicAuthArgs.__new__(BasicAuthArgs)
 
             if auth_url is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_url'")
-            __props__['auth_url'] = auth_url
-            __props__['auto_submit_toolbar'] = auto_submit_toolbar
-            __props__['groups'] = groups
-            __props__['hide_ios'] = hide_ios
-            __props__['hide_web'] = hide_web
+            __props__.__dict__["auth_url"] = auth_url
+            __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+            __props__.__dict__["groups"] = groups
+            __props__.__dict__["hide_ios"] = hide_ios
+            __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
-            __props__['label'] = label
-            __props__['status'] = status
+            __props__.__dict__["label"] = label
+            __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
-            __props__['url'] = url
-            __props__['users'] = users
-            __props__['name'] = None
-            __props__['sign_on_mode'] = None
+            __props__.__dict__["url"] = url
+            __props__.__dict__["users"] = users
+            __props__.__dict__["name"] = None
+            __props__.__dict__["sign_on_mode"] = None
         super(BasicAuth, __self__).__init__(
             'okta:app/basicAuth:BasicAuth',
             resource_name,
@@ -349,19 +533,19 @@ class BasicAuth(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BasicAuthState.__new__(_BasicAuthState)
 
-        __props__["auth_url"] = auth_url
-        __props__["auto_submit_toolbar"] = auto_submit_toolbar
-        __props__["groups"] = groups
-        __props__["hide_ios"] = hide_ios
-        __props__["hide_web"] = hide_web
-        __props__["label"] = label
-        __props__["name"] = name
-        __props__["sign_on_mode"] = sign_on_mode
-        __props__["status"] = status
-        __props__["url"] = url
-        __props__["users"] = users
+        __props__.__dict__["auth_url"] = auth_url
+        __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["hide_ios"] = hide_ios
+        __props__.__dict__["hide_web"] = hide_web
+        __props__.__dict__["label"] = label
+        __props__.__dict__["name"] = name
+        __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["status"] = status
+        __props__.__dict__["url"] = url
+        __props__.__dict__["users"] = users
         return BasicAuth(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -451,10 +635,4 @@ class BasicAuth(pulumi.CustomResource):
         Users associated with the application.
         """
         return pulumi.get(self, "users")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

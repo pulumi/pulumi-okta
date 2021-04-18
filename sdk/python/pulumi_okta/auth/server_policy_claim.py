@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServerPolicyClaimArgs', 'ServerPolicyClaim']
 
@@ -272,6 +272,272 @@ class ServerPolicyClaimArgs:
         pulumi.set(self, "user_whitelists", value)
 
 
+@pulumi.input_type
+class _ServerPolicyClaimState:
+    def __init__(__self__, *,
+                 access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 refresh_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+                 refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
+                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ServerPolicyClaim resources.
+        :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+        :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
+        :param pulumi.Input[str] name: Auth Server Policy Rule name.
+        :param pulumi.Input[str] policy_id: Auth Server Policy ID.
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
+        :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
+        """
+        if access_token_lifetime_minutes is not None:
+            pulumi.set(__self__, "access_token_lifetime_minutes", access_token_lifetime_minutes)
+        if auth_server_id is not None:
+            pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if grant_type_whitelists is not None:
+            pulumi.set(__self__, "grant_type_whitelists", grant_type_whitelists)
+        if group_blacklists is not None:
+            pulumi.set(__self__, "group_blacklists", group_blacklists)
+        if group_whitelists is not None:
+            pulumi.set(__self__, "group_whitelists", group_whitelists)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if refresh_token_lifetime_minutes is not None:
+            pulumi.set(__self__, "refresh_token_lifetime_minutes", refresh_token_lifetime_minutes)
+        if refresh_token_window_minutes is not None:
+            pulumi.set(__self__, "refresh_token_window_minutes", refresh_token_window_minutes)
+        if scope_whitelists is not None:
+            pulumi.set(__self__, "scope_whitelists", scope_whitelists)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_blacklists is not None:
+            pulumi.set(__self__, "user_blacklists", user_blacklists)
+        if user_whitelists is not None:
+            pulumi.set(__self__, "user_whitelists", user_whitelists)
+
+    @property
+    @pulumi.getter(name="accessTokenLifetimeMinutes")
+    def access_token_lifetime_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+        """
+        return pulumi.get(self, "access_token_lifetime_minutes")
+
+    @access_token_lifetime_minutes.setter
+    def access_token_lifetime_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "access_token_lifetime_minutes", value)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Auth Server ID.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter(name="grantTypeWhitelists")
+    def grant_type_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        """
+        return pulumi.get(self, "grant_type_whitelists")
+
+    @grant_type_whitelists.setter
+    def grant_type_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "grant_type_whitelists", value)
+
+    @property
+    @pulumi.getter(name="groupBlacklists")
+    def group_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a set of Groups whose Users are to be excluded.
+        """
+        return pulumi.get(self, "group_blacklists")
+
+    @group_blacklists.setter
+    def group_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_blacklists", value)
+
+    @property
+    @pulumi.getter(name="groupWhitelists")
+    def group_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+        """
+        return pulumi.get(self, "group_whitelists")
+
+    @group_whitelists.setter
+    def group_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_whitelists", value)
+
+    @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the inline token to trigger.
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Auth Server Policy Rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Auth Server Policy ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of the auth server policy rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="refreshTokenLifetimeMinutes")
+    def refresh_token_lifetime_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Lifetime of refresh token.
+        """
+        return pulumi.get(self, "refresh_token_lifetime_minutes")
+
+    @refresh_token_lifetime_minutes.setter
+    def refresh_token_lifetime_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_token_lifetime_minutes", value)
+
+    @property
+    @pulumi.getter(name="refreshTokenWindowMinutes")
+    def refresh_token_window_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
+        """
+        return pulumi.get(self, "refresh_token_window_minutes")
+
+    @refresh_token_window_minutes.setter
+    def refresh_token_window_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_token_window_minutes", value)
+
+    @property
+    @pulumi.getter(name="scopeWhitelists")
+    def scope_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        """
+        return pulumi.get(self, "scope_whitelists")
+
+    @scope_whitelists.setter
+    def scope_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scope_whitelists", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Auth Server Policy Rule.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Auth Server Policy Rule.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userBlacklists")
+    def user_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a set of Users to be excluded.
+        """
+        return pulumi.get(self, "user_blacklists")
+
+    @user_blacklists.setter
+    def user_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_blacklists", value)
+
+    @property
+    @pulumi.getter(name="userWhitelists")
+    def user_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a set of Users to be included.
+        """
+        return pulumi.get(self, "user_whitelists")
+
+    @user_whitelists.setter
+    def user_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_whitelists", value)
+
+
 warnings.warn("""okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule""", DeprecationWarning)
 
 
@@ -433,32 +699,32 @@ class ServerPolicyClaim(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerPolicyClaimArgs.__new__(ServerPolicyClaimArgs)
 
-            __props__['access_token_lifetime_minutes'] = access_token_lifetime_minutes
+            __props__.__dict__["access_token_lifetime_minutes"] = access_token_lifetime_minutes
             if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
-            __props__['auth_server_id'] = auth_server_id
+            __props__.__dict__["auth_server_id"] = auth_server_id
             if grant_type_whitelists is None and not opts.urn:
                 raise TypeError("Missing required property 'grant_type_whitelists'")
-            __props__['grant_type_whitelists'] = grant_type_whitelists
-            __props__['group_blacklists'] = group_blacklists
-            __props__['group_whitelists'] = group_whitelists
-            __props__['inline_hook_id'] = inline_hook_id
-            __props__['name'] = name
+            __props__.__dict__["grant_type_whitelists"] = grant_type_whitelists
+            __props__.__dict__["group_blacklists"] = group_blacklists
+            __props__.__dict__["group_whitelists"] = group_whitelists
+            __props__.__dict__["inline_hook_id"] = inline_hook_id
+            __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
+            __props__.__dict__["policy_id"] = policy_id
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
-            __props__['priority'] = priority
-            __props__['refresh_token_lifetime_minutes'] = refresh_token_lifetime_minutes
-            __props__['refresh_token_window_minutes'] = refresh_token_window_minutes
-            __props__['scope_whitelists'] = scope_whitelists
-            __props__['status'] = status
-            __props__['type'] = type
-            __props__['user_blacklists'] = user_blacklists
-            __props__['user_whitelists'] = user_whitelists
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["refresh_token_lifetime_minutes"] = refresh_token_lifetime_minutes
+            __props__.__dict__["refresh_token_window_minutes"] = refresh_token_window_minutes
+            __props__.__dict__["scope_whitelists"] = scope_whitelists
+            __props__.__dict__["status"] = status
+            __props__.__dict__["type"] = type
+            __props__.__dict__["user_blacklists"] = user_blacklists
+            __props__.__dict__["user_whitelists"] = user_whitelists
         super(ServerPolicyClaim, __self__).__init__(
             'okta:auth/serverPolicyClaim:ServerPolicyClaim',
             resource_name,
@@ -512,24 +778,24 @@ class ServerPolicyClaim(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerPolicyClaimState.__new__(_ServerPolicyClaimState)
 
-        __props__["access_token_lifetime_minutes"] = access_token_lifetime_minutes
-        __props__["auth_server_id"] = auth_server_id
-        __props__["grant_type_whitelists"] = grant_type_whitelists
-        __props__["group_blacklists"] = group_blacklists
-        __props__["group_whitelists"] = group_whitelists
-        __props__["inline_hook_id"] = inline_hook_id
-        __props__["name"] = name
-        __props__["policy_id"] = policy_id
-        __props__["priority"] = priority
-        __props__["refresh_token_lifetime_minutes"] = refresh_token_lifetime_minutes
-        __props__["refresh_token_window_minutes"] = refresh_token_window_minutes
-        __props__["scope_whitelists"] = scope_whitelists
-        __props__["status"] = status
-        __props__["type"] = type
-        __props__["user_blacklists"] = user_blacklists
-        __props__["user_whitelists"] = user_whitelists
+        __props__.__dict__["access_token_lifetime_minutes"] = access_token_lifetime_minutes
+        __props__.__dict__["auth_server_id"] = auth_server_id
+        __props__.__dict__["grant_type_whitelists"] = grant_type_whitelists
+        __props__.__dict__["group_blacklists"] = group_blacklists
+        __props__.__dict__["group_whitelists"] = group_whitelists
+        __props__.__dict__["inline_hook_id"] = inline_hook_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["refresh_token_lifetime_minutes"] = refresh_token_lifetime_minutes
+        __props__.__dict__["refresh_token_window_minutes"] = refresh_token_window_minutes
+        __props__.__dict__["scope_whitelists"] = scope_whitelists
+        __props__.__dict__["status"] = status
+        __props__.__dict__["type"] = type
+        __props__.__dict__["user_blacklists"] = user_blacklists
+        __props__.__dict__["user_whitelists"] = user_whitelists
         return ServerPolicyClaim(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -660,10 +926,4 @@ class ServerPolicyClaim(pulumi.CustomResource):
         Specifies a set of Users to be included.
         """
         return pulumi.get(self, "user_whitelists")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'AutoLoginUser',
@@ -60,9 +60,6 @@ class AutoLoginUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BasicAuthUser(dict):
@@ -105,9 +102,6 @@ class BasicAuthUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -152,9 +146,6 @@ class BookmarkUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OAuthJwk(dict):
@@ -189,9 +180,6 @@ class OAuthJwk(dict):
     @pulumi.getter
     def n(self) -> Optional[str]:
         return pulumi.get(self, "n")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -236,12 +224,28 @@ class OAuthUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SamlAttributeStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+        elif key == "filterValue":
+            suggest = "filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SamlAttributeStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SamlAttributeStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SamlAttributeStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  filter_type: Optional[str] = None,
@@ -317,9 +321,6 @@ class SamlAttributeStatement(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SamlUser(dict):
@@ -363,9 +364,6 @@ class SamlUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurePasswordStoreUser(dict):
@@ -402,9 +400,6 @@ class SecurePasswordStoreUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -443,9 +438,6 @@ class SwaUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThreeFieldUser(dict):
@@ -483,9 +475,6 @@ class ThreeFieldUser(dict):
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserSchemaArrayOneOf(dict):
@@ -515,9 +504,6 @@ class UserSchemaArrayOneOf(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserSchemaOneOf(dict):
@@ -546,9 +532,6 @@ class UserSchemaOneOf(dict):
         display name for the enum value.
         """
         return pulumi.get(self, "title")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

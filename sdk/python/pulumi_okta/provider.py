@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -333,30 +333,24 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__['api_token'] = api_token
-            __props__['backoff'] = pulumi.Output.from_input(backoff).apply(pulumi.runtime.to_json) if backoff is not None else None
-            __props__['base_url'] = base_url
-            __props__['client_id'] = client_id
-            __props__['log_level'] = pulumi.Output.from_input(log_level).apply(pulumi.runtime.to_json) if log_level is not None else None
-            __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
-            __props__['max_wait_seconds'] = pulumi.Output.from_input(max_wait_seconds).apply(pulumi.runtime.to_json) if max_wait_seconds is not None else None
-            __props__['min_wait_seconds'] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None
-            __props__['org_name'] = org_name
-            __props__['parallelism'] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
-            __props__['private_key'] = private_key
-            __props__['request_timeout'] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
-            __props__['scopes'] = pulumi.Output.from_input(scopes).apply(pulumi.runtime.to_json) if scopes is not None else None
+            __props__.__dict__["api_token"] = api_token
+            __props__.__dict__["backoff"] = pulumi.Output.from_input(backoff).apply(pulumi.runtime.to_json) if backoff is not None else None
+            __props__.__dict__["base_url"] = base_url
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["log_level"] = pulumi.Output.from_input(log_level).apply(pulumi.runtime.to_json) if log_level is not None else None
+            __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
+            __props__.__dict__["max_wait_seconds"] = pulumi.Output.from_input(max_wait_seconds).apply(pulumi.runtime.to_json) if max_wait_seconds is not None else None
+            __props__.__dict__["min_wait_seconds"] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None
+            __props__.__dict__["org_name"] = org_name
+            __props__.__dict__["parallelism"] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
+            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["request_timeout"] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
+            __props__.__dict__["scopes"] = pulumi.Output.from_input(scopes).apply(pulumi.runtime.to_json) if scopes is not None else None
         super(Provider, __self__).__init__(
             'okta',
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

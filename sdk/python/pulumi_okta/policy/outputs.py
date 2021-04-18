@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'RuleIdpDiscoveryAppExclude',
@@ -56,9 +56,6 @@ class RuleIdpDiscoveryAppExclude(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleIdpDiscoveryAppInclude(dict):
@@ -101,12 +98,28 @@ class RuleIdpDiscoveryAppInclude(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleIdpDiscoveryPlatformInclude(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osExpression":
+            suggest = "os_expression"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleIdpDiscoveryPlatformInclude. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleIdpDiscoveryPlatformInclude.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleIdpDiscoveryPlatformInclude.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  os_expression: Optional[str] = None,
                  os_type: Optional[str] = None,
@@ -147,12 +160,26 @@ class RuleIdpDiscoveryPlatformInclude(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleIdpDiscoveryUserIdentifierPattern(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleIdpDiscoveryUserIdentifierPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleIdpDiscoveryUserIdentifierPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleIdpDiscoveryUserIdentifierPattern.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  value: Optional[str] = None):
@@ -180,8 +207,5 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
         The regex or simple match string to match against.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
