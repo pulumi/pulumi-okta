@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -80,6 +80,142 @@ class MappingArgs:
     @mappings.setter
     def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]):
         pulumi.set(self, "mappings", value)
+
+
+@pulumi.input_type
+class _MappingState:
+    def __init__(__self__, *,
+                 delete_when_absent: Optional[pulumi.Input[bool]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None,
+                 source_name: Optional[pulumi.Input[str]] = None,
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_name: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Mapping resources.
+        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
+        :param pulumi.Input[str] source_id: Source id of the profile mapping.
+        :param pulumi.Input[str] source_name: Name of the mapping source.
+        :param pulumi.Input[str] source_type: ID of the mapping source.
+        :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[str] target_name: Name of the mapping target.
+        :param pulumi.Input[str] target_type: ID of the mapping target.
+        """
+        if delete_when_absent is not None:
+            pulumi.set(__self__, "delete_when_absent", delete_when_absent)
+        if mappings is not None:
+            pulumi.set(__self__, "mappings", mappings)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if target_id is not None:
+            pulumi.set(__self__, "target_id", target_id)
+        if target_name is not None:
+            pulumi.set(__self__, "target_name", target_name)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="deleteWhenAbsent")
+    def delete_when_absent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        """
+        return pulumi.get(self, "delete_when_absent")
+
+    @delete_when_absent.setter
+    def delete_when_absent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_when_absent", value)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
+        """
+        Priority of the policy.
+        """
+        return pulumi.get(self, "mappings")
+
+    @mappings.setter
+    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]):
+        pulumi.set(self, "mappings", value)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source id of the profile mapping.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_id", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the mapping source.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the mapping source.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the mapping target.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_id", value)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the mapping target.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_name", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the mapping target.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
 
 
 class Mapping(pulumi.CustomResource):
@@ -224,20 +360,20 @@ class Mapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MappingArgs.__new__(MappingArgs)
 
-            __props__['delete_when_absent'] = delete_when_absent
-            __props__['mappings'] = mappings
+            __props__.__dict__["delete_when_absent"] = delete_when_absent
+            __props__.__dict__["mappings"] = mappings
             if source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_id'")
-            __props__['source_id'] = source_id
+            __props__.__dict__["source_id"] = source_id
             if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
-            __props__['target_id'] = target_id
-            __props__['source_name'] = None
-            __props__['source_type'] = None
-            __props__['target_name'] = None
-            __props__['target_type'] = None
+            __props__.__dict__["target_id"] = target_id
+            __props__.__dict__["source_name"] = None
+            __props__.__dict__["source_type"] = None
+            __props__.__dict__["target_name"] = None
+            __props__.__dict__["target_type"] = None
         super(Mapping, __self__).__init__(
             'okta:profile/mapping:Mapping',
             resource_name,
@@ -274,16 +410,16 @@ class Mapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MappingState.__new__(_MappingState)
 
-        __props__["delete_when_absent"] = delete_when_absent
-        __props__["mappings"] = mappings
-        __props__["source_id"] = source_id
-        __props__["source_name"] = source_name
-        __props__["source_type"] = source_type
-        __props__["target_id"] = target_id
-        __props__["target_name"] = target_name
-        __props__["target_type"] = target_type
+        __props__.__dict__["delete_when_absent"] = delete_when_absent
+        __props__.__dict__["mappings"] = mappings
+        __props__.__dict__["source_id"] = source_id
+        __props__.__dict__["source_name"] = source_name
+        __props__.__dict__["source_type"] = source_type
+        __props__.__dict__["target_id"] = target_id
+        __props__.__dict__["target_name"] = target_name
+        __props__.__dict__["target_type"] = target_type
         return Mapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +485,4 @@ class Mapping(pulumi.CustomResource):
         ID of the mapping target.
         """
         return pulumi.get(self, "target_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

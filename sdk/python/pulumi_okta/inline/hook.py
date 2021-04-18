@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -123,6 +123,122 @@ class HookArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class _HookState:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Hook resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
+        :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
+        :param pulumi.Input[str] name: The inline hook display name.
+        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Authentication required for inline hook request.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Details of the endpoint the inline hook will hit.
+        """
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]]:
+        """
+        Map of headers to send along in inline hook request.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inline hook display name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the channel. The currently-supported version is `"1.0.0"`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class Hook(pulumi.CustomResource):
@@ -263,21 +379,21 @@ class Hook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = HookArgs.__new__(HookArgs)
 
-            __props__['auth'] = auth
+            __props__.__dict__["auth"] = auth
             if channel is None and not opts.urn:
                 raise TypeError("Missing required property 'channel'")
-            __props__['channel'] = channel
-            __props__['headers'] = headers
-            __props__['name'] = name
-            __props__['status'] = status
+            __props__.__dict__["channel"] = channel
+            __props__.__dict__["headers"] = headers
+            __props__.__dict__["name"] = name
+            __props__.__dict__["status"] = status
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
-            __props__['version'] = version
+            __props__.__dict__["version"] = version
         super(Hook, __self__).__init__(
             'okta:inline/hook:Hook',
             resource_name,
@@ -311,15 +427,15 @@ class Hook(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _HookState.__new__(_HookState)
 
-        __props__["auth"] = auth
-        __props__["channel"] = channel
-        __props__["headers"] = headers
-        __props__["name"] = name
-        __props__["status"] = status
-        __props__["type"] = type
-        __props__["version"] = version
+        __props__.__dict__["auth"] = auth
+        __props__.__dict__["channel"] = channel
+        __props__.__dict__["headers"] = headers
+        __props__.__dict__["name"] = name
+        __props__.__dict__["status"] = status
+        __props__.__dict__["type"] = type
+        __props__.__dict__["version"] = version
         return Hook(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,10 +490,4 @@ class Hook(pulumi.CustomResource):
         Version of the channel. The currently-supported version is `"1.0.0"`.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

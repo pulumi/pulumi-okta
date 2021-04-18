@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['FactorArgs', 'Factor']
 
@@ -49,6 +49,48 @@ class FactorArgs:
     @active.setter
     def active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active", value)
+
+
+@pulumi.input_type
+class _FactorState:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 provider_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Factor resources.
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if provider_id is not None:
+            pulumi.set(__self__, "provider_id", provider_id)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to activate the provider, by default, it is set to `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        """
+        return pulumi.get(self, "provider_id")
+
+    @provider_id.setter
+    def provider_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_id", value)
 
 
 class Factor(pulumi.CustomResource):
@@ -136,12 +178,12 @@ class Factor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FactorArgs.__new__(FactorArgs)
 
-            __props__['active'] = active
+            __props__.__dict__["active"] = active
             if provider_id is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_id'")
-            __props__['provider_id'] = provider_id
+            __props__.__dict__["provider_id"] = provider_id
         super(Factor, __self__).__init__(
             'okta:factor/factor:Factor',
             resource_name,
@@ -167,10 +209,10 @@ class Factor(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FactorState.__new__(_FactorState)
 
-        __props__["active"] = active
-        __props__["provider_id"] = provider_id
+        __props__.__dict__["active"] = active
+        __props__.__dict__["provider_id"] = provider_id
         return Factor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,10 +231,4 @@ class Factor(pulumi.CustomResource):
         Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
         """
         return pulumi.get(self, "provider_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

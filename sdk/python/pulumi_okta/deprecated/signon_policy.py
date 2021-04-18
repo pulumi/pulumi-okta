@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SignonPolicyArgs', 'SignonPolicy']
 
@@ -20,6 +20,96 @@ class SignonPolicyArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SignonPolicy resource.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+               priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if groups_includeds is not None:
+            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy Description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="groupsIncludeds")
+    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Group IDs to Include
+        """
+        return pulumi.get(self, "groups_includeds")
+
+    @groups_includeds.setter
+    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups_includeds", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+        priority is provided. API defaults it to the last (lowest) if not there.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy Status: ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class _SignonPolicyState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SignonPolicy resources.
         :param pulumi.Input[str] description: Policy Description
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[str] name: Policy Name
@@ -170,13 +260,13 @@ class SignonPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SignonPolicyArgs.__new__(SignonPolicyArgs)
 
-            __props__['description'] = description
-            __props__['groups_includeds'] = groups_includeds
-            __props__['name'] = name
-            __props__['priority'] = priority
-            __props__['status'] = status
+            __props__.__dict__["description"] = description
+            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["name"] = name
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["status"] = status
         super(SignonPolicy, __self__).__init__(
             'okta:deprecated/signonPolicy:SignonPolicy',
             resource_name,
@@ -208,13 +298,13 @@ class SignonPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SignonPolicyState.__new__(_SignonPolicyState)
 
-        __props__["description"] = description
-        __props__["groups_includeds"] = groups_includeds
-        __props__["name"] = name
-        __props__["priority"] = priority
-        __props__["status"] = status
+        __props__.__dict__["description"] = description
+        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["name"] = name
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["status"] = status
         return SignonPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -257,10 +347,4 @@ class SignonPolicy(pulumi.CustomResource):
         Policy Status: ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

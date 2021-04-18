@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServerPolicyArgs', 'ServerPolicy']
 
@@ -103,6 +103,129 @@ class ServerPolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Auth Server Policy.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Auth Server Policy.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class _ServerPolicyState:
+    def __init__(__self__, *,
+                 auth_server_id: Optional[pulumi.Input[str]] = None,
+                 client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerPolicy resources.
+        :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[str] description: The description of the Auth Server Policy.
+        :param pulumi.Input[str] name: The name of the Auth Server Policy.
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
+        :param pulumi.Input[str] type: The type of the Auth Server Policy.
+        """
+        if auth_server_id is not None:
+            pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if client_whitelists is not None:
+            pulumi.set(__self__, "client_whitelists", client_whitelists)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authServerId")
+    def auth_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Auth Server.
+        """
+        return pulumi.get(self, "auth_server_id")
+
+    @auth_server_id.setter
+    def auth_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter(name="clientWhitelists")
+    def client_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        """
+        return pulumi.get(self, "client_whitelists")
+
+    @client_whitelists.setter
+    def client_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_whitelists", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Auth Server Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Auth Server Policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority of the Auth Server Policy.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter
@@ -254,26 +377,26 @@ class ServerPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerPolicyArgs.__new__(ServerPolicyArgs)
 
             if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
-            __props__['auth_server_id'] = auth_server_id
+            __props__.__dict__["auth_server_id"] = auth_server_id
             if client_whitelists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_whitelists'")
-            __props__['client_whitelists'] = client_whitelists
+            __props__.__dict__["client_whitelists"] = client_whitelists
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
-            __props__['priority'] = priority
-            __props__['status'] = status
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["status"] = status
             if type is not None and not opts.urn:
                 warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
                 pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
         super(ServerPolicy, __self__).__init__(
             'okta:auth/serverPolicy:ServerPolicy',
             resource_name,
@@ -308,15 +431,15 @@ class ServerPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerPolicyState.__new__(_ServerPolicyState)
 
-        __props__["auth_server_id"] = auth_server_id
-        __props__["client_whitelists"] = client_whitelists
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["priority"] = priority
-        __props__["status"] = status
-        __props__["type"] = type
+        __props__.__dict__["auth_server_id"] = auth_server_id
+        __props__.__dict__["client_whitelists"] = client_whitelists
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["status"] = status
+        __props__.__dict__["type"] = type
         return ServerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,10 +497,4 @@ class ServerPolicy(pulumi.CustomResource):
         The type of the Auth Server Policy.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

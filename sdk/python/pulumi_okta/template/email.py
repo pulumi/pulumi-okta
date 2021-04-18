@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -64,6 +64,62 @@ class EmailArgs:
     @default_language.setter
     def default_language(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_language", value)
+
+
+@pulumi.input_type
+class _EmailState:
+    def __init__(__self__, *,
+                 default_language: Optional[pulumi.Input[str]] = None,
+                 translations: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Email resources.
+        :param pulumi.Input[str] default_language: The default language, by default is set to `"en"`.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]] translations: Set of translations for a particular template.
+        :param pulumi.Input[str] type: Email template type
+        """
+        if default_language is not None:
+            pulumi.set(__self__, "default_language", default_language)
+        if translations is not None:
+            pulumi.set(__self__, "translations", translations)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultLanguage")
+    def default_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default language, by default is set to `"en"`.
+        """
+        return pulumi.get(self, "default_language")
+
+    @default_language.setter
+    def default_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_language", value)
+
+    @property
+    @pulumi.getter
+    def translations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]]]:
+        """
+        Set of translations for a particular template.
+        """
+        return pulumi.get(self, "translations")
+
+    @translations.setter
+    def translations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTranslationArgs']]]]):
+        pulumi.set(self, "translations", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email template type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class Email(pulumi.CustomResource):
@@ -195,15 +251,15 @@ class Email(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EmailArgs.__new__(EmailArgs)
 
-            __props__['default_language'] = default_language
+            __props__.__dict__["default_language"] = default_language
             if translations is None and not opts.urn:
                 raise TypeError("Missing required property 'translations'")
-            __props__['translations'] = translations
+            __props__.__dict__["translations"] = translations
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
         super(Email, __self__).__init__(
             'okta:template/email:Email',
             resource_name,
@@ -230,11 +286,11 @@ class Email(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EmailState.__new__(_EmailState)
 
-        __props__["default_language"] = default_language
-        __props__["translations"] = translations
-        __props__["type"] = type
+        __props__.__dict__["default_language"] = default_language
+        __props__.__dict__["translations"] = translations
+        __props__.__dict__["type"] = type
         return Email(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -260,10 +316,4 @@ class Email(pulumi.CustomResource):
         Email template type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'MappingMapping',
@@ -14,6 +14,23 @@ __all__ = [
 
 @pulumi.output_type
 class MappingMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pushStatus":
+            suggest = "push_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MappingMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MappingMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MappingMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  id: str,
@@ -51,8 +68,5 @@ class MappingMapping(dict):
         Whether to update target properties on user create & update or just on create.
         """
         return pulumi.get(self, "push_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

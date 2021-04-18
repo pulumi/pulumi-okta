@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['OriginArgs', 'Origin']
 
@@ -78,6 +78,78 @@ class OriginArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _OriginState:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Origin resources.
+        :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+        :param pulumi.Input[str] name: Unique name for this trusted origin.
+        :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name for this trusted origin.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique origin URL for this trusted origin.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 class Origin(pulumi.CustomResource):
@@ -190,16 +262,16 @@ class Origin(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginArgs.__new__(OriginArgs)
 
-            __props__['active'] = active
-            __props__['name'] = name
+            __props__.__dict__["active"] = active
+            __props__.__dict__["name"] = name
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
-            __props__['origin'] = origin
+            __props__.__dict__["origin"] = origin
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
-            __props__['scopes'] = scopes
+            __props__.__dict__["scopes"] = scopes
         super(Origin, __self__).__init__(
             'okta:trustedorigin/origin:Origin',
             resource_name,
@@ -228,12 +300,12 @@ class Origin(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OriginState.__new__(_OriginState)
 
-        __props__["active"] = active
-        __props__["name"] = name
-        __props__["origin"] = origin
-        __props__["scopes"] = scopes
+        __props__.__dict__["active"] = active
+        __props__.__dict__["name"] = name
+        __props__.__dict__["origin"] = origin
+        __props__.__dict__["scopes"] = scopes
         return Origin(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -267,10 +339,4 @@ class Origin(pulumi.CustomResource):
         Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
         return pulumi.get(self, "scopes")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

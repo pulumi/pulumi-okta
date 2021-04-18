@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['AdminRoleTargetsArgs', 'AdminRoleTargets']
 
@@ -78,6 +78,94 @@ class AdminRoleTargetsArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+
+@pulumi.input_type
+class _AdminRoleTargetsState:
+    def __init__(__self__, *,
+                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
+                 role_type: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AdminRoleTargets resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
+        :param pulumi.Input[str] role_id: Role ID.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] user_id: ID of the user.
+        """
+        if apps is not None:
+            pulumi.set(__self__, "apps", apps)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if role_id is not None:
+            pulumi.set(__self__, "role_id", role_id)
+        if role_type is not None:
+            pulumi.set(__self__, "role_type", role_type)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        """
+        return pulumi.get(self, "apps")
+
+    @apps.setter
+    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "apps", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of group IDs. Conflicts with `apps`.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role ID.
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_id", value)
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the role associated with the user.
+        """
+        return pulumi.get(self, "role_type")
+
+    @role_type.setter
+    def role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_type", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_id", value)
 
 
 class AdminRoleTargets(pulumi.CustomResource):
@@ -200,17 +288,17 @@ class AdminRoleTargets(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AdminRoleTargetsArgs.__new__(AdminRoleTargetsArgs)
 
-            __props__['apps'] = apps
-            __props__['groups'] = groups
+            __props__.__dict__["apps"] = apps
+            __props__.__dict__["groups"] = groups
             if role_type is None and not opts.urn:
                 raise TypeError("Missing required property 'role_type'")
-            __props__['role_type'] = role_type
+            __props__.__dict__["role_type"] = role_type
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
-            __props__['role_id'] = None
+            __props__.__dict__["user_id"] = user_id
+            __props__.__dict__["role_id"] = None
         super(AdminRoleTargets, __self__).__init__(
             'okta:index/adminRoleTargets:AdminRoleTargets',
             resource_name,
@@ -241,13 +329,13 @@ class AdminRoleTargets(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AdminRoleTargetsState.__new__(_AdminRoleTargetsState)
 
-        __props__["apps"] = apps
-        __props__["groups"] = groups
-        __props__["role_id"] = role_id
-        __props__["role_type"] = role_type
-        __props__["user_id"] = user_id
+        __props__.__dict__["apps"] = apps
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["role_id"] = role_id
+        __props__.__dict__["role_type"] = role_type
+        __props__.__dict__["user_id"] = user_id
         return AdminRoleTargets(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -289,10 +377,4 @@ class AdminRoleTargets(pulumi.CustomResource):
         ID of the user.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
