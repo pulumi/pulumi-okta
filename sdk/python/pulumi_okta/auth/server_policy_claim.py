@@ -564,9 +564,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Creates an Authorization Server Policy Rule.
 
@@ -680,16 +678,8 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""ServerPolicyClaim is deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
