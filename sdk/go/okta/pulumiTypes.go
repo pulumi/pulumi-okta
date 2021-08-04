@@ -10,6 +10,572 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AppGroupAssignmentsGroup struct {
+	// ID of the group to assign.
+	Id string `pulumi:"id"`
+	// Priority of group assignment
+	Priority *int `pulumi:"priority"`
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+	Profile *string `pulumi:"profile"`
+}
+
+// AppGroupAssignmentsGroupInput is an input type that accepts AppGroupAssignmentsGroupArgs and AppGroupAssignmentsGroupOutput values.
+// You can construct a concrete instance of `AppGroupAssignmentsGroupInput` via:
+//
+//          AppGroupAssignmentsGroupArgs{...}
+type AppGroupAssignmentsGroupInput interface {
+	pulumi.Input
+
+	ToAppGroupAssignmentsGroupOutput() AppGroupAssignmentsGroupOutput
+	ToAppGroupAssignmentsGroupOutputWithContext(context.Context) AppGroupAssignmentsGroupOutput
+}
+
+type AppGroupAssignmentsGroupArgs struct {
+	// ID of the group to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Priority of group assignment
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+}
+
+func (AppGroupAssignmentsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppGroupAssignmentsGroup)(nil)).Elem()
+}
+
+func (i AppGroupAssignmentsGroupArgs) ToAppGroupAssignmentsGroupOutput() AppGroupAssignmentsGroupOutput {
+	return i.ToAppGroupAssignmentsGroupOutputWithContext(context.Background())
+}
+
+func (i AppGroupAssignmentsGroupArgs) ToAppGroupAssignmentsGroupOutputWithContext(ctx context.Context) AppGroupAssignmentsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsGroupOutput)
+}
+
+// AppGroupAssignmentsGroupArrayInput is an input type that accepts AppGroupAssignmentsGroupArray and AppGroupAssignmentsGroupArrayOutput values.
+// You can construct a concrete instance of `AppGroupAssignmentsGroupArrayInput` via:
+//
+//          AppGroupAssignmentsGroupArray{ AppGroupAssignmentsGroupArgs{...} }
+type AppGroupAssignmentsGroupArrayInput interface {
+	pulumi.Input
+
+	ToAppGroupAssignmentsGroupArrayOutput() AppGroupAssignmentsGroupArrayOutput
+	ToAppGroupAssignmentsGroupArrayOutputWithContext(context.Context) AppGroupAssignmentsGroupArrayOutput
+}
+
+type AppGroupAssignmentsGroupArray []AppGroupAssignmentsGroupInput
+
+func (AppGroupAssignmentsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppGroupAssignmentsGroup)(nil)).Elem()
+}
+
+func (i AppGroupAssignmentsGroupArray) ToAppGroupAssignmentsGroupArrayOutput() AppGroupAssignmentsGroupArrayOutput {
+	return i.ToAppGroupAssignmentsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AppGroupAssignmentsGroupArray) ToAppGroupAssignmentsGroupArrayOutputWithContext(ctx context.Context) AppGroupAssignmentsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsGroupArrayOutput)
+}
+
+type AppGroupAssignmentsGroupOutput struct{ *pulumi.OutputState }
+
+func (AppGroupAssignmentsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppGroupAssignmentsGroup)(nil)).Elem()
+}
+
+func (o AppGroupAssignmentsGroupOutput) ToAppGroupAssignmentsGroupOutput() AppGroupAssignmentsGroupOutput {
+	return o
+}
+
+func (o AppGroupAssignmentsGroupOutput) ToAppGroupAssignmentsGroupOutputWithContext(ctx context.Context) AppGroupAssignmentsGroupOutput {
+	return o
+}
+
+// ID of the group to assign.
+func (o AppGroupAssignmentsGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AppGroupAssignmentsGroup) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Priority of group assignment
+func (o AppGroupAssignmentsGroupOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppGroupAssignmentsGroup) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+func (o AppGroupAssignmentsGroupOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppGroupAssignmentsGroup) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+type AppGroupAssignmentsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AppGroupAssignmentsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppGroupAssignmentsGroup)(nil)).Elem()
+}
+
+func (o AppGroupAssignmentsGroupArrayOutput) ToAppGroupAssignmentsGroupArrayOutput() AppGroupAssignmentsGroupArrayOutput {
+	return o
+}
+
+func (o AppGroupAssignmentsGroupArrayOutput) ToAppGroupAssignmentsGroupArrayOutputWithContext(ctx context.Context) AppGroupAssignmentsGroupArrayOutput {
+	return o
+}
+
+func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAssignmentsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppGroupAssignmentsGroup {
+		return vs[0].([]AppGroupAssignmentsGroup)[vs[1].(int)]
+	}).(AppGroupAssignmentsGroupOutput)
+}
+
+type AppSharedCredentialsUser struct {
+	// ID of an app.
+	Id       *string `pulumi:"id"`
+	Password *string `pulumi:"password"`
+	Scope    *string `pulumi:"scope"`
+	Username *string `pulumi:"username"`
+}
+
+// AppSharedCredentialsUserInput is an input type that accepts AppSharedCredentialsUserArgs and AppSharedCredentialsUserOutput values.
+// You can construct a concrete instance of `AppSharedCredentialsUserInput` via:
+//
+//          AppSharedCredentialsUserArgs{...}
+type AppSharedCredentialsUserInput interface {
+	pulumi.Input
+
+	ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput
+	ToAppSharedCredentialsUserOutputWithContext(context.Context) AppSharedCredentialsUserOutput
+}
+
+type AppSharedCredentialsUserArgs struct {
+	// ID of an app.
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	Scope    pulumi.StringPtrInput `pulumi:"scope"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (AppSharedCredentialsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSharedCredentialsUser)(nil)).Elem()
+}
+
+func (i AppSharedCredentialsUserArgs) ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput {
+	return i.ToAppSharedCredentialsUserOutputWithContext(context.Background())
+}
+
+func (i AppSharedCredentialsUserArgs) ToAppSharedCredentialsUserOutputWithContext(ctx context.Context) AppSharedCredentialsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsUserOutput)
+}
+
+// AppSharedCredentialsUserArrayInput is an input type that accepts AppSharedCredentialsUserArray and AppSharedCredentialsUserArrayOutput values.
+// You can construct a concrete instance of `AppSharedCredentialsUserArrayInput` via:
+//
+//          AppSharedCredentialsUserArray{ AppSharedCredentialsUserArgs{...} }
+type AppSharedCredentialsUserArrayInput interface {
+	pulumi.Input
+
+	ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput
+	ToAppSharedCredentialsUserArrayOutputWithContext(context.Context) AppSharedCredentialsUserArrayOutput
+}
+
+type AppSharedCredentialsUserArray []AppSharedCredentialsUserInput
+
+func (AppSharedCredentialsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppSharedCredentialsUser)(nil)).Elem()
+}
+
+func (i AppSharedCredentialsUserArray) ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput {
+	return i.ToAppSharedCredentialsUserArrayOutputWithContext(context.Background())
+}
+
+func (i AppSharedCredentialsUserArray) ToAppSharedCredentialsUserArrayOutputWithContext(ctx context.Context) AppSharedCredentialsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsUserArrayOutput)
+}
+
+type AppSharedCredentialsUserOutput struct{ *pulumi.OutputState }
+
+func (AppSharedCredentialsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSharedCredentialsUser)(nil)).Elem()
+}
+
+func (o AppSharedCredentialsUserOutput) ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput {
+	return o
+}
+
+func (o AppSharedCredentialsUserOutput) ToAppSharedCredentialsUserOutputWithContext(ctx context.Context) AppSharedCredentialsUserOutput {
+	return o
+}
+
+// ID of an app.
+func (o AppSharedCredentialsUserOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o AppSharedCredentialsUserOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o AppSharedCredentialsUserOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+func (o AppSharedCredentialsUserOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type AppSharedCredentialsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (AppSharedCredentialsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppSharedCredentialsUser)(nil)).Elem()
+}
+
+func (o AppSharedCredentialsUserArrayOutput) ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput {
+	return o
+}
+
+func (o AppSharedCredentialsUserArrayOutput) ToAppSharedCredentialsUserArrayOutputWithContext(ctx context.Context) AppSharedCredentialsUserArrayOutput {
+	return o
+}
+
+func (o AppSharedCredentialsUserArrayOutput) Index(i pulumi.IntInput) AppSharedCredentialsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSharedCredentialsUser {
+		return vs[0].([]AppSharedCredentialsUser)[vs[1].(int)]
+	}).(AppSharedCredentialsUserOutput)
+}
+
+type AppUserSchemaPropertyArrayOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// AppUserSchemaPropertyArrayOneOfInput is an input type that accepts AppUserSchemaPropertyArrayOneOfArgs and AppUserSchemaPropertyArrayOneOfOutput values.
+// You can construct a concrete instance of `AppUserSchemaPropertyArrayOneOfInput` via:
+//
+//          AppUserSchemaPropertyArrayOneOfArgs{...}
+type AppUserSchemaPropertyArrayOneOfInput interface {
+	pulumi.Input
+
+	ToAppUserSchemaPropertyArrayOneOfOutput() AppUserSchemaPropertyArrayOneOfOutput
+	ToAppUserSchemaPropertyArrayOneOfOutputWithContext(context.Context) AppUserSchemaPropertyArrayOneOfOutput
+}
+
+type AppUserSchemaPropertyArrayOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (AppUserSchemaPropertyArrayOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppUserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i AppUserSchemaPropertyArrayOneOfArgs) ToAppUserSchemaPropertyArrayOneOfOutput() AppUserSchemaPropertyArrayOneOfOutput {
+	return i.ToAppUserSchemaPropertyArrayOneOfOutputWithContext(context.Background())
+}
+
+func (i AppUserSchemaPropertyArrayOneOfArgs) ToAppUserSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) AppUserSchemaPropertyArrayOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyArrayOneOfOutput)
+}
+
+// AppUserSchemaPropertyArrayOneOfArrayInput is an input type that accepts AppUserSchemaPropertyArrayOneOfArray and AppUserSchemaPropertyArrayOneOfArrayOutput values.
+// You can construct a concrete instance of `AppUserSchemaPropertyArrayOneOfArrayInput` via:
+//
+//          AppUserSchemaPropertyArrayOneOfArray{ AppUserSchemaPropertyArrayOneOfArgs{...} }
+type AppUserSchemaPropertyArrayOneOfArrayInput interface {
+	pulumi.Input
+
+	ToAppUserSchemaPropertyArrayOneOfArrayOutput() AppUserSchemaPropertyArrayOneOfArrayOutput
+	ToAppUserSchemaPropertyArrayOneOfArrayOutputWithContext(context.Context) AppUserSchemaPropertyArrayOneOfArrayOutput
+}
+
+type AppUserSchemaPropertyArrayOneOfArray []AppUserSchemaPropertyArrayOneOfInput
+
+func (AppUserSchemaPropertyArrayOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppUserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i AppUserSchemaPropertyArrayOneOfArray) ToAppUserSchemaPropertyArrayOneOfArrayOutput() AppUserSchemaPropertyArrayOneOfArrayOutput {
+	return i.ToAppUserSchemaPropertyArrayOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i AppUserSchemaPropertyArrayOneOfArray) ToAppUserSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) AppUserSchemaPropertyArrayOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyArrayOneOfArrayOutput)
+}
+
+type AppUserSchemaPropertyArrayOneOfOutput struct{ *pulumi.OutputState }
+
+func (AppUserSchemaPropertyArrayOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppUserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o AppUserSchemaPropertyArrayOneOfOutput) ToAppUserSchemaPropertyArrayOneOfOutput() AppUserSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyArrayOneOfOutput) ToAppUserSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) AppUserSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o AppUserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o AppUserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type AppUserSchemaPropertyArrayOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (AppUserSchemaPropertyArrayOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppUserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o AppUserSchemaPropertyArrayOneOfArrayOutput) ToAppUserSchemaPropertyArrayOneOfArrayOutput() AppUserSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyArrayOneOfArrayOutput) ToAppUserSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) AppUserSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) AppUserSchemaPropertyArrayOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppUserSchemaPropertyArrayOneOf {
+		return vs[0].([]AppUserSchemaPropertyArrayOneOf)[vs[1].(int)]
+	}).(AppUserSchemaPropertyArrayOneOfOutput)
+}
+
+type AppUserSchemaPropertyOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// AppUserSchemaPropertyOneOfInput is an input type that accepts AppUserSchemaPropertyOneOfArgs and AppUserSchemaPropertyOneOfOutput values.
+// You can construct a concrete instance of `AppUserSchemaPropertyOneOfInput` via:
+//
+//          AppUserSchemaPropertyOneOfArgs{...}
+type AppUserSchemaPropertyOneOfInput interface {
+	pulumi.Input
+
+	ToAppUserSchemaPropertyOneOfOutput() AppUserSchemaPropertyOneOfOutput
+	ToAppUserSchemaPropertyOneOfOutputWithContext(context.Context) AppUserSchemaPropertyOneOfOutput
+}
+
+type AppUserSchemaPropertyOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (AppUserSchemaPropertyOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppUserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i AppUserSchemaPropertyOneOfArgs) ToAppUserSchemaPropertyOneOfOutput() AppUserSchemaPropertyOneOfOutput {
+	return i.ToAppUserSchemaPropertyOneOfOutputWithContext(context.Background())
+}
+
+func (i AppUserSchemaPropertyOneOfArgs) ToAppUserSchemaPropertyOneOfOutputWithContext(ctx context.Context) AppUserSchemaPropertyOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyOneOfOutput)
+}
+
+// AppUserSchemaPropertyOneOfArrayInput is an input type that accepts AppUserSchemaPropertyOneOfArray and AppUserSchemaPropertyOneOfArrayOutput values.
+// You can construct a concrete instance of `AppUserSchemaPropertyOneOfArrayInput` via:
+//
+//          AppUserSchemaPropertyOneOfArray{ AppUserSchemaPropertyOneOfArgs{...} }
+type AppUserSchemaPropertyOneOfArrayInput interface {
+	pulumi.Input
+
+	ToAppUserSchemaPropertyOneOfArrayOutput() AppUserSchemaPropertyOneOfArrayOutput
+	ToAppUserSchemaPropertyOneOfArrayOutputWithContext(context.Context) AppUserSchemaPropertyOneOfArrayOutput
+}
+
+type AppUserSchemaPropertyOneOfArray []AppUserSchemaPropertyOneOfInput
+
+func (AppUserSchemaPropertyOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppUserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i AppUserSchemaPropertyOneOfArray) ToAppUserSchemaPropertyOneOfArrayOutput() AppUserSchemaPropertyOneOfArrayOutput {
+	return i.ToAppUserSchemaPropertyOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i AppUserSchemaPropertyOneOfArray) ToAppUserSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) AppUserSchemaPropertyOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyOneOfArrayOutput)
+}
+
+type AppUserSchemaPropertyOneOfOutput struct{ *pulumi.OutputState }
+
+func (AppUserSchemaPropertyOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppUserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o AppUserSchemaPropertyOneOfOutput) ToAppUserSchemaPropertyOneOfOutput() AppUserSchemaPropertyOneOfOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyOneOfOutput) ToAppUserSchemaPropertyOneOfOutputWithContext(ctx context.Context) AppUserSchemaPropertyOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o AppUserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o AppUserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type AppUserSchemaPropertyOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (AppUserSchemaPropertyOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppUserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o AppUserSchemaPropertyOneOfArrayOutput) ToAppUserSchemaPropertyOneOfArrayOutput() AppUserSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyOneOfArrayOutput) ToAppUserSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) AppUserSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o AppUserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) AppUserSchemaPropertyOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppUserSchemaPropertyOneOf {
+		return vs[0].([]AppUserSchemaPropertyOneOf)[vs[1].(int)]
+	}).(AppUserSchemaPropertyOneOfOutput)
+}
+
+type DomainDnsRecord struct {
+	// TXT record expiration.
+	Expiration *string `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn *string `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType *string `pulumi:"recordType"`
+	// DNS verification value
+	Values []string `pulumi:"values"`
+}
+
+// DomainDnsRecordInput is an input type that accepts DomainDnsRecordArgs and DomainDnsRecordOutput values.
+// You can construct a concrete instance of `DomainDnsRecordInput` via:
+//
+//          DomainDnsRecordArgs{...}
+type DomainDnsRecordInput interface {
+	pulumi.Input
+
+	ToDomainDnsRecordOutput() DomainDnsRecordOutput
+	ToDomainDnsRecordOutputWithContext(context.Context) DomainDnsRecordOutput
+}
+
+type DomainDnsRecordArgs struct {
+	// TXT record expiration.
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
+	// DNS verification value
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DomainDnsRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDnsRecord)(nil)).Elem()
+}
+
+func (i DomainDnsRecordArgs) ToDomainDnsRecordOutput() DomainDnsRecordOutput {
+	return i.ToDomainDnsRecordOutputWithContext(context.Background())
+}
+
+func (i DomainDnsRecordArgs) ToDomainDnsRecordOutputWithContext(ctx context.Context) DomainDnsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDnsRecordOutput)
+}
+
+// DomainDnsRecordArrayInput is an input type that accepts DomainDnsRecordArray and DomainDnsRecordArrayOutput values.
+// You can construct a concrete instance of `DomainDnsRecordArrayInput` via:
+//
+//          DomainDnsRecordArray{ DomainDnsRecordArgs{...} }
+type DomainDnsRecordArrayInput interface {
+	pulumi.Input
+
+	ToDomainDnsRecordArrayOutput() DomainDnsRecordArrayOutput
+	ToDomainDnsRecordArrayOutputWithContext(context.Context) DomainDnsRecordArrayOutput
+}
+
+type DomainDnsRecordArray []DomainDnsRecordInput
+
+func (DomainDnsRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDnsRecord)(nil)).Elem()
+}
+
+func (i DomainDnsRecordArray) ToDomainDnsRecordArrayOutput() DomainDnsRecordArrayOutput {
+	return i.ToDomainDnsRecordArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDnsRecordArray) ToDomainDnsRecordArrayOutputWithContext(ctx context.Context) DomainDnsRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDnsRecordArrayOutput)
+}
+
+type DomainDnsRecordOutput struct{ *pulumi.OutputState }
+
+func (DomainDnsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDnsRecord)(nil)).Elem()
+}
+
+func (o DomainDnsRecordOutput) ToDomainDnsRecordOutput() DomainDnsRecordOutput {
+	return o
+}
+
+func (o DomainDnsRecordOutput) ToDomainDnsRecordOutputWithContext(ctx context.Context) DomainDnsRecordOutput {
+	return o
+}
+
+// TXT record expiration.
+func (o DomainDnsRecordOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// DNS record name.
+func (o DomainDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Record type can be TXT or CNAME.
+func (o DomainDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
+}
+
+// DNS verification value
+func (o DomainDnsRecordOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDnsRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DomainDnsRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDnsRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDnsRecord)(nil)).Elem()
+}
+
+func (o DomainDnsRecordArrayOutput) ToDomainDnsRecordArrayOutput() DomainDnsRecordArrayOutput {
+	return o
+}
+
+func (o DomainDnsRecordArrayOutput) ToDomainDnsRecordArrayOutputWithContext(ctx context.Context) DomainDnsRecordArrayOutput {
+	return o
+}
+
+func (o DomainDnsRecordArrayOutput) Index(i pulumi.IntInput) DomainDnsRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDnsRecord {
+		return vs[0].([]DomainDnsRecord)[vs[1].(int)]
+	}).(DomainDnsRecordOutput)
+}
+
 type EventHookHeader struct {
 	// Key to use for authentication, usually the header name, for example `"Authorization"`.
 	Key *string `pulumi:"key"`
@@ -222,6 +788,457 @@ func (o TemplateSmsTranslationArrayOutput) Index(i pulumi.IntInput) TemplateSmsT
 	}).(TemplateSmsTranslationOutput)
 }
 
+type UserSchemaPropertyArrayOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// UserSchemaPropertyArrayOneOfInput is an input type that accepts UserSchemaPropertyArrayOneOfArgs and UserSchemaPropertyArrayOneOfOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyArrayOneOfInput` via:
+//
+//          UserSchemaPropertyArrayOneOfArgs{...}
+type UserSchemaPropertyArrayOneOfInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyArrayOneOfOutput() UserSchemaPropertyArrayOneOfOutput
+	ToUserSchemaPropertyArrayOneOfOutputWithContext(context.Context) UserSchemaPropertyArrayOneOfOutput
+}
+
+type UserSchemaPropertyArrayOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (UserSchemaPropertyArrayOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyArrayOneOfArgs) ToUserSchemaPropertyArrayOneOfOutput() UserSchemaPropertyArrayOneOfOutput {
+	return i.ToUserSchemaPropertyArrayOneOfOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyArrayOneOfArgs) ToUserSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) UserSchemaPropertyArrayOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyArrayOneOfOutput)
+}
+
+// UserSchemaPropertyArrayOneOfArrayInput is an input type that accepts UserSchemaPropertyArrayOneOfArray and UserSchemaPropertyArrayOneOfArrayOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyArrayOneOfArrayInput` via:
+//
+//          UserSchemaPropertyArrayOneOfArray{ UserSchemaPropertyArrayOneOfArgs{...} }
+type UserSchemaPropertyArrayOneOfArrayInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyArrayOneOfArrayOutput() UserSchemaPropertyArrayOneOfArrayOutput
+	ToUserSchemaPropertyArrayOneOfArrayOutputWithContext(context.Context) UserSchemaPropertyArrayOneOfArrayOutput
+}
+
+type UserSchemaPropertyArrayOneOfArray []UserSchemaPropertyArrayOneOfInput
+
+func (UserSchemaPropertyArrayOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyArrayOneOfArray) ToUserSchemaPropertyArrayOneOfArrayOutput() UserSchemaPropertyArrayOneOfArrayOutput {
+	return i.ToUserSchemaPropertyArrayOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyArrayOneOfArray) ToUserSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) UserSchemaPropertyArrayOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyArrayOneOfArrayOutput)
+}
+
+type UserSchemaPropertyArrayOneOfOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyArrayOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyArrayOneOfOutput) ToUserSchemaPropertyArrayOneOfOutput() UserSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+func (o UserSchemaPropertyArrayOneOfOutput) ToUserSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) UserSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o UserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o UserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type UserSchemaPropertyArrayOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyArrayOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyArrayOneOfArrayOutput) ToUserSchemaPropertyArrayOneOfArrayOutput() UserSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyArrayOneOfArrayOutput) ToUserSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) UserSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaPropertyArrayOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaPropertyArrayOneOf {
+		return vs[0].([]UserSchemaPropertyArrayOneOf)[vs[1].(int)]
+	}).(UserSchemaPropertyArrayOneOfOutput)
+}
+
+type UserSchemaPropertyMasterOverridePriority struct {
+	// - Type of profile source.
+	Type *string `pulumi:"type"`
+	// - ID of profile source.
+	Value string `pulumi:"value"`
+}
+
+// UserSchemaPropertyMasterOverridePriorityInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArgs and UserSchemaPropertyMasterOverridePriorityOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyMasterOverridePriorityInput` via:
+//
+//          UserSchemaPropertyMasterOverridePriorityArgs{...}
+type UserSchemaPropertyMasterOverridePriorityInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyMasterOverridePriorityOutput() UserSchemaPropertyMasterOverridePriorityOutput
+	ToUserSchemaPropertyMasterOverridePriorityOutputWithContext(context.Context) UserSchemaPropertyMasterOverridePriorityOutput
+}
+
+type UserSchemaPropertyMasterOverridePriorityArgs struct {
+	// - Type of profile source.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// - ID of profile source.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyMasterOverridePriorityArgs) ToUserSchemaPropertyMasterOverridePriorityOutput() UserSchemaPropertyMasterOverridePriorityOutput {
+	return i.ToUserSchemaPropertyMasterOverridePriorityOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyMasterOverridePriorityArgs) ToUserSchemaPropertyMasterOverridePriorityOutputWithContext(ctx context.Context) UserSchemaPropertyMasterOverridePriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyMasterOverridePriorityOutput)
+}
+
+// UserSchemaPropertyMasterOverridePriorityArrayInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArray and UserSchemaPropertyMasterOverridePriorityArrayOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyMasterOverridePriorityArrayInput` via:
+//
+//          UserSchemaPropertyMasterOverridePriorityArray{ UserSchemaPropertyMasterOverridePriorityArgs{...} }
+type UserSchemaPropertyMasterOverridePriorityArrayInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyMasterOverridePriorityArrayOutput() UserSchemaPropertyMasterOverridePriorityArrayOutput
+	ToUserSchemaPropertyMasterOverridePriorityArrayOutputWithContext(context.Context) UserSchemaPropertyMasterOverridePriorityArrayOutput
+}
+
+type UserSchemaPropertyMasterOverridePriorityArray []UserSchemaPropertyMasterOverridePriorityInput
+
+func (UserSchemaPropertyMasterOverridePriorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyMasterOverridePriorityArray) ToUserSchemaPropertyMasterOverridePriorityArrayOutput() UserSchemaPropertyMasterOverridePriorityArrayOutput {
+	return i.ToUserSchemaPropertyMasterOverridePriorityArrayOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyMasterOverridePriorityArray) ToUserSchemaPropertyMasterOverridePriorityArrayOutputWithContext(ctx context.Context) UserSchemaPropertyMasterOverridePriorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyMasterOverridePriorityArrayOutput)
+}
+
+type UserSchemaPropertyMasterOverridePriorityOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyMasterOverridePriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyMasterOverridePriorityOutput) ToUserSchemaPropertyMasterOverridePriorityOutput() UserSchemaPropertyMasterOverridePriorityOutput {
+	return o
+}
+
+func (o UserSchemaPropertyMasterOverridePriorityOutput) ToUserSchemaPropertyMasterOverridePriorityOutputWithContext(ctx context.Context) UserSchemaPropertyMasterOverridePriorityOutput {
+	return o
+}
+
+// - Type of profile source.
+func (o UserSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// - ID of profile source.
+func (o UserSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserSchemaPropertyMasterOverridePriorityArrayOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyMasterOverridePriorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyMasterOverridePriorityArrayOutput) ToUserSchemaPropertyMasterOverridePriorityArrayOutput() UserSchemaPropertyMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyMasterOverridePriorityArrayOutput) ToUserSchemaPropertyMasterOverridePriorityArrayOutputWithContext(ctx context.Context) UserSchemaPropertyMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.IntInput) UserSchemaPropertyMasterOverridePriorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaPropertyMasterOverridePriority {
+		return vs[0].([]UserSchemaPropertyMasterOverridePriority)[vs[1].(int)]
+	}).(UserSchemaPropertyMasterOverridePriorityOutput)
+}
+
+type UserSchemaPropertyOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// UserSchemaPropertyOneOfInput is an input type that accepts UserSchemaPropertyOneOfArgs and UserSchemaPropertyOneOfOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyOneOfInput` via:
+//
+//          UserSchemaPropertyOneOfArgs{...}
+type UserSchemaPropertyOneOfInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyOneOfOutput() UserSchemaPropertyOneOfOutput
+	ToUserSchemaPropertyOneOfOutputWithContext(context.Context) UserSchemaPropertyOneOfOutput
+}
+
+type UserSchemaPropertyOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (UserSchemaPropertyOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyOneOfArgs) ToUserSchemaPropertyOneOfOutput() UserSchemaPropertyOneOfOutput {
+	return i.ToUserSchemaPropertyOneOfOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyOneOfArgs) ToUserSchemaPropertyOneOfOutputWithContext(ctx context.Context) UserSchemaPropertyOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyOneOfOutput)
+}
+
+// UserSchemaPropertyOneOfArrayInput is an input type that accepts UserSchemaPropertyOneOfArray and UserSchemaPropertyOneOfArrayOutput values.
+// You can construct a concrete instance of `UserSchemaPropertyOneOfArrayInput` via:
+//
+//          UserSchemaPropertyOneOfArray{ UserSchemaPropertyOneOfArgs{...} }
+type UserSchemaPropertyOneOfArrayInput interface {
+	pulumi.Input
+
+	ToUserSchemaPropertyOneOfArrayOutput() UserSchemaPropertyOneOfArrayOutput
+	ToUserSchemaPropertyOneOfArrayOutputWithContext(context.Context) UserSchemaPropertyOneOfArrayOutput
+}
+
+type UserSchemaPropertyOneOfArray []UserSchemaPropertyOneOfInput
+
+func (UserSchemaPropertyOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i UserSchemaPropertyOneOfArray) ToUserSchemaPropertyOneOfArrayOutput() UserSchemaPropertyOneOfArrayOutput {
+	return i.ToUserSchemaPropertyOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i UserSchemaPropertyOneOfArray) ToUserSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) UserSchemaPropertyOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyOneOfArrayOutput)
+}
+
+type UserSchemaPropertyOneOfOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyOneOfOutput) ToUserSchemaPropertyOneOfOutput() UserSchemaPropertyOneOfOutput {
+	return o
+}
+
+func (o UserSchemaPropertyOneOfOutput) ToUserSchemaPropertyOneOfOutputWithContext(ctx context.Context) UserSchemaPropertyOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o UserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o UserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type UserSchemaPropertyOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (UserSchemaPropertyOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o UserSchemaPropertyOneOfArrayOutput) ToUserSchemaPropertyOneOfArrayOutput() UserSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyOneOfArrayOutput) ToUserSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) UserSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaPropertyOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaPropertyOneOf {
+		return vs[0].([]UserSchemaPropertyOneOf)[vs[1].(int)]
+	}).(UserSchemaPropertyOneOfOutput)
+}
+
+type GetBehavioursBehavior struct {
+	// Behavior ID.
+	Id string `pulumi:"id"`
+	// Behavior name.
+	Name string `pulumi:"name"`
+	// Map of behavior settings.
+	Settings map[string]string `pulumi:"settings"`
+	// Behavior status.
+	Status string `pulumi:"status"`
+	// Behavior type.
+	Type string `pulumi:"type"`
+}
+
+// GetBehavioursBehaviorInput is an input type that accepts GetBehavioursBehaviorArgs and GetBehavioursBehaviorOutput values.
+// You can construct a concrete instance of `GetBehavioursBehaviorInput` via:
+//
+//          GetBehavioursBehaviorArgs{...}
+type GetBehavioursBehaviorInput interface {
+	pulumi.Input
+
+	ToGetBehavioursBehaviorOutput() GetBehavioursBehaviorOutput
+	ToGetBehavioursBehaviorOutputWithContext(context.Context) GetBehavioursBehaviorOutput
+}
+
+type GetBehavioursBehaviorArgs struct {
+	// Behavior ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Behavior name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of behavior settings.
+	Settings pulumi.StringMapInput `pulumi:"settings"`
+	// Behavior status.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Behavior type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBehavioursBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBehavioursBehavior)(nil)).Elem()
+}
+
+func (i GetBehavioursBehaviorArgs) ToGetBehavioursBehaviorOutput() GetBehavioursBehaviorOutput {
+	return i.ToGetBehavioursBehaviorOutputWithContext(context.Background())
+}
+
+func (i GetBehavioursBehaviorArgs) ToGetBehavioursBehaviorOutputWithContext(ctx context.Context) GetBehavioursBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBehavioursBehaviorOutput)
+}
+
+// GetBehavioursBehaviorArrayInput is an input type that accepts GetBehavioursBehaviorArray and GetBehavioursBehaviorArrayOutput values.
+// You can construct a concrete instance of `GetBehavioursBehaviorArrayInput` via:
+//
+//          GetBehavioursBehaviorArray{ GetBehavioursBehaviorArgs{...} }
+type GetBehavioursBehaviorArrayInput interface {
+	pulumi.Input
+
+	ToGetBehavioursBehaviorArrayOutput() GetBehavioursBehaviorArrayOutput
+	ToGetBehavioursBehaviorArrayOutputWithContext(context.Context) GetBehavioursBehaviorArrayOutput
+}
+
+type GetBehavioursBehaviorArray []GetBehavioursBehaviorInput
+
+func (GetBehavioursBehaviorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBehavioursBehavior)(nil)).Elem()
+}
+
+func (i GetBehavioursBehaviorArray) ToGetBehavioursBehaviorArrayOutput() GetBehavioursBehaviorArrayOutput {
+	return i.ToGetBehavioursBehaviorArrayOutputWithContext(context.Background())
+}
+
+func (i GetBehavioursBehaviorArray) ToGetBehavioursBehaviorArrayOutputWithContext(ctx context.Context) GetBehavioursBehaviorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBehavioursBehaviorArrayOutput)
+}
+
+type GetBehavioursBehaviorOutput struct{ *pulumi.OutputState }
+
+func (GetBehavioursBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBehavioursBehavior)(nil)).Elem()
+}
+
+func (o GetBehavioursBehaviorOutput) ToGetBehavioursBehaviorOutput() GetBehavioursBehaviorOutput {
+	return o
+}
+
+func (o GetBehavioursBehaviorOutput) ToGetBehavioursBehaviorOutputWithContext(ctx context.Context) GetBehavioursBehaviorOutput {
+	return o
+}
+
+// Behavior ID.
+func (o GetBehavioursBehaviorOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Behavior name.
+func (o GetBehavioursBehaviorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of behavior settings.
+func (o GetBehavioursBehaviorOutput) Settings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetBehavioursBehavior) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+}
+
+// Behavior status.
+func (o GetBehavioursBehaviorOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Behavior type.
+func (o GetBehavioursBehaviorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBehavioursBehaviorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBehavioursBehaviorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBehavioursBehavior)(nil)).Elem()
+}
+
+func (o GetBehavioursBehaviorArrayOutput) ToGetBehavioursBehaviorArrayOutput() GetBehavioursBehaviorArrayOutput {
+	return o
+}
+
+func (o GetBehavioursBehaviorArrayOutput) ToGetBehavioursBehaviorArrayOutputWithContext(ctx context.Context) GetBehavioursBehaviorArrayOutput {
+	return o
+}
+
+func (o GetBehavioursBehaviorArrayOutput) Index(i pulumi.IntInput) GetBehavioursBehaviorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBehavioursBehavior {
+		return vs[0].([]GetBehavioursBehavior)[vs[1].(int)]
+	}).(GetBehavioursBehaviorOutput)
+}
+
 type GetGroupsGroup struct {
 	// Group description.
 	Description string `pulumi:"description"`
@@ -349,11 +1366,137 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	}).(GetGroupsGroupOutput)
 }
 
+type GetUserSecurityQuestionsQuestion struct {
+	// Security question unique key.
+	Key string `pulumi:"key"`
+	// Display text for security question.
+	Text string `pulumi:"text"`
+}
+
+// GetUserSecurityQuestionsQuestionInput is an input type that accepts GetUserSecurityQuestionsQuestionArgs and GetUserSecurityQuestionsQuestionOutput values.
+// You can construct a concrete instance of `GetUserSecurityQuestionsQuestionInput` via:
+//
+//          GetUserSecurityQuestionsQuestionArgs{...}
+type GetUserSecurityQuestionsQuestionInput interface {
+	pulumi.Input
+
+	ToGetUserSecurityQuestionsQuestionOutput() GetUserSecurityQuestionsQuestionOutput
+	ToGetUserSecurityQuestionsQuestionOutputWithContext(context.Context) GetUserSecurityQuestionsQuestionOutput
+}
+
+type GetUserSecurityQuestionsQuestionArgs struct {
+	// Security question unique key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Display text for security question.
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (GetUserSecurityQuestionsQuestionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserSecurityQuestionsQuestion)(nil)).Elem()
+}
+
+func (i GetUserSecurityQuestionsQuestionArgs) ToGetUserSecurityQuestionsQuestionOutput() GetUserSecurityQuestionsQuestionOutput {
+	return i.ToGetUserSecurityQuestionsQuestionOutputWithContext(context.Background())
+}
+
+func (i GetUserSecurityQuestionsQuestionArgs) ToGetUserSecurityQuestionsQuestionOutputWithContext(ctx context.Context) GetUserSecurityQuestionsQuestionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserSecurityQuestionsQuestionOutput)
+}
+
+// GetUserSecurityQuestionsQuestionArrayInput is an input type that accepts GetUserSecurityQuestionsQuestionArray and GetUserSecurityQuestionsQuestionArrayOutput values.
+// You can construct a concrete instance of `GetUserSecurityQuestionsQuestionArrayInput` via:
+//
+//          GetUserSecurityQuestionsQuestionArray{ GetUserSecurityQuestionsQuestionArgs{...} }
+type GetUserSecurityQuestionsQuestionArrayInput interface {
+	pulumi.Input
+
+	ToGetUserSecurityQuestionsQuestionArrayOutput() GetUserSecurityQuestionsQuestionArrayOutput
+	ToGetUserSecurityQuestionsQuestionArrayOutputWithContext(context.Context) GetUserSecurityQuestionsQuestionArrayOutput
+}
+
+type GetUserSecurityQuestionsQuestionArray []GetUserSecurityQuestionsQuestionInput
+
+func (GetUserSecurityQuestionsQuestionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserSecurityQuestionsQuestion)(nil)).Elem()
+}
+
+func (i GetUserSecurityQuestionsQuestionArray) ToGetUserSecurityQuestionsQuestionArrayOutput() GetUserSecurityQuestionsQuestionArrayOutput {
+	return i.ToGetUserSecurityQuestionsQuestionArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserSecurityQuestionsQuestionArray) ToGetUserSecurityQuestionsQuestionArrayOutputWithContext(ctx context.Context) GetUserSecurityQuestionsQuestionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserSecurityQuestionsQuestionArrayOutput)
+}
+
+type GetUserSecurityQuestionsQuestionOutput struct{ *pulumi.OutputState }
+
+func (GetUserSecurityQuestionsQuestionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserSecurityQuestionsQuestion)(nil)).Elem()
+}
+
+func (o GetUserSecurityQuestionsQuestionOutput) ToGetUserSecurityQuestionsQuestionOutput() GetUserSecurityQuestionsQuestionOutput {
+	return o
+}
+
+func (o GetUserSecurityQuestionsQuestionOutput) ToGetUserSecurityQuestionsQuestionOutputWithContext(ctx context.Context) GetUserSecurityQuestionsQuestionOutput {
+	return o
+}
+
+// Security question unique key.
+func (o GetUserSecurityQuestionsQuestionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Display text for security question.
+func (o GetUserSecurityQuestionsQuestionOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type GetUserSecurityQuestionsQuestionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserSecurityQuestionsQuestionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserSecurityQuestionsQuestion)(nil)).Elem()
+}
+
+func (o GetUserSecurityQuestionsQuestionArrayOutput) ToGetUserSecurityQuestionsQuestionArrayOutput() GetUserSecurityQuestionsQuestionArrayOutput {
+	return o
+}
+
+func (o GetUserSecurityQuestionsQuestionArrayOutput) ToGetUserSecurityQuestionsQuestionArrayOutputWithContext(ctx context.Context) GetUserSecurityQuestionsQuestionArrayOutput {
+	return o
+}
+
+func (o GetUserSecurityQuestionsQuestionArrayOutput) Index(i pulumi.IntInput) GetUserSecurityQuestionsQuestionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserSecurityQuestionsQuestion {
+		return vs[0].([]GetUserSecurityQuestionsQuestion)[vs[1].(int)]
+	}).(GetUserSecurityQuestionsQuestionOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AppGroupAssignmentsGroupOutput{})
+	pulumi.RegisterOutputType(AppGroupAssignmentsGroupArrayOutput{})
+	pulumi.RegisterOutputType(AppSharedCredentialsUserOutput{})
+	pulumi.RegisterOutputType(AppSharedCredentialsUserArrayOutput{})
+	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfOutput{})
+	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfArrayOutput{})
+	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfOutput{})
+	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(DomainDnsRecordOutput{})
+	pulumi.RegisterOutputType(DomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfArrayOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityArrayOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyOneOfOutput{})
+	pulumi.RegisterOutputType(UserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GetBehavioursBehaviorOutput{})
+	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionOutput{})
+	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionArrayOutput{})
 }

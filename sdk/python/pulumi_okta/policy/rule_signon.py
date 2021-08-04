@@ -7,15 +7,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RuleSignonArgs', 'RuleSignon']
 
 @pulumi.input_type
 class RuleSignonArgs:
     def __init__(__self__, *,
-                 policyid: pulumi.Input[str],
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
+                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -24,7 +27,10 @@ class RuleSignonArgs:
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -32,9 +38,10 @@ class RuleSignonArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleSignon resource.
-        :param pulumi.Input[str] policyid: Policy ID.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
-        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
@@ -43,18 +50,25 @@ class RuleSignonArgs:
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[str] policy_id: Policy ID.
+        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+               set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
-        pulumi.set(__self__, "policyid", policyid)
         if access is not None:
             pulumi.set(__self__, "access", access)
         if authtype is not None:
             pulumi.set(__self__, "authtype", authtype)
+        if behaviors is not None:
+            pulumi.set(__self__, "behaviors", behaviors)
+        if factor_sequences is not None:
+            pulumi.set(__self__, "factor_sequences", factor_sequences)
         if mfa_lifetime is not None:
             pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
@@ -71,8 +85,17 @@ class RuleSignonArgs:
             pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
             pulumi.set(__self__, "network_includes", network_includes)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policyid is not None:
+            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
+        if policyid is not None:
+            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if risc_level is not None:
+            pulumi.set(__self__, "risc_level", risc_level)
         if session_idle is not None:
             pulumi.set(__self__, "session_idle", session_idle)
         if session_lifetime is not None:
@@ -86,21 +109,9 @@ class RuleSignonArgs:
 
     @property
     @pulumi.getter
-    def policyid(self) -> pulumi.Input[str]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policyid", value)
-
-    @property
-    @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         """
         return pulumi.get(self, "access")
 
@@ -112,13 +123,37 @@ class RuleSignonArgs:
     @pulumi.getter
     def authtype(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         """
         return pulumi.get(self, "authtype")
 
     @authtype.setter
     def authtype(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authtype", value)
+
+    @property
+    @pulumi.getter
+    def behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of behavior IDs.
+        """
+        return pulumi.get(self, "behaviors")
+
+    @behaviors.setter
+    def behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "behaviors", value)
+
+    @property
+    @pulumi.getter(name="factorSequences")
+    def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
+        """
+        Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        """
+        return pulumi.get(self, "factor_sequences")
+
+    @factor_sequences.setter
+    def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
+        pulumi.set(self, "factor_sequences", value)
 
     @property
     @pulumi.getter(name="mfaLifetime")
@@ -217,6 +252,30 @@ class RuleSignonArgs:
         pulumi.set(self, "network_includes", value)
 
     @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter
+    def policyid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID.
+        """
+        return pulumi.get(self, "policyid")
+
+    @policyid.setter
+    def policyid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policyid", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
@@ -227,6 +286,19 @@ class RuleSignonArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="riscLevel")
+    def risc_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        """
+        return pulumi.get(self, "risc_level")
+
+    @risc_level.setter
+    def risc_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risc_level", value)
 
     @property
     @pulumi.getter(name="sessionIdle")
@@ -294,6 +366,8 @@ class _RuleSignonState:
     def __init__(__self__, *,
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
+                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -302,8 +376,10 @@ class _RuleSignonState:
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -311,8 +387,10 @@ class _RuleSignonState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RuleSignon resources.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
-        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
@@ -321,8 +399,11 @@ class _RuleSignonState:
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+               set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -333,6 +414,10 @@ class _RuleSignonState:
             pulumi.set(__self__, "access", access)
         if authtype is not None:
             pulumi.set(__self__, "authtype", authtype)
+        if behaviors is not None:
+            pulumi.set(__self__, "behaviors", behaviors)
+        if factor_sequences is not None:
+            pulumi.set(__self__, "factor_sequences", factor_sequences)
         if mfa_lifetime is not None:
             pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
@@ -349,10 +434,17 @@ class _RuleSignonState:
             pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
             pulumi.set(__self__, "network_includes", network_includes)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policyid is not None:
+            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if risc_level is not None:
+            pulumi.set(__self__, "risc_level", risc_level)
         if session_idle is not None:
             pulumi.set(__self__, "session_idle", session_idle)
         if session_lifetime is not None:
@@ -368,7 +460,7 @@ class _RuleSignonState:
     @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         """
         return pulumi.get(self, "access")
 
@@ -380,13 +472,37 @@ class _RuleSignonState:
     @pulumi.getter
     def authtype(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         """
         return pulumi.get(self, "authtype")
 
     @authtype.setter
     def authtype(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authtype", value)
+
+    @property
+    @pulumi.getter
+    def behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of behavior IDs.
+        """
+        return pulumi.get(self, "behaviors")
+
+    @behaviors.setter
+    def behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "behaviors", value)
+
+    @property
+    @pulumi.getter(name="factorSequences")
+    def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
+        """
+        Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        """
+        return pulumi.get(self, "factor_sequences")
+
+    @factor_sequences.setter
+    def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
+        pulumi.set(self, "factor_sequences", value)
 
     @property
     @pulumi.getter(name="mfaLifetime")
@@ -485,6 +601,18 @@ class _RuleSignonState:
         pulumi.set(self, "network_includes", value)
 
     @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
     @pulumi.getter
     def policyid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -507,6 +635,19 @@ class _RuleSignonState:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="riscLevel")
+    def risc_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        """
+        return pulumi.get(self, "risc_level")
+
+    @risc_level.setter
+    def risc_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risc_level", value)
 
     @property
     @pulumi.getter(name="sessionIdle")
@@ -576,6 +717,8 @@ class RuleSignon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
+                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -584,8 +727,10 @@ class RuleSignon(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -594,6 +739,82 @@ class RuleSignon(pulumi.CustomResource):
                  __props__=None):
         """
         Creates a Sign On Policy Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.policy.Signon("test",
+            status="ACTIVE",
+            description="Example Policy")
+        new_city = okta.get_behaviour(name="New City")
+        example = okta.policy.RuleSignon("example",
+            access="CHALLENGE",
+            authtype="RADIUS",
+            network_connection="ANYWHERE",
+            policy_id=okta_policy_signon["example"]["id"],
+            status="ACTIVE",
+            risc_level="HIGH",
+            behaviors=[new_city.id],
+            factor_sequences=[
+                okta.policy.RuleSignonFactorSequenceArgs(
+                    primary_criteria_factor_type="token:hotp",
+                    primary_criteria_provider="CUSTOM",
+                    secondary_criterias=[
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token:software:totp",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="push",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="password",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="question",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="sms",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token:software:totp",
+                            provider="GOOGLE",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="email",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="call",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="webauthn",
+                            provider="FIDO",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token",
+                            provider="RSA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token",
+                            provider="SYMANTEC",
+                        ),
+                    ],
+                ),
+                okta.policy.RuleSignonFactorSequenceArgs(
+                    primary_criteria_factor_type="token:software:totp",
+                    primary_criteria_provider="OKTA",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -605,8 +826,10 @@ class RuleSignon(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
-        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
@@ -615,8 +838,11 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+               set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -627,10 +853,86 @@ class RuleSignon(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RuleSignonArgs,
+                 args: Optional[RuleSignonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Sign On Policy Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.policy.Signon("test",
+            status="ACTIVE",
+            description="Example Policy")
+        new_city = okta.get_behaviour(name="New City")
+        example = okta.policy.RuleSignon("example",
+            access="CHALLENGE",
+            authtype="RADIUS",
+            network_connection="ANYWHERE",
+            policy_id=okta_policy_signon["example"]["id"],
+            status="ACTIVE",
+            risc_level="HIGH",
+            behaviors=[new_city.id],
+            factor_sequences=[
+                okta.policy.RuleSignonFactorSequenceArgs(
+                    primary_criteria_factor_type="token:hotp",
+                    primary_criteria_provider="CUSTOM",
+                    secondary_criterias=[
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token:software:totp",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="push",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="password",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="question",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="sms",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token:software:totp",
+                            provider="GOOGLE",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="email",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="call",
+                            provider="OKTA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="webauthn",
+                            provider="FIDO",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token",
+                            provider="RSA",
+                        ),
+                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
+                            factor_type="token",
+                            provider="SYMANTEC",
+                        ),
+                    ],
+                ),
+                okta.policy.RuleSignonFactorSequenceArgs(
+                    primary_criteria_factor_type="token:software:totp",
+                    primary_criteria_provider="OKTA",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -657,6 +959,8 @@ class RuleSignon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
+                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -665,8 +969,10 @@ class RuleSignon(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -686,6 +992,8 @@ class RuleSignon(pulumi.CustomResource):
 
             __props__.__dict__["access"] = access
             __props__.__dict__["authtype"] = authtype
+            __props__.__dict__["behaviors"] = behaviors
+            __props__.__dict__["factor_sequences"] = factor_sequences
             __props__.__dict__["mfa_lifetime"] = mfa_lifetime
             __props__.__dict__["mfa_prompt"] = mfa_prompt
             __props__.__dict__["mfa_remember_device"] = mfa_remember_device
@@ -694,10 +1002,13 @@ class RuleSignon(pulumi.CustomResource):
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
             __props__.__dict__["network_includes"] = network_includes
-            if policyid is None and not opts.urn:
-                raise TypeError("Missing required property 'policyid'")
+            __props__.__dict__["policy_id"] = policy_id
+            if policyid is not None and not opts.urn:
+                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
             __props__.__dict__["policyid"] = policyid
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["risc_level"] = risc_level
             __props__.__dict__["session_idle"] = session_idle
             __props__.__dict__["session_lifetime"] = session_lifetime
             __props__.__dict__["session_persistent"] = session_persistent
@@ -715,6 +1026,8 @@ class RuleSignon(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access: Optional[pulumi.Input[str]] = None,
             authtype: Optional[pulumi.Input[str]] = None,
+            behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
             mfa_lifetime: Optional[pulumi.Input[int]] = None,
             mfa_prompt: Optional[pulumi.Input[str]] = None,
             mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -723,8 +1036,10 @@ class RuleSignon(pulumi.CustomResource):
             network_connection: Optional[pulumi.Input[str]] = None,
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
+            risc_level: Optional[pulumi.Input[str]] = None,
             session_idle: Optional[pulumi.Input[int]] = None,
             session_lifetime: Optional[pulumi.Input[int]] = None,
             session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -737,8 +1052,10 @@ class RuleSignon(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
-        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        :param pulumi.Input[str] authtype: Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device. The default `false`.
@@ -747,8 +1064,11 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
+        :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+               set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -761,6 +1081,8 @@ class RuleSignon(pulumi.CustomResource):
 
         __props__.__dict__["access"] = access
         __props__.__dict__["authtype"] = authtype
+        __props__.__dict__["behaviors"] = behaviors
+        __props__.__dict__["factor_sequences"] = factor_sequences
         __props__.__dict__["mfa_lifetime"] = mfa_lifetime
         __props__.__dict__["mfa_prompt"] = mfa_prompt
         __props__.__dict__["mfa_remember_device"] = mfa_remember_device
@@ -769,8 +1091,10 @@ class RuleSignon(pulumi.CustomResource):
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
         __props__.__dict__["network_includes"] = network_includes
+        __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["policyid"] = policyid
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["risc_level"] = risc_level
         __props__.__dict__["session_idle"] = session_idle
         __props__.__dict__["session_lifetime"] = session_lifetime
         __props__.__dict__["session_persistent"] = session_persistent
@@ -782,7 +1106,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter
     def access(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         """
         return pulumi.get(self, "access")
 
@@ -790,9 +1114,25 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter
     def authtype(self) -> pulumi.Output[Optional[str]]:
         """
-        Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         """
         return pulumi.get(self, "authtype")
+
+    @property
+    @pulumi.getter
+    def behaviors(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of behavior IDs.
+        """
+        return pulumi.get(self, "behaviors")
+
+    @property
+    @pulumi.getter(name="factorSequences")
+    def factor_sequences(self) -> pulumi.Output[Optional[Sequence['outputs.RuleSignonFactorSequence']]]:
+        """
+        Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        """
+        return pulumi.get(self, "factor_sequences")
 
     @property
     @pulumi.getter(name="mfaLifetime")
@@ -859,8 +1199,16 @@ class RuleSignon(pulumi.CustomResource):
         return pulumi.get(self, "network_includes")
 
     @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy ID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
     @pulumi.getter
-    def policyid(self) -> pulumi.Output[str]:
+    def policyid(self) -> pulumi.Output[Optional[str]]:
         """
         Policy ID.
         """
@@ -873,6 +1221,15 @@ class RuleSignon(pulumi.CustomResource):
         Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="riscLevel")
+    def risc_level(self) -> pulumi.Output[Optional[str]]:
+        """
+        Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        """
+        return pulumi.get(self, "risc_level")
 
     @property
     @pulumi.getter(name="sessionIdle")

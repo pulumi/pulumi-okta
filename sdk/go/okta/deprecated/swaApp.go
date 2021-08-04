@@ -23,6 +23,8 @@ type SwaApp struct {
 	// Login button field
 	ButtonField pulumi.StringPtrOutput `pulumi:"buttonField"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -30,7 +32,11 @@ type SwaApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
@@ -53,6 +59,8 @@ type SwaApp struct {
 	// Login username field
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaAppUserArrayOutput `pulumi:"users"`
 }
 
@@ -97,6 +105,8 @@ type swaAppState struct {
 	// Login button field
 	ButtonField *string `pulumi:"buttonField"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -104,7 +114,11 @@ type swaAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Login password field
 	PasswordField *string `pulumi:"passwordField"`
@@ -127,6 +141,8 @@ type swaAppState struct {
 	// Login username field
 	UsernameField *string `pulumi:"usernameField"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SwaAppUser `pulumi:"users"`
 }
 
@@ -140,6 +156,8 @@ type SwaAppState struct {
 	// Login button field
 	ButtonField pulumi.StringPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -147,7 +165,11 @@ type SwaAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Login password field
 	PasswordField pulumi.StringPtrInput
@@ -170,6 +192,8 @@ type SwaAppState struct {
 	// Login username field
 	UsernameField pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaAppUserArrayInput
 }
 
@@ -187,6 +211,8 @@ type swaAppArgs struct {
 	// Login button field
 	ButtonField *string `pulumi:"buttonField"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -194,6 +220,8 @@ type swaAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
 	// Login password field
 	PasswordField *string `pulumi:"passwordField"`
 	// Preconfigured app name
@@ -213,6 +241,8 @@ type swaAppArgs struct {
 	// Login username field
 	UsernameField *string `pulumi:"usernameField"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SwaAppUser `pulumi:"users"`
 }
 
@@ -227,6 +257,8 @@ type SwaAppArgs struct {
 	// Login button field
 	ButtonField pulumi.StringPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -234,6 +266,8 @@ type SwaAppArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
 	// Login password field
 	PasswordField pulumi.StringPtrInput
 	// Preconfigured app name
@@ -253,6 +287,8 @@ type SwaAppArgs struct {
 	// Login username field
 	UsernameField pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaAppUserArrayInput
 }
 

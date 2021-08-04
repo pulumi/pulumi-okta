@@ -52,6 +52,8 @@ type Group struct {
 	// The name of the Okta Group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The users associated with the group. This can also be done per user.
+	//
+	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
@@ -89,6 +91,8 @@ type groupState struct {
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
 	// The users associated with the group. This can also be done per user.
+	//
+	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users []string `pulumi:"users"`
 }
 
@@ -98,6 +102,8 @@ type GroupState struct {
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
 	// The users associated with the group. This can also be done per user.
+	//
+	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayInput
 }
 
@@ -111,6 +117,8 @@ type groupArgs struct {
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
 	// The users associated with the group. This can also be done per user.
+	//
+	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users []string `pulumi:"users"`
 }
 
@@ -121,6 +129,8 @@ type GroupArgs struct {
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
 	// The users associated with the group. This can also be done per user.
+	//
+	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayInput
 }
 

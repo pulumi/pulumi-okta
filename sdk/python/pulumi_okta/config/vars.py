@@ -85,7 +85,7 @@ API Token granting privileges to Okta API.
 request_timeout = __config__.get('requestTimeout')
 """
 Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-value can be `100`.
+value can be `300`.
 """
 
 scopes = __config__.get('scopes')

@@ -7,12 +7,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'RuleIdpDiscoveryAppExclude',
     'RuleIdpDiscoveryAppInclude',
     'RuleIdpDiscoveryPlatformInclude',
     'RuleIdpDiscoveryUserIdentifierPattern',
+    'RuleSignonFactorSequence',
+    'RuleSignonFactorSequenceSecondaryCriteria',
 ]
 
 @pulumi.output_type
@@ -207,5 +210,113 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
         The regex or simple match string to match against.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleSignonFactorSequence(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryCriteriaFactorType":
+            suggest = "primary_criteria_factor_type"
+        elif key == "primaryCriteriaProvider":
+            suggest = "primary_criteria_provider"
+        elif key == "secondaryCriterias":
+            suggest = "secondary_criterias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSignonFactorSequence. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSignonFactorSequence.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSignonFactorSequence.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_criteria_factor_type: str,
+                 primary_criteria_provider: str,
+                 secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None):
+        """
+        :param str primary_criteria_factor_type: Primary factor type of the auth section.
+        :param str primary_criteria_provider: Primary provider of the auth section.
+        :param Sequence['RuleSignonFactorSequenceSecondaryCriteriaArgs'] secondary_criterias: Additional authentication steps.
+        """
+        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
+        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
+        if secondary_criterias is not None:
+            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaFactorType")
+    def primary_criteria_factor_type(self) -> str:
+        """
+        Primary factor type of the auth section.
+        """
+        return pulumi.get(self, "primary_criteria_factor_type")
+
+    @property
+    @pulumi.getter(name="primaryCriteriaProvider")
+    def primary_criteria_provider(self) -> str:
+        """
+        Primary provider of the auth section.
+        """
+        return pulumi.get(self, "primary_criteria_provider")
+
+    @property
+    @pulumi.getter(name="secondaryCriterias")
+    def secondary_criterias(self) -> Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']]:
+        """
+        Additional authentication steps.
+        """
+        return pulumi.get(self, "secondary_criterias")
+
+
+@pulumi.output_type
+class RuleSignonFactorSequenceSecondaryCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "factorType":
+            suggest = "factor_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSignonFactorSequenceSecondaryCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSignonFactorSequenceSecondaryCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSignonFactorSequenceSecondaryCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 factor_type: str,
+                 provider: str):
+        """
+        :param str factor_type: Factor type of the additional authentication step.
+        :param str provider: Provider of the additional authentication step.
+        """
+        pulumi.set(__self__, "factor_type", factor_type)
+        pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="factorType")
+    def factor_type(self) -> str:
+        """
+        Factor type of the additional authentication step.
+        """
+        return pulumi.get(self, "factor_type")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        """
+        Provider of the additional authentication step.
+        """
+        return pulumi.get(self, "provider")
 
 

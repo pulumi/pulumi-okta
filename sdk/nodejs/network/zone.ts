@@ -27,6 +27,18 @@ import * as utilities from "../utilities";
  *     type: "IP",
  * });
  * ```
+ * ### Dynamic Tor Blocker
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.network.Zone("example", {
+ *     dynamicProxyType: "TorAnonymizer",
+ *     type: "DYNAMIC",
+ *     usage: "BLOCKLIST",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -70,6 +82,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly dynamicLocations!: pulumi.Output<string[] | undefined>;
     /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     */
+    public readonly dynamicProxyType!: pulumi.Output<string | undefined>;
+    /**
      * Array of values in CIDR/range form.
      */
     public readonly gateways!: pulumi.Output<string[] | undefined>;
@@ -104,6 +120,7 @@ export class Zone extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
             inputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
+            inputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
             inputs["gateways"] = state ? state.gateways : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["proxies"] = state ? state.proxies : undefined;
@@ -115,6 +132,7 @@ export class Zone extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
+            inputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
             inputs["gateways"] = args ? args.gateways : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["proxies"] = args ? args.proxies : undefined;
@@ -137,6 +155,10 @@ export interface ZoneState {
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
     readonly dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     */
+    readonly dynamicProxyType?: pulumi.Input<string>;
     /**
      * Array of values in CIDR/range form.
      */
@@ -168,6 +190,10 @@ export interface ZoneArgs {
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
     readonly dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     */
+    readonly dynamicProxyType?: pulumi.Input<string>;
     /**
      * Array of values in CIDR/range form.
      */

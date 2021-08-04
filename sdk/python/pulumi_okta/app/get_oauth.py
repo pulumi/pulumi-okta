@@ -19,7 +19,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None, users=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None, users=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -37,6 +37,10 @@ class GetOauthResult:
         pulumi.set(__self__, "grant_types", grant_types)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
+        if groups is not None:
+            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`""")
+
         pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
@@ -91,7 +95,14 @@ class GetOauthResult:
         pulumi.set(__self__, "type", type)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
+        if users is not None:
+            warnings.warn("""The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`""")
+
         pulumi.set(__self__, "users", users)
+        if wildcard_redirect and not isinstance(wildcard_redirect, str):
+            raise TypeError("Expected argument 'wildcard_redirect' to be a str")
+        pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
     @property
     @pulumi.getter(name="activeOnly")
@@ -135,6 +146,7 @@ class GetOauthResult:
     def groups(self) -> Optional[Sequence[str]]:
         """
         List of groups IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
         """
         return pulumi.get(self, "groups")
 
@@ -276,8 +288,14 @@ class GetOauthResult:
     def users(self) -> Optional[Sequence[str]]:
         """
         List of users IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
         """
         return pulumi.get(self, "users")
+
+    @property
+    @pulumi.getter(name="wildcardRedirect")
+    def wildcard_redirect(self) -> str:
+        return pulumi.get(self, "wildcard_redirect")
 
 
 class AwaitableGetOauthResult(GetOauthResult):
@@ -309,7 +327,8 @@ class AwaitableGetOauthResult(GetOauthResult):
             response_types=self.response_types,
             status=self.status,
             type=self.type,
-            users=self.users)
+            users=self.users,
+            wildcard_redirect=self.wildcard_redirect)
 
 
 def get_oauth(active_only: Optional[bool] = None,
@@ -334,6 +353,7 @@ def get_oauth(active_only: Optional[bool] = None,
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param Sequence[str] groups: List of groups IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -341,6 +361,7 @@ def get_oauth(active_only: Optional[bool] = None,
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
     :param Sequence[str] users: List of users IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -379,4 +400,5 @@ def get_oauth(active_only: Optional[bool] = None,
         response_types=__ret__.response_types,
         status=__ret__.status,
         type=__ret__.type,
-        users=__ret__.users)
+        users=__ret__.users,
+        wildcard_redirect=__ret__.wildcard_redirect)

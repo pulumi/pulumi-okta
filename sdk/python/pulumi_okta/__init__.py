@@ -4,15 +4,33 @@
 
 # Export this package's modules as members:
 from .admin_role_targets import *
+from .app_group_assignments import *
 from .app_oauth_api_scope import *
+from .app_shared_credentials import *
+from .app_user_base_schema_property import *
+from .app_user_schema_property import *
 from .auth_server_claim_default import *
 from .auth_server_default import *
+from .behaviour import *
+from .domain import *
 from .event_hook import *
+from .factor_totp import *
+from .get_app_group_assignments import *
+from .get_app_user_assignments import *
+from .get_behaviour import *
+from .get_behaviours import *
 from .get_groups import *
+from .get_user_security_questions import *
+from .group_memberships import *
 from .policy_mfa_default import *
 from .policy_password_default import *
 from .provider import *
 from .template_sms import *
+from .user_admin_roles import *
+from .user_base_schema_property import *
+from .user_factor_question import *
+from .user_group_memberships import *
+from .user_schema_property import *
 from ._inputs import *
 from . import outputs
 
@@ -48,33 +66,72 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "okta:index/adminRoleTargets:AdminRoleTargets":
                 return AdminRoleTargets(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/appGroupAssignments:AppGroupAssignments":
+                return AppGroupAssignments(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/appOauthApiScope:AppOauthApiScope":
                 return AppOauthApiScope(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/appSharedCredentials:AppSharedCredentials":
+                return AppSharedCredentials(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
+                return AppUserBaseSchemaProperty(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/appUserSchemaProperty:AppUserSchemaProperty":
+                return AppUserSchemaProperty(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/authServerClaimDefault:AuthServerClaimDefault":
                 return AuthServerClaimDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/authServerDefault:AuthServerDefault":
                 return AuthServerDefault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/behaviour:Behaviour":
+                return Behaviour(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/domain:Domain":
+                return Domain(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/eventHook:EventHook":
                 return EventHook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/factorTotp:FactorTotp":
+                return FactorTotp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/groupMemberships:GroupMemberships":
+                return GroupMemberships(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/policyMfaDefault:PolicyMfaDefault":
                 return PolicyMfaDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/policyPasswordDefault:PolicyPasswordDefault":
                 return PolicyPasswordDefault(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "okta:index/templateSms:TemplateSms":
                 return TemplateSms(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/userAdminRoles:UserAdminRoles":
+                return UserAdminRoles(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
+                return UserBaseSchemaProperty(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/userFactorQuestion:UserFactorQuestion":
+                return UserFactorQuestion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/userGroupMemberships:UserGroupMemberships":
+                return UserGroupMemberships(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "okta:index/userSchemaProperty:UserSchemaProperty":
+                return UserSchemaProperty(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("okta", "index/adminRoleTargets", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/appGroupAssignments", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/appOauthApiScope", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/appSharedCredentials", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/appUserBaseSchemaProperty", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/appUserSchemaProperty", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/authServerClaimDefault", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/authServerDefault", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/behaviour", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/domain", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/eventHook", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/factorTotp", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/groupMemberships", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/policyMfaDefault", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/policyPasswordDefault", _module_instance)
     pulumi.runtime.register_resource_module("okta", "index/templateSms", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/userAdminRoles", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/userBaseSchemaProperty", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/userFactorQuestion", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/userGroupMemberships", _module_instance)
+    pulumi.runtime.register_resource_module("okta", "index/userSchemaProperty", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):

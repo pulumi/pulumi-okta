@@ -34,12 +34,12 @@ import (
 // 				&template.EmailTranslationArgs{
 // 					Language: pulumi.String("en"),
 // 					Subject:  pulumi.String("Stuff"),
-// 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v", "Hi ", user.FirstName, ",<br/><br/>Blah blah ", resetPasswordLink)),
+// 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Hi ", "$", "user.firstName,<br/><br/>Blah blah ", "$", "resetPasswordLink")),
 // 				},
 // 				&template.EmailTranslationArgs{
 // 					Language: pulumi.String("es"),
 // 					Subject:  pulumi.String("Cosas"),
-// 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v", "Hola ", user.FirstName, ",<br/><br/>Puedo ir al bano ", resetPasswordLink)),
+// 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Hola ", "$", "user.firstName,<br/><br/>Puedo ir al bano ", "$", "resetPasswordLink")),
 // 				},
 // 			},
 // 			Type: pulumi.String("email.forgotPassword"),

@@ -109,7 +109,7 @@ export interface ProviderArgs {
     readonly privateKey?: pulumi.Input<string>;
     /**
      * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-     * value can be `100`.
+     * value can be `300`.
      */
     readonly requestTimeout?: pulumi.Input<number>;
     /**

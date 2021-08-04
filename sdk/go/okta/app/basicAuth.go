@@ -55,6 +55,9 @@ type BasicAuth struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -62,7 +65,11 @@ type BasicAuth struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
@@ -71,6 +78,9 @@ type BasicAuth struct {
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BasicAuthUserArrayOutput `pulumi:"users"`
 }
 
@@ -117,6 +127,9 @@ type basicAuthState struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -124,7 +137,11 @@ type basicAuthState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
@@ -133,6 +150,9 @@ type basicAuthState struct {
 	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BasicAuthUser `pulumi:"users"`
 }
 
@@ -142,6 +162,9 @@ type BasicAuthState struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -149,7 +172,11 @@ type BasicAuthState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
@@ -158,6 +185,9 @@ type BasicAuthState struct {
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BasicAuthUserArrayInput
 }
 
@@ -171,6 +201,9 @@ type basicAuthArgs struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -178,11 +211,16 @@ type basicAuthArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url string `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BasicAuthUser `pulumi:"users"`
 }
 
@@ -193,6 +231,9 @@ type BasicAuthArgs struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -200,11 +241,16 @@ type BasicAuthArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BasicAuthUserArrayInput
 }
 

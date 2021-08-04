@@ -13,16 +13,25 @@ namespace Pulumi.Okta.Deprecated
     public partial class SignonPolicyRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Output("access")]
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Output("authtype")]
         public Output<string?> Authtype { get; private set; } = null!;
+
+        /// <summary>
+        /// List of behavior IDs
+        /// </summary>
+        [Output("behaviors")]
+        public Output<ImmutableArray<string>> Behaviors { get; private set; } = null!;
+
+        [Output("factorSequences")]
+        public Output<ImmutableArray<Outputs.SignonPolicyRuleFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
         /// Elapsed time before the next MFA challenge
@@ -75,8 +84,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -84,6 +99,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
+        /// </summary>
+        [Output("riscLevel")]
+        public Output<string?> RiscLevel { get; private set; } = null!;
 
         /// <summary>
         /// Max minutes a session can be idle.
@@ -124,7 +145,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SignonPolicyRule(string name, SignonPolicyRuleArgs args, CustomResourceOptions? options = null)
+        public SignonPolicyRule(string name, SignonPolicyRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:deprecated/signonPolicyRule:SignonPolicyRule", name, args ?? new SignonPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -163,16 +184,36 @@ namespace Pulumi.Okta.Deprecated
     public sealed class SignonPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
+
+        [Input("behaviors")]
+        private InputList<string>? _behaviors;
+
+        /// <summary>
+        /// List of behavior IDs
+        /// </summary>
+        public InputList<string> Behaviors
+        {
+            get => _behaviors ?? (_behaviors = new InputList<string>());
+            set => _behaviors = value;
+        }
+
+        [Input("factorSequences")]
+        private InputList<Inputs.SignonPolicyRuleFactorSequenceArgs>? _factorSequences;
+        public InputList<Inputs.SignonPolicyRuleFactorSequenceArgs> FactorSequences
+        {
+            get => _factorSequences ?? (_factorSequences = new InputList<Inputs.SignonPolicyRuleFactorSequenceArgs>());
+            set => _factorSequences = value;
+        }
 
         /// <summary>
         /// Elapsed time before the next MFA challenge
@@ -237,8 +278,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -246,6 +293,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
+        /// </summary>
+        [Input("riscLevel")]
+        public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
         /// Max minutes a session can be idle.
@@ -292,16 +345,36 @@ namespace Pulumi.Okta.Deprecated
     public sealed class SignonPolicyRuleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: ANY or RADIUS.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
+
+        [Input("behaviors")]
+        private InputList<string>? _behaviors;
+
+        /// <summary>
+        /// List of behavior IDs
+        /// </summary>
+        public InputList<string> Behaviors
+        {
+            get => _behaviors ?? (_behaviors = new InputList<string>());
+            set => _behaviors = value;
+        }
+
+        [Input("factorSequences")]
+        private InputList<Inputs.SignonPolicyRuleFactorSequenceGetArgs>? _factorSequences;
+        public InputList<Inputs.SignonPolicyRuleFactorSequenceGetArgs> FactorSequences
+        {
+            get => _factorSequences ?? (_factorSequences = new InputList<Inputs.SignonPolicyRuleFactorSequenceGetArgs>());
+            set => _factorSequences = value;
+        }
 
         /// <summary>
         /// Elapsed time before the next MFA challenge
@@ -366,6 +439,12 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
         [Input("policyid")]
         public Input<string>? Policyid { get; set; }
 
@@ -375,6 +454,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
+        /// </summary>
+        [Input("riscLevel")]
+        public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
         /// Max minutes a session can be idle.

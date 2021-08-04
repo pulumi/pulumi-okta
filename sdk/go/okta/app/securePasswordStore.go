@@ -61,6 +61,9 @@ type SecurePasswordStore struct {
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -68,6 +71,10 @@ type SecurePasswordStore struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of optional param in the login form.
@@ -105,6 +112,9 @@ type SecurePasswordStore struct {
 	// Login username field.
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayOutput `pulumi:"users"`
 }
 
@@ -158,6 +168,9 @@ type securePasswordStoreState struct {
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -165,6 +178,10 @@ type securePasswordStoreState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label *string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// Name of optional param in the login form.
@@ -202,6 +219,9 @@ type securePasswordStoreState struct {
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SecurePasswordStoreUser `pulumi:"users"`
 }
 
@@ -215,6 +235,9 @@ type SecurePasswordStoreState struct {
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -222,6 +245,10 @@ type SecurePasswordStoreState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringPtrInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
 	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// Name of optional param in the login form.
@@ -259,6 +286,9 @@ type SecurePasswordStoreState struct {
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayInput
 }
 
@@ -276,6 +306,9 @@ type securePasswordStoreArgs struct {
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -283,6 +316,8 @@ type securePasswordStoreArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
 	// Name of optional param in the login form.
 	OptionalField1 *string `pulumi:"optionalField1"`
 	// Name of optional value in the login form.
@@ -316,6 +351,9 @@ type securePasswordStoreArgs struct {
 	// Login username field.
 	UsernameField string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SecurePasswordStoreUser `pulumi:"users"`
 }
 
@@ -330,6 +368,9 @@ type SecurePasswordStoreArgs struct {
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -337,6 +378,8 @@ type SecurePasswordStoreArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
 	// Name of optional param in the login form.
 	OptionalField1 pulumi.StringPtrInput
 	// Name of optional value in the login form.
@@ -370,6 +413,9 @@ type SecurePasswordStoreArgs struct {
 	// Login username field.
 	UsernameField pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayInput
 }
 

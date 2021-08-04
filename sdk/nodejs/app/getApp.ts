@@ -48,6 +48,9 @@ export interface GetAppArgs {
     readonly activeOnly?: boolean;
     /**
      * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups?: string[];
     /**
@@ -67,6 +70,9 @@ export interface GetAppArgs {
     readonly labelPrefix?: string;
     /**
      * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users?: string[];
 }
@@ -78,31 +84,37 @@ export interface GetAppResult {
     readonly activeOnly?: boolean;
     /**
      * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups?: string[];
     /**
-     * `id` of application.
+     * Application ID.
      */
     readonly id?: string;
     /**
-     * `label` of application.
+     * Application label.
      */
     readonly label?: string;
     readonly labelPrefix?: string;
     /**
-     * Generic JSON containing discoverable resources related to the app
+     * Generic JSON containing discoverable resources related to the app.
      */
     readonly links: string;
     /**
-     * `name` of application.
+     * Application name.
      */
     readonly name: string;
     /**
-     * `status` of application.
+     * Application status.
      */
     readonly status: string;
     /**
      * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users?: string[];
 }

@@ -73,7 +73,19 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// name of app.
+        /// Logo of the application.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -226,6 +238,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -249,6 +262,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
+
+        /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
 
         /// <summary>
         /// Login password field CSS selector
@@ -304,6 +323,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.ThreeFieldAppUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.ThreeFieldAppUserArgs>());
@@ -359,6 +379,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -384,7 +405,19 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// name of app.
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
+
+        /// <summary>
+        /// Name of the app.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -449,6 +482,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.ThreeFieldAppUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.ThreeFieldAppUserGetArgs>());

@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Policy
     ///                     Type = "MOBILE",
     ///                 },
     ///             },
-    ///             Policyid = "&lt;policy id&gt;",
+    ///             PolicyId = "&lt;policy id&gt;",
     ///             Priority = 1,
     ///             Status = "ACTIVE",
     ///             UserIdentifierAttribute = "company",
@@ -147,8 +147,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
@@ -188,7 +194,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RuleIdpDiscovery(string name, RuleIdpDiscoveryArgs args, CustomResourceOptions? options = null)
+        public RuleIdpDiscovery(string name, RuleIdpDiscoveryArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, args ?? new RuleIdpDiscoveryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -309,8 +315,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
@@ -434,6 +446,12 @@ namespace Pulumi.Okta.Policy
             get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>());
             set => _platformIncludes = value;
         }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Policy ID.

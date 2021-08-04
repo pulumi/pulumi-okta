@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +24,11 @@ type MfaPolicyRule struct {
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
-	Policyid pulumi.StringOutput `pulumi:"policyid"`
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
@@ -39,12 +42,9 @@ type MfaPolicyRule struct {
 func NewMfaPolicyRule(ctx *pulumi.Context,
 	name string, args *MfaPolicyRuleArgs, opts ...pulumi.ResourceOption) (*MfaPolicyRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &MfaPolicyRuleArgs{}
 	}
 
-	if args.Policyid == nil {
-		return nil, errors.New("invalid value for required argument 'Policyid'")
-	}
 	var resource MfaPolicyRule
 	err := ctx.RegisterResource("okta:deprecated/mfaPolicyRule:MfaPolicyRule", name, args, &resource, opts...)
 	if err != nil {
@@ -78,6 +78,10 @@ type mfaPolicyRuleState struct {
 	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -100,6 +104,10 @@ type MfaPolicyRuleState struct {
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID of the Rule
+	PolicyId pulumi.StringPtrInput
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -126,7 +134,11 @@ type mfaPolicyRuleArgs struct {
 	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
-	Policyid string `pulumi:"policyid"`
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
@@ -149,7 +161,11 @@ type MfaPolicyRuleArgs struct {
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID of the Rule
-	Policyid pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput

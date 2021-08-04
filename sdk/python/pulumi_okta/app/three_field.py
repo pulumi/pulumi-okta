@@ -28,6 +28,7 @@ class ThreeFieldArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
@@ -47,14 +48,17 @@ class ThreeFieldArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "button_selector", button_selector)
         pulumi.set(__self__, "extra_field_selector", extra_field_selector)
@@ -70,11 +74,16 @@ class ThreeFieldArgs:
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
             pulumi.set(__self__, "hide_web", hide_web)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url_regex is not None:
@@ -85,6 +94,9 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -213,6 +225,7 @@ class ThreeFieldArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -243,6 +256,18 @@ class ThreeFieldArgs:
     @hide_web.setter
     def hide_web(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
 
     @property
     @pulumi.getter
@@ -309,6 +334,7 @@ class ThreeFieldArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -330,6 +356,8 @@ class _ThreeFieldState:
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
@@ -350,9 +378,12 @@ class _ThreeFieldState:
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
@@ -364,6 +395,7 @@ class _ThreeFieldState:
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
         :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -378,6 +410,9 @@ class _ThreeFieldState:
         if extra_field_value is not None:
             pulumi.set(__self__, "extra_field_value", extra_field_value)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -385,6 +420,10 @@ class _ThreeFieldState:
             pulumi.set(__self__, "hide_web", hide_web)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password_selector is not None:
@@ -405,6 +444,9 @@ class _ThreeFieldState:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_selector is not None:
             pulumi.set(__self__, "username_selector", username_selector)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -485,6 +527,7 @@ class _ThreeFieldState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -527,6 +570,30 @@ class _ThreeFieldState:
     @label.setter
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
 
     @property
     @pulumi.getter
@@ -653,6 +720,7 @@ class _ThreeFieldState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -676,6 +744,7 @@ class ThreeField(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -708,9 +777,11 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
@@ -720,6 +791,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -765,6 +837,7 @@ class ThreeField(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -798,12 +871,16 @@ class ThreeField(pulumi.CustomResource):
             if extra_field_value is None and not opts.urn:
                 raise TypeError("Missing required property 'extra_field_value'")
             __props__.__dict__["extra_field_value"] = extra_field_value
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
+            __props__.__dict__["logo"] = logo
             if password_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'password_selector'")
             __props__.__dict__["password_selector"] = password_selector
@@ -818,7 +895,11 @@ class ThreeField(pulumi.CustomResource):
             if username_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'username_selector'")
             __props__.__dict__["username_selector"] = username_selector
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
         super(ThreeField, __self__).__init__(
@@ -841,6 +922,8 @@ class ThreeField(pulumi.CustomResource):
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password_selector: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
@@ -866,9 +949,12 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
@@ -880,6 +966,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -895,6 +982,8 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
+        __props__.__dict__["logo"] = logo
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["password_selector"] = password_selector
         __props__.__dict__["sign_on_mode"] = sign_on_mode
@@ -961,6 +1050,7 @@ class ThreeField(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -987,6 +1077,22 @@ class ThreeField(pulumi.CustomResource):
         The display name of the Application.
         """
         return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
 
     @property
     @pulumi.getter
@@ -1073,6 +1179,7 @@ class ThreeField(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.ThreeFieldUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

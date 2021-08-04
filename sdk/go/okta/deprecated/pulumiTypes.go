@@ -234,6 +234,177 @@ func (o BookmarkAppUserArrayOutput) Index(i pulumi.IntInput) BookmarkAppUserOutp
 	}).(BookmarkAppUserOutput)
 }
 
+type OauthAppGroupsClaim struct {
+	FilterType *string `pulumi:"filterType"`
+	Name       string  `pulumi:"name"`
+	Type       string  `pulumi:"type"`
+	Value      string  `pulumi:"value"`
+}
+
+// OauthAppGroupsClaimInput is an input type that accepts OauthAppGroupsClaimArgs and OauthAppGroupsClaimOutput values.
+// You can construct a concrete instance of `OauthAppGroupsClaimInput` via:
+//
+//          OauthAppGroupsClaimArgs{...}
+type OauthAppGroupsClaimInput interface {
+	pulumi.Input
+
+	ToOauthAppGroupsClaimOutput() OauthAppGroupsClaimOutput
+	ToOauthAppGroupsClaimOutputWithContext(context.Context) OauthAppGroupsClaimOutput
+}
+
+type OauthAppGroupsClaimArgs struct {
+	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Type       pulumi.StringInput    `pulumi:"type"`
+	Value      pulumi.StringInput    `pulumi:"value"`
+}
+
+func (OauthAppGroupsClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppGroupsClaim)(nil)).Elem()
+}
+
+func (i OauthAppGroupsClaimArgs) ToOauthAppGroupsClaimOutput() OauthAppGroupsClaimOutput {
+	return i.ToOauthAppGroupsClaimOutputWithContext(context.Background())
+}
+
+func (i OauthAppGroupsClaimArgs) ToOauthAppGroupsClaimOutputWithContext(ctx context.Context) OauthAppGroupsClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppGroupsClaimOutput)
+}
+
+func (i OauthAppGroupsClaimArgs) ToOauthAppGroupsClaimPtrOutput() OauthAppGroupsClaimPtrOutput {
+	return i.ToOauthAppGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (i OauthAppGroupsClaimArgs) ToOauthAppGroupsClaimPtrOutputWithContext(ctx context.Context) OauthAppGroupsClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppGroupsClaimOutput).ToOauthAppGroupsClaimPtrOutputWithContext(ctx)
+}
+
+// OauthAppGroupsClaimPtrInput is an input type that accepts OauthAppGroupsClaimArgs, OauthAppGroupsClaimPtr and OauthAppGroupsClaimPtrOutput values.
+// You can construct a concrete instance of `OauthAppGroupsClaimPtrInput` via:
+//
+//          OauthAppGroupsClaimArgs{...}
+//
+//  or:
+//
+//          nil
+type OauthAppGroupsClaimPtrInput interface {
+	pulumi.Input
+
+	ToOauthAppGroupsClaimPtrOutput() OauthAppGroupsClaimPtrOutput
+	ToOauthAppGroupsClaimPtrOutputWithContext(context.Context) OauthAppGroupsClaimPtrOutput
+}
+
+type oauthAppGroupsClaimPtrType OauthAppGroupsClaimArgs
+
+func OauthAppGroupsClaimPtr(v *OauthAppGroupsClaimArgs) OauthAppGroupsClaimPtrInput {
+	return (*oauthAppGroupsClaimPtrType)(v)
+}
+
+func (*oauthAppGroupsClaimPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OauthAppGroupsClaim)(nil)).Elem()
+}
+
+func (i *oauthAppGroupsClaimPtrType) ToOauthAppGroupsClaimPtrOutput() OauthAppGroupsClaimPtrOutput {
+	return i.ToOauthAppGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *oauthAppGroupsClaimPtrType) ToOauthAppGroupsClaimPtrOutputWithContext(ctx context.Context) OauthAppGroupsClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OauthAppGroupsClaimPtrOutput)
+}
+
+type OauthAppGroupsClaimOutput struct{ *pulumi.OutputState }
+
+func (OauthAppGroupsClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OauthAppGroupsClaim)(nil)).Elem()
+}
+
+func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimOutput() OauthAppGroupsClaimOutput {
+	return o
+}
+
+func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimOutputWithContext(ctx context.Context) OauthAppGroupsClaimOutput {
+	return o
+}
+
+func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimPtrOutput() OauthAppGroupsClaimPtrOutput {
+	return o.ToOauthAppGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimPtrOutputWithContext(ctx context.Context) OauthAppGroupsClaimPtrOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) *OauthAppGroupsClaim {
+		return &v
+	}).(OauthAppGroupsClaimPtrOutput)
+}
+func (o OauthAppGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppGroupsClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OauthAppGroupsClaimOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o OauthAppGroupsClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OauthAppGroupsClaimPtrOutput struct{ *pulumi.OutputState }
+
+func (OauthAppGroupsClaimPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OauthAppGroupsClaim)(nil)).Elem()
+}
+
+func (o OauthAppGroupsClaimPtrOutput) ToOauthAppGroupsClaimPtrOutput() OauthAppGroupsClaimPtrOutput {
+	return o
+}
+
+func (o OauthAppGroupsClaimPtrOutput) ToOauthAppGroupsClaimPtrOutputWithContext(ctx context.Context) OauthAppGroupsClaimPtrOutput {
+	return o
+}
+
+func (o OauthAppGroupsClaimPtrOutput) Elem() OauthAppGroupsClaimOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) OauthAppGroupsClaim { return *v }).(OauthAppGroupsClaimOutput)
+}
+
+func (o OauthAppGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppGroupsClaimPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppGroupsClaimPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppGroupsClaimPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type OauthAppJwk struct {
 	E   *string `pulumi:"e"`
 	Kid string  `pulumi:"kid"`
@@ -806,6 +977,214 @@ func (o SecurePasswordStoreAppUserArrayOutput) Index(i pulumi.IntInput) SecurePa
 	}).(SecurePasswordStoreAppUserOutput)
 }
 
+type SignonPolicyRuleFactorSequence struct {
+	PrimaryCriteriaFactorType string                                            `pulumi:"primaryCriteriaFactorType"`
+	PrimaryCriteriaProvider   string                                            `pulumi:"primaryCriteriaProvider"`
+	SecondaryCriterias        []SignonPolicyRuleFactorSequenceSecondaryCriteria `pulumi:"secondaryCriterias"`
+}
+
+// SignonPolicyRuleFactorSequenceInput is an input type that accepts SignonPolicyRuleFactorSequenceArgs and SignonPolicyRuleFactorSequenceOutput values.
+// You can construct a concrete instance of `SignonPolicyRuleFactorSequenceInput` via:
+//
+//          SignonPolicyRuleFactorSequenceArgs{...}
+type SignonPolicyRuleFactorSequenceInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRuleFactorSequenceOutput() SignonPolicyRuleFactorSequenceOutput
+	ToSignonPolicyRuleFactorSequenceOutputWithContext(context.Context) SignonPolicyRuleFactorSequenceOutput
+}
+
+type SignonPolicyRuleFactorSequenceArgs struct {
+	PrimaryCriteriaFactorType pulumi.StringInput                                        `pulumi:"primaryCriteriaFactorType"`
+	PrimaryCriteriaProvider   pulumi.StringInput                                        `pulumi:"primaryCriteriaProvider"`
+	SecondaryCriterias        SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput `pulumi:"secondaryCriterias"`
+}
+
+func (SignonPolicyRuleFactorSequenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRuleFactorSequence)(nil)).Elem()
+}
+
+func (i SignonPolicyRuleFactorSequenceArgs) ToSignonPolicyRuleFactorSequenceOutput() SignonPolicyRuleFactorSequenceOutput {
+	return i.ToSignonPolicyRuleFactorSequenceOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRuleFactorSequenceArgs) ToSignonPolicyRuleFactorSequenceOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleFactorSequenceOutput)
+}
+
+// SignonPolicyRuleFactorSequenceArrayInput is an input type that accepts SignonPolicyRuleFactorSequenceArray and SignonPolicyRuleFactorSequenceArrayOutput values.
+// You can construct a concrete instance of `SignonPolicyRuleFactorSequenceArrayInput` via:
+//
+//          SignonPolicyRuleFactorSequenceArray{ SignonPolicyRuleFactorSequenceArgs{...} }
+type SignonPolicyRuleFactorSequenceArrayInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRuleFactorSequenceArrayOutput() SignonPolicyRuleFactorSequenceArrayOutput
+	ToSignonPolicyRuleFactorSequenceArrayOutputWithContext(context.Context) SignonPolicyRuleFactorSequenceArrayOutput
+}
+
+type SignonPolicyRuleFactorSequenceArray []SignonPolicyRuleFactorSequenceInput
+
+func (SignonPolicyRuleFactorSequenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRuleFactorSequence)(nil)).Elem()
+}
+
+func (i SignonPolicyRuleFactorSequenceArray) ToSignonPolicyRuleFactorSequenceArrayOutput() SignonPolicyRuleFactorSequenceArrayOutput {
+	return i.ToSignonPolicyRuleFactorSequenceArrayOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRuleFactorSequenceArray) ToSignonPolicyRuleFactorSequenceArrayOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleFactorSequenceArrayOutput)
+}
+
+type SignonPolicyRuleFactorSequenceOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRuleFactorSequenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRuleFactorSequence)(nil)).Elem()
+}
+
+func (o SignonPolicyRuleFactorSequenceOutput) ToSignonPolicyRuleFactorSequenceOutput() SignonPolicyRuleFactorSequenceOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceOutput) ToSignonPolicyRuleFactorSequenceOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceOutput) PrimaryCriteriaFactorType() pulumi.StringOutput {
+	return o.ApplyT(func(v SignonPolicyRuleFactorSequence) string { return v.PrimaryCriteriaFactorType }).(pulumi.StringOutput)
+}
+
+func (o SignonPolicyRuleFactorSequenceOutput) PrimaryCriteriaProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v SignonPolicyRuleFactorSequence) string { return v.PrimaryCriteriaProvider }).(pulumi.StringOutput)
+}
+
+func (o SignonPolicyRuleFactorSequenceOutput) SecondaryCriterias() SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRuleFactorSequence) []SignonPolicyRuleFactorSequenceSecondaryCriteria {
+		return v.SecondaryCriterias
+	}).(SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput)
+}
+
+type SignonPolicyRuleFactorSequenceArrayOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRuleFactorSequenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRuleFactorSequence)(nil)).Elem()
+}
+
+func (o SignonPolicyRuleFactorSequenceArrayOutput) ToSignonPolicyRuleFactorSequenceArrayOutput() SignonPolicyRuleFactorSequenceArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceArrayOutput) ToSignonPolicyRuleFactorSequenceArrayOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceArrayOutput) Index(i pulumi.IntInput) SignonPolicyRuleFactorSequenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRuleFactorSequence {
+		return vs[0].([]SignonPolicyRuleFactorSequence)[vs[1].(int)]
+	}).(SignonPolicyRuleFactorSequenceOutput)
+}
+
+type SignonPolicyRuleFactorSequenceSecondaryCriteria struct {
+	FactorType string `pulumi:"factorType"`
+	Provider   string `pulumi:"provider"`
+}
+
+// SignonPolicyRuleFactorSequenceSecondaryCriteriaInput is an input type that accepts SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs and SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput values.
+// You can construct a concrete instance of `SignonPolicyRuleFactorSequenceSecondaryCriteriaInput` via:
+//
+//          SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...}
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput
+	ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutputWithContext(context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput
+}
+
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs struct {
+	FactorType pulumi.StringInput `pulumi:"factorType"`
+	Provider   pulumi.StringInput `pulumi:"provider"`
+}
+
+func (SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRuleFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (i SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput {
+	return i.ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput)
+}
+
+// SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput is an input type that accepts SignonPolicyRuleFactorSequenceSecondaryCriteriaArray and SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput values.
+// You can construct a concrete instance of `SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput` via:
+//
+//          SignonPolicyRuleFactorSequenceSecondaryCriteriaArray{ SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...} }
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput
+	ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutputWithContext(context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput
+}
+
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaArray []SignonPolicyRuleFactorSequenceSecondaryCriteriaInput
+
+func (SignonPolicyRuleFactorSequenceSecondaryCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRuleFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (i SignonPolicyRuleFactorSequenceSecondaryCriteriaArray) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput {
+	return i.ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRuleFactorSequenceSecondaryCriteriaArray) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput)
+}
+
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRuleFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput) FactorType() pulumi.StringOutput {
+	return o.ApplyT(func(v SignonPolicyRuleFactorSequenceSecondaryCriteria) string { return v.FactorType }).(pulumi.StringOutput)
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v SignonPolicyRuleFactorSequenceSecondaryCriteria) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+type SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRuleFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput() SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput) ToSignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx context.Context) SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput) Index(i pulumi.IntInput) SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRuleFactorSequenceSecondaryCriteria {
+		return vs[0].([]SignonPolicyRuleFactorSequenceSecondaryCriteria)[vs[1].(int)]
+	}).(SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput)
+}
+
 type SwaAppUser struct {
 	Id       *string `pulumi:"id"`
 	Password *string `pulumi:"password"`
@@ -1035,6 +1414,8 @@ func init() {
 	pulumi.RegisterOutputType(AuthLoginAppUserArrayOutput{})
 	pulumi.RegisterOutputType(BookmarkAppUserOutput{})
 	pulumi.RegisterOutputType(BookmarkAppUserArrayOutput{})
+	pulumi.RegisterOutputType(OauthAppGroupsClaimOutput{})
+	pulumi.RegisterOutputType(OauthAppGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OauthAppJwkOutput{})
 	pulumi.RegisterOutputType(OauthAppJwkArrayOutput{})
 	pulumi.RegisterOutputType(OauthAppUserOutput{})
@@ -1045,6 +1426,10 @@ func init() {
 	pulumi.RegisterOutputType(SamlAppUserArrayOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppUserOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppUserArrayOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRuleFactorSequenceOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRuleFactorSequenceArrayOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(SwaAppUserOutput{})
 	pulumi.RegisterOutputType(SwaAppUserArrayOutput{})
 	pulumi.RegisterOutputType(ThreeFieldAppUserOutput{})

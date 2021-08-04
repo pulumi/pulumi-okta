@@ -18,6 +18,7 @@ class GetServerScopesScopeResult(dict):
                  consent: str,
                  default: bool,
                  description: str,
+                 display_name: str,
                  id: str,
                  metadata_publish: str,
                  name: str,
@@ -26,6 +27,7 @@ class GetServerScopesScopeResult(dict):
         :param str consent: Indicates whether a consent dialog is needed for the Scope
         :param bool default: Whether the Scope is a default Scope
         :param str description: Description of the Scope
+        :param str display_name: Name of the end user displayed in a consent dialog box
         :param str id: ID of the Scope
         :param str metadata_publish: Whether the Scope should be included in the metadata
         :param str name: Name of the Scope
@@ -34,6 +36,7 @@ class GetServerScopesScopeResult(dict):
         pulumi.set(__self__, "consent", consent)
         pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "metadata_publish", metadata_publish)
         pulumi.set(__self__, "name", name)
@@ -62,6 +65,14 @@ class GetServerScopesScopeResult(dict):
         Description of the Scope
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Name of the end user displayed in a consent dialog box
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter

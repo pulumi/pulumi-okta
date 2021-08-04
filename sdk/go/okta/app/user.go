@@ -22,7 +22,8 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// App to associate user with.
-	AppId pulumi.StringOutput `pulumi:"appId"`
+	AppId             pulumi.StringOutput `pulumi:"appId"`
+	HasSharedUsername pulumi.BoolOutput   `pulumi:"hasSharedUsername"`
 	// The password to use.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The JSON profile of the App User.
@@ -31,8 +32,9 @@ type User struct {
 	RetainAssignment pulumi.BoolPtrOutput `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId pulumi.StringOutput `pulumi:"userId"`
-	// The username to use for the app user.
-	Username pulumi.StringOutput `pulumi:"username"`
+	// The username to use for the app user. In case the user is assigned to the app with
+	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -47,9 +49,6 @@ func NewUser(ctx *pulumi.Context,
 	}
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
-	}
-	if args.Username == nil {
-		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource User
 	err := ctx.RegisterResource("okta:app/user:User", name, args, &resource, opts...)
@@ -74,7 +73,8 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// App to associate user with.
-	AppId *string `pulumi:"appId"`
+	AppId             *string `pulumi:"appId"`
+	HasSharedUsername *bool   `pulumi:"hasSharedUsername"`
 	// The password to use.
 	Password *string `pulumi:"password"`
 	// The JSON profile of the App User.
@@ -83,13 +83,15 @@ type userState struct {
 	RetainAssignment *bool `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId *string `pulumi:"userId"`
-	// The username to use for the app user.
+	// The username to use for the app user. In case the user is assigned to the app with
+	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
 	Username *string `pulumi:"username"`
 }
 
 type UserState struct {
 	// App to associate user with.
-	AppId pulumi.StringPtrInput
+	AppId             pulumi.StringPtrInput
+	HasSharedUsername pulumi.BoolPtrInput
 	// The password to use.
 	Password pulumi.StringPtrInput
 	// The JSON profile of the App User.
@@ -98,7 +100,8 @@ type UserState struct {
 	RetainAssignment pulumi.BoolPtrInput
 	// User to associate the application with.
 	UserId pulumi.StringPtrInput
-	// The username to use for the app user.
+	// The username to use for the app user. In case the user is assigned to the app with
+	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
 	Username pulumi.StringPtrInput
 }
 
@@ -117,8 +120,9 @@ type userArgs struct {
 	RetainAssignment *bool `pulumi:"retainAssignment"`
 	// User to associate the application with.
 	UserId string `pulumi:"userId"`
-	// The username to use for the app user.
-	Username string `pulumi:"username"`
+	// The username to use for the app user. In case the user is assigned to the app with
+	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -133,8 +137,9 @@ type UserArgs struct {
 	RetainAssignment pulumi.BoolPtrInput
 	// User to associate the application with.
 	UserId pulumi.StringInput
-	// The username to use for the app user.
-	Username pulumi.StringInput
+	// The username to use for the app user. In case the user is assigned to the app with
+	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	Username pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

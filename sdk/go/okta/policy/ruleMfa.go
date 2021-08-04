@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,7 +35,11 @@ type RuleMfa struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
-	Policyid pulumi.StringOutput `pulumi:"policyid"`
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -49,12 +52,9 @@ type RuleMfa struct {
 func NewRuleMfa(ctx *pulumi.Context,
 	name string, args *RuleMfaArgs, opts ...pulumi.ResourceOption) (*RuleMfa, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RuleMfaArgs{}
 	}
 
-	if args.Policyid == nil {
-		return nil, errors.New("invalid value for required argument 'Policyid'")
-	}
 	var resource RuleMfa
 	err := ctx.RegisterResource("okta:policy/ruleMfa:RuleMfa", name, args, &resource, opts...)
 	if err != nil {
@@ -88,6 +88,10 @@ type ruleMfaState struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
@@ -109,6 +113,10 @@ type RuleMfaState struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
+	PolicyId pulumi.StringPtrInput
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
@@ -134,7 +142,11 @@ type ruleMfaArgs struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
-	Policyid string `pulumi:"policyid"`
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -156,7 +168,11 @@ type RuleMfaArgs struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
-	Policyid pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.

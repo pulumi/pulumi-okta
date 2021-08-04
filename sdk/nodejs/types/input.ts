@@ -4,6 +4,72 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface AppGroupAssignmentsGroup {
+    /**
+     * ID of the group to assign.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Priority of group assignment
+     */
+    priority?: pulumi.Input<number>;
+    /**
+     * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+     */
+    profile?: pulumi.Input<string>;
+}
+
+export interface AppSharedCredentialsUser {
+    /**
+     * ID of an app.
+     */
+    id?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface AppUserSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
+}
+
+export interface AppUserSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
+}
+
+export interface DomainDnsRecord {
+    /**
+     * TXT record expiration.
+     */
+    expiration?: pulumi.Input<string>;
+    /**
+     * DNS record name.
+     */
+    fqdn?: pulumi.Input<string>;
+    /**
+     * Record type can be TXT or CNAME.
+     */
+    recordType?: pulumi.Input<string>;
+    /**
+     * DNS verification value
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface EventHookHeader {
     /**
      * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -24,6 +90,39 @@ export interface TemplateSmsTranslation {
      * The SMS message.
      */
     template: pulumi.Input<string>;
+}
+
+export interface UserSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
+}
+
+export interface UserSchemaPropertyMasterOverridePriority {
+    /**
+     * - Type of profile source.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * - ID of profile source.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface UserSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
 }
 export namespace app {
     export interface AutoLoginUser {
@@ -78,6 +177,25 @@ export namespace app {
          * Array of values to use.
          */
         values?: string[];
+    }
+
+    export interface OAuthGroupsClaim {
+        /**
+         * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+         */
+        filterType?: pulumi.Input<string>;
+        /**
+         * Name of the claim that will be used in the token.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface OAuthJwk {
@@ -196,6 +314,13 @@ export namespace deprecated {
         username?: pulumi.Input<string>;
     }
 
+    export interface OauthAppGroupsClaim {
+        filterType?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface OauthAppJwk {
         e?: pulumi.Input<string>;
         kid: pulumi.Input<string>;
@@ -231,6 +356,17 @@ export namespace deprecated {
         password?: pulumi.Input<string>;
         scope?: pulumi.Input<string>;
         username?: pulumi.Input<string>;
+    }
+
+    export interface SignonPolicyRuleFactorSequence {
+        primaryCriteriaFactorType: pulumi.Input<string>;
+        primaryCriteriaProvider: pulumi.Input<string>;
+        secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequenceSecondaryCriteria>[]>;
+    }
+
+    export interface SignonPolicyRuleFactorSequenceSecondaryCriteria {
+        factorType: pulumi.Input<string>;
+        provider: pulumi.Input<string>;
     }
 
     export interface SwaAppUser {
@@ -316,6 +452,32 @@ export namespace policy {
          * The regex or simple match string to match against.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface RuleSignonFactorSequence {
+        /**
+         * Primary factor type of the auth section.
+         */
+        primaryCriteriaFactorType: pulumi.Input<string>;
+        /**
+         * Primary provider of the auth section.
+         */
+        primaryCriteriaProvider: pulumi.Input<string>;
+        /**
+         * Additional authentication steps.
+         */
+        secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequenceSecondaryCriteria>[]>;
+    }
+
+    export interface RuleSignonFactorSequenceSecondaryCriteria {
+        /**
+         * Factor type of the additional authentication step.
+         */
+        factorType: pulumi.Input<string>;
+        /**
+         * Provider of the additional authentication step.
+         */
+        provider: pulumi.Input<string>;
     }
 }
 

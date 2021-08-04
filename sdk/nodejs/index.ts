@@ -6,15 +6,33 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./adminRoleTargets";
+export * from "./appGroupAssignments";
 export * from "./appOauthApiScope";
+export * from "./appSharedCredentials";
+export * from "./appUserBaseSchemaProperty";
+export * from "./appUserSchemaProperty";
 export * from "./authServerClaimDefault";
 export * from "./authServerDefault";
+export * from "./behaviour";
+export * from "./domain";
 export * from "./eventHook";
+export * from "./factorTotp";
+export * from "./getAppGroupAssignments";
+export * from "./getAppUserAssignments";
+export * from "./getBehaviour";
+export * from "./getBehaviours";
 export * from "./getGroups";
+export * from "./getUserSecurityQuestions";
+export * from "./groupMemberships";
 export * from "./policyMfaDefault";
 export * from "./policyPasswordDefault";
 export * from "./provider";
 export * from "./templateSms";
+export * from "./userAdminRoles";
+export * from "./userBaseSchemaProperty";
+export * from "./userFactorQuestion";
+export * from "./userGroupMemberships";
+export * from "./userSchemaProperty";
 
 // Export sub-modules:
 import * as app from "./app";
@@ -53,13 +71,26 @@ export {
 
 // Import resources to register:
 import { AdminRoleTargets } from "./adminRoleTargets";
+import { AppGroupAssignments } from "./appGroupAssignments";
 import { AppOauthApiScope } from "./appOauthApiScope";
+import { AppSharedCredentials } from "./appSharedCredentials";
+import { AppUserBaseSchemaProperty } from "./appUserBaseSchemaProperty";
+import { AppUserSchemaProperty } from "./appUserSchemaProperty";
 import { AuthServerClaimDefault } from "./authServerClaimDefault";
 import { AuthServerDefault } from "./authServerDefault";
+import { Behaviour } from "./behaviour";
+import { Domain } from "./domain";
 import { EventHook } from "./eventHook";
+import { FactorTotp } from "./factorTotp";
+import { GroupMemberships } from "./groupMemberships";
 import { PolicyMfaDefault } from "./policyMfaDefault";
 import { PolicyPasswordDefault } from "./policyPasswordDefault";
 import { TemplateSms } from "./templateSms";
+import { UserAdminRoles } from "./userAdminRoles";
+import { UserBaseSchemaProperty } from "./userBaseSchemaProperty";
+import { UserFactorQuestion } from "./userFactorQuestion";
+import { UserGroupMemberships } from "./userGroupMemberships";
+import { UserSchemaProperty } from "./userSchemaProperty";
 
 const _module = {
     version: utilities.getVersion(),
@@ -67,33 +98,72 @@ const _module = {
         switch (type) {
             case "okta:index/adminRoleTargets:AdminRoleTargets":
                 return new AdminRoleTargets(name, <any>undefined, { urn })
+            case "okta:index/appGroupAssignments:AppGroupAssignments":
+                return new AppGroupAssignments(name, <any>undefined, { urn })
             case "okta:index/appOauthApiScope:AppOauthApiScope":
                 return new AppOauthApiScope(name, <any>undefined, { urn })
+            case "okta:index/appSharedCredentials:AppSharedCredentials":
+                return new AppSharedCredentials(name, <any>undefined, { urn })
+            case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
+                return new AppUserBaseSchemaProperty(name, <any>undefined, { urn })
+            case "okta:index/appUserSchemaProperty:AppUserSchemaProperty":
+                return new AppUserSchemaProperty(name, <any>undefined, { urn })
             case "okta:index/authServerClaimDefault:AuthServerClaimDefault":
                 return new AuthServerClaimDefault(name, <any>undefined, { urn })
             case "okta:index/authServerDefault:AuthServerDefault":
                 return new AuthServerDefault(name, <any>undefined, { urn })
+            case "okta:index/behaviour:Behaviour":
+                return new Behaviour(name, <any>undefined, { urn })
+            case "okta:index/domain:Domain":
+                return new Domain(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
+            case "okta:index/factorTotp:FactorTotp":
+                return new FactorTotp(name, <any>undefined, { urn })
+            case "okta:index/groupMemberships:GroupMemberships":
+                return new GroupMemberships(name, <any>undefined, { urn })
             case "okta:index/policyMfaDefault:PolicyMfaDefault":
                 return new PolicyMfaDefault(name, <any>undefined, { urn })
             case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
                 return new PolicyPasswordDefault(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
                 return new TemplateSms(name, <any>undefined, { urn })
+            case "okta:index/userAdminRoles:UserAdminRoles":
+                return new UserAdminRoles(name, <any>undefined, { urn })
+            case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
+                return new UserBaseSchemaProperty(name, <any>undefined, { urn })
+            case "okta:index/userFactorQuestion:UserFactorQuestion":
+                return new UserFactorQuestion(name, <any>undefined, { urn })
+            case "okta:index/userGroupMemberships:UserGroupMemberships":
+                return new UserGroupMemberships(name, <any>undefined, { urn })
+            case "okta:index/userSchemaProperty:UserSchemaProperty":
+                return new UserSchemaProperty(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appSharedCredentials", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appUserBaseSchemaProperty", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appUserSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
+pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
+pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
+pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
+pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
+pulumi.runtime.registerResourceModule("okta", "index/userAdminRoles", _module)
+pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _module)
+pulumi.runtime.registerResourceModule("okta", "index/userFactorQuestion", _module)
+pulumi.runtime.registerResourceModule("okta", "index/userGroupMemberships", _module)
+pulumi.runtime.registerResourceModule("okta", "index/userSchemaProperty", _module)
 
 import { Provider } from "./provider";
 

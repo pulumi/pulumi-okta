@@ -61,6 +61,9 @@ type Swa struct {
 	// Login button field.
 	ButtonField pulumi.StringPtrOutput `pulumi:"buttonField"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -68,6 +71,10 @@ type Swa struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field.
@@ -91,6 +98,9 @@ type Swa struct {
 	// Login username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaUserArrayOutput `pulumi:"users"`
 }
 
@@ -135,6 +145,9 @@ type swaState struct {
 	// Login button field.
 	ButtonField *string `pulumi:"buttonField"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -142,6 +155,10 @@ type swaState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label *string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// Login password field.
@@ -165,6 +182,9 @@ type swaState struct {
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SwaUser `pulumi:"users"`
 }
 
@@ -178,6 +198,9 @@ type SwaState struct {
 	// Login button field.
 	ButtonField pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -185,6 +208,10 @@ type SwaState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
 	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// Login password field.
@@ -208,6 +235,9 @@ type SwaState struct {
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaUserArrayInput
 }
 
@@ -225,6 +255,9 @@ type swaArgs struct {
 	// Login button field.
 	ButtonField *string `pulumi:"buttonField"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -232,6 +265,8 @@ type swaArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// Login password field.
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -251,6 +286,9 @@ type swaArgs struct {
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SwaUser `pulumi:"users"`
 }
 
@@ -265,6 +303,9 @@ type SwaArgs struct {
 	// Login button field.
 	ButtonField pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -272,6 +313,8 @@ type SwaArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// Login password field.
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -291,6 +334,9 @@ type SwaArgs struct {
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SwaUserArrayInput
 }
 

@@ -286,15 +286,27 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// All new resources will be put in top level package i.e. mainMod
-			"okta_event_hook":                {Tok: makeResource(mainMod, "EventHook")},
-			"okta_template_sms":              {Tok: makeResource(mainMod, "TemplateSms")},
-			"okta_admin_role_targets":        {Tok: makeResource(mainMod, "AdminRoleTargets")},
-			"okta_app_oauth_api_scope":       {Tok: makeResource(mainMod, "AppOauthApiScope")},
-			"okta_auth_server_default":       {Tok: makeResource(mainMod, "AuthServerDefault")},
-			"okta_policy_mfa_default":        {Tok: makeResource(mainMod, "PolicyMfaDefault")},
-			"auth_server_claim_default":      {Tok: makeResource(mainMod, "ServerClaimDefault")},
-			"okta_policy_password_default":   {Tok: makeResource(mainMod, "PolicyPasswordDefault")},
-			"okta_auth_server_claim_default": {Tok: makeResource(mainMod, "AuthServerClaimDefault")},
+			"okta_event_hook":                    {Tok: makeResource(mainMod, "EventHook")},
+			"okta_template_sms":                  {Tok: makeResource(mainMod, "TemplateSms")},
+			"okta_admin_role_targets":            {Tok: makeResource(mainMod, "AdminRoleTargets")},
+			"okta_app_oauth_api_scope":           {Tok: makeResource(mainMod, "AppOauthApiScope")},
+			"okta_auth_server_default":           {Tok: makeResource(mainMod, "AuthServerDefault")},
+			"okta_policy_mfa_default":            {Tok: makeResource(mainMod, "PolicyMfaDefault")},
+			"okta_policy_password_default":       {Tok: makeResource(mainMod, "PolicyPasswordDefault")},
+			"okta_auth_server_claim_default":     {Tok: makeResource(mainMod, "AuthServerClaimDefault")},
+			"okta_behavior":                      {Tok: makeResource(mainMod, "Behaviour")},
+			"okta_app_shared_credentials":        {Tok: makeResource(mainMod, "AppSharedCredentials")},
+			"okta_app_user_base_schema_property": {Tok: makeResource(mainMod, "AppUserBaseSchemaProperty")},
+			"okta_app_user_schema_property":      {Tok: makeResource(mainMod, "AppUserSchemaProperty")},
+			"okta_domain":                        {Tok: makeResource(mainMod, "Domain")},
+			"okta_app_group_assignments":         {Tok: makeResource(mainMod, "AppGroupAssignments")},
+			"okta_factor_totp":                   {Tok: makeResource(mainMod, "FactorTotp")},
+			"okta_group_memberships":             {Tok: makeResource(mainMod, "GroupMemberships")},
+			"okta_user_admin_roles":              {Tok: makeResource(mainMod, "UserAdminRoles")},
+			"okta_user_base_schema_property":     {Tok: makeResource(mainMod, "UserBaseSchemaProperty")},
+			"okta_user_factor_question":          {Tok: makeResource(mainMod, "UserFactorQuestion")},
+			"okta_user_group_memberships":        {Tok: makeResource(mainMod, "UserGroupMemberships")},
+			"okta_user_schema_property":          {Tok: makeResource(mainMod, "UserSchemaProperty")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},
@@ -382,14 +394,19 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_user_type": {Tok: makeDataSource(userMod, "getUserType")},
 
 			// all new data sources will go in the mainmod
-			"okta_groups": {Tok: makeDataSource(mainMod, "getGroups")},
+			"okta_groups":                  {Tok: makeDataSource(mainMod, "getGroups")},
+			"okta_app_group_assignments":   {Tok: makeDataSource(mainMod, "getAppGroupAssignments")},
+			"okta_app_user_assignments":    {Tok: makeDataSource(mainMod, "getAppUserAssignments")},
+			"okta_behavior":                {Tok: makeDataSource(mainMod, "getBehaviour")},
+			"okta_behaviors":               {Tok: makeDataSource(mainMod, "getBehaviours")},
+			"okta_user_security_questions": {Tok: makeDataSource(mainMod, "getUserSecurityQuestions")},
 
 			// Deprecated DataSources in Upstream Provider
 			"okta_default_policies": {Tok: makeDataSource(deprecatedMod, "getDefaultPolicies")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^3.0.0-alpha.0",
+				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -398,7 +415,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0",
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
@@ -412,8 +429,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*-*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
 		},

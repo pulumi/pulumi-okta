@@ -17,6 +17,8 @@ type BookmarkApp struct {
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -24,7 +26,11 @@ type BookmarkApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name               pulumi.StringOutput  `pulumi:"name"`
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
@@ -33,6 +39,8 @@ type BookmarkApp struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	Url    pulumi.StringOutput    `pulumi:"url"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkAppUserArrayOutput `pulumi:"users"`
 }
 
@@ -74,6 +82,8 @@ type bookmarkAppState struct {
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -81,7 +91,11 @@ type bookmarkAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name               *string `pulumi:"name"`
 	RequestIntegration *bool   `pulumi:"requestIntegration"`
 	// Sign on mode of application.
@@ -90,6 +104,8 @@ type bookmarkAppState struct {
 	Status *string `pulumi:"status"`
 	Url    *string `pulumi:"url"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkAppUser `pulumi:"users"`
 }
 
@@ -97,6 +113,8 @@ type BookmarkAppState struct {
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -104,7 +122,11 @@ type BookmarkAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
@@ -113,6 +135,8 @@ type BookmarkAppState struct {
 	Status pulumi.StringPtrInput
 	Url    pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkAppUserArrayInput
 }
 
@@ -124,18 +148,24 @@ type bookmarkAppArgs struct {
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
-	Label              string `pulumi:"label"`
-	RequestIntegration *bool  `pulumi:"requestIntegration"`
+	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo               *string `pulumi:"logo"`
+	RequestIntegration *bool   `pulumi:"requestIntegration"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	Url    string  `pulumi:"url"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkAppUser `pulumi:"users"`
 }
 
@@ -144,18 +174,24 @@ type BookmarkAppArgs struct {
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
-	Label              pulumi.StringInput
+	Label pulumi.StringInput
+	// Logo of the application.
+	Logo               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	Url    pulumi.StringInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkAppUserArrayInput
 }
 

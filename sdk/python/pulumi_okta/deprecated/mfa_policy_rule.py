@@ -13,175 +13,24 @@ __all__ = ['MfaPolicyRuleArgs', 'MfaPolicyRule']
 @pulumi.input_type
 class MfaPolicyRuleArgs:
     def __init__(__self__, *,
-                 policyid: pulumi.Input[str],
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The set of arguments for constructing a MfaPolicyRule resource.
-        :param pulumi.Input[str] policyid: Policy ID of the Rule
-        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
-        :param pulumi.Input[str] name: Policy Rule Name
-        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-               invalid priority is provided. API defaults it to the last (lowest) if not there.
-        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
-        """
-        pulumi.set(__self__, "policyid", policyid)
-        if enroll is not None:
-            pulumi.set(__self__, "enroll", enroll)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
-        if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
-        if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> pulumi.Input[str]:
-        """
-        Policy ID of the Rule
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policyid", value)
-
-    @property
-    @pulumi.getter
-    def enroll(self) -> Optional[pulumi.Input[str]]:
-        """
-        Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
-        """
-        return pulumi.get(self, "enroll")
-
-    @enroll.setter
-    def enroll(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "enroll", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy Rule Name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[str]]:
-        """
-        Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
-        """
-        return pulumi.get(self, "network_connection")
-
-    @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_connection", value)
-
-    @property
-    @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The zones to exclude
-        """
-        return pulumi.get(self, "network_excludes")
-
-    @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "network_excludes", value)
-
-    @property
-    @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The zones to include
-        """
-        return pulumi.get(self, "network_includes")
-
-    @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "network_includes", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
-        invalid priority is provided. API defaults it to the last (lowest) if not there.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy Rule Status: ACTIVE or INACTIVE.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of User IDs to Exclude
-        """
-        return pulumi.get(self, "users_excludeds")
-
-    @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "users_excludeds", value)
-
-
-@pulumi.input_type
-class _MfaPolicyRuleState:
-    def __init__(__self__, *,
-                 enroll: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 network_connection: Optional[pulumi.Input[str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Input properties used for looking up and filtering MfaPolicyRule resources.
+        The set of arguments for constructing a MfaPolicyRule resource.
         :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -198,6 +47,11 @@ class _MfaPolicyRuleState:
             pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
             pulumi.set(__self__, "network_includes", network_includes)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policyid is not None:
+            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
@@ -268,6 +122,191 @@ class _MfaPolicyRuleState:
         pulumi.set(self, "network_includes", value)
 
     @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID of the Rule
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter
+    def policyid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID of the Rule
+        """
+        return pulumi.get(self, "policyid")
+
+    @policyid.setter
+    def policyid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policyid", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+        invalid priority is provided. API defaults it to the last (lowest) if not there.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy Rule Status: ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="usersExcludeds")
+    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of User IDs to Exclude
+        """
+        return pulumi.get(self, "users_excludeds")
+
+    @users_excludeds.setter
+    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users_excludeds", value)
+
+
+@pulumi.input_type
+class _MfaPolicyRuleState:
+    def __init__(__self__, *,
+                 enroll: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_connection: Optional[pulumi.Input[str]] = None,
+                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 policyid: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering MfaPolicyRule resources.
+        :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: Policy ID of the Rule
+        :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+               invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        """
+        if enroll is not None:
+            pulumi.set(__self__, "enroll", enroll)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_connection is not None:
+            pulumi.set(__self__, "network_connection", network_connection)
+        if network_excludes is not None:
+            pulumi.set(__self__, "network_excludes", network_excludes)
+        if network_includes is not None:
+            pulumi.set(__self__, "network_includes", network_includes)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policyid is not None:
+            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
+        if policyid is not None:
+            pulumi.set(__self__, "policyid", policyid)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if users_excludeds is not None:
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
+
+    @property
+    @pulumi.getter
+    def enroll(self) -> Optional[pulumi.Input[str]]:
+        """
+        Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+        """
+        return pulumi.get(self, "enroll")
+
+    @enroll.setter
+    def enroll(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enroll", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy Rule Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkConnection")
+    def network_connection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        """
+        return pulumi.get(self, "network_connection")
+
+    @network_connection.setter
+    def network_connection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_connection", value)
+
+    @property
+    @pulumi.getter(name="networkExcludes")
+    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The zones to exclude
+        """
+        return pulumi.get(self, "network_excludes")
+
+    @network_excludes.setter
+    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_excludes", value)
+
+    @property
+    @pulumi.getter(name="networkIncludes")
+    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The zones to include
+        """
+        return pulumi.get(self, "network_includes")
+
+    @network_includes.setter
+    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_includes", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy ID of the Rule
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
     @pulumi.getter
     def policyid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -327,6 +366,7 @@ class MfaPolicyRule(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -341,6 +381,7 @@ class MfaPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -351,7 +392,7 @@ class MfaPolicyRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MfaPolicyRuleArgs,
+                 args: Optional[MfaPolicyRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a MfaPolicyRule resource with the given unique name, props, and options.
@@ -375,6 +416,7 @@ class MfaPolicyRule(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -396,8 +438,10 @@ class MfaPolicyRule(pulumi.CustomResource):
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
             __props__.__dict__["network_includes"] = network_includes
-            if policyid is None and not opts.urn:
-                raise TypeError("Missing required property 'policyid'")
+            __props__.__dict__["policy_id"] = policy_id
+            if policyid is not None and not opts.urn:
+                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
+                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
             __props__.__dict__["policyid"] = policyid
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
@@ -417,6 +461,7 @@ class MfaPolicyRule(pulumi.CustomResource):
             network_connection: Optional[pulumi.Input[str]] = None,
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -433,6 +478,7 @@ class MfaPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -448,6 +494,7 @@ class MfaPolicyRule(pulumi.CustomResource):
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
         __props__.__dict__["network_includes"] = network_includes
+        __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["policyid"] = policyid
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
@@ -495,8 +542,16 @@ class MfaPolicyRule(pulumi.CustomResource):
         return pulumi.get(self, "network_includes")
 
     @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy ID of the Rule
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
     @pulumi.getter
-    def policyid(self) -> pulumi.Output[str]:
+    def policyid(self) -> pulumi.Output[Optional[str]]:
         """
         Policy ID of the Rule
         """

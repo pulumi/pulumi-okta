@@ -77,8 +77,14 @@ export class OauthApp extends pulumi.CustomResource {
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
+    /**
+     * Groups claim for an OpenID Connect client application
+     */
+    public readonly groupsClaim!: pulumi.Output<outputs.deprecated.OauthAppGroupsClaim | undefined>;
     /**
      * Do not display application icon on mobile app
      */
@@ -114,11 +120,19 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly loginUri!: pulumi.Output<string | undefined>;
     /**
+     * Logo of the application.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
      * URI that references a logo for the client.
      */
     public readonly logoUri!: pulumi.Output<string | undefined>;
     /**
-     * name of app.
+     * URL of the application's logo
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -143,6 +157,14 @@ export class OauthApp extends pulumi.CustomResource {
      * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
     public readonly redirectUris!: pulumi.Output<string[] | undefined>;
+    /**
+     * *Early Access Property* Grace period for token rotation
+     */
+    public readonly refreshTokenLeeway!: pulumi.Output<number | undefined>;
+    /**
+     * *Early Access Property* Refresh token rotation behavior
+     */
+    public readonly refreshTokenRotation!: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 response type strings.
      */
@@ -169,8 +191,14 @@ export class OauthApp extends pulumi.CustomResource {
     public readonly type!: pulumi.Output<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.deprecated.OauthAppUser[] | undefined>;
+    /**
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     */
+    public readonly wildcardRedirect!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OauthApp resource with the given unique name, arguments, and options.
@@ -195,6 +223,7 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["customClientId"] = state ? state.customClientId : undefined;
             inputs["grantTypes"] = state ? state.grantTypes : undefined;
             inputs["groups"] = state ? state.groups : undefined;
+            inputs["groupsClaim"] = state ? state.groupsClaim : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
@@ -204,13 +233,17 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["loginMode"] = state ? state.loginMode : undefined;
             inputs["loginScopes"] = state ? state.loginScopes : undefined;
             inputs["loginUri"] = state ? state.loginUri : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
             inputs["logoUri"] = state ? state.logoUri : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["omitSecret"] = state ? state.omitSecret : undefined;
             inputs["policyUri"] = state ? state.policyUri : undefined;
             inputs["postLogoutRedirectUris"] = state ? state.postLogoutRedirectUris : undefined;
             inputs["profile"] = state ? state.profile : undefined;
             inputs["redirectUris"] = state ? state.redirectUris : undefined;
+            inputs["refreshTokenLeeway"] = state ? state.refreshTokenLeeway : undefined;
+            inputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
             inputs["responseTypes"] = state ? state.responseTypes : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -218,6 +251,7 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["tosUri"] = state ? state.tosUri : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["users"] = state ? state.users : undefined;
+            inputs["wildcardRedirect"] = state ? state.wildcardRedirect : undefined;
         } else {
             const args = argsOrState as OauthAppArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -235,6 +269,7 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["customClientId"] = args ? args.customClientId : undefined;
             inputs["grantTypes"] = args ? args.grantTypes : undefined;
             inputs["groups"] = args ? args.groups : undefined;
+            inputs["groupsClaim"] = args ? args.groupsClaim : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
@@ -244,19 +279,24 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["loginMode"] = args ? args.loginMode : undefined;
             inputs["loginScopes"] = args ? args.loginScopes : undefined;
             inputs["loginUri"] = args ? args.loginUri : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["logoUri"] = args ? args.logoUri : undefined;
             inputs["omitSecret"] = args ? args.omitSecret : undefined;
             inputs["policyUri"] = args ? args.policyUri : undefined;
             inputs["postLogoutRedirectUris"] = args ? args.postLogoutRedirectUris : undefined;
             inputs["profile"] = args ? args.profile : undefined;
             inputs["redirectUris"] = args ? args.redirectUris : undefined;
+            inputs["refreshTokenLeeway"] = args ? args.refreshTokenLeeway : undefined;
+            inputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             inputs["responseTypes"] = args ? args.responseTypes : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tokenEndpointAuthMethod"] = args ? args.tokenEndpointAuthMethod : undefined;
             inputs["tosUri"] = args ? args.tosUri : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["wildcardRedirect"] = args ? args.wildcardRedirect : undefined;
             inputs["clientSecret"] = undefined /*out*/;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -315,8 +355,14 @@ export interface OauthAppState {
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Groups claim for an OpenID Connect client application
+     */
+    readonly groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
     /**
      * Do not display application icon on mobile app
      */
@@ -352,11 +398,19 @@ export interface OauthAppState {
      */
     readonly loginUri?: pulumi.Input<string>;
     /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
      * URI that references a logo for the client.
      */
     readonly logoUri?: pulumi.Input<string>;
     /**
-     * name of app.
+     * URL of the application's logo
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -381,6 +435,14 @@ export interface OauthAppState {
      * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
     readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * *Early Access Property* Grace period for token rotation
+     */
+    readonly refreshTokenLeeway?: pulumi.Input<number>;
+    /**
+     * *Early Access Property* Refresh token rotation behavior
+     */
+    readonly refreshTokenRotation?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 response type strings.
      */
@@ -407,8 +469,14 @@ export interface OauthAppState {
     readonly type?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
+    /**
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     */
+    readonly wildcardRedirect?: pulumi.Input<string>;
 }
 
 /**
@@ -455,8 +523,14 @@ export interface OauthAppArgs {
     readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Groups claim for an OpenID Connect client application
+     */
+    readonly groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
     /**
      * Do not display application icon on mobile app
      */
@@ -492,6 +566,10 @@ export interface OauthAppArgs {
      */
     readonly loginUri?: pulumi.Input<string>;
     /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
      * URI that references a logo for the client.
      */
     readonly logoUri?: pulumi.Input<string>;
@@ -518,6 +596,14 @@ export interface OauthAppArgs {
      */
     readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * *Early Access Property* Grace period for token rotation
+     */
+    readonly refreshTokenLeeway?: pulumi.Input<number>;
+    /**
+     * *Early Access Property* Refresh token rotation behavior
+     */
+    readonly refreshTokenRotation?: pulumi.Input<string>;
+    /**
      * List of OAuth 2.0 response type strings.
      */
     readonly responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -539,6 +625,12 @@ export interface OauthAppArgs {
     readonly type: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
+    /**
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     */
+    readonly wildcardRedirect?: pulumi.Input<string>;
 }

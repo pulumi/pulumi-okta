@@ -53,7 +53,7 @@ export let parallelism: number | undefined = __config.getObject<number>("paralle
 export let privateKey: string | undefined = __config.get("privateKey");
 /**
  * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
- * value can be `100`.
+ * value can be `300`.
  */
 export let requestTimeout: number | undefined = __config.getObject<number>("requestTimeout");
 /**

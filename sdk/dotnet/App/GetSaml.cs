@@ -158,7 +158,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
+        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`")]
         public List<string> Groups
         {
             get => _groups ?? (_groups = new List<string>());
@@ -281,7 +283,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`")]
         public List<string> Users
         {
             get => _users ?? (_users = new List<string>());
@@ -357,6 +361,7 @@ namespace Pulumi.Okta.App
         public readonly ImmutableArray<string> Features;
         /// <summary>
         /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
@@ -458,6 +463,7 @@ namespace Pulumi.Okta.App
         public readonly string? UserNameTemplateType;
         /// <summary>
         /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 

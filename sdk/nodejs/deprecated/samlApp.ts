@@ -100,6 +100,8 @@ export class SamlApp extends pulumi.CustomResource {
     public readonly features!: pulumi.Output<string[] | undefined>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -143,6 +145,14 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
+     * Logo of the application.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * URL of the application's logo
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
      * SAML xml metadata payload
      */
     public /*out*/ readonly metadata!: pulumi.Output<string>;
@@ -151,7 +161,7 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly metadataUrl!: pulumi.Output<string>;
     /**
-     * name of app.
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -224,6 +234,8 @@ export class SamlApp extends pulumi.CustomResource {
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.deprecated.SamlAppUser[] | undefined>;
 
@@ -268,6 +280,8 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["metadataUrl"] = state ? state.metadataUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -316,6 +330,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
             inputs["recipient"] = args ? args.recipient : undefined;
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
@@ -339,6 +354,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["httpPostBinding"] = undefined /*out*/;
             inputs["httpRedirectBinding"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["metadataUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -422,6 +438,8 @@ export interface SamlAppState {
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -465,6 +483,14 @@ export interface SamlAppState {
      */
     readonly label?: pulumi.Input<string>;
     /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * URL of the application's logo
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
      * SAML xml metadata payload
      */
     readonly metadata?: pulumi.Input<string>;
@@ -473,7 +499,7 @@ export interface SamlAppState {
      */
     readonly metadataUrl?: pulumi.Input<string>;
     /**
-     * name of app.
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -546,6 +572,8 @@ export interface SamlAppState {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
 }
@@ -609,6 +637,8 @@ export interface SamlAppArgs {
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -639,6 +669,10 @@ export interface SamlAppArgs {
      * Pretty name of app.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * Name of preexisting SAML application. For instance 'slack'
      */
@@ -705,6 +739,8 @@ export interface SamlAppArgs {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
 }

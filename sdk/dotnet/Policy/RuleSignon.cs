@@ -12,6 +12,114 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// Creates a Sign On Policy Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Okta.Policy.Signon("test", new Okta.Policy.SignonArgs
+    ///         {
+    ///             Status = "ACTIVE",
+    ///             Description = "Example Policy",
+    ///         });
+    ///         var newCity = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs
+    ///         {
+    ///             Name = "New City",
+    ///         }));
+    ///         var example = new Okta.Policy.RuleSignon("example", new Okta.Policy.RuleSignonArgs
+    ///         {
+    ///             Access = "CHALLENGE",
+    ///             Authtype = "RADIUS",
+    ///             NetworkConnection = "ANYWHERE",
+    ///             PolicyId = okta_policy_signon.Example.Id,
+    ///             Status = "ACTIVE",
+    ///             RiscLevel = "HIGH",
+    ///             Behaviors = 
+    ///             {
+    ///                 newCity.Apply(newCity =&gt; newCity.Id),
+    ///             },
+    ///             FactorSequences = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
+    ///                 {
+    ///                     PrimaryCriteriaFactorType = "token:hotp",
+    ///                     PrimaryCriteriaProvider = "CUSTOM",
+    ///                     SecondaryCriterias = 
+    ///                     {
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "token:software:totp",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "push",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "password",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "question",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "sms",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "token:software:totp",
+    ///                             Provider = "GOOGLE",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "email",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "call",
+    ///                             Provider = "OKTA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "webauthn",
+    ///                             Provider = "FIDO",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "token",
+    ///                             Provider = "RSA",
+    ///                         },
+    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                         {
+    ///                             FactorType = "token",
+    ///                             Provider = "SYMANTEC",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
+    ///                 {
+    ///                     PrimaryCriteriaFactorType = "token:software:totp",
+    ///                     PrimaryCriteriaProvider = "OKTA",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Policy Rule can be imported via the Policy and Rule ID.
@@ -24,16 +132,28 @@ namespace Pulumi.Okta.Policy
     public partial class RuleSignon : Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         /// </summary>
         [Output("access")]
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         /// </summary>
         [Output("authtype")]
         public Output<string?> Authtype { get; private set; } = null!;
+
+        /// <summary>
+        /// List of behavior IDs.
+        /// </summary>
+        [Output("behaviors")]
+        public Output<ImmutableArray<string>> Behaviors { get; private set; } = null!;
+
+        /// <summary>
+        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        /// </summary>
+        [Output("factorSequences")]
+        public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
         /// Elapsed time before the next MFA challenge.
@@ -86,14 +206,27 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// </summary>
+        [Output("riscLevel")]
+        public Output<string?> RiscLevel { get; private set; } = null!;
 
         /// <summary>
         /// Max minutes a session can be idle.,
@@ -133,7 +266,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RuleSignon(string name, RuleSignonArgs args, CustomResourceOptions? options = null)
+        public RuleSignon(string name, RuleSignonArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:policy/ruleSignon:RuleSignon", name, args ?? new RuleSignonArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -172,16 +305,40 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleSignonArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
+
+        [Input("behaviors")]
+        private InputList<string>? _behaviors;
+
+        /// <summary>
+        /// List of behavior IDs.
+        /// </summary>
+        public InputList<string> Behaviors
+        {
+            get => _behaviors ?? (_behaviors = new InputList<string>());
+            set => _behaviors = value;
+        }
+
+        [Input("factorSequences")]
+        private InputList<Inputs.RuleSignonFactorSequenceArgs>? _factorSequences;
+
+        /// <summary>
+        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        /// </summary>
+        public InputList<Inputs.RuleSignonFactorSequenceArgs> FactorSequences
+        {
+            get => _factorSequences ?? (_factorSequences = new InputList<Inputs.RuleSignonFactorSequenceArgs>());
+            set => _factorSequences = value;
+        }
 
         /// <summary>
         /// Elapsed time before the next MFA challenge.
@@ -246,14 +403,27 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// </summary>
+        [Input("riscLevel")]
+        public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
         /// Max minutes a session can be idle.,
@@ -299,16 +469,40 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleSignonState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
+
+        [Input("behaviors")]
+        private InputList<string>? _behaviors;
+
+        /// <summary>
+        /// List of behavior IDs.
+        /// </summary>
+        public InputList<string> Behaviors
+        {
+            get => _behaviors ?? (_behaviors = new InputList<string>());
+            set => _behaviors = value;
+        }
+
+        [Input("factorSequences")]
+        private InputList<Inputs.RuleSignonFactorSequenceGetArgs>? _factorSequences;
+
+        /// <summary>
+        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+        /// </summary>
+        public InputList<Inputs.RuleSignonFactorSequenceGetArgs> FactorSequences
+        {
+            get => _factorSequences ?? (_factorSequences = new InputList<Inputs.RuleSignonFactorSequenceGetArgs>());
+            set => _factorSequences = value;
+        }
 
         /// <summary>
         /// Elapsed time before the next MFA challenge.
@@ -373,6 +567,12 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
         [Input("policyid")]
         public Input<string>? Policyid { get; set; }
 
@@ -381,6 +581,13 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
+        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// </summary>
+        [Input("riscLevel")]
+        public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
         /// Max minutes a session can be idle.,

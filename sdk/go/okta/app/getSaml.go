@@ -75,6 +75,9 @@ type LookupSamlArgs struct {
 	// features enabled.
 	Features []string `pulumi:"features"`
 	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -116,6 +119,9 @@ type LookupSamlArgs struct {
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// List of users IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
 
@@ -152,6 +158,9 @@ type LookupSamlResult struct {
 	// features enabled.
 	Features []string `pulumi:"features"`
 	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -203,5 +212,8 @@ type LookupSamlResult struct {
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// List of users IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }

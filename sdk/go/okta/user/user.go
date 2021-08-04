@@ -79,6 +79,9 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Administrator roles assigned to User.
+	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+	//
+	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayOutput `pulumi:"adminRoles"`
 	// User profile property.
 	City pulumi.StringPtrOutput `pulumi:"city"`
@@ -101,6 +104,8 @@ type User struct {
 	// User's First Name, required by default.
 	FirstName pulumi.StringOutput `pulumi:"firstName"`
 	// User profile property.
+	//
+	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
 	GroupMemberships pulumi.StringArrayOutput `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrOutput `pulumi:"honorificPrefix"`
@@ -200,6 +205,9 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// Administrator roles assigned to User.
+	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+	//
+	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles []string `pulumi:"adminRoles"`
 	// User profile property.
 	City *string `pulumi:"city"`
@@ -222,6 +230,8 @@ type userState struct {
 	// User's First Name, required by default.
 	FirstName *string `pulumi:"firstName"`
 	// User profile property.
+	//
+	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
 	GroupMemberships []string `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
@@ -281,6 +291,9 @@ type userState struct {
 
 type UserState struct {
 	// Administrator roles assigned to User.
+	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+	//
+	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayInput
 	// User profile property.
 	City pulumi.StringPtrInput
@@ -303,6 +316,8 @@ type UserState struct {
 	// User's First Name, required by default.
 	FirstName pulumi.StringPtrInput
 	// User profile property.
+	//
+	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
 	GroupMemberships pulumi.StringArrayInput
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrInput
@@ -366,6 +381,9 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// Administrator roles assigned to User.
+	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+	//
+	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles []string `pulumi:"adminRoles"`
 	// User profile property.
 	City *string `pulumi:"city"`
@@ -388,6 +406,8 @@ type userArgs struct {
 	// User's First Name, required by default.
 	FirstName string `pulumi:"firstName"`
 	// User profile property.
+	//
+	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
 	GroupMemberships []string `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
@@ -446,6 +466,9 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// Administrator roles assigned to User.
+	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+	//
+	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayInput
 	// User profile property.
 	City pulumi.StringPtrInput
@@ -468,6 +491,8 @@ type UserArgs struct {
 	// User's First Name, required by default.
 	FirstName pulumi.StringInput
 	// User profile property.
+	//
+	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
 	GroupMemberships pulumi.StringArrayInput
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrInput

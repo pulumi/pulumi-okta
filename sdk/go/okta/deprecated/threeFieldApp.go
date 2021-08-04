@@ -27,6 +27,8 @@ type ThreeFieldApp struct {
 	// Value for extra form field
 	ExtraFieldValue pulumi.StringOutput `pulumi:"extraFieldValue"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -34,7 +36,11 @@ type ThreeFieldApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringOutput `pulumi:"passwordSelector"`
@@ -55,6 +61,8 @@ type ThreeFieldApp struct {
 	// Login username field CSS selector
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldAppUserArrayOutput `pulumi:"users"`
 }
 
@@ -121,6 +129,8 @@ type threeFieldAppState struct {
 	// Value for extra form field
 	ExtraFieldValue *string `pulumi:"extraFieldValue"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -128,7 +138,11 @@ type threeFieldAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Login password field CSS selector
 	PasswordSelector *string `pulumi:"passwordSelector"`
@@ -149,6 +163,8 @@ type threeFieldAppState struct {
 	// Login username field CSS selector
 	UsernameSelector *string `pulumi:"usernameSelector"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldAppUser `pulumi:"users"`
 }
 
@@ -166,6 +182,8 @@ type ThreeFieldAppState struct {
 	// Value for extra form field
 	ExtraFieldValue pulumi.StringPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -173,7 +191,11 @@ type ThreeFieldAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringPtrInput
@@ -194,6 +216,8 @@ type ThreeFieldAppState struct {
 	// Login username field CSS selector
 	UsernameSelector pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldAppUserArrayInput
 }
 
@@ -215,6 +239,8 @@ type threeFieldAppArgs struct {
 	// Value for extra form field
 	ExtraFieldValue string `pulumi:"extraFieldValue"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -222,6 +248,8 @@ type threeFieldAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
 	// Login password field CSS selector
 	PasswordSelector string `pulumi:"passwordSelector"`
 	// Status of application.
@@ -239,6 +267,8 @@ type threeFieldAppArgs struct {
 	// Login username field CSS selector
 	UsernameSelector string `pulumi:"usernameSelector"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldAppUser `pulumi:"users"`
 }
 
@@ -257,6 +287,8 @@ type ThreeFieldAppArgs struct {
 	// Value for extra form field
 	ExtraFieldValue pulumi.StringInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -264,6 +296,8 @@ type ThreeFieldAppArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringInput
 	// Status of application.
@@ -281,6 +315,8 @@ type ThreeFieldAppArgs struct {
 	// Login username field CSS selector
 	UsernameSelector pulumi.StringInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldAppUserArrayInput
 }
 

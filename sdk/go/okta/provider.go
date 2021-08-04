@@ -58,7 +58,7 @@ type providerArgs struct {
 	// API Token granting privileges to Okta API.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `100`.
+	// value can be `300`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// API Token granting privileges to Okta API.
 	Scopes []string `pulumi:"scopes"`
@@ -90,7 +90,7 @@ type ProviderArgs struct {
 	// API Token granting privileges to Okta API.
 	PrivateKey pulumi.StringPtrInput
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `100`.
+	// value can be `300`.
 	RequestTimeout pulumi.IntPtrInput
 	// API Token granting privileges to Okta API.
 	Scopes pulumi.StringArrayInput

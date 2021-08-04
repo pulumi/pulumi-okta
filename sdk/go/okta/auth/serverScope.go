@@ -58,6 +58,8 @@ type ServerScope struct {
 	Default pulumi.BoolPtrOutput `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrOutput `pulumi:"metadataPublish"`
 	// Auth Server scope name.
@@ -104,6 +106,8 @@ type serverScopeState struct {
 	Default *bool `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description *string `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box.
+	DisplayName *string `pulumi:"displayName"`
 	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish *string `pulumi:"metadataPublish"`
 	// Auth Server scope name.
@@ -119,6 +123,8 @@ type ServerScopeState struct {
 	Default pulumi.BoolPtrInput
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrInput
+	// Name of the end user displayed in a consent dialog box.
+	DisplayName pulumi.StringPtrInput
 	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrInput
 	// Auth Server scope name.
@@ -138,6 +144,8 @@ type serverScopeArgs struct {
 	Default *bool `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description *string `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box.
+	DisplayName *string `pulumi:"displayName"`
 	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish *string `pulumi:"metadataPublish"`
 	// Auth Server scope name.
@@ -154,6 +162,8 @@ type ServerScopeArgs struct {
 	Default pulumi.BoolPtrInput
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrInput
+	// Name of the end user displayed in a consent dialog box.
+	DisplayName pulumi.StringPtrInput
 	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrInput
 	// Auth Server scope name.

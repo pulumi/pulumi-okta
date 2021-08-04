@@ -79,6 +79,9 @@ export class AutoLogin extends pulumi.CustomResource {
     public readonly credentialsScheme!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -93,6 +96,14 @@ export class AutoLogin extends pulumi.CustomResource {
      * The Application's display name.
      */
     public readonly label!: pulumi.Output<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * Direct link of application logo.
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
      * Name assigned to the application by Okta.
      */
@@ -143,6 +154,9 @@ export class AutoLogin extends pulumi.CustomResource {
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.app.AutoLoginUser[] | undefined>;
 
@@ -167,6 +181,8 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["revealPassword"] = state ? state.revealPassword : undefined;
@@ -193,6 +209,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
             inputs["revealPassword"] = args ? args.revealPassword : undefined;
             inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
@@ -204,6 +221,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -236,6 +254,9 @@ export interface AutoLoginState {
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -250,6 +271,14 @@ export interface AutoLoginState {
      * The Application's display name.
      */
     readonly label?: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * Direct link of application logo.
+     */
+    readonly logoUrl?: pulumi.Input<string>;
     /**
      * Name assigned to the application by Okta.
      */
@@ -300,6 +329,9 @@ export interface AutoLoginState {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }
@@ -326,6 +358,9 @@ export interface AutoLoginArgs {
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,6 +375,10 @@ export interface AutoLoginArgs {
      * The Application's display name.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      */
@@ -382,6 +421,9 @@ export interface AutoLoginArgs {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }

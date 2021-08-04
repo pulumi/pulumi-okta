@@ -59,6 +59,8 @@ export class ThreeFieldApp extends pulumi.CustomResource {
     public readonly extraFieldValue!: pulumi.Output<string>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -74,7 +76,15 @@ export class ThreeFieldApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * URL of the application's logo
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -115,6 +125,8 @@ export class ThreeFieldApp extends pulumi.CustomResource {
     public readonly usernameSelector!: pulumi.Output<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.deprecated.ThreeFieldAppUser[] | undefined>;
 
@@ -141,6 +153,8 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordSelector"] = state ? state.passwordSelector : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
@@ -185,6 +199,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordSelector"] = args ? args.passwordSelector : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
@@ -194,6 +209,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameSelector"] = args ? args.usernameSelector : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -234,6 +250,8 @@ export interface ThreeFieldAppState {
     readonly extraFieldValue?: pulumi.Input<string>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -249,7 +267,15 @@ export interface ThreeFieldAppState {
      */
     readonly label?: pulumi.Input<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * URL of the application's logo
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -290,6 +316,8 @@ export interface ThreeFieldAppState {
     readonly usernameSelector?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
 }
@@ -324,6 +352,8 @@ export interface ThreeFieldAppArgs {
     readonly extraFieldValue: pulumi.Input<string>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -338,6 +368,10 @@ export interface ThreeFieldAppArgs {
      * Pretty name of app.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * Login password field CSS selector
      */
@@ -372,6 +406,8 @@ export interface ThreeFieldAppArgs {
     readonly usernameSelector: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
 }

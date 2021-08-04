@@ -52,6 +52,9 @@ type Bookmark struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -59,7 +62,11 @@ type Bookmark struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
@@ -70,6 +77,9 @@ type Bookmark struct {
 	// The URL of the bookmark.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayOutput `pulumi:"users"`
 }
 
@@ -111,6 +121,9 @@ type bookmarkState struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -118,7 +131,11 @@ type bookmarkState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
@@ -129,6 +146,9 @@ type bookmarkState struct {
 	// The URL of the bookmark.
 	Url *string `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkUser `pulumi:"users"`
 }
 
@@ -136,6 +156,9 @@ type BookmarkState struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -143,7 +166,11 @@ type BookmarkState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
@@ -154,6 +181,9 @@ type BookmarkState struct {
 	// The URL of the bookmark.
 	Url pulumi.StringPtrInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayInput
 }
 
@@ -165,6 +195,9 @@ type bookmarkArgs struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -172,6 +205,8 @@ type bookmarkArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
@@ -179,6 +214,9 @@ type bookmarkArgs struct {
 	// The URL of the bookmark.
 	Url string `pulumi:"url"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkUser `pulumi:"users"`
 }
 
@@ -187,6 +225,9 @@ type BookmarkArgs struct {
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -194,6 +235,8 @@ type BookmarkArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
@@ -201,6 +244,9 @@ type BookmarkArgs struct {
 	// The URL of the bookmark.
 	Url pulumi.StringInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayInput
 }
 

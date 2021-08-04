@@ -12,6 +12,7 @@ __all__ = [
     'AutoLoginUser',
     'BasicAuthUser',
     'BookmarkUser',
+    'OAuthGroupsClaim',
     'OAuthJwk',
     'OAuthUser',
     'SamlAttributeStatement',
@@ -145,6 +146,75 @@ class BookmarkUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class OAuthGroupsClaim(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuthGroupsClaim. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuthGroupsClaim.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuthGroupsClaim.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str,
+                 filter_type: Optional[str] = None):
+        """
+        :param str name: Name of the claim that will be used in the token.
+        :param str type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param str value: Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+        :param str filter_type: Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the claim that will be used in the token.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[str]:
+        """
+        Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        """
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type

@@ -37,6 +37,7 @@ class SamlArgs:
                  idp_issuer: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -72,12 +73,14 @@ class SamlArgs:
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -96,6 +99,7 @@ class SamlArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
         :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -127,6 +131,9 @@ class SamlArgs:
         if features is not None:
             pulumi.set(__self__, "features", features)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -140,6 +147,8 @@ class SamlArgs:
             pulumi.set(__self__, "key_name", key_name)
         if key_years_valid is not None:
             pulumi.set(__self__, "key_years_valid", key_years_valid)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if preconfigured_app is not None:
             pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if recipient is not None:
@@ -172,6 +181,9 @@ class SamlArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -360,6 +372,7 @@ class SamlArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -438,6 +451,18 @@ class SamlArgs:
     @key_years_valid.setter
     def key_years_valid(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "key_years_valid", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
 
     @property
     @pulumi.getter(name="preconfiguredApp")
@@ -637,6 +662,7 @@ class SamlArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]:
         """
         Users associated with the application.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -676,6 +702,8 @@ class _SamlState:
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  metadata_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -717,6 +745,7 @@ class _SamlState:
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
@@ -727,6 +756,8 @@ class _SamlState:
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
         :param pulumi.Input[str] name: The name of the attribute statement.
@@ -749,6 +780,7 @@ class _SamlState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
         :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -785,6 +817,9 @@ class _SamlState:
         if features is not None:
             pulumi.set(__self__, "features", features)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -806,6 +841,10 @@ class _SamlState:
             pulumi.set(__self__, "key_years_valid", key_years_valid)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if metadata_url is not None:
@@ -846,6 +885,9 @@ class _SamlState:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -1058,6 +1100,7 @@ class _SamlState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1184,6 +1227,30 @@ class _SamlState:
     @label.setter
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
 
     @property
     @pulumi.getter
@@ -1431,6 +1498,7 @@ class _SamlState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]:
         """
         Users associated with the application.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1466,6 +1534,7 @@ class Saml(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -1541,6 +1610,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
@@ -1548,6 +1618,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1566,6 +1637,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -1650,6 +1722,7 @@ class Saml(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -1693,6 +1766,9 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["digest_algorithm"] = digest_algorithm
             __props__.__dict__["features"] = features
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
@@ -1703,6 +1779,7 @@ class Saml(pulumi.CustomResource):
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
+            __props__.__dict__["logo"] = logo
             __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["recipient"] = recipient
             __props__.__dict__["request_compressed"] = request_compressed
@@ -1719,6 +1796,9 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["user_name_template"] = user_name_template
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
             __props__.__dict__["certificate"] = None
             __props__.__dict__["entity_key"] = None
@@ -1726,6 +1806,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["http_post_binding"] = None
             __props__.__dict__["http_redirect_binding"] = None
             __props__.__dict__["key_id"] = None
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["metadata_url"] = None
             __props__.__dict__["name"] = None
@@ -1768,6 +1849,8 @@ class Saml(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[str]] = None,
             key_years_valid: Optional[pulumi.Input[int]] = None,
             label: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             metadata_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1814,6 +1897,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
@@ -1824,6 +1908,8 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
         :param pulumi.Input[str] name: The name of the attribute statement.
@@ -1846,6 +1932,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1879,6 +1966,8 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_years_valid"] = key_years_valid
         __props__.__dict__["label"] = label
+        __props__.__dict__["logo"] = logo
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["metadata_url"] = metadata_url
         __props__.__dict__["name"] = name
@@ -2043,6 +2132,7 @@ class Saml(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -2125,6 +2215,22 @@ class Saml(pulumi.CustomResource):
         label of application.
         """
         return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
 
     @property
     @pulumi.getter
@@ -2292,6 +2398,7 @@ class Saml(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.SamlUser']]]:
         """
         Users associated with the application.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

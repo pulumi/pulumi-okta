@@ -23,6 +23,7 @@ class SwaAppArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class SwaAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] password_field: Login password field
         :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] status: Status of application.
@@ -64,11 +66,16 @@ class SwaAppArgs:
         if button_field is not None:
             pulumi.set(__self__, "button_field", button_field)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
             pulumi.set(__self__, "hide_web", hide_web)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if password_field is not None:
             pulumi.set(__self__, "password_field", password_field)
         if preconfigured_app is not None:
@@ -87,6 +94,9 @@ class SwaAppArgs:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -185,6 +195,18 @@ class SwaAppArgs:
     @hide_web.setter
     def hide_web(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
 
     @property
     @pulumi.getter(name="passwordField")
@@ -318,6 +340,8 @@ class _SwaAppState:
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
@@ -340,7 +364,9 @@ class _SwaAppState:
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] password_field: Login password field
         :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
@@ -362,6 +388,9 @@ class _SwaAppState:
         if button_field is not None:
             pulumi.set(__self__, "button_field", button_field)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -369,6 +398,10 @@ class _SwaAppState:
             pulumi.set(__self__, "hide_web", hide_web)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password_field is not None:
@@ -391,6 +424,9 @@ class _SwaAppState:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -492,9 +528,33 @@ class _SwaAppState:
 
     @property
     @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        name of app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -648,6 +708,7 @@ class SwaApp(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -671,6 +732,7 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] password_field: Login password field
         :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] status: Status of application.
@@ -713,6 +775,7 @@ class SwaApp(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -739,12 +802,16 @@ class SwaApp(pulumi.CustomResource):
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["button_field"] = button_field
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
+            __props__.__dict__["logo"] = logo
             __props__.__dict__["password_field"] = password_field
             __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["status"] = status
@@ -754,7 +821,11 @@ class SwaApp(pulumi.CustomResource):
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             __props__.__dict__["username_field"] = username_field
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
         super(SwaApp, __self__).__init__(
@@ -775,6 +846,8 @@ class SwaApp(pulumi.CustomResource):
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password_field: Optional[pulumi.Input[str]] = None,
             preconfigured_app: Optional[pulumi.Input[str]] = None,
@@ -802,7 +875,9 @@ class SwaApp(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] password_field: Login password field
         :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
@@ -827,6 +902,8 @@ class SwaApp(pulumi.CustomResource):
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
+        __props__.__dict__["logo"] = logo
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["password_field"] = password_field
         __props__.__dict__["preconfigured_app"] = preconfigured_app
@@ -907,9 +984,25 @@ class SwaApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        name of app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 

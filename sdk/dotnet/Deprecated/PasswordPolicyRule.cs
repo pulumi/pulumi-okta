@@ -57,8 +57,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -87,7 +93,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PasswordPolicyRule(string name, PasswordPolicyRuleArgs args, CustomResourceOptions? options = null)
+        public PasswordPolicyRule(string name, PasswordPolicyRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args ?? new PasswordPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -182,8 +188,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -270,6 +282,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Policy ID of the Rule

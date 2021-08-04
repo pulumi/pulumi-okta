@@ -118,7 +118,12 @@ type OAuth struct {
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
+	// Groups claim for an OpenID Connect client application.
+	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -136,9 +141,13 @@ type OAuth struct {
 	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
-	// Name assigned to the application by Okta.
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the claim that will be used in the token.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
@@ -150,6 +159,10 @@ type OAuth struct {
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayOutput `pulumi:"redirectUris"`
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
+	RefreshTokenLeeway pulumi.IntPtrOutput `pulumi:"refreshTokenLeeway"`
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+	RefreshTokenRotation pulumi.StringPtrOutput `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign-on mode of application.
@@ -160,10 +173,15 @@ type OAuth struct {
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayOutput `pulumi:"users"`
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+	WildcardRedirect pulumi.StringPtrOutput `pulumi:"wildcardRedirect"`
 }
 
 // NewOAuth registers a new resource with the given unique name, arguments, and options.
@@ -224,7 +242,12 @@ type oauthState struct {
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
+	// Groups claim for an OpenID Connect client application.
+	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -242,9 +265,13 @@ type oauthState struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// Name assigned to the application by Okta.
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the claim that will be used in the token.
 	Name *string `pulumi:"name"`
 	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
@@ -256,6 +283,10 @@ type oauthState struct {
 	Profile *string `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris []string `pulumi:"redirectUris"`
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
+	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign-on mode of application.
@@ -266,10 +297,15 @@ type oauthState struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type *string `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []OAuthUser `pulumi:"users"`
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
 type OAuthState struct {
@@ -296,7 +332,12 @@ type OAuthState struct {
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
+	// Groups claim for an OpenID Connect client application.
+	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -314,9 +355,13 @@ type OAuthState struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// Name assigned to the application by Okta.
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
+	// Name of the claim that will be used in the token.
 	Name pulumi.StringPtrInput
 	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
@@ -328,6 +373,10 @@ type OAuthState struct {
 	Profile pulumi.StringPtrInput
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayInput
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
+	RefreshTokenLeeway pulumi.IntPtrInput
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+	RefreshTokenRotation pulumi.StringPtrInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
 	// Sign-on mode of application.
@@ -338,10 +387,15 @@ type OAuthState struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayInput
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+	WildcardRedirect pulumi.StringPtrInput
 }
 
 func (OAuthState) ElementType() reflect.Type {
@@ -370,7 +424,12 @@ type oauthArgs struct {
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
+	// Groups claim for an OpenID Connect client application.
+	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -388,6 +447,8 @@ type oauthArgs struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
 	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
@@ -400,6 +461,10 @@ type oauthArgs struct {
 	Profile *string `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris []string `pulumi:"redirectUris"`
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
+	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// The status of the application, by default, it is `"ACTIVE"`.
@@ -408,10 +473,15 @@ type oauthArgs struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type string `pulumi:"type"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []OAuthUser `pulumi:"users"`
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
 // The set of arguments for constructing a OAuth resource.
@@ -437,7 +507,12 @@ type OAuthArgs struct {
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
+	// Groups claim for an OpenID Connect client application.
+	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -455,6 +530,8 @@ type OAuthArgs struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
 	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
@@ -467,6 +544,10 @@ type OAuthArgs struct {
 	Profile pulumi.StringPtrInput
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayInput
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
+	RefreshTokenLeeway pulumi.IntPtrInput
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+	RefreshTokenRotation pulumi.StringPtrInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
 	// The status of the application, by default, it is `"ACTIVE"`.
@@ -475,10 +556,15 @@ type OAuthArgs struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayInput
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+	WildcardRedirect pulumi.StringPtrInput
 }
 
 func (OAuthArgs) ElementType() reflect.Type {

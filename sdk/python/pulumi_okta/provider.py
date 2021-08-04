@@ -41,7 +41,7 @@ class ProviderArgs:
                https://developer.okta.com/docs/api/getting_started/rate-limits.
         :param pulumi.Input[str] private_key: API Token granting privileges to Okta API.
         :param pulumi.Input[int] request_timeout: Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-               value can be `100`.
+               value can be `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: API Token granting privileges to Okta API.
         """
         if api_token is not None:
@@ -209,7 +209,7 @@ class ProviderArgs:
     def request_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-        value can be `100`.
+        value can be `300`.
         """
         return pulumi.get(self, "request_timeout")
 
@@ -270,7 +270,7 @@ class Provider(pulumi.ProviderResource):
                https://developer.okta.com/docs/api/getting_started/rate-limits.
         :param pulumi.Input[str] private_key: API Token granting privileges to Okta API.
         :param pulumi.Input[int] request_timeout: Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-               value can be `100`.
+               value can be `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: API Token granting privileges to Okta API.
         """
         ...

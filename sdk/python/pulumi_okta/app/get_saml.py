@@ -69,6 +69,10 @@ class GetSamlResult:
         pulumi.set(__self__, "features", features)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
+        if groups is not None:
+            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""")
+
         pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
@@ -147,6 +151,10 @@ class GetSamlResult:
         pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
+        if users is not None:
+            warnings.warn("""The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""")
+
         pulumi.set(__self__, "users", users)
 
     @property
@@ -272,6 +280,7 @@ class GetSamlResult:
     def groups(self) -> Optional[Sequence[str]]:
         """
         List of groups IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
         """
         return pulumi.get(self, "groups")
 
@@ -477,6 +486,7 @@ class GetSamlResult:
     def users(self) -> Optional[Sequence[str]]:
         """
         List of users IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
         """
         return pulumi.get(self, "users")
 
@@ -597,6 +607,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
     :param Sequence[str] features: features enabled.
     :param Sequence[str] groups: List of groups IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
     :param bool hide_ios: Do not display application icon on mobile app.
     :param bool hide_web: Do not display application icon to users
     :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.
@@ -619,6 +630,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param str user_name_template_suffix: Username template suffix.
     :param str user_name_template_type: Username template type.
     :param Sequence[str] users: List of users IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
     """
     __args__ = dict()
     __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url

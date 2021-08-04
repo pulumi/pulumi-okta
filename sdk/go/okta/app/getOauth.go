@@ -46,6 +46,9 @@ type GetOauthArgs struct {
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
@@ -57,6 +60,9 @@ type GetOauthArgs struct {
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// List of users IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
 
@@ -72,6 +78,9 @@ type GetOauthResult struct {
 	// List of OAuth 2.0 grant types.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos bool `pulumi:"hideIos"`
@@ -107,5 +116,9 @@ type GetOauthResult struct {
 	// The type of OAuth application.
 	Type string `pulumi:"type"`
 	// List of users IDs assigned to the application.
-	Users []string `pulumi:"users"`
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
+	Users            []string `pulumi:"users"`
+	WildcardRedirect string   `pulumi:"wildcardRedirect"`
 }

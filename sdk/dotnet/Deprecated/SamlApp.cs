@@ -178,6 +178,18 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
+
+        /// <summary>
         /// SAML xml metadata payload
         /// </summary>
         [Output("metadata")]
@@ -190,7 +202,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> MetadataUrl { get; private set; } = null!;
 
         /// <summary>
-        /// name of app.
+        /// Name of the app.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -453,6 +465,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -500,6 +513,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
+
+        /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
 
         /// <summary>
         /// Name of preexisting SAML application. For instance 'slack'
@@ -603,6 +622,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlAppUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SamlAppUserArgs>());
@@ -738,6 +758,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -805,6 +826,18 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Label { get; set; }
 
         /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
+
+        /// <summary>
         /// SAML xml metadata payload
         /// </summary>
         [Input("metadata")]
@@ -817,7 +850,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? MetadataUrl { get; set; }
 
         /// <summary>
-        /// name of app.
+        /// Name of the app.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -930,6 +963,7 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlAppUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SamlAppUserGetArgs>());

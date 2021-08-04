@@ -15,31 +15,6 @@ import (
 //
 // This resource allows you to create and configure a SAML Identity Provider Signing Key.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := idp.NewSamlKey(ctx, "example", &idp.SamlKeyArgs{
-// 			X5cs: pulumi.StringArray{
-// 				pulumi.Any(okta_app_saml.Example.Certificate),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // A SAML IdP Signing Key can be imported via the key id.

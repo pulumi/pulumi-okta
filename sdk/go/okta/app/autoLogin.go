@@ -61,6 +61,9 @@ type AutoLogin struct {
 	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -68,6 +71,10 @@ type AutoLogin struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
@@ -93,6 +100,9 @@ type AutoLogin struct {
 	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayOutput `pulumi:"users"`
 }
 
@@ -137,6 +147,9 @@ type autoLoginState struct {
 	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -144,6 +157,10 @@ type autoLoginState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
@@ -169,6 +186,9 @@ type autoLoginState struct {
 	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AutoLoginUser `pulumi:"users"`
 }
 
@@ -182,6 +202,9 @@ type AutoLoginState struct {
 	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -189,6 +212,10 @@ type AutoLoginState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
 	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
@@ -214,6 +241,9 @@ type AutoLoginState struct {
 	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayInput
 }
 
@@ -231,6 +261,9 @@ type autoLoginArgs struct {
 	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -238,6 +271,8 @@ type autoLoginArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Allow user to reveal password
@@ -259,6 +294,9 @@ type autoLoginArgs struct {
 	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AutoLoginUser `pulumi:"users"`
 }
 
@@ -273,6 +311,9 @@ type AutoLoginArgs struct {
 	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -280,6 +321,8 @@ type AutoLoginArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
 	// Allow user to reveal password
@@ -301,6 +344,9 @@ type AutoLoginArgs struct {
 	// Username template type. Default: `"BUILT_IN"`
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayInput
 }
 

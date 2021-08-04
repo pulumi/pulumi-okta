@@ -126,6 +126,7 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// The users associated with the group. This can also be done per user.
         /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
         public InputList<string> Users
         {
             get => _users ?? (_users = new InputList<string>());
@@ -157,6 +158,7 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// The users associated with the group. This can also be done per user.
         /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
         public InputList<string> Users
         {
             get => _users ?? (_users = new InputList<string>());

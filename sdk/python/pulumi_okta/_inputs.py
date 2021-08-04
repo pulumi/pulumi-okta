@@ -9,9 +9,275 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'AppGroupAssignmentsGroupArgs',
+    'AppSharedCredentialsUserArgs',
+    'AppUserSchemaPropertyArrayOneOfArgs',
+    'AppUserSchemaPropertyOneOfArgs',
+    'DomainDnsRecordArgs',
     'EventHookHeaderArgs',
     'TemplateSmsTranslationArgs',
+    'UserSchemaPropertyArrayOneOfArgs',
+    'UserSchemaPropertyMasterOverridePriorityArgs',
+    'UserSchemaPropertyOneOfArgs',
 ]
+
+@pulumi.input_type
+class AppGroupAssignmentsGroupArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 priority: Optional[pulumi.Input[int]] = None,
+                 profile: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the group to assign.
+        :param pulumi.Input[int] priority: Priority of group assignment
+        :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        ID of the group to assign.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of group assignment
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+
+@pulumi.input_type
+class AppSharedCredentialsUserArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of an app.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of an app.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AppUserSchemaPropertyArrayOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class AppUserSchemaPropertyOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class DomainDnsRecordArgs:
+    def __init__(__self__, *,
+                 expiration: Optional[pulumi.Input[str]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 record_type: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] expiration: TXT record expiration.
+        :param pulumi.Input[str] fqdn: DNS record name.
+        :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: DNS verification value
+        """
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if record_type is not None:
+            pulumi.set(__self__, "record_type", record_type)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        TXT record expiration.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS record name.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Record type can be TXT or CNAME.
+        """
+        return pulumi.get(self, "record_type")
+
+    @record_type.setter
+    def record_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "record_type", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        DNS verification value
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
 
 @pulumi.input_type
 class EventHookHeaderArgs:
@@ -87,5 +353,117 @@ class TemplateSmsTranslationArgs:
     @template.setter
     def template(self, value: pulumi.Input[str]):
         pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class UserSchemaPropertyArrayOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class UserSchemaPropertyMasterOverridePriorityArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: - ID of profile source.
+        :param pulumi.Input[str] type: - Type of profile source.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        - ID of profile source.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - Type of profile source.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class UserSchemaPropertyOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
 
 

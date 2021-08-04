@@ -63,7 +63,13 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
     /**
      * Policy ID of the Rule
      */
-    public readonly policyid!: pulumi.Output<string>;
+    public readonly policyId!: pulumi.Output<string | undefined>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    public readonly policyid!: pulumi.Output<string | undefined>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -85,7 +91,7 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PasswordPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: PasswordPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PasswordPolicyRuleArgs | PasswordPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -98,15 +104,13 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
             inputs["passwordChange"] = state ? state.passwordChange : undefined;
             inputs["passwordReset"] = state ? state.passwordReset : undefined;
             inputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
+            inputs["policyId"] = state ? state.policyId : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as PasswordPolicyRuleArgs | undefined;
-            if ((!args || args.policyid === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyid'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
             inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
@@ -114,6 +118,7 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
             inputs["passwordChange"] = args ? args.passwordChange : undefined;
             inputs["passwordReset"] = args ? args.passwordReset : undefined;
             inputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -160,6 +165,12 @@ export interface PasswordPolicyRuleState {
     readonly passwordUnlock?: pulumi.Input<string>;
     /**
      * Policy ID of the Rule
+     */
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
     readonly policyid?: pulumi.Input<string>;
     /**
@@ -212,7 +223,13 @@ export interface PasswordPolicyRuleArgs {
     /**
      * Policy ID of the Rule
      */
-    readonly policyid: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    readonly policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.

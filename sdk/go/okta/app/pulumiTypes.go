@@ -352,6 +352,194 @@ func (o BookmarkUserArrayOutput) Index(i pulumi.IntInput) BookmarkUserOutput {
 	}).(BookmarkUserOutput)
 }
 
+type OAuthGroupsClaim struct {
+	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+	FilterType *string `pulumi:"filterType"`
+	// Name of the claim that will be used in the token.
+	Name string `pulumi:"name"`
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	Type string `pulumi:"type"`
+	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+	Value string `pulumi:"value"`
+}
+
+// OAuthGroupsClaimInput is an input type that accepts OAuthGroupsClaimArgs and OAuthGroupsClaimOutput values.
+// You can construct a concrete instance of `OAuthGroupsClaimInput` via:
+//
+//          OAuthGroupsClaimArgs{...}
+type OAuthGroupsClaimInput interface {
+	pulumi.Input
+
+	ToOAuthGroupsClaimOutput() OAuthGroupsClaimOutput
+	ToOAuthGroupsClaimOutputWithContext(context.Context) OAuthGroupsClaimOutput
+}
+
+type OAuthGroupsClaimArgs struct {
+	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	// Name of the claim that will be used in the token.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OAuthGroupsClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthGroupsClaim)(nil)).Elem()
+}
+
+func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimOutput() OAuthGroupsClaimOutput {
+	return i.ToOAuthGroupsClaimOutputWithContext(context.Background())
+}
+
+func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimOutputWithContext(ctx context.Context) OAuthGroupsClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthGroupsClaimOutput)
+}
+
+func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput {
+	return i.ToOAuthGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthGroupsClaimOutput).ToOAuthGroupsClaimPtrOutputWithContext(ctx)
+}
+
+// OAuthGroupsClaimPtrInput is an input type that accepts OAuthGroupsClaimArgs, OAuthGroupsClaimPtr and OAuthGroupsClaimPtrOutput values.
+// You can construct a concrete instance of `OAuthGroupsClaimPtrInput` via:
+//
+//          OAuthGroupsClaimArgs{...}
+//
+//  or:
+//
+//          nil
+type OAuthGroupsClaimPtrInput interface {
+	pulumi.Input
+
+	ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput
+	ToOAuthGroupsClaimPtrOutputWithContext(context.Context) OAuthGroupsClaimPtrOutput
+}
+
+type oauthGroupsClaimPtrType OAuthGroupsClaimArgs
+
+func OAuthGroupsClaimPtr(v *OAuthGroupsClaimArgs) OAuthGroupsClaimPtrInput {
+	return (*oauthGroupsClaimPtrType)(v)
+}
+
+func (*oauthGroupsClaimPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthGroupsClaim)(nil)).Elem()
+}
+
+func (i *oauthGroupsClaimPtrType) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput {
+	return i.ToOAuthGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *oauthGroupsClaimPtrType) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthGroupsClaimPtrOutput)
+}
+
+type OAuthGroupsClaimOutput struct{ *pulumi.OutputState }
+
+func (OAuthGroupsClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthGroupsClaim)(nil)).Elem()
+}
+
+func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimOutput() OAuthGroupsClaimOutput {
+	return o
+}
+
+func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimOutputWithContext(ctx context.Context) OAuthGroupsClaimOutput {
+	return o
+}
+
+func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput {
+	return o.ToOAuthGroupsClaimPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) *OAuthGroupsClaim {
+		return &v
+	}).(OAuthGroupsClaimPtrOutput)
+}
+
+// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+func (o OAuthGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the claim that will be used in the token.
+func (o OAuthGroupsClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+func (o OAuthGroupsClaimOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+func (o OAuthGroupsClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OAuthGroupsClaimPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuthGroupsClaimPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthGroupsClaim)(nil)).Elem()
+}
+
+func (o OAuthGroupsClaimPtrOutput) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput {
+	return o
+}
+
+func (o OAuthGroupsClaimPtrOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
+	return o
+}
+
+func (o OAuthGroupsClaimPtrOutput) Elem() OAuthGroupsClaimOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) OAuthGroupsClaim { return *v }).(OAuthGroupsClaimOutput)
+}
+
+// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+func (o OAuthGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the claim that will be used in the token.
+func (o OAuthGroupsClaimPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+func (o OAuthGroupsClaimPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+func (o OAuthGroupsClaimPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type OAuthJwk struct {
 	E   *string `pulumi:"e"`
 	Kid string  `pulumi:"kid"`
@@ -1533,6 +1721,8 @@ func init() {
 	pulumi.RegisterOutputType(BasicAuthUserArrayOutput{})
 	pulumi.RegisterOutputType(BookmarkUserOutput{})
 	pulumi.RegisterOutputType(BookmarkUserArrayOutput{})
+	pulumi.RegisterOutputType(OAuthGroupsClaimOutput{})
+	pulumi.RegisterOutputType(OAuthGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OAuthJwkOutput{})
 	pulumi.RegisterOutputType(OAuthJwkArrayOutput{})
 	pulumi.RegisterOutputType(OAuthUserOutput{})

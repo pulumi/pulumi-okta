@@ -45,7 +45,7 @@ class MfaArgs:
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
@@ -221,7 +221,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta OTP MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings.
         """
         return pulumi.get(self, "okta_otp")
 
@@ -373,7 +373,7 @@ class _MfaState:
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
@@ -549,7 +549,7 @@ class _MfaState:
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta OTP MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings.
         """
         return pulumi.get(self, "okta_otp")
 
@@ -732,7 +732,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
@@ -891,7 +891,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[str] name: Policy Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
@@ -1012,7 +1012,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta OTP MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings.
         """
         return pulumi.get(self, "okta_otp")
 

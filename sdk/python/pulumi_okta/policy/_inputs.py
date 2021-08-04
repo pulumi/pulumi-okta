@@ -13,6 +13,8 @@ __all__ = [
     'RuleIdpDiscoveryAppIncludeArgs',
     'RuleIdpDiscoveryPlatformIncludeArgs',
     'RuleIdpDiscoveryUserIdentifierPatternArgs',
+    'RuleSignonFactorSequenceArgs',
+    'RuleSignonFactorSequenceSecondaryCriteriaArgs',
 ]
 
 @pulumi.input_type
@@ -215,5 +217,95 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleSignonFactorSequenceArgs:
+    def __init__(__self__, *,
+                 primary_criteria_factor_type: pulumi.Input[str],
+                 primary_criteria_provider: pulumi.Input[str],
+                 secondary_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]] = None):
+        """
+        :param pulumi.Input[str] primary_criteria_factor_type: Primary factor type of the auth section.
+        :param pulumi.Input[str] primary_criteria_provider: Primary provider of the auth section.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]] secondary_criterias: Additional authentication steps.
+        """
+        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
+        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
+        if secondary_criterias is not None:
+            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaFactorType")
+    def primary_criteria_factor_type(self) -> pulumi.Input[str]:
+        """
+        Primary factor type of the auth section.
+        """
+        return pulumi.get(self, "primary_criteria_factor_type")
+
+    @primary_criteria_factor_type.setter
+    def primary_criteria_factor_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_criteria_factor_type", value)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaProvider")
+    def primary_criteria_provider(self) -> pulumi.Input[str]:
+        """
+        Primary provider of the auth section.
+        """
+        return pulumi.get(self, "primary_criteria_provider")
+
+    @primary_criteria_provider.setter
+    def primary_criteria_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_criteria_provider", value)
+
+    @property
+    @pulumi.getter(name="secondaryCriterias")
+    def secondary_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]:
+        """
+        Additional authentication steps.
+        """
+        return pulumi.get(self, "secondary_criterias")
+
+    @secondary_criterias.setter
+    def secondary_criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]):
+        pulumi.set(self, "secondary_criterias", value)
+
+
+@pulumi.input_type
+class RuleSignonFactorSequenceSecondaryCriteriaArgs:
+    def __init__(__self__, *,
+                 factor_type: pulumi.Input[str],
+                 provider: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] factor_type: Factor type of the additional authentication step.
+        :param pulumi.Input[str] provider: Provider of the additional authentication step.
+        """
+        pulumi.set(__self__, "factor_type", factor_type)
+        pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="factorType")
+    def factor_type(self) -> pulumi.Input[str]:
+        """
+        Factor type of the additional authentication step.
+        """
+        return pulumi.get(self, "factor_type")
+
+    @factor_type.setter
+    def factor_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "factor_type", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        """
+        Provider of the additional authentication step.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
 
 

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +22,14 @@ import (
 type RuleSignon struct {
 	pulumi.CustomResourceState
 
-	// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
 	Access pulumi.StringPtrOutput `pulumi:"access"`
-	// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+	// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
 	Authtype pulumi.StringPtrOutput `pulumi:"authtype"`
+	// List of behavior IDs.
+	Behaviors pulumi.StringArrayOutput `pulumi:"behaviors"`
+	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+	FactorSequences RuleSignonFactorSequenceArrayOutput `pulumi:"factorSequences"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrOutput `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -44,9 +47,16 @@ type RuleSignon struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
-	Policyid pulumi.StringOutput `pulumi:"policyid"`
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
+	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	RiscLevel pulumi.StringPtrOutput `pulumi:"riscLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrOutput `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -63,12 +73,9 @@ type RuleSignon struct {
 func NewRuleSignon(ctx *pulumi.Context,
 	name string, args *RuleSignonArgs, opts ...pulumi.ResourceOption) (*RuleSignon, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RuleSignonArgs{}
 	}
 
-	if args.Policyid == nil {
-		return nil, errors.New("invalid value for required argument 'Policyid'")
-	}
 	var resource RuleSignon
 	err := ctx.RegisterResource("okta:policy/ruleSignon:RuleSignon", name, args, &resource, opts...)
 	if err != nil {
@@ -91,10 +98,14 @@ func GetRuleSignon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleSignon resources.
 type ruleSignonState struct {
-	// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
 	Access *string `pulumi:"access"`
-	// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+	// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
 	Authtype *string `pulumi:"authtype"`
+	// List of behavior IDs.
+	Behaviors []string `pulumi:"behaviors"`
+	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -112,9 +123,16 @@ type ruleSignonState struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
+	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	RiscLevel *string `pulumi:"riscLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -128,10 +146,14 @@ type ruleSignonState struct {
 }
 
 type RuleSignonState struct {
-	// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
 	Access pulumi.StringPtrInput
-	// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+	// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
 	Authtype pulumi.StringPtrInput
+	// List of behavior IDs.
+	Behaviors pulumi.StringArrayInput
+	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+	FactorSequences RuleSignonFactorSequenceArrayInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -149,9 +171,16 @@ type RuleSignonState struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
+	PolicyId pulumi.StringPtrInput
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
+	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	RiscLevel pulumi.StringPtrInput
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.
@@ -169,10 +198,14 @@ func (RuleSignonState) ElementType() reflect.Type {
 }
 
 type ruleSignonArgs struct {
-	// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
 	Access *string `pulumi:"access"`
-	// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+	// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
 	Authtype *string `pulumi:"authtype"`
+	// List of behavior IDs.
+	Behaviors []string `pulumi:"behaviors"`
+	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -190,9 +223,16 @@ type ruleSignonArgs struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
-	Policyid string `pulumi:"policyid"`
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
+	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	RiscLevel *string `pulumi:"riscLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -207,10 +247,14 @@ type ruleSignonArgs struct {
 
 // The set of arguments for constructing a RuleSignon resource.
 type RuleSignonArgs struct {
-	// Allow or deny access based on the rule conditions: `"ALLOW"` or `"DENY"`. The default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
 	Access pulumi.StringPtrInput
-	// Authentication entrypoint: `"ANY"` or `"RADIUS"`.
+	// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
 	Authtype pulumi.StringPtrInput
+	// List of behavior IDs.
+	Behaviors pulumi.StringArrayInput
+	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+	FactorSequences RuleSignonFactorSequenceArrayInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -228,9 +272,16 @@ type RuleSignonArgs struct {
 	// The network zones to include. Conflicts with `networkExcludes`.
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
-	Policyid pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
+	// Policy ID.
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
+	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	RiscLevel pulumi.StringPtrInput
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.

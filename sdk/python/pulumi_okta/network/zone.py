@@ -15,6 +15,7 @@ class ZoneArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,6 +25,7 @@ class ZoneArgs:
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
@@ -32,6 +34,8 @@ class ZoneArgs:
         pulumi.set(__self__, "type", type)
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if dynamic_proxy_type is not None:
+            pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
             pulumi.set(__self__, "gateways", gateways)
         if name is not None:
@@ -65,6 +69,18 @@ class ZoneArgs:
     @dynamic_locations.setter
     def dynamic_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dynamic_locations", value)
+
+    @property
+    @pulumi.getter(name="dynamicProxyType")
+    def dynamic_proxy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        """
+        return pulumi.get(self, "dynamic_proxy_type")
+
+    @dynamic_proxy_type.setter
+    def dynamic_proxy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dynamic_proxy_type", value)
 
     @property
     @pulumi.getter
@@ -119,6 +135,7 @@ class ZoneArgs:
 class _ZoneState:
     def __init__(__self__, *,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -128,6 +145,7 @@ class _ZoneState:
         Input properties used for looking up and filtering Zone resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
@@ -136,6 +154,8 @@ class _ZoneState:
         """
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if dynamic_proxy_type is not None:
+            pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
             pulumi.set(__self__, "gateways", gateways)
         if name is not None:
@@ -159,6 +179,18 @@ class _ZoneState:
     @dynamic_locations.setter
     def dynamic_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dynamic_locations", value)
+
+    @property
+    @pulumi.getter(name="dynamicProxyType")
+    def dynamic_proxy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        """
+        return pulumi.get(self, "dynamic_proxy_type")
+
+    @dynamic_proxy_type.setter
+    def dynamic_proxy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dynamic_proxy_type", value)
 
     @property
     @pulumi.getter
@@ -227,6 +259,7 @@ class Zone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -255,6 +288,17 @@ class Zone(pulumi.CustomResource):
             ],
             type="IP")
         ```
+        ### Dynamic Tor Blocker
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.network.Zone("example",
+            dynamic_proxy_type="TorAnonymizer",
+            type="DYNAMIC",
+            usage="BLOCKLIST")
+        ```
 
         ## Import
 
@@ -268,6 +312,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
@@ -302,6 +347,17 @@ class Zone(pulumi.CustomResource):
             ],
             type="IP")
         ```
+        ### Dynamic Tor Blocker
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.network.Zone("example",
+            dynamic_proxy_type="TorAnonymizer",
+            type="DYNAMIC",
+            usage="BLOCKLIST")
+        ```
 
         ## Import
 
@@ -327,6 +383,7 @@ class Zone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -345,6 +402,7 @@ class Zone(pulumi.CustomResource):
             __props__ = ZoneArgs.__new__(ZoneArgs)
 
             __props__.__dict__["dynamic_locations"] = dynamic_locations
+            __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
             __props__.__dict__["gateways"] = gateways
             __props__.__dict__["name"] = name
             __props__.__dict__["proxies"] = proxies
@@ -363,6 +421,7 @@ class Zone(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -377,6 +436,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
@@ -388,6 +448,7 @@ class Zone(pulumi.CustomResource):
         __props__ = _ZoneState.__new__(_ZoneState)
 
         __props__.__dict__["dynamic_locations"] = dynamic_locations
+        __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
         __props__.__dict__["gateways"] = gateways
         __props__.__dict__["name"] = name
         __props__.__dict__["proxies"] = proxies
@@ -403,6 +464,14 @@ class Zone(pulumi.CustomResource):
         and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         """
         return pulumi.get(self, "dynamic_locations")
+
+    @property
+    @pulumi.getter(name="dynamicProxyType")
+    def dynamic_proxy_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        """
+        return pulumi.get(self, "dynamic_proxy_type")
 
     @property
     @pulumi.getter

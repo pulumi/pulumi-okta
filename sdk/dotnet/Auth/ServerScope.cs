@@ -71,6 +71,12 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the end user displayed in a consent dialog box.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         /// </summary>
         [Output("metadataPublish")]
@@ -153,6 +159,12 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Name of the end user displayed in a consent dialog box.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         /// </summary>
         [Input("metadataPublish")]
@@ -194,6 +206,12 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Name of the end user displayed in a consent dialog box.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.

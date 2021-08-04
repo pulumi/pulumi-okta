@@ -70,8 +70,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -99,7 +105,7 @@ namespace Pulumi.Okta.Policy
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RulePassword(string name, RulePasswordArgs args, CustomResourceOptions? options = null)
+        public RulePassword(string name, RulePasswordArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:policy/rulePassword:RulePassword", name, args ?? new RulePasswordArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -194,8 +200,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Policy ID.
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -281,6 +293,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
+
+        /// <summary>
+        /// Policy ID.
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Policy ID.
