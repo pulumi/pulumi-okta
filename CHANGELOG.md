@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.13.1 of the Okta Terraform Provider
+_(none)_
 
 ---
+
+## 3.1.0 (2021-08-09)
+* Upgrade to v3.13.1 of the Okta Terraform Provider
 
 ## 3.0.0 (2021-04-19)
 * Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
