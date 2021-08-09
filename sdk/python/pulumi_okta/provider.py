@@ -18,6 +18,7 @@ class ProviderArgs:
                  base_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[int]] = None,
+                 max_api_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  max_wait_seconds: Optional[pulumi.Input[int]] = None,
                  min_wait_seconds: Optional[pulumi.Input[int]] = None,
@@ -33,6 +34,9 @@ class ProviderArgs:
         :param pulumi.Input[str] base_url: The Okta url. (Use 'oktapreview.com' for Okta testing)
         :param pulumi.Input[str] client_id: API Token granting privileges to Okta API.
         :param pulumi.Input[int] log_level: providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+        :param pulumi.Input[int] max_api_capacity: (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+               to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+               https://developer.okta.com/docs/reference/rl-global-mgmt/
         :param pulumi.Input[int] max_retries: maximum number of retries to attempt before erroring out.
         :param pulumi.Input[int] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
         :param pulumi.Input[int] min_wait_seconds: minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -41,7 +45,7 @@ class ProviderArgs:
                https://developer.okta.com/docs/api/getting_started/rate-limits.
         :param pulumi.Input[str] private_key: API Token granting privileges to Okta API.
         :param pulumi.Input[int] request_timeout: Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-               value can be `100`.
+               value can be `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: API Token granting privileges to Okta API.
         """
         if api_token is not None:
@@ -54,6 +58,8 @@ class ProviderArgs:
             pulumi.set(__self__, "client_id", client_id)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
+        if max_api_capacity is not None:
+            pulumi.set(__self__, "max_api_capacity", max_api_capacity)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
         if max_wait_seconds is not None:
@@ -130,6 +136,20 @@ class ProviderArgs:
     @log_level.setter
     def log_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "log_level", value)
+
+    @property
+    @pulumi.getter(name="maxApiCapacity")
+    def max_api_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+        to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        https://developer.okta.com/docs/reference/rl-global-mgmt/
+        """
+        return pulumi.get(self, "max_api_capacity")
+
+    @max_api_capacity.setter
+    def max_api_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_api_capacity", value)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -209,7 +229,7 @@ class ProviderArgs:
     def request_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-        value can be `100`.
+        value can be `300`.
         """
         return pulumi.get(self, "request_timeout")
 
@@ -240,6 +260,7 @@ class Provider(pulumi.ProviderResource):
                  base_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[int]] = None,
+                 max_api_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  max_wait_seconds: Optional[pulumi.Input[int]] = None,
                  min_wait_seconds: Optional[pulumi.Input[int]] = None,
@@ -262,6 +283,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] base_url: The Okta url. (Use 'oktapreview.com' for Okta testing)
         :param pulumi.Input[str] client_id: API Token granting privileges to Okta API.
         :param pulumi.Input[int] log_level: providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+        :param pulumi.Input[int] max_api_capacity: (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+               to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+               https://developer.okta.com/docs/reference/rl-global-mgmt/
         :param pulumi.Input[int] max_retries: maximum number of retries to attempt before erroring out.
         :param pulumi.Input[int] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
         :param pulumi.Input[int] min_wait_seconds: minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -270,7 +294,7 @@ class Provider(pulumi.ProviderResource):
                https://developer.okta.com/docs/api/getting_started/rate-limits.
         :param pulumi.Input[str] private_key: API Token granting privileges to Okta API.
         :param pulumi.Input[int] request_timeout: Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-               value can be `100`.
+               value can be `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: API Token granting privileges to Okta API.
         """
         ...
@@ -305,6 +329,7 @@ class Provider(pulumi.ProviderResource):
                  base_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[int]] = None,
+                 max_api_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  max_wait_seconds: Optional[pulumi.Input[int]] = None,
                  min_wait_seconds: Optional[pulumi.Input[int]] = None,
@@ -330,6 +355,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["base_url"] = base_url
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["log_level"] = pulumi.Output.from_input(log_level).apply(pulumi.runtime.to_json) if log_level is not None else None
+            __props__.__dict__["max_api_capacity"] = pulumi.Output.from_input(max_api_capacity).apply(pulumi.runtime.to_json) if max_api_capacity is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__.__dict__["max_wait_seconds"] = pulumi.Output.from_input(max_wait_seconds).apply(pulumi.runtime.to_json) if max_wait_seconds is not None else None
             __props__.__dict__["min_wait_seconds"] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None

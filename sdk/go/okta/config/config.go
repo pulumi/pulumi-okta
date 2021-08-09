@@ -33,6 +33,13 @@ func GetLogLevel(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:logLevel")
 }
 
+// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+// https://developer.okta.com/docs/reference/rl-global-mgmt/
+func GetMaxApiCapacity(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "okta:maxApiCapacity")
+}
+
 // maximum number of retries to attempt before erroring out.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:maxRetries")
@@ -65,7 +72,7 @@ func GetPrivateKey(ctx *pulumi.Context) string {
 }
 
 // Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-// value can be `100`.
+// value can be `300`.
 func GetRequestTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "okta:requestTimeout")
 }

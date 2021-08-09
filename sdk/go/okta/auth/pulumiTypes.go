@@ -17,6 +17,8 @@ type GetServerScopesScope struct {
 	Default bool `pulumi:"default"`
 	// Description of the Scope
 	Description string `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box
+	DisplayName string `pulumi:"displayName"`
 	// ID of the Scope
 	Id string `pulumi:"id"`
 	// Whether the Scope should be included in the metadata
@@ -45,6 +47,8 @@ type GetServerScopesScopeArgs struct {
 	Default pulumi.BoolInput `pulumi:"default"`
 	// Description of the Scope
 	Description pulumi.StringInput `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// ID of the Scope
 	Id pulumi.StringInput `pulumi:"id"`
 	// Whether the Scope should be included in the metadata
@@ -119,6 +123,11 @@ func (o GetServerScopesScopeOutput) Default() pulumi.BoolOutput {
 // Description of the Scope
 func (o GetServerScopesScopeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name of the end user displayed in a consent dialog box
+func (o GetServerScopesScopeOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerScopesScope) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // ID of the Scope

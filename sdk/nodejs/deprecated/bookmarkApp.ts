@@ -39,6 +39,8 @@ export class BookmarkApp extends pulumi.CustomResource {
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -54,7 +56,15 @@ export class BookmarkApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * URL of the application's logo
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly requestIntegration!: pulumi.Output<boolean | undefined>;
@@ -69,6 +79,8 @@ export class BookmarkApp extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.deprecated.BookmarkAppUser[] | undefined>;
 
@@ -90,6 +102,8 @@ export class BookmarkApp extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["requestIntegration"] = state ? state.requestIntegration : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
@@ -109,10 +123,12 @@ export class BookmarkApp extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["requestIntegration"] = args ? args.requestIntegration : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -133,6 +149,8 @@ export interface BookmarkAppState {
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -148,7 +166,15 @@ export interface BookmarkAppState {
      */
     readonly label?: pulumi.Input<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * URL of the application's logo
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     readonly requestIntegration?: pulumi.Input<boolean>;
@@ -163,6 +189,8 @@ export interface BookmarkAppState {
     readonly url?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
 }
@@ -177,6 +205,8 @@ export interface BookmarkAppArgs {
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -191,6 +221,10 @@ export interface BookmarkAppArgs {
      * Pretty name of app.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
     readonly requestIntegration?: pulumi.Input<boolean>;
     /**
      * Status of application.
@@ -199,6 +233,8 @@ export interface BookmarkAppArgs {
     readonly url: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
 }

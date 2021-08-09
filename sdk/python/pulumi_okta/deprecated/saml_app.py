@@ -35,8 +35,10 @@ class SamlAppArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -75,8 +77,10 @@ class SamlAppArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -125,6 +129,9 @@ class SamlAppArgs:
         if features is not None:
             pulumi.set(__self__, "features", features)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -134,10 +141,14 @@ class SamlAppArgs:
             pulumi.set(__self__, "honor_force_authn", honor_force_authn)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_years_valid is not None:
             pulumi.set(__self__, "key_years_valid", key_years_valid)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if preconfigured_app is not None:
             pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if recipient is not None:
@@ -170,6 +181,9 @@ class SamlAppArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -411,6 +425,18 @@ class SamlAppArgs:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -433,6 +459,18 @@ class SamlAppArgs:
     @key_years_valid.setter
     def key_years_valid(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "key_years_valid", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
 
     @property
     @pulumi.getter(name="preconfiguredApp")
@@ -666,10 +704,13 @@ class _SamlAppState:
                  http_post_binding: Optional[pulumi.Input[str]] = None,
                  http_redirect_binding: Optional[pulumi.Input[str]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  metadata_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -716,13 +757,16 @@ class _SamlAppState:
         :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] metadata: SAML xml metadata payload
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL
-        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -777,6 +821,9 @@ class _SamlAppState:
         if features is not None:
             pulumi.set(__self__, "features", features)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -790,6 +837,8 @@ class _SamlAppState:
             pulumi.set(__self__, "http_redirect_binding", http_redirect_binding)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if key_name is not None:
@@ -798,6 +847,10 @@ class _SamlAppState:
             pulumi.set(__self__, "key_years_valid", key_years_valid)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if metadata_url is not None:
@@ -838,6 +891,9 @@ class _SamlAppState:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -1127,6 +1183,18 @@ class _SamlAppState:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1176,6 +1244,30 @@ class _SamlAppState:
 
     @property
     @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
+
+    @property
+    @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
         SAML xml metadata payload
@@ -1202,7 +1294,7 @@ class _SamlAppState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        name of app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -1451,9 +1543,11 @@ class SamlApp(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -1494,9 +1588,11 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1557,9 +1653,11 @@ class SamlApp(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
@@ -1603,16 +1701,21 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["digest_algorithm"] = digest_algorithm
             __props__.__dict__["features"] = features
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["honor_force_authn"] = honor_force_authn
             __props__.__dict__["idp_issuer"] = idp_issuer
+            __props__.__dict__["inline_hook_id"] = inline_hook_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_years_valid"] = key_years_valid
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
+            __props__.__dict__["logo"] = logo
             __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["recipient"] = recipient
             __props__.__dict__["request_compressed"] = request_compressed
@@ -1629,6 +1732,9 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["user_name_template"] = user_name_template
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
             __props__.__dict__["certificate"] = None
             __props__.__dict__["entity_key"] = None
@@ -1636,6 +1742,7 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["http_post_binding"] = None
             __props__.__dict__["http_redirect_binding"] = None
             __props__.__dict__["key_id"] = None
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["metadata_url"] = None
             __props__.__dict__["name"] = None
@@ -1674,10 +1781,13 @@ class SamlApp(pulumi.CustomResource):
             http_post_binding: Optional[pulumi.Input[str]] = None,
             http_redirect_binding: Optional[pulumi.Input[str]] = None,
             idp_issuer: Optional[pulumi.Input[str]] = None,
+            inline_hook_id: Optional[pulumi.Input[str]] = None,
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_years_valid: Optional[pulumi.Input[int]] = None,
             label: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             metadata_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1729,13 +1839,16 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] metadata: SAML xml metadata payload
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL
-        :param pulumi.Input[str] name: name of app.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1783,10 +1896,13 @@ class SamlApp(pulumi.CustomResource):
         __props__.__dict__["http_post_binding"] = http_post_binding
         __props__.__dict__["http_redirect_binding"] = http_redirect_binding
         __props__.__dict__["idp_issuer"] = idp_issuer
+        __props__.__dict__["inline_hook_id"] = inline_hook_id
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_years_valid"] = key_years_valid
         __props__.__dict__["label"] = label
+        __props__.__dict__["logo"] = logo
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["metadata_url"] = metadata_url
         __props__.__dict__["name"] = name
@@ -2000,6 +2116,14 @@ class SamlApp(pulumi.CustomResource):
         return pulumi.get(self, "idp_issuer")
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         """
@@ -2033,6 +2157,22 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
+
+    @property
+    @pulumi.getter
     def metadata(self) -> pulumi.Output[str]:
         """
         SAML xml metadata payload
@@ -2051,7 +2191,7 @@ class SamlApp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        name of app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 

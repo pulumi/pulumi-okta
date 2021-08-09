@@ -114,7 +114,7 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableDictionary<string, string>?> OktaEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Okta OTP MFA policy settings.
+        /// Okta OTP (via the Okta Verify app) MFA policy settings.
         /// </summary>
         [Output("oktaOtp")]
         public Output<ImmutableDictionary<string, string>?> OktaOtp { get; private set; } = null!;
@@ -331,7 +331,7 @@ namespace Pulumi.Okta.Policy
         private InputMap<string>? _oktaOtp;
 
         /// <summary>
-        /// Okta OTP MFA policy settings.
+        /// Okta OTP (via the Okta Verify app) MFA policy settings.
         /// </summary>
         public InputMap<string> OktaOtp
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Okta.Policy
         private InputMap<string>? _oktaOtp;
 
         /// <summary>
-        /// Okta OTP MFA policy settings.
+        /// Okta OTP (via the Okta Verify app) MFA policy settings.
         /// </summary>
         public InputMap<string> OktaOtp
         {

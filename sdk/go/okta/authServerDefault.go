@@ -57,6 +57,8 @@ type AuthServerDefault struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringOutput `pulumi:"kid"`
 	// The name of the authorization server.
@@ -106,6 +108,8 @@ type authServerDefaultState struct {
 	Description *string `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer *string `pulumi:"issuer"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid *string `pulumi:"kid"`
 	// The name of the authorization server.
@@ -127,6 +131,8 @@ type AuthServerDefaultState struct {
 	Description pulumi.StringPtrInput
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringPtrInput
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode pulumi.StringPtrInput
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringPtrInput
 	// The name of the authorization server.
@@ -146,6 +152,8 @@ type authServerDefaultArgs struct {
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode *string `pulumi:"issuerMode"`
 	// The name of the authorization server.
 	Name *string `pulumi:"name"`
 	// The status of the auth server.
@@ -160,6 +168,8 @@ type AuthServerDefaultArgs struct {
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	IssuerMode pulumi.StringPtrInput
 	// The name of the authorization server.
 	Name pulumi.StringPtrInput
 	// The status of the auth server.

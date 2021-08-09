@@ -25,6 +25,10 @@ class GetAppResult:
         pulumi.set(__self__, "active_only", active_only)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
+        if groups is not None:
+            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""")
+
         pulumi.set(__self__, "groups", groups)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -46,6 +50,10 @@ class GetAppResult:
         pulumi.set(__self__, "status", status)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
+        if users is not None:
+            warnings.warn("""The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""")
+
         pulumi.set(__self__, "users", users)
 
     @property
@@ -58,6 +66,7 @@ class GetAppResult:
     def groups(self) -> Optional[Sequence[str]]:
         """
         List of groups IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
         """
         return pulumi.get(self, "groups")
 
@@ -65,7 +74,7 @@ class GetAppResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        `id` of application.
+        Application ID.
         """
         return pulumi.get(self, "id")
 
@@ -73,7 +82,7 @@ class GetAppResult:
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        `label` of application.
+        Application label.
         """
         return pulumi.get(self, "label")
 
@@ -86,7 +95,7 @@ class GetAppResult:
     @pulumi.getter
     def links(self) -> str:
         """
-        Generic JSON containing discoverable resources related to the app
+        Generic JSON containing discoverable resources related to the app.
         """
         return pulumi.get(self, "links")
 
@@ -94,7 +103,7 @@ class GetAppResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        `name` of application.
+        Application name.
         """
         return pulumi.get(self, "name")
 
@@ -102,7 +111,7 @@ class GetAppResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        `status` of application.
+        Application status.
         """
         return pulumi.get(self, "status")
 
@@ -111,6 +120,7 @@ class GetAppResult:
     def users(self) -> Optional[Sequence[str]]:
         """
         List of users IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
         """
         return pulumi.get(self, "users")
 
@@ -154,6 +164,7 @@ def get_app(active_only: Optional[bool] = None,
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param Sequence[str] groups: List of groups IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -161,6 +172,7 @@ def get_app(active_only: Optional[bool] = None,
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
     :param Sequence[str] users: List of users IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only

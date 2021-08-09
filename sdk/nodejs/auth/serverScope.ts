@@ -75,6 +75,10 @@ export class ServerScope extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Name of the end user displayed in a consent dialog box.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
      */
     public readonly metadataPublish!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class ServerScope extends pulumi.CustomResource {
             inputs["consent"] = state ? state.consent : undefined;
             inputs["default"] = state ? state.default : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["displayName"] = state ? state.displayName : undefined;
             inputs["metadataPublish"] = state ? state.metadataPublish : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
@@ -111,6 +116,7 @@ export class ServerScope extends pulumi.CustomResource {
             inputs["consent"] = args ? args.consent : undefined;
             inputs["default"] = args ? args.default : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["metadataPublish"] = args ? args.metadataPublish : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
@@ -142,6 +148,10 @@ export interface ServerScopeState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Name of the end user displayed in a consent dialog box.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
      */
     readonly metadataPublish?: pulumi.Input<string>;
@@ -171,6 +181,10 @@ export interface ServerScopeArgs {
      * Description of the Auth Server Scope.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Name of the end user displayed in a consent dialog box.
+     */
+    readonly displayName?: pulumi.Input<string>;
     /**
      * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
      */

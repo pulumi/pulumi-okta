@@ -147,12 +147,12 @@ class Email(pulumi.CustomResource):
                 okta.template.EmailTranslationArgs(
                     language="en",
                     subject="Stuff",
-                    template=f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
+                    template="Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink",
                 ),
                 okta.template.EmailTranslationArgs(
                     language="es",
                     subject="Cosas",
-                    template=f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
+                    template="Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink",
                 ),
             ],
             type="email.forgotPassword")
@@ -194,12 +194,12 @@ class Email(pulumi.CustomResource):
                 okta.template.EmailTranslationArgs(
                     language="en",
                     subject="Stuff",
-                    template=f"Hi {user['firstName']},<br/><br/>Blah blah {reset_password_link}",
+                    template="Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink",
                 ),
                 okta.template.EmailTranslationArgs(
                     language="es",
                     subject="Cosas",
-                    template=f"Hola {user['firstName']},<br/><br/>Puedo ir al bano {reset_password_link}",
+                    template="Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink",
                 ),
             ],
             type="email.forgotPassword")

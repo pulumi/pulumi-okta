@@ -461,6 +461,229 @@ func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) Index(i pulumi.IntInpu
 	}).(RuleIdpDiscoveryUserIdentifierPatternOutput)
 }
 
+type RuleSignonFactorSequence struct {
+	// Primary factor type of the auth section.
+	PrimaryCriteriaFactorType string `pulumi:"primaryCriteriaFactorType"`
+	// Primary provider of the auth section.
+	PrimaryCriteriaProvider string `pulumi:"primaryCriteriaProvider"`
+	// Additional authentication steps.
+	SecondaryCriterias []RuleSignonFactorSequenceSecondaryCriteria `pulumi:"secondaryCriterias"`
+}
+
+// RuleSignonFactorSequenceInput is an input type that accepts RuleSignonFactorSequenceArgs and RuleSignonFactorSequenceOutput values.
+// You can construct a concrete instance of `RuleSignonFactorSequenceInput` via:
+//
+//          RuleSignonFactorSequenceArgs{...}
+type RuleSignonFactorSequenceInput interface {
+	pulumi.Input
+
+	ToRuleSignonFactorSequenceOutput() RuleSignonFactorSequenceOutput
+	ToRuleSignonFactorSequenceOutputWithContext(context.Context) RuleSignonFactorSequenceOutput
+}
+
+type RuleSignonFactorSequenceArgs struct {
+	// Primary factor type of the auth section.
+	PrimaryCriteriaFactorType pulumi.StringInput `pulumi:"primaryCriteriaFactorType"`
+	// Primary provider of the auth section.
+	PrimaryCriteriaProvider pulumi.StringInput `pulumi:"primaryCriteriaProvider"`
+	// Additional authentication steps.
+	SecondaryCriterias RuleSignonFactorSequenceSecondaryCriteriaArrayInput `pulumi:"secondaryCriterias"`
+}
+
+func (RuleSignonFactorSequenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignonFactorSequence)(nil)).Elem()
+}
+
+func (i RuleSignonFactorSequenceArgs) ToRuleSignonFactorSequenceOutput() RuleSignonFactorSequenceOutput {
+	return i.ToRuleSignonFactorSequenceOutputWithContext(context.Background())
+}
+
+func (i RuleSignonFactorSequenceArgs) ToRuleSignonFactorSequenceOutputWithContext(ctx context.Context) RuleSignonFactorSequenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceOutput)
+}
+
+// RuleSignonFactorSequenceArrayInput is an input type that accepts RuleSignonFactorSequenceArray and RuleSignonFactorSequenceArrayOutput values.
+// You can construct a concrete instance of `RuleSignonFactorSequenceArrayInput` via:
+//
+//          RuleSignonFactorSequenceArray{ RuleSignonFactorSequenceArgs{...} }
+type RuleSignonFactorSequenceArrayInput interface {
+	pulumi.Input
+
+	ToRuleSignonFactorSequenceArrayOutput() RuleSignonFactorSequenceArrayOutput
+	ToRuleSignonFactorSequenceArrayOutputWithContext(context.Context) RuleSignonFactorSequenceArrayOutput
+}
+
+type RuleSignonFactorSequenceArray []RuleSignonFactorSequenceInput
+
+func (RuleSignonFactorSequenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSignonFactorSequence)(nil)).Elem()
+}
+
+func (i RuleSignonFactorSequenceArray) ToRuleSignonFactorSequenceArrayOutput() RuleSignonFactorSequenceArrayOutput {
+	return i.ToRuleSignonFactorSequenceArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSignonFactorSequenceArray) ToRuleSignonFactorSequenceArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceArrayOutput)
+}
+
+type RuleSignonFactorSequenceOutput struct{ *pulumi.OutputState }
+
+func (RuleSignonFactorSequenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignonFactorSequence)(nil)).Elem()
+}
+
+func (o RuleSignonFactorSequenceOutput) ToRuleSignonFactorSequenceOutput() RuleSignonFactorSequenceOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceOutput) ToRuleSignonFactorSequenceOutputWithContext(ctx context.Context) RuleSignonFactorSequenceOutput {
+	return o
+}
+
+// Primary factor type of the auth section.
+func (o RuleSignonFactorSequenceOutput) PrimaryCriteriaFactorType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSignonFactorSequence) string { return v.PrimaryCriteriaFactorType }).(pulumi.StringOutput)
+}
+
+// Primary provider of the auth section.
+func (o RuleSignonFactorSequenceOutput) PrimaryCriteriaProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSignonFactorSequence) string { return v.PrimaryCriteriaProvider }).(pulumi.StringOutput)
+}
+
+// Additional authentication steps.
+func (o RuleSignonFactorSequenceOutput) SecondaryCriterias() RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
+	return o.ApplyT(func(v RuleSignonFactorSequence) []RuleSignonFactorSequenceSecondaryCriteria {
+		return v.SecondaryCriterias
+	}).(RuleSignonFactorSequenceSecondaryCriteriaArrayOutput)
+}
+
+type RuleSignonFactorSequenceArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSignonFactorSequenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSignonFactorSequence)(nil)).Elem()
+}
+
+func (o RuleSignonFactorSequenceArrayOutput) ToRuleSignonFactorSequenceArrayOutput() RuleSignonFactorSequenceArrayOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceArrayOutput) ToRuleSignonFactorSequenceArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceArrayOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceArrayOutput) Index(i pulumi.IntInput) RuleSignonFactorSequenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSignonFactorSequence {
+		return vs[0].([]RuleSignonFactorSequence)[vs[1].(int)]
+	}).(RuleSignonFactorSequenceOutput)
+}
+
+type RuleSignonFactorSequenceSecondaryCriteria struct {
+	// Factor type of the additional authentication step.
+	FactorType string `pulumi:"factorType"`
+	// Provider of the additional authentication step.
+	Provider string `pulumi:"provider"`
+}
+
+// RuleSignonFactorSequenceSecondaryCriteriaInput is an input type that accepts RuleSignonFactorSequenceSecondaryCriteriaArgs and RuleSignonFactorSequenceSecondaryCriteriaOutput values.
+// You can construct a concrete instance of `RuleSignonFactorSequenceSecondaryCriteriaInput` via:
+//
+//          RuleSignonFactorSequenceSecondaryCriteriaArgs{...}
+type RuleSignonFactorSequenceSecondaryCriteriaInput interface {
+	pulumi.Input
+
+	ToRuleSignonFactorSequenceSecondaryCriteriaOutput() RuleSignonFactorSequenceSecondaryCriteriaOutput
+	ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(context.Context) RuleSignonFactorSequenceSecondaryCriteriaOutput
+}
+
+type RuleSignonFactorSequenceSecondaryCriteriaArgs struct {
+	// Factor type of the additional authentication step.
+	FactorType pulumi.StringInput `pulumi:"factorType"`
+	// Provider of the additional authentication step.
+	Provider pulumi.StringInput `pulumi:"provider"`
+}
+
+func (RuleSignonFactorSequenceSecondaryCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (i RuleSignonFactorSequenceSecondaryCriteriaArgs) ToRuleSignonFactorSequenceSecondaryCriteriaOutput() RuleSignonFactorSequenceSecondaryCriteriaOutput {
+	return i.ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(context.Background())
+}
+
+func (i RuleSignonFactorSequenceSecondaryCriteriaArgs) ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceSecondaryCriteriaOutput)
+}
+
+// RuleSignonFactorSequenceSecondaryCriteriaArrayInput is an input type that accepts RuleSignonFactorSequenceSecondaryCriteriaArray and RuleSignonFactorSequenceSecondaryCriteriaArrayOutput values.
+// You can construct a concrete instance of `RuleSignonFactorSequenceSecondaryCriteriaArrayInput` via:
+//
+//          RuleSignonFactorSequenceSecondaryCriteriaArray{ RuleSignonFactorSequenceSecondaryCriteriaArgs{...} }
+type RuleSignonFactorSequenceSecondaryCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutput() RuleSignonFactorSequenceSecondaryCriteriaArrayOutput
+	ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(context.Context) RuleSignonFactorSequenceSecondaryCriteriaArrayOutput
+}
+
+type RuleSignonFactorSequenceSecondaryCriteriaArray []RuleSignonFactorSequenceSecondaryCriteriaInput
+
+func (RuleSignonFactorSequenceSecondaryCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSignonFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (i RuleSignonFactorSequenceSecondaryCriteriaArray) ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutput() RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
+	return i.ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSignonFactorSequenceSecondaryCriteriaArray) ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceSecondaryCriteriaArrayOutput)
+}
+
+type RuleSignonFactorSequenceSecondaryCriteriaOutput struct{ *pulumi.OutputState }
+
+func (RuleSignonFactorSequenceSecondaryCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSequenceSecondaryCriteriaOutput() RuleSignonFactorSequenceSecondaryCriteriaOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaOutput {
+	return o
+}
+
+// Factor type of the additional authentication step.
+func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) FactorType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.FactorType }).(pulumi.StringOutput)
+}
+
+// Provider of the additional authentication step.
+func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+type RuleSignonFactorSequenceSecondaryCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSignonFactorSequenceSecondaryCriteria)(nil)).Elem()
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutput() RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
+	return o
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) Index(i pulumi.IntInput) RuleSignonFactorSequenceSecondaryCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSignonFactorSequenceSecondaryCriteria {
+		return vs[0].([]RuleSignonFactorSequenceSecondaryCriteria)[vs[1].(int)]
+	}).(RuleSignonFactorSequenceSecondaryCriteriaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeArrayOutput{})
@@ -470,4 +693,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleIdpDiscoveryPlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryUserIdentifierPatternOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryUserIdentifierPatternArrayOutput{})
+	pulumi.RegisterOutputType(RuleSignonFactorSequenceOutput{})
+	pulumi.RegisterOutputType(RuleSignonFactorSequenceArrayOutput{})
+	pulumi.RegisterOutputType(RuleSignonFactorSequenceSecondaryCriteriaOutput{})
+	pulumi.RegisterOutputType(RuleSignonFactorSequenceSecondaryCriteriaArrayOutput{})
 }

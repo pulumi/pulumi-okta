@@ -51,6 +51,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
     public readonly credentialsScheme!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -66,7 +68,15 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * URL of the application's logo
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -139,6 +149,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
     public readonly usernameField!: pulumi.Output<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.deprecated.SecurePasswordStoreAppUser[] | undefined>;
 
@@ -163,6 +175,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["optionalField1"] = state ? state.optionalField1 : undefined;
             inputs["optionalField1Value"] = state ? state.optionalField1Value : undefined;
@@ -204,6 +218,7 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["optionalField1"] = args ? args.optionalField1 : undefined;
             inputs["optionalField1Value"] = args ? args.optionalField1Value : undefined;
             inputs["optionalField2"] = args ? args.optionalField2 : undefined;
@@ -221,6 +236,7 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -253,6 +269,8 @@ export interface SecurePasswordStoreAppState {
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -268,7 +286,15 @@ export interface SecurePasswordStoreAppState {
      */
     readonly label?: pulumi.Input<string>;
     /**
-     * name of app.
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * URL of the application's logo
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -341,6 +367,8 @@ export interface SecurePasswordStoreAppState {
     readonly usernameField?: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SecurePasswordStoreAppUser>[]>;
 }
@@ -367,6 +395,8 @@ export interface SecurePasswordStoreAppArgs {
     readonly credentialsScheme?: pulumi.Input<string>;
     /**
      * Groups associated with the application
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -381,6 +411,10 @@ export interface SecurePasswordStoreAppArgs {
      * Pretty name of app.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Logo of the application.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * Name of optional param in the login form
      */
@@ -447,6 +481,8 @@ export interface SecurePasswordStoreAppArgs {
     readonly usernameField: pulumi.Input<string>;
     /**
      * Users associated with the application
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SecurePasswordStoreAppUser>[]>;
 }

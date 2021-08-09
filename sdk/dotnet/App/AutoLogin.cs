@@ -74,6 +74,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -95,6 +96,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
+        /// Direct link of application logo.
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
         /// Name assigned to the application by Okta.
@@ -170,6 +183,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.AutoLoginUser>> Users { get; private set; } = null!;
@@ -249,7 +263,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -273,6 +289,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
 
         /// <summary>
         /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
@@ -339,7 +361,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AutoLoginUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.AutoLoginUserArgs>());
@@ -382,7 +406,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -406,6 +432,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
+        /// Direct link of application logo.
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
         /// Name assigned to the application by Okta.
@@ -484,7 +522,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AutoLoginUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.AutoLoginUserGetArgs>());

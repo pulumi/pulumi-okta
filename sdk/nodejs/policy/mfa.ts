@@ -102,7 +102,7 @@ export class Mfa extends pulumi.CustomResource {
      */
     public readonly oktaEmail!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Okta OTP MFA policy settings.
+     * Okta OTP (via the Okta Verify app) MFA policy settings.
      */
     public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface MfaState {
      */
     readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Okta OTP MFA policy settings.
+     * Okta OTP (via the Okta Verify app) MFA policy settings.
      */
     readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -336,7 +336,7 @@ export interface MfaArgs {
      */
     readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Okta OTP MFA policy settings.
+     * Okta OTP (via the Okta Verify app) MFA policy settings.
      */
     readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

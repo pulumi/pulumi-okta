@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *         {
  *             language: "en",
  *             subject: "Stuff",
- *             template: "Hi ${user.firstName},<br/><br/>Blah blah ${resetPasswordLink}",
+ *             template: "Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink",
  *         },
  *         {
  *             language: "es",
  *             subject: "Cosas",
- *             template: "Hola ${user.firstName},<br/><br/>Puedo ir al bano ${resetPasswordLink}",
+ *             template: "Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink",
  *         },
  *     ],
  *     type: "email.forgotPassword",

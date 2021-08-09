@@ -32,13 +32,13 @@ namespace Pulumi.Okta.Template
     ///                 {
     ///                     Language = "en",
     ///                     Subject = "Stuff",
-    ///                     Template = $"Hi {user.FirstName},&lt;br/&gt;&lt;br/&gt;Blah blah {resetPasswordLink}",
+    ///                     Template = "Hi $user.firstName,&lt;br/&gt;&lt;br/&gt;Blah blah $resetPasswordLink",
     ///                 },
     ///                 new Okta.Template.Inputs.EmailTranslationArgs
     ///                 {
     ///                     Language = "es",
     ///                     Subject = "Cosas",
-    ///                     Template = $"Hola {user.FirstName},&lt;br/&gt;&lt;br/&gt;Puedo ir al bano {resetPasswordLink}",
+    ///                     Template = "Hola $user.firstName,&lt;br/&gt;&lt;br/&gt;Puedo ir al bano $resetPasswordLink",
     ///                 },
     ///             },
     ///             Type = "email.forgotPassword",

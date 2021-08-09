@@ -16,6 +16,7 @@ class AuthServerDefaultArgs:
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -23,6 +24,7 @@ class AuthServerDefaultArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
+        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server.
         """
@@ -32,6 +34,8 @@ class AuthServerDefaultArgs:
             pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if issuer_mode is not None:
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if status is not None:
@@ -74,6 +78,18 @@ class AuthServerDefaultArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @issuer_mode.setter
+    def issuer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -107,6 +123,7 @@ class _AuthServerDefaultState:
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
                  kid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -118,6 +135,7 @@ class _AuthServerDefaultState:
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server.
@@ -134,6 +152,8 @@ class _AuthServerDefaultState:
             pulumi.set(__self__, "description", description)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
+        if issuer_mode is not None:
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if kid is not None:
             pulumi.set(__self__, "kid", kid)
         if name is not None:
@@ -214,6 +234,18 @@ class _AuthServerDefaultState:
         pulumi.set(self, "issuer", value)
 
     @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
+
+    @issuer_mode.setter
+    def issuer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_mode", value)
+
+    @property
     @pulumi.getter
     def kid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -258,6 +290,7 @@ class AuthServerDefault(pulumi.CustomResource):
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -288,6 +321,7 @@ class AuthServerDefault(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
+        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server.
         """
@@ -337,6 +371,7 @@ class AuthServerDefault(pulumi.CustomResource):
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 issuer_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -354,6 +389,7 @@ class AuthServerDefault(pulumi.CustomResource):
             __props__.__dict__["audiences"] = audiences
             __props__.__dict__["credentials_rotation_mode"] = credentials_rotation_mode
             __props__.__dict__["description"] = description
+            __props__.__dict__["issuer_mode"] = issuer_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status
             __props__.__dict__["credentials_last_rotated"] = None
@@ -376,6 +412,7 @@ class AuthServerDefault(pulumi.CustomResource):
             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
+            issuer_mode: Optional[pulumi.Input[str]] = None,
             kid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'AuthServerDefault':
@@ -392,6 +429,7 @@ class AuthServerDefault(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server.
@@ -406,6 +444,7 @@ class AuthServerDefault(pulumi.CustomResource):
         __props__.__dict__["credentials_rotation_mode"] = credentials_rotation_mode
         __props__.__dict__["description"] = description
         __props__.__dict__["issuer"] = issuer
+        __props__.__dict__["issuer_mode"] = issuer_mode
         __props__.__dict__["kid"] = kid
         __props__.__dict__["name"] = name
         __props__.__dict__["status"] = status
@@ -458,6 +497,14 @@ class AuthServerDefault(pulumi.CustomResource):
         The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
         """
         return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="issuerMode")
+    def issuer_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        """
+        return pulumi.get(self, "issuer_mode")
 
     @property
     @pulumi.getter

@@ -26,6 +26,7 @@ class SecurePasswordStoreArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  optional_field1: Optional[pulumi.Input[str]] = None,
                  optional_field1_value: Optional[pulumi.Input[str]] = None,
                  optional_field2: Optional[pulumi.Input[str]] = None,
@@ -51,8 +52,10 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
         :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
@@ -67,6 +70,7 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "password_field", password_field)
@@ -81,11 +85,16 @@ class SecurePasswordStoreArgs:
         if credentials_scheme is not None:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
             pulumi.set(__self__, "hide_web", hide_web)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if optional_field1 is not None:
             pulumi.set(__self__, "optional_field1", optional_field1)
         if optional_field1_value is not None:
@@ -112,6 +121,9 @@ class SecurePasswordStoreArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -216,6 +228,7 @@ class SecurePasswordStoreArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -246,6 +259,18 @@ class SecurePasswordStoreArgs:
     @hide_web.setter
     def hide_web(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "hide_web", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
 
     @property
     @pulumi.getter(name="optionalField1")
@@ -408,6 +433,7 @@ class SecurePasswordStoreArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -427,6 +453,8 @@ class _SecurePasswordStoreState:
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optional_field1: Optional[pulumi.Input[str]] = None,
                  optional_field1_value: Optional[pulumi.Input[str]] = None,
@@ -453,9 +481,12 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
@@ -475,6 +506,7 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -485,6 +517,9 @@ class _SecurePasswordStoreState:
         if credentials_scheme is not None:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
@@ -492,6 +527,10 @@ class _SecurePasswordStoreState:
             pulumi.set(__self__, "hide_web", hide_web)
         if label is not None:
             pulumi.set(__self__, "label", label)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if optional_field1 is not None:
@@ -528,6 +567,9 @@ class _SecurePasswordStoreState:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+        if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -584,6 +626,7 @@ class _SecurePasswordStoreState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -626,6 +669,30 @@ class _SecurePasswordStoreState:
     @label.setter
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
 
     @property
     @pulumi.getter
@@ -848,6 +915,7 @@ class _SecurePasswordStoreState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -869,6 +937,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  optional_field1: Optional[pulumi.Input[str]] = None,
                  optional_field1_value: Optional[pulumi.Input[str]] = None,
                  optional_field2: Optional[pulumi.Input[str]] = None,
@@ -921,9 +990,11 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Logo of the application.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
         :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
@@ -941,6 +1012,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -998,6 +1070,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  optional_field1: Optional[pulumi.Input[str]] = None,
                  optional_field1_value: Optional[pulumi.Input[str]] = None,
                  optional_field2: Optional[pulumi.Input[str]] = None,
@@ -1031,12 +1104,16 @@ class SecurePasswordStore(pulumi.CustomResource):
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["credentials_scheme"] = credentials_scheme
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
+            __props__.__dict__["logo"] = logo
             __props__.__dict__["optional_field1"] = optional_field1
             __props__.__dict__["optional_field1_value"] = optional_field1_value
             __props__.__dict__["optional_field2"] = optional_field2
@@ -1059,7 +1136,11 @@ class SecurePasswordStore(pulumi.CustomResource):
             if username_field is None and not opts.urn:
                 raise TypeError("Missing required property 'username_field'")
             __props__.__dict__["username_field"] = username_field
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
         super(SecurePasswordStore, __self__).__init__(
@@ -1080,6 +1161,8 @@ class SecurePasswordStore(pulumi.CustomResource):
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optional_field1: Optional[pulumi.Input[str]] = None,
             optional_field1_value: Optional[pulumi.Input[str]] = None,
@@ -1111,9 +1194,12 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
+        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
@@ -1133,6 +1219,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: The Username template type.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1146,6 +1233,8 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
+        __props__.__dict__["logo"] = logo
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["optional_field1"] = optional_field1
         __props__.__dict__["optional_field1_value"] = optional_field1_value
@@ -1204,6 +1293,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1230,6 +1320,22 @@ class SecurePasswordStore(pulumi.CustomResource):
         The display name of the Application.
         """
         return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Logo of the application.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        URL of the application's logo
+        """
+        return pulumi.get(self, "logo_url")
 
     @property
     @pulumi.getter
@@ -1380,6 +1486,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.SecurePasswordStoreUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

@@ -152,9 +152,16 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
+
+        /// <summary>
+        /// Groups claim for an OpenID Connect client application.
+        /// </summary>
+        [Output("groupsClaim")]
+        public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
 
         /// <summary>
         /// Do not display application icon on mobile app.
@@ -208,13 +215,25 @@ namespace Pulumi.Okta.App
         public Output<string?> LoginUri { get; private set; } = null!;
 
         /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Output("logoUri")]
         public Output<string?> LogoUri { get; private set; } = null!;
 
         /// <summary>
-        /// Name assigned to the application by Okta.
+        /// Direct link of application logo.
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the claim that will be used in the token.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -250,6 +269,18 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> RedirectUris { get; private set; } = null!;
 
         /// <summary>
+        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// </summary>
+        [Output("refreshTokenLeeway")]
+        public Output<int?> RefreshTokenLeeway { get; private set; } = null!;
+
+        /// <summary>
+        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<string?> RefreshTokenRotation { get; private set; } = null!;
+
+        /// <summary>
         /// List of OAuth 2.0 response type strings.
         /// </summary>
         [Output("responseTypes")]
@@ -280,16 +311,23 @@ namespace Pulumi.Okta.App
         public Output<string?> TosUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.OAuthUser>> Users { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// </summary>
+        [Output("wildcardRedirect")]
+        public Output<string?> WildcardRedirect { get; private set; } = null!;
 
 
         /// <summary>
@@ -398,12 +436,20 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
+
+        /// <summary>
+        /// Groups claim for an OpenID Connect client application.
+        /// </summary>
+        [Input("groupsClaim")]
+        public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
 
         /// <summary>
         /// Do not display application icon on mobile app.
@@ -468,6 +514,12 @@ namespace Pulumi.Okta.App
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Input("logoUri")]
@@ -515,6 +567,18 @@ namespace Pulumi.Okta.App
             set => _redirectUris = value;
         }
 
+        /// <summary>
+        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// </summary>
+        [Input("refreshTokenLeeway")]
+        public Input<int>? RefreshTokenLeeway { get; set; }
+
+        /// <summary>
+        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<string>? RefreshTokenRotation { get; set; }
+
         [Input("responseTypes")]
         private InputList<string>? _responseTypes;
 
@@ -546,7 +610,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -556,12 +620,20 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OAuthUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.OAuthUserArgs>());
             set => _users = value;
         }
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// </summary>
+        [Input("wildcardRedirect")]
+        public Input<string>? WildcardRedirect { get; set; }
 
         public OAuthArgs()
         {
@@ -637,12 +709,20 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
+
+        /// <summary>
+        /// Groups claim for an OpenID Connect client application.
+        /// </summary>
+        [Input("groupsClaim")]
+        public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }
 
         /// <summary>
         /// Do not display application icon on mobile app.
@@ -707,13 +787,25 @@ namespace Pulumi.Okta.App
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Input("logoUri")]
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// Name assigned to the application by Okta.
+        /// Direct link of application logo.
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
+
+        /// <summary>
+        /// Name of the claim that will be used in the token.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -760,6 +852,18 @@ namespace Pulumi.Okta.App
             set => _redirectUris = value;
         }
 
+        /// <summary>
+        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// </summary>
+        [Input("refreshTokenLeeway")]
+        public Input<int>? RefreshTokenLeeway { get; set; }
+
+        /// <summary>
+        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<string>? RefreshTokenRotation { get; set; }
+
         [Input("responseTypes")]
         private InputList<string>? _responseTypes;
 
@@ -797,7 +901,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -807,12 +911,20 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OAuthUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.OAuthUserGetArgs>());
             set => _users = value;
         }
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// </summary>
+        [Input("wildcardRedirect")]
+        public Input<string>? WildcardRedirect { get; set; }
 
         public OAuthState()
         {

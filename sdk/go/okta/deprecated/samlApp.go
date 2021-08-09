@@ -48,6 +48,8 @@ type SamlApp struct {
 	// features to enable
 	Features pulumi.StringArrayOutput `pulumi:"features"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -61,6 +63,8 @@ type SamlApp struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Certificate ID
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -69,11 +73,15 @@ type SamlApp struct {
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// SAML xml metadata payload
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// SAML xml metadata URL
 	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
-	// name of app.
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
@@ -110,6 +118,8 @@ type SamlApp struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlAppUserArrayOutput `pulumi:"users"`
 }
 
@@ -179,6 +189,8 @@ type samlAppState struct {
 	// features to enable
 	Features []string `pulumi:"features"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -192,6 +204,8 @@ type samlAppState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate ID
 	KeyId *string `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -200,11 +214,15 @@ type samlAppState struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
 	// SAML xml metadata payload
 	Metadata *string `pulumi:"metadata"`
 	// SAML xml metadata URL
 	MetadataUrl *string `pulumi:"metadataUrl"`
-	// name of app.
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -241,6 +259,8 @@ type samlAppState struct {
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlAppUser `pulumi:"users"`
 }
 
@@ -279,6 +299,8 @@ type SamlAppState struct {
 	// features to enable
 	Features pulumi.StringArrayInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -292,6 +314,8 @@ type SamlAppState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrInput
 	// Certificate ID
 	KeyId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -300,11 +324,15 @@ type SamlAppState struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
 	// SAML xml metadata payload
 	Metadata pulumi.StringPtrInput
 	// SAML xml metadata URL
 	MetadataUrl pulumi.StringPtrInput
-	// name of app.
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp pulumi.StringPtrInput
@@ -341,6 +369,8 @@ type SamlAppState struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlAppUserArrayInput
 }
 
@@ -377,6 +407,8 @@ type samlAppArgs struct {
 	// features to enable
 	Features []string `pulumi:"features"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -386,12 +418,16 @@ type samlAppArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
 	KeyName *string `pulumi:"keyName"`
 	// Number of years the certificate is valid.
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion
@@ -425,6 +461,8 @@ type samlAppArgs struct {
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlAppUser `pulumi:"users"`
 }
 
@@ -458,6 +496,8 @@ type SamlAppArgs struct {
 	// features to enable
 	Features pulumi.StringArrayInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -467,12 +507,16 @@ type SamlAppArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key.
 	KeyName pulumi.StringPtrInput
 	// Number of years the certificate is valid.
 	KeyYearsValid pulumi.IntPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion
@@ -506,6 +550,8 @@ type SamlAppArgs struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlAppUserArrayInput
 }
 

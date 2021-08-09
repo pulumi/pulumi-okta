@@ -158,7 +158,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
+        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`")]
         public List<string> Groups
         {
             get => _groups ?? (_groups = new List<string>());
@@ -281,7 +283,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`")]
         public List<string> Users
         {
             get => _users ?? (_users = new List<string>());
@@ -357,6 +361,7 @@ namespace Pulumi.Okta.App
         public readonly ImmutableArray<string> Features;
         /// <summary>
         /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
@@ -380,6 +385,10 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? IdpIssuer;
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        public readonly string InlineHookId;
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         public readonly string KeyId;
@@ -389,7 +398,7 @@ namespace Pulumi.Okta.App
         public readonly string? Label;
         public readonly string? LabelPrefix;
         /// <summary>
-        /// Generic JSON containing discoverable resources related to the app
+        /// Generic JSON containing discoverable resources related to the app.
         /// </summary>
         public readonly string Links;
         /// <summary>
@@ -458,6 +467,7 @@ namespace Pulumi.Okta.App
         public readonly string? UserNameTemplateType;
         /// <summary>
         /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 
@@ -504,6 +514,8 @@ namespace Pulumi.Okta.App
             string? id,
 
             string? idpIssuer,
+
+            string inlineHookId,
 
             string keyId,
 
@@ -568,6 +580,7 @@ namespace Pulumi.Okta.App
             HonorForceAuthn = honorForceAuthn;
             Id = id;
             IdpIssuer = idpIssuer;
+            InlineHookId = inlineHookId;
             KeyId = keyId;
             Label = label;
             LabelPrefix = labelPrefix;

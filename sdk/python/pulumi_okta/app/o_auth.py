@@ -26,6 +26,7 @@ class OAuthArgs:
                  custom_client_id: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
@@ -34,21 +35,25 @@ class OAuthArgs:
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None):
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
+                 wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OAuth resource.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -60,6 +65,8 @@ class OAuthArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -67,17 +74,22 @@ class OAuthArgs:
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
+        :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
+        :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "type", type)
@@ -101,7 +113,12 @@ class OAuthArgs:
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if groups_claim is not None:
+            pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -118,6 +135,8 @@ class OAuthArgs:
             pulumi.set(__self__, "login_scopes", login_scopes)
         if login_uri is not None:
             pulumi.set(__self__, "login_uri", login_uri)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if logo_uri is not None:
             pulumi.set(__self__, "logo_uri", logo_uri)
         if omit_secret is not None:
@@ -130,6 +149,10 @@ class OAuthArgs:
             pulumi.set(__self__, "profile", profile)
         if redirect_uris is not None:
             pulumi.set(__self__, "redirect_uris", redirect_uris)
+        if refresh_token_leeway is not None:
+            pulumi.set(__self__, "refresh_token_leeway", refresh_token_leeway)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
         if status is not None:
@@ -139,7 +162,12 @@ class OAuthArgs:
         if tos_uri is not None:
             pulumi.set(__self__, "tos_uri", tos_uri)
         if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
+        if users is not None:
             pulumi.set(__self__, "users", users)
+        if wildcard_redirect is not None:
+            pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
     @property
     @pulumi.getter
@@ -157,7 +185,7 @@ class OAuthArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
 
@@ -268,12 +296,25 @@ class OAuthArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
+        """
+        Groups claim for an OpenID Connect client application.
+        """
+        return pulumi.get(self, "groups_claim")
+
+    @groups_claim.setter
+    def groups_claim(self, value: Optional[pulumi.Input['OAuthGroupsClaimArgs']]):
+        pulumi.set(self, "groups_claim", value)
 
     @property
     @pulumi.getter(name="hideIos")
@@ -369,6 +410,18 @@ class OAuthArgs:
         pulumi.set(self, "login_uri", value)
 
     @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
     @pulumi.getter(name="logoUri")
     def logo_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -441,6 +494,30 @@ class OAuthArgs:
         pulumi.set(self, "redirect_uris", value)
 
     @property
+    @pulumi.getter(name="refreshTokenLeeway")
+    def refresh_token_leeway(self) -> Optional[pulumi.Input[int]]:
+        """
+        Grace period for token rotation. Valid values: 0 to 60 seconds.
+        """
+        return pulumi.get(self, "refresh_token_leeway")
+
+    @refresh_token_leeway.setter
+    def refresh_token_leeway(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_token_leeway", value)
+
+    @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -493,12 +570,25 @@ class OAuthArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
     @users.setter
     def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]):
         pulumi.set(self, "users", value)
+
+    @property
+    @pulumi.getter(name="wildcardRedirect")
+    def wildcard_redirect(self) -> Optional[pulumi.Input[str]]:
+        """
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        """
+        return pulumi.get(self, "wildcard_redirect")
+
+    @wildcard_redirect.setter
+    def wildcard_redirect(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wildcard_redirect", value)
 
 
 @pulumi.input_type
@@ -514,6 +604,7 @@ class _OAuthState:
                  custom_client_id: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
@@ -523,20 +614,25 @@ class _OAuthState:
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None):
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
+                 wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OAuth resources.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
@@ -551,6 +647,8 @@ class _OAuthState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -559,20 +657,26 @@ class _OAuthState:
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] name: Name of the claim that will be used in the token.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
+        :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
+        :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         if auto_key_rotation is not None:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
@@ -596,7 +700,12 @@ class _OAuthState:
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups is not None:
+            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
+        if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if groups_claim is not None:
+            pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -615,8 +724,12 @@ class _OAuthState:
             pulumi.set(__self__, "login_scopes", login_scopes)
         if login_uri is not None:
             pulumi.set(__self__, "login_uri", login_uri)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
         if logo_uri is not None:
             pulumi.set(__self__, "logo_uri", logo_uri)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if omit_secret is not None:
@@ -629,6 +742,10 @@ class _OAuthState:
             pulumi.set(__self__, "profile", profile)
         if redirect_uris is not None:
             pulumi.set(__self__, "redirect_uris", redirect_uris)
+        if refresh_token_leeway is not None:
+            pulumi.set(__self__, "refresh_token_leeway", refresh_token_leeway)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
         if sign_on_mode is not None:
@@ -642,7 +759,12 @@ class _OAuthState:
         if type is not None:
             pulumi.set(__self__, "type", type)
         if users is not None:
+            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
+        if users is not None:
             pulumi.set(__self__, "users", users)
+        if wildcard_redirect is not None:
+            pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -759,12 +881,25 @@ class _OAuthState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
+        """
+        Groups claim for an OpenID Connect client application.
+        """
+        return pulumi.get(self, "groups_claim")
+
+    @groups_claim.setter
+    def groups_claim(self, value: Optional[pulumi.Input['OAuthGroupsClaimArgs']]):
+        pulumi.set(self, "groups_claim", value)
 
     @property
     @pulumi.getter(name="hideIos")
@@ -872,6 +1007,18 @@ class _OAuthState:
         pulumi.set(self, "login_uri", value)
 
     @property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo", value)
+
+    @property
     @pulumi.getter(name="logoUri")
     def logo_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -884,10 +1031,22 @@ class _OAuthState:
         pulumi.set(self, "logo_uri", value)
 
     @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name assigned to the application by Okta.
+        Name of the claim that will be used in the token.
         """
         return pulumi.get(self, "name")
 
@@ -956,6 +1115,30 @@ class _OAuthState:
         pulumi.set(self, "redirect_uris", value)
 
     @property
+    @pulumi.getter(name="refreshTokenLeeway")
+    def refresh_token_leeway(self) -> Optional[pulumi.Input[int]]:
+        """
+        Grace period for token rotation. Valid values: 0 to 60 seconds.
+        """
+        return pulumi.get(self, "refresh_token_leeway")
+
+    @refresh_token_leeway.setter
+    def refresh_token_leeway(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_token_leeway", value)
+
+    @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1019,7 +1202,7 @@ class _OAuthState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
 
@@ -1032,12 +1215,25 @@ class _OAuthState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
     @users.setter
     def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]):
         pulumi.set(self, "users", value)
+
+    @property
+    @pulumi.getter(name="wildcardRedirect")
+    def wildcard_redirect(self) -> Optional[pulumi.Input[str]]:
+        """
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        """
+        return pulumi.get(self, "wildcard_redirect")
+
+    @wildcard_redirect.setter
+    def wildcard_redirect(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wildcard_redirect", value)
 
 
 class OAuth(pulumi.CustomResource):
@@ -1054,6 +1250,7 @@ class OAuth(pulumi.CustomResource):
                  custom_client_id: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
@@ -1063,18 +1260,22 @@ class OAuth(pulumi.CustomResource):
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
+                 wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Creates an OIDC Application.
@@ -1134,6 +1335,8 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -1142,18 +1345,23 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
+        :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
+        :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         ...
     @overload
@@ -1230,6 +1438,7 @@ class OAuth(pulumi.CustomResource):
                  custom_client_id: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
@@ -1239,18 +1448,22 @@ class OAuth(pulumi.CustomResource):
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
+                 logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
+                 wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1274,7 +1487,11 @@ class OAuth(pulumi.CustomResource):
                 pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
             __props__.__dict__["custom_client_id"] = custom_client_id
             __props__.__dict__["grant_types"] = grant_types
+            if groups is not None and not opts.urn:
+                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
             __props__.__dict__["groups"] = groups
+            __props__.__dict__["groups_claim"] = groups_claim
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["implicit_assignment"] = implicit_assignment
@@ -1286,12 +1503,15 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["login_mode"] = login_mode
             __props__.__dict__["login_scopes"] = login_scopes
             __props__.__dict__["login_uri"] = login_uri
+            __props__.__dict__["logo"] = logo
             __props__.__dict__["logo_uri"] = logo_uri
             __props__.__dict__["omit_secret"] = omit_secret
             __props__.__dict__["policy_uri"] = policy_uri
             __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
             __props__.__dict__["profile"] = profile
             __props__.__dict__["redirect_uris"] = redirect_uris
+            __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
+            __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["response_types"] = response_types
             __props__.__dict__["status"] = status
             __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
@@ -1299,8 +1519,13 @@ class OAuth(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            if users is not None and not opts.urn:
+                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
             __props__.__dict__["users"] = users
+            __props__.__dict__["wildcard_redirect"] = wildcard_redirect
             __props__.__dict__["client_secret"] = None
+            __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
         super(OAuth, __self__).__init__(
@@ -1323,6 +1548,7 @@ class OAuth(pulumi.CustomResource):
             custom_client_id: Optional[pulumi.Input[str]] = None,
             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             implicit_assignment: Optional[pulumi.Input[bool]] = None,
@@ -1332,20 +1558,25 @@ class OAuth(pulumi.CustomResource):
             login_mode: Optional[pulumi.Input[str]] = None,
             login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             login_uri: Optional[pulumi.Input[str]] = None,
+            logo: Optional[pulumi.Input[str]] = None,
             logo_uri: Optional[pulumi.Input[str]] = None,
+            logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             omit_secret: Optional[pulumi.Input[bool]] = None,
             policy_uri: Optional[pulumi.Input[str]] = None,
             post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             profile: Optional[pulumi.Input[str]] = None,
             redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+            refresh_token_rotation: Optional[pulumi.Input[str]] = None,
             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
             tos_uri: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None) -> 'OAuth':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
+            wildcard_redirect: Optional[pulumi.Input[str]] = None) -> 'OAuth':
         """
         Get an existing OAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1365,6 +1596,8 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -1373,20 +1606,26 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] name: Name of the claim that will be used in the token.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
+        :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
+        :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1402,6 +1641,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["custom_client_id"] = custom_client_id
         __props__.__dict__["grant_types"] = grant_types
         __props__.__dict__["groups"] = groups
+        __props__.__dict__["groups_claim"] = groups_claim
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["implicit_assignment"] = implicit_assignment
@@ -1411,13 +1651,17 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["login_mode"] = login_mode
         __props__.__dict__["login_scopes"] = login_scopes
         __props__.__dict__["login_uri"] = login_uri
+        __props__.__dict__["logo"] = logo
         __props__.__dict__["logo_uri"] = logo_uri
+        __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["omit_secret"] = omit_secret
         __props__.__dict__["policy_uri"] = policy_uri
         __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
         __props__.__dict__["profile"] = profile
         __props__.__dict__["redirect_uris"] = redirect_uris
+        __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
+        __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["response_types"] = response_types
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["status"] = status
@@ -1425,6 +1669,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["tos_uri"] = tos_uri
         __props__.__dict__["type"] = type
         __props__.__dict__["users"] = users
+        __props__.__dict__["wildcard_redirect"] = wildcard_redirect
         return OAuth(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1506,8 +1751,17 @@ class OAuth(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> pulumi.Output[Optional['outputs.OAuthGroupsClaim']]:
+        """
+        Groups claim for an OpenID Connect client application.
+        """
+        return pulumi.get(self, "groups_claim")
 
     @property
     @pulumi.getter(name="hideIos")
@@ -1579,6 +1833,14 @@ class OAuth(pulumi.CustomResource):
         return pulumi.get(self, "login_uri")
 
     @property
+    @pulumi.getter
+    def logo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        """
+        return pulumi.get(self, "logo")
+
+    @property
     @pulumi.getter(name="logoUri")
     def logo_uri(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1587,10 +1849,18 @@ class OAuth(pulumi.CustomResource):
         return pulumi.get(self, "logo_uri")
 
     @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> pulumi.Output[str]:
+        """
+        Direct link of application logo.
+        """
+        return pulumi.get(self, "logo_url")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name assigned to the application by Okta.
+        Name of the claim that will be used in the token.
         """
         return pulumi.get(self, "name")
 
@@ -1633,6 +1903,22 @@ class OAuth(pulumi.CustomResource):
         List of URIs for use in the redirect-based flow. This is required for all application types except service.
         """
         return pulumi.get(self, "redirect_uris")
+
+    @property
+    @pulumi.getter(name="refreshTokenLeeway")
+    def refresh_token_leeway(self) -> pulumi.Output[Optional[int]]:
+        """
+        Grace period for token rotation. Valid values: 0 to 60 seconds.
+        """
+        return pulumi.get(self, "refresh_token_leeway")
+
+    @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> pulumi.Output[Optional[str]]:
+        """
+        Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
 
     @property
     @pulumi.getter(name="responseTypes")
@@ -1678,7 +1964,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
 
@@ -1687,6 +1973,15 @@ class OAuth(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.OAuthUser']]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
+
+    @property
+    @pulumi.getter(name="wildcardRedirect")
+    def wildcard_redirect(self) -> pulumi.Output[Optional[str]]:
+        """
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        """
+        return pulumi.get(self, "wildcard_redirect")
 

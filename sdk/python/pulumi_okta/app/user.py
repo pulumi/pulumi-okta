@@ -15,28 +15,30 @@ class UserArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  user_id: pulumi.Input[str],
-                 username: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
-                 retain_assignment: Optional[pulumi.Input[bool]] = None):
+                 retain_assignment: Optional[pulumi.Input[bool]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] app_id: App to associate user with.
         :param pulumi.Input[str] user_id: User to associate the application with.
-        :param pulumi.Input[str] username: The username to use for the app user.
         :param pulumi.Input[str] password: The password to use.
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with 
+               'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "username", username)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
         if retain_assignment is not None:
             pulumi.set(__self__, "retain_assignment", retain_assignment)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="appId")
@@ -61,18 +63,6 @@ class UserArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_id", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        The username to use for the app user.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
@@ -110,11 +100,25 @@ class UserArgs:
     def retain_assignment(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "retain_assignment", value)
 
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username to use for the app user. In case the user is assigned to the app with 
+        'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
+                 has_shared_username: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  retain_assignment: Optional[pulumi.Input[bool]] = None,
@@ -127,10 +131,13 @@ class _UserState:
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] user_id: User to associate the application with.
-        :param pulumi.Input[str] username: The username to use for the app user.
+        :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with 
+               'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
+        if has_shared_username is not None:
+            pulumi.set(__self__, "has_shared_username", has_shared_username)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if profile is not None:
@@ -153,6 +160,15 @@ class _UserState:
     @app_id.setter
     def app_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="hasSharedUsername")
+    def has_shared_username(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "has_shared_username")
+
+    @has_shared_username.setter
+    def has_shared_username(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_shared_username", value)
 
     @property
     @pulumi.getter
@@ -206,7 +222,8 @@ class _UserState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username to use for the app user.
+        The username to use for the app user. In case the user is assigned to the app with 
+        'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         return pulumi.get(self, "username")
 
@@ -243,7 +260,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] user_id: User to associate the application with.
-        :param pulumi.Input[str] username: The username to use for the app user.
+        :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with 
+               'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         ...
     @overload
@@ -302,9 +320,8 @@ class User(pulumi.CustomResource):
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+            __props__.__dict__["has_shared_username"] = None
         super(User, __self__).__init__(
             'okta:app/user:User',
             resource_name,
@@ -316,6 +333,7 @@ class User(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
+            has_shared_username: Optional[pulumi.Input[bool]] = None,
             password: Optional[pulumi.Input[str]] = None,
             profile: Optional[pulumi.Input[str]] = None,
             retain_assignment: Optional[pulumi.Input[bool]] = None,
@@ -333,13 +351,15 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] profile: The JSON profile of the App User.
         :param pulumi.Input[bool] retain_assignment: Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] user_id: User to associate the application with.
-        :param pulumi.Input[str] username: The username to use for the app user.
+        :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with 
+               'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _UserState.__new__(_UserState)
 
         __props__.__dict__["app_id"] = app_id
+        __props__.__dict__["has_shared_username"] = has_shared_username
         __props__.__dict__["password"] = password
         __props__.__dict__["profile"] = profile
         __props__.__dict__["retain_assignment"] = retain_assignment
@@ -354,6 +374,11 @@ class User(pulumi.CustomResource):
         App to associate user with.
         """
         return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="hasSharedUsername")
+    def has_shared_username(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "has_shared_username")
 
     @property
     @pulumi.getter
@@ -389,9 +414,10 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
-        The username to use for the app user.
+        The username to use for the app user. In case the user is assigned to the app with 
+        'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         """
         return pulumi.get(self, "username")
 

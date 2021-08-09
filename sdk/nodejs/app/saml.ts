@@ -38,6 +38,51 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testHook = new okta.inline.Hook("testHook", {
+ *     status: "ACTIVE",
+ *     type: "com.okta.saml.tokens.transform",
+ *     version: "1.0.2",
+ *     channel: {
+ *         type: "HTTP",
+ *         version: "1.0.0",
+ *         uri: "https://example.com/test1",
+ *         method: "POST",
+ *     },
+ *     auth: {
+ *         key: "Authorization",
+ *         type: "HEADER",
+ *         value: "secret",
+ *     },
+ * });
+ * const testSaml = new okta.app.Saml("testSaml", {
+ *     label: "testAcc_replace_with_uuid",
+ *     ssoUrl: "http://google.com",
+ *     recipient: "http://here.com",
+ *     destination: "http://its-about-the-journey.com",
+ *     audience: "http://audience.com",
+ *     subjectNameIdTemplate: user.userName,
+ *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+ *     responseSigned: true,
+ *     signatureAlgorithm: "RSA_SHA256",
+ *     digestAlgorithm: "SHA256",
+ *     honorForceAuthn: false,
+ *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+ *     inlineHookId: testHook.id,
+ *     attributeStatements: [{
+ *         type: "GROUP",
+ *         name: "groups",
+ *         filterType: "REGEX",
+ *         filterValue: ".*",
+ *     }],
+ * }, {
+ *     dependsOn: [testHook],
+ * });
+ * ```
+ *
  * ## Import
  *
  * A SAML App can be imported via the Okta ID.
@@ -144,6 +189,9 @@ export class Saml extends pulumi.CustomResource {
     public readonly features!: pulumi.Output<string[] | undefined>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -171,6 +219,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
+     * Saml Inline Hook associated with the application.
+     */
+    public readonly inlineHookId!: pulumi.Output<string | undefined>;
+    /**
      * Certificate key ID.
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
@@ -186,6 +238,14 @@ export class Saml extends pulumi.CustomResource {
      * label of application.
      */
     public readonly label!: pulumi.Output<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * Direct link of application logo.
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
      * The raw SAML metadata in XML.
      */
@@ -223,7 +283,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     public readonly singleLogoutCertificate!: pulumi.Output<string | undefined>;
@@ -269,6 +329,9 @@ export class Saml extends pulumi.CustomResource {
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.app.SamlUser[] | undefined>;
 
@@ -309,10 +372,13 @@ export class Saml extends pulumi.CustomResource {
             inputs["httpPostBinding"] = state ? state.httpPostBinding : undefined;
             inputs["httpRedirectBinding"] = state ? state.httpRedirectBinding : undefined;
             inputs["idpIssuer"] = state ? state.idpIssuer : undefined;
+            inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["metadataUrl"] = state ? state.metadataUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -358,9 +424,11 @@ export class Saml extends pulumi.CustomResource {
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
             inputs["idpIssuer"] = args ? args.idpIssuer : undefined;
+            inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
             inputs["recipient"] = args ? args.recipient : undefined;
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
@@ -384,6 +452,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["httpPostBinding"] = undefined /*out*/;
             inputs["httpRedirectBinding"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["metadataUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -470,6 +539,9 @@ export interface SamlState {
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -497,6 +569,10 @@ export interface SamlState {
      */
     readonly idpIssuer?: pulumi.Input<string>;
     /**
+     * Saml Inline Hook associated with the application.
+     */
+    readonly inlineHookId?: pulumi.Input<string>;
+    /**
      * Certificate key ID.
      */
     readonly keyId?: pulumi.Input<string>;
@@ -512,6 +588,14 @@ export interface SamlState {
      * label of application.
      */
     readonly label?: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * Direct link of application logo.
+     */
+    readonly logoUrl?: pulumi.Input<string>;
     /**
      * The raw SAML metadata in XML.
      */
@@ -549,7 +633,7 @@ export interface SamlState {
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     readonly singleLogoutCertificate?: pulumi.Input<string>;
@@ -595,6 +679,9 @@ export interface SamlState {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }
@@ -661,6 +748,9 @@ export interface SamlArgs {
     readonly features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -680,6 +770,10 @@ export interface SamlArgs {
      */
     readonly idpIssuer?: pulumi.Input<string>;
     /**
+     * Saml Inline Hook associated with the application.
+     */
+    readonly inlineHookId?: pulumi.Input<string>;
+    /**
      * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
      */
     readonly keyName?: pulumi.Input<string>;
@@ -691,6 +785,10 @@ export interface SamlArgs {
      * label of application.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
@@ -712,7 +810,7 @@ export interface SamlArgs {
      */
     readonly signatureAlgorithm?: pulumi.Input<string>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     readonly singleLogoutCertificate?: pulumi.Input<string>;
@@ -758,6 +856,9 @@ export interface SamlArgs {
     readonly userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }

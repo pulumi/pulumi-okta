@@ -44,6 +44,10 @@ type providerArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel *int `pulumi:"logLevel"`
+	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+	// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+	// https://developer.okta.com/docs/reference/rl-global-mgmt/
+	MaxApiCapacity *int `pulumi:"maxApiCapacity"`
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries *int `pulumi:"maxRetries"`
 	// maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -58,7 +62,7 @@ type providerArgs struct {
 	// API Token granting privileges to Okta API.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `100`.
+	// value can be `300`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// API Token granting privileges to Okta API.
 	Scopes []string `pulumi:"scopes"`
@@ -76,6 +80,10 @@ type ProviderArgs struct {
 	ClientId pulumi.StringPtrInput
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel pulumi.IntPtrInput
+	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+	// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+	// https://developer.okta.com/docs/reference/rl-global-mgmt/
+	MaxApiCapacity pulumi.IntPtrInput
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries pulumi.IntPtrInput
 	// maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -90,7 +98,7 @@ type ProviderArgs struct {
 	// API Token granting privileges to Okta API.
 	PrivateKey pulumi.StringPtrInput
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `100`.
+	// value can be `300`.
 	RequestTimeout pulumi.IntPtrInput
 	// API Token granting privileges to Okta API.
 	Scopes pulumi.StringArrayInput

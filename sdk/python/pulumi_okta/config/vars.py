@@ -14,6 +14,7 @@ __all__ = [
     'base_url',
     'client_id',
     'log_level',
+    'max_api_capacity',
     'max_retries',
     'max_wait_seconds',
     'min_wait_seconds',
@@ -51,6 +52,13 @@ log_level = __config__.get('logLevel')
 providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 """
 
+max_api_capacity = __config__.get('maxApiCapacity')
+"""
+(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+https://developer.okta.com/docs/reference/rl-global-mgmt/
+"""
+
 max_retries = __config__.get('maxRetries')
 """
 maximum number of retries to attempt before erroring out.
@@ -85,7 +93,7 @@ API Token granting privileges to Okta API.
 request_timeout = __config__.get('requestTimeout')
 """
 Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-value can be `100`.
+value can be `300`.
 """
 
 scopes = __config__.get('scopes')

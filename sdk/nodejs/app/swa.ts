@@ -79,6 +79,9 @@ export class Swa extends pulumi.CustomResource {
     public readonly buttonField!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -93,6 +96,14 @@ export class Swa extends pulumi.CustomResource {
      * The display name of the Application.
      */
     public readonly label!: pulumi.Output<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * Direct link of application logo.
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
      * Name assigned to the application by Okta.
      */
@@ -139,6 +150,9 @@ export class Swa extends pulumi.CustomResource {
     public readonly usernameField!: pulumi.Output<string | undefined>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.app.SwaUser[] | undefined>;
 
@@ -163,6 +177,8 @@ export class Swa extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordField"] = state ? state.passwordField : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
@@ -188,6 +204,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -198,6 +215,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -230,6 +248,9 @@ export interface SwaState {
     readonly buttonField?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -244,6 +265,14 @@ export interface SwaState {
      * The display name of the Application.
      */
     readonly label?: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * Direct link of application logo.
+     */
+    readonly logoUrl?: pulumi.Input<string>;
     /**
      * Name assigned to the application by Okta.
      */
@@ -290,6 +319,9 @@ export interface SwaState {
     readonly usernameField?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SwaUser>[]>;
 }
@@ -316,6 +348,9 @@ export interface SwaArgs {
     readonly buttonField?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -330,6 +365,10 @@ export interface SwaArgs {
      * The display name of the Application.
      */
     readonly label: pulumi.Input<string>;
+    /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
     /**
      * Login password field.
      */
@@ -368,6 +407,9 @@ export interface SwaArgs {
     readonly usernameField?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.SwaUser>[]>;
 }

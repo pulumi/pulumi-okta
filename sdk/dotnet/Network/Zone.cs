@@ -42,6 +42,26 @@ namespace Pulumi.Okta.Network
     /// 
     /// }
     /// ```
+    /// ### Dynamic Tor Blocker
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Network.Zone("example", new Okta.Network.ZoneArgs
+    ///         {
+    ///             DynamicProxyType = "TorAnonymizer",
+    ///             Type = "DYNAMIC",
+    ///             Usage = "BLOCKLIST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -60,6 +80,12 @@ namespace Pulumi.Okta.Network
         /// </summary>
         [Output("dynamicLocations")]
         public Output<ImmutableArray<string>> DynamicLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// </summary>
+        [Output("dynamicProxyType")]
+        public Output<string?> DynamicProxyType { get; private set; } = null!;
 
         /// <summary>
         /// Array of values in CIDR/range form.
@@ -150,6 +176,12 @@ namespace Pulumi.Okta.Network
             set => _dynamicLocations = value;
         }
 
+        /// <summary>
+        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// </summary>
+        [Input("dynamicProxyType")]
+        public Input<string>? DynamicProxyType { get; set; }
+
         [Input("gateways")]
         private InputList<string>? _gateways;
 
@@ -211,6 +243,12 @@ namespace Pulumi.Okta.Network
             get => _dynamicLocations ?? (_dynamicLocations = new InputList<string>());
             set => _dynamicLocations = value;
         }
+
+        /// <summary>
+        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// </summary>
+        [Input("dynamicProxyType")]
+        public Input<string>? DynamicProxyType { get; set; }
 
         [Input("gateways")]
         private InputList<string>? _gateways;

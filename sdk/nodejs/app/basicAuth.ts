@@ -69,6 +69,9 @@ export class BasicAuth extends pulumi.CustomResource {
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -84,7 +87,15 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * name of app.
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    public readonly logo!: pulumi.Output<string | undefined>;
+    /**
+     * Direct link of application logo.
+     */
+    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    /**
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -101,6 +112,9 @@ export class BasicAuth extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     public readonly users!: pulumi.Output<outputs.app.BasicAuthUser[] | undefined>;
 
@@ -123,6 +137,8 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
             inputs["label"] = state ? state.label : undefined;
+            inputs["logo"] = state ? state.logo : undefined;
+            inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -145,9 +161,11 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
+            inputs["logo"] = args ? args.logo : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["logoUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["signOnMode"] = undefined /*out*/;
         }
@@ -172,6 +190,9 @@ export interface BasicAuthState {
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -187,7 +208,15 @@ export interface BasicAuthState {
      */
     readonly label?: pulumi.Input<string>;
     /**
-     * name of app.
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
+     * Direct link of application logo.
+     */
+    readonly logoUrl?: pulumi.Input<string>;
+    /**
+     * Name of the app.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -204,6 +233,9 @@ export interface BasicAuthState {
     readonly url?: pulumi.Input<string>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BasicAuthUser>[]>;
 }
@@ -222,6 +254,9 @@ export interface BasicAuthArgs {
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Groups associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
+     *
+     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -237,6 +272,10 @@ export interface BasicAuthArgs {
      */
     readonly label: pulumi.Input<string>;
     /**
+     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     */
+    readonly logo?: pulumi.Input<string>;
+    /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     readonly status?: pulumi.Input<string>;
@@ -246,6 +285,9 @@ export interface BasicAuthArgs {
     readonly url: pulumi.Input<string>;
     /**
      * Users associated with the application.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
+     *
+     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
     readonly users?: pulumi.Input<pulumi.Input<inputs.app.BasicAuthUser>[]>;
 }

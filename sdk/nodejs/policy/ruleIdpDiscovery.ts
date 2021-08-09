@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         osType: "OSX",
  *         type: "MOBILE",
  *     }],
- *     policyid: "<policy id>",
+ *     policyId: "<policy id>",
  *     priority: 1,
  *     status: "ACTIVE",
  *     userIdentifierAttribute: "company",
@@ -128,7 +128,13 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
     /**
      * Policy ID.
      */
-    public readonly policyid!: pulumi.Output<string>;
+    public readonly policyId!: pulumi.Output<string | undefined>;
+    /**
+     * Policy ID.
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    public readonly policyid!: pulumi.Output<string | undefined>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
@@ -157,7 +163,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RuleIdpDiscoveryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: RuleIdpDiscoveryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleIdpDiscoveryArgs | RuleIdpDiscoveryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -172,6 +178,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
             inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             inputs["platformIncludes"] = state ? state.platformIncludes : undefined;
+            inputs["policyId"] = state ? state.policyId : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -180,9 +187,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             inputs["userIdentifierType"] = state ? state.userIdentifierType : undefined;
         } else {
             const args = argsOrState as RuleIdpDiscoveryArgs | undefined;
-            if ((!args || args.policyid === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyid'");
-            }
             inputs["appExcludes"] = args ? args.appExcludes : undefined;
             inputs["appIncludes"] = args ? args.appIncludes : undefined;
             inputs["idpId"] = args ? args.idpId : undefined;
@@ -192,6 +196,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
             inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             inputs["platformIncludes"] = args ? args.platformIncludes : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -245,6 +250,12 @@ export interface RuleIdpDiscoveryState {
     readonly platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
      * Policy ID.
+     */
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID.
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
     readonly policyid?: pulumi.Input<string>;
     /**
@@ -309,7 +320,13 @@ export interface RuleIdpDiscoveryArgs {
     /**
      * Policy ID.
      */
-    readonly policyid: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID.
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    readonly policyid?: pulumi.Input<string>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */

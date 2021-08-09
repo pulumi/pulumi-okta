@@ -80,6 +80,12 @@ namespace Pulumi.Okta
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// </summary>
+        [Output("issuerMode")]
+        public Output<string?> IssuerMode { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         /// </summary>
         [Output("kid")]
@@ -168,6 +174,12 @@ namespace Pulumi.Okta
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// </summary>
+        [Input("issuerMode")]
+        public Input<string>? IssuerMode { get; set; }
+
+        /// <summary>
         /// The name of the authorization server.
         /// </summary>
         [Input("name")]
@@ -227,6 +239,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
+
+        /// <summary>
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// </summary>
+        [Input("issuerMode")]
+        public Input<string>? IssuerMode { get; set; }
 
         /// <summary>
         /// The ID of the JSON Web Key used for signing tokens issued by the authorization server.

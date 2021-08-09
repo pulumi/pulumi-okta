@@ -45,8 +45,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
+        [Output("policyId")]
+        public Output<string?> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
         [Output("policyid")]
-        public Output<string> Policyid { get; private set; } = null!;
+        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -75,7 +81,7 @@ namespace Pulumi.Okta.Deprecated
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public MfaPolicyRule(string name, MfaPolicyRuleArgs args, CustomResourceOptions? options = null)
+        public MfaPolicyRule(string name, MfaPolicyRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:deprecated/mfaPolicyRule:MfaPolicyRule", name, args ?? new MfaPolicyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -158,8 +164,14 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Policy ID of the Rule
         /// </summary>
-        [Input("policyid", required: true)]
-        public Input<string> Policyid { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
+        [Input("policyid")]
+        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
@@ -234,6 +246,12 @@ namespace Pulumi.Okta.Deprecated
             get => _networkIncludes ?? (_networkIncludes = new InputList<string>());
             set => _networkIncludes = value;
         }
+
+        /// <summary>
+        /// Policy ID of the Rule
+        /// </summary>
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Policy ID of the Rule

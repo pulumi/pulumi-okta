@@ -23,6 +23,8 @@ type AuthLoginApp struct {
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -30,7 +32,11 @@ type AuthLoginApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
+	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
@@ -55,6 +61,8 @@ type AuthLoginApp struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AuthLoginAppUserArrayOutput `pulumi:"users"`
 }
 
@@ -99,6 +107,8 @@ type authLoginAppState struct {
 	// Application credentials scheme
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -106,7 +116,11 @@ type authLoginAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// name of app.
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
+	// URL of the application's logo
+	LogoUrl *string `pulumi:"logoUrl"`
+	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Preconfigured app name
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -131,6 +145,8 @@ type authLoginAppState struct {
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AuthLoginAppUser `pulumi:"users"`
 }
 
@@ -144,6 +160,8 @@ type AuthLoginAppState struct {
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -151,7 +169,11 @@ type AuthLoginAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// name of app.
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
+	// URL of the application's logo
+	LogoUrl pulumi.StringPtrInput
+	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrInput
@@ -176,6 +198,8 @@ type AuthLoginAppState struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AuthLoginAppUserArrayInput
 }
 
@@ -193,6 +217,8 @@ type authLoginAppArgs struct {
 	// Application credentials scheme
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -200,6 +226,8 @@ type authLoginAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
+	// Logo of the application.
+	Logo *string `pulumi:"logo"`
 	// Preconfigured app name
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Allow user to reveal password
@@ -221,6 +249,8 @@ type authLoginAppArgs struct {
 	// Username template type
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AuthLoginAppUser `pulumi:"users"`
 }
 
@@ -235,6 +265,8 @@ type AuthLoginAppArgs struct {
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrInput
 	// Groups associated with the application
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -242,6 +274,8 @@ type AuthLoginAppArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
+	// Logo of the application.
+	Logo pulumi.StringPtrInput
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrInput
 	// Allow user to reveal password
@@ -263,6 +297,8 @@ type AuthLoginAppArgs struct {
 	// Username template type
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AuthLoginAppUserArrayInput
 }
 

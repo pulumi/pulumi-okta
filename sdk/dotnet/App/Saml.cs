@@ -54,6 +54,70 @@ namespace Pulumi.Okta.App
     /// }
     /// ```
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testHook = new Okta.Inline.Hook("testHook", new Okta.Inline.HookArgs
+    ///         {
+    ///             Status = "ACTIVE",
+    ///             Type = "com.okta.saml.tokens.transform",
+    ///             Version = "1.0.2",
+    ///             Channel = 
+    ///             {
+    ///                 { "type", "HTTP" },
+    ///                 { "version", "1.0.0" },
+    ///                 { "uri", "https://example.com/test1" },
+    ///                 { "method", "POST" },
+    ///             },
+    ///             Auth = 
+    ///             {
+    ///                 { "key", "Authorization" },
+    ///                 { "type", "HEADER" },
+    ///                 { "value", "secret" },
+    ///             },
+    ///         });
+    ///         var testSaml = new Okta.App.Saml("testSaml", new Okta.App.SamlArgs
+    ///         {
+    ///             Label = "testAcc_replace_with_uuid",
+    ///             SsoUrl = "http://google.com",
+    ///             Recipient = "http://here.com",
+    ///             Destination = "http://its-about-the-journey.com",
+    ///             Audience = "http://audience.com",
+    ///             SubjectNameIdTemplate = user.UserName,
+    ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///             ResponseSigned = true,
+    ///             SignatureAlgorithm = "RSA_SHA256",
+    ///             DigestAlgorithm = "SHA256",
+    ///             HonorForceAuthn = false,
+    ///             AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///             InlineHookId = testHook.Id,
+    ///             AttributeStatements = 
+    ///             {
+    ///                 new Okta.App.Inputs.SamlAttributeStatementArgs
+    ///                 {
+    ///                     Type = "GROUP",
+    ///                     Name = "groups",
+    ///                     FilterType = "REGEX",
+    ///                     FilterValue = ".*",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 testHook,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A SAML App can be imported via the Okta ID.
@@ -169,6 +233,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -210,6 +275,12 @@ namespace Pulumi.Okta.App
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Output("inlineHookId")]
+        public Output<string?> InlineHookId { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         [Output("keyId")]
@@ -232,6 +303,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
+        /// Direct link of application logo.
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
         /// The raw SAML metadata in XML.
@@ -288,7 +371,7 @@ namespace Pulumi.Okta.App
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Output("singleLogoutCertificate")]
@@ -356,6 +439,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.SamlUser>> Users { get; private set; } = null!;
@@ -513,7 +597,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -545,6 +631,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
+
+        /// <summary>
         /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         /// </summary>
         [Input("keyName")]
@@ -561,6 +653,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
 
         /// <summary>
         /// name of application from the Okta Integration Network, if not included a custom app will be created.
@@ -593,7 +691,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Input("singleLogoutCertificate")]
@@ -664,7 +762,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SamlUserArgs>());
@@ -803,7 +903,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -847,6 +949,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
+
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         [Input("keyId")]
@@ -869,6 +977,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
+        /// Direct link of application logo.
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
         /// The raw SAML metadata in XML.
@@ -925,7 +1045,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Input("singleLogoutCertificate")]
@@ -996,7 +1116,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SamlUserGetArgs>());

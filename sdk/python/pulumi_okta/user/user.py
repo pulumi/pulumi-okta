@@ -58,6 +58,7 @@ class UserArgs:
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
         :param pulumi.Input[str] login: User profile property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -97,6 +98,9 @@ class UserArgs:
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "login", login)
         if admin_roles is not None:
+            warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
+            pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
+        if admin_roles is not None:
             pulumi.set(__self__, "admin_roles", admin_roles)
         if city is not None:
             pulumi.set(__self__, "city", city)
@@ -114,6 +118,9 @@ class UserArgs:
             pulumi.set(__self__, "division", division)
         if employee_number is not None:
             pulumi.set(__self__, "employee_number", employee_number)
+        if group_memberships is not None:
+            warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
+            pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
         if group_memberships is not None:
             pulumi.set(__self__, "group_memberships", group_memberships)
         if honorific_prefix is not None:
@@ -218,6 +225,7 @@ class UserArgs:
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Administrator roles assigned to User.
+        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 
@@ -667,6 +675,7 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -707,6 +716,9 @@ class _UserState:
         :param pulumi.Input[str] zip_code: User profile property.
         """
         if admin_roles is not None:
+            warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
+            pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
+        if admin_roles is not None:
             pulumi.set(__self__, "admin_roles", admin_roles)
         if city is not None:
             pulumi.set(__self__, "city", city)
@@ -728,6 +740,9 @@ class _UserState:
             pulumi.set(__self__, "employee_number", employee_number)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
+        if group_memberships is not None:
+            warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
+            pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
         if group_memberships is not None:
             pulumi.set(__self__, "group_memberships", group_memberships)
         if honorific_prefix is not None:
@@ -790,6 +805,7 @@ class _UserState:
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Administrator roles assigned to User.
+        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 
@@ -1354,6 +1370,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1516,6 +1533,9 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserArgs.__new__(UserArgs)
 
+            if admin_roles is not None and not opts.urn:
+                warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
+                pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
             __props__.__dict__["admin_roles"] = admin_roles
             __props__.__dict__["city"] = city
             __props__.__dict__["cost_center"] = cost_center
@@ -1531,6 +1551,9 @@ class User(pulumi.CustomResource):
             if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__.__dict__["first_name"] = first_name
+            if group_memberships is not None and not opts.urn:
+                warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
+                pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
             __props__.__dict__["group_memberships"] = group_memberships
             __props__.__dict__["honorific_prefix"] = honorific_prefix
             __props__.__dict__["honorific_suffix"] = honorific_suffix
@@ -1620,6 +1643,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
+               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1709,6 +1733,7 @@ class User(pulumi.CustomResource):
     def admin_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Administrator roles assigned to User.
+        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 

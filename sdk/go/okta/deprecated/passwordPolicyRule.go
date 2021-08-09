@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +28,11 @@ type PasswordPolicyRule struct {
 	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrOutput `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
-	Policyid pulumi.StringOutput `pulumi:"policyid"`
+	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
@@ -43,12 +46,9 @@ type PasswordPolicyRule struct {
 func NewPasswordPolicyRule(ctx *pulumi.Context,
 	name string, args *PasswordPolicyRuleArgs, opts ...pulumi.ResourceOption) (*PasswordPolicyRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PasswordPolicyRuleArgs{}
 	}
 
-	if args.Policyid == nil {
-		return nil, errors.New("invalid value for required argument 'Policyid'")
-	}
 	var resource PasswordPolicyRule
 	err := ctx.RegisterResource("okta:deprecated/passwordPolicyRule:PasswordPolicyRule", name, args, &resource, opts...)
 	if err != nil {
@@ -86,6 +86,10 @@ type passwordPolicyRuleState struct {
 	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -112,6 +116,10 @@ type PasswordPolicyRuleState struct {
 	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID of the Rule
+	PolicyId pulumi.StringPtrInput
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -142,7 +150,11 @@ type passwordPolicyRuleArgs struct {
 	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
-	Policyid string `pulumi:"policyid"`
+	PolicyId *string `pulumi:"policyId"`
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
@@ -169,7 +181,11 @@ type PasswordPolicyRuleArgs struct {
 	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID of the Rule
-	Policyid pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
+	// Policy ID of the Rule
+	//
+	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput

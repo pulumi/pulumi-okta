@@ -27,6 +27,9 @@ class GroupArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if users is not None:
+            warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
+        if users is not None:
             pulumi.set(__self__, "users", users)
 
     @property
@@ -82,6 +85,9 @@ class _GroupState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if users is not None:
+            warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
+            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -219,6 +225,9 @@ class Group(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if users is not None and not opts.urn:
+                warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
+                pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
             __props__.__dict__["users"] = users
         super(Group, __self__).__init__(
             'okta:group/group:Group',

@@ -4,6 +4,72 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface AppGroupAssignmentsGroup {
+    /**
+     * ID of the group to assign.
+     */
+    id: string;
+    /**
+     * Priority of group assignment
+     */
+    priority?: number;
+    /**
+     * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+     */
+    profile?: string;
+}
+
+export interface AppSharedCredentialsUser {
+    /**
+     * ID of an app.
+     */
+    id?: string;
+    password?: string;
+    scope: string;
+    username?: string;
+}
+
+export interface AppUserSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
+}
+
+export interface AppUserSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
+}
+
+export interface DomainDnsRecord {
+    /**
+     * TXT record expiration.
+     */
+    expiration: string;
+    /**
+     * DNS record name.
+     */
+    fqdn: string;
+    /**
+     * Record type can be TXT or CNAME.
+     */
+    recordType: string;
+    /**
+     * DNS verification value
+     */
+    values: string[];
+}
+
 export interface EventHookHeader {
     /**
      * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -13,6 +79,29 @@ export interface EventHookHeader {
      * Authentication secret.
      */
     value?: string;
+}
+
+export interface GetBehavioursBehavior {
+    /**
+     * Behavior ID.
+     */
+    id: string;
+    /**
+     * Behavior name.
+     */
+    name: string;
+    /**
+     * Map of behavior settings.
+     */
+    settings: {[key: string]: string};
+    /**
+     * Behavior status.
+     */
+    status: string;
+    /**
+     * Behavior type.
+     */
+    type: string;
 }
 
 export interface GetGroupsGroup {
@@ -35,6 +124,17 @@ export interface GetGroupsGroup {
     type: string;
 }
 
+export interface GetUserSecurityQuestionsQuestion {
+    /**
+     * Security question unique key.
+     */
+    key: string;
+    /**
+     * Display text for security question.
+     */
+    text: string;
+}
+
 export interface TemplateSmsTranslation {
     /**
      * The language to map the template to.
@@ -44,6 +144,39 @@ export interface TemplateSmsTranslation {
      * The SMS message.
      */
     template: string;
+}
+
+export interface UserSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
+}
+
+export interface UserSchemaPropertyMasterOverridePriority {
+    /**
+     * - Type of profile source.
+     */
+    type?: string;
+    /**
+     * - ID of profile source.
+     */
+    value: string;
+}
+
+export interface UserSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
 }
 export namespace app {
     export interface AutoLoginUser {
@@ -98,6 +231,25 @@ export namespace app {
          * Array of values to use.
          */
         values: string[];
+    }
+
+    export interface OAuthGroupsClaim {
+        /**
+         * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+         */
+        filterType?: string;
+        /**
+         * Name of the claim that will be used in the token.
+         */
+        name: string;
+        /**
+         * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+         */
+        type: string;
+        /**
+         * Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+         */
+        value: string;
     }
 
     export interface OAuthJwk {
@@ -213,6 +365,10 @@ export namespace auth {
          */
         description: string;
         /**
+         * Name of the end user displayed in a consent dialog box
+         */
+        displayName: string;
+        /**
          * ID of the Scope
          */
         id: string;
@@ -244,6 +400,13 @@ export namespace deprecated {
         password?: string;
         scope: string;
         username?: string;
+    }
+
+    export interface OauthAppGroupsClaim {
+        filterType?: string;
+        name: string;
+        type: string;
+        value: string;
     }
 
     export interface OauthAppJwk {
@@ -281,6 +444,17 @@ export namespace deprecated {
         password?: string;
         scope: string;
         username?: string;
+    }
+
+    export interface SignonPolicyRuleFactorSequence {
+        primaryCriteriaFactorType: string;
+        primaryCriteriaProvider: string;
+        secondaryCriterias?: outputs.deprecated.SignonPolicyRuleFactorSequenceSecondaryCriteria[];
+    }
+
+    export interface SignonPolicyRuleFactorSequenceSecondaryCriteria {
+        factorType: string;
+        provider: string;
     }
 
     export interface SwaAppUser {
@@ -366,6 +540,32 @@ export namespace policy {
          * The regex or simple match string to match against.
          */
         value?: string;
+    }
+
+    export interface RuleSignonFactorSequence {
+        /**
+         * Primary factor type of the auth section.
+         */
+        primaryCriteriaFactorType: string;
+        /**
+         * Primary provider of the auth section.
+         */
+        primaryCriteriaProvider: string;
+        /**
+         * Additional authentication steps.
+         */
+        secondaryCriterias?: outputs.policy.RuleSignonFactorSequenceSecondaryCriteria[];
+    }
+
+    export interface RuleSignonFactorSequenceSecondaryCriteria {
+        /**
+         * Factor type of the additional authentication step.
+         */
+        factorType: string;
+        /**
+         * Provider of the additional authentication step.
+         */
+        provider: string;
     }
 }
 

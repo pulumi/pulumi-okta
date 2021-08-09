@@ -22,20 +22,46 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
 		r = &AdminRoleTargets{}
+	case "okta:index/appGroupAssignments:AppGroupAssignments":
+		r = &AppGroupAssignments{}
 	case "okta:index/appOauthApiScope:AppOauthApiScope":
 		r = &AppOauthApiScope{}
+	case "okta:index/appSharedCredentials:AppSharedCredentials":
+		r = &AppSharedCredentials{}
+	case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
+		r = &AppUserBaseSchemaProperty{}
+	case "okta:index/appUserSchemaProperty:AppUserSchemaProperty":
+		r = &AppUserSchemaProperty{}
 	case "okta:index/authServerClaimDefault:AuthServerClaimDefault":
 		r = &AuthServerClaimDefault{}
 	case "okta:index/authServerDefault:AuthServerDefault":
 		r = &AuthServerDefault{}
+	case "okta:index/behaviour:Behaviour":
+		r = &Behaviour{}
+	case "okta:index/domain:Domain":
+		r = &Domain{}
 	case "okta:index/eventHook:EventHook":
 		r = &EventHook{}
+	case "okta:index/factorTotp:FactorTotp":
+		r = &FactorTotp{}
+	case "okta:index/groupMemberships:GroupMemberships":
+		r = &GroupMemberships{}
 	case "okta:index/policyMfaDefault:PolicyMfaDefault":
 		r = &PolicyMfaDefault{}
 	case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
 		r = &PolicyPasswordDefault{}
 	case "okta:index/templateSms:TemplateSms":
 		r = &TemplateSms{}
+	case "okta:index/userAdminRoles:UserAdminRoles":
+		r = &UserAdminRoles{}
+	case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
+		r = &UserBaseSchemaProperty{}
+	case "okta:index/userFactorQuestion:UserFactorQuestion":
+		r = &UserFactorQuestion{}
+	case "okta:index/userGroupMemberships:UserGroupMemberships":
+		r = &UserGroupMemberships{}
+	case "okta:index/userSchemaProperty:UserSchemaProperty":
+		r = &UserSchemaProperty{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,7 +100,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/appGroupAssignments",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/appOauthApiScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/appSharedCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/appUserBaseSchemaProperty",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/appUserSchemaProperty",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -89,7 +135,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/behaviour",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/domain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/eventHook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/factorTotp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/groupMemberships",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -105,6 +171,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/templateSms",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/userAdminRoles",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/userBaseSchemaProperty",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/userFactorQuestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/userGroupMemberships",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/userSchemaProperty",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

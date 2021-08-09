@@ -48,6 +48,9 @@ export interface GetOauthArgs {
     readonly activeOnly?: boolean;
     /**
      * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups?: string[];
     /**
@@ -67,6 +70,9 @@ export interface GetOauthArgs {
     readonly labelPrefix?: string;
     /**
      * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users?: string[];
 }
@@ -94,6 +100,9 @@ export interface GetOauthResult {
     readonly grantTypes: string[];
     /**
      * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups?: string[];
     /**
@@ -163,6 +172,10 @@ export interface GetOauthResult {
     readonly type: string;
     /**
      * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users?: string[];
+    readonly wildcardRedirect: string;
 }

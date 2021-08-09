@@ -11,11 +11,14 @@ from .. import _utilities
 __all__ = [
     'AuthLoginAppUserArgs',
     'BookmarkAppUserArgs',
+    'OauthAppGroupsClaimArgs',
     'OauthAppJwkArgs',
     'OauthAppUserArgs',
     'SamlAppAttributeStatementArgs',
     'SamlAppUserArgs',
     'SecurePasswordStoreAppUserArgs',
+    'SignonPolicyRuleFactorSequenceArgs',
+    'SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs',
     'SwaAppUserArgs',
     'ThreeFieldAppUserArgs',
 ]
@@ -124,6 +127,56 @@ class BookmarkAppUserArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class OauthAppGroupsClaimArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 filter_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_type", value)
 
 
 @pulumi.input_type
@@ -410,6 +463,72 @@ class SecurePasswordStoreAppUserArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class SignonPolicyRuleFactorSequenceArgs:
+    def __init__(__self__, *,
+                 primary_criteria_factor_type: pulumi.Input[str],
+                 primary_criteria_provider: pulumi.Input[str],
+                 secondary_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs']]]] = None):
+        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
+        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
+        if secondary_criterias is not None:
+            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaFactorType")
+    def primary_criteria_factor_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_criteria_factor_type")
+
+    @primary_criteria_factor_type.setter
+    def primary_criteria_factor_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_criteria_factor_type", value)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaProvider")
+    def primary_criteria_provider(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_criteria_provider")
+
+    @primary_criteria_provider.setter
+    def primary_criteria_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_criteria_provider", value)
+
+    @property
+    @pulumi.getter(name="secondaryCriterias")
+    def secondary_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs']]]]:
+        return pulumi.get(self, "secondary_criterias")
+
+    @secondary_criterias.setter
+    def secondary_criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs']]]]):
+        pulumi.set(self, "secondary_criterias", value)
+
+
+@pulumi.input_type
+class SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs:
+    def __init__(__self__, *,
+                 factor_type: pulumi.Input[str],
+                 provider: pulumi.Input[str]):
+        pulumi.set(__self__, "factor_type", factor_type)
+        pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="factorType")
+    def factor_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "factor_type")
+
+    @factor_type.setter
+    def factor_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "factor_type", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
 
 
 @pulumi.input_type

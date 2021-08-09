@@ -76,6 +76,14 @@ namespace Pulumi.Okta
         public Input<int>? LogLevel { get; set; }
 
         /// <summary>
+        /// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+        /// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        /// https://developer.okta.com/docs/reference/rl-global-mgmt/
+        /// </summary>
+        [Input("maxApiCapacity", json: true)]
+        public Input<int>? MaxApiCapacity { get; set; }
+
+        /// <summary>
         /// maximum number of retries to attempt before erroring out.
         /// </summary>
         [Input("maxRetries", json: true)]
@@ -114,7 +122,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-        /// value can be `100`.
+        /// value can be `300`.
         /// </summary>
         [Input("requestTimeout", json: true)]
         public Input<int>? RequestTimeout { get; set; }

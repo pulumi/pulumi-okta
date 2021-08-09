@@ -7,15 +7,19 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'AuthLoginAppUser',
     'BookmarkAppUser',
+    'OauthAppGroupsClaim',
     'OauthAppJwk',
     'OauthAppUser',
     'SamlAppAttributeStatement',
     'SamlAppUser',
     'SecurePasswordStoreAppUser',
+    'SignonPolicyRuleFactorSequence',
+    'SignonPolicyRuleFactorSequenceSecondaryCriteria',
     'SwaAppUser',
     'ThreeFieldAppUser',
 ]
@@ -92,6 +96,57 @@ class BookmarkAppUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class OauthAppGroupsClaim(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthAppGroupsClaim. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthAppGroupsClaim.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthAppGroupsClaim.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str,
+                 filter_type: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[str]:
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type
@@ -309,6 +364,90 @@ class SecurePasswordStoreAppUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class SignonPolicyRuleFactorSequence(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryCriteriaFactorType":
+            suggest = "primary_criteria_factor_type"
+        elif key == "primaryCriteriaProvider":
+            suggest = "primary_criteria_provider"
+        elif key == "secondaryCriterias":
+            suggest = "secondary_criterias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignonPolicyRuleFactorSequence. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignonPolicyRuleFactorSequence.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignonPolicyRuleFactorSequence.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_criteria_factor_type: str,
+                 primary_criteria_provider: str,
+                 secondary_criterias: Optional[Sequence['outputs.SignonPolicyRuleFactorSequenceSecondaryCriteria']] = None):
+        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
+        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
+        if secondary_criterias is not None:
+            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
+
+    @property
+    @pulumi.getter(name="primaryCriteriaFactorType")
+    def primary_criteria_factor_type(self) -> str:
+        return pulumi.get(self, "primary_criteria_factor_type")
+
+    @property
+    @pulumi.getter(name="primaryCriteriaProvider")
+    def primary_criteria_provider(self) -> str:
+        return pulumi.get(self, "primary_criteria_provider")
+
+    @property
+    @pulumi.getter(name="secondaryCriterias")
+    def secondary_criterias(self) -> Optional[Sequence['outputs.SignonPolicyRuleFactorSequenceSecondaryCriteria']]:
+        return pulumi.get(self, "secondary_criterias")
+
+
+@pulumi.output_type
+class SignonPolicyRuleFactorSequenceSecondaryCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "factorType":
+            suggest = "factor_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignonPolicyRuleFactorSequenceSecondaryCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignonPolicyRuleFactorSequenceSecondaryCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignonPolicyRuleFactorSequenceSecondaryCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 factor_type: str,
+                 provider: str):
+        pulumi.set(__self__, "factor_type", factor_type)
+        pulumi.set(__self__, "provider", provider)
+
+    @property
+    @pulumi.getter(name="factorType")
+    def factor_type(self) -> str:
+        return pulumi.get(self, "factor_type")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        return pulumi.get(self, "provider")
 
 
 @pulumi.output_type

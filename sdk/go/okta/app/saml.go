@@ -57,6 +57,69 @@ import (
 // }
 // ```
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testHook, err := inline.NewHook(ctx, "testHook", &inline.HookArgs{
+// 			Status:  pulumi.String("ACTIVE"),
+// 			Type:    pulumi.String("com.okta.saml.tokens.transform"),
+// 			Version: pulumi.String("1.0.2"),
+// 			Channel: pulumi.StringMap{
+// 				"type":    pulumi.String("HTTP"),
+// 				"version": pulumi.String("1.0.0"),
+// 				"uri":     pulumi.String("https://example.com/test1"),
+// 				"method":  pulumi.String("POST"),
+// 			},
+// 			Auth: pulumi.StringMap{
+// 				"key":   pulumi.String("Authorization"),
+// 				"type":  pulumi.String("HEADER"),
+// 				"value": pulumi.String("secret"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+// 			Label:                 pulumi.String("testAcc_replace_with_uuid"),
+// 			SsoUrl:                pulumi.String("http://google.com"),
+// 			Recipient:             pulumi.String("http://here.com"),
+// 			Destination:           pulumi.String("http://its-about-the-journey.com"),
+// 			Audience:              pulumi.String("http://audience.com"),
+// 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
+// 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+// 			ResponseSigned:        pulumi.Bool(true),
+// 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
+// 			DigestAlgorithm:       pulumi.String("SHA256"),
+// 			HonorForceAuthn:       pulumi.Bool(false),
+// 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+// 			InlineHookId:          testHook.ID(),
+// 			AttributeStatements: app.SamlAttributeStatementArray{
+// 				&app.SamlAttributeStatementArgs{
+// 					Type:        pulumi.String("GROUP"),
+// 					Name:        pulumi.String("groups"),
+// 					FilterType:  pulumi.String("REGEX"),
+// 					FilterValue: pulumi.String(".*"),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			testHook,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // A SAML App can be imported via the Okta ID.
@@ -102,6 +165,9 @@ type Saml struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -115,6 +181,8 @@ type Saml struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
+	// Saml Inline Hook associated with the application.
+	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Certificate key ID.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
@@ -123,6 +191,10 @@ type Saml struct {
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
 	// label of application.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// The raw SAML metadata in XML.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// SAML xml metadata URL.
@@ -165,6 +237,9 @@ type Saml struct {
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayOutput `pulumi:"users"`
 }
 
@@ -235,6 +310,9 @@ type samlState struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -248,6 +326,8 @@ type samlState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook associated with the application.
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate key ID.
 	KeyId *string `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
@@ -256,6 +336,10 @@ type samlState struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label *string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
 	// The raw SAML metadata in XML.
 	Metadata *string `pulumi:"metadata"`
 	// SAML xml metadata URL.
@@ -298,6 +382,9 @@ type samlState struct {
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlUser `pulumi:"users"`
 }
 
@@ -337,6 +424,9 @@ type SamlState struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -350,6 +440,8 @@ type SamlState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook associated with the application.
+	InlineHookId pulumi.StringPtrInput
 	// Certificate key ID.
 	KeyId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
@@ -358,6 +450,10 @@ type SamlState struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
 	// The raw SAML metadata in XML.
 	Metadata pulumi.StringPtrInput
 	// SAML xml metadata URL.
@@ -400,6 +496,9 @@ type SamlState struct {
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayInput
 }
 
@@ -437,6 +536,9 @@ type samlArgs struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -446,12 +548,16 @@ type samlArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook associated with the application.
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName *string `pulumi:"keyName"`
 	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
@@ -486,6 +592,9 @@ type samlArgs struct {
 	// Username template type.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlUser `pulumi:"users"`
 }
 
@@ -520,6 +629,9 @@ type SamlArgs struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
 	// Groups associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -529,12 +641,16 @@ type SamlArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook associated with the application.
+	InlineHookId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
 	KeyName pulumi.StringPtrInput
 	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
@@ -569,6 +685,9 @@ type SamlArgs struct {
 	// Username template type.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayInput
 }
 

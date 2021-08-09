@@ -77,6 +77,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
+        /// Groups claim for an OpenID Connect client application
+        /// </summary>
+        [Output("groupsClaim")]
+        public Output<Outputs.OauthAppGroupsClaim?> GroupsClaim { get; private set; } = null!;
+
+        /// <summary>
         /// Do not display application icon on mobile app
         /// </summary>
         [Output("hideIos")]
@@ -129,13 +135,25 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> LoginUri { get; private set; } = null!;
 
         /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Output("logoUri")]
         public Output<string?> LogoUri { get; private set; } = null!;
 
         /// <summary>
-        /// name of app.
+        /// URL of the application's logo
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -171,6 +189,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("redirectUris")]
         public Output<ImmutableArray<string>> RedirectUris { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property* Grace period for token rotation
+        /// </summary>
+        [Output("refreshTokenLeeway")]
+        public Output<int?> RefreshTokenLeeway { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property* Refresh token rotation behavior
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<string?> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
         /// List of OAuth 2.0 response type strings.
@@ -213,6 +243,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.OauthAppUser>> Users { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// </summary>
+        [Output("wildcardRedirect")]
+        public Output<string?> WildcardRedirect { get; private set; } = null!;
 
 
         /// <summary>
@@ -324,11 +360,18 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
+
+        /// <summary>
+        /// Groups claim for an OpenID Connect client application
+        /// </summary>
+        [Input("groupsClaim")]
+        public Input<Inputs.OauthAppGroupsClaimArgs>? GroupsClaim { get; set; }
 
         /// <summary>
         /// Do not display application icon on mobile app
@@ -394,6 +437,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Input("logoUri")]
@@ -443,6 +492,18 @@ namespace Pulumi.Okta.Deprecated
             set => _redirectUris = value;
         }
 
+        /// <summary>
+        /// *Early Access Property* Grace period for token rotation
+        /// </summary>
+        [Input("refreshTokenLeeway")]
+        public Input<int>? RefreshTokenLeeway { get; set; }
+
+        /// <summary>
+        /// *Early Access Property* Refresh token rotation behavior
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<string>? RefreshTokenRotation { get; set; }
+
         [Input("responseTypes")]
         private InputList<string>? _responseTypes;
 
@@ -485,11 +546,18 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OauthAppUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.OauthAppUserArgs>());
             set => _users = value;
         }
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// </summary>
+        [Input("wildcardRedirect")]
+        public Input<string>? WildcardRedirect { get; set; }
 
         public OauthAppArgs()
         {
@@ -568,11 +636,18 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Groups associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
+
+        /// <summary>
+        /// Groups claim for an OpenID Connect client application
+        /// </summary>
+        [Input("groupsClaim")]
+        public Input<Inputs.OauthAppGroupsClaimGetArgs>? GroupsClaim { get; set; }
 
         /// <summary>
         /// Do not display application icon on mobile app
@@ -638,13 +713,25 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
         /// URI that references a logo for the client.
         /// </summary>
         [Input("logoUri")]
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// name of app.
+        /// URL of the application's logo
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
+
+        /// <summary>
+        /// Name of the app.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -692,6 +779,18 @@ namespace Pulumi.Okta.Deprecated
             get => _redirectUris ?? (_redirectUris = new InputList<string>());
             set => _redirectUris = value;
         }
+
+        /// <summary>
+        /// *Early Access Property* Grace period for token rotation
+        /// </summary>
+        [Input("refreshTokenLeeway")]
+        public Input<int>? RefreshTokenLeeway { get; set; }
+
+        /// <summary>
+        /// *Early Access Property* Refresh token rotation behavior
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<string>? RefreshTokenRotation { get; set; }
 
         [Input("responseTypes")]
         private InputList<string>? _responseTypes;
@@ -741,11 +840,18 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Users associated with the application
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OauthAppUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.OauthAppUserGetArgs>());
             set => _users = value;
         }
+
+        /// <summary>
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// </summary>
+        [Input("wildcardRedirect")]
+        public Input<string>? WildcardRedirect { get; set; }
 
         public OauthAppState()
         {

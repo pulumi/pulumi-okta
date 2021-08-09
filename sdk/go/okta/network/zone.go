@@ -45,6 +45,30 @@ import (
 // 	})
 // }
 // ```
+// ### Dynamic Tor Blocker
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
+// 			DynamicProxyType: pulumi.String("TorAnonymizer"),
+// 			Type:             pulumi.String("DYNAMIC"),
+// 			Usage:            pulumi.String("BLOCKLIST"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -59,6 +83,8 @@ type Zone struct {
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayOutput `pulumi:"dynamicLocations"`
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+	DynamicProxyType pulumi.StringPtrOutput `pulumi:"dynamicProxyType"`
 	// Array of values in CIDR/range form.
 	Gateways pulumi.StringArrayOutput `pulumi:"gateways"`
 	// Name of the Network Zone Resource.
@@ -106,6 +132,8 @@ type zoneState struct {
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations []string `pulumi:"dynamicLocations"`
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+	DynamicProxyType *string `pulumi:"dynamicProxyType"`
 	// Array of values in CIDR/range form.
 	Gateways []string `pulumi:"gateways"`
 	// Name of the Network Zone Resource.
@@ -122,6 +150,8 @@ type ZoneState struct {
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayInput
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+	DynamicProxyType pulumi.StringPtrInput
 	// Array of values in CIDR/range form.
 	Gateways pulumi.StringArrayInput
 	// Name of the Network Zone Resource.
@@ -142,6 +172,8 @@ type zoneArgs struct {
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations []string `pulumi:"dynamicLocations"`
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+	DynamicProxyType *string `pulumi:"dynamicProxyType"`
 	// Array of values in CIDR/range form.
 	Gateways []string `pulumi:"gateways"`
 	// Name of the Network Zone Resource.
@@ -159,6 +191,8 @@ type ZoneArgs struct {
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayInput
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+	DynamicProxyType pulumi.StringPtrInput
 	// Array of values in CIDR/range form.
 	Gateways pulumi.StringArrayInput
 	// Name of the Network Zone Resource.

@@ -66,6 +66,8 @@ export class Group extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The users associated with the group. This can also be done per user.
+     *
+     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
     public readonly users!: pulumi.Output<string[] | undefined>;
 
@@ -112,6 +114,8 @@ export interface GroupState {
     readonly name?: pulumi.Input<string>;
     /**
      * The users associated with the group. This can also be done per user.
+     *
+     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
     readonly users?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -130,6 +134,8 @@ export interface GroupArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * The users associated with the group. This can also be done per user.
+     *
+     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
     readonly users?: pulumi.Input<pulumi.Input<string>[]>;
 }

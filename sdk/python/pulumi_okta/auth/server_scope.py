@@ -17,6 +17,7 @@ class ServerScopeArgs:
                  consent: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -25,6 +26,7 @@ class ServerScopeArgs:
         :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
         """
@@ -35,6 +37,8 @@ class ServerScopeArgs:
             pulumi.set(__self__, "default", default)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if metadata_publish is not None:
             pulumi.set(__self__, "metadata_publish", metadata_publish)
         if name is not None:
@@ -89,6 +93,18 @@ class ServerScopeArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the end user displayed in a consent dialog box.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> Optional[pulumi.Input[str]]:
         """
@@ -120,6 +136,7 @@ class _ServerScopeState:
                  consent: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -128,6 +145,7 @@ class _ServerScopeState:
         :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
         """
@@ -139,6 +157,8 @@ class _ServerScopeState:
             pulumi.set(__self__, "default", default)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if metadata_publish is not None:
             pulumi.set(__self__, "metadata_publish", metadata_publish)
         if name is not None:
@@ -193,6 +213,18 @@ class _ServerScopeState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the end user displayed in a consent dialog box.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> Optional[pulumi.Input[str]]:
         """
@@ -226,6 +258,7 @@ class ServerScope(pulumi.CustomResource):
                  consent: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -260,6 +293,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
         """
@@ -313,6 +347,7 @@ class ServerScope(pulumi.CustomResource):
                  consent: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -333,6 +368,7 @@ class ServerScope(pulumi.CustomResource):
             __props__.__dict__["consent"] = consent
             __props__.__dict__["default"] = default
             __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["metadata_publish"] = metadata_publish
             __props__.__dict__["name"] = name
         super(ServerScope, __self__).__init__(
@@ -349,6 +385,7 @@ class ServerScope(pulumi.CustomResource):
             consent: Optional[pulumi.Input[str]] = None,
             default: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
             metadata_publish: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ServerScope':
         """
@@ -362,6 +399,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
         """
@@ -373,6 +411,7 @@ class ServerScope(pulumi.CustomResource):
         __props__.__dict__["consent"] = consent
         __props__.__dict__["default"] = default
         __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
         __props__.__dict__["metadata_publish"] = metadata_publish
         __props__.__dict__["name"] = name
         return ServerScope(resource_name, opts=opts, __props__=__props__)
@@ -408,6 +447,14 @@ class ServerScope(pulumi.CustomResource):
         Description of the Auth Server Scope.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the end user displayed in a consent dialog box.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="metadataPublish")

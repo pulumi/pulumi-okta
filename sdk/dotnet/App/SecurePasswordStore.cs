@@ -74,6 +74,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -95,6 +96,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
+
+        /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Output("logo")]
+        public Output<string?> Logo { get; private set; } = null!;
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Output("logoUrl")]
+        public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
         /// Name assigned to the application by Okta.
@@ -206,6 +219,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.SecurePasswordStoreUser>> Users { get; private set; } = null!;
@@ -285,7 +299,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -309,6 +325,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
+
+        /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
 
         /// <summary>
         /// Name of optional param in the login form.
@@ -411,7 +433,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SecurePasswordStoreUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUserArgs>());
@@ -454,7 +478,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -478,6 +504,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// Logo of the application.
+        /// </summary>
+        [Input("logo")]
+        public Input<string>? Logo { get; set; }
+
+        /// <summary>
+        /// URL of the application's logo
+        /// </summary>
+        [Input("logoUrl")]
+        public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
         /// Name assigned to the application by Okta.
@@ -592,7 +630,9 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
+        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SecurePasswordStoreUserGetArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.SecurePasswordStoreUserGetArgs>());

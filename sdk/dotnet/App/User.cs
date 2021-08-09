@@ -27,6 +27,9 @@ namespace Pulumi.Okta.App
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
+        [Output("hasSharedUsername")]
+        public Output<bool> HasSharedUsername { get; private set; } = null!;
+
         /// <summary>
         /// The password to use.
         /// </summary>
@@ -52,10 +55,11 @@ namespace Pulumi.Okta.App
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// The username to use for the app user.
+        /// The username to use for the app user. In case the user is assigned to the app with 
+        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,10 +138,11 @@ namespace Pulumi.Okta.App
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// The username to use for the app user.
+        /// The username to use for the app user. In case the user is assigned to the app with 
+        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public UserArgs()
         {
@@ -151,6 +156,9 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
+
+        [Input("hasSharedUsername")]
+        public Input<bool>? HasSharedUsername { get; set; }
 
         /// <summary>
         /// The password to use.
@@ -177,7 +185,8 @@ namespace Pulumi.Okta.App
         public Input<string>? UserId { get; set; }
 
         /// <summary>
-        /// The username to use for the app user.
+        /// The username to use for the app user. In case the user is assigned to the app with 
+        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

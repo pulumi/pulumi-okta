@@ -45,6 +45,7 @@ export class User extends pulumi.CustomResource {
      * App to associate user with.
      */
     public readonly appId!: pulumi.Output<string>;
+    public /*out*/ readonly hasSharedUsername!: pulumi.Output<boolean>;
     /**
      * The password to use.
      */
@@ -62,9 +63,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly userId!: pulumi.Output<string>;
     /**
-     * The username to use for the app user.
+     * The username to use for the app user. In case the user is assigned to the app with 
+     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
      */
-    public readonly username!: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -80,6 +82,7 @@ export class User extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
+            inputs["hasSharedUsername"] = state ? state.hasSharedUsername : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["profile"] = state ? state.profile : undefined;
             inputs["retainAssignment"] = state ? state.retainAssignment : undefined;
@@ -93,15 +96,13 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
             inputs["appId"] = args ? args.appId : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["profile"] = args ? args.profile : undefined;
             inputs["retainAssignment"] = args ? args.retainAssignment : undefined;
             inputs["userId"] = args ? args.userId : undefined;
             inputs["username"] = args ? args.username : undefined;
+            inputs["hasSharedUsername"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -118,6 +119,7 @@ export interface UserState {
      * App to associate user with.
      */
     readonly appId?: pulumi.Input<string>;
+    readonly hasSharedUsername?: pulumi.Input<boolean>;
     /**
      * The password to use.
      */
@@ -135,7 +137,8 @@ export interface UserState {
      */
     readonly userId?: pulumi.Input<string>;
     /**
-     * The username to use for the app user.
+     * The username to use for the app user. In case the user is assigned to the app with 
+     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
      */
     readonly username?: pulumi.Input<string>;
 }
@@ -165,7 +168,8 @@ export interface UserArgs {
      */
     readonly userId: pulumi.Input<string>;
     /**
-     * The username to use for the app user.
+     * The username to use for the app user. In case the user is assigned to the app with 
+     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
      */
-    readonly username: pulumi.Input<string>;
+    readonly username?: pulumi.Input<string>;
 }

@@ -76,6 +76,7 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Administrator roles assigned to User.
+        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
         [Output("adminRoles")]
         public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
@@ -359,7 +360,9 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// Administrator roles assigned to User.
+        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
+        [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
         public InputList<string> AdminRoles
         {
             get => _adminRoles ?? (_adminRoles = new InputList<string>());
@@ -432,6 +435,7 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// User profile property.
         /// </summary>
+        [Obsolete(@"The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`")]
         public InputList<string> GroupMemberships
         {
             get => _groupMemberships ?? (_groupMemberships = new InputList<string>());
@@ -606,7 +610,9 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// Administrator roles assigned to User.
+        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
+        [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
         public InputList<string> AdminRoles
         {
             get => _adminRoles ?? (_adminRoles = new InputList<string>());
@@ -679,6 +685,7 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// User profile property.
         /// </summary>
+        [Obsolete(@"The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`")]
         public InputList<string> GroupMemberships
         {
             get => _groupMemberships ?? (_groupMemberships = new InputList<string>());

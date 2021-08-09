@@ -26,6 +26,10 @@ namespace Pulumi.Okta.Auth.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Name of the end user displayed in a consent dialog box
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// ID of the Scope
         /// </summary>
         public readonly string Id;
@@ -50,6 +54,8 @@ namespace Pulumi.Okta.Auth.Outputs
 
             string description,
 
+            string displayName,
+
             string id,
 
             string metadataPublish,
@@ -61,6 +67,7 @@ namespace Pulumi.Okta.Auth.Outputs
             Consent = consent;
             Default = @default;
             Description = description;
+            DisplayName = displayName;
             Id = id;
             MetadataPublish = metadataPublish;
             Name = name;

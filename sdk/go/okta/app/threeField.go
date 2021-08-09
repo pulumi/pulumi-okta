@@ -38,6 +38,9 @@ type ThreeField struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringOutput `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -45,6 +48,10 @@ type ThreeField struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrOutput `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field CSS selector.
@@ -66,6 +73,9 @@ type ThreeField struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayOutput `pulumi:"users"`
 }
 
@@ -132,6 +142,9 @@ type threeFieldState struct {
 	// Value for extra form field.
 	ExtraFieldValue *string `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -139,6 +152,10 @@ type threeFieldState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label *string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
+	// Direct link of application logo.
+	LogoUrl *string `pulumi:"logoUrl"`
 	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// Login password field CSS selector.
@@ -160,6 +177,9 @@ type threeFieldState struct {
 	// Login username field CSS selector.
 	UsernameSelector *string `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldUser `pulumi:"users"`
 }
 
@@ -177,6 +197,9 @@ type ThreeFieldState struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -184,6 +207,10 @@ type ThreeFieldState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringPtrInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
+	// Direct link of application logo.
+	LogoUrl pulumi.StringPtrInput
 	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// Login password field CSS selector.
@@ -205,6 +232,9 @@ type ThreeFieldState struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayInput
 }
 
@@ -226,6 +256,9 @@ type threeFieldArgs struct {
 	// Value for extra form field.
 	ExtraFieldValue string `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -233,6 +266,8 @@ type threeFieldArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label string `pulumi:"label"`
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo *string `pulumi:"logo"`
 	// Login password field CSS selector.
 	PasswordSelector string `pulumi:"passwordSelector"`
 	// Status of application. By default, it is `"ACTIVE"`.
@@ -250,6 +285,9 @@ type threeFieldArgs struct {
 	// Login username field CSS selector.
 	UsernameSelector string `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldUser `pulumi:"users"`
 }
 
@@ -268,6 +306,9 @@ type ThreeFieldArgs struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+	//
+	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -275,6 +316,8 @@ type ThreeFieldArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringInput
+	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	Logo pulumi.StringPtrInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringInput
 	// Status of application. By default, it is `"ACTIVE"`.
@@ -292,6 +335,9 @@ type ThreeFieldArgs struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+	//
+	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayInput
 }
 

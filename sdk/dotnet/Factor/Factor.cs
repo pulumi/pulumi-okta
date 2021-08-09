@@ -44,7 +44,7 @@ namespace Pulumi.Okta.Factor
 
         /// <summary>
         /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         /// </summary>
         [Output("providerId")]
         public Output<string> ProviderId { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Okta.Factor
 
         /// <summary>
         /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         /// </summary>
         [Input("providerId", required: true)]
         public Input<string> ProviderId { get; set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Okta.Factor
 
         /// <summary>
         /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"rsa_token"`, `"symantec_vip"` or `"yubikey_token"`.
+        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         /// </summary>
         [Input("providerId")]
         public Input<string>? ProviderId { get; set; }

@@ -79,6 +79,10 @@ export class AuthServerDefault extends pulumi.CustomResource {
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     */
+    public readonly issuerMode!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the JSON Web Key used for signing tokens issued by the authorization server.
      */
     public /*out*/ readonly kid!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class AuthServerDefault extends pulumi.CustomResource {
             inputs["credentialsRotationMode"] = state ? state.credentialsRotationMode : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["issuer"] = state ? state.issuer : undefined;
+            inputs["issuerMode"] = state ? state.issuerMode : undefined;
             inputs["kid"] = state ? state.kid : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -118,6 +123,7 @@ export class AuthServerDefault extends pulumi.CustomResource {
             inputs["audiences"] = args ? args.audiences : undefined;
             inputs["credentialsRotationMode"] = args ? args.credentialsRotationMode : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["issuerMode"] = args ? args.issuerMode : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["credentialsLastRotated"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface AuthServerDefaultState {
      */
     readonly issuer?: pulumi.Input<string>;
     /**
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     */
+    readonly issuerMode?: pulumi.Input<string>;
+    /**
      * The ID of the JSON Web Key used for signing tokens issued by the authorization server.
      */
     readonly kid?: pulumi.Input<string>;
@@ -190,6 +200,10 @@ export interface AuthServerDefaultArgs {
      * The description of the authorization server.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     */
+    readonly issuerMode?: pulumi.Input<string>;
     /**
      * The name of the authorization server.
      */

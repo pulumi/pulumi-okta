@@ -165,15 +165,6 @@ class SamlKey(pulumi.CustomResource):
 
         This resource allows you to create and configure a SAML Identity Provider Signing Key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.idp.SamlKey("example", x5cs=[okta_app_saml["example"]["certificate"]])
-        ```
-
         ## Import
 
         A SAML IdP Signing Key can be imported via the key id.
@@ -196,15 +187,6 @@ class SamlKey(pulumi.CustomResource):
         Creates a SAML Identity Provider Signing Key.
 
         This resource allows you to create and configure a SAML Identity Provider Signing Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.idp.SamlKey("example", x5cs=[okta_app_saml["example"]["certificate"]])
-        ```
 
         ## Import
 

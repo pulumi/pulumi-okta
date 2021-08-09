@@ -88,6 +88,9 @@ export class User extends pulumi.CustomResource {
 
     /**
      * Administrator roles assigned to User.
+     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
+     *
+     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
     public readonly adminRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -132,6 +135,8 @@ export class User extends pulumi.CustomResource {
     public readonly firstName!: pulumi.Output<string>;
     /**
      * User profile property.
+     *
+     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
      */
     public readonly groupMemberships!: pulumi.Output<string[] | undefined>;
     /**
@@ -362,6 +367,9 @@ export class User extends pulumi.CustomResource {
 export interface UserState {
     /**
      * Administrator roles assigned to User.
+     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
+     *
+     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
     readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -406,6 +414,8 @@ export interface UserState {
     readonly firstName?: pulumi.Input<string>;
     /**
      * User profile property.
+     *
+     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
      */
     readonly groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -524,6 +534,9 @@ export interface UserState {
 export interface UserArgs {
     /**
      * Administrator roles assigned to User.
+     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
+     *
+     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
     readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -568,6 +581,8 @@ export interface UserArgs {
     readonly firstName: pulumi.Input<string>;
     /**
      * User profile property.
+     *
+     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
      */
     readonly groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**

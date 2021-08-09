@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 export class SignonPolicyRule extends pulumi.CustomResource {
@@ -33,13 +34,18 @@ export class SignonPolicyRule extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
+     * Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * Authentication entrypoint: ANY or RADIUS.
+     * Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
      */
     public readonly authtype!: pulumi.Output<string | undefined>;
+    /**
+     * List of behavior IDs
+     */
+    public readonly behaviors!: pulumi.Output<string[] | undefined>;
+    public readonly factorSequences!: pulumi.Output<outputs.deprecated.SignonPolicyRuleFactorSequence[] | undefined>;
     /**
      * Elapsed time before the next MFA challenge
      */
@@ -75,12 +81,22 @@ export class SignonPolicyRule extends pulumi.CustomResource {
     /**
      * Policy ID of the Rule
      */
-    public readonly policyid!: pulumi.Output<string>;
+    public readonly policyId!: pulumi.Output<string | undefined>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    public readonly policyid!: pulumi.Output<string | undefined>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * Risc level: ANY, LOW, MEDIUM or HIGH
+     */
+    public readonly riscLevel!: pulumi.Output<string | undefined>;
     /**
      * Max minutes a session can be idle.
      */
@@ -110,7 +126,7 @@ export class SignonPolicyRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SignonPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: SignonPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SignonPolicyRuleArgs | SignonPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -118,6 +134,8 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             const state = argsOrState as SignonPolicyRuleState | undefined;
             inputs["access"] = state ? state.access : undefined;
             inputs["authtype"] = state ? state.authtype : undefined;
+            inputs["behaviors"] = state ? state.behaviors : undefined;
+            inputs["factorSequences"] = state ? state.factorSequences : undefined;
             inputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
             inputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
             inputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
@@ -126,8 +144,10 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
             inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
             inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            inputs["policyId"] = state ? state.policyId : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
             inputs["priority"] = state ? state.priority : undefined;
+            inputs["riscLevel"] = state ? state.riscLevel : undefined;
             inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
             inputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
             inputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
@@ -135,11 +155,10 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as SignonPolicyRuleArgs | undefined;
-            if ((!args || args.policyid === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyid'");
-            }
             inputs["access"] = args ? args.access : undefined;
             inputs["authtype"] = args ? args.authtype : undefined;
+            inputs["behaviors"] = args ? args.behaviors : undefined;
+            inputs["factorSequences"] = args ? args.factorSequences : undefined;
             inputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
             inputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
             inputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
@@ -148,8 +167,10 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
             inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
             inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["riscLevel"] = args ? args.riscLevel : undefined;
             inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
             inputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
             inputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
@@ -168,13 +189,18 @@ export class SignonPolicyRule extends pulumi.CustomResource {
  */
 export interface SignonPolicyRuleState {
     /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
+     * Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
      */
     readonly access?: pulumi.Input<string>;
     /**
-     * Authentication entrypoint: ANY or RADIUS.
+     * Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
      */
     readonly authtype?: pulumi.Input<string>;
+    /**
+     * List of behavior IDs
+     */
+    readonly behaviors?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly factorSequences?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequence>[]>;
     /**
      * Elapsed time before the next MFA challenge
      */
@@ -210,12 +236,22 @@ export interface SignonPolicyRuleState {
     /**
      * Policy ID of the Rule
      */
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
     readonly policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
+    /**
+     * Risc level: ANY, LOW, MEDIUM or HIGH
+     */
+    readonly riscLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.
      */
@@ -244,13 +280,18 @@ export interface SignonPolicyRuleState {
  */
 export interface SignonPolicyRuleArgs {
     /**
-     * Allow or deny access based on the rule conditions: ALLOW or DENY.
+     * Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
      */
     readonly access?: pulumi.Input<string>;
     /**
-     * Authentication entrypoint: ANY or RADIUS.
+     * Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
      */
     readonly authtype?: pulumi.Input<string>;
+    /**
+     * List of behavior IDs
+     */
+    readonly behaviors?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly factorSequences?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequence>[]>;
     /**
      * Elapsed time before the next MFA challenge
      */
@@ -286,12 +327,22 @@ export interface SignonPolicyRuleArgs {
     /**
      * Policy ID of the Rule
      */
-    readonly policyid: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
+    /**
+     * Policy ID of the Rule
+     *
+     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+     */
+    readonly policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     readonly priority?: pulumi.Input<number>;
+    /**
+     * Risc level: ANY, LOW, MEDIUM or HIGH
+     */
+    readonly riscLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.
      */

@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/pulumi/pulumi-okta/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-okta/actions)
+r[![Actions Status](https://github.com/pulumi/pulumi-okta/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-okta/actions)
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fokta.svg)](https://www.npmjs.com/package/@pulumi/okta)
 [![Python version](https://badge.fury.io/py/pulumi-okta.svg)](https://pypi.org/project/pulumi-okta)
