@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.13.0 of the Okta Terraform Provider
+* Upgrade to v3.13.1 of the Okta Terraform Provider
 
 ---
 

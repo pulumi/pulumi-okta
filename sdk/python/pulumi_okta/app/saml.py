@@ -35,6 +35,7 @@ class SamlArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
@@ -78,6 +79,7 @@ class SamlArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -86,7 +88,7 @@ class SamlArgs:
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -143,6 +145,8 @@ class SamlArgs:
             pulumi.set(__self__, "honor_force_authn", honor_force_authn)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_years_valid is not None:
@@ -429,6 +433,18 @@ class SamlArgs:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook associated with the application.
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -528,7 +544,7 @@ class SamlArgs:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
@@ -698,6 +714,7 @@ class _SamlState:
                  http_post_binding: Optional[pulumi.Input[str]] = None,
                  http_redirect_binding: Optional[pulumi.Input[str]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -752,6 +769,7 @@ class _SamlState:
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -767,7 +785,7 @@ class _SamlState:
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -833,6 +851,8 @@ class _SamlState:
             pulumi.set(__self__, "http_redirect_binding", http_redirect_binding)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if key_name is not None:
@@ -1181,6 +1201,18 @@ class _SamlState:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook associated with the application.
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1364,7 +1396,7 @@ class _SamlState:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
@@ -1531,6 +1563,7 @@ class Saml(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1585,6 +1618,48 @@ class Saml(pulumi.CustomResource):
             subject_name_id_template=user["userName"])
         ```
 
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_hook = okta.inline.Hook("testHook",
+            status="ACTIVE",
+            type="com.okta.saml.tokens.transform",
+            version="1.0.2",
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test1",
+                "method": "POST",
+            },
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            })
+        test_saml = okta.app.Saml("testSaml",
+            label="testAcc_replace_with_uuid",
+            sso_url="http://google.com",
+            recipient="http://here.com",
+            destination="http://its-about-the-journey.com",
+            audience="http://audience.com",
+            subject_name_id_template=user["userName"],
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            inline_hook_id=test_hook.id,
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+        ```
+
         ## Import
 
         A SAML App can be imported via the Okta ID.
@@ -1615,6 +1690,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
@@ -1624,7 +1700,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -1677,6 +1753,48 @@ class Saml(pulumi.CustomResource):
             subject_name_id_template=user["userName"])
         ```
 
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_hook = okta.inline.Hook("testHook",
+            status="ACTIVE",
+            type="com.okta.saml.tokens.transform",
+            version="1.0.2",
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test1",
+                "method": "POST",
+            },
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            })
+        test_saml = okta.app.Saml("testSaml",
+            label="testAcc_replace_with_uuid",
+            sso_url="http://google.com",
+            recipient="http://here.com",
+            destination="http://its-about-the-journey.com",
+            audience="http://audience.com",
+            subject_name_id_template=user["userName"],
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            inline_hook_id=test_hook.id,
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+        ```
+
         ## Import
 
         A SAML App can be imported via the Okta ID.
@@ -1719,6 +1837,7 @@ class Saml(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1774,6 +1893,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["honor_force_authn"] = honor_force_authn
             __props__.__dict__["idp_issuer"] = idp_issuer
+            __props__.__dict__["inline_hook_id"] = inline_hook_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_years_valid"] = key_years_valid
             if label is None and not opts.urn:
@@ -1845,6 +1965,7 @@ class Saml(pulumi.CustomResource):
             http_post_binding: Optional[pulumi.Input[str]] = None,
             http_redirect_binding: Optional[pulumi.Input[str]] = None,
             idp_issuer: Optional[pulumi.Input[str]] = None,
+            inline_hook_id: Optional[pulumi.Input[str]] = None,
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -1904,6 +2025,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -1919,7 +2041,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -1962,6 +2084,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["http_post_binding"] = http_post_binding
         __props__.__dict__["http_redirect_binding"] = http_redirect_binding
         __props__.__dict__["idp_issuer"] = idp_issuer
+        __props__.__dict__["inline_hook_id"] = inline_hook_id
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_years_valid"] = key_years_valid
@@ -2185,6 +2308,14 @@ class Saml(pulumi.CustomResource):
         return pulumi.get(self, "idp_issuer")
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Saml Inline Hook associated with the application.
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         """
@@ -2308,7 +2439,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> pulumi.Output[Optional[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")

@@ -313,6 +313,10 @@ export interface GetSamlResult {
      */
     readonly idpIssuer?: string;
     /**
+     * Saml Inline Hook associated with the application.
+     */
+    readonly inlineHookId: string;
+    /**
      * Certificate key ID.
      */
     readonly keyId: string;
@@ -322,7 +326,7 @@ export interface GetSamlResult {
     readonly label?: string;
     readonly labelPrefix?: string;
     /**
-     * Generic JSON containing discoverable resources related to the app
+     * Generic JSON containing discoverable resources related to the app.
      */
     readonly links: string;
     /**

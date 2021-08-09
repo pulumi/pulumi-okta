@@ -27,6 +27,12 @@ export let clientId: string | undefined = __config.get("clientId");
  */
 export let logLevel: number | undefined = __config.getObject<number>("logLevel");
 /**
+ * (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+ * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+ * https://developer.okta.com/docs/reference/rl-global-mgmt/
+ */
+export let maxApiCapacity: number | undefined = __config.getObject<number>("maxApiCapacity");
+/**
  * maximum number of retries to attempt before erroring out.
  */
 export let maxRetries: number | undefined = __config.getObject<number>("maxRetries");

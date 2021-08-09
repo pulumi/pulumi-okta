@@ -54,6 +54,70 @@ namespace Pulumi.Okta.App
     /// }
     /// ```
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testHook = new Okta.Inline.Hook("testHook", new Okta.Inline.HookArgs
+    ///         {
+    ///             Status = "ACTIVE",
+    ///             Type = "com.okta.saml.tokens.transform",
+    ///             Version = "1.0.2",
+    ///             Channel = 
+    ///             {
+    ///                 { "type", "HTTP" },
+    ///                 { "version", "1.0.0" },
+    ///                 { "uri", "https://example.com/test1" },
+    ///                 { "method", "POST" },
+    ///             },
+    ///             Auth = 
+    ///             {
+    ///                 { "key", "Authorization" },
+    ///                 { "type", "HEADER" },
+    ///                 { "value", "secret" },
+    ///             },
+    ///         });
+    ///         var testSaml = new Okta.App.Saml("testSaml", new Okta.App.SamlArgs
+    ///         {
+    ///             Label = "testAcc_replace_with_uuid",
+    ///             SsoUrl = "http://google.com",
+    ///             Recipient = "http://here.com",
+    ///             Destination = "http://its-about-the-journey.com",
+    ///             Audience = "http://audience.com",
+    ///             SubjectNameIdTemplate = user.UserName,
+    ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///             ResponseSigned = true,
+    ///             SignatureAlgorithm = "RSA_SHA256",
+    ///             DigestAlgorithm = "SHA256",
+    ///             HonorForceAuthn = false,
+    ///             AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///             InlineHookId = testHook.Id,
+    ///             AttributeStatements = 
+    ///             {
+    ///                 new Okta.App.Inputs.SamlAttributeStatementArgs
+    ///                 {
+    ///                     Type = "GROUP",
+    ///                     Name = "groups",
+    ///                     FilterType = "REGEX",
+    ///                     FilterValue = ".*",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 testHook,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A SAML App can be imported via the Okta ID.
@@ -211,6 +275,12 @@ namespace Pulumi.Okta.App
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Output("inlineHookId")]
+        public Output<string?> InlineHookId { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         [Output("keyId")]
@@ -301,7 +371,7 @@ namespace Pulumi.Okta.App
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Output("singleLogoutCertificate")]
@@ -561,6 +631,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
+
+        /// <summary>
         /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         /// </summary>
         [Input("keyName")]
@@ -615,7 +691,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Input("singleLogoutCertificate")]
@@ -873,6 +949,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
+
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         [Input("keyId")]
@@ -963,7 +1045,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests. 
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         /// </summary>
         [Input("singleLogoutCertificate")]

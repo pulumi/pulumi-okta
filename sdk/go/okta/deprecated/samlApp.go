@@ -63,6 +63,8 @@ type SamlApp struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Certificate ID
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -202,6 +204,8 @@ type samlAppState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate ID
 	KeyId *string `pulumi:"keyId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -310,6 +314,8 @@ type SamlAppState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrInput
 	// Certificate ID
 	KeyId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -412,6 +418,8 @@ type samlAppArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook setting
+	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
 	KeyName *string `pulumi:"keyName"`
 	// Number of years the certificate is valid.
@@ -499,6 +507,8 @@ type SamlAppArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// Saml Inline Hook setting
+	InlineHookId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key.
 	KeyName pulumi.StringPtrInput
 	// Number of years the certificate is valid.

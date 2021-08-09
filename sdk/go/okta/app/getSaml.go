@@ -172,12 +172,14 @@ type LookupSamlResult struct {
 	Id *string `pulumi:"id"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// Saml Inline Hook associated with the application.
+	InlineHookId string `pulumi:"inlineHookId"`
 	// Certificate key ID.
 	KeyId string `pulumi:"keyId"`
 	// label of application.
 	Label       *string `pulumi:"label"`
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// Generic JSON containing discoverable resources related to the app
+	// Generic JSON containing discoverable resources related to the app.
 	Links string `pulumi:"links"`
 	// The name of the attribute statement.
 	Name string `pulumi:"name"`

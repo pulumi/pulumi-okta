@@ -35,6 +35,7 @@ class SamlAppArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
@@ -76,6 +77,7 @@ class SamlAppArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] logo: Logo of the application.
@@ -139,6 +141,8 @@ class SamlAppArgs:
             pulumi.set(__self__, "honor_force_authn", honor_force_authn)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_years_valid is not None:
@@ -421,6 +425,18 @@ class SamlAppArgs:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -688,6 +704,7 @@ class _SamlAppState:
                  http_post_binding: Optional[pulumi.Input[str]] = None,
                  http_redirect_binding: Optional[pulumi.Input[str]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -740,6 +757,7 @@ class _SamlAppState:
         :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
@@ -819,6 +837,8 @@ class _SamlAppState:
             pulumi.set(__self__, "http_redirect_binding", http_redirect_binding)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id is not None:
+            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if key_name is not None:
@@ -1161,6 +1181,18 @@ class _SamlAppState:
     @idp_issuer.setter
     def idp_issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "idp_issuer", value)
+
+    @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @inline_hook_id.setter
+    def inline_hook_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_hook_id", value)
 
     @property
     @pulumi.getter(name="keyId")
@@ -1511,6 +1543,7 @@ class SamlApp(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1555,6 +1588,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
@@ -1619,6 +1653,7 @@ class SamlApp(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1674,6 +1709,7 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["honor_force_authn"] = honor_force_authn
             __props__.__dict__["idp_issuer"] = idp_issuer
+            __props__.__dict__["inline_hook_id"] = inline_hook_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_years_valid"] = key_years_valid
             if label is None and not opts.urn:
@@ -1745,6 +1781,7 @@ class SamlApp(pulumi.CustomResource):
             http_post_binding: Optional[pulumi.Input[str]] = None,
             http_redirect_binding: Optional[pulumi.Input[str]] = None,
             idp_issuer: Optional[pulumi.Input[str]] = None,
+            inline_hook_id: Optional[pulumi.Input[str]] = None,
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -1802,6 +1839,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
@@ -1858,6 +1896,7 @@ class SamlApp(pulumi.CustomResource):
         __props__.__dict__["http_post_binding"] = http_post_binding
         __props__.__dict__["http_redirect_binding"] = http_redirect_binding
         __props__.__dict__["idp_issuer"] = idp_issuer
+        __props__.__dict__["inline_hook_id"] = inline_hook_id
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_years_valid"] = key_years_valid
@@ -2075,6 +2114,14 @@ class SamlApp(pulumi.CustomResource):
         SAML issuer ID
         """
         return pulumi.get(self, "idp_issuer")
+
+    @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Saml Inline Hook setting
+        """
+        return pulumi.get(self, "inline_hook_id")
 
     @property
     @pulumi.getter(name="keyId")

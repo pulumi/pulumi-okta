@@ -385,6 +385,10 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string? IdpIssuer;
         /// <summary>
+        /// Saml Inline Hook associated with the application.
+        /// </summary>
+        public readonly string InlineHookId;
+        /// <summary>
         /// Certificate key ID.
         /// </summary>
         public readonly string KeyId;
@@ -394,7 +398,7 @@ namespace Pulumi.Okta.App
         public readonly string? Label;
         public readonly string? LabelPrefix;
         /// <summary>
-        /// Generic JSON containing discoverable resources related to the app
+        /// Generic JSON containing discoverable resources related to the app.
         /// </summary>
         public readonly string Links;
         /// <summary>
@@ -511,6 +515,8 @@ namespace Pulumi.Okta.App
 
             string? idpIssuer,
 
+            string inlineHookId,
+
             string keyId,
 
             string? label,
@@ -574,6 +580,7 @@ namespace Pulumi.Okta.App
             HonorForceAuthn = honorForceAuthn;
             Id = id;
             IdpIssuer = idpIssuer;
+            InlineHookId = inlineHookId;
             KeyId = keyId;
             Label = label;
             LabelPrefix = labelPrefix;

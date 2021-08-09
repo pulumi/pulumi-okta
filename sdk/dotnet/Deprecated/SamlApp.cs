@@ -154,6 +154,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
+        /// Saml Inline Hook setting
+        /// </summary>
+        [Output("inlineHookId")]
+        public Output<string?> InlineHookId { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate ID
         /// </summary>
         [Output("keyId")]
@@ -497,6 +503,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// Saml Inline Hook setting
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
+
+        /// <summary>
         /// Certificate name. This modulates the rotation of keys. New name == new key.
         /// </summary>
         [Input("keyName")]
@@ -800,6 +812,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("idpIssuer")]
         public Input<string>? IdpIssuer { get; set; }
+
+        /// <summary>
+        /// Saml Inline Hook setting
+        /// </summary>
+        [Input("inlineHookId")]
+        public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
         /// Certificate ID

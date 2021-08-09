@@ -21,7 +21,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -89,6 +89,9 @@ class GetSamlResult:
         if idp_issuer and not isinstance(idp_issuer, str):
             raise TypeError("Expected argument 'idp_issuer' to be a str")
         pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if inline_hook_id and not isinstance(inline_hook_id, str):
+            raise TypeError("Expected argument 'inline_hook_id' to be a str")
+        pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_id and not isinstance(key_id, str):
             raise TypeError("Expected argument 'key_id' to be a str")
         pulumi.set(__self__, "key_id", key_id)
@@ -325,6 +328,14 @@ class GetSamlResult:
         return pulumi.get(self, "idp_issuer")
 
     @property
+    @pulumi.getter(name="inlineHookId")
+    def inline_hook_id(self) -> str:
+        """
+        Saml Inline Hook associated with the application.
+        """
+        return pulumi.get(self, "inline_hook_id")
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> str:
         """
@@ -349,7 +360,7 @@ class GetSamlResult:
     @pulumi.getter
     def links(self) -> str:
         """
-        Generic JSON containing discoverable resources related to the app
+        Generic JSON containing discoverable resources related to the app.
         """
         return pulumi.get(self, "links")
 
@@ -518,6 +529,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             honor_force_authn=self.honor_force_authn,
             id=self.id,
             idp_issuer=self.idp_issuer,
+            inline_hook_id=self.inline_hook_id,
             key_id=self.key_id,
             label=self.label,
             label_prefix=self.label_prefix,
@@ -696,6 +708,7 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         honor_force_authn=__ret__.honor_force_authn,
         id=__ret__.id,
         idp_issuer=__ret__.idp_issuer,
+        inline_hook_id=__ret__.inline_hook_id,
         key_id=__ret__.key_id,
         label=__ret__.label,
         label_prefix=__ret__.label_prefix,

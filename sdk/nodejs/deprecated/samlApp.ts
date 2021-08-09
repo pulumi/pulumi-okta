@@ -129,6 +129,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
+     * Saml Inline Hook setting
+     */
+    public readonly inlineHookId!: pulumi.Output<string | undefined>;
+    /**
      * Certificate ID
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
@@ -276,6 +280,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["httpPostBinding"] = state ? state.httpPostBinding : undefined;
             inputs["httpRedirectBinding"] = state ? state.httpRedirectBinding : undefined;
             inputs["idpIssuer"] = state ? state.idpIssuer : undefined;
+            inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
@@ -327,6 +332,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
             inputs["idpIssuer"] = args ? args.idpIssuer : undefined;
+            inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
             inputs["label"] = args ? args.label : undefined;
@@ -466,6 +472,10 @@ export interface SamlAppState {
      * SAML issuer ID
      */
     readonly idpIssuer?: pulumi.Input<string>;
+    /**
+     * Saml Inline Hook setting
+     */
+    readonly inlineHookId?: pulumi.Input<string>;
     /**
      * Certificate ID
      */
@@ -657,6 +667,10 @@ export interface SamlAppArgs {
      * SAML issuer ID
      */
     readonly idpIssuer?: pulumi.Input<string>;
+    /**
+     * Saml Inline Hook setting
+     */
+    readonly inlineHookId?: pulumi.Input<string>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key.
      */
