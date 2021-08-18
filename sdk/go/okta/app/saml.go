@@ -138,6 +138,8 @@ type Saml struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -158,6 +160,8 @@ type Saml struct {
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey pulumi.StringOutput `pulumi:"entityKey"`
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
@@ -283,6 +287,8 @@ type samlState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -303,6 +309,8 @@ type samlState struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey *string `pulumi:"entityKey"`
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
@@ -397,6 +405,8 @@ type SamlState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.
@@ -417,6 +427,8 @@ type SamlState struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Entity ID, the ID portion of the `entityUrl`.
 	EntityKey pulumi.StringPtrInput
 	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
@@ -515,6 +527,8 @@ type samlArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -533,6 +547,8 @@ type samlArgs struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
 	// Groups associated with the application.
@@ -608,6 +624,8 @@ type SamlArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.
@@ -626,6 +644,8 @@ type SamlArgs struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
 	// Groups associated with the application.

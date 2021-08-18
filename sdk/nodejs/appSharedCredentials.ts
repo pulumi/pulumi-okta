@@ -87,6 +87,10 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -98,6 +102,10 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      * CSS selector for the checkbox.
      */
     public readonly checkbox!: pulumi.Output<string | undefined>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application
      *
@@ -199,9 +207,11 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
             inputs["checkbox"] = state ? state.checkbox : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
@@ -230,9 +240,11 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
             inputs["checkbox"] = args ? args.checkbox : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
@@ -278,6 +290,10 @@ export interface AppSharedCredentialsState {
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -289,6 +305,10 @@ export interface AppSharedCredentialsState {
      * CSS selector for the checkbox.
      */
     readonly checkbox?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
@@ -392,6 +412,10 @@ export interface AppSharedCredentialsArgs {
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -403,6 +427,10 @@ export interface AppSharedCredentialsArgs {
      * CSS selector for the checkbox.
      */
     readonly checkbox?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *

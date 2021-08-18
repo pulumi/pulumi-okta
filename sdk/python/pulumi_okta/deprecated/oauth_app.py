@@ -17,6 +17,7 @@ class OauthAppArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class OauthAppArgs:
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
                  custom_client_id: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input['OauthAppGroupsClaimArgs']] = None,
@@ -54,6 +56,7 @@ class OauthAppArgs:
         The set of arguments for constructing a OauthApp resource.
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -63,6 +66,7 @@ class OauthAppArgs:
                Default value is TRUSTED
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -96,6 +100,8 @@ class OauthAppArgs:
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "type", type)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_key_rotation is not None:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
@@ -113,6 +119,8 @@ class OauthAppArgs:
             pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
         if custom_client_id is not None:
             pulumi.set(__self__, "custom_client_id", custom_client_id)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups is not None:
@@ -195,6 +203,18 @@ class OauthAppArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -281,6 +301,18 @@ class OauthAppArgs:
     @custom_client_id.setter
     def custom_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_client_id", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter(name="grantTypes")
@@ -600,6 +632,7 @@ class OauthAppArgs:
 @pulumi.input_type
 class _OauthAppState:
     def __init__(__self__, *,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -608,6 +641,7 @@ class _OauthAppState:
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
                  custom_client_id: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input['OauthAppGroupsClaimArgs']] = None,
@@ -641,6 +675,7 @@ class _OauthAppState:
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OauthApp resources.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -651,6 +686,7 @@ class _OauthAppState:
                Default value is TRUSTED
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -687,6 +723,8 @@ class _OauthAppState:
         :param pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_key_rotation is not None:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
@@ -706,6 +744,8 @@ class _OauthAppState:
             pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
         if custom_client_id is not None:
             pulumi.set(__self__, "custom_client_id", custom_client_id)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups is not None:
@@ -774,6 +814,18 @@ class _OauthAppState:
             pulumi.set(__self__, "users", users)
         if wildcard_redirect is not None:
             pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
+
+    @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -872,6 +924,18 @@ class _OauthAppState:
     @custom_client_id.setter
     def custom_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_client_id", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter(name="grantTypes")
@@ -1253,6 +1317,7 @@ class OauthApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1260,6 +1325,7 @@ class OauthApp(pulumi.CustomResource):
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
                  custom_client_id: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input[pulumi.InputType['OauthAppGroupsClaimArgs']]] = None,
@@ -1293,6 +1359,7 @@ class OauthApp(pulumi.CustomResource):
         Create a OauthApp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -1302,6 +1369,7 @@ class OauthApp(pulumi.CustomResource):
                Default value is TRUSTED
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -1358,6 +1426,7 @@ class OauthApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1365,6 +1434,7 @@ class OauthApp(pulumi.CustomResource):
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
                  custom_client_id: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input[pulumi.InputType['OauthAppGroupsClaimArgs']]] = None,
@@ -1405,6 +1475,7 @@ class OauthApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OauthAppArgs.__new__(OauthAppArgs)
 
+            __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["client_basic_secret"] = client_basic_secret
@@ -1415,6 +1486,7 @@ class OauthApp(pulumi.CustomResource):
                 warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
                 pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
             __props__.__dict__["custom_client_id"] = custom_client_id
+            __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["grant_types"] = grant_types
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
@@ -1467,6 +1539,7 @@ class OauthApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            admin_note: Optional[pulumi.Input[str]] = None,
             auto_key_rotation: Optional[pulumi.Input[bool]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1475,6 +1548,7 @@ class OauthApp(pulumi.CustomResource):
             client_uri: Optional[pulumi.Input[str]] = None,
             consent_method: Optional[pulumi.Input[str]] = None,
             custom_client_id: Optional[pulumi.Input[str]] = None,
+            enduser_note: Optional[pulumi.Input[str]] = None,
             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_claim: Optional[pulumi.Input[pulumi.InputType['OauthAppGroupsClaimArgs']]] = None,
@@ -1513,6 +1587,7 @@ class OauthApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -1523,6 +1598,7 @@ class OauthApp(pulumi.CustomResource):
                Default value is TRUSTED
         :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
                no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here
                https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
                app type.
@@ -1563,6 +1639,7 @@ class OauthApp(pulumi.CustomResource):
 
         __props__ = _OauthAppState.__new__(_OauthAppState)
 
+        __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["auto_key_rotation"] = auto_key_rotation
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["client_basic_secret"] = client_basic_secret
@@ -1571,6 +1648,7 @@ class OauthApp(pulumi.CustomResource):
         __props__.__dict__["client_uri"] = client_uri
         __props__.__dict__["consent_method"] = consent_method
         __props__.__dict__["custom_client_id"] = custom_client_id
+        __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["grant_types"] = grant_types
         __props__.__dict__["groups"] = groups
         __props__.__dict__["groups_claim"] = groups_claim
@@ -1603,6 +1681,14 @@ class OauthApp(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         __props__.__dict__["wildcard_redirect"] = wildcard_redirect
         return OauthApp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -1669,6 +1755,14 @@ class OauthApp(pulumi.CustomResource):
         no-op, use client_id for that behavior instead.
         """
         return pulumi.get(self, "custom_client_id")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
 
     @property
     @pulumi.getter(name="grantTypes")

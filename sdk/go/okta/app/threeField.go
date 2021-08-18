@@ -29,10 +29,14 @@ type ThreeField struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringOutput `pulumi:"buttonSelector"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Extra field CSS selector.
 	ExtraFieldSelector pulumi.StringOutput `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
@@ -133,10 +137,14 @@ type threeFieldState struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector *string `pulumi:"buttonSelector"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector.
 	ExtraFieldSelector *string `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
@@ -188,10 +196,14 @@ type ThreeFieldState struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector.
 	ExtraFieldSelector pulumi.StringPtrInput
 	// Value for extra form field.
@@ -247,10 +259,14 @@ type threeFieldArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector string `pulumi:"buttonSelector"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector.
 	ExtraFieldSelector string `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
@@ -297,10 +313,14 @@ type ThreeFieldArgs struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector.
 	ExtraFieldSelector pulumi.StringInput
 	// Value for extra form field.

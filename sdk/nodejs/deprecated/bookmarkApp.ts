@@ -34,9 +34,17 @@ export class BookmarkApp extends pulumi.CustomResource {
     }
 
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application
      *
@@ -97,7 +105,9 @@ export class BookmarkApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BookmarkAppState | undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
@@ -118,7 +128,9 @@ export class BookmarkApp extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
@@ -144,9 +156,17 @@ export class BookmarkApp extends pulumi.CustomResource {
  */
 export interface BookmarkAppState {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
@@ -200,9 +220,17 @@ export interface BookmarkAppState {
  */
 export interface BookmarkAppArgs {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *

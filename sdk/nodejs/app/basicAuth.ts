@@ -60,6 +60,10 @@ export class BasicAuth extends pulumi.CustomResource {
     }
 
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * The URL of the authenticating site for this app.
      */
     public readonly authUrl!: pulumi.Output<string>;
@@ -67,6 +71,10 @@ export class BasicAuth extends pulumi.CustomResource {
      * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
@@ -131,8 +139,10 @@ export class BasicAuth extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BasicAuthState | undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["authUrl"] = state ? state.authUrl : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
             inputs["hideWeb"] = state ? state.hideWeb : undefined;
@@ -155,8 +165,10 @@ export class BasicAuth extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["authUrl"] = args ? args.authUrl : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
@@ -181,6 +193,10 @@ export class BasicAuth extends pulumi.CustomResource {
  */
 export interface BasicAuthState {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * The URL of the authenticating site for this app.
      */
     readonly authUrl?: pulumi.Input<string>;
@@ -188,6 +204,10 @@ export interface BasicAuthState {
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
@@ -245,6 +265,10 @@ export interface BasicAuthState {
  */
 export interface BasicAuthArgs {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * The URL of the authenticating site for this app.
      */
     readonly authUrl: pulumi.Input<string>;
@@ -252,6 +276,10 @@ export interface BasicAuthArgs {
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.

@@ -17,7 +17,9 @@ class BookmarkArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[str],
                  url: pulumi.Input[str],
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -29,7 +31,9 @@ class BookmarkArgs:
         The set of arguments for constructing a Bookmark resource.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] url: The URL of the bookmark.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -42,8 +46,12 @@ class BookmarkArgs:
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "url", url)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -90,6 +98,18 @@ class BookmarkArgs:
         pulumi.set(self, "url", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -100,6 +120,18 @@ class BookmarkArgs:
     @auto_submit_toolbar.setter
     def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -191,7 +223,9 @@ class BookmarkArgs:
 @pulumi.input_type
 class _BookmarkState:
     def __init__(__self__, *,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -206,7 +240,9 @@ class _BookmarkState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering Bookmark resources.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -222,8 +258,12 @@ class _BookmarkState:
         :param pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]] users: Users associated with the application.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -256,6 +296,18 @@ class _BookmarkState:
             pulumi.set(__self__, "users", users)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -266,6 +318,18 @@ class _BookmarkState:
     @auto_submit_toolbar.setter
     def auto_submit_toolbar(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -419,7 +483,9 @@ class Bookmark(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -456,7 +522,9 @@ class Bookmark(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -514,7 +582,9 @@ class Bookmark(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -536,7 +606,9 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BookmarkArgs.__new__(BookmarkArgs)
 
+            __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+            __props__.__dict__["enduser_note"] = enduser_note
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -569,7 +641,9 @@ class Bookmark(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            admin_note: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+            enduser_note: Optional[pulumi.Input[str]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
@@ -589,7 +663,9 @@ class Bookmark(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -609,7 +685,9 @@ class Bookmark(pulumi.CustomResource):
 
         __props__ = _BookmarkState.__new__(_BookmarkState)
 
+        __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+        __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
@@ -625,12 +703,28 @@ class Bookmark(pulumi.CustomResource):
         return Bookmark(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
         Display auto submit toolbar.
         """
         return pulumi.get(self, "auto_submit_toolbar")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
 
     @property
     @pulumi.getter

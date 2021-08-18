@@ -50,6 +50,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * Application settings in JSON format
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
@@ -86,6 +90,10 @@ export class SamlApp extends pulumi.CustomResource {
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Entity ID, the ID portion of the entity_url
      */
@@ -260,6 +268,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             inputs["attributeStatements"] = state ? state.attributeStatements : undefined;
@@ -270,6 +279,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["defaultRelayState"] = state ? state.defaultRelayState : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["digestAlgorithm"] = state ? state.digestAlgorithm : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["entityKey"] = state ? state.entityKey : undefined;
             inputs["entityUrl"] = state ? state.entityUrl : undefined;
             inputs["features"] = state ? state.features : undefined;
@@ -317,6 +327,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             inputs["attributeStatements"] = args ? args.attributeStatements : undefined;
@@ -326,6 +337,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["defaultRelayState"] = args ? args.defaultRelayState : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["digestAlgorithm"] = args ? args.digestAlgorithm : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["features"] = args ? args.features : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
@@ -394,6 +406,10 @@ export interface SamlAppState {
      */
     readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Application settings in JSON format
      */
     readonly appSettingsJson?: pulumi.Input<string>;
@@ -430,6 +446,10 @@ export interface SamlAppState {
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     readonly digestAlgorithm?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Entity ID, the ID portion of the entity_url
      */
@@ -609,6 +629,10 @@ export interface SamlAppArgs {
      */
     readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Application settings in JSON format
      */
     readonly appSettingsJson?: pulumi.Input<string>;
@@ -641,6 +665,10 @@ export interface SamlAppArgs {
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     readonly digestAlgorithm?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * features to enable
      */

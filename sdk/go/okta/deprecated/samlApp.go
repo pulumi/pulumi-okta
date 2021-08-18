@@ -22,6 +22,8 @@ type SamlApp struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// List of ACS endpoints for this SAML application
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -41,6 +43,8 @@ type SamlApp struct {
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
 	EntityKey pulumi.StringOutput `pulumi:"entityKey"`
 	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
@@ -163,6 +167,8 @@ type samlAppState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// List of ACS endpoints for this SAML application
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -182,6 +188,8 @@ type samlAppState struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
 	EntityKey *string `pulumi:"entityKey"`
 	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
@@ -273,6 +281,8 @@ type SamlAppState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// List of ACS endpoints for this SAML application
 	AcsEndpoints pulumi.StringArrayInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
@@ -292,6 +302,8 @@ type SamlAppState struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Entity ID, the ID portion of the entity_url
 	EntityKey pulumi.StringPtrInput
 	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
@@ -387,6 +399,8 @@ type samlAppArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// List of ACS endpoints for this SAML application
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -404,6 +418,8 @@ type samlAppArgs struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// features to enable
 	Features []string `pulumi:"features"`
 	// Groups associated with the application
@@ -476,6 +492,8 @@ type SamlAppArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// List of ACS endpoints for this SAML application
 	AcsEndpoints pulumi.StringArrayInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
@@ -493,6 +511,8 @@ type SamlAppArgs struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// features to enable
 	Features pulumi.StringArrayInput
 	// Groups associated with the application

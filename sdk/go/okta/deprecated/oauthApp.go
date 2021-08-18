@@ -14,6 +14,8 @@ import (
 type OauthApp struct {
 	pulumi.CustomResourceState
 
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -34,6 +36,8 @@ type OauthApp struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 	// app type.
@@ -141,6 +145,8 @@ func GetOauthApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthApp resources.
 type oauthAppState struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -161,6 +167,8 @@ type oauthAppState struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 	// app type.
@@ -234,6 +242,8 @@ type oauthAppState struct {
 }
 
 type OauthAppState struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -254,6 +264,8 @@ type OauthAppState struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 	// app type.
@@ -331,6 +343,8 @@ func (OauthAppState) ElementType() reflect.Type {
 }
 
 type oauthAppArgs struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -349,6 +363,8 @@ type oauthAppArgs struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 	// app type.
@@ -417,6 +433,8 @@ type oauthAppArgs struct {
 
 // The set of arguments for constructing a OauthApp resource.
 type OauthAppArgs struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -435,6 +453,8 @@ type OauthAppArgs struct {
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here
 	// https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
 	// app type.

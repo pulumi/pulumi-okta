@@ -95,6 +95,12 @@ namespace Pulumi.Okta.App
     public partial class OAuth : Pulumi.CustomResource
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Output("autoKeyRotation")]
@@ -142,6 +148,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("customClientId")]
         public Output<string?> CustomClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
@@ -376,6 +388,12 @@ namespace Pulumi.Okta.App
     public sealed class OAuthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
@@ -417,6 +435,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("grantTypes")]
         private InputList<string>? _grantTypes;
@@ -643,6 +667,12 @@ namespace Pulumi.Okta.App
     public sealed class OAuthState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
@@ -690,6 +720,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("grantTypes")]
         private InputList<string>? _grantTypes;

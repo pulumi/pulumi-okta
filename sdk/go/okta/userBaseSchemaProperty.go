@@ -15,6 +15,14 @@ import (
 //
 // This resource allows you to configure a base user schema property.
 //
+// IMPORTANT NOTE:
+//
+// Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+// base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+// `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+// they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+// a breaking change.
+//
 // ## Example Usage
 //
 // ```go
@@ -28,9 +36,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := okta.NewUserBaseSchemaProperty(ctx, "example", &okta.UserBaseSchemaPropertyArgs{
-// 			Index:    pulumi.String("customPropertyName"),
+// 			Index:    pulumi.String("firstName"),
 // 			Master:   pulumi.String("OKTA"),
-// 			Title:    pulumi.String("customPropertyName"),
+// 			Required: pulumi.Bool(true),
+// 			Title:    pulumi.String("First name"),
 // 			Type:     pulumi.String("string"),
 // 			UserType: pulumi.Any(data.Okta_user_type.Example.Id),
 // 		})
@@ -72,7 +81,7 @@ type UserBaseSchemaProperty struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// User type ID
+	// User type ID.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -128,7 +137,7 @@ type userBaseSchemaPropertyState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
-	// User type ID
+	// User type ID.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -147,7 +156,7 @@ type UserBaseSchemaPropertyState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
-	// User type ID
+	// User type ID.
 	UserType pulumi.StringPtrInput
 }
 
@@ -170,7 +179,7 @@ type userBaseSchemaPropertyArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
-	// User type ID
+	// User type ID.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -190,7 +199,7 @@ type UserBaseSchemaPropertyArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
-	// User type ID
+	// User type ID.
 	UserType pulumi.StringPtrInput
 }
 
