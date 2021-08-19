@@ -13,10 +13,22 @@ namespace Pulumi.Okta.Deprecated
     public partial class BookmarkApp : Pulumi.CustomResource
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// Groups associated with the application
@@ -131,10 +143,22 @@ namespace Pulumi.Okta.Deprecated
     public sealed class BookmarkAppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
@@ -206,10 +230,22 @@ namespace Pulumi.Okta.Deprecated
     public sealed class BookmarkAppState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;

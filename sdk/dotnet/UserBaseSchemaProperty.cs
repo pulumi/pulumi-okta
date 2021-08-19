@@ -14,6 +14,14 @@ namespace Pulumi.Okta
     /// 
     /// This resource allows you to configure a base user schema property.
     /// 
+    /// IMPORTANT NOTE:
+    /// 
+    /// Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+    /// base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+    /// `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+    /// they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+    /// a breaking change.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -26,9 +34,10 @@ namespace Pulumi.Okta
     ///     {
     ///         var example = new Okta.UserBaseSchemaProperty("example", new Okta.UserBaseSchemaPropertyArgs
     ///         {
-    ///             Index = "customPropertyName",
+    ///             Index = "firstName",
     ///             Master = "OKTA",
-    ///             Title = "customPropertyName",
+    ///             Required = true,
+    ///             Title = "First name",
     ///             Type = "string",
     ///             UserType = data.Okta_user_type.Example.Id,
     ///         });
@@ -97,7 +106,7 @@ namespace Pulumi.Okta
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// User type ID
+        /// User type ID.
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -191,7 +200,7 @@ namespace Pulumi.Okta
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// User type ID
+        /// User type ID.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -246,7 +255,7 @@ namespace Pulumi.Okta
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// User type ID
+        /// User type ID.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

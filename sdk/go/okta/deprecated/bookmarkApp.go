@@ -14,8 +14,12 @@ import (
 type BookmarkApp struct {
 	pulumi.CustomResourceState
 
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -79,8 +83,12 @@ func GetBookmarkApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BookmarkApp resources.
 type bookmarkAppState struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -110,8 +118,12 @@ type bookmarkAppState struct {
 }
 
 type BookmarkAppState struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -145,8 +157,12 @@ func (BookmarkAppState) ElementType() reflect.Type {
 }
 
 type bookmarkAppArgs struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -171,8 +187,12 @@ type bookmarkAppArgs struct {
 
 // The set of arguments for constructing a BookmarkApp resource.
 type BookmarkAppArgs struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.

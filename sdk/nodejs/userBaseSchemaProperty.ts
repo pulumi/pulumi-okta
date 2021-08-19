@@ -9,6 +9,14 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to configure a base user schema property.
  *
+ * IMPORTANT NOTE:
+ *
+ * Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+ * base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+ * `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+ * they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+ * a breaking change.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -16,9 +24,10 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.UserBaseSchemaProperty("example", {
- *     index: "customPropertyName",
+ *     index: "firstName",
  *     master: "OKTA",
- *     title: "customPropertyName",
+ *     required: true,
+ *     title: "First name",
  *     type: "string",
  *     userType: okta_user_type_example.id,
  * });
@@ -95,7 +104,7 @@ export class UserBaseSchemaProperty extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * User type ID
+     * User type ID.
      */
     public readonly userType!: pulumi.Output<string | undefined>;
 
@@ -180,7 +189,7 @@ export interface UserBaseSchemaPropertyState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * User type ID
+     * User type ID.
      */
     readonly userType?: pulumi.Input<string>;
 }
@@ -218,7 +227,7 @@ export interface UserBaseSchemaPropertyArgs {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * User type ID
+     * User type ID.
      */
     readonly userType?: pulumi.Input<string>;
 }

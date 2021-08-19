@@ -18,10 +18,14 @@ type AuthLoginApp struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -102,10 +106,14 @@ type authLoginAppState struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -155,10 +163,14 @@ type AuthLoginAppState struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -212,10 +224,14 @@ type authLoginAppArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -260,10 +276,14 @@ type AuthLoginAppArgs struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme
 	CredentialsScheme pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.

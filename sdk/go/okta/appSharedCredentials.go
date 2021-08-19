@@ -71,12 +71,16 @@ type AppSharedCredentials struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
 	ButtonField pulumi.StringPtrOutput `pulumi:"buttonField"`
 	// CSS selector for the checkbox.
 	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -161,12 +165,16 @@ type appSharedCredentialsState struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
 	ButtonField *string `pulumi:"buttonField"`
 	// CSS selector for the checkbox.
 	Checkbox *string `pulumi:"checkbox"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -220,12 +228,16 @@ type AppSharedCredentialsState struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// CSS selector for the Sign-In button in the sign-in form.
 	ButtonField pulumi.StringPtrInput
 	// CSS selector for the checkbox.
 	Checkbox pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -283,12 +295,16 @@ type appSharedCredentialsArgs struct {
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
 	ButtonField *string `pulumi:"buttonField"`
 	// CSS selector for the checkbox.
 	Checkbox *string `pulumi:"checkbox"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -337,12 +353,16 @@ type AppSharedCredentialsArgs struct {
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// CSS selector for the Sign-In button in the sign-in form.
 	ButtonField pulumi.StringPtrInput
 	// CSS selector for the checkbox.
 	Checkbox pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.

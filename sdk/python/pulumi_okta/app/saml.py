@@ -20,6 +20,7 @@ class SamlArgs:
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
@@ -29,6 +30,7 @@ class SamlArgs:
                  default_relay_state: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
@@ -63,6 +65,7 @@ class SamlArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
@@ -72,6 +75,7 @@ class SamlArgs:
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -112,6 +116,8 @@ class SamlArgs:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if app_settings_json is not None:
             pulumi.set(__self__, "app_settings_json", app_settings_json)
         if assertion_signed is not None:
@@ -130,6 +136,8 @@ class SamlArgs:
             pulumi.set(__self__, "destination", destination)
         if digest_algorithm is not None:
             pulumi.set(__self__, "digest_algorithm", digest_algorithm)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if features is not None:
             pulumi.set(__self__, "features", features)
         if groups is not None:
@@ -252,6 +260,18 @@ class SamlArgs:
         pulumi.set(self, "acs_endpoints", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> Optional[pulumi.Input[str]]:
         """
@@ -358,6 +378,18 @@ class SamlArgs:
     @digest_algorithm.setter
     def digest_algorithm(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "digest_algorithm", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -694,6 +726,7 @@ class _SamlState:
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
@@ -704,6 +737,7 @@ class _SamlState:
                  default_relay_state: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  entity_key: Optional[pulumi.Input[str]] = None,
                  entity_url: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -748,6 +782,7 @@ class _SamlState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
@@ -758,6 +793,7 @@ class _SamlState:
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
@@ -808,6 +844,8 @@ class _SamlState:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if app_settings_json is not None:
             pulumi.set(__self__, "app_settings_json", app_settings_json)
         if assertion_signed is not None:
@@ -828,6 +866,8 @@ class _SamlState:
             pulumi.set(__self__, "destination", destination)
         if digest_algorithm is not None:
             pulumi.set(__self__, "digest_algorithm", digest_algorithm)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if entity_key is not None:
             pulumi.set(__self__, "entity_key", entity_key)
         if entity_url is not None:
@@ -960,6 +1000,18 @@ class _SamlState:
         pulumi.set(self, "acs_endpoints", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1078,6 +1130,18 @@ class _SamlState:
     @digest_algorithm.setter
     def digest_algorithm(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "digest_algorithm", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter(name="entityKey")
@@ -1548,6 +1612,7 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
@@ -1557,6 +1622,7 @@ class Saml(pulumi.CustomResource):
                  default_relay_state: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
@@ -1674,6 +1740,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
@@ -1683,6 +1750,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -1822,6 +1890,7 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
@@ -1831,6 +1900,7 @@ class Saml(pulumi.CustomResource):
                  default_relay_state: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
@@ -1875,6 +1945,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["acs_endpoints"] = acs_endpoints
+            __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["app_settings_json"] = app_settings_json
             __props__.__dict__["assertion_signed"] = assertion_signed
             __props__.__dict__["attribute_statements"] = attribute_statements
@@ -1884,6 +1955,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["default_relay_state"] = default_relay_state
             __props__.__dict__["destination"] = destination
             __props__.__dict__["digest_algorithm"] = digest_algorithm
+            __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["features"] = features
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
@@ -1945,6 +2017,7 @@ class Saml(pulumi.CustomResource):
             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            admin_note: Optional[pulumi.Input[str]] = None,
             app_settings_json: Optional[pulumi.Input[str]] = None,
             assertion_signed: Optional[pulumi.Input[bool]] = None,
             attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
@@ -1955,6 +2028,7 @@ class Saml(pulumi.CustomResource):
             default_relay_state: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             digest_algorithm: Optional[pulumi.Input[str]] = None,
+            enduser_note: Optional[pulumi.Input[str]] = None,
             entity_key: Optional[pulumi.Input[str]] = None,
             entity_url: Optional[pulumi.Input[str]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2004,6 +2078,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
@@ -2014,6 +2089,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
@@ -2064,6 +2140,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["acs_endpoints"] = acs_endpoints
+        __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["app_settings_json"] = app_settings_json
         __props__.__dict__["assertion_signed"] = assertion_signed
         __props__.__dict__["attribute_statements"] = attribute_statements
@@ -2074,6 +2151,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["default_relay_state"] = default_relay_state
         __props__.__dict__["destination"] = destination
         __props__.__dict__["digest_algorithm"] = digest_algorithm
+        __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["entity_key"] = entity_key
         __props__.__dict__["entity_url"] = entity_url
         __props__.__dict__["features"] = features
@@ -2145,6 +2223,14 @@ class Saml(pulumi.CustomResource):
         An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
+
+    @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
 
     @property
     @pulumi.getter(name="appSettingsJson")
@@ -2225,6 +2311,14 @@ class Saml(pulumi.CustomResource):
         Determines the digest algorithm used to digitally sign the SAML assertion and response.
         """
         return pulumi.get(self, "digest_algorithm")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
 
     @property
     @pulumi.getter(name="entityKey")

@@ -25,6 +25,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
@@ -35,6 +41,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("buttonSelector")]
         public Output<string> ButtonSelector { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// Extra field CSS selector
@@ -209,6 +221,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? AccessibilitySelfService { get; set; }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -219,6 +237,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("buttonSelector", required: true)]
         public Input<string> ButtonSelector { get; set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
         /// Extra field CSS selector
@@ -350,6 +374,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? AccessibilitySelfService { get; set; }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -360,6 +390,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("buttonSelector")]
         public Input<string>? ButtonSelector { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
         /// Extra field CSS selector

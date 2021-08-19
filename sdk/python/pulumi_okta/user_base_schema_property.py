@@ -30,7 +30,7 @@ class UserBaseSchemaPropertyArgs:
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[str] user_type: User type ID.
         """
         pulumi.set(__self__, "index", index)
         pulumi.set(__self__, "title", title)
@@ -134,7 +134,7 @@ class UserBaseSchemaPropertyArgs:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID
+        User type ID.
         """
         return pulumi.get(self, "user_type")
 
@@ -163,7 +163,7 @@ class _UserBaseSchemaPropertyState:
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[str] user_type: User type ID.
         """
         if index is not None:
             pulumi.set(__self__, "index", index)
@@ -270,7 +270,7 @@ class _UserBaseSchemaPropertyState:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID
+        User type ID.
         """
         return pulumi.get(self, "user_type")
 
@@ -298,6 +298,14 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
 
         This resource allows you to configure a base user schema property.
 
+        IMPORTANT NOTE:
+
+        Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+        base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+        `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+        they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+        a breaking change.
+
         ## Example Usage
 
         ```python
@@ -305,9 +313,10 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.UserBaseSchemaProperty("example",
-            index="customPropertyName",
+            index="firstName",
             master="OKTA",
-            title="customPropertyName",
+            required=True,
+            title="First name",
             type="string",
             user_type=data["okta_user_type"]["example"]["id"])
         ```
@@ -335,7 +344,7 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[str] user_type: User type ID.
         """
         ...
     @overload
@@ -348,6 +357,14 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
 
         This resource allows you to configure a base user schema property.
 
+        IMPORTANT NOTE:
+
+        Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+        base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+        `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+        they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+        a breaking change.
+
         ## Example Usage
 
         ```python
@@ -355,9 +372,10 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.UserBaseSchemaProperty("example",
-            index="customPropertyName",
+            index="firstName",
             master="OKTA",
-            title="customPropertyName",
+            required=True,
+            title="First name",
             type="string",
             user_type=data["okta_user_type"]["example"]["id"])
         ```
@@ -457,7 +475,7 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] title: The property display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[str] user_type: User type ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -533,7 +551,7 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
         """
-        User type ID
+        User type ID.
         """
         return pulumi.get(self, "user_type")
 

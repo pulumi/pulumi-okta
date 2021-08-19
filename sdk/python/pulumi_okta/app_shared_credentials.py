@@ -19,9 +19,11 @@ class AppSharedCredentialsArgs:
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -44,9 +46,11 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -71,12 +75,16 @@ class AppSharedCredentialsArgs:
             pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
             pulumi.set(__self__, "button_field", button_field)
         if checkbox is not None:
             pulumi.set(__self__, "checkbox", checkbox)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -165,6 +173,18 @@ class AppSharedCredentialsArgs:
         pulumi.set(self, "accessibility_self_service", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -199,6 +219,18 @@ class AppSharedCredentialsArgs:
     @checkbox.setter
     def checkbox(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "checkbox", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -399,9 +431,11 @@ class _AppSharedCredentialsState:
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -427,9 +461,11 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -457,12 +493,16 @@ class _AppSharedCredentialsState:
             pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
             pulumi.set(__self__, "button_field", button_field)
         if checkbox is not None:
             pulumi.set(__self__, "checkbox", checkbox)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -547,6 +587,18 @@ class _AppSharedCredentialsState:
         pulumi.set(self, "accessibility_self_service", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -581,6 +633,18 @@ class _AppSharedCredentialsState:
     @checkbox.setter
     def checkbox(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "checkbox", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -831,9 +895,11 @@ class AppSharedCredentials(pulumi.CustomResource):
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -897,9 +963,11 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -982,9 +1050,11 @@ class AppSharedCredentials(pulumi.CustomResource):
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1017,9 +1087,11 @@ class AppSharedCredentials(pulumi.CustomResource):
             __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
             __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+            __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["button_field"] = button_field
             __props__.__dict__["checkbox"] = checkbox
+            __props__.__dict__["enduser_note"] = enduser_note
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -1061,9 +1133,11 @@ class AppSharedCredentials(pulumi.CustomResource):
             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+            admin_note: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             button_field: Optional[pulumi.Input[str]] = None,
             checkbox: Optional[pulumi.Input[str]] = None,
+            enduser_note: Optional[pulumi.Input[str]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1094,9 +1168,11 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -1125,9 +1201,11 @@ class AppSharedCredentials(pulumi.CustomResource):
         __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+        __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["button_field"] = button_field
         __props__.__dict__["checkbox"] = checkbox
+        __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
@@ -1175,6 +1253,14 @@ class AppSharedCredentials(pulumi.CustomResource):
         return pulumi.get(self, "accessibility_self_service")
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1197,6 +1283,14 @@ class AppSharedCredentials(pulumi.CustomResource):
         CSS selector for the checkbox.
         """
         return pulumi.get(self, "checkbox")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
 
     @property
     @pulumi.getter

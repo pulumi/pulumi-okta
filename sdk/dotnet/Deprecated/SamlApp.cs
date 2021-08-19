@@ -37,6 +37,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// Application settings in JSON format
         /// </summary>
         [Output("appSettingsJson")]
@@ -92,6 +98,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("digestAlgorithm")]
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// Entity ID, the ID portion of the entity_url
@@ -398,6 +410,12 @@ namespace Pulumi.Okta.Deprecated
         }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
@@ -452,6 +470,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("features")]
         private InputList<string>? _features;
@@ -679,6 +703,12 @@ namespace Pulumi.Okta.Deprecated
         }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
@@ -739,6 +769,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
         /// Entity ID, the ID portion of the entity_url

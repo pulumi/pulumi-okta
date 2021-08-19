@@ -21,8 +21,10 @@ class SecurePasswordStoreArgs:
                  username_field: pulumi.Input[str],
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -49,8 +51,10 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -80,10 +84,14 @@ class SecurePasswordStoreArgs:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -200,6 +208,18 @@ class SecurePasswordStoreArgs:
         pulumi.set(self, "accessibility_self_service", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -222,6 +242,18 @@ class SecurePasswordStoreArgs:
     @credentials_scheme.setter
     def credentials_scheme(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credentials_scheme", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -447,8 +479,10 @@ class _SecurePasswordStoreState:
     def __init__(__self__, *,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -478,8 +512,10 @@ class _SecurePasswordStoreState:
         Input properties used for looking up and filtering SecurePasswordStore resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -512,10 +548,14 @@ class _SecurePasswordStoreState:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+        if admin_note is not None:
+            pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
+        if enduser_note is not None:
+            pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -598,6 +638,18 @@ class _SecurePasswordStoreState:
         pulumi.set(self, "accessibility_self_service", value)
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @admin_note.setter
+    def admin_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_note", value)
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -620,6 +672,18 @@ class _SecurePasswordStoreState:
     @credentials_scheme.setter
     def credentials_scheme(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credentials_scheme", value)
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
+
+    @enduser_note.setter
+    def enduser_note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enduser_note", value)
 
     @property
     @pulumi.getter
@@ -931,8 +995,10 @@ class SecurePasswordStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -987,8 +1053,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -1064,8 +1132,10 @@ class SecurePasswordStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+                 admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
+                 enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1102,8 +1172,10 @@ class SecurePasswordStore(pulumi.CustomResource):
 
             __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+            __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["credentials_scheme"] = credentials_scheme
+            __props__.__dict__["enduser_note"] = enduser_note
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -1155,8 +1227,10 @@ class SecurePasswordStore(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+            admin_note: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             credentials_scheme: Optional[pulumi.Input[str]] = None,
+            enduser_note: Optional[pulumi.Input[str]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1191,8 +1265,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
@@ -1227,8 +1303,10 @@ class SecurePasswordStore(pulumi.CustomResource):
 
         __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
+        __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["credentials_scheme"] = credentials_scheme
+        __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
@@ -1273,6 +1351,14 @@ class SecurePasswordStore(pulumi.CustomResource):
         return pulumi.get(self, "accessibility_self_service")
 
     @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for admins.
+        """
+        return pulumi.get(self, "admin_note")
+
+    @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1287,6 +1373,14 @@ class SecurePasswordStore(pulumi.CustomResource):
         Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         """
         return pulumi.get(self, "credentials_scheme")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application notes for end users.
+        """
+        return pulumi.get(self, "enduser_note")
 
     @property
     @pulumi.getter

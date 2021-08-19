@@ -70,6 +70,10 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -77,6 +81,10 @@ export class ThreeField extends pulumi.CustomResource {
      * Login button field CSS selector.
      */
     public readonly buttonSelector!: pulumi.Output<string>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Extra field CSS selector.
      */
@@ -175,8 +183,10 @@ export class ThreeField extends pulumi.CustomResource {
             const state = argsOrState as ThreeFieldState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonSelector"] = state ? state.buttonSelector : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["extraFieldSelector"] = state ? state.extraFieldSelector : undefined;
             inputs["extraFieldValue"] = state ? state.extraFieldValue : undefined;
             inputs["groups"] = state ? state.groups : undefined;
@@ -221,8 +231,10 @@ export class ThreeField extends pulumi.CustomResource {
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonSelector"] = args ? args.buttonSelector : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["extraFieldSelector"] = args ? args.extraFieldSelector : undefined;
             inputs["extraFieldValue"] = args ? args.extraFieldValue : undefined;
             inputs["groups"] = args ? args.groups : undefined;
@@ -263,6 +275,10 @@ export interface ThreeFieldState {
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -270,6 +286,10 @@ export interface ThreeFieldState {
      * Login button field CSS selector.
      */
     readonly buttonSelector?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Extra field CSS selector.
      */
@@ -367,6 +387,10 @@ export interface ThreeFieldArgs {
      */
     readonly accessibilitySelfService?: pulumi.Input<boolean>;
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -374,6 +398,10 @@ export interface ThreeFieldArgs {
      * Login button field CSS selector.
      */
     readonly buttonSelector: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * Extra field CSS selector.
      */

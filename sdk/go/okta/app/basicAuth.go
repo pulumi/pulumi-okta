@@ -50,10 +50,14 @@ import (
 type BasicAuth struct {
 	pulumi.CustomResourceState
 
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -122,10 +126,14 @@ func GetBasicAuth(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BasicAuth resources.
 type basicAuthState struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// The URL of the authenticating site for this app.
 	AuthUrl *string `pulumi:"authUrl"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -157,10 +165,14 @@ type basicAuthState struct {
 }
 
 type BasicAuthState struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -196,10 +208,14 @@ func (BasicAuthState) ElementType() reflect.Type {
 }
 
 type basicAuthArgs struct {
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// The URL of the authenticating site for this app.
 	AuthUrl string `pulumi:"authUrl"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -226,10 +242,14 @@ type basicAuthArgs struct {
 
 // The set of arguments for constructing a BasicAuth resource.
 type BasicAuthArgs struct {
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//

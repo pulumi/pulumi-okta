@@ -61,6 +61,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Output("autoSubmitToolbar")]
@@ -71,6 +77,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("buttonField")]
         public Output<string?> ButtonField { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
@@ -241,6 +253,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? AccessibilitySelfService { get; set; }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -251,6 +269,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("buttonField")]
         public Input<string>? ButtonField { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
@@ -378,6 +402,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? AccessibilitySelfService { get; set; }
 
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -388,6 +418,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("buttonField")]
         public Input<string>? ButtonField { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;

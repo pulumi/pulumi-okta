@@ -56,10 +56,14 @@ type SecurePasswordStore struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -163,10 +167,14 @@ type securePasswordStoreState struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -230,10 +238,14 @@ type SecurePasswordStoreState struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -301,10 +313,14 @@ type securePasswordStoreArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	// Application notes for admins.
+	AdminNote *string `pulumi:"adminNote"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
+	// Application notes for end users.
+	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
@@ -363,10 +379,14 @@ type SecurePasswordStoreArgs struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
+	// Application notes for admins.
+	AdminNote pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
+	// Application notes for end users.
+	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//

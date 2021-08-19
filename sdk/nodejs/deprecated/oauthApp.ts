@@ -34,6 +34,10 @@ export class OauthApp extends pulumi.CustomResource {
     }
 
     /**
+     * Application notes for admins.
+     */
+    public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
      * Requested key rotation mode.
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
@@ -69,6 +73,10 @@ export class OauthApp extends pulumi.CustomResource {
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     public readonly customClientId!: pulumi.Output<string | undefined>;
+    /**
+     * Application notes for end users.
+     */
+    public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
      * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -213,6 +221,7 @@ export class OauthApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthAppState | undefined;
+            inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["autoKeyRotation"] = state ? state.autoKeyRotation : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["clientBasicSecret"] = state ? state.clientBasicSecret : undefined;
@@ -221,6 +230,7 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["clientUri"] = state ? state.clientUri : undefined;
             inputs["consentMethod"] = state ? state.consentMethod : undefined;
             inputs["customClientId"] = state ? state.customClientId : undefined;
+            inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["grantTypes"] = state ? state.grantTypes : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["groupsClaim"] = state ? state.groupsClaim : undefined;
@@ -260,6 +270,7 @@ export class OauthApp extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
@@ -267,6 +278,7 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["clientUri"] = args ? args.clientUri : undefined;
             inputs["consentMethod"] = args ? args.consentMethod : undefined;
             inputs["customClientId"] = args ? args.customClientId : undefined;
+            inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["grantTypes"] = args ? args.grantTypes : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["groupsClaim"] = args ? args.groupsClaim : undefined;
@@ -312,6 +324,10 @@ export class OauthApp extends pulumi.CustomResource {
  */
 export interface OauthAppState {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Requested key rotation mode.
      */
     readonly autoKeyRotation?: pulumi.Input<boolean>;
@@ -347,6 +363,10 @@ export interface OauthAppState {
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     readonly customClientId?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
      * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
@@ -484,6 +504,10 @@ export interface OauthAppState {
  */
 export interface OauthAppArgs {
     /**
+     * Application notes for admins.
+     */
+    readonly adminNote?: pulumi.Input<string>;
+    /**
      * Requested key rotation mode.
      */
     readonly autoKeyRotation?: pulumi.Input<boolean>;
@@ -515,6 +539,10 @@ export interface OauthAppArgs {
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
     readonly customClientId?: pulumi.Input<string>;
+    /**
+     * Application notes for end users.
+     */
+    readonly enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
      * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per

@@ -47,6 +47,12 @@ namespace Pulumi.Okta.App
     public partial class BasicAuth : Pulumi.CustomResource
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Output("adminNote")]
+        public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
         /// The URL of the authenticating site for this app.
         /// </summary>
         [Output("authUrl")]
@@ -57,6 +63,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Output("enduserNote")]
+        public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
         /// Groups associated with the application.
@@ -173,6 +185,12 @@ namespace Pulumi.Okta.App
     public sealed class BasicAuthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// The URL of the authenticating site for this app.
         /// </summary>
         [Input("authUrl", required: true)]
@@ -183,6 +201,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
@@ -256,6 +280,12 @@ namespace Pulumi.Okta.App
     public sealed class BasicAuthState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Application notes for admins.
+        /// </summary>
+        [Input("adminNote")]
+        public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
         /// The URL of the authenticating site for this app.
         /// </summary>
         [Input("authUrl")]
@@ -266,6 +296,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// Application notes for end users.
+        /// </summary>
+        [Input("enduserNote")]
+        public Input<string>? EnduserNote { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
