@@ -75,6 +75,12 @@ namespace Pulumi.Okta.Network
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>
+        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// </summary>
+        [Output("asns")]
+        public Output<ImmutableArray<string>> Asns { get; private set; } = null!;
+
+        /// <summary>
         /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
         /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         /// </summary>
@@ -163,6 +169,18 @@ namespace Pulumi.Okta.Network
 
     public sealed class ZoneArgs : Pulumi.ResourceArgs
     {
+        [Input("asns")]
+        private InputList<string>? _asns;
+
+        /// <summary>
+        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// </summary>
+        public InputList<string> Asns
+        {
+            get => _asns ?? (_asns = new InputList<string>());
+            set => _asns = value;
+        }
+
         [Input("dynamicLocations")]
         private InputList<string>? _dynamicLocations;
 
@@ -231,6 +249,18 @@ namespace Pulumi.Okta.Network
 
     public sealed class ZoneState : Pulumi.ResourceArgs
     {
+        [Input("asns")]
+        private InputList<string>? _asns;
+
+        /// <summary>
+        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// </summary>
+        public InputList<string> Asns
+        {
+            get => _asns ?? (_asns = new InputList<string>());
+            set => _asns = value;
+        }
+
         [Input("dynamicLocations")]
         private InputList<string>? _dynamicLocations;
 

@@ -20,6 +20,8 @@ type AuthLoginApp struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
@@ -108,6 +110,8 @@ type authLoginAppState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Application settings in JSON format
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
@@ -165,6 +169,8 @@ type AuthLoginAppState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme
@@ -226,6 +232,8 @@ type authLoginAppArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Application settings in JSON format
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application credentials scheme
@@ -278,6 +286,8 @@ type AuthLoginAppArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application credentials scheme

@@ -14,6 +14,7 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -23,6 +24,7 @@ class ZoneArgs:
         """
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
@@ -32,6 +34,8 @@ class ZoneArgs:
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
         pulumi.set(__self__, "type", type)
+        if asns is not None:
+            pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
         if dynamic_proxy_type is not None:
@@ -56,6 +60,18 @@ class ZoneArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        """
+        return pulumi.get(self, "asns")
+
+    @asns.setter
+    def asns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "asns", value)
 
     @property
     @pulumi.getter(name="dynamicLocations")
@@ -134,6 +150,7 @@ class ZoneArgs:
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
+                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -143,6 +160,7 @@ class _ZoneState:
                  usage: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
@@ -152,6 +170,8 @@ class _ZoneState:
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
+        if asns is not None:
+            pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
         if dynamic_proxy_type is not None:
@@ -166,6 +186,18 @@ class _ZoneState:
             pulumi.set(__self__, "type", type)
         if usage is not None:
             pulumi.set(__self__, "usage", usage)
+
+    @property
+    @pulumi.getter
+    def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        """
+        return pulumi.get(self, "asns")
+
+    @asns.setter
+    def asns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "asns", value)
 
     @property
     @pulumi.getter(name="dynamicLocations")
@@ -258,6 +290,7 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -310,6 +343,7 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
@@ -382,6 +416,7 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -401,6 +436,7 @@ class Zone(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ZoneArgs.__new__(ZoneArgs)
 
+            __props__.__dict__["asns"] = asns
             __props__.__dict__["dynamic_locations"] = dynamic_locations
             __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
             __props__.__dict__["gateways"] = gateways
@@ -420,6 +456,7 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -434,6 +471,7 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
                and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
@@ -447,6 +485,7 @@ class Zone(pulumi.CustomResource):
 
         __props__ = _ZoneState.__new__(_ZoneState)
 
+        __props__.__dict__["asns"] = asns
         __props__.__dict__["dynamic_locations"] = dynamic_locations
         __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
         __props__.__dict__["gateways"] = gateways
@@ -455,6 +494,14 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         __props__.__dict__["usage"] = usage
         return Zone(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def asns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        """
+        return pulumi.get(self, "asns")
 
     @property
     @pulumi.getter(name="dynamicLocations")

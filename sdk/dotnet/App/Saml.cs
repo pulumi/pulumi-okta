@@ -53,6 +53,7 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// ### With inline hook
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -117,6 +118,90 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// ### Pre-configured app with SAML 1.1 sign-on mode
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Okta.App.Saml("test", new Okta.App.SamlArgs
+    ///         {
+    ///             AppSettingsJson = @"{
+    ///     ""groupFilter"": ""app1.*"",
+    ///     ""siteURL"": ""http://www.okta.com""
+    /// }
+    /// 
+    /// ",
+    ///             Label = "SharePoint (On-Premise)",
+    ///             PreconfiguredApp = "sharepoint_onpremise",
+    ///             SamlVersion = "1.1",
+    ///             Status = "ACTIVE",
+    ///             UserNameTemplate = source.Login,
+    ///             UserNameTemplateType = "BUILT_IN",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var office365 = new Okta.App.Saml("office365", new Okta.App.SamlArgs
+    ///         {
+    ///             AppLinksJson = @"  {
+    ///       ""calendar"": false,
+    ///       ""crm"": false,
+    ///       ""delve"": false,
+    ///       ""excel"": false,
+    ///       ""forms"": false,
+    ///       ""mail"": false,
+    ///       ""newsfeed"": false,
+    ///       ""onedrive"": false,
+    ///       ""people"": false,
+    ///       ""planner"": false,
+    ///       ""powerbi"": false,
+    ///       ""powerpoint"": false,
+    ///       ""sites"": false,
+    ///       ""sway"": false,
+    ///       ""tasks"": false,
+    ///       ""teams"": false,
+    ///       ""video"": false,
+    ///       ""word"": false,
+    ///       ""yammer"": false,
+    ///       ""login"": true
+    ///   }
+    /// 
+    /// ",
+    ///             AppSettingsJson = @"    {
+    ///        ""wsFedConfigureType"": ""AUTO"",
+    ///        ""windowsTransportEnabled"": false,
+    ///        ""domain"": ""okta.com"",
+    ///        ""msftTenant"": ""okta"",
+    ///        ""domains"": [],
+    ///        ""requireAdminConsent"": false
+    ///     }
+    /// 
+    /// ",
+    ///             Label = "Microsoft Office 365",
+    ///             PreconfiguredApp = "office365",
+    ///             SamlVersion = "1.1",
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -158,6 +243,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("adminNote")]
         public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
+        /// Displays specific appLinks for the app. The value for the link should be boolean.
+        /// </summary>
+        [Output("appLinksJson")]
+        public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
         /// Application settings in JSON format.
@@ -371,6 +462,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> ResponseSigned { get; private set; } = null!;
 
         /// <summary>
+        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// </summary>
+        [Output("samlVersion")]
+        public Output<string?> SamlVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Sign-on mode of application.
         /// </summary>
         [Output("signOnMode")]
@@ -537,6 +634,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app. The value for the link should be boolean.
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format.
@@ -709,6 +812,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? ResponseSigned { get; set; }
 
         /// <summary>
+        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// </summary>
+        [Input("samlVersion")]
+        public Input<string>? SamlVersion { get; set; }
+
+        /// <summary>
         /// Signature algorithm used ot digitally sign the assertion and response.
         /// </summary>
         [Input("signatureAlgorithm")]
@@ -837,6 +946,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app. The value for the link should be boolean.
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format.
@@ -1067,6 +1182,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
+
+        /// <summary>
+        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// </summary>
+        [Input("samlVersion")]
+        public Input<string>? SamlVersion { get; set; }
 
         /// <summary>
         /// Sign-on mode of application.

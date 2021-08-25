@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  *     subjectNameIdTemplate: "${user.userName}",
  * });
  * ```
+ * ### With inline hook
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,6 +81,71 @@ import * as utilities from "../utilities";
  *     }],
  * }, {
  *     dependsOn: [testHook],
+ * });
+ * ```
+ * ### Pre-configured app with SAML 1.1 sign-on mode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = new okta.app.Saml("test", {
+ *     appSettingsJson: `{
+ *     "groupFilter": "app1.*",
+ *     "siteURL": "http://www.okta.com"
+ * }
+ * `,
+ *     label: "SharePoint (On-Premise)",
+ *     preconfiguredApp: "sharepoint_onpremise",
+ *     samlVersion: "1.1",
+ *     status: "ACTIVE",
+ *     userNameTemplate: "${source.login}",
+ *     userNameTemplateType: "BUILT_IN",
+ * });
+ * ```
+ * ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const office365 = new okta.app.Saml("office365", {
+ *     appLinksJson: `  {
+ *       "calendar": false,
+ *       "crm": false,
+ *       "delve": false,
+ *       "excel": false,
+ *       "forms": false,
+ *       "mail": false,
+ *       "newsfeed": false,
+ *       "onedrive": false,
+ *       "people": false,
+ *       "planner": false,
+ *       "powerbi": false,
+ *       "powerpoint": false,
+ *       "sites": false,
+ *       "sway": false,
+ *       "tasks": false,
+ *       "teams": false,
+ *       "video": false,
+ *       "word": false,
+ *       "yammer": false,
+ *       "login": true
+ *   }
+ * `,
+ *     appSettingsJson: `    {
+ *        "wsFedConfigureType": "AUTO",
+ *        "windowsTransportEnabled": false,
+ *        "domain": "okta.com",
+ *        "msftTenant": "okta",
+ *        "domains": [],
+ *        "requireAdminConsent": false
+ *     }
+ * `,
+ *     label: "Microsoft Office 365",
+ *     preconfiguredApp: "office365",
+ *     samlVersion: "1.1",
+ *     status: "ACTIVE",
  * });
  * ```
  *
@@ -139,6 +205,10 @@ export class Saml extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app. The value for the link should be boolean.
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Application settings in JSON format.
      */
@@ -283,6 +353,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly responseSigned!: pulumi.Output<boolean | undefined>;
     /**
+     * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+     */
+    public readonly samlVersion!: pulumi.Output<string | undefined>;
+    /**
      * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
@@ -361,6 +435,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             inputs["attributeStatements"] = state ? state.attributeStatements : undefined;
@@ -396,6 +471,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["recipient"] = state ? state.recipient : undefined;
             inputs["requestCompressed"] = state ? state.requestCompressed : undefined;
             inputs["responseSigned"] = state ? state.responseSigned : undefined;
+            inputs["samlVersion"] = state ? state.samlVersion : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
             inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
@@ -420,6 +496,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             inputs["attributeStatements"] = args ? args.attributeStatements : undefined;
@@ -445,6 +522,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["recipient"] = args ? args.recipient : undefined;
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             inputs["responseSigned"] = args ? args.responseSigned : undefined;
+            inputs["samlVersion"] = args ? args.samlVersion : undefined;
             inputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
             inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
@@ -501,6 +579,10 @@ export interface SamlState {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app. The value for the link should be boolean.
+     */
+    readonly appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format.
      */
@@ -645,6 +727,10 @@ export interface SamlState {
      */
     readonly responseSigned?: pulumi.Input<boolean>;
     /**
+     * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+     */
+    readonly samlVersion?: pulumi.Input<string>;
+    /**
      * Sign-on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
@@ -730,6 +816,10 @@ export interface SamlArgs {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app. The value for the link should be boolean.
+     */
+    readonly appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format.
      */
@@ -833,6 +923,10 @@ export interface SamlArgs {
      * Determines whether the SAML auth response message is digitally signed.
      */
     readonly responseSigned?: pulumi.Input<boolean>;
+    /**
+     * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+     */
+    readonly samlVersion?: pulumi.Input<string>;
     /**
      * Signature algorithm used ot digitally sign the assertion and response.
      */

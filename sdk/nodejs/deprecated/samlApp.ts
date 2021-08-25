@@ -56,6 +56,10 @@ export class SamlApp extends pulumi.CustomResource {
     /**
      * Application settings in JSON format
      */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    /**
+     * Application settings in JSON format
+     */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
     /**
      * Determines whether the SAML assertion is digitally signed
@@ -193,6 +197,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly responseSigned!: pulumi.Output<boolean | undefined>;
     /**
+     * SAML version for the app's sign-on mode
+     */
+    public readonly samlVersion!: pulumi.Output<string | undefined>;
+    /**
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
@@ -269,6 +277,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             inputs["attributeStatements"] = state ? state.attributeStatements : undefined;
@@ -304,6 +313,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["recipient"] = state ? state.recipient : undefined;
             inputs["requestCompressed"] = state ? state.requestCompressed : undefined;
             inputs["responseSigned"] = state ? state.responseSigned : undefined;
+            inputs["samlVersion"] = state ? state.samlVersion : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
             inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
@@ -328,6 +338,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             inputs["attributeStatements"] = args ? args.attributeStatements : undefined;
@@ -353,6 +364,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["recipient"] = args ? args.recipient : undefined;
             inputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             inputs["responseSigned"] = args ? args.responseSigned : undefined;
+            inputs["samlVersion"] = args ? args.samlVersion : undefined;
             inputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
             inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
@@ -409,6 +421,10 @@ export interface SamlAppState {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format
+     */
+    readonly appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
@@ -549,6 +565,10 @@ export interface SamlAppState {
      */
     readonly responseSigned?: pulumi.Input<boolean>;
     /**
+     * SAML version for the app's sign-on mode
+     */
+    readonly samlVersion?: pulumi.Input<string>;
+    /**
      * Sign on mode of application.
      */
     readonly signOnMode?: pulumi.Input<string>;
@@ -632,6 +652,10 @@ export interface SamlAppArgs {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format
+     */
+    readonly appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
@@ -731,6 +755,10 @@ export interface SamlAppArgs {
      * Determines whether the SAML auth response message is digitally signed
      */
     readonly responseSigned?: pulumi.Input<boolean>;
+    /**
+     * SAML version for the app's sign-on mode
+     */
+    readonly samlVersion?: pulumi.Input<string>;
     /**
      * Signature algorithm used ot digitally sign the assertion and response
      */
