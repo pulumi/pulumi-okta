@@ -19,6 +19,7 @@ class AutoLoginArgs:
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class AutoLoginArgs:
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -71,6 +73,8 @@ class AutoLoginArgs:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
@@ -161,6 +165,18 @@ class AutoLoginArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format.
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -387,6 +403,7 @@ class _AutoLoginState:
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -414,6 +431,7 @@ class _AutoLoginState:
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -445,6 +463,8 @@ class _AutoLoginState:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
@@ -531,6 +551,18 @@ class _AutoLoginState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format.
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -807,6 +839,7 @@ class AutoLogin(pulumi.CustomResource):
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -845,6 +878,22 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_redirect_url="https://example.com",
             sign_on_url="https://example.com/login.html")
         ```
+        ### Pre-configured application
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.AutoLogin("example",
+            app_settings_json=\"\"\"{
+            "domain": "okta",
+            "afwOnly": false
+        }
+
+        \"\"\",
+            label="Google Example App",
+            preconfigured_app="google",
+            status="ACTIVE")
+        ```
 
         ## Import
 
@@ -859,6 +908,7 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -905,6 +955,22 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_redirect_url="https://example.com",
             sign_on_url="https://example.com/login.html")
         ```
+        ### Pre-configured application
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.AutoLogin("example",
+            app_settings_json=\"\"\"{
+            "domain": "okta",
+            "afwOnly": false
+        }
+
+        \"\"\",
+            label="Google Example App",
+            preconfigured_app="google",
+            status="ACTIVE")
+        ```
 
         ## Import
 
@@ -932,6 +998,7 @@ class AutoLogin(pulumi.CustomResource):
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -966,6 +1033,7 @@ class AutoLogin(pulumi.CustomResource):
             __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_settings_json"] = app_settings_json
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["credentials_scheme"] = credentials_scheme
             __props__.__dict__["enduser_note"] = enduser_note
@@ -1009,6 +1077,7 @@ class AutoLogin(pulumi.CustomResource):
             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_settings_json: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             credentials_scheme: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
@@ -1041,6 +1110,7 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -1073,6 +1143,7 @@ class AutoLogin(pulumi.CustomResource):
         __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_settings_json"] = app_settings_json
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["credentials_scheme"] = credentials_scheme
         __props__.__dict__["enduser_note"] = enduser_note
@@ -1120,6 +1191,14 @@ class AutoLogin(pulumi.CustomResource):
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application settings in JSON format.
+        """
+        return pulumi.get(self, "app_settings_json")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")

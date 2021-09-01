@@ -24,6 +24,22 @@ import * as utilities from "../utilities";
  *     signOnUrl: "https://example.com/login.html",
  * });
  * ```
+ * ### Pre-configured application
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.AutoLogin("example", {
+ *     appSettingsJson: `{
+ *     "domain": "okta",
+ *     "afwOnly": false
+ * }
+ * `,
+ *     label: "Google Example App",
+ *     preconfiguredApp: "google",
+ *     status: "ACTIVE",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -73,6 +89,10 @@ export class AutoLogin extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Application settings in JSON format.
+     */
+    public readonly appSettingsJson!: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar.
      */
@@ -184,6 +204,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -214,6 +235,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -260,6 +282,10 @@ export interface AutoLoginState {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format.
+     */
+    readonly appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -372,6 +398,10 @@ export interface AutoLoginArgs {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format.
+     */
+    readonly appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */

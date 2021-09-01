@@ -25,6 +25,8 @@ type SamlApp struct {
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Application settings in JSON format
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
 	AssertionSigned     pulumi.BoolPtrOutput                 `pulumi:"assertionSigned"`
@@ -95,6 +97,8 @@ type SamlApp struct {
 	RequestCompressed pulumi.BoolPtrOutput `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrOutput `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode
+	SamlVersion pulumi.StringPtrOutput `pulumi:"samlVersion"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response
@@ -170,6 +174,8 @@ type samlAppState struct {
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
 	// Application settings in JSON format
+	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
 	AssertionSigned     *bool                       `pulumi:"assertionSigned"`
@@ -240,6 +246,8 @@ type samlAppState struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode
+	SamlVersion *string `pulumi:"samlVersion"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response
@@ -283,6 +291,8 @@ type SamlAppState struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
@@ -354,6 +364,8 @@ type SamlAppState struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML version for the app's sign-on mode
+	SamlVersion pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response
@@ -401,6 +413,8 @@ type samlAppArgs struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Application settings in JSON format
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed
@@ -452,6 +466,8 @@ type samlAppArgs struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode
+	SamlVersion *string `pulumi:"samlVersion"`
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
@@ -494,6 +510,8 @@ type SamlAppArgs struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed
@@ -545,6 +563,8 @@ type SamlAppArgs struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML version for the app's sign-on mode
+	SamlVersion pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response
 	SignatureAlgorithm pulumi.StringPtrInput
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests

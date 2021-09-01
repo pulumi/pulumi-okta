@@ -77,6 +77,10 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
+     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     */
+    public readonly asns!: pulumi.Output<string[] | undefined>;
+    /**
      * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      */
@@ -119,6 +123,7 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
+            inputs["asns"] = state ? state.asns : undefined;
             inputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
             inputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
             inputs["gateways"] = state ? state.gateways : undefined;
@@ -131,6 +136,7 @@ export class Zone extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["asns"] = args ? args.asns : undefined;
             inputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
             inputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
             inputs["gateways"] = args ? args.gateways : undefined;
@@ -150,6 +156,10 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
+    /**
+     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     */
+    readonly asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
@@ -185,6 +195,10 @@ export interface ZoneState {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
+    /**
+     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     */
+    readonly asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.

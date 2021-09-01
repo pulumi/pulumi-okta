@@ -46,6 +46,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
+     * Application settings in JSON format
+     */
+    public readonly appSettingsJson!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -154,6 +158,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -184,6 +189,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -230,6 +236,10 @@ export interface AuthLoginAppState {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format
+     */
+    readonly appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -340,6 +350,10 @@ export interface AuthLoginAppArgs {
      * Application notes for admins.
      */
     readonly adminNote?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format
+     */
+    readonly appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */

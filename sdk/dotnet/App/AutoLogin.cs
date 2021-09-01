@@ -36,6 +36,31 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// ### Pre-configured application
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.AutoLogin("example", new Okta.App.AutoLoginArgs
+    ///         {
+    ///             AppSettingsJson = @"{
+    ///     ""domain"": ""okta"",
+    ///     ""afwOnly"": false
+    /// }
+    /// 
+    /// ",
+    ///             Label = "Google Example App",
+    ///             PreconfiguredApp = "google",
+    ///             Status = "ACTIVE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -65,6 +90,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("adminNote")]
         public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
+        /// Application settings in JSON format.
+        /// </summary>
+        [Output("appSettingsJson")]
+        public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
         /// Display auto submit toolbar.
@@ -265,6 +296,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
+        /// Application settings in JSON format.
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -418,6 +455,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format.
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
         /// Display auto submit toolbar.

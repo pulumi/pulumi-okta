@@ -56,6 +56,7 @@ import (
 // 	})
 // }
 // ```
+// ### With inline hook
 //
 // ```go
 // package main
@@ -119,6 +120,65 @@ import (
 // 	})
 // }
 // ```
+// ### Pre-configured app with SAML 1.1 sign-on mode
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
+// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "    \"groupFilter\": \"app1.*\",\n", "    \"siteURL\": \"http://www.okta.com\"\n", "}\n", "\n")),
+// 			Label:                pulumi.String("SharePoint (On-Premise)"),
+// 			PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
+// 			SamlVersion:          pulumi.String("1.1"),
+// 			Status:               pulumi.String("ACTIVE"),
+// 			UserNameTemplate:     pulumi.Any(source.Login),
+// 			UserNameTemplateType: pulumi.String("BUILT_IN"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewSaml(ctx, "office365", &app.SamlArgs{
+// 			AppLinksJson:     pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "      \"calendar\": false,\n", "      \"crm\": false,\n", "      \"delve\": false,\n", "      \"excel\": false,\n", "      \"forms\": false,\n", "      \"mail\": false,\n", "      \"newsfeed\": false,\n", "      \"onedrive\": false,\n", "      \"people\": false,\n", "      \"planner\": false,\n", "      \"powerbi\": false,\n", "      \"powerpoint\": false,\n", "      \"sites\": false,\n", "      \"sway\": false,\n", "      \"tasks\": false,\n", "      \"teams\": false,\n", "      \"video\": false,\n", "      \"word\": false,\n", "      \"yammer\": false,\n", "      \"login\": true\n", "  }\n", "\n")),
+// 			AppSettingsJson:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "    {\n", "       \"wsFedConfigureType\": \"AUTO\",\n", "       \"windowsTransportEnabled\": false,\n", "       \"domain\": \"okta.com\",\n", "       \"msftTenant\": \"okta\",\n", "       \"domains\": [],\n", "       \"requireAdminConsent\": false\n", "    }\n", "\n")),
+// 			Label:            pulumi.String("Microsoft Office 365"),
+// 			PreconfiguredApp: pulumi.String("office365"),
+// 			SamlVersion:      pulumi.String("1.1"),
+// 			Status:           pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -140,6 +200,8 @@ type Saml struct {
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app. The value for the link should be boolean.
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -213,6 +275,8 @@ type Saml struct {
 	RequestCompressed pulumi.BoolPtrOutput `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrOutput `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+	SamlVersion pulumi.StringPtrOutput `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
@@ -289,6 +353,8 @@ type samlState struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app. The value for the link should be boolean.
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -362,6 +428,8 @@ type samlState struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+	SamlVersion *string `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
@@ -407,6 +475,8 @@ type SamlState struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app. The value for the link should be boolean.
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.
@@ -480,6 +550,8 @@ type SamlState struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+	SamlVersion pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
@@ -529,6 +601,8 @@ type samlArgs struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app. The value for the link should be boolean.
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
@@ -582,6 +656,8 @@ type samlArgs struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+	SamlVersion *string `pulumi:"samlVersion"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
@@ -626,6 +702,8 @@ type SamlArgs struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app. The value for the link should be boolean.
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Determines whether the SAML assertion is digitally signed.
@@ -679,6 +757,8 @@ type SamlArgs struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+	SamlVersion pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.

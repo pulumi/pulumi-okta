@@ -80,6 +80,8 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
+	// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+	Asns pulumi.StringArrayOutput `pulumi:"asns"`
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayOutput `pulumi:"dynamicLocations"`
@@ -129,6 +131,8 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
+	// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+	Asns []string `pulumi:"asns"`
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations []string `pulumi:"dynamicLocations"`
@@ -147,6 +151,8 @@ type zoneState struct {
 }
 
 type ZoneState struct {
+	// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+	Asns pulumi.StringArrayInput
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayInput
@@ -169,6 +175,8 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
+	// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+	Asns []string `pulumi:"asns"`
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations []string `pulumi:"dynamicLocations"`
@@ -188,6 +196,8 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
+	// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+	Asns pulumi.StringArrayInput
 	// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 	// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
 	DynamicLocations pulumi.StringArrayInput

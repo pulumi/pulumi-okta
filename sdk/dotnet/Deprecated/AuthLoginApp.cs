@@ -31,6 +31,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
+        [Output("appSettingsJson")]
+        public Output<string?> AppSettingsJson { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
@@ -227,6 +233,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -378,6 +390,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
         /// Display auto submit toolbar

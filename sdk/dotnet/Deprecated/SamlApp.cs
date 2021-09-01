@@ -45,6 +45,12 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Application settings in JSON format
         /// </summary>
+        [Output("appLinksJson")]
+        public Output<string?> AppLinksJson { get; private set; } = null!;
+
+        /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
         [Output("appSettingsJson")]
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
@@ -250,6 +256,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> ResponseSigned { get; private set; } = null!;
 
         /// <summary>
+        /// SAML version for the app's sign-on mode
+        /// </summary>
+        [Output("samlVersion")]
+        public Output<string?> SamlVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
@@ -418,6 +430,12 @@ namespace Pulumi.Okta.Deprecated
         /// <summary>
         /// Application settings in JSON format
         /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
@@ -581,6 +599,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? ResponseSigned { get; set; }
 
         /// <summary>
+        /// SAML version for the app's sign-on mode
+        /// </summary>
+        [Input("samlVersion")]
+        public Input<string>? SamlVersion { get; set; }
+
+        /// <summary>
         /// Signature algorithm used ot digitally sign the assertion and response
         /// </summary>
         [Input("signatureAlgorithm")]
@@ -707,6 +731,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format
@@ -932,6 +962,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
+
+        /// <summary>
+        /// SAML version for the app's sign-on mode
+        /// </summary>
+        [Input("samlVersion")]
+        public Input<string>? SamlVersion { get; set; }
 
         /// <summary>
         /// Sign on mode of application.

@@ -21,6 +21,7 @@ class SamlAppArgs:
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAppAttributeStatementArgs']]]] = None,
@@ -45,6 +46,7 @@ class SamlAppArgs:
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
@@ -66,6 +68,7 @@ class SamlAppArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Application settings in JSON format
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -89,6 +92,7 @@ class SamlAppArgs:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
@@ -114,6 +118,8 @@ class SamlAppArgs:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if app_settings_json is not None:
             pulumi.set(__self__, "app_settings_json", app_settings_json)
         if assertion_signed is not None:
@@ -165,6 +171,8 @@ class SamlAppArgs:
             pulumi.set(__self__, "request_compressed", request_compressed)
         if response_signed is not None:
             pulumi.set(__self__, "response_signed", response_signed)
+        if saml_version is not None:
+            pulumi.set(__self__, "saml_version", saml_version)
         if signature_algorithm is not None:
             pulumi.set(__self__, "signature_algorithm", signature_algorithm)
         if single_logout_certificate is not None:
@@ -266,6 +274,18 @@ class SamlAppArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="appSettingsJson")
@@ -553,6 +573,18 @@ class SamlAppArgs:
         pulumi.set(self, "response_signed", value)
 
     @property
+    @pulumi.getter(name="samlVersion")
+    def saml_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        SAML version for the app's sign-on mode
+        """
+        return pulumi.get(self, "saml_version")
+
+    @saml_version.setter
+    def saml_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "saml_version", value)
+
+    @property
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
@@ -717,6 +749,7 @@ class _SamlAppState:
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAppAttributeStatementArgs']]]] = None,
@@ -752,6 +785,7 @@ class _SamlAppState:
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_version: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
@@ -773,6 +807,7 @@ class _SamlAppState:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Application settings in JSON format
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -807,6 +842,7 @@ class _SamlAppState:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
@@ -832,6 +868,8 @@ class _SamlAppState:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if app_settings_json is not None:
             pulumi.set(__self__, "app_settings_json", app_settings_json)
         if assertion_signed is not None:
@@ -905,6 +943,8 @@ class _SamlAppState:
             pulumi.set(__self__, "request_compressed", request_compressed)
         if response_signed is not None:
             pulumi.set(__self__, "response_signed", response_signed)
+        if saml_version is not None:
+            pulumi.set(__self__, "saml_version", saml_version)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
         if signature_algorithm is not None:
@@ -996,6 +1036,18 @@ class _SamlAppState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="appSettingsJson")
@@ -1415,6 +1467,18 @@ class _SamlAppState:
         pulumi.set(self, "response_signed", value)
 
     @property
+    @pulumi.getter(name="samlVersion")
+    def saml_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        SAML version for the app's sign-on mode
+        """
+        return pulumi.get(self, "saml_version")
+
+    @saml_version.setter
+    def saml_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "saml_version", value)
+
+    @property
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1593,6 +1657,7 @@ class SamlApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
@@ -1618,6 +1683,7 @@ class SamlApp(pulumi.CustomResource):
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
@@ -1641,6 +1707,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Application settings in JSON format
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -1665,6 +1732,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
@@ -1707,6 +1775,7 @@ class SamlApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
                  attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
@@ -1732,6 +1801,7 @@ class SamlApp(pulumi.CustomResource):
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
@@ -1762,6 +1832,7 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["acs_endpoints"] = acs_endpoints
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_links_json"] = app_links_json
             __props__.__dict__["app_settings_json"] = app_settings_json
             __props__.__dict__["assertion_signed"] = assertion_signed
             __props__.__dict__["attribute_statements"] = attribute_statements
@@ -1792,6 +1863,7 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["recipient"] = recipient
             __props__.__dict__["request_compressed"] = request_compressed
             __props__.__dict__["response_signed"] = response_signed
+            __props__.__dict__["saml_version"] = saml_version
             __props__.__dict__["signature_algorithm"] = signature_algorithm
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
             __props__.__dict__["single_logout_issuer"] = single_logout_issuer
@@ -1834,6 +1906,7 @@ class SamlApp(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_links_json: Optional[pulumi.Input[str]] = None,
             app_settings_json: Optional[pulumi.Input[str]] = None,
             assertion_signed: Optional[pulumi.Input[bool]] = None,
             attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppAttributeStatementArgs']]]]] = None,
@@ -1869,6 +1942,7 @@ class SamlApp(pulumi.CustomResource):
             recipient: Optional[pulumi.Input[str]] = None,
             request_compressed: Optional[pulumi.Input[bool]] = None,
             response_signed: Optional[pulumi.Input[bool]] = None,
+            saml_version: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             signature_algorithm: Optional[pulumi.Input[str]] = None,
             single_logout_certificate: Optional[pulumi.Input[str]] = None,
@@ -1895,6 +1969,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Application settings in JSON format
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -1929,6 +2004,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
@@ -1953,6 +2029,7 @@ class SamlApp(pulumi.CustomResource):
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["acs_endpoints"] = acs_endpoints
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["app_settings_json"] = app_settings_json
         __props__.__dict__["assertion_signed"] = assertion_signed
         __props__.__dict__["attribute_statements"] = attribute_statements
@@ -1988,6 +2065,7 @@ class SamlApp(pulumi.CustomResource):
         __props__.__dict__["recipient"] = recipient
         __props__.__dict__["request_compressed"] = request_compressed
         __props__.__dict__["response_signed"] = response_signed
+        __props__.__dict__["saml_version"] = saml_version
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["signature_algorithm"] = signature_algorithm
         __props__.__dict__["single_logout_certificate"] = single_logout_certificate
@@ -2043,6 +2121,14 @@ class SamlApp(pulumi.CustomResource):
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_links_json")
 
     @property
     @pulumi.getter(name="appSettingsJson")
@@ -2320,6 +2406,14 @@ class SamlApp(pulumi.CustomResource):
         Determines whether the SAML auth response message is digitally signed
         """
         return pulumi.get(self, "response_signed")
+
+    @property
+    @pulumi.getter(name="samlVersion")
+    def saml_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        SAML version for the app's sign-on mode
+        """
+        return pulumi.get(self, "saml_version")
 
     @property
     @pulumi.getter(name="signOnMode")

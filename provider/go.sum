@@ -709,6 +709,8 @@ github.com/okta/terraform-provider-okta v0.0.0-20210806160123-4a86a33fab30 h1:ch
 github.com/okta/terraform-provider-okta v0.0.0-20210806160123-4a86a33fab30/go.mod h1:J4LJnQGyN7bBJiPE+z+ZEHilzdh5YTmhouUe9rif49M=
 github.com/okta/terraform-provider-okta v0.0.0-20210817180259-1ce0487fd760 h1:WW9RQzQ3HhWqsDPAE6xZ8LRzuTvWjIuRWhh4STBoi/Y=
 github.com/okta/terraform-provider-okta v0.0.0-20210817180259-1ce0487fd760/go.mod h1:5aE14+m9K/CCAPt1A+ch3vXY6FOXE6P5YoZnA+RxWJo=
+github.com/okta/terraform-provider-okta v0.0.0-20210821142521-bcb45e644042 h1:IyO0cusuBEjoB9bGYc/Dq/8S1EfArLG0DEbo7/pLhN4=
+github.com/okta/terraform-provider-okta v0.0.0-20210821142521-bcb45e644042/go.mod h1:5aE14+m9K/CCAPt1A+ch3vXY6FOXE6P5YoZnA+RxWJo=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0 h1:WSHQ+IS43OoUrWtD1/bbclrwK8TTH5hzp+umCiuxHgs=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
