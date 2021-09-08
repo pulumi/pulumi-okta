@@ -4,10 +4,45 @@
 package user
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a users from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.LookupUser(ctx, &user.LookupUserArgs{
+// 			Searches: []user.GetUserSearch{
+// 				user.GetUserSearch{
+// 					Name:  "profile.firstName",
+// 					Value: "John",
+// 				},
+// 				user.GetUserSearch{
+// 					Name:  "profile.lastName",
+// 					Value: "Doe",
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("okta:user/getUser:getUser", args, &rv, opts...)
@@ -101,4 +136,232 @@ type LookupUserResult struct {
 	UserType string `pulumi:"userType"`
 	// user profile property.
 	ZipCode string `pulumi:"zipCode"`
+}
+
+func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserResult, error) {
+			args := v.(LookupUserArgs)
+			r, err := LookupUser(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserResultOutput)
+}
+
+// A collection of arguments for invoking getUser.
+type LookupUserOutputArgs struct {
+	// Map of search criteria. It supports the following properties.
+	Searches GetUserSearchArrayInput `pulumi:"searches"`
+	// String representing a specific user's id value
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (LookupUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUser.
+type LookupUserResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserResult)(nil)).Elem()
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutput {
+	return o
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
+	return o
+}
+
+// Administrator roles assigned to user.
+func (o LookupUserResultOutput) AdminRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.City }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) CostCenter() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.CostCenter }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+// raw JSON containing all custom profile attributes.
+func (o LookupUserResultOutput) CustomProfileAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Department() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Department }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Division() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Division }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) EmployeeNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.EmployeeNumber }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) GroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) HonorificPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.HonorificPrefix }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) HonorificSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.HonorificSuffix }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Locale() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Locale }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Manager() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Manager }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) ManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.ManagerId }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) MiddleName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.MiddleName }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) MobilePhone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.MobilePhone }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) NickName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.NickName }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Organization() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Organization }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) PostalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.PostalAddress }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.PreferredLanguage }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) PrimaryPhone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.PrimaryPhone }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) Searches() GetUserSearchArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []GetUserSearch { return v.Searches }).(GetUserSearchArrayOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) SecondEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.SecondEmail }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) StreetAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.StreetAddress }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) UserType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.UserType }).(pulumi.StringOutput)
+}
+
+// user profile property.
+func (o LookupUserResultOutput) ZipCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.ZipCode }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserResultOutput{})
 }

@@ -472,7 +472,7 @@ type AutoLoginArrayInput interface {
 type AutoLoginArray []AutoLoginInput
 
 func (AutoLoginArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AutoLogin)(nil))
+	return reflect.TypeOf((*[]*AutoLogin)(nil)).Elem()
 }
 
 func (i AutoLoginArray) ToAutoLoginArrayOutput() AutoLoginArrayOutput {
@@ -497,7 +497,7 @@ type AutoLoginMapInput interface {
 type AutoLoginMap map[string]AutoLoginInput
 
 func (AutoLoginMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AutoLogin)(nil))
+	return reflect.TypeOf((*map[string]*AutoLogin)(nil)).Elem()
 }
 
 func (i AutoLoginMap) ToAutoLoginMapOutput() AutoLoginMapOutput {
@@ -508,9 +508,7 @@ func (i AutoLoginMap) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoL
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginMapOutput)
 }
 
-type AutoLoginOutput struct {
-	*pulumi.OutputState
-}
+type AutoLoginOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoLogin)(nil))
@@ -529,14 +527,12 @@ func (o AutoLoginOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
 }
 
 func (o AutoLoginOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
-	return o.ApplyT(func(v AutoLogin) *AutoLogin {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoLogin) *AutoLogin {
 		return &v
 	}).(AutoLoginPtrOutput)
 }
 
-type AutoLoginPtrOutput struct {
-	*pulumi.OutputState
-}
+type AutoLoginPtrOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoLogin)(nil))
@@ -548,6 +544,16 @@ func (o AutoLoginPtrOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
 
 func (o AutoLoginPtrOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
 	return o
+}
+
+func (o AutoLoginPtrOutput) Elem() AutoLoginOutput {
+	return o.ApplyT(func(v *AutoLogin) AutoLogin {
+		if v != nil {
+			return *v
+		}
+		var ret AutoLogin
+		return ret
+	}).(AutoLoginOutput)
 }
 
 type AutoLoginArrayOutput struct{ *pulumi.OutputState }

@@ -115,11 +115,11 @@ export interface UserAdminRolesState {
     /**
      * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
      */
-    readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Okta User.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -129,9 +129,9 @@ export interface UserAdminRolesArgs {
     /**
      * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
      */
-    readonly adminRoles: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Okta User.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

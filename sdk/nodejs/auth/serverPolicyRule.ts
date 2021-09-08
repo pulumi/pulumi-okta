@@ -203,68 +203,68 @@ export interface ServerPolicyRuleState {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
      */
-    readonly accessTokenLifetimeMinutes?: pulumi.Input<number>;
+    accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
      * Auth Server ID.
      */
-    readonly authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string>;
     /**
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
-    readonly grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Groups whose Users are to be excluded.
      */
-    readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
      */
-    readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the inline token to trigger.
      */
-    readonly inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string>;
     /**
      * Auth Server Policy Rule name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Auth Server Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Priority of the auth server policy rule.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Lifetime of refresh token.
      */
-    readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
      * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
      * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
-    readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
+    refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
      */
-    readonly scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The status of the Auth Server Policy Rule.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy Rule.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies a set of Users to be excluded.
      */
-    readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Users to be included.
      */
-    readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -274,66 +274,66 @@ export interface ServerPolicyRuleArgs {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
      */
-    readonly accessTokenLifetimeMinutes?: pulumi.Input<number>;
+    accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
      * Auth Server ID.
      */
-    readonly authServerId: pulumi.Input<string>;
+    authServerId: pulumi.Input<string>;
     /**
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
-    readonly grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Groups whose Users are to be excluded.
      */
-    readonly groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
      */
-    readonly groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the inline token to trigger.
      */
-    readonly inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string>;
     /**
      * Auth Server Policy Rule name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Auth Server Policy ID.
      */
-    readonly policyId: pulumi.Input<string>;
+    policyId: pulumi.Input<string>;
     /**
      * Priority of the auth server policy rule.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * Lifetime of refresh token.
      */
-    readonly refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
      * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
      * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
-    readonly refreshTokenWindowMinutes?: pulumi.Input<number>;
+    refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
      */
-    readonly scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The status of the Auth Server Policy Rule.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy Rule.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies a set of Users to be excluded.
      */
-    readonly userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a set of Users to be included.
      */
-    readonly userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

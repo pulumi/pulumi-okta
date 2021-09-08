@@ -75,20 +75,20 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OAuthRedirectUri resources.
  */
 export interface OAuthRedirectUriState {
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * Redirect URI to append to Okta OIDC application.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a OAuthRedirectUri resource.
  */
 export interface OAuthRedirectUriArgs {
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * Redirect URI to append to Okta OIDC application.
      */
-    readonly uri: pulumi.Input<string>;
+    uri: pulumi.Input<string>;
 }

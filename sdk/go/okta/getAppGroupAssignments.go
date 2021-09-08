@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.LookupAppGroupAssignments(ctx, &okta.LookupAppGroupAssignmentsArgs{
+// 		_, err := okta.LookupAppGroupAssignments(ctx, &GetAppGroupAssignmentsArgs{
 // 			Id: okta_app_oauth.Test.Id,
 // 		}, nil)
 // 		if err != nil {
@@ -52,4 +55,52 @@ type LookupAppGroupAssignmentsResult struct {
 	Groups []string `pulumi:"groups"`
 	// ID of application.
 	Id string `pulumi:"id"`
+}
+
+func LookupAppGroupAssignmentsOutput(ctx *pulumi.Context, args LookupAppGroupAssignmentsOutputArgs, opts ...pulumi.InvokeOption) LookupAppGroupAssignmentsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAppGroupAssignmentsResult, error) {
+			args := v.(LookupAppGroupAssignmentsArgs)
+			r, err := LookupAppGroupAssignments(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAppGroupAssignmentsResultOutput)
+}
+
+// A collection of arguments for invoking getAppGroupAssignments.
+type LookupAppGroupAssignmentsOutputArgs struct {
+	// The ID of the Okta application you want to retrieve the groups for.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (LookupAppGroupAssignmentsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppGroupAssignmentsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAppGroupAssignments.
+type LookupAppGroupAssignmentsResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAppGroupAssignmentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppGroupAssignmentsResult)(nil)).Elem()
+}
+
+func (o LookupAppGroupAssignmentsResultOutput) ToLookupAppGroupAssignmentsResultOutput() LookupAppGroupAssignmentsResultOutput {
+	return o
+}
+
+func (o LookupAppGroupAssignmentsResultOutput) ToLookupAppGroupAssignmentsResultOutputWithContext(ctx context.Context) LookupAppGroupAssignmentsResultOutput {
+	return o
+}
+
+// List of groups IDs assigned to the application.
+func (o LookupAppGroupAssignmentsResultOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAppGroupAssignmentsResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// ID of application.
+func (o LookupAppGroupAssignmentsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppGroupAssignmentsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAppGroupAssignmentsResultOutput{})
 }

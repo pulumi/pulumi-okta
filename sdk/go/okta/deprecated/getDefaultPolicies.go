@@ -4,6 +4,9 @@
 package deprecated
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,50 @@ type GetDefaultPoliciesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Type string `pulumi:"type"`
+}
+
+func GetDefaultPoliciesOutput(ctx *pulumi.Context, args GetDefaultPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetDefaultPoliciesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDefaultPoliciesResult, error) {
+			args := v.(GetDefaultPoliciesArgs)
+			r, err := GetDefaultPolicies(ctx, &args, opts...)
+			return *r, err
+		}).(GetDefaultPoliciesResultOutput)
+}
+
+// A collection of arguments for invoking getDefaultPolicies.
+type GetDefaultPoliciesOutputArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDefaultPoliciesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultPoliciesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDefaultPolicies.
+type GetDefaultPoliciesResultOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultPoliciesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultPoliciesResult)(nil)).Elem()
+}
+
+func (o GetDefaultPoliciesResultOutput) ToGetDefaultPoliciesResultOutput() GetDefaultPoliciesResultOutput {
+	return o
+}
+
+func (o GetDefaultPoliciesResultOutput) ToGetDefaultPoliciesResultOutputWithContext(ctx context.Context) GetDefaultPoliciesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDefaultPoliciesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultPoliciesResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultPoliciesResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDefaultPoliciesResultOutput{})
 }

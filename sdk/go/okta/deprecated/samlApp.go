@@ -661,7 +661,7 @@ type SamlAppArrayInput interface {
 type SamlAppArray []SamlAppInput
 
 func (SamlAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SamlApp)(nil))
+	return reflect.TypeOf((*[]*SamlApp)(nil)).Elem()
 }
 
 func (i SamlAppArray) ToSamlAppArrayOutput() SamlAppArrayOutput {
@@ -686,7 +686,7 @@ type SamlAppMapInput interface {
 type SamlAppMap map[string]SamlAppInput
 
 func (SamlAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SamlApp)(nil))
+	return reflect.TypeOf((*map[string]*SamlApp)(nil)).Elem()
 }
 
 func (i SamlAppMap) ToSamlAppMapOutput() SamlAppMapOutput {
@@ -697,9 +697,7 @@ func (i SamlAppMap) ToSamlAppMapOutputWithContext(ctx context.Context) SamlAppMa
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAppMapOutput)
 }
 
-type SamlAppOutput struct {
-	*pulumi.OutputState
-}
+type SamlAppOutput struct{ *pulumi.OutputState }
 
 func (SamlAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlApp)(nil))
@@ -718,14 +716,12 @@ func (o SamlAppOutput) ToSamlAppPtrOutput() SamlAppPtrOutput {
 }
 
 func (o SamlAppOutput) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
-	return o.ApplyT(func(v SamlApp) *SamlApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlApp) *SamlApp {
 		return &v
 	}).(SamlAppPtrOutput)
 }
 
-type SamlAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type SamlAppPtrOutput struct{ *pulumi.OutputState }
 
 func (SamlAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SamlApp)(nil))
@@ -737,6 +733,16 @@ func (o SamlAppPtrOutput) ToSamlAppPtrOutput() SamlAppPtrOutput {
 
 func (o SamlAppPtrOutput) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
 	return o
+}
+
+func (o SamlAppPtrOutput) Elem() SamlAppOutput {
+	return o.ApplyT(func(v *SamlApp) SamlApp {
+		if v != nil {
+			return *v
+		}
+		var ret SamlApp
+		return ret
+	}).(SamlAppOutput)
 }
 
 type SamlAppArrayOutput struct{ *pulumi.OutputState }

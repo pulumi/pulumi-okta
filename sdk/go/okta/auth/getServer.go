@@ -4,6 +4,9 @@
 package auth
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,97 @@ type LookupServerResult struct {
 	Name string `pulumi:"name"`
 	// the activation status of the authorization server.
 	Status string `pulumi:"status"`
+}
+
+func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerResult, error) {
+			args := v.(LookupServerArgs)
+			r, err := LookupServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerResultOutput)
+}
+
+// A collection of arguments for invoking getServer.
+type LookupServerOutputArgs struct {
+	// The name of the auth server to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServer.
+type LookupServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerResult)(nil)).Elem()
+}
+
+func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResultOutput {
+	return o
+}
+
+func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
+	return o
+}
+
+// array of audiences.
+func (o LookupServerResultOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+// last time credentials were rotated.
+func (o LookupServerResultOutput) CredentialsLastRotated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsLastRotated }).(pulumi.StringOutput)
+}
+
+// next time credentials will be rotated
+func (o LookupServerResultOutput) CredentialsNextRotation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsNextRotation }).(pulumi.StringOutput)
+}
+
+// mode of credential rotation, auto or manual.
+func (o LookupServerResultOutput) CredentialsRotationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsRotationMode }).(pulumi.StringOutput)
+}
+
+// description of Authorization server.
+func (o LookupServerResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+func (o LookupServerResultOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+func (o LookupServerResultOutput) IssuerMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.IssuerMode }).(pulumi.StringOutput)
+}
+
+// auth server key id.
+func (o LookupServerResultOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Kid }).(pulumi.StringOutput)
+}
+
+// The name of the auth server.
+func (o LookupServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the activation status of the authorization server.
+func (o LookupServerResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerResultOutput{})
 }

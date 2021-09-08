@@ -546,7 +546,7 @@ type OidcArrayInput interface {
 type OidcArray []OidcInput
 
 func (OidcArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Oidc)(nil))
+	return reflect.TypeOf((*[]*Oidc)(nil)).Elem()
 }
 
 func (i OidcArray) ToOidcArrayOutput() OidcArrayOutput {
@@ -571,7 +571,7 @@ type OidcMapInput interface {
 type OidcMap map[string]OidcInput
 
 func (OidcMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Oidc)(nil))
+	return reflect.TypeOf((*map[string]*Oidc)(nil)).Elem()
 }
 
 func (i OidcMap) ToOidcMapOutput() OidcMapOutput {
@@ -582,9 +582,7 @@ func (i OidcMap) ToOidcMapOutputWithContext(ctx context.Context) OidcMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OidcMapOutput)
 }
 
-type OidcOutput struct {
-	*pulumi.OutputState
-}
+type OidcOutput struct{ *pulumi.OutputState }
 
 func (OidcOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Oidc)(nil))
@@ -603,14 +601,12 @@ func (o OidcOutput) ToOidcPtrOutput() OidcPtrOutput {
 }
 
 func (o OidcOutput) ToOidcPtrOutputWithContext(ctx context.Context) OidcPtrOutput {
-	return o.ApplyT(func(v Oidc) *Oidc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Oidc) *Oidc {
 		return &v
 	}).(OidcPtrOutput)
 }
 
-type OidcPtrOutput struct {
-	*pulumi.OutputState
-}
+type OidcPtrOutput struct{ *pulumi.OutputState }
 
 func (OidcPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Oidc)(nil))
@@ -622,6 +618,16 @@ func (o OidcPtrOutput) ToOidcPtrOutput() OidcPtrOutput {
 
 func (o OidcPtrOutput) ToOidcPtrOutputWithContext(ctx context.Context) OidcPtrOutput {
 	return o
+}
+
+func (o OidcPtrOutput) Elem() OidcOutput {
+	return o.ApplyT(func(v *Oidc) Oidc {
+		if v != nil {
+			return *v
+		}
+		var ret Oidc
+		return ret
+	}).(OidcOutput)
 }
 
 type OidcArrayOutput struct{ *pulumi.OutputState }

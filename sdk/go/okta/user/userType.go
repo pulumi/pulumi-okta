@@ -198,7 +198,7 @@ type UserTypeArrayInput interface {
 type UserTypeArray []UserTypeInput
 
 func (UserTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserType)(nil))
+	return reflect.TypeOf((*[]*UserType)(nil)).Elem()
 }
 
 func (i UserTypeArray) ToUserTypeArrayOutput() UserTypeArrayOutput {
@@ -223,7 +223,7 @@ type UserTypeMapInput interface {
 type UserTypeMap map[string]UserTypeInput
 
 func (UserTypeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserType)(nil))
+	return reflect.TypeOf((*map[string]*UserType)(nil)).Elem()
 }
 
 func (i UserTypeMap) ToUserTypeMapOutput() UserTypeMapOutput {
@@ -234,9 +234,7 @@ func (i UserTypeMap) ToUserTypeMapOutputWithContext(ctx context.Context) UserTyp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTypeMapOutput)
 }
 
-type UserTypeOutput struct {
-	*pulumi.OutputState
-}
+type UserTypeOutput struct{ *pulumi.OutputState }
 
 func (UserTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserType)(nil))
@@ -255,14 +253,12 @@ func (o UserTypeOutput) ToUserTypePtrOutput() UserTypePtrOutput {
 }
 
 func (o UserTypeOutput) ToUserTypePtrOutputWithContext(ctx context.Context) UserTypePtrOutput {
-	return o.ApplyT(func(v UserType) *UserType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserType) *UserType {
 		return &v
 	}).(UserTypePtrOutput)
 }
 
-type UserTypePtrOutput struct {
-	*pulumi.OutputState
-}
+type UserTypePtrOutput struct{ *pulumi.OutputState }
 
 func (UserTypePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserType)(nil))
@@ -274,6 +270,16 @@ func (o UserTypePtrOutput) ToUserTypePtrOutput() UserTypePtrOutput {
 
 func (o UserTypePtrOutput) ToUserTypePtrOutputWithContext(ctx context.Context) UserTypePtrOutput {
 	return o
+}
+
+func (o UserTypePtrOutput) Elem() UserTypeOutput {
+	return o.ApplyT(func(v *UserType) UserType {
+		if v != nil {
+			return *v
+		}
+		var ret UserType
+		return ret
+	}).(UserTypeOutput)
 }
 
 type UserTypeArrayOutput struct{ *pulumi.OutputState }

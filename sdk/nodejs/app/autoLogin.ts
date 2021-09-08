@@ -273,113 +273,113 @@ export interface AutoLoginState {
     /**
      * Custom error page URL.
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self-service. By default, it is `false`.
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format.
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
      */
-    readonly credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users.
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * The Application's display name.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Direct link of application logo.
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name assigned to the application by Okta.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Allow user to reveal password
      */
-    readonly revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean>;
     /**
      * Shared password, required for certain schemes
      */
-    readonly sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string>;
     /**
      * Shared username, required for certain schemes
      */
-    readonly sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Sign-on mode of the application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      */
-    readonly signOnRedirectUrl?: pulumi.Input<string>;
+    signOnRedirectUrl?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly signOnUrl?: pulumi.Input<string>;
+    signOnUrl?: pulumi.Input<string>;
     /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Username template. Default: `"${source.login}"`
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix.
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type. Default: `"BUILT_IN"`
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }
 
 /**
@@ -389,99 +389,99 @@ export interface AutoLoginArgs {
     /**
      * Custom error page URL.
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self-service. By default, it is `false`.
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format.
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
      */
-    readonly credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users.
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * The Application's display name.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Allow user to reveal password
      */
-    readonly revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean>;
     /**
      * Shared password, required for certain schemes
      */
-    readonly sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string>;
     /**
      * Shared username, required for certain schemes
      */
-    readonly sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      */
-    readonly signOnRedirectUrl?: pulumi.Input<string>;
+    signOnRedirectUrl?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly signOnUrl?: pulumi.Input<string>;
+    signOnUrl?: pulumi.Input<string>;
     /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Username template. Default: `"${source.login}"`
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix.
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type. Default: `"BUILT_IN"`
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }

@@ -269,7 +269,7 @@ type UserBaseSchemaPropertyArrayInput interface {
 type UserBaseSchemaPropertyArray []UserBaseSchemaPropertyInput
 
 func (UserBaseSchemaPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((*[]*UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (i UserBaseSchemaPropertyArray) ToUserBaseSchemaPropertyArrayOutput() UserBaseSchemaPropertyArrayOutput {
@@ -294,7 +294,7 @@ type UserBaseSchemaPropertyMapInput interface {
 type UserBaseSchemaPropertyMap map[string]UserBaseSchemaPropertyInput
 
 func (UserBaseSchemaPropertyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((*map[string]*UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (i UserBaseSchemaPropertyMap) ToUserBaseSchemaPropertyMapOutput() UserBaseSchemaPropertyMapOutput {
@@ -305,9 +305,7 @@ func (i UserBaseSchemaPropertyMap) ToUserBaseSchemaPropertyMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyMapOutput)
 }
 
-type UserBaseSchemaPropertyOutput struct {
-	*pulumi.OutputState
-}
+type UserBaseSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserBaseSchemaProperty)(nil))
@@ -326,14 +324,12 @@ func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyPtrOutput() UserBa
 }
 
 func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
-	return o.ApplyT(func(v UserBaseSchemaProperty) *UserBaseSchemaProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserBaseSchemaProperty) *UserBaseSchemaProperty {
 		return &v
 	}).(UserBaseSchemaPropertyPtrOutput)
 }
 
-type UserBaseSchemaPropertyPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserBaseSchemaPropertyPtrOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserBaseSchemaProperty)(nil))
@@ -345,6 +341,16 @@ func (o UserBaseSchemaPropertyPtrOutput) ToUserBaseSchemaPropertyPtrOutput() Use
 
 func (o UserBaseSchemaPropertyPtrOutput) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
 	return o
+}
+
+func (o UserBaseSchemaPropertyPtrOutput) Elem() UserBaseSchemaPropertyOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) UserBaseSchemaProperty {
+		if v != nil {
+			return *v
+		}
+		var ret UserBaseSchemaProperty
+		return ret
+	}).(UserBaseSchemaPropertyOutput)
 }
 
 type UserBaseSchemaPropertyArrayOutput struct{ *pulumi.OutputState }

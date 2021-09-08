@@ -219,7 +219,7 @@ type AppOauthApiScopeArrayInput interface {
 type AppOauthApiScopeArray []AppOauthApiScopeInput
 
 func (AppOauthApiScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppOauthApiScope)(nil))
+	return reflect.TypeOf((*[]*AppOauthApiScope)(nil)).Elem()
 }
 
 func (i AppOauthApiScopeArray) ToAppOauthApiScopeArrayOutput() AppOauthApiScopeArrayOutput {
@@ -244,7 +244,7 @@ type AppOauthApiScopeMapInput interface {
 type AppOauthApiScopeMap map[string]AppOauthApiScopeInput
 
 func (AppOauthApiScopeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppOauthApiScope)(nil))
+	return reflect.TypeOf((*map[string]*AppOauthApiScope)(nil)).Elem()
 }
 
 func (i AppOauthApiScopeMap) ToAppOauthApiScopeMapOutput() AppOauthApiScopeMapOutput {
@@ -255,9 +255,7 @@ func (i AppOauthApiScopeMap) ToAppOauthApiScopeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopeMapOutput)
 }
 
-type AppOauthApiScopeOutput struct {
-	*pulumi.OutputState
-}
+type AppOauthApiScopeOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppOauthApiScope)(nil))
@@ -276,14 +274,12 @@ func (o AppOauthApiScopeOutput) ToAppOauthApiScopePtrOutput() AppOauthApiScopePt
 }
 
 func (o AppOauthApiScopeOutput) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
-	return o.ApplyT(func(v AppOauthApiScope) *AppOauthApiScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppOauthApiScope) *AppOauthApiScope {
 		return &v
 	}).(AppOauthApiScopePtrOutput)
 }
 
-type AppOauthApiScopePtrOutput struct {
-	*pulumi.OutputState
-}
+type AppOauthApiScopePtrOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AppOauthApiScope)(nil))
@@ -295,6 +291,16 @@ func (o AppOauthApiScopePtrOutput) ToAppOauthApiScopePtrOutput() AppOauthApiScop
 
 func (o AppOauthApiScopePtrOutput) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
 	return o
+}
+
+func (o AppOauthApiScopePtrOutput) Elem() AppOauthApiScopeOutput {
+	return o.ApplyT(func(v *AppOauthApiScope) AppOauthApiScope {
+		if v != nil {
+			return *v
+		}
+		var ret AppOauthApiScope
+		return ret
+	}).(AppOauthApiScopeOutput)
 }
 
 type AppOauthApiScopeArrayOutput struct{ *pulumi.OutputState }

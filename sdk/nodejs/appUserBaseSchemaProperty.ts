@@ -157,39 +157,39 @@ export interface AppUserBaseSchemaPropertyState {
     /**
      * The Application's ID the user schema property should be assigned to.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index?: pulumi.Input<string>;
+    index?: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * The property display name.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Custom subschema user type
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }
 
 /**
@@ -199,37 +199,37 @@ export interface AppUserBaseSchemaPropertyArgs {
     /**
      * The Application's ID the user schema property should be assigned to.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index: pulumi.Input<string>;
+    index: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * The property display name.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Custom subschema user type
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }

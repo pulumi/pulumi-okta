@@ -81,11 +81,11 @@ export interface UserGroupMembershipsState {
     /**
      * The list of Okta group IDs which the user should have membership managed for.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Okta User.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -95,9 +95,9 @@ export interface UserGroupMembershipsArgs {
     /**
      * The list of Okta group IDs which the user should have membership managed for.
      */
-    readonly groups: pulumi.Input<pulumi.Input<string>[]>;
+    groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Okta User.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

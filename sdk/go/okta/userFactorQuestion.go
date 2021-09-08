@@ -47,7 +47,7 @@ import (
 // 		}
 // 		_, err = okta.NewUserFactorQuestion(ctx, "exampleUserFactorQuestion", &okta.UserFactorQuestionArgs{
 // 			UserId: exampleUser.ID(),
-// 			Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions okta.GetUserSecurityQuestionsResult) (string, error) {
+// 			Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions GetUserSecurityQuestionsResult) (string, error) {
 // 				return exampleUserSecurityQuestions.Questions[0].Key, nil
 // 			}).(pulumi.StringOutput),
 // 			Answer: pulumi.String("meatball"),
@@ -236,7 +236,7 @@ type UserFactorQuestionArrayInput interface {
 type UserFactorQuestionArray []UserFactorQuestionInput
 
 func (UserFactorQuestionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserFactorQuestion)(nil))
+	return reflect.TypeOf((*[]*UserFactorQuestion)(nil)).Elem()
 }
 
 func (i UserFactorQuestionArray) ToUserFactorQuestionArrayOutput() UserFactorQuestionArrayOutput {
@@ -261,7 +261,7 @@ type UserFactorQuestionMapInput interface {
 type UserFactorQuestionMap map[string]UserFactorQuestionInput
 
 func (UserFactorQuestionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserFactorQuestion)(nil))
+	return reflect.TypeOf((*map[string]*UserFactorQuestion)(nil)).Elem()
 }
 
 func (i UserFactorQuestionMap) ToUserFactorQuestionMapOutput() UserFactorQuestionMapOutput {
@@ -272,9 +272,7 @@ func (i UserFactorQuestionMap) ToUserFactorQuestionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionMapOutput)
 }
 
-type UserFactorQuestionOutput struct {
-	*pulumi.OutputState
-}
+type UserFactorQuestionOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserFactorQuestion)(nil))
@@ -293,14 +291,12 @@ func (o UserFactorQuestionOutput) ToUserFactorQuestionPtrOutput() UserFactorQues
 }
 
 func (o UserFactorQuestionOutput) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
-	return o.ApplyT(func(v UserFactorQuestion) *UserFactorQuestion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserFactorQuestion) *UserFactorQuestion {
 		return &v
 	}).(UserFactorQuestionPtrOutput)
 }
 
-type UserFactorQuestionPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserFactorQuestionPtrOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserFactorQuestion)(nil))
@@ -312,6 +308,16 @@ func (o UserFactorQuestionPtrOutput) ToUserFactorQuestionPtrOutput() UserFactorQ
 
 func (o UserFactorQuestionPtrOutput) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
 	return o
+}
+
+func (o UserFactorQuestionPtrOutput) Elem() UserFactorQuestionOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) UserFactorQuestion {
+		if v != nil {
+			return *v
+		}
+		var ret UserFactorQuestion
+		return ret
+	}).(UserFactorQuestionOutput)
 }
 
 type UserFactorQuestionArrayOutput struct{ *pulumi.OutputState }

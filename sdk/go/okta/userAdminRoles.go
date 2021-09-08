@@ -203,7 +203,7 @@ type UserAdminRolesArrayInput interface {
 type UserAdminRolesArray []UserAdminRolesInput
 
 func (UserAdminRolesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserAdminRoles)(nil))
+	return reflect.TypeOf((*[]*UserAdminRoles)(nil)).Elem()
 }
 
 func (i UserAdminRolesArray) ToUserAdminRolesArrayOutput() UserAdminRolesArrayOutput {
@@ -228,7 +228,7 @@ type UserAdminRolesMapInput interface {
 type UserAdminRolesMap map[string]UserAdminRolesInput
 
 func (UserAdminRolesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserAdminRoles)(nil))
+	return reflect.TypeOf((*map[string]*UserAdminRoles)(nil)).Elem()
 }
 
 func (i UserAdminRolesMap) ToUserAdminRolesMapOutput() UserAdminRolesMapOutput {
@@ -239,9 +239,7 @@ func (i UserAdminRolesMap) ToUserAdminRolesMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesMapOutput)
 }
 
-type UserAdminRolesOutput struct {
-	*pulumi.OutputState
-}
+type UserAdminRolesOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserAdminRoles)(nil))
@@ -260,14 +258,12 @@ func (o UserAdminRolesOutput) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutpu
 }
 
 func (o UserAdminRolesOutput) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
-	return o.ApplyT(func(v UserAdminRoles) *UserAdminRoles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAdminRoles) *UserAdminRoles {
 		return &v
 	}).(UserAdminRolesPtrOutput)
 }
 
-type UserAdminRolesPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserAdminRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserAdminRoles)(nil))
@@ -279,6 +275,16 @@ func (o UserAdminRolesPtrOutput) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOu
 
 func (o UserAdminRolesPtrOutput) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
 	return o
+}
+
+func (o UserAdminRolesPtrOutput) Elem() UserAdminRolesOutput {
+	return o.ApplyT(func(v *UserAdminRoles) UserAdminRoles {
+		if v != nil {
+			return *v
+		}
+		var ret UserAdminRoles
+		return ret
+	}).(UserAdminRolesOutput)
 }
 
 type UserAdminRolesArrayOutput struct{ *pulumi.OutputState }

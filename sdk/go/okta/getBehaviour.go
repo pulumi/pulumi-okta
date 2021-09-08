@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.LookupBehaviour(ctx, &okta.LookupBehaviourArgs{
+// 		_, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
 // 			Label: "New City",
 // 		}, nil)
 // 		if err != nil {
@@ -61,4 +64,70 @@ type LookupBehaviourResult struct {
 	Status string `pulumi:"status"`
 	// Behavior type.
 	Type string `pulumi:"type"`
+}
+
+func LookupBehaviourOutput(ctx *pulumi.Context, args LookupBehaviourOutputArgs, opts ...pulumi.InvokeOption) LookupBehaviourResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBehaviourResult, error) {
+			args := v.(LookupBehaviourArgs)
+			r, err := LookupBehaviour(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBehaviourResultOutput)
+}
+
+// A collection of arguments for invoking getBehaviour.
+type LookupBehaviourOutputArgs struct {
+	// `id` of behavior to retrieve, conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by
+	// Okta's API.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupBehaviourOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBehaviourArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBehaviour.
+type LookupBehaviourResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBehaviourResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBehaviourResult)(nil)).Elem()
+}
+
+func (o LookupBehaviourResultOutput) ToLookupBehaviourResultOutput() LookupBehaviourResultOutput {
+	return o
+}
+
+func (o LookupBehaviourResultOutput) ToLookupBehaviourResultOutputWithContext(ctx context.Context) LookupBehaviourResultOutput {
+	return o
+}
+
+// Behavior ID.
+func (o LookupBehaviourResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBehaviourResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Behavior name.
+func (o LookupBehaviourResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBehaviourResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Map of behavior settings.
+func (o LookupBehaviourResultOutput) Settings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBehaviourResult) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+}
+
+// Behavior status.
+func (o LookupBehaviourResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBehaviourResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Behavior type.
+func (o LookupBehaviourResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBehaviourResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBehaviourResultOutput{})
 }

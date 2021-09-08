@@ -13,6 +13,41 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Use this data source to retrieve a users from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.User.GetUser.InvokeAsync(new Okta.User.GetUserArgs
+        ///         {
+        ///             Searches = 
+        ///             {
+        ///                 new Okta.User.Inputs.GetUserSearchArgs
+        ///                 {
+        ///                     Name = "profile.firstName",
+        ///                     Value = "John",
+        ///                 },
+        ///                 new Okta.User.Inputs.GetUserSearchArgs
+        ///                 {
+        ///                     Name = "profile.lastName",
+        ///                     Value = "Doe",
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());

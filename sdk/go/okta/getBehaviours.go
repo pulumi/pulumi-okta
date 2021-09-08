@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "New"
-// 		_, err := okta.GetBehaviours(ctx, &okta.GetBehavioursArgs{
+// 		_, err := okta.GetBehaviours(ctx, &GetBehavioursArgs{
 // 			Q: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -54,4 +57,56 @@ type GetBehavioursResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string  `pulumi:"id"`
 	Q  *string `pulumi:"q"`
+}
+
+func GetBehavioursOutput(ctx *pulumi.Context, args GetBehavioursOutputArgs, opts ...pulumi.InvokeOption) GetBehavioursResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetBehavioursResult, error) {
+			args := v.(GetBehavioursArgs)
+			r, err := GetBehaviours(ctx, &args, opts...)
+			return *r, err
+		}).(GetBehavioursResultOutput)
+}
+
+// A collection of arguments for invoking getBehaviours.
+type GetBehavioursOutputArgs struct {
+	// Searches query to look up behaviors.
+	Q pulumi.StringPtrInput `pulumi:"q"`
+}
+
+func (GetBehavioursOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBehavioursArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBehaviours.
+type GetBehavioursResultOutput struct{ *pulumi.OutputState }
+
+func (GetBehavioursResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBehavioursResult)(nil)).Elem()
+}
+
+func (o GetBehavioursResultOutput) ToGetBehavioursResultOutput() GetBehavioursResultOutput {
+	return o
+}
+
+func (o GetBehavioursResultOutput) ToGetBehavioursResultOutputWithContext(ctx context.Context) GetBehavioursResultOutput {
+	return o
+}
+
+// List of behaviors.
+func (o GetBehavioursResultOutput) Behaviors() GetBehavioursBehaviorArrayOutput {
+	return o.ApplyT(func(v GetBehavioursResult) []GetBehavioursBehavior { return v.Behaviors }).(GetBehavioursBehaviorArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetBehavioursResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBehavioursResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetBehavioursResultOutput) Q() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBehavioursResult) *string { return v.Q }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBehavioursResultOutput{})
 }

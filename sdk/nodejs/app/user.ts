@@ -118,29 +118,29 @@ export interface UserState {
     /**
      * App to associate user with.
      */
-    readonly appId?: pulumi.Input<string>;
-    readonly hasSharedUsername?: pulumi.Input<boolean>;
+    appId?: pulumi.Input<string>;
+    hasSharedUsername?: pulumi.Input<boolean>;
     /**
      * The password to use.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The JSON profile of the App User.
      */
-    readonly profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string>;
     /**
      * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    readonly retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean>;
     /**
      * User to associate the application with.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
     /**
      * The username to use for the app user. In case the user is assigned to the app with 
      * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -150,26 +150,26 @@ export interface UserArgs {
     /**
      * App to associate user with.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * The password to use.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The JSON profile of the App User.
      */
-    readonly profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string>;
     /**
      * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    readonly retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean>;
     /**
      * User to associate the application with.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
     /**
      * The username to use for the app user. In case the user is assigned to the app with 
      * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }

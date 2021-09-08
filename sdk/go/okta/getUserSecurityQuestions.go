@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,56 @@ type GetUserSecurityQuestionsResult struct {
 	// collection of user's security question retrieved from Okta with the following properties:
 	Questions []GetUserSecurityQuestionsQuestion `pulumi:"questions"`
 	UserId    string                             `pulumi:"userId"`
+}
+
+func GetUserSecurityQuestionsOutput(ctx *pulumi.Context, args GetUserSecurityQuestionsOutputArgs, opts ...pulumi.InvokeOption) GetUserSecurityQuestionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUserSecurityQuestionsResult, error) {
+			args := v.(GetUserSecurityQuestionsArgs)
+			r, err := GetUserSecurityQuestions(ctx, &args, opts...)
+			return *r, err
+		}).(GetUserSecurityQuestionsResultOutput)
+}
+
+// A collection of arguments for invoking getUserSecurityQuestions.
+type GetUserSecurityQuestionsOutputArgs struct {
+	// User ID.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (GetUserSecurityQuestionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserSecurityQuestionsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUserSecurityQuestions.
+type GetUserSecurityQuestionsResultOutput struct{ *pulumi.OutputState }
+
+func (GetUserSecurityQuestionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserSecurityQuestionsResult)(nil)).Elem()
+}
+
+func (o GetUserSecurityQuestionsResultOutput) ToGetUserSecurityQuestionsResultOutput() GetUserSecurityQuestionsResultOutput {
+	return o
+}
+
+func (o GetUserSecurityQuestionsResultOutput) ToGetUserSecurityQuestionsResultOutputWithContext(ctx context.Context) GetUserSecurityQuestionsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUserSecurityQuestionsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserSecurityQuestionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// collection of user's security question retrieved from Okta with the following properties:
+func (o GetUserSecurityQuestionsResultOutput) Questions() GetUserSecurityQuestionsQuestionArrayOutput {
+	return o.ApplyT(func(v GetUserSecurityQuestionsResult) []GetUserSecurityQuestionsQuestion { return v.Questions }).(GetUserSecurityQuestionsQuestionArrayOutput)
+}
+
+func (o GetUserSecurityQuestionsResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserSecurityQuestionsResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUserSecurityQuestionsResultOutput{})
 }

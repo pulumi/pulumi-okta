@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "Engineering - "
-// 		_, err := okta.GetGroups(ctx, &okta.GetGroupsArgs{
+// 		_, err := okta.GetGroups(ctx, &GetGroupsArgs{
 // 			Q: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -65,4 +68,73 @@ type GetGroupsResult struct {
 	Search *string `pulumi:"search"`
 	// Group type.
 	Type *string `pulumi:"type"`
+}
+
+func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGroupsResult, error) {
+			args := v.(GetGroupsArgs)
+			r, err := GetGroups(ctx, &args, opts...)
+			return *r, err
+		}).(GetGroupsResultOutput)
+}
+
+// A collection of arguments for invoking getGroups.
+type GetGroupsOutputArgs struct {
+	// Searches the name property of groups for matching value.
+	Q pulumi.StringPtrInput `pulumi:"q"`
+	// Searches for groups with a
+	// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+	// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+	// except for `"_embedded"`, `"_links"`, and `"objectClass"`
+	Search pulumi.StringPtrInput `pulumi:"search"`
+	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (GetGroupsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGroups.
+type GetGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsResult)(nil)).Elem()
+}
+
+func (o GetGroupsResultOutput) ToGetGroupsResultOutput() GetGroupsResultOutput {
+	return o
+}
+
+func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Context) GetGroupsResultOutput {
+	return o
+}
+
+// collection of groups retrieved from Okta with the following properties.
+func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
+	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetGroupsResultOutput) Q() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsResult) *string { return v.Q }).(pulumi.StringPtrOutput)
+}
+
+func (o GetGroupsResultOutput) Search() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsResult) *string { return v.Search }).(pulumi.StringPtrOutput)
+}
+
+// Group type.
+func (o GetGroupsResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGroupsResultOutput{})
 }

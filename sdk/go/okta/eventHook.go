@@ -235,7 +235,7 @@ type EventHookArrayInput interface {
 type EventHookArray []EventHookInput
 
 func (EventHookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventHook)(nil))
+	return reflect.TypeOf((*[]*EventHook)(nil)).Elem()
 }
 
 func (i EventHookArray) ToEventHookArrayOutput() EventHookArrayOutput {
@@ -260,7 +260,7 @@ type EventHookMapInput interface {
 type EventHookMap map[string]EventHookInput
 
 func (EventHookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventHook)(nil))
+	return reflect.TypeOf((*map[string]*EventHook)(nil)).Elem()
 }
 
 func (i EventHookMap) ToEventHookMapOutput() EventHookMapOutput {
@@ -271,9 +271,7 @@ func (i EventHookMap) ToEventHookMapOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookMapOutput)
 }
 
-type EventHookOutput struct {
-	*pulumi.OutputState
-}
+type EventHookOutput struct{ *pulumi.OutputState }
 
 func (EventHookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHook)(nil))
@@ -292,14 +290,12 @@ func (o EventHookOutput) ToEventHookPtrOutput() EventHookPtrOutput {
 }
 
 func (o EventHookOutput) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
-	return o.ApplyT(func(v EventHook) *EventHook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHook) *EventHook {
 		return &v
 	}).(EventHookPtrOutput)
 }
 
-type EventHookPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventHookPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHook)(nil))
@@ -311,6 +307,16 @@ func (o EventHookPtrOutput) ToEventHookPtrOutput() EventHookPtrOutput {
 
 func (o EventHookPtrOutput) ToEventHookPtrOutputWithContext(ctx context.Context) EventHookPtrOutput {
 	return o
+}
+
+func (o EventHookPtrOutput) Elem() EventHookOutput {
+	return o.ApplyT(func(v *EventHook) EventHook {
+		if v != nil {
+			return *v
+		}
+		var ret EventHook
+		return ret
+	}).(EventHookOutput)
 }
 
 type EventHookArrayOutput struct{ *pulumi.OutputState }

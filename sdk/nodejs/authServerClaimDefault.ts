@@ -147,37 +147,37 @@ export interface AuthServerClaimDefaultState {
     /**
      * Specifies whether to include claims in token.
      */
-    readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
      * ID of the authorization server.
      */
-    readonly authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string>;
     /**
      * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
      */
-    readonly claimType?: pulumi.Input<string>;
+    claimType?: pulumi.Input<string>;
     /**
      * The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
      * `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
      * `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The status of the application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The value of the claim. Only required for `"sub"` claim.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * The type of value of the claim.
      */
-    readonly valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string>;
 }
 
 /**
@@ -187,15 +187,15 @@ export interface AuthServerClaimDefaultArgs {
     /**
      * ID of the authorization server.
      */
-    readonly authServerId: pulumi.Input<string>;
+    authServerId: pulumi.Input<string>;
     /**
      * The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
      * `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
      * `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The value of the claim. Only required for `"sub"` claim.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

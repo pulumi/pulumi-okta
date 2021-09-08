@@ -191,69 +191,69 @@ export interface BookmarkState {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users.
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * The Application's display name.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Direct link of application logo.
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Would you like Okta to add an integration for this app?
      */
-    readonly requestIntegration?: pulumi.Input<boolean>;
+    requestIntegration?: pulumi.Input<boolean>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The URL of the bookmark.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * Users associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }
 
 /**
@@ -263,55 +263,55 @@ export interface BookmarkArgs {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users.
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * The Application's display name.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Would you like Okta to add an integration for this app?
      */
-    readonly requestIntegration?: pulumi.Input<boolean>;
+    requestIntegration?: pulumi.Input<boolean>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The URL of the bookmark.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
     /**
      * Users associated with the application.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }

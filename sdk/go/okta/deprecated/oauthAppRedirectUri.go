@@ -148,7 +148,7 @@ type OauthAppRedirectUriArrayInput interface {
 type OauthAppRedirectUriArray []OauthAppRedirectUriInput
 
 func (OauthAppRedirectUriArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OauthAppRedirectUri)(nil))
+	return reflect.TypeOf((*[]*OauthAppRedirectUri)(nil)).Elem()
 }
 
 func (i OauthAppRedirectUriArray) ToOauthAppRedirectUriArrayOutput() OauthAppRedirectUriArrayOutput {
@@ -173,7 +173,7 @@ type OauthAppRedirectUriMapInput interface {
 type OauthAppRedirectUriMap map[string]OauthAppRedirectUriInput
 
 func (OauthAppRedirectUriMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OauthAppRedirectUri)(nil))
+	return reflect.TypeOf((*map[string]*OauthAppRedirectUri)(nil)).Elem()
 }
 
 func (i OauthAppRedirectUriMap) ToOauthAppRedirectUriMapOutput() OauthAppRedirectUriMapOutput {
@@ -184,9 +184,7 @@ func (i OauthAppRedirectUriMap) ToOauthAppRedirectUriMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OauthAppRedirectUriMapOutput)
 }
 
-type OauthAppRedirectUriOutput struct {
-	*pulumi.OutputState
-}
+type OauthAppRedirectUriOutput struct{ *pulumi.OutputState }
 
 func (OauthAppRedirectUriOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OauthAppRedirectUri)(nil))
@@ -205,14 +203,12 @@ func (o OauthAppRedirectUriOutput) ToOauthAppRedirectUriPtrOutput() OauthAppRedi
 }
 
 func (o OauthAppRedirectUriOutput) ToOauthAppRedirectUriPtrOutputWithContext(ctx context.Context) OauthAppRedirectUriPtrOutput {
-	return o.ApplyT(func(v OauthAppRedirectUri) *OauthAppRedirectUri {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OauthAppRedirectUri) *OauthAppRedirectUri {
 		return &v
 	}).(OauthAppRedirectUriPtrOutput)
 }
 
-type OauthAppRedirectUriPtrOutput struct {
-	*pulumi.OutputState
-}
+type OauthAppRedirectUriPtrOutput struct{ *pulumi.OutputState }
 
 func (OauthAppRedirectUriPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OauthAppRedirectUri)(nil))
@@ -224,6 +220,16 @@ func (o OauthAppRedirectUriPtrOutput) ToOauthAppRedirectUriPtrOutput() OauthAppR
 
 func (o OauthAppRedirectUriPtrOutput) ToOauthAppRedirectUriPtrOutputWithContext(ctx context.Context) OauthAppRedirectUriPtrOutput {
 	return o
+}
+
+func (o OauthAppRedirectUriPtrOutput) Elem() OauthAppRedirectUriOutput {
+	return o.ApplyT(func(v *OauthAppRedirectUri) OauthAppRedirectUri {
+		if v != nil {
+			return *v
+		}
+		var ret OauthAppRedirectUri
+		return ret
+	}).(OauthAppRedirectUriOutput)
 }
 
 type OauthAppRedirectUriArrayOutput struct{ *pulumi.OutputState }

@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(okta.getBehaviours({
  *     q: "New",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBehaviours(args?: GetBehavioursArgs, opts?: pulumi.InvokeOptions): Promise<GetBehavioursResult> {
@@ -40,7 +40,7 @@ export interface GetBehavioursArgs {
     /**
      * Searches query to look up behaviors.
      */
-    readonly q?: string;
+    q?: string;
 }
 
 /**

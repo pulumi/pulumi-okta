@@ -24,6 +24,8 @@ type ThreeFieldApp struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector
 	ButtonSelector pulumi.StringOutput `pulumi:"buttonSelector"`
+	// Application credentials scheme
+	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Extra field CSS selector
@@ -48,6 +50,12 @@ type ThreeFieldApp struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringOutput `pulumi:"passwordSelector"`
+	// Allow user to reveal password
+	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Status of application.
@@ -130,6 +138,8 @@ type threeFieldAppState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector
 	ButtonSelector *string `pulumi:"buttonSelector"`
+	// Application credentials scheme
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector
@@ -154,6 +164,12 @@ type threeFieldAppState struct {
 	Name *string `pulumi:"name"`
 	// Login password field CSS selector
 	PasswordSelector *string `pulumi:"passwordSelector"`
+	// Allow user to reveal password
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Status of application.
@@ -187,6 +203,8 @@ type ThreeFieldAppState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector
 	ButtonSelector pulumi.StringPtrInput
+	// Application credentials scheme
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector
@@ -211,6 +229,12 @@ type ThreeFieldAppState struct {
 	Name pulumi.StringPtrInput
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringPtrInput
+	// Allow user to reveal password
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Status of application.
@@ -248,6 +272,8 @@ type threeFieldAppArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector
 	ButtonSelector string `pulumi:"buttonSelector"`
+	// Application credentials scheme
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector
@@ -268,6 +294,12 @@ type threeFieldAppArgs struct {
 	Logo *string `pulumi:"logo"`
 	// Login password field CSS selector
 	PasswordSelector string `pulumi:"passwordSelector"`
+	// Allow user to reveal password
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	// Login URL
@@ -300,6 +332,8 @@ type ThreeFieldAppArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector
 	ButtonSelector pulumi.StringInput
+	// Application credentials scheme
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector
@@ -320,6 +354,12 @@ type ThreeFieldAppArgs struct {
 	Logo pulumi.StringPtrInput
 	// Login password field CSS selector
 	PasswordSelector pulumi.StringInput
+	// Allow user to reveal password
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	// Login URL
@@ -406,7 +446,7 @@ type ThreeFieldAppArrayInput interface {
 type ThreeFieldAppArray []ThreeFieldAppInput
 
 func (ThreeFieldAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ThreeFieldApp)(nil))
+	return reflect.TypeOf((*[]*ThreeFieldApp)(nil)).Elem()
 }
 
 func (i ThreeFieldAppArray) ToThreeFieldAppArrayOutput() ThreeFieldAppArrayOutput {
@@ -431,7 +471,7 @@ type ThreeFieldAppMapInput interface {
 type ThreeFieldAppMap map[string]ThreeFieldAppInput
 
 func (ThreeFieldAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ThreeFieldApp)(nil))
+	return reflect.TypeOf((*map[string]*ThreeFieldApp)(nil)).Elem()
 }
 
 func (i ThreeFieldAppMap) ToThreeFieldAppMapOutput() ThreeFieldAppMapOutput {
@@ -442,9 +482,7 @@ func (i ThreeFieldAppMap) ToThreeFieldAppMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppMapOutput)
 }
 
-type ThreeFieldAppOutput struct {
-	*pulumi.OutputState
-}
+type ThreeFieldAppOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreeFieldApp)(nil))
@@ -463,14 +501,12 @@ func (o ThreeFieldAppOutput) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput {
 }
 
 func (o ThreeFieldAppOutput) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
-	return o.ApplyT(func(v ThreeFieldApp) *ThreeFieldApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreeFieldApp) *ThreeFieldApp {
 		return &v
 	}).(ThreeFieldAppPtrOutput)
 }
 
-type ThreeFieldAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type ThreeFieldAppPtrOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ThreeFieldApp)(nil))
@@ -482,6 +518,16 @@ func (o ThreeFieldAppPtrOutput) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutpu
 
 func (o ThreeFieldAppPtrOutput) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
 	return o
+}
+
+func (o ThreeFieldAppPtrOutput) Elem() ThreeFieldAppOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) ThreeFieldApp {
+		if v != nil {
+			return *v
+		}
+		var ret ThreeFieldApp
+		return ret
+	}).(ThreeFieldAppOutput)
 }
 
 type ThreeFieldAppArrayOutput struct{ *pulumi.OutputState }

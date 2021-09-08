@@ -138,45 +138,45 @@ export interface RuleMfaState {
     /**
      * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
-    readonly enroll?: pulumi.Input<string>;
+    enroll?: pulumi.Input<string>;
     /**
      * Policy Rule Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * The network zones to exclude. Conflicts with `networkIncludes`.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The network zones to include. Conflicts with `networkExcludes`.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Set of User IDs to Exclude
      */
-    readonly usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -186,43 +186,43 @@ export interface RuleMfaArgs {
     /**
      * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
-    readonly enroll?: pulumi.Input<string>;
+    enroll?: pulumi.Input<string>;
     /**
      * Policy Rule Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * The network zones to exclude. Conflicts with `networkIncludes`.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The network zones to include. Conflicts with `networkExcludes`.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Set of User IDs to Exclude
      */
-    readonly usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -81,11 +81,11 @@ export interface MembershipState {
     /**
      * The ID of the Okta Group.
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
     /**
      * The ID of the Okta User.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -95,9 +95,9 @@ export interface MembershipArgs {
     /**
      * The ID of the Okta Group.
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
     /**
      * The ID of the Okta User.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

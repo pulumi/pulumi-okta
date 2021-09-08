@@ -653,7 +653,7 @@ type OAuthArrayInput interface {
 type OAuthArray []OAuthInput
 
 func (OAuthArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OAuth)(nil))
+	return reflect.TypeOf((*[]*OAuth)(nil)).Elem()
 }
 
 func (i OAuthArray) ToOAuthArrayOutput() OAuthArrayOutput {
@@ -678,7 +678,7 @@ type OAuthMapInput interface {
 type OAuthMap map[string]OAuthInput
 
 func (OAuthMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OAuth)(nil))
+	return reflect.TypeOf((*map[string]*OAuth)(nil)).Elem()
 }
 
 func (i OAuthMap) ToOAuthMapOutput() OAuthMapOutput {
@@ -689,9 +689,7 @@ func (i OAuthMap) ToOAuthMapOutputWithContext(ctx context.Context) OAuthMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthMapOutput)
 }
 
-type OAuthOutput struct {
-	*pulumi.OutputState
-}
+type OAuthOutput struct{ *pulumi.OutputState }
 
 func (OAuthOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OAuth)(nil))
@@ -710,14 +708,12 @@ func (o OAuthOutput) ToOAuthPtrOutput() OAuthPtrOutput {
 }
 
 func (o OAuthOutput) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
-	return o.ApplyT(func(v OAuth) *OAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth) *OAuth {
 		return &v
 	}).(OAuthPtrOutput)
 }
 
-type OAuthPtrOutput struct {
-	*pulumi.OutputState
-}
+type OAuthPtrOutput struct{ *pulumi.OutputState }
 
 func (OAuthPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OAuth)(nil))
@@ -729,6 +725,16 @@ func (o OAuthPtrOutput) ToOAuthPtrOutput() OAuthPtrOutput {
 
 func (o OAuthPtrOutput) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
 	return o
+}
+
+func (o OAuthPtrOutput) Elem() OAuthOutput {
+	return o.ApplyT(func(v *OAuth) OAuth {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth
+		return ret
+	}).(OAuthOutput)
 }
 
 type OAuthArrayOutput struct{ *pulumi.OutputState }

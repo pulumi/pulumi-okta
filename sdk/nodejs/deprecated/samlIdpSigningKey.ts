@@ -87,16 +87,16 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SamlIdpSigningKey resources.
  */
 export interface SamlIdpSigningKeyState {
-    readonly created?: pulumi.Input<string>;
-    readonly expiresAt?: pulumi.Input<string>;
-    readonly kid?: pulumi.Input<string>;
-    readonly kty?: pulumi.Input<string>;
-    readonly use?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string>;
+    kid?: pulumi.Input<string>;
+    kty?: pulumi.Input<string>;
+    use?: pulumi.Input<string>;
     /**
      * base64-encoded X.509 certificate chain with DER encoding
      */
-    readonly x5cs?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly x5tS256?: pulumi.Input<string>;
+    x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+    x5tS256?: pulumi.Input<string>;
 }
 
 /**
@@ -106,5 +106,5 @@ export interface SamlIdpSigningKeyArgs {
     /**
      * base64-encoded X.509 certificate chain with DER encoding
      */
-    readonly x5cs: pulumi.Input<pulumi.Input<string>[]>;
+    x5cs: pulumi.Input<pulumi.Input<string>[]>;
 }

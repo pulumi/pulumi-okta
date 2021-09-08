@@ -178,6 +178,7 @@ export interface UserSchemaPropertyOneOf {
      */
     title: string;
 }
+
 export namespace app {
     export interface AutoLoginUser {
         id?: string;
@@ -348,6 +349,7 @@ export namespace app {
          */
         title: string;
     }
+
 }
 
 export namespace auth {
@@ -385,6 +387,7 @@ export namespace auth {
          */
         system: boolean;
     }
+
 }
 
 export namespace deprecated {
@@ -470,6 +473,7 @@ export namespace deprecated {
         scope: string;
         username?: string;
     }
+
 }
 
 export namespace inline {
@@ -483,6 +487,7 @@ export namespace inline {
          */
         value?: string;
     }
+
 }
 
 export namespace policy {
@@ -567,6 +572,7 @@ export namespace policy {
          */
         provider: string;
     }
+
 }
 
 export namespace profile {
@@ -584,6 +590,7 @@ export namespace profile {
          */
         pushStatus?: string;
     }
+
 }
 
 export namespace template {
@@ -601,6 +608,7 @@ export namespace template {
          */
         template: string;
     }
+
 }
 
 export namespace user {
@@ -810,4 +818,29 @@ export namespace user {
          */
         title: string;
     }
+
+    export interface UserPasswordHash {
+        algorithm: string;
+        /**
+         * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate 
+         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+         */
+        salt?: string;
+        /**
+         * Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+         */
+        saltOrder?: string;
+        /**
+         * . 
+         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+         * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         */
+        value: string;
+        /**
+         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+         */
+        workFactor?: number;
+    }
+
 }

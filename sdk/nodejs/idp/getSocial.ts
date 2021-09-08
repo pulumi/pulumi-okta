@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.idp.getSocial({
  *     name: "My Facebook IdP",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Promise<GetSocialResult> {
@@ -41,11 +41,11 @@ export interface GetSocialArgs {
     /**
      * The id of the social idp to retrieve, conflicts with `name`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of the social idp to retrieve, conflicts with `id`.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

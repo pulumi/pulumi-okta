@@ -139,39 +139,39 @@ export interface MfaPolicyState {
     /**
      * Policy Description
      */
-    readonly description?: pulumi.Input<string>;
-    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
+    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include
      */
-    readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name
      */
-    readonly name?: pulumi.Input<string>;
-    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
-    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    priority?: pulumi.Input<number>;
+    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -181,37 +181,37 @@ export interface MfaPolicyArgs {
     /**
      * Policy Description
      */
-    readonly description?: pulumi.Input<string>;
-    readonly duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
+    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Group IDs to Include
      */
-    readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Name
      */
-    readonly name?: pulumi.Input<string>;
-    readonly oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
-    readonly rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    priority?: pulumi.Input<number>;
+    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

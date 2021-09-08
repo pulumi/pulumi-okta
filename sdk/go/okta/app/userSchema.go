@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Application User Schema property.
-//
-// This resource allows you to create and configure a custom user schema property and associate it with an application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewUserSchema(ctx, "example", &app.UserSchemaArgs{
-// 			AppId:       pulumi.String("<app id>"),
-// 			Description: pulumi.String("My custom property name"),
-// 			Index:       pulumi.String("customPropertyName"),
-// 			Master:      pulumi.String("OKTA"),
-// 			Scope:       pulumi.String("SELF"),
-// 			Title:       pulumi.String("customPropertyName"),
-// 			Type:        pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // App user schema property can be imported via the property index and app id.
@@ -80,8 +47,6 @@ type UserSchema struct {
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayOutput `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -167,8 +132,6 @@ type userSchemaState struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []UserSchemaOneOf `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -214,8 +177,6 @@ type UserSchemaState struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -265,8 +226,6 @@ type userSchemaArgs struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []UserSchemaOneOf `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -313,8 +272,6 @@ type UserSchemaArgs struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs UserSchemaOneOfArrayInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -399,7 +356,7 @@ type UserSchemaArrayInput interface {
 type UserSchemaArray []UserSchemaInput
 
 func (UserSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserSchema)(nil))
+	return reflect.TypeOf((*[]*UserSchema)(nil)).Elem()
 }
 
 func (i UserSchemaArray) ToUserSchemaArrayOutput() UserSchemaArrayOutput {
@@ -424,7 +381,7 @@ type UserSchemaMapInput interface {
 type UserSchemaMap map[string]UserSchemaInput
 
 func (UserSchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserSchema)(nil))
+	return reflect.TypeOf((*map[string]*UserSchema)(nil)).Elem()
 }
 
 func (i UserSchemaMap) ToUserSchemaMapOutput() UserSchemaMapOutput {
@@ -435,9 +392,7 @@ func (i UserSchemaMap) ToUserSchemaMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaMapOutput)
 }
 
-type UserSchemaOutput struct {
-	*pulumi.OutputState
-}
+type UserSchemaOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSchema)(nil))
@@ -456,14 +411,12 @@ func (o UserSchemaOutput) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
 }
 
 func (o UserSchemaOutput) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
-	return o.ApplyT(func(v UserSchema) *UserSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSchema) *UserSchema {
 		return &v
 	}).(UserSchemaPtrOutput)
 }
 
-type UserSchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserSchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserSchema)(nil))
@@ -475,6 +428,16 @@ func (o UserSchemaPtrOutput) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
 
 func (o UserSchemaPtrOutput) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
 	return o
+}
+
+func (o UserSchemaPtrOutput) Elem() UserSchemaOutput {
+	return o.ApplyT(func(v *UserSchema) UserSchema {
+		if v != nil {
+			return *v
+		}
+		var ret UserSchema
+		return ret
+	}).(UserSchemaOutput)
 }
 
 type UserSchemaArrayOutput struct{ *pulumi.OutputState }

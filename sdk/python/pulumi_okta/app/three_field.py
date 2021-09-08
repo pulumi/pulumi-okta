@@ -26,11 +26,15 @@ class ThreeFieldArgs:
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
+                 reveal_password: Optional[pulumi.Input[bool]] = None,
+                 shared_password: Optional[pulumi.Input[str]] = None,
+                 shared_username: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
@@ -50,12 +54,16 @@ class ThreeFieldArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -79,6 +87,8 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "admin_note", admin_note)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if credentials_scheme is not None:
+            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if groups is not None:
@@ -92,6 +102,12 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "hide_web", hide_web)
         if logo is not None:
             pulumi.set(__self__, "logo", logo)
+        if reveal_password is not None:
+            pulumi.set(__self__, "reveal_password", reveal_password)
+        if shared_password is not None:
+            pulumi.set(__self__, "shared_password", shared_password)
+        if shared_username is not None:
+            pulumi.set(__self__, "shared_username", shared_username)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url_regex is not None:
@@ -241,6 +257,18 @@ class ThreeFieldArgs:
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @credentials_scheme.setter
+    def credentials_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_scheme", value)
+
+    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -300,6 +328,42 @@ class ThreeFieldArgs:
     @logo.setter
     def logo(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logo", value)
+
+    @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @reveal_password.setter
+    def reveal_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reveal_password", value)
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @shared_password.setter
+    def shared_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_password", value)
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @shared_username.setter
+    def shared_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_username", value)
 
     @property
     @pulumi.getter
@@ -383,6 +447,7 @@ class _ThreeFieldState:
                  admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_selector: Optional[pulumi.Input[str]] = None,
+                 credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
@@ -394,6 +459,9 @@ class _ThreeFieldState:
                  logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
+                 reveal_password: Optional[pulumi.Input[bool]] = None,
+                 shared_password: Optional[pulumi.Input[str]] = None,
+                 shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -410,6 +478,7 @@ class _ThreeFieldState:
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
@@ -422,6 +491,9 @@ class _ThreeFieldState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
@@ -443,6 +515,8 @@ class _ThreeFieldState:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_selector is not None:
             pulumi.set(__self__, "button_selector", button_selector)
+        if credentials_scheme is not None:
+            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if extra_field_selector is not None:
@@ -468,6 +542,12 @@ class _ThreeFieldState:
             pulumi.set(__self__, "name", name)
         if password_selector is not None:
             pulumi.set(__self__, "password_selector", password_selector)
+        if reveal_password is not None:
+            pulumi.set(__self__, "reveal_password", reveal_password)
+        if shared_password is not None:
+            pulumi.set(__self__, "shared_password", shared_password)
+        if shared_username is not None:
+            pulumi.set(__self__, "shared_username", shared_username)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
         if status is not None:
@@ -549,6 +629,18 @@ class _ThreeFieldState:
     @button_selector.setter
     def button_selector(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "button_selector", value)
+
+    @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @credentials_scheme.setter
+    def credentials_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials_scheme", value)
 
     @property
     @pulumi.getter(name="enduserNote")
@@ -684,6 +776,42 @@ class _ThreeFieldState:
         pulumi.set(self, "password_selector", value)
 
     @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @reveal_password.setter
+    def reveal_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reveal_password", value)
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @shared_password.setter
+    def shared_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_password", value)
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @shared_username.setter
+    def shared_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_username", value)
+
+    @property
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -803,6 +931,7 @@ class ThreeField(pulumi.CustomResource):
                  admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_selector: Optional[pulumi.Input[str]] = None,
+                 credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
@@ -812,6 +941,9 @@ class ThreeField(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
+                 reveal_password: Optional[pulumi.Input[bool]] = None,
+                 shared_password: Optional[pulumi.Input[str]] = None,
+                 shared_username: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -841,6 +973,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
@@ -851,6 +984,9 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] label: The display name of the Application.
         :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
@@ -900,6 +1036,7 @@ class ThreeField(pulumi.CustomResource):
                  admin_note: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_selector: Optional[pulumi.Input[str]] = None,
+                 credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
@@ -909,6 +1046,9 @@ class ThreeField(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_selector: Optional[pulumi.Input[str]] = None,
+                 reveal_password: Optional[pulumi.Input[bool]] = None,
+                 shared_password: Optional[pulumi.Input[str]] = None,
+                 shared_username: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -936,6 +1076,7 @@ class ThreeField(pulumi.CustomResource):
             if button_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'button_selector'")
             __props__.__dict__["button_selector"] = button_selector
+            __props__.__dict__["credentials_scheme"] = credentials_scheme
             __props__.__dict__["enduser_note"] = enduser_note
             if extra_field_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'extra_field_selector'")
@@ -956,6 +1097,9 @@ class ThreeField(pulumi.CustomResource):
             if password_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'password_selector'")
             __props__.__dict__["password_selector"] = password_selector
+            __props__.__dict__["reveal_password"] = reveal_password
+            __props__.__dict__["shared_password"] = shared_password
+            __props__.__dict__["shared_username"] = shared_username
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -989,6 +1133,7 @@ class ThreeField(pulumi.CustomResource):
             admin_note: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             button_selector: Optional[pulumi.Input[str]] = None,
+            credentials_scheme: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
             extra_field_selector: Optional[pulumi.Input[str]] = None,
             extra_field_value: Optional[pulumi.Input[str]] = None,
@@ -1000,6 +1145,9 @@ class ThreeField(pulumi.CustomResource):
             logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password_selector: Optional[pulumi.Input[str]] = None,
+            reveal_password: Optional[pulumi.Input[bool]] = None,
+            shared_password: Optional[pulumi.Input[str]] = None,
+            shared_username: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
@@ -1021,6 +1169,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
@@ -1033,6 +1182,9 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_selector: Login password field CSS selector.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
@@ -1053,6 +1205,7 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["button_selector"] = button_selector
+        __props__.__dict__["credentials_scheme"] = credentials_scheme
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["extra_field_selector"] = extra_field_selector
         __props__.__dict__["extra_field_value"] = extra_field_value
@@ -1064,6 +1217,9 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["password_selector"] = password_selector
+        __props__.__dict__["reveal_password"] = reveal_password
+        __props__.__dict__["shared_password"] = shared_password
+        __props__.__dict__["shared_username"] = shared_username
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
@@ -1114,6 +1270,14 @@ class ThreeField(pulumi.CustomResource):
         Login button field CSS selector.
         """
         return pulumi.get(self, "button_selector")
+
+    @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        """
+        return pulumi.get(self, "credentials_scheme")
 
     @property
     @pulumi.getter(name="enduserNote")
@@ -1203,6 +1367,30 @@ class ThreeField(pulumi.CustomResource):
         Login password field CSS selector.
         """
         return pulumi.get(self, "password_selector")
+
+    @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> pulumi.Output[Optional[str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
 
     @property
     @pulumi.getter(name="signOnMode")

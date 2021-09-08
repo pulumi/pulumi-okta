@@ -353,7 +353,7 @@ type ServerPolicyRuleArrayInput interface {
 type ServerPolicyRuleArray []ServerPolicyRuleInput
 
 func (ServerPolicyRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerPolicyRule)(nil))
+	return reflect.TypeOf((*[]*ServerPolicyRule)(nil)).Elem()
 }
 
 func (i ServerPolicyRuleArray) ToServerPolicyRuleArrayOutput() ServerPolicyRuleArrayOutput {
@@ -378,7 +378,7 @@ type ServerPolicyRuleMapInput interface {
 type ServerPolicyRuleMap map[string]ServerPolicyRuleInput
 
 func (ServerPolicyRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*ServerPolicyRule)(nil)).Elem()
 }
 
 func (i ServerPolicyRuleMap) ToServerPolicyRuleMapOutput() ServerPolicyRuleMapOutput {
@@ -389,9 +389,7 @@ func (i ServerPolicyRuleMap) ToServerPolicyRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyRuleMapOutput)
 }
 
-type ServerPolicyRuleOutput struct {
-	*pulumi.OutputState
-}
+type ServerPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ServerPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerPolicyRule)(nil))
@@ -410,14 +408,12 @@ func (o ServerPolicyRuleOutput) ToServerPolicyRulePtrOutput() ServerPolicyRulePt
 }
 
 func (o ServerPolicyRuleOutput) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
-	return o.ApplyT(func(v ServerPolicyRule) *ServerPolicyRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerPolicyRule) *ServerPolicyRule {
 		return &v
 	}).(ServerPolicyRulePtrOutput)
 }
 
-type ServerPolicyRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerPolicyRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ServerPolicyRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerPolicyRule)(nil))
@@ -429,6 +425,16 @@ func (o ServerPolicyRulePtrOutput) ToServerPolicyRulePtrOutput() ServerPolicyRul
 
 func (o ServerPolicyRulePtrOutput) ToServerPolicyRulePtrOutputWithContext(ctx context.Context) ServerPolicyRulePtrOutput {
 	return o
+}
+
+func (o ServerPolicyRulePtrOutput) Elem() ServerPolicyRuleOutput {
+	return o.ApplyT(func(v *ServerPolicyRule) ServerPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret ServerPolicyRule
+		return ret
+	}).(ServerPolicyRuleOutput)
 }
 
 type ServerPolicyRuleArrayOutput struct{ *pulumi.OutputState }

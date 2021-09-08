@@ -398,7 +398,7 @@ type AuthLoginAppArrayInput interface {
 type AuthLoginAppArray []AuthLoginAppInput
 
 func (AuthLoginAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AuthLoginApp)(nil))
+	return reflect.TypeOf((*[]*AuthLoginApp)(nil)).Elem()
 }
 
 func (i AuthLoginAppArray) ToAuthLoginAppArrayOutput() AuthLoginAppArrayOutput {
@@ -423,7 +423,7 @@ type AuthLoginAppMapInput interface {
 type AuthLoginAppMap map[string]AuthLoginAppInput
 
 func (AuthLoginAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AuthLoginApp)(nil))
+	return reflect.TypeOf((*map[string]*AuthLoginApp)(nil)).Elem()
 }
 
 func (i AuthLoginAppMap) ToAuthLoginAppMapOutput() AuthLoginAppMapOutput {
@@ -434,9 +434,7 @@ func (i AuthLoginAppMap) ToAuthLoginAppMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppMapOutput)
 }
 
-type AuthLoginAppOutput struct {
-	*pulumi.OutputState
-}
+type AuthLoginAppOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthLoginApp)(nil))
@@ -455,14 +453,12 @@ func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
 }
 
 func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
-	return o.ApplyT(func(v AuthLoginApp) *AuthLoginApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthLoginApp) *AuthLoginApp {
 		return &v
 	}).(AuthLoginAppPtrOutput)
 }
 
-type AuthLoginAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type AuthLoginAppPtrOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AuthLoginApp)(nil))
@@ -474,6 +470,16 @@ func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
 
 func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
 	return o
+}
+
+func (o AuthLoginAppPtrOutput) Elem() AuthLoginAppOutput {
+	return o.ApplyT(func(v *AuthLoginApp) AuthLoginApp {
+		if v != nil {
+			return *v
+		}
+		var ret AuthLoginApp
+		return ret
+	}).(AuthLoginAppOutput)
 }
 
 type AuthLoginAppArrayOutput struct{ *pulumi.OutputState }

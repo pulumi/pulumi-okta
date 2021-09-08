@@ -123,15 +123,15 @@ export interface AppOauthApiScopeState {
     /**
      * ID of the application.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * The issuer of your Org Authorization Server, your Org URL.
      */
-    readonly issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
     /**
      * List of scopes for which consent is granted.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface AppOauthApiScopeArgs {
     /**
      * ID of the application.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * The issuer of your Org Authorization Server, your Org URL.
      */
-    readonly issuer: pulumi.Input<string>;
+    issuer: pulumi.Input<string>;
     /**
      * List of scopes for which consent is granted.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
 }

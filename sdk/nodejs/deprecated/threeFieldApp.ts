@@ -54,6 +54,10 @@ export class ThreeFieldApp extends pulumi.CustomResource {
      */
     public readonly buttonSelector!: pulumi.Output<string>;
     /**
+     * Application credentials scheme
+     */
+    public readonly credentialsScheme!: pulumi.Output<string | undefined>;
+    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -99,6 +103,18 @@ export class ThreeFieldApp extends pulumi.CustomResource {
      * Login password field CSS selector
      */
     public readonly passwordSelector!: pulumi.Output<string>;
+    /**
+     * Allow user to reveal password
+     */
+    public readonly revealPassword!: pulumi.Output<boolean | undefined>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    public readonly sharedPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
      * Sign on mode of application.
      */
@@ -156,6 +172,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["adminNote"] = state ? state.adminNote : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonSelector"] = state ? state.buttonSelector : undefined;
+            inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["extraFieldSelector"] = state ? state.extraFieldSelector : undefined;
             inputs["extraFieldValue"] = state ? state.extraFieldValue : undefined;
@@ -167,6 +184,9 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordSelector"] = state ? state.passwordSelector : undefined;
+            inputs["revealPassword"] = state ? state.revealPassword : undefined;
+            inputs["sharedPassword"] = state ? state.sharedPassword : undefined;
+            inputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
@@ -204,6 +224,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["adminNote"] = args ? args.adminNote : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonSelector"] = args ? args.buttonSelector : undefined;
+            inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["extraFieldSelector"] = args ? args.extraFieldSelector : undefined;
             inputs["extraFieldValue"] = args ? args.extraFieldValue : undefined;
@@ -213,6 +234,9 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["label"] = args ? args.label : undefined;
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordSelector"] = args ? args.passwordSelector : undefined;
+            inputs["revealPassword"] = args ? args.revealPassword : undefined;
+            inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
+            inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -239,107 +263,123 @@ export interface ThreeFieldAppState {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Login button field CSS selector
      */
-    readonly buttonSelector?: pulumi.Input<string>;
+    buttonSelector?: pulumi.Input<string>;
+    /**
+     * Application credentials scheme
+     */
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Extra field CSS selector
      */
-    readonly extraFieldSelector?: pulumi.Input<string>;
+    extraFieldSelector?: pulumi.Input<string>;
     /**
      * Value for extra form field
      */
-    readonly extraFieldValue?: pulumi.Input<string>;
+    extraFieldValue?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URL of the application's logo
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Login password field CSS selector
      */
-    readonly passwordSelector?: pulumi.Input<string>;
+    passwordSelector?: pulumi.Input<string>;
+    /**
+     * Allow user to reveal password
+     */
+    revealPassword?: pulumi.Input<boolean>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    sharedPassword?: pulumi.Input<string>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * A regex that further restricts URL to the specified regex
      */
-    readonly urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Login username field CSS selector
      */
-    readonly usernameSelector?: pulumi.Input<string>;
+    usernameSelector?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
 }
 
 /**
@@ -349,93 +389,109 @@ export interface ThreeFieldAppArgs {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Login button field CSS selector
      */
-    readonly buttonSelector: pulumi.Input<string>;
+    buttonSelector: pulumi.Input<string>;
+    /**
+     * Application credentials scheme
+     */
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Extra field CSS selector
      */
-    readonly extraFieldSelector: pulumi.Input<string>;
+    extraFieldSelector: pulumi.Input<string>;
     /**
      * Value for extra form field
      */
-    readonly extraFieldValue: pulumi.Input<string>;
+    extraFieldValue: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Login password field CSS selector
      */
-    readonly passwordSelector: pulumi.Input<string>;
+    passwordSelector: pulumi.Input<string>;
+    /**
+     * Allow user to reveal password
+     */
+    revealPassword?: pulumi.Input<boolean>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    sharedPassword?: pulumi.Input<string>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
     /**
      * A regex that further restricts URL to the specified regex
      */
-    readonly urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Login username field CSS selector
      */
-    readonly usernameSelector: pulumi.Input<string>;
+    usernameSelector: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.ThreeFieldAppUser>[]>;
 }

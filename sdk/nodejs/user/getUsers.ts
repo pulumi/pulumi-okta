@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         name: "profile.company",
  *         value: "Articulate",
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
@@ -44,11 +44,11 @@ export interface GetUsersArgs {
     /**
      * Map of search criteria to find users. It supports the following properties.
      */
-    readonly searches: inputs.user.GetUsersSearch[];
+    searches: inputs.user.GetUsersSearch[];
     /**
      * collection of users retrieved from Okta with the following properties.
      */
-    readonly users?: inputs.user.GetUsersUser[];
+    users?: inputs.user.GetUsersUser[];
 }
 
 /**

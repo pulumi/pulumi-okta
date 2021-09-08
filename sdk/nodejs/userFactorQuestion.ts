@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleUserFactorQuestion = new okta.UserFactorQuestion("exampleUserFactorQuestion", {
  *     userId: exampleUser.id,
- *     key: exampleUserSecurityQuestions.questions[0].key,
+ *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?[0]?.key),
  *     answer: "meatball",
  * }, {
  *     dependsOn: [exampleFactor],
@@ -143,23 +143,23 @@ export interface UserFactorQuestionState {
     /**
      * Security question answer. Note here that answer won't be set during the resource import.
      */
-    readonly answer?: pulumi.Input<string>;
+    answer?: pulumi.Input<string>;
     /**
      * Security question unique key.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * The status of the security question factor.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Display text for security question.
      */
-    readonly text?: pulumi.Input<string>;
+    text?: pulumi.Input<string>;
     /**
      * ID of the user. Resource will be recreated when `userId` changes.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -169,13 +169,13 @@ export interface UserFactorQuestionArgs {
     /**
      * Security question answer. Note here that answer won't be set during the resource import.
      */
-    readonly answer: pulumi.Input<string>;
+    answer: pulumi.Input<string>;
     /**
      * Security question unique key.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * ID of the user. Resource will be recreated when `userId` changes.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

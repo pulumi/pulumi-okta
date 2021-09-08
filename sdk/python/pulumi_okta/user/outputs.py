@@ -12,6 +12,7 @@ __all__ = [
     'SchemaArrayOneOf',
     'SchemaMasterOverridePriority',
     'SchemaOneOf',
+    'UserPasswordHash',
     'GetUserSearchResult',
     'GetUsersSearchResult',
     'GetUsersUserResult',
@@ -103,6 +104,94 @@ class SchemaOneOf(dict):
         display name for the enum value.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class UserPasswordHash(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "saltOrder":
+            suggest = "salt_order"
+        elif key == "workFactor":
+            suggest = "work_factor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPasswordHash. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPasswordHash.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPasswordHash.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: str,
+                 value: str,
+                 salt: Optional[str] = None,
+                 salt_order: Optional[str] = None,
+                 work_factor: Optional[int] = None):
+        """
+        :param str value: . 
+               This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+               the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+               the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+        :param str salt: Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate 
+               the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+        :param str salt_order: Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+        :param int work_factor: Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
+        if salt is not None:
+            pulumi.set(__self__, "salt", salt)
+        if salt_order is not None:
+            pulumi.set(__self__, "salt_order", salt_order)
+        if work_factor is not None:
+            pulumi.set(__self__, "work_factor", work_factor)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        . 
+        This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+        the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+        the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def salt(self) -> Optional[str]:
+        """
+        Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate 
+        the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+        """
+        return pulumi.get(self, "salt")
+
+    @property
+    @pulumi.getter(name="saltOrder")
+    def salt_order(self) -> Optional[str]:
+        """
+        Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+        """
+        return pulumi.get(self, "salt_order")
+
+    @property
+    @pulumi.getter(name="workFactor")
+    def work_factor(self) -> Optional[int]:
+        """
+        Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+        """
+        return pulumi.get(self, "work_factor")
 
 
 @pulumi.output_type

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(okta.auth.getServerPolicy({
  *     authServerId: "<auth server id>",
  *     name: "staff",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServerPolicy(args: GetServerPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerPolicyResult> {
@@ -41,11 +41,11 @@ export interface GetServerPolicyArgs {
     /**
      * The ID of the Auth Server.
      */
-    readonly authServerId: string;
+    authServerId: string;
     /**
      * Name of policy to retrieve.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

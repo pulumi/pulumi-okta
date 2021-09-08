@@ -246,7 +246,7 @@ type HookArrayInput interface {
 type HookArray []HookInput
 
 func (HookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Hook)(nil))
+	return reflect.TypeOf((*[]*Hook)(nil)).Elem()
 }
 
 func (i HookArray) ToHookArrayOutput() HookArrayOutput {
@@ -271,7 +271,7 @@ type HookMapInput interface {
 type HookMap map[string]HookInput
 
 func (HookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Hook)(nil))
+	return reflect.TypeOf((*map[string]*Hook)(nil)).Elem()
 }
 
 func (i HookMap) ToHookMapOutput() HookMapOutput {
@@ -282,9 +282,7 @@ func (i HookMap) ToHookMapOutputWithContext(ctx context.Context) HookMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HookMapOutput)
 }
 
-type HookOutput struct {
-	*pulumi.OutputState
-}
+type HookOutput struct{ *pulumi.OutputState }
 
 func (HookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Hook)(nil))
@@ -303,14 +301,12 @@ func (o HookOutput) ToHookPtrOutput() HookPtrOutput {
 }
 
 func (o HookOutput) ToHookPtrOutputWithContext(ctx context.Context) HookPtrOutput {
-	return o.ApplyT(func(v Hook) *Hook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hook) *Hook {
 		return &v
 	}).(HookPtrOutput)
 }
 
-type HookPtrOutput struct {
-	*pulumi.OutputState
-}
+type HookPtrOutput struct{ *pulumi.OutputState }
 
 func (HookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Hook)(nil))
@@ -322,6 +318,16 @@ func (o HookPtrOutput) ToHookPtrOutput() HookPtrOutput {
 
 func (o HookPtrOutput) ToHookPtrOutputWithContext(ctx context.Context) HookPtrOutput {
 	return o
+}
+
+func (o HookPtrOutput) Elem() HookOutput {
+	return o.ApplyT(func(v *Hook) Hook {
+		if v != nil {
+			return *v
+		}
+		var ret Hook
+		return ret
+	}).(HookOutput)
 }
 
 type HookArrayOutput struct{ *pulumi.OutputState }

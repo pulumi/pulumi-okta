@@ -241,7 +241,7 @@ type MfaPolicyRuleArrayInput interface {
 type MfaPolicyRuleArray []MfaPolicyRuleInput
 
 func (MfaPolicyRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MfaPolicyRule)(nil))
+	return reflect.TypeOf((*[]*MfaPolicyRule)(nil)).Elem()
 }
 
 func (i MfaPolicyRuleArray) ToMfaPolicyRuleArrayOutput() MfaPolicyRuleArrayOutput {
@@ -266,7 +266,7 @@ type MfaPolicyRuleMapInput interface {
 type MfaPolicyRuleMap map[string]MfaPolicyRuleInput
 
 func (MfaPolicyRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MfaPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*MfaPolicyRule)(nil)).Elem()
 }
 
 func (i MfaPolicyRuleMap) ToMfaPolicyRuleMapOutput() MfaPolicyRuleMapOutput {
@@ -277,9 +277,7 @@ func (i MfaPolicyRuleMap) ToMfaPolicyRuleMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleMapOutput)
 }
 
-type MfaPolicyRuleOutput struct {
-	*pulumi.OutputState
-}
+type MfaPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicyRule)(nil))
@@ -298,14 +296,12 @@ func (o MfaPolicyRuleOutput) ToMfaPolicyRulePtrOutput() MfaPolicyRulePtrOutput {
 }
 
 func (o MfaPolicyRuleOutput) ToMfaPolicyRulePtrOutputWithContext(ctx context.Context) MfaPolicyRulePtrOutput {
-	return o.ApplyT(func(v MfaPolicyRule) *MfaPolicyRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MfaPolicyRule) *MfaPolicyRule {
 		return &v
 	}).(MfaPolicyRulePtrOutput)
 }
 
-type MfaPolicyRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type MfaPolicyRulePtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicyRule)(nil))
@@ -317,6 +313,16 @@ func (o MfaPolicyRulePtrOutput) ToMfaPolicyRulePtrOutput() MfaPolicyRulePtrOutpu
 
 func (o MfaPolicyRulePtrOutput) ToMfaPolicyRulePtrOutputWithContext(ctx context.Context) MfaPolicyRulePtrOutput {
 	return o
+}
+
+func (o MfaPolicyRulePtrOutput) Elem() MfaPolicyRuleOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) MfaPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret MfaPolicyRule
+		return ret
+	}).(MfaPolicyRuleOutput)
 }
 
 type MfaPolicyRuleArrayOutput struct{ *pulumi.OutputState }

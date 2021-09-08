@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.group.getEveryoneGroup({ async: true }));
+ * const example = pulumi.output(okta.group.getEveryoneGroup());
  * ```
  */
 export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEveryoneGroupResult> {
@@ -39,7 +39,7 @@ export interface GetEveryoneGroupArgs {
     /**
      * whether to retrieve all member ids.
      */
-    readonly includeUsers?: boolean;
+    includeUsers?: boolean;
 }
 
 /**

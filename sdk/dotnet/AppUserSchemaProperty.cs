@@ -129,12 +129,6 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<Outputs.AppUserSchemaPropertyOneOf>> OneOfs { get; private set; } = null!;
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
-        /// </summary>
-        [Output("pattern")]
-        public Output<string?> Pattern { get; private set; } = null!;
-
-        /// <summary>
         /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Output("permissions")]
@@ -331,12 +325,6 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
-        /// </summary>
-        [Input("pattern")]
-        public Input<string>? Pattern { get; set; }
-
-        /// <summary>
         /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Input("permissions")]
@@ -492,12 +480,6 @@ namespace Pulumi.Okta
             get => _oneOfs ?? (_oneOfs = new InputList<Inputs.AppUserSchemaPropertyOneOfGetArgs>());
             set => _oneOfs = value;
         }
-
-        /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
-        /// </summary>
-        [Input("pattern")]
-        public Input<string>? Pattern { get; set; }
 
         /// <summary>
         /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.

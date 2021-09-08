@@ -185,7 +185,7 @@ type GroupAssignmentArrayInput interface {
 type GroupAssignmentArray []GroupAssignmentInput
 
 func (GroupAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupAssignment)(nil))
+	return reflect.TypeOf((*[]*GroupAssignment)(nil)).Elem()
 }
 
 func (i GroupAssignmentArray) ToGroupAssignmentArrayOutput() GroupAssignmentArrayOutput {
@@ -210,7 +210,7 @@ type GroupAssignmentMapInput interface {
 type GroupAssignmentMap map[string]GroupAssignmentInput
 
 func (GroupAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupAssignment)(nil))
+	return reflect.TypeOf((*map[string]*GroupAssignment)(nil)).Elem()
 }
 
 func (i GroupAssignmentMap) ToGroupAssignmentMapOutput() GroupAssignmentMapOutput {
@@ -221,9 +221,7 @@ func (i GroupAssignmentMap) ToGroupAssignmentMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentMapOutput)
 }
 
-type GroupAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type GroupAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GroupAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupAssignment)(nil))
@@ -242,14 +240,12 @@ func (o GroupAssignmentOutput) ToGroupAssignmentPtrOutput() GroupAssignmentPtrOu
 }
 
 func (o GroupAssignmentOutput) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
-	return o.ApplyT(func(v GroupAssignment) *GroupAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupAssignment) *GroupAssignment {
 		return &v
 	}).(GroupAssignmentPtrOutput)
 }
 
-type GroupAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupAssignment)(nil))
@@ -261,6 +257,16 @@ func (o GroupAssignmentPtrOutput) ToGroupAssignmentPtrOutput() GroupAssignmentPt
 
 func (o GroupAssignmentPtrOutput) ToGroupAssignmentPtrOutputWithContext(ctx context.Context) GroupAssignmentPtrOutput {
 	return o
+}
+
+func (o GroupAssignmentPtrOutput) Elem() GroupAssignmentOutput {
+	return o.ApplyT(func(v *GroupAssignment) GroupAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret GroupAssignment
+		return ret
+	}).(GroupAssignmentOutput)
 }
 
 type GroupAssignmentArrayOutput struct{ *pulumi.OutputState }

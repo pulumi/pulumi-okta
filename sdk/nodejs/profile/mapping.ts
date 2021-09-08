@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const user = pulumi.output(okta.user.getUserProfileMappingSource({ async: true }));
+ * const user = pulumi.output(okta.user.getUserProfileMappingSource());
  * const example = new okta.profile.Mapping("example", {
  *     deleteWhenAbsent: true,
  *     mappings: [
@@ -159,35 +159,35 @@ export interface MappingState {
     /**
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
-    readonly deleteWhenAbsent?: pulumi.Input<boolean>;
+    deleteWhenAbsent?: pulumi.Input<boolean>;
     /**
      * Priority of the policy.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
      * Source id of the profile mapping.
      */
-    readonly sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string>;
     /**
      * Name of the mapping source.
      */
-    readonly sourceName?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string>;
     /**
      * ID of the mapping source.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
     /**
      * ID of the mapping target.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
     /**
      * Name of the mapping target.
      */
-    readonly targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string>;
     /**
      * ID of the mapping target.
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
 }
 
 /**
@@ -197,17 +197,17 @@ export interface MappingArgs {
     /**
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
-    readonly deleteWhenAbsent?: pulumi.Input<boolean>;
+    deleteWhenAbsent?: pulumi.Input<boolean>;
     /**
      * Priority of the policy.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
      * Source id of the profile mapping.
      */
-    readonly sourceId: pulumi.Input<string>;
+    sourceId: pulumi.Input<string>;
     /**
      * ID of the mapping target.
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
 }

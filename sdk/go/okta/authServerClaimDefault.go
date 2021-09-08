@@ -241,7 +241,7 @@ type AuthServerClaimDefaultArrayInput interface {
 type AuthServerClaimDefaultArray []AuthServerClaimDefaultInput
 
 func (AuthServerClaimDefaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AuthServerClaimDefault)(nil))
+	return reflect.TypeOf((*[]*AuthServerClaimDefault)(nil)).Elem()
 }
 
 func (i AuthServerClaimDefaultArray) ToAuthServerClaimDefaultArrayOutput() AuthServerClaimDefaultArrayOutput {
@@ -266,7 +266,7 @@ type AuthServerClaimDefaultMapInput interface {
 type AuthServerClaimDefaultMap map[string]AuthServerClaimDefaultInput
 
 func (AuthServerClaimDefaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AuthServerClaimDefault)(nil))
+	return reflect.TypeOf((*map[string]*AuthServerClaimDefault)(nil)).Elem()
 }
 
 func (i AuthServerClaimDefaultMap) ToAuthServerClaimDefaultMapOutput() AuthServerClaimDefaultMapOutput {
@@ -277,9 +277,7 @@ func (i AuthServerClaimDefaultMap) ToAuthServerClaimDefaultMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerClaimDefaultMapOutput)
 }
 
-type AuthServerClaimDefaultOutput struct {
-	*pulumi.OutputState
-}
+type AuthServerClaimDefaultOutput struct{ *pulumi.OutputState }
 
 func (AuthServerClaimDefaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthServerClaimDefault)(nil))
@@ -298,14 +296,12 @@ func (o AuthServerClaimDefaultOutput) ToAuthServerClaimDefaultPtrOutput() AuthSe
 }
 
 func (o AuthServerClaimDefaultOutput) ToAuthServerClaimDefaultPtrOutputWithContext(ctx context.Context) AuthServerClaimDefaultPtrOutput {
-	return o.ApplyT(func(v AuthServerClaimDefault) *AuthServerClaimDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthServerClaimDefault) *AuthServerClaimDefault {
 		return &v
 	}).(AuthServerClaimDefaultPtrOutput)
 }
 
-type AuthServerClaimDefaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type AuthServerClaimDefaultPtrOutput struct{ *pulumi.OutputState }
 
 func (AuthServerClaimDefaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AuthServerClaimDefault)(nil))
@@ -317,6 +313,16 @@ func (o AuthServerClaimDefaultPtrOutput) ToAuthServerClaimDefaultPtrOutput() Aut
 
 func (o AuthServerClaimDefaultPtrOutput) ToAuthServerClaimDefaultPtrOutputWithContext(ctx context.Context) AuthServerClaimDefaultPtrOutput {
 	return o
+}
+
+func (o AuthServerClaimDefaultPtrOutput) Elem() AuthServerClaimDefaultOutput {
+	return o.ApplyT(func(v *AuthServerClaimDefault) AuthServerClaimDefault {
+		if v != nil {
+			return *v
+		}
+		var ret AuthServerClaimDefault
+		return ret
+	}).(AuthServerClaimDefaultOutput)
 }
 
 type AuthServerClaimDefaultArrayOutput struct{ *pulumi.OutputState }

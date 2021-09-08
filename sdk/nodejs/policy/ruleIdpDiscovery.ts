@@ -218,66 +218,66 @@ export interface RuleIdpDiscoveryState {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
      */
-    readonly appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
      * Applications to include in discovery rule.
      */
-    readonly appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
     /**
      * The identifier for the Idp the rule should route to if all conditions are met.
      */
-    readonly idpId?: pulumi.Input<string>;
+    idpId?: pulumi.Input<string>;
     /**
      * Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
      */
-    readonly idpType?: pulumi.Input<string>;
+    idpType?: pulumi.Input<string>;
     /**
      * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
-    readonly userIdentifierAttribute?: pulumi.Input<string>;
+    userIdentifierAttribute?: pulumi.Input<string>;
     /**
      * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      */
-    readonly userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
+    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**
      * One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
      */
-    readonly userIdentifierType?: pulumi.Input<string>;
+    userIdentifierType?: pulumi.Input<string>;
 }
 
 /**
@@ -287,64 +287,64 @@ export interface RuleIdpDiscoveryArgs {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
      */
-    readonly appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
      * Applications to include in discovery rule.
      */
-    readonly appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
     /**
      * The identifier for the Idp the rule should route to if all conditions are met.
      */
-    readonly idpId?: pulumi.Input<string>;
+    idpId?: pulumi.Input<string>;
     /**
      * Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
      */
-    readonly idpType?: pulumi.Input<string>;
+    idpType?: pulumi.Input<string>;
     /**
      * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
-    readonly userIdentifierAttribute?: pulumi.Input<string>;
+    userIdentifierAttribute?: pulumi.Input<string>;
     /**
      * Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      */
-    readonly userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
+    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**
      * One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
      */
-    readonly userIdentifierType?: pulumi.Input<string>;
+    userIdentifierType?: pulumi.Input<string>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.group.getGroup({
  *     name: "Example App",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -43,20 +43,20 @@ export interface GetGroupArgs {
     /**
      * ID of the group. Conflicts with `"name"` and `"type"`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * whether to retrieve all member ids.
      */
-    readonly includeUsers?: boolean;
+    includeUsers?: boolean;
     /**
      * name of group to retrieve.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
      */
-    readonly type?: string;
+    type?: string;
 }
 
 /**

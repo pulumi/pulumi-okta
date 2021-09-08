@@ -66,7 +66,7 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
         :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
@@ -380,7 +380,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password.
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 
@@ -531,7 +531,7 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
         :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
@@ -858,7 +858,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password.
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 
@@ -1070,7 +1070,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
         :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
@@ -1284,7 +1284,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
         :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password.
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
@@ -1499,7 +1499,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow user to reveal password.
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 

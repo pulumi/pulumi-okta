@@ -360,7 +360,7 @@ type IdpArrayInput interface {
 type IdpArray []IdpInput
 
 func (IdpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Idp)(nil))
+	return reflect.TypeOf((*[]*Idp)(nil)).Elem()
 }
 
 func (i IdpArray) ToIdpArrayOutput() IdpArrayOutput {
@@ -385,7 +385,7 @@ type IdpMapInput interface {
 type IdpMap map[string]IdpInput
 
 func (IdpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Idp)(nil))
+	return reflect.TypeOf((*map[string]*Idp)(nil)).Elem()
 }
 
 func (i IdpMap) ToIdpMapOutput() IdpMapOutput {
@@ -396,9 +396,7 @@ func (i IdpMap) ToIdpMapOutputWithContext(ctx context.Context) IdpMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdpMapOutput)
 }
 
-type IdpOutput struct {
-	*pulumi.OutputState
-}
+type IdpOutput struct{ *pulumi.OutputState }
 
 func (IdpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Idp)(nil))
@@ -417,14 +415,12 @@ func (o IdpOutput) ToIdpPtrOutput() IdpPtrOutput {
 }
 
 func (o IdpOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
-	return o.ApplyT(func(v Idp) *Idp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Idp) *Idp {
 		return &v
 	}).(IdpPtrOutput)
 }
 
-type IdpPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdpPtrOutput struct{ *pulumi.OutputState }
 
 func (IdpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Idp)(nil))
@@ -436,6 +432,16 @@ func (o IdpPtrOutput) ToIdpPtrOutput() IdpPtrOutput {
 
 func (o IdpPtrOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
 	return o
+}
+
+func (o IdpPtrOutput) Elem() IdpOutput {
+	return o.ApplyT(func(v *Idp) Idp {
+		if v != nil {
+			return *v
+		}
+		var ret Idp
+		return ret
+	}).(IdpOutput)
 }
 
 type IdpArrayOutput struct{ *pulumi.OutputState }

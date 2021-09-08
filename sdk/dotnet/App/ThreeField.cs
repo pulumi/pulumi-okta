@@ -56,6 +56,12 @@ namespace Pulumi.Okta.App
         public Output<string> ButtonSelector { get; private set; } = null!;
 
         /// <summary>
+        /// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        /// </summary>
+        [Output("credentialsScheme")]
+        public Output<string?> CredentialsScheme { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -121,6 +127,24 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("passwordSelector")]
         public Output<string> PasswordSelector { get; private set; } = null!;
+
+        /// <summary>
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        /// </summary>
+        [Output("revealPassword")]
+        public Output<bool?> RevealPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Output("sharedPassword")]
+        public Output<string?> SharedPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Output("sharedUsername")]
+        public Output<string?> SharedUsername { get; private set; } = null!;
 
         /// <summary>
         /// Sign-on mode of application.
@@ -254,6 +278,12 @@ namespace Pulumi.Okta.App
         public Input<string> ButtonSelector { get; set; } = null!;
 
         /// <summary>
+        /// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -314,6 +344,24 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("passwordSelector", required: true)]
         public Input<string> PasswordSelector { get; set; } = null!;
+
+        /// <summary>
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
         /// Status of application. By default, it is `"ACTIVE"`.
@@ -409,6 +457,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ButtonSelector { get; set; }
 
         /// <summary>
+        /// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -481,6 +535,24 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("passwordSelector")]
         public Input<string>? PasswordSelector { get; set; }
+
+        /// <summary>
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
         /// Sign-on mode of application.

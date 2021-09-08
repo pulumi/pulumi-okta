@@ -247,7 +247,7 @@ type RuleMfaArrayInput interface {
 type RuleMfaArray []RuleMfaInput
 
 func (RuleMfaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RuleMfa)(nil))
+	return reflect.TypeOf((*[]*RuleMfa)(nil)).Elem()
 }
 
 func (i RuleMfaArray) ToRuleMfaArrayOutput() RuleMfaArrayOutput {
@@ -272,7 +272,7 @@ type RuleMfaMapInput interface {
 type RuleMfaMap map[string]RuleMfaInput
 
 func (RuleMfaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RuleMfa)(nil))
+	return reflect.TypeOf((*map[string]*RuleMfa)(nil)).Elem()
 }
 
 func (i RuleMfaMap) ToRuleMfaMapOutput() RuleMfaMapOutput {
@@ -283,9 +283,7 @@ func (i RuleMfaMap) ToRuleMfaMapOutputWithContext(ctx context.Context) RuleMfaMa
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaMapOutput)
 }
 
-type RuleMfaOutput struct {
-	*pulumi.OutputState
-}
+type RuleMfaOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleMfa)(nil))
@@ -304,14 +302,12 @@ func (o RuleMfaOutput) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
 }
 
 func (o RuleMfaOutput) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
-	return o.ApplyT(func(v RuleMfa) *RuleMfa {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleMfa) *RuleMfa {
 		return &v
 	}).(RuleMfaPtrOutput)
 }
 
-type RuleMfaPtrOutput struct {
-	*pulumi.OutputState
-}
+type RuleMfaPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RuleMfa)(nil))
@@ -323,6 +319,16 @@ func (o RuleMfaPtrOutput) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
 
 func (o RuleMfaPtrOutput) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
 	return o
+}
+
+func (o RuleMfaPtrOutput) Elem() RuleMfaOutput {
+	return o.ApplyT(func(v *RuleMfa) RuleMfa {
+		if v != nil {
+			return *v
+		}
+		var ret RuleMfa
+		return ret
+	}).(RuleMfaOutput)
 }
 
 type RuleMfaArrayOutput struct{ *pulumi.OutputState }

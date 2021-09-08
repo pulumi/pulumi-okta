@@ -6,27 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Application User Schema property.
- *
- * This resource allows you to create and configure a custom user schema property and associate it with an application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.UserSchema("example", {
- *     appId: "<app id>",
- *     description: "My custom property name",
- *     index: "customPropertyName",
- *     master: "OKTA",
- *     scope: "SELF",
- *     title: "customPropertyName",
- *     type: "string",
- * });
- * ```
- *
  * ## Import
  *
  * App user schema property can be imported via the property index and app id.
@@ -116,10 +95,6 @@ export class UserSchema extends pulumi.CustomResource {
      */
     public readonly oneOfs!: pulumi.Output<outputs.app.UserSchemaOneOf[] | undefined>;
     /**
-     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-     */
-    public readonly pattern!: pulumi.Output<string | undefined>;
-    /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
@@ -178,7 +153,6 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["maxLength"] = state ? state.maxLength : undefined;
             inputs["minLength"] = state ? state.minLength : undefined;
             inputs["oneOfs"] = state ? state.oneOfs : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
             inputs["permissions"] = state ? state.permissions : undefined;
             inputs["required"] = state ? state.required : undefined;
             inputs["scope"] = state ? state.scope : undefined;
@@ -214,7 +188,6 @@ export class UserSchema extends pulumi.CustomResource {
             inputs["maxLength"] = args ? args.maxLength : undefined;
             inputs["minLength"] = args ? args.minLength : undefined;
             inputs["oneOfs"] = args ? args.oneOfs : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["required"] = args ? args.required : undefined;
             inputs["scope"] = args ? args.scope : undefined;
@@ -238,91 +211,87 @@ export interface UserSchemaState {
     /**
      * The Application's ID the user custom schema property should be assigned to.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * Array of values that an array property's items can be set to.
      */
-    readonly arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name and value an enum array can be set to.
      */
-    readonly arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaArrayOneOf>[]>;
     /**
      * The type of the array elements if `type` is set to `"array"`.
      */
-    readonly arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string>;
     /**
      * The description of the user schema property.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    readonly enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * External name of the user schema property.
      */
-    readonly externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string>;
     /**
      * External namespace of the user schema property.
      */
-    readonly externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index?: pulumi.Input<string>;
+    index?: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
-    readonly maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number>;
     /**
      * The minimum length of the user property value. Only applies to type `"string"`.
      */
-    readonly minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      */
-    readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaOneOf>[]>;
-    /**
-     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-     */
-    readonly pattern?: pulumi.Input<string>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaOneOf>[]>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * determines whether an app user attribute can be set at the Individual or Group Level.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * display name for the enum value.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
      */
-    readonly union?: pulumi.Input<boolean>;
+    union?: pulumi.Input<boolean>;
     /**
      * Subschema unique restriction
      */
-    readonly unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string>;
     /**
      * Custom subschema user type
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }
 
 /**
@@ -332,89 +301,85 @@ export interface UserSchemaArgs {
     /**
      * The Application's ID the user custom schema property should be assigned to.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * Array of values that an array property's items can be set to.
      */
-    readonly arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name and value an enum array can be set to.
      */
-    readonly arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaArrayOneOf>[]>;
     /**
      * The type of the array elements if `type` is set to `"array"`.
      */
-    readonly arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string>;
     /**
      * The description of the user schema property.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    readonly enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * External name of the user schema property.
      */
-    readonly externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string>;
     /**
      * External namespace of the user schema property.
      */
-    readonly externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index: pulumi.Input<string>;
+    index: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
-    readonly maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number>;
     /**
      * The minimum length of the user property value. Only applies to type `"string"`.
      */
-    readonly minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      */
-    readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaOneOf>[]>;
-    /**
-     * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-     */
-    readonly pattern?: pulumi.Input<string>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.app.UserSchemaOneOf>[]>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * determines whether an app user attribute can be set at the Individual or Group Level.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * display name for the enum value.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
      */
-    readonly union?: pulumi.Input<boolean>;
+    union?: pulumi.Input<boolean>;
     /**
      * Subschema unique restriction
      */
-    readonly unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string>;
     /**
      * Custom subschema user type
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }

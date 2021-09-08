@@ -187,7 +187,7 @@ type RolesArrayInput interface {
 type RolesArray []RolesInput
 
 func (RolesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Roles)(nil))
+	return reflect.TypeOf((*[]*Roles)(nil)).Elem()
 }
 
 func (i RolesArray) ToRolesArrayOutput() RolesArrayOutput {
@@ -212,7 +212,7 @@ type RolesMapInput interface {
 type RolesMap map[string]RolesInput
 
 func (RolesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Roles)(nil))
+	return reflect.TypeOf((*map[string]*Roles)(nil)).Elem()
 }
 
 func (i RolesMap) ToRolesMapOutput() RolesMapOutput {
@@ -223,9 +223,7 @@ func (i RolesMap) ToRolesMapOutputWithContext(ctx context.Context) RolesMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RolesMapOutput)
 }
 
-type RolesOutput struct {
-	*pulumi.OutputState
-}
+type RolesOutput struct{ *pulumi.OutputState }
 
 func (RolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Roles)(nil))
@@ -244,14 +242,12 @@ func (o RolesOutput) ToRolesPtrOutput() RolesPtrOutput {
 }
 
 func (o RolesOutput) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
-	return o.ApplyT(func(v Roles) *Roles {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Roles) *Roles {
 		return &v
 	}).(RolesPtrOutput)
 }
 
-type RolesPtrOutput struct {
-	*pulumi.OutputState
-}
+type RolesPtrOutput struct{ *pulumi.OutputState }
 
 func (RolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Roles)(nil))
@@ -263,6 +259,16 @@ func (o RolesPtrOutput) ToRolesPtrOutput() RolesPtrOutput {
 
 func (o RolesPtrOutput) ToRolesPtrOutputWithContext(ctx context.Context) RolesPtrOutput {
 	return o
+}
+
+func (o RolesPtrOutput) Elem() RolesOutput {
+	return o.ApplyT(func(v *Roles) Roles {
+		if v != nil {
+			return *v
+		}
+		var ret Roles
+		return ret
+	}).(RolesOutput)
 }
 
 type RolesArrayOutput struct{ *pulumi.OutputState }

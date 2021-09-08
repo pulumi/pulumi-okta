@@ -35,6 +35,8 @@ type ThreeField struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringOutput `pulumi:"buttonSelector"`
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Extra field CSS selector.
@@ -60,6 +62,12 @@ type ThreeField struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringOutput `pulumi:"passwordSelector"`
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Status of application. By default, it is `"ACTIVE"`.
@@ -143,6 +151,8 @@ type threeFieldState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector *string `pulumi:"buttonSelector"`
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector.
@@ -168,6 +178,12 @@ type threeFieldState struct {
 	Name *string `pulumi:"name"`
 	// Login password field CSS selector.
 	PasswordSelector *string `pulumi:"passwordSelector"`
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Status of application. By default, it is `"ACTIVE"`.
@@ -202,6 +218,8 @@ type ThreeFieldState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringPtrInput
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector.
@@ -227,6 +245,12 @@ type ThreeFieldState struct {
 	Name pulumi.StringPtrInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringPtrInput
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
@@ -265,6 +289,8 @@ type threeFieldArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
 	ButtonSelector string `pulumi:"buttonSelector"`
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Extra field CSS selector.
@@ -286,6 +312,12 @@ type threeFieldArgs struct {
 	Logo *string `pulumi:"logo"`
 	// Login password field CSS selector.
 	PasswordSelector string `pulumi:"passwordSelector"`
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
@@ -319,6 +351,8 @@ type ThreeFieldArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
 	ButtonSelector pulumi.StringInput
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Extra field CSS selector.
@@ -340,6 +374,12 @@ type ThreeFieldArgs struct {
 	Logo pulumi.StringPtrInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringInput
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
@@ -427,7 +467,7 @@ type ThreeFieldArrayInput interface {
 type ThreeFieldArray []ThreeFieldInput
 
 func (ThreeFieldArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ThreeField)(nil))
+	return reflect.TypeOf((*[]*ThreeField)(nil)).Elem()
 }
 
 func (i ThreeFieldArray) ToThreeFieldArrayOutput() ThreeFieldArrayOutput {
@@ -452,7 +492,7 @@ type ThreeFieldMapInput interface {
 type ThreeFieldMap map[string]ThreeFieldInput
 
 func (ThreeFieldMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ThreeField)(nil))
+	return reflect.TypeOf((*map[string]*ThreeField)(nil)).Elem()
 }
 
 func (i ThreeFieldMap) ToThreeFieldMapOutput() ThreeFieldMapOutput {
@@ -463,9 +503,7 @@ func (i ThreeFieldMap) ToThreeFieldMapOutputWithContext(ctx context.Context) Thr
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldMapOutput)
 }
 
-type ThreeFieldOutput struct {
-	*pulumi.OutputState
-}
+type ThreeFieldOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreeField)(nil))
@@ -484,14 +522,12 @@ func (o ThreeFieldOutput) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
 }
 
 func (o ThreeFieldOutput) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
-	return o.ApplyT(func(v ThreeField) *ThreeField {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreeField) *ThreeField {
 		return &v
 	}).(ThreeFieldPtrOutput)
 }
 
-type ThreeFieldPtrOutput struct {
-	*pulumi.OutputState
-}
+type ThreeFieldPtrOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ThreeField)(nil))
@@ -503,6 +539,16 @@ func (o ThreeFieldPtrOutput) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
 
 func (o ThreeFieldPtrOutput) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
 	return o
+}
+
+func (o ThreeFieldPtrOutput) Elem() ThreeFieldOutput {
+	return o.ApplyT(func(v *ThreeField) ThreeField {
+		if v != nil {
+			return *v
+		}
+		var ret ThreeField
+		return ret
+	}).(ThreeFieldOutput)
 }
 
 type ThreeFieldArrayOutput struct{ *pulumi.OutputState }

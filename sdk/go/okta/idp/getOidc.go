@@ -4,6 +4,9 @@
 package idp
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,4 +90,134 @@ type LookupOidcResult struct {
 	UserInfoBinding string `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl string `pulumi:"userInfoUrl"`
+}
+
+func LookupOidcOutput(ctx *pulumi.Context, args LookupOidcOutputArgs, opts ...pulumi.InvokeOption) LookupOidcResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOidcResult, error) {
+			args := v.(LookupOidcArgs)
+			r, err := LookupOidc(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOidcResultOutput)
+}
+
+// A collection of arguments for invoking getOidc.
+type LookupOidcOutputArgs struct {
+	// The id of the idp to retrieve, conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the idp to retrieve, conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupOidcOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOidcArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOidc.
+type LookupOidcResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOidcResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOidcResult)(nil)).Elem()
+}
+
+func (o LookupOidcResultOutput) ToLookupOidcResultOutput() LookupOidcResultOutput {
+	return o
+}
+
+func (o LookupOidcResultOutput) ToLookupOidcResultOutputWithContext(ctx context.Context) LookupOidcResultOutput {
+	return o
+}
+
+// The method of making an authorization request.
+func (o LookupOidcResultOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+func (o LookupOidcResultOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+// Unique identifier issued by AS for the Okta IdP instance.
+func (o LookupOidcResultOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client secret issued by AS for the Okta IdP instance.
+func (o LookupOidcResultOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// id of idp.
+func (o LookupOidcResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOidcResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+func (o LookupOidcResultOutput) IssuerMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.IssuerMode }).(pulumi.StringOutput)
+}
+
+// URI that identifies the issuer.
+func (o LookupOidcResultOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.IssuerUrl }).(pulumi.StringOutput)
+}
+
+// The method of making a request for the OIDC JWKS.
+func (o LookupOidcResultOutput) JwksBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.JwksBinding }).(pulumi.StringOutput)
+}
+
+// Endpoint where the keys signer publishes its keys in a JWK Set.
+func (o LookupOidcResultOutput) JwksUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.JwksUrl }).(pulumi.StringOutput)
+}
+
+// Maximum allowable clock-skew when processing messages from the IdP.
+func (o LookupOidcResultOutput) MaxClockSkew() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupOidcResult) int { return v.MaxClockSkew }).(pulumi.IntOutput)
+}
+
+// name of the idp.
+func (o LookupOidcResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOidcResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of protocol to use.
+func (o LookupOidcResultOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
+// The scopes of the IdP.
+func (o LookupOidcResultOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOidcResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The method of making a token request.
+func (o LookupOidcResultOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+func (o LookupOidcResultOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+// type of idp.
+func (o LookupOidcResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The method of making a user info request.
+func (o LookupOidcResultOutput) UserInfoBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.UserInfoBinding }).(pulumi.StringOutput)
+}
+
+// Protected resource endpoint that returns claims about the authenticated user.
+func (o LookupOidcResultOutput) UserInfoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOidcResult) string { return v.UserInfoUrl }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOidcResultOutput{})
 }

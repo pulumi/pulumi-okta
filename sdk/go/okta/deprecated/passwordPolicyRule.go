@@ -261,7 +261,7 @@ type PasswordPolicyRuleArrayInput interface {
 type PasswordPolicyRuleArray []PasswordPolicyRuleInput
 
 func (PasswordPolicyRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PasswordPolicyRule)(nil))
+	return reflect.TypeOf((*[]*PasswordPolicyRule)(nil)).Elem()
 }
 
 func (i PasswordPolicyRuleArray) ToPasswordPolicyRuleArrayOutput() PasswordPolicyRuleArrayOutput {
@@ -286,7 +286,7 @@ type PasswordPolicyRuleMapInput interface {
 type PasswordPolicyRuleMap map[string]PasswordPolicyRuleInput
 
 func (PasswordPolicyRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PasswordPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*PasswordPolicyRule)(nil)).Elem()
 }
 
 func (i PasswordPolicyRuleMap) ToPasswordPolicyRuleMapOutput() PasswordPolicyRuleMapOutput {
@@ -297,9 +297,7 @@ func (i PasswordPolicyRuleMap) ToPasswordPolicyRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyRuleMapOutput)
 }
 
-type PasswordPolicyRuleOutput struct {
-	*pulumi.OutputState
-}
+type PasswordPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (PasswordPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PasswordPolicyRule)(nil))
@@ -318,14 +316,12 @@ func (o PasswordPolicyRuleOutput) ToPasswordPolicyRulePtrOutput() PasswordPolicy
 }
 
 func (o PasswordPolicyRuleOutput) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
-	return o.ApplyT(func(v PasswordPolicyRule) *PasswordPolicyRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PasswordPolicyRule) *PasswordPolicyRule {
 		return &v
 	}).(PasswordPolicyRulePtrOutput)
 }
 
-type PasswordPolicyRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type PasswordPolicyRulePtrOutput struct{ *pulumi.OutputState }
 
 func (PasswordPolicyRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PasswordPolicyRule)(nil))
@@ -337,6 +333,16 @@ func (o PasswordPolicyRulePtrOutput) ToPasswordPolicyRulePtrOutput() PasswordPol
 
 func (o PasswordPolicyRulePtrOutput) ToPasswordPolicyRulePtrOutputWithContext(ctx context.Context) PasswordPolicyRulePtrOutput {
 	return o
+}
+
+func (o PasswordPolicyRulePtrOutput) Elem() PasswordPolicyRuleOutput {
+	return o.ApplyT(func(v *PasswordPolicyRule) PasswordPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret PasswordPolicyRule
+		return ret
+	}).(PasswordPolicyRuleOutput)
 }
 
 type PasswordPolicyRuleArrayOutput struct{ *pulumi.OutputState }

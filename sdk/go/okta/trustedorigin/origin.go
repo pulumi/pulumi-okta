@@ -210,7 +210,7 @@ type OriginArrayInput interface {
 type OriginArray []OriginInput
 
 func (OriginArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Origin)(nil))
+	return reflect.TypeOf((*[]*Origin)(nil)).Elem()
 }
 
 func (i OriginArray) ToOriginArrayOutput() OriginArrayOutput {
@@ -235,7 +235,7 @@ type OriginMapInput interface {
 type OriginMap map[string]OriginInput
 
 func (OriginMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Origin)(nil))
+	return reflect.TypeOf((*map[string]*Origin)(nil)).Elem()
 }
 
 func (i OriginMap) ToOriginMapOutput() OriginMapOutput {
@@ -246,9 +246,7 @@ func (i OriginMap) ToOriginMapOutputWithContext(ctx context.Context) OriginMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(OriginMapOutput)
 }
 
-type OriginOutput struct {
-	*pulumi.OutputState
-}
+type OriginOutput struct{ *pulumi.OutputState }
 
 func (OriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Origin)(nil))
@@ -267,14 +265,12 @@ func (o OriginOutput) ToOriginPtrOutput() OriginPtrOutput {
 }
 
 func (o OriginOutput) ToOriginPtrOutputWithContext(ctx context.Context) OriginPtrOutput {
-	return o.ApplyT(func(v Origin) *Origin {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Origin) *Origin {
 		return &v
 	}).(OriginPtrOutput)
 }
 
-type OriginPtrOutput struct {
-	*pulumi.OutputState
-}
+type OriginPtrOutput struct{ *pulumi.OutputState }
 
 func (OriginPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Origin)(nil))
@@ -286,6 +282,16 @@ func (o OriginPtrOutput) ToOriginPtrOutput() OriginPtrOutput {
 
 func (o OriginPtrOutput) ToOriginPtrOutputWithContext(ctx context.Context) OriginPtrOutput {
 	return o
+}
+
+func (o OriginPtrOutput) Elem() OriginOutput {
+	return o.ApplyT(func(v *Origin) Origin {
+		if v != nil {
+			return *v
+		}
+		var ret Origin
+		return ret
+	}).(OriginOutput)
 }
 
 type OriginArrayOutput struct{ *pulumi.OutputState }

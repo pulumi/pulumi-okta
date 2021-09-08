@@ -336,7 +336,7 @@ type BookmarkArrayInput interface {
 type BookmarkArray []BookmarkInput
 
 func (BookmarkArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Bookmark)(nil))
+	return reflect.TypeOf((*[]*Bookmark)(nil)).Elem()
 }
 
 func (i BookmarkArray) ToBookmarkArrayOutput() BookmarkArrayOutput {
@@ -361,7 +361,7 @@ type BookmarkMapInput interface {
 type BookmarkMap map[string]BookmarkInput
 
 func (BookmarkMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Bookmark)(nil))
+	return reflect.TypeOf((*map[string]*Bookmark)(nil)).Elem()
 }
 
 func (i BookmarkMap) ToBookmarkMapOutput() BookmarkMapOutput {
@@ -372,9 +372,7 @@ func (i BookmarkMap) ToBookmarkMapOutputWithContext(ctx context.Context) Bookmar
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkMapOutput)
 }
 
-type BookmarkOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkOutput struct{ *pulumi.OutputState }
 
 func (BookmarkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bookmark)(nil))
@@ -393,14 +391,12 @@ func (o BookmarkOutput) ToBookmarkPtrOutput() BookmarkPtrOutput {
 }
 
 func (o BookmarkOutput) ToBookmarkPtrOutputWithContext(ctx context.Context) BookmarkPtrOutput {
-	return o.ApplyT(func(v Bookmark) *Bookmark {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Bookmark) *Bookmark {
 		return &v
 	}).(BookmarkPtrOutput)
 }
 
-type BookmarkPtrOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkPtrOutput struct{ *pulumi.OutputState }
 
 func (BookmarkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Bookmark)(nil))
@@ -412,6 +408,16 @@ func (o BookmarkPtrOutput) ToBookmarkPtrOutput() BookmarkPtrOutput {
 
 func (o BookmarkPtrOutput) ToBookmarkPtrOutputWithContext(ctx context.Context) BookmarkPtrOutput {
 	return o
+}
+
+func (o BookmarkPtrOutput) Elem() BookmarkOutput {
+	return o.ApplyT(func(v *Bookmark) Bookmark {
+		if v != nil {
+			return *v
+		}
+		var ret Bookmark
+		return ret
+	}).(BookmarkOutput)
 }
 
 type BookmarkArrayOutput struct{ *pulumi.OutputState }

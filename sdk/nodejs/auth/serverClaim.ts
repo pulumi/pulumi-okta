@@ -153,39 +153,39 @@ export interface ServerClaimState {
     /**
      * Specifies whether to include claims in token, by default it is set to `true`.
      */
-    readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
      * ID of the authorization server.
      */
-    readonly authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string>;
     /**
      * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
      */
-    readonly claimType?: pulumi.Input<string>;
+    claimType?: pulumi.Input<string>;
     /**
      * Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
      */
-    readonly groupFilterType?: pulumi.Input<string>;
+    groupFilterType?: pulumi.Input<string>;
     /**
      * The name of the claim.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The status of the application. It defaults to `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The value of the claim.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
      */
-    readonly valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string>;
 }
 
 /**
@@ -195,37 +195,37 @@ export interface ServerClaimArgs {
     /**
      * Specifies whether to include claims in token, by default it is set to `true`.
      */
-    readonly alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
      * ID of the authorization server.
      */
-    readonly authServerId: pulumi.Input<string>;
+    authServerId: pulumi.Input<string>;
     /**
      * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
      */
-    readonly claimType: pulumi.Input<string>;
+    claimType: pulumi.Input<string>;
     /**
      * Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
      */
-    readonly groupFilterType?: pulumi.Input<string>;
+    groupFilterType?: pulumi.Input<string>;
     /**
      * The name of the claim.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The status of the application. It defaults to `"ACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The value of the claim.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
     /**
      * The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
      */
-    readonly valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string>;
 }

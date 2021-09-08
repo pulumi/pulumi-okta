@@ -95,11 +95,11 @@ export interface AppGroupAssignmentsState {
     /**
      * The ID of the application to assign a group to.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * A group to assign the app to.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }
 
 /**
@@ -109,9 +109,9 @@ export interface AppGroupAssignmentsArgs {
     /**
      * The ID of the application to assign a group to.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * A group to assign the app to.
      */
-    readonly groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
+    groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }

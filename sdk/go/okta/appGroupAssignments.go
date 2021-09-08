@@ -164,7 +164,7 @@ type AppGroupAssignmentsArrayInput interface {
 type AppGroupAssignmentsArray []AppGroupAssignmentsInput
 
 func (AppGroupAssignmentsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppGroupAssignments)(nil))
+	return reflect.TypeOf((*[]*AppGroupAssignments)(nil)).Elem()
 }
 
 func (i AppGroupAssignmentsArray) ToAppGroupAssignmentsArrayOutput() AppGroupAssignmentsArrayOutput {
@@ -189,7 +189,7 @@ type AppGroupAssignmentsMapInput interface {
 type AppGroupAssignmentsMap map[string]AppGroupAssignmentsInput
 
 func (AppGroupAssignmentsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppGroupAssignments)(nil))
+	return reflect.TypeOf((*map[string]*AppGroupAssignments)(nil)).Elem()
 }
 
 func (i AppGroupAssignmentsMap) ToAppGroupAssignmentsMapOutput() AppGroupAssignmentsMapOutput {
@@ -200,9 +200,7 @@ func (i AppGroupAssignmentsMap) ToAppGroupAssignmentsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsMapOutput)
 }
 
-type AppGroupAssignmentsOutput struct {
-	*pulumi.OutputState
-}
+type AppGroupAssignmentsOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppGroupAssignments)(nil))
@@ -221,14 +219,12 @@ func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsPtrOutput() AppGroupAssi
 }
 
 func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
-	return o.ApplyT(func(v AppGroupAssignments) *AppGroupAssignments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppGroupAssignments) *AppGroupAssignments {
 		return &v
 	}).(AppGroupAssignmentsPtrOutput)
 }
 
-type AppGroupAssignmentsPtrOutput struct {
-	*pulumi.OutputState
-}
+type AppGroupAssignmentsPtrOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AppGroupAssignments)(nil))
@@ -240,6 +236,16 @@ func (o AppGroupAssignmentsPtrOutput) ToAppGroupAssignmentsPtrOutput() AppGroupA
 
 func (o AppGroupAssignmentsPtrOutput) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
 	return o
+}
+
+func (o AppGroupAssignmentsPtrOutput) Elem() AppGroupAssignmentsOutput {
+	return o.ApplyT(func(v *AppGroupAssignments) AppGroupAssignments {
+		if v != nil {
+			return *v
+		}
+		var ret AppGroupAssignments
+		return ret
+	}).(AppGroupAssignmentsOutput)
 }
 
 type AppGroupAssignmentsArrayOutput struct{ *pulumi.OutputState }

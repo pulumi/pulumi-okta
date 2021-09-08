@@ -14,6 +14,33 @@ import (
 //
 // This resource allows you to create and configure a Sign On Policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.NewSignon(ctx, "example", &policy.SignonArgs{
+// 			Description: pulumi.String("Example"),
+// 			GroupsIncludeds: pulumi.StringArray{
+// 				pulumi.Any(data.Okta_group.Everyone.Id),
+// 			},
+// 			Status: pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // A Sign On Policy can be imported via the Okta ID.
@@ -187,7 +214,7 @@ type SignonArrayInput interface {
 type SignonArray []SignonInput
 
 func (SignonArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Signon)(nil))
+	return reflect.TypeOf((*[]*Signon)(nil)).Elem()
 }
 
 func (i SignonArray) ToSignonArrayOutput() SignonArrayOutput {
@@ -212,7 +239,7 @@ type SignonMapInput interface {
 type SignonMap map[string]SignonInput
 
 func (SignonMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Signon)(nil))
+	return reflect.TypeOf((*map[string]*Signon)(nil)).Elem()
 }
 
 func (i SignonMap) ToSignonMapOutput() SignonMapOutput {
@@ -223,9 +250,7 @@ func (i SignonMap) ToSignonMapOutputWithContext(ctx context.Context) SignonMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SignonMapOutput)
 }
 
-type SignonOutput struct {
-	*pulumi.OutputState
-}
+type SignonOutput struct{ *pulumi.OutputState }
 
 func (SignonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Signon)(nil))
@@ -244,14 +269,12 @@ func (o SignonOutput) ToSignonPtrOutput() SignonPtrOutput {
 }
 
 func (o SignonOutput) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
-	return o.ApplyT(func(v Signon) *Signon {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Signon) *Signon {
 		return &v
 	}).(SignonPtrOutput)
 }
 
-type SignonPtrOutput struct {
-	*pulumi.OutputState
-}
+type SignonPtrOutput struct{ *pulumi.OutputState }
 
 func (SignonPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Signon)(nil))
@@ -263,6 +286,16 @@ func (o SignonPtrOutput) ToSignonPtrOutput() SignonPtrOutput {
 
 func (o SignonPtrOutput) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
 	return o
+}
+
+func (o SignonPtrOutput) Elem() SignonOutput {
+	return o.ApplyT(func(v *Signon) Signon {
+		if v != nil {
+			return *v
+		}
+		var ret Signon
+		return ret
+	}).(SignonOutput)
 }
 
 type SignonArrayOutput struct{ *pulumi.OutputState }

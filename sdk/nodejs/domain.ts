@@ -110,19 +110,19 @@ export interface DomainState {
     /**
      * TXT and CNAME records to be registered for the Domain.
      */
-    readonly dnsRecords?: pulumi.Input<pulumi.Input<inputs.DomainDnsRecord>[]>;
+    dnsRecords?: pulumi.Input<pulumi.Input<inputs.DomainDnsRecord>[]>;
     /**
      * Custom Domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Status of the domain.
      */
-    readonly validationStatus?: pulumi.Input<string>;
+    validationStatus?: pulumi.Input<string>;
     /**
      * Indicates whether the domain should be verified.
      */
-    readonly verify?: pulumi.Input<boolean>;
+    verify?: pulumi.Input<boolean>;
 }
 
 /**
@@ -132,9 +132,9 @@ export interface DomainArgs {
     /**
      * Custom Domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Indicates whether the domain should be verified.
      */
-    readonly verify?: pulumi.Input<boolean>;
+    verify?: pulumi.Input<boolean>;
 }

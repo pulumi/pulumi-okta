@@ -95,12 +95,12 @@ export interface FactorState {
     /**
      * Whether to activate the provider, by default, it is set to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * The MFA provider name.
      * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
      */
-    readonly providerId?: pulumi.Input<string>;
+    providerId?: pulumi.Input<string>;
 }
 
 /**
@@ -110,10 +110,10 @@ export interface FactorArgs {
     /**
      * Whether to activate the provider, by default, it is set to `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * The MFA provider name.
      * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
      */
-    readonly providerId: pulumi.Input<string>;
+    providerId: pulumi.Input<string>;
 }

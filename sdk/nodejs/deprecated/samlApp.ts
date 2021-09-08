@@ -404,228 +404,228 @@ export interface SamlAppState {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Custom login page URL
      */
-    readonly accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * List of ACS endpoints for this SAML application
      */
-    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Determines whether the SAML assertion is digitally signed
      */
-    readonly assertionSigned?: pulumi.Input<boolean>;
-    readonly attributeStatements?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppAttributeStatement>[]>;
+    assertionSigned?: pulumi.Input<boolean>;
+    attributeStatements?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppAttributeStatement>[]>;
     /**
      * Audience Restriction
      */
-    readonly audience?: pulumi.Input<string>;
+    audience?: pulumi.Input<string>;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
-    readonly authnContextClassRef?: pulumi.Input<string>;
+    authnContextClassRef?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * cert from SAML XML metadata payload
      */
-    readonly certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    readonly defaultRelayState?: pulumi.Input<string>;
+    defaultRelayState?: pulumi.Input<string>;
     /**
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
-    readonly destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
-    readonly digestAlgorithm?: pulumi.Input<string>;
+    digestAlgorithm?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Entity ID, the ID portion of the entity_url
      */
-    readonly entityKey?: pulumi.Input<string>;
+    entityKey?: pulumi.Input<string>;
     /**
      * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
      */
-    readonly entityUrl?: pulumi.Input<string>;
+    entityUrl?: pulumi.Input<string>;
     /**
      * features to enable
      */
-    readonly features?: pulumi.Input<pulumi.Input<string>[]>;
+    features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Prompt user to re-authenticate if SP asks for it
      */
-    readonly honorForceAuthn?: pulumi.Input<boolean>;
+    honorForceAuthn?: pulumi.Input<boolean>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
      */
-    readonly httpPostBinding?: pulumi.Input<string>;
+    httpPostBinding?: pulumi.Input<string>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      */
-    readonly httpRedirectBinding?: pulumi.Input<string>;
+    httpRedirectBinding?: pulumi.Input<string>;
     /**
      * SAML issuer ID
      */
-    readonly idpIssuer?: pulumi.Input<string>;
+    idpIssuer?: pulumi.Input<string>;
     /**
      * Saml Inline Hook setting
      */
-    readonly inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string>;
     /**
      * Certificate ID
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * Number of years the certificate is valid.
      */
-    readonly keyYearsValid?: pulumi.Input<number>;
+    keyYearsValid?: pulumi.Input<number>;
     /**
      * Pretty name of app.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URL of the application's logo
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * SAML xml metadata payload
      */
-    readonly metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string>;
     /**
      * SAML xml metadata URL
      */
-    readonly metadataUrl?: pulumi.Input<string>;
+    metadataUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of preexisting SAML application. For instance 'slack'
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * The location where the app may present the SAML assertion
      */
-    readonly recipient?: pulumi.Input<string>;
+    recipient?: pulumi.Input<string>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    readonly requestCompressed?: pulumi.Input<boolean>;
+    requestCompressed?: pulumi.Input<boolean>;
     /**
      * Determines whether the SAML auth response message is digitally signed
      */
-    readonly responseSigned?: pulumi.Input<boolean>;
+    responseSigned?: pulumi.Input<boolean>;
     /**
      * SAML version for the app's sign-on mode
      */
-    readonly samlVersion?: pulumi.Input<string>;
+    samlVersion?: pulumi.Input<string>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Signature algorithm used ot digitally sign the assertion and response
      */
-    readonly signatureAlgorithm?: pulumi.Input<string>;
+    signatureAlgorithm?: pulumi.Input<string>;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
      */
-    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    singleLogoutCertificate?: pulumi.Input<string>;
     /**
      * The issuer of the Service Provider that generates the Single Logout request
      */
-    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    singleLogoutIssuer?: pulumi.Input<string>;
     /**
      * The location where the logout response is sent
      */
-    readonly singleLogoutUrl?: pulumi.Input<string>;
+    singleLogoutUrl?: pulumi.Input<string>;
     /**
      * SAML SP issuer ID
      */
-    readonly spIssuer?: pulumi.Input<string>;
+    spIssuer?: pulumi.Input<string>;
     /**
      * Single Sign On URL
      */
-    readonly ssoUrl?: pulumi.Input<string>;
+    ssoUrl?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Identifies the SAML processing rules.
      */
-    readonly subjectNameIdFormat?: pulumi.Input<string>;
+    subjectNameIdFormat?: pulumi.Input<string>;
     /**
      * Template for app user's username when a user is assigned to the app
      */
-    readonly subjectNameIdTemplate?: pulumi.Input<string>;
+    subjectNameIdTemplate?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
 }
 
 /**
@@ -635,182 +635,182 @@ export interface SamlAppArgs {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Custom login page URL
      */
-    readonly accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * List of ACS endpoints for this SAML application
      */
-    readonly acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Determines whether the SAML assertion is digitally signed
      */
-    readonly assertionSigned?: pulumi.Input<boolean>;
-    readonly attributeStatements?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppAttributeStatement>[]>;
+    assertionSigned?: pulumi.Input<boolean>;
+    attributeStatements?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppAttributeStatement>[]>;
     /**
      * Audience Restriction
      */
-    readonly audience?: pulumi.Input<string>;
+    audience?: pulumi.Input<string>;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
-    readonly authnContextClassRef?: pulumi.Input<string>;
+    authnContextClassRef?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    readonly defaultRelayState?: pulumi.Input<string>;
+    defaultRelayState?: pulumi.Input<string>;
     /**
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
-    readonly destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
-    readonly digestAlgorithm?: pulumi.Input<string>;
+    digestAlgorithm?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * features to enable
      */
-    readonly features?: pulumi.Input<pulumi.Input<string>[]>;
+    features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Prompt user to re-authenticate if SP asks for it
      */
-    readonly honorForceAuthn?: pulumi.Input<boolean>;
+    honorForceAuthn?: pulumi.Input<boolean>;
     /**
      * SAML issuer ID
      */
-    readonly idpIssuer?: pulumi.Input<string>;
+    idpIssuer?: pulumi.Input<string>;
     /**
      * Saml Inline Hook setting
      */
-    readonly inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * Number of years the certificate is valid.
      */
-    readonly keyYearsValid?: pulumi.Input<number>;
+    keyYearsValid?: pulumi.Input<number>;
     /**
      * Pretty name of app.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Name of preexisting SAML application. For instance 'slack'
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * The location where the app may present the SAML assertion
      */
-    readonly recipient?: pulumi.Input<string>;
+    recipient?: pulumi.Input<string>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    readonly requestCompressed?: pulumi.Input<boolean>;
+    requestCompressed?: pulumi.Input<boolean>;
     /**
      * Determines whether the SAML auth response message is digitally signed
      */
-    readonly responseSigned?: pulumi.Input<boolean>;
+    responseSigned?: pulumi.Input<boolean>;
     /**
      * SAML version for the app's sign-on mode
      */
-    readonly samlVersion?: pulumi.Input<string>;
+    samlVersion?: pulumi.Input<string>;
     /**
      * Signature algorithm used ot digitally sign the assertion and response
      */
-    readonly signatureAlgorithm?: pulumi.Input<string>;
+    signatureAlgorithm?: pulumi.Input<string>;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
      */
-    readonly singleLogoutCertificate?: pulumi.Input<string>;
+    singleLogoutCertificate?: pulumi.Input<string>;
     /**
      * The issuer of the Service Provider that generates the Single Logout request
      */
-    readonly singleLogoutIssuer?: pulumi.Input<string>;
+    singleLogoutIssuer?: pulumi.Input<string>;
     /**
      * The location where the logout response is sent
      */
-    readonly singleLogoutUrl?: pulumi.Input<string>;
+    singleLogoutUrl?: pulumi.Input<string>;
     /**
      * SAML SP issuer ID
      */
-    readonly spIssuer?: pulumi.Input<string>;
+    spIssuer?: pulumi.Input<string>;
     /**
      * Single Sign On URL
      */
-    readonly ssoUrl?: pulumi.Input<string>;
+    ssoUrl?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Identifies the SAML processing rules.
      */
-    readonly subjectNameIdFormat?: pulumi.Input<string>;
+    subjectNameIdFormat?: pulumi.Input<string>;
     /**
      * Template for app user's username when a user is assigned to the app
      */
-    readonly subjectNameIdTemplate?: pulumi.Input<string>;
+    subjectNameIdTemplate?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.SamlAppUser>[]>;
 }

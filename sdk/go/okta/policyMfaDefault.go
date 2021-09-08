@@ -338,7 +338,7 @@ type PolicyMfaDefaultArrayInput interface {
 type PolicyMfaDefaultArray []PolicyMfaDefaultInput
 
 func (PolicyMfaDefaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PolicyMfaDefault)(nil))
+	return reflect.TypeOf((*[]*PolicyMfaDefault)(nil)).Elem()
 }
 
 func (i PolicyMfaDefaultArray) ToPolicyMfaDefaultArrayOutput() PolicyMfaDefaultArrayOutput {
@@ -363,7 +363,7 @@ type PolicyMfaDefaultMapInput interface {
 type PolicyMfaDefaultMap map[string]PolicyMfaDefaultInput
 
 func (PolicyMfaDefaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PolicyMfaDefault)(nil))
+	return reflect.TypeOf((*map[string]*PolicyMfaDefault)(nil)).Elem()
 }
 
 func (i PolicyMfaDefaultMap) ToPolicyMfaDefaultMapOutput() PolicyMfaDefaultMapOutput {
@@ -374,9 +374,7 @@ func (i PolicyMfaDefaultMap) ToPolicyMfaDefaultMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultMapOutput)
 }
 
-type PolicyMfaDefaultOutput struct {
-	*pulumi.OutputState
-}
+type PolicyMfaDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyMfaDefault)(nil))
@@ -395,14 +393,12 @@ func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPt
 }
 
 func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
-	return o.ApplyT(func(v PolicyMfaDefault) *PolicyMfaDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyMfaDefault) *PolicyMfaDefault {
 		return &v
 	}).(PolicyMfaDefaultPtrOutput)
 }
 
-type PolicyMfaDefaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type PolicyMfaDefaultPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyMfaDefault)(nil))
@@ -414,6 +410,16 @@ func (o PolicyMfaDefaultPtrOutput) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaul
 
 func (o PolicyMfaDefaultPtrOutput) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
 	return o
+}
+
+func (o PolicyMfaDefaultPtrOutput) Elem() PolicyMfaDefaultOutput {
+	return o.ApplyT(func(v *PolicyMfaDefault) PolicyMfaDefault {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyMfaDefault
+		return ret
+	}).(PolicyMfaDefaultOutput)
 }
 
 type PolicyMfaDefaultArrayOutput struct{ *pulumi.OutputState }

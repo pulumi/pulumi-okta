@@ -30,7 +30,6 @@ class AppUserSchemaPropertyArgs:
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -54,7 +53,6 @@ class AppUserSchemaPropertyArgs:
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
@@ -88,8 +86,6 @@ class AppUserSchemaPropertyArgs:
             pulumi.set(__self__, "min_length", min_length)
         if one_ofs is not None:
             pulumi.set(__self__, "one_ofs", one_ofs)
-        if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if required is not None:
@@ -285,18 +281,6 @@ class AppUserSchemaPropertyArgs:
 
     @property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        """
-        return pulumi.get(self, "pattern")
-
-    @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "pattern", value)
-
-    @property
-    @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
         Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
@@ -384,7 +368,6 @@ class _AppUserSchemaPropertyState:
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -408,7 +391,6 @@ class _AppUserSchemaPropertyState:
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
@@ -444,8 +426,6 @@ class _AppUserSchemaPropertyState:
             pulumi.set(__self__, "min_length", min_length)
         if one_ofs is not None:
             pulumi.set(__self__, "one_ofs", one_ofs)
-        if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if required is not None:
@@ -621,18 +601,6 @@ class _AppUserSchemaPropertyState:
 
     @property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        """
-        return pulumi.get(self, "pattern")
-
-    @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "pattern", value)
-
-    @property
-    @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
         Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
@@ -746,7 +714,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -800,7 +767,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
@@ -873,7 +839,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -911,7 +876,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             __props__.__dict__["max_length"] = max_length
             __props__.__dict__["min_length"] = min_length
             __props__.__dict__["one_ofs"] = one_ofs
-            __props__.__dict__["pattern"] = pattern
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["required"] = required
             __props__.__dict__["scope"] = scope
@@ -947,7 +911,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             max_length: Optional[pulumi.Input[int]] = None,
             min_length: Optional[pulumi.Input[int]] = None,
             one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
-            pattern: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
             scope: Optional[pulumi.Input[str]] = None,
@@ -976,7 +939,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
@@ -1003,7 +965,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         __props__.__dict__["max_length"] = max_length
         __props__.__dict__["min_length"] = min_length
         __props__.__dict__["one_ofs"] = one_ofs
-        __props__.__dict__["pattern"] = pattern
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["required"] = required
         __props__.__dict__["scope"] = scope
@@ -1117,14 +1078,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         Array of maps containing a mapping for display name to enum value.
         """
         return pulumi.get(self, "one_ofs")
-
-    @property
-    @pulumi.getter
-    def pattern(self) -> pulumi.Output[Optional[str]]:
-        """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        """
-        return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter

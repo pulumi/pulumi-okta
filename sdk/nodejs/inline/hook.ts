@@ -147,28 +147,28 @@ export interface HookState {
     /**
      * Authentication required for inline hook request.
      */
-    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the inline hook will hit.
      */
-    readonly channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
      */
-    readonly headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
     /**
      * The inline hook display name.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Version of the channel. The currently-supported version is `"1.0.0"`.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -178,26 +178,26 @@ export interface HookArgs {
     /**
      * Authentication required for inline hook request.
      */
-    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the inline hook will hit.
      */
-    readonly channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
      */
-    readonly headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
     /**
      * The inline hook display name.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Version of the channel. The currently-supported version is `"1.0.0"`.
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

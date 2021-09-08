@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.13.8 of the Okta Terraform Provider
+* Upgrade to pulumi-terraform-bridge v3.5.0
+* Upgrade to Pulumi v3.11.0
 
 ---
 

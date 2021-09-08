@@ -112,15 +112,15 @@ export interface UserTypeState {
     /**
      * Description of the User Type.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Display Name of the User Type.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Name of the User Type.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface UserTypeArgs {
     /**
      * Description of the User Type.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Display Name of the User Type.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Name of the User Type.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

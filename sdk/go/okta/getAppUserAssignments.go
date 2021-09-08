@@ -4,6 +4,9 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.GetAppUserAssignments(ctx, &okta.GetAppUserAssignmentsArgs{
+// 		_, err := okta.GetAppUserAssignments(ctx, &GetAppUserAssignmentsArgs{
 // 			Id: okta_app_oauth.Test.Id,
 // 		}, nil)
 // 		if err != nil {
@@ -52,4 +55,52 @@ type GetAppUserAssignmentsResult struct {
 	Id string `pulumi:"id"`
 	// List of user IDs assigned to the application.
 	Users []string `pulumi:"users"`
+}
+
+func GetAppUserAssignmentsOutput(ctx *pulumi.Context, args GetAppUserAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetAppUserAssignmentsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAppUserAssignmentsResult, error) {
+			args := v.(GetAppUserAssignmentsArgs)
+			r, err := GetAppUserAssignments(ctx, &args, opts...)
+			return *r, err
+		}).(GetAppUserAssignmentsResultOutput)
+}
+
+// A collection of arguments for invoking getAppUserAssignments.
+type GetAppUserAssignmentsOutputArgs struct {
+	// The ID of the Okta application you want to retrieve the groups for.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetAppUserAssignmentsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppUserAssignmentsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAppUserAssignments.
+type GetAppUserAssignmentsResultOutput struct{ *pulumi.OutputState }
+
+func (GetAppUserAssignmentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppUserAssignmentsResult)(nil)).Elem()
+}
+
+func (o GetAppUserAssignmentsResultOutput) ToGetAppUserAssignmentsResultOutput() GetAppUserAssignmentsResultOutput {
+	return o
+}
+
+func (o GetAppUserAssignmentsResultOutput) ToGetAppUserAssignmentsResultOutputWithContext(ctx context.Context) GetAppUserAssignmentsResultOutput {
+	return o
+}
+
+// ID of application.
+func (o GetAppUserAssignmentsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppUserAssignmentsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of user IDs assigned to the application.
+func (o GetAppUserAssignmentsResultOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppUserAssignmentsResult) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAppUserAssignmentsResultOutput{})
 }

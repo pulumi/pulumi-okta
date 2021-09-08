@@ -4,6 +4,9 @@
 package app
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,87 @@ type GetMetadataSamlResult struct {
 	Metadata string `pulumi:"metadata"`
 	// Whether authn requests are signed.
 	WantAuthnRequestsSigned bool `pulumi:"wantAuthnRequestsSigned"`
+}
+
+func GetMetadataSamlOutput(ctx *pulumi.Context, args GetMetadataSamlOutputArgs, opts ...pulumi.InvokeOption) GetMetadataSamlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetMetadataSamlResult, error) {
+			args := v.(GetMetadataSamlArgs)
+			r, err := GetMetadataSaml(ctx, &args, opts...)
+			return *r, err
+		}).(GetMetadataSamlResultOutput)
+}
+
+// A collection of arguments for invoking getMetadataSaml.
+type GetMetadataSamlOutputArgs struct {
+	// The application ID.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// Certificate Key ID.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+}
+
+func (GetMetadataSamlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMetadataSamlArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMetadataSaml.
+type GetMetadataSamlResultOutput struct{ *pulumi.OutputState }
+
+func (GetMetadataSamlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMetadataSamlResult)(nil)).Elem()
+}
+
+func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutput() GetMetadataSamlResultOutput {
+	return o
+}
+
+func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutputWithContext(ctx context.Context) GetMetadataSamlResultOutput {
+	return o
+}
+
+func (o GetMetadataSamlResultOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// public certificate from application metadata.
+func (o GetMetadataSamlResultOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+func (o GetMetadataSamlResultOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EntityId }).(pulumi.StringOutput)
+}
+
+// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+func (o GetMetadataSamlResultOutput) HttpPostBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.HttpPostBinding }).(pulumi.StringOutput)
+}
+
+// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+func (o GetMetadataSamlResultOutput) HttpRedirectBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.HttpRedirectBinding }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetMetadataSamlResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetMetadataSamlResultOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// raw metadata of application.
+func (o GetMetadataSamlResultOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Whether authn requests are signed.
+func (o GetMetadataSamlResultOutput) WantAuthnRequestsSigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMetadataSamlResult) bool { return v.WantAuthnRequestsSigned }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMetadataSamlResultOutput{})
 }

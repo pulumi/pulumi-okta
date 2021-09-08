@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.idp.getSaml({
  *     name: "Example App",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
@@ -41,11 +41,11 @@ export interface GetSamlArgs {
     /**
      * The id of the idp to retrieve, conflicts with `name`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of the idp to retrieve, conflicts with `id`.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

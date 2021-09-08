@@ -43,7 +43,7 @@ namespace Pulumi.Okta
     ///         var exampleUserFactorQuestion = new Okta.UserFactorQuestion("exampleUserFactorQuestion", new Okta.UserFactorQuestionArgs
     ///         {
     ///             UserId = exampleUser.Id,
-    ///             Key = exampleUserSecurityQuestions.Apply(exampleUserSecurityQuestions =&gt; exampleUserSecurityQuestions.Questions[0].Key),
+    ///             Key = exampleUserSecurityQuestions.Apply(exampleUserSecurityQuestions =&gt; exampleUserSecurityQuestions.Questions?[0]?.Key),
     ///             Answer = "meatball",
     ///         }, new CustomResourceOptions
     ///         {

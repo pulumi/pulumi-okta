@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.user.getUserType({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
@@ -41,15 +41,15 @@ export interface GetUserTypeArgs {
     /**
      * description of user type.
      */
-    readonly description?: string;
+    description?: string;
     /**
      * display name of user type.
      */
-    readonly displayName?: string;
+    displayName?: string;
     /**
      * name of user type to retrieve.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

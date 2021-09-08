@@ -4,6 +4,9 @@
 package app
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,4 +124,189 @@ type GetOauthResult struct {
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
 	Users            []string `pulumi:"users"`
 	WildcardRedirect string   `pulumi:"wildcardRedirect"`
+}
+
+func GetOauthOutput(ctx *pulumi.Context, args GetOauthOutputArgs, opts ...pulumi.InvokeOption) GetOauthResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOauthResult, error) {
+			args := v.(GetOauthArgs)
+			r, err := GetOauth(ctx, &args, opts...)
+			return *r, err
+		}).(GetOauthResultOutput)
+}
+
+// A collection of arguments for invoking getOauth.
+type GetOauthOutputArgs struct {
+	// tells the provider to query for only `ACTIVE` applications.
+	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
+	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+	// and `label`. This is used to avoid paginating through all applications.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+	// provider to do a `starts with` query as opposed to an `equals` query.
+	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// List of users IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (GetOauthOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOauthArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOauth.
+type GetOauthResultOutput struct{ *pulumi.OutputState }
+
+func (GetOauthResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOauthResult)(nil)).Elem()
+}
+
+func (o GetOauthResultOutput) ToGetOauthResultOutput() GetOauthResultOutput {
+	return o
+}
+
+func (o GetOauthResultOutput) ToGetOauthResultOutputWithContext(ctx context.Context) GetOauthResultOutput {
+	return o
+}
+
+func (o GetOauthResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Display auto submit toolbar.
+func (o GetOauthResultOutput) AutoSubmitToolbar() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOauthResult) bool { return v.AutoSubmitToolbar }).(pulumi.BoolOutput)
+}
+
+// OAuth client ID. If set during creation, app is created with this id.
+func (o GetOauthResultOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// URI to a web page providing information about the client.
+func (o GetOauthResultOutput) ClientUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.ClientUri }).(pulumi.StringOutput)
+}
+
+// List of OAuth 2.0 grant types.
+func (o GetOauthResultOutput) GrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.GrantTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of groups IDs assigned to the application.
+// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+//
+// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
+func (o GetOauthResultOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o GetOauthResultOutput) HideIos() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOauthResult) bool { return v.HideIos }).(pulumi.BoolOutput)
+}
+
+// Do not display application icon to users.
+func (o GetOauthResultOutput) HideWeb() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOauthResult) bool { return v.HideWeb }).(pulumi.BoolOutput)
+}
+
+// ID of application.
+func (o GetOauthResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Label of application.
+func (o GetOauthResultOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o GetOauthResultOutput) LabelPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
+}
+
+// generic JSON containing discoverable resources related to the app
+func (o GetOauthResultOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.Links }).(pulumi.StringOutput)
+}
+
+// The type of Idp-Initiated login that the client supports, if any.
+func (o GetOauthResultOutput) LoginMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.LoginMode }).(pulumi.StringOutput)
+}
+
+// List of scopes to use for the request.
+func (o GetOauthResultOutput) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+// URI that initiates login.
+func (o GetOauthResultOutput) LoginUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.LoginUri }).(pulumi.StringOutput)
+}
+
+// URI that references a logo for the client.
+func (o GetOauthResultOutput) LogoUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.LogoUri }).(pulumi.StringOutput)
+}
+
+// Name of application.
+func (o GetOauthResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// URI to web page providing client policy document.
+func (o GetOauthResultOutput) PolicyUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.PolicyUri }).(pulumi.StringOutput)
+}
+
+// List of URIs for redirection after logout.
+func (o GetOauthResultOutput) PostLogoutRedirectUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.PostLogoutRedirectUris }).(pulumi.StringArrayOutput)
+}
+
+// List of URIs for use in the redirect-based flow.
+func (o GetOauthResultOutput) RedirectUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.RedirectUris }).(pulumi.StringArrayOutput)
+}
+
+// List of OAuth 2.0 response type strings.
+func (o GetOauthResultOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
+}
+
+// Status of application.
+func (o GetOauthResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of OAuth application.
+func (o GetOauthResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of users IDs assigned to the application.
+// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+//
+// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
+func (o GetOauthResultOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOauthResultOutput) WildcardRedirect() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.WildcardRedirect }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOauthResultOutput{})
 }

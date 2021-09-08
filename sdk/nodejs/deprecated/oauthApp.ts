@@ -326,177 +326,177 @@ export interface OauthAppState {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */
-    readonly autoKeyRotation?: pulumi.Input<boolean>;
+    autoKeyRotation?: pulumi.Input<boolean>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
      */
-    readonly clientBasicSecret?: pulumi.Input<string>;
+    clientBasicSecret?: pulumi.Input<string>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * URI to a web page providing information about the client.
      */
-    readonly clientUri?: pulumi.Input<string>;
+    clientUri?: pulumi.Input<string>;
     /**
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
      * Default value is TRUSTED
      */
-    readonly consentMethod?: pulumi.Input<string>;
+    consentMethod?: pulumi.Input<string>;
     /**
      * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
      * no-op, use client_id for that behavior instead.
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
-    readonly customClientId?: pulumi.Input<string>;
+    customClientId?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
      * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
      * app type.
      */
-    readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups claim for an OpenID Connect client application
      */
-    readonly groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
+    groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    readonly implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean>;
     /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
      * custom domain URL as the issuer of ID token for this client.
      */
-    readonly issuerMode?: pulumi.Input<string>;
-    readonly jwks?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppJwk>[]>;
+    issuerMode?: pulumi.Input<string>;
+    jwks?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppJwk>[]>;
     /**
      * Pretty name of app.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * The type of Idp-Initiated login that the client supports, if any
      */
-    readonly loginMode?: pulumi.Input<string>;
+    loginMode?: pulumi.Input<string>;
     /**
      * List of scopes to use for the request
      */
-    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI that initiates login.
      */
-    readonly loginUri?: pulumi.Input<string>;
+    loginUri?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URI that references a logo for the client.
      */
-    readonly logoUri?: pulumi.Input<string>;
+    logoUri?: pulumi.Input<string>;
     /**
      * URL of the application's logo
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
      * your app will be recreated.
      */
-    readonly omitSecret?: pulumi.Input<boolean>;
+    omitSecret?: pulumi.Input<boolean>;
     /**
      * URI to web page providing client policy document.
      */
-    readonly policyUri?: pulumi.Input<string>;
+    policyUri?: pulumi.Input<string>;
     /**
      * List of URIs for redirection after logout
      */
-    readonly postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
-    readonly profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string>;
     /**
      * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
      * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
-    readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * *Early Access Property* Grace period for token rotation
      */
-    readonly refreshTokenLeeway?: pulumi.Input<number>;
+    refreshTokenLeeway?: pulumi.Input<number>;
     /**
      * *Early Access Property* Refresh token rotation behavior
      */
-    readonly refreshTokenRotation?: pulumi.Input<string>;
+    refreshTokenRotation?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 response type strings.
      */
-    readonly responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Requested authentication method for the token endpoint.
      */
-    readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
+    tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
      * URI to web page providing client tos (terms of service).
      */
-    readonly tosUri?: pulumi.Input<string>;
+    tosUri?: pulumi.Input<string>;
     /**
      * The type of client application.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
      */
-    readonly wildcardRedirect?: pulumi.Input<string>;
+    wildcardRedirect?: pulumi.Input<string>;
 }
 
 /**
@@ -506,159 +506,159 @@ export interface OauthAppArgs {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */
-    readonly autoKeyRotation?: pulumi.Input<boolean>;
+    autoKeyRotation?: pulumi.Input<boolean>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
      */
-    readonly clientBasicSecret?: pulumi.Input<string>;
+    clientBasicSecret?: pulumi.Input<string>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * URI to a web page providing information about the client.
      */
-    readonly clientUri?: pulumi.Input<string>;
+    clientUri?: pulumi.Input<string>;
     /**
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED.
      * Default value is TRUSTED
      */
-    readonly consentMethod?: pulumi.Input<string>;
+    consentMethod?: pulumi.Input<string>;
     /**
      * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
      * no-op, use client_id for that behavior instead.
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
-    readonly customClientId?: pulumi.Input<string>;
+    customClientId?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here
      * https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per
      * app type.
      */
-    readonly grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups claim for an OpenID Connect client application
      */
-    readonly groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
+    groupsClaim?: pulumi.Input<inputs.deprecated.OauthAppGroupsClaim>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    readonly implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean>;
     /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a
      * custom domain URL as the issuer of ID token for this client.
      */
-    readonly issuerMode?: pulumi.Input<string>;
-    readonly jwks?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppJwk>[]>;
+    issuerMode?: pulumi.Input<string>;
+    jwks?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppJwk>[]>;
     /**
      * Pretty name of app.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * The type of Idp-Initiated login that the client supports, if any
      */
-    readonly loginMode?: pulumi.Input<string>;
+    loginMode?: pulumi.Input<string>;
     /**
      * List of scopes to use for the request
      */
-    readonly loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI that initiates login.
      */
-    readonly loginUri?: pulumi.Input<string>;
+    loginUri?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URI that references a logo for the client.
      */
-    readonly logoUri?: pulumi.Input<string>;
+    logoUri?: pulumi.Input<string>;
     /**
      * This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
      * your app will be recreated.
      */
-    readonly omitSecret?: pulumi.Input<boolean>;
+    omitSecret?: pulumi.Input<boolean>;
     /**
      * URI to web page providing client policy document.
      */
-    readonly policyUri?: pulumi.Input<string>;
+    policyUri?: pulumi.Input<string>;
     /**
      * List of URIs for redirection after logout
      */
-    readonly postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
-    readonly profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string>;
     /**
      * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
      * okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
      */
-    readonly redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * *Early Access Property* Grace period for token rotation
      */
-    readonly refreshTokenLeeway?: pulumi.Input<number>;
+    refreshTokenLeeway?: pulumi.Input<number>;
     /**
      * *Early Access Property* Refresh token rotation behavior
      */
-    readonly refreshTokenRotation?: pulumi.Input<string>;
+    refreshTokenRotation?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 response type strings.
      */
-    readonly responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Requested authentication method for the token endpoint.
      */
-    readonly tokenEndpointAuthMethod?: pulumi.Input<string>;
+    tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
      * URI to web page providing client tos (terms of service).
      */
-    readonly tosUri?: pulumi.Input<string>;
+    tosUri?: pulumi.Input<string>;
     /**
      * The type of client application.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.OauthAppUser>[]>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
      */
-    readonly wildcardRedirect?: pulumi.Input<string>;
+    wildcardRedirect?: pulumi.Input<string>;
 }

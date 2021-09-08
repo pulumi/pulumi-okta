@@ -158,61 +158,61 @@ export interface BookmarkAppState {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URL of the application's logo
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly requestIntegration?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    requestIntegration?: pulumi.Input<boolean>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly url?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
 }
 
 /**
@@ -222,47 +222,47 @@ export interface BookmarkAppArgs {
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
-    readonly requestIntegration?: pulumi.Input<boolean>;
+    logo?: pulumi.Input<string>;
+    requestIntegration?: pulumi.Input<boolean>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly url: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    url: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.BookmarkAppUser>[]>;
 }

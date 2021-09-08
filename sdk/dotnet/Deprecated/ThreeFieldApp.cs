@@ -43,6 +43,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> ButtonSelector { get; private set; } = null!;
 
         /// <summary>
+        /// Application credentials scheme
+        /// </summary>
+        [Output("credentialsScheme")]
+        public Output<string?> CredentialsScheme { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -107,6 +113,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("passwordSelector")]
         public Output<string> PasswordSelector { get; private set; } = null!;
+
+        /// <summary>
+        /// Allow user to reveal password
+        /// </summary>
+        [Output("revealPassword")]
+        public Output<bool?> RevealPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Output("sharedPassword")]
+        public Output<string?> SharedPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Output("sharedUsername")]
+        public Output<string?> SharedUsername { get; private set; } = null!;
 
         /// <summary>
         /// Sign on mode of application.
@@ -239,6 +263,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> ButtonSelector { get; set; } = null!;
 
         /// <summary>
+        /// Application credentials scheme
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -298,6 +328,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("passwordSelector", required: true)]
         public Input<string> PasswordSelector { get; set; } = null!;
+
+        /// <summary>
+        /// Allow user to reveal password
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
         /// Status of application.
@@ -392,6 +440,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ButtonSelector { get; set; }
 
         /// <summary>
+        /// Application credentials scheme
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -463,6 +517,24 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("passwordSelector")]
         public Input<string>? PasswordSelector { get; set; }
+
+        /// <summary>
+        /// Allow user to reveal password
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
         /// Sign on mode of application.

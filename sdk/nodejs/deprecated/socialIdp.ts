@@ -186,118 +186,118 @@ export class SocialIdp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SocialIdp resources.
  */
 export interface SocialIdpState {
-    readonly accountLinkAction?: pulumi.Input<string>;
-    readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly authorizationBinding?: pulumi.Input<string>;
-    readonly authorizationUrl?: pulumi.Input<string>;
-    readonly clientId?: pulumi.Input<string>;
-    readonly clientSecret?: pulumi.Input<string>;
-    readonly deprovisionedAction?: pulumi.Input<string>;
-    readonly groupsAction?: pulumi.Input<string>;
-    readonly groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly groupsAttribute?: pulumi.Input<string>;
-    readonly groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    accountLinkAction?: pulumi.Input<string>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationBinding?: pulumi.Input<string>;
+    authorizationUrl?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAttribute?: pulumi.Input<string>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      */
-    readonly issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string>;
     /**
      * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
      */
-    readonly matchAttribute?: pulumi.Input<string>;
+    matchAttribute?: pulumi.Input<string>;
     /**
      * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
      */
-    readonly matchType?: pulumi.Input<string>;
-    readonly maxClockSkew?: pulumi.Input<number>;
+    matchType?: pulumi.Input<string>;
+    maxClockSkew?: pulumi.Input<number>;
     /**
      * name of idp
      */
-    readonly name?: pulumi.Input<string>;
-    readonly profileMaster?: pulumi.Input<boolean>;
-    readonly protocolType?: pulumi.Input<string>;
-    readonly provisioningAction?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    profileMaster?: pulumi.Input<boolean>;
+    protocolType?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string>;
     /**
      * algorithm to use to sign requests
      */
-    readonly requestSignatureAlgorithm?: pulumi.Input<string>;
+    requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
      * algorithm to use to sign response
      */
-    readonly requestSignatureScope?: pulumi.Input<string>;
+    requestSignatureScope?: pulumi.Input<string>;
     /**
      * algorithm to use to sign requests
      */
-    readonly responseSignatureAlgorithm?: pulumi.Input<string>;
+    responseSignatureAlgorithm?: pulumi.Input<string>;
     /**
      * algorithm to use to sign response
      */
-    readonly responseSignatureScope?: pulumi.Input<string>;
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly status?: pulumi.Input<string>;
-    readonly subjectMatchAttribute?: pulumi.Input<string>;
-    readonly subjectMatchType?: pulumi.Input<string>;
-    readonly suspendedAction?: pulumi.Input<string>;
-    readonly tokenBinding?: pulumi.Input<string>;
-    readonly tokenUrl?: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
-    readonly usernameTemplate?: pulumi.Input<string>;
+    responseSignatureScope?: pulumi.Input<string>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    status?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string>;
+    tokenBinding?: pulumi.Input<string>;
+    tokenUrl?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a SocialIdp resource.
  */
 export interface SocialIdpArgs {
-    readonly accountLinkAction?: pulumi.Input<string>;
-    readonly accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly clientId?: pulumi.Input<string>;
-    readonly clientSecret?: pulumi.Input<string>;
-    readonly deprovisionedAction?: pulumi.Input<string>;
-    readonly groupsAction?: pulumi.Input<string>;
-    readonly groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly groupsAttribute?: pulumi.Input<string>;
-    readonly groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    accountLinkAction?: pulumi.Input<string>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    clientId?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAttribute?: pulumi.Input<string>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      */
-    readonly issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string>;
     /**
      * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
      */
-    readonly matchAttribute?: pulumi.Input<string>;
+    matchAttribute?: pulumi.Input<string>;
     /**
      * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
      */
-    readonly matchType?: pulumi.Input<string>;
-    readonly maxClockSkew?: pulumi.Input<number>;
+    matchType?: pulumi.Input<string>;
+    maxClockSkew?: pulumi.Input<number>;
     /**
      * name of idp
      */
-    readonly name?: pulumi.Input<string>;
-    readonly profileMaster?: pulumi.Input<boolean>;
-    readonly protocolType?: pulumi.Input<string>;
-    readonly provisioningAction?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    profileMaster?: pulumi.Input<boolean>;
+    protocolType?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string>;
     /**
      * algorithm to use to sign requests
      */
-    readonly requestSignatureAlgorithm?: pulumi.Input<string>;
+    requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
      * algorithm to use to sign response
      */
-    readonly requestSignatureScope?: pulumi.Input<string>;
+    requestSignatureScope?: pulumi.Input<string>;
     /**
      * algorithm to use to sign requests
      */
-    readonly responseSignatureAlgorithm?: pulumi.Input<string>;
+    responseSignatureAlgorithm?: pulumi.Input<string>;
     /**
      * algorithm to use to sign response
      */
-    readonly responseSignatureScope?: pulumi.Input<string>;
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
-    readonly status?: pulumi.Input<string>;
-    readonly subjectMatchAttribute?: pulumi.Input<string>;
-    readonly subjectMatchType?: pulumi.Input<string>;
-    readonly suspendedAction?: pulumi.Input<string>;
-    readonly type: pulumi.Input<string>;
-    readonly usernameTemplate?: pulumi.Input<string>;
+    responseSignatureScope?: pulumi.Input<string>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
+    status?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string>;
 }

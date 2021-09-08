@@ -94,24 +94,24 @@ export interface SignonPolicyState {
     /**
      * Policy Description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of Group IDs to Include
      */
-    readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -121,22 +121,22 @@ export interface SignonPolicyArgs {
     /**
      * Policy Description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of Group IDs to Include
      */
-    readonly groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

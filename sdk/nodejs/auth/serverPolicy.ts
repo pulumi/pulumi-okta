@@ -147,33 +147,33 @@ export interface ServerPolicyState {
     /**
      * The ID of the Auth Server.
      */
-    readonly authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string>;
     /**
      * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
-    readonly clientWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    clientWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the Auth Server Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Auth Server Policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the Auth Server Policy.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The status of the Auth Server Policy.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy.
      *
      * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -183,31 +183,31 @@ export interface ServerPolicyArgs {
     /**
      * The ID of the Auth Server.
      */
-    readonly authServerId: pulumi.Input<string>;
+    authServerId: pulumi.Input<string>;
     /**
      * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
-    readonly clientWhitelists: pulumi.Input<pulumi.Input<string>[]>;
+    clientWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the Auth Server Policy.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * The name of the Auth Server Policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the Auth Server Policy.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * The status of the Auth Server Policy.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The type of the Auth Server Policy.
      *
      * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

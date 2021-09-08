@@ -103,11 +103,11 @@ export interface RolesState {
     /**
      * Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
-    readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of group to attach admin roles to.
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
 }
 
 /**
@@ -117,9 +117,9 @@ export interface RolesArgs {
     /**
      * Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
      */
-    readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of group to attach admin roles to.
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
 }

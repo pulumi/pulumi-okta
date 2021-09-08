@@ -126,29 +126,29 @@ export interface FactorTotpState {
      * - Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
-    readonly clockDriftInterval?: pulumi.Input<number>;
+    clockDriftInterval?: pulumi.Input<number>;
     /**
      * - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
      * is `"HMacSHA512"`.
      */
-    readonly hmacAlgorithm?: pulumi.Input<string>;
+    hmacAlgorithm?: pulumi.Input<string>;
     /**
      * The TOTP name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Length of the password. Default is `6`.
      */
-    readonly otpLength?: pulumi.Input<number>;
+    otpLength?: pulumi.Input<number>;
     /**
      * - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
      * Default is `"base32"`.
      */
-    readonly sharedSecretEncoding?: pulumi.Input<string>;
+    sharedSecretEncoding?: pulumi.Input<string>;
     /**
      * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
-    readonly timeStep?: pulumi.Input<number>;
+    timeStep?: pulumi.Input<number>;
 }
 
 /**
@@ -159,27 +159,27 @@ export interface FactorTotpArgs {
      * - Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
-    readonly clockDriftInterval?: pulumi.Input<number>;
+    clockDriftInterval?: pulumi.Input<number>;
     /**
      * - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
      * is `"HMacSHA512"`.
      */
-    readonly hmacAlgorithm?: pulumi.Input<string>;
+    hmacAlgorithm?: pulumi.Input<string>;
     /**
      * The TOTP name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Length of the password. Default is `6`.
      */
-    readonly otpLength?: pulumi.Input<number>;
+    otpLength?: pulumi.Input<number>;
     /**
      * - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
      * Default is `"base32"`.
      */
-    readonly sharedSecretEncoding?: pulumi.Input<string>;
+    sharedSecretEncoding?: pulumi.Input<string>;
     /**
      * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
-    readonly timeStep?: pulumi.Input<number>;
+    timeStep?: pulumi.Input<number>;
 }

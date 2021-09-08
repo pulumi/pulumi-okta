@@ -140,24 +140,24 @@ export interface EventHookState {
     /**
      * Authentication required for event hook request.
      */
-    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    readonly channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
-    readonly events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of headers to send along in event hook request.
      */
-    readonly headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
     /**
      * The event hook display name.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -167,22 +167,22 @@ export interface EventHookArgs {
     /**
      * Authentication required for event hook request.
      */
-    readonly auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    readonly channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
-    readonly events: pulumi.Input<pulumi.Input<string>[]>;
+    events: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of headers to send along in event hook request.
      */
-    readonly headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
     /**
      * The event hook display name.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

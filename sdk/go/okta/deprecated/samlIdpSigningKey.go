@@ -158,7 +158,7 @@ type SamlIdpSigningKeyArrayInput interface {
 type SamlIdpSigningKeyArray []SamlIdpSigningKeyInput
 
 func (SamlIdpSigningKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SamlIdpSigningKey)(nil))
+	return reflect.TypeOf((*[]*SamlIdpSigningKey)(nil)).Elem()
 }
 
 func (i SamlIdpSigningKeyArray) ToSamlIdpSigningKeyArrayOutput() SamlIdpSigningKeyArrayOutput {
@@ -183,7 +183,7 @@ type SamlIdpSigningKeyMapInput interface {
 type SamlIdpSigningKeyMap map[string]SamlIdpSigningKeyInput
 
 func (SamlIdpSigningKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SamlIdpSigningKey)(nil))
+	return reflect.TypeOf((*map[string]*SamlIdpSigningKey)(nil)).Elem()
 }
 
 func (i SamlIdpSigningKeyMap) ToSamlIdpSigningKeyMapOutput() SamlIdpSigningKeyMapOutput {
@@ -194,9 +194,7 @@ func (i SamlIdpSigningKeyMap) ToSamlIdpSigningKeyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpSigningKeyMapOutput)
 }
 
-type SamlIdpSigningKeyOutput struct {
-	*pulumi.OutputState
-}
+type SamlIdpSigningKeyOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpSigningKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlIdpSigningKey)(nil))
@@ -215,14 +213,12 @@ func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyPtrOutput() SamlIdpSigningKe
 }
 
 func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
-	return o.ApplyT(func(v SamlIdpSigningKey) *SamlIdpSigningKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlIdpSigningKey) *SamlIdpSigningKey {
 		return &v
 	}).(SamlIdpSigningKeyPtrOutput)
 }
 
-type SamlIdpSigningKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SamlIdpSigningKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpSigningKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SamlIdpSigningKey)(nil))
@@ -234,6 +230,16 @@ func (o SamlIdpSigningKeyPtrOutput) ToSamlIdpSigningKeyPtrOutput() SamlIdpSignin
 
 func (o SamlIdpSigningKeyPtrOutput) ToSamlIdpSigningKeyPtrOutputWithContext(ctx context.Context) SamlIdpSigningKeyPtrOutput {
 	return o
+}
+
+func (o SamlIdpSigningKeyPtrOutput) Elem() SamlIdpSigningKeyOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) SamlIdpSigningKey {
+		if v != nil {
+			return *v
+		}
+		var ret SamlIdpSigningKey
+		return ret
+	}).(SamlIdpSigningKeyOutput)
 }
 
 type SamlIdpSigningKeyArrayOutput struct{ *pulumi.OutputState }

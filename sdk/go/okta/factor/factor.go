@@ -181,7 +181,7 @@ type FactorArrayInput interface {
 type FactorArray []FactorInput
 
 func (FactorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Factor)(nil))
+	return reflect.TypeOf((*[]*Factor)(nil)).Elem()
 }
 
 func (i FactorArray) ToFactorArrayOutput() FactorArrayOutput {
@@ -206,7 +206,7 @@ type FactorMapInput interface {
 type FactorMap map[string]FactorInput
 
 func (FactorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Factor)(nil))
+	return reflect.TypeOf((*map[string]*Factor)(nil)).Elem()
 }
 
 func (i FactorMap) ToFactorMapOutput() FactorMapOutput {
@@ -217,9 +217,7 @@ func (i FactorMap) ToFactorMapOutputWithContext(ctx context.Context) FactorMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(FactorMapOutput)
 }
 
-type FactorOutput struct {
-	*pulumi.OutputState
-}
+type FactorOutput struct{ *pulumi.OutputState }
 
 func (FactorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Factor)(nil))
@@ -238,14 +236,12 @@ func (o FactorOutput) ToFactorPtrOutput() FactorPtrOutput {
 }
 
 func (o FactorOutput) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
-	return o.ApplyT(func(v Factor) *Factor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Factor) *Factor {
 		return &v
 	}).(FactorPtrOutput)
 }
 
-type FactorPtrOutput struct {
-	*pulumi.OutputState
-}
+type FactorPtrOutput struct{ *pulumi.OutputState }
 
 func (FactorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Factor)(nil))
@@ -257,6 +253,16 @@ func (o FactorPtrOutput) ToFactorPtrOutput() FactorPtrOutput {
 
 func (o FactorPtrOutput) ToFactorPtrOutputWithContext(ctx context.Context) FactorPtrOutput {
 	return o
+}
+
+func (o FactorPtrOutput) Elem() FactorOutput {
+	return o.ApplyT(func(v *Factor) Factor {
+		if v != nil {
+			return *v
+		}
+		var ret Factor
+		return ret
+	}).(FactorOutput)
 }
 
 type FactorArrayOutput struct{ *pulumi.OutputState }
