@@ -235,87 +235,87 @@ export interface UserSchemaPropertyState {
     /**
      * Array of values that an array property's items can be set to.
      */
-    readonly arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name and value an enum array can be set to.
      */
-    readonly arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyArrayOneOf>[]>;
     /**
      * The type of the array elements if `type` is set to `"array"`.
      */
-    readonly arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string>;
     /**
      * The description of the user schema property.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    readonly enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * External name of the user schema property.
      */
-    readonly externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string>;
     /**
      * External name of the user schema property.
      */
-    readonly externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index?: pulumi.Input<string>;
+    index?: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
      */
-    readonly masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyMasterOverridePriority>[]>;
+    masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyMasterOverridePriority>[]>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
-    readonly maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number>;
     /**
      * The minimum length of the user property value. Only applies to type `"string"`.
      */
-    readonly minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      */
-    readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyOneOf>[]>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyOneOf>[]>;
     /**
      * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * determines whether an app user attribute can be set at the Individual or Group Level.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * display name for the enum value.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * - Type of profile source.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
      */
-    readonly unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string>;
     /**
      * User type ID
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }
 
 /**
@@ -325,85 +325,85 @@ export interface UserSchemaPropertyArgs {
     /**
      * Array of values that an array property's items can be set to.
      */
-    readonly arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name and value an enum array can be set to.
      */
-    readonly arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyArrayOneOf>[]>;
     /**
      * The type of the array elements if `type` is set to `"array"`.
      */
-    readonly arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string>;
     /**
      * The description of the user schema property.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    readonly enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * External name of the user schema property.
      */
-    readonly externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string>;
     /**
      * External name of the user schema property.
      */
-    readonly externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string>;
     /**
      * The property name.
      */
-    readonly index: pulumi.Input<string>;
+    index: pulumi.Input<string>;
     /**
      * Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
      */
-    readonly master?: pulumi.Input<string>;
+    master?: pulumi.Input<string>;
     /**
      * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
      */
-    readonly masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyMasterOverridePriority>[]>;
+    masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyMasterOverridePriority>[]>;
     /**
      * The maximum length of the user property value. Only applies to type `"string"`.
      */
-    readonly maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number>;
     /**
      * The minimum length of the user property value. Only applies to type `"string"`.
      */
-    readonly minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      */
-    readonly oneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyOneOf>[]>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.UserSchemaPropertyOneOf>[]>;
     /**
      * The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
     /**
      * Whether the property is required for this application's users.
      */
-    readonly required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean>;
     /**
      * determines whether an app user attribute can be set at the Individual or Group Level.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * display name for the enum value.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * - Type of profile source.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
      */
-    readonly unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string>;
     /**
      * User type ID
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
 }

@@ -15,6 +15,34 @@ import (
 //
 // This resource allows you to create and configure an Authorization Server Claim.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := auth.NewServerClaim(ctx, "example", &auth.ServerClaimArgs{
+// 			AuthServerId: pulumi.String("<auth server id>"),
+// 			ClaimType:    pulumi.String("IDENTITY"),
+// 			Scopes: pulumi.StringArray{
+// 				pulumi.Any(okta_auth_server_scope.Example.Name),
+// 			},
+// 			Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
@@ -237,7 +265,7 @@ type ServerClaimArrayInput interface {
 type ServerClaimArray []ServerClaimInput
 
 func (ServerClaimArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerClaim)(nil))
+	return reflect.TypeOf((*[]*ServerClaim)(nil)).Elem()
 }
 
 func (i ServerClaimArray) ToServerClaimArrayOutput() ServerClaimArrayOutput {
@@ -262,7 +290,7 @@ type ServerClaimMapInput interface {
 type ServerClaimMap map[string]ServerClaimInput
 
 func (ServerClaimMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerClaim)(nil))
+	return reflect.TypeOf((*map[string]*ServerClaim)(nil)).Elem()
 }
 
 func (i ServerClaimMap) ToServerClaimMapOutput() ServerClaimMapOutput {
@@ -273,9 +301,7 @@ func (i ServerClaimMap) ToServerClaimMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimMapOutput)
 }
 
-type ServerClaimOutput struct {
-	*pulumi.OutputState
-}
+type ServerClaimOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerClaim)(nil))
@@ -294,14 +320,12 @@ func (o ServerClaimOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
 }
 
 func (o ServerClaimOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
-	return o.ApplyT(func(v ServerClaim) *ServerClaim {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerClaim) *ServerClaim {
 		return &v
 	}).(ServerClaimPtrOutput)
 }
 
-type ServerClaimPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerClaimPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerClaim)(nil))
@@ -313,6 +337,16 @@ func (o ServerClaimPtrOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
 
 func (o ServerClaimPtrOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
 	return o
+}
+
+func (o ServerClaimPtrOutput) Elem() ServerClaimOutput {
+	return o.ApplyT(func(v *ServerClaim) ServerClaim {
+		if v != nil {
+			return *v
+		}
+		var ret ServerClaim
+		return ret
+	}).(ServerClaimOutput)
 }
 
 type ServerClaimArrayOutput struct{ *pulumi.OutputState }

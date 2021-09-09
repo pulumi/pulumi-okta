@@ -4,6 +4,9 @@
 package idp
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,4 +106,177 @@ type LookupSocialResult struct {
 	Type string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate string `pulumi:"usernameTemplate"`
+}
+
+func LookupSocialOutput(ctx *pulumi.Context, args LookupSocialOutputArgs, opts ...pulumi.InvokeOption) LookupSocialResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSocialResult, error) {
+			args := v.(LookupSocialArgs)
+			r, err := LookupSocial(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSocialResultOutput)
+}
+
+// A collection of arguments for invoking getSocial.
+type LookupSocialOutputArgs struct {
+	// The id of the social idp to retrieve, conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the social idp to retrieve, conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupSocialOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSocialArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSocial.
+type LookupSocialResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSocialResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSocialResult)(nil)).Elem()
+}
+
+func (o LookupSocialResultOutput) ToLookupSocialResultOutput() LookupSocialResultOutput {
+	return o
+}
+
+func (o LookupSocialResultOutput) ToLookupSocialResultOutputWithContext(ctx context.Context) LookupSocialResultOutput {
+	return o
+}
+
+// Specifies the account linking action for an IdP user.
+func (o LookupSocialResultOutput) AccountLinkAction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.AccountLinkAction }).(pulumi.StringOutput)
+}
+
+// Group memberships to determine link candidates.
+func (o LookupSocialResultOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSocialResult) []string { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+// The method of making an authorization request.
+func (o LookupSocialResultOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+func (o LookupSocialResultOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+// Unique identifier issued by AS for the Okta IdP instance.
+func (o LookupSocialResultOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client secret issued by AS for the Okta IdP instance.
+func (o LookupSocialResultOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Action for a previously deprovisioned IdP user during authentication.
+func (o LookupSocialResultOutput) DeprovisionedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.DeprovisionedAction }).(pulumi.StringOutput)
+}
+
+// Provisioning action for IdP user's group memberships.
+func (o LookupSocialResultOutput) GroupsAction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.GroupsAction }).(pulumi.StringOutput)
+}
+
+// List of Okta Group IDs.
+func (o LookupSocialResultOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSocialResult) []string { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+// IdP user profile attribute name for an array value that contains group memberships.
+func (o LookupSocialResultOutput) GroupsAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.GroupsAttribute }).(pulumi.StringOutput)
+}
+
+// Whitelist of Okta Group identifiers.
+func (o LookupSocialResultOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSocialResult) []string { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSocialResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSocialResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+func (o LookupSocialResultOutput) IssuerMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.IssuerMode }).(pulumi.StringOutput)
+}
+
+// Maximum allowable clock-skew when processing messages from the IdP.
+func (o LookupSocialResultOutput) MaxClockSkew() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSocialResult) int { return v.MaxClockSkew }).(pulumi.IntOutput)
+}
+
+func (o LookupSocialResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSocialResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Determines if the IdP should act as a source of truth for user profile attributes.
+func (o LookupSocialResultOutput) ProfileMaster() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSocialResult) bool { return v.ProfileMaster }).(pulumi.BoolOutput)
+}
+
+// The type of protocol to use.
+func (o LookupSocialResultOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
+// Provisioning action for an IdP user during authentication.
+func (o LookupSocialResultOutput) ProvisioningAction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.ProvisioningAction }).(pulumi.StringOutput)
+}
+
+// The scopes of the IdP.
+func (o LookupSocialResultOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSocialResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Status of the IdP.
+func (o LookupSocialResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Okta user profile attribute for matching transformed IdP username.
+func (o LookupSocialResultOutput) SubjectMatchAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.SubjectMatchAttribute }).(pulumi.StringOutput)
+}
+
+// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username.
+func (o LookupSocialResultOutput) SubjectMatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.SubjectMatchType }).(pulumi.StringOutput)
+}
+
+// Action for a previously suspended IdP user during authentication.
+func (o LookupSocialResultOutput) SuspendedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.SuspendedAction }).(pulumi.StringOutput)
+}
+
+// The method of making a token request.
+func (o LookupSocialResultOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+func (o LookupSocialResultOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+// The type of Social IdP.
+func (o LookupSocialResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Okta EL Expression to generate or transform a unique username for the IdP user.
+func (o LookupSocialResultOutput) UsernameTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSocialResult) string { return v.UsernameTemplate }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSocialResultOutput{})
 }

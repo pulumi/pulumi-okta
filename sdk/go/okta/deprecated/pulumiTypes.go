@@ -331,10 +331,11 @@ func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimPtrOutput() OauthAppGrou
 }
 
 func (o OauthAppGroupsClaimOutput) ToOauthAppGroupsClaimPtrOutputWithContext(ctx context.Context) OauthAppGroupsClaimPtrOutput {
-	return o.ApplyT(func(v OauthAppGroupsClaim) *OauthAppGroupsClaim {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OauthAppGroupsClaim) *OauthAppGroupsClaim {
 		return &v
 	}).(OauthAppGroupsClaimPtrOutput)
 }
+
 func (o OauthAppGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OauthAppGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
@@ -366,7 +367,13 @@ func (o OauthAppGroupsClaimPtrOutput) ToOauthAppGroupsClaimPtrOutputWithContext(
 }
 
 func (o OauthAppGroupsClaimPtrOutput) Elem() OauthAppGroupsClaimOutput {
-	return o.ApplyT(func(v *OauthAppGroupsClaim) OauthAppGroupsClaim { return *v }).(OauthAppGroupsClaimOutput)
+	return o.ApplyT(func(v *OauthAppGroupsClaim) OauthAppGroupsClaim {
+		if v != nil {
+			return *v
+		}
+		var ret OauthAppGroupsClaim
+		return ret
+	}).(OauthAppGroupsClaimOutput)
 }
 
 func (o OauthAppGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {

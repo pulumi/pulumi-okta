@@ -19,6 +19,37 @@ namespace Pulumi.Okta
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        [Output("apiToken")]
+        public Output<string?> ApiToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The Okta url. (Use 'oktapreview.com' for Okta testing)
+        /// </summary>
+        [Output("baseUrl")]
+        public Output<string?> BaseUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string?> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// The organization to manage in Okta.
+        /// </summary>
+        [Output("orgName")]
+        public Output<string?> OrgName { get; private set; } = null!;
+
+        /// <summary>
+        /// API Token granting privileges to Okta API.
+        /// </summary>
+        [Output("privateKey")]
+        public Output<string?> PrivateKey { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

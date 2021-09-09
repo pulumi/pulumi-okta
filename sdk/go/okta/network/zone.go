@@ -281,7 +281,7 @@ type ZoneArrayInput interface {
 type ZoneArray []ZoneInput
 
 func (ZoneArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Zone)(nil))
+	return reflect.TypeOf((*[]*Zone)(nil)).Elem()
 }
 
 func (i ZoneArray) ToZoneArrayOutput() ZoneArrayOutput {
@@ -306,7 +306,7 @@ type ZoneMapInput interface {
 type ZoneMap map[string]ZoneInput
 
 func (ZoneMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Zone)(nil))
+	return reflect.TypeOf((*map[string]*Zone)(nil)).Elem()
 }
 
 func (i ZoneMap) ToZoneMapOutput() ZoneMapOutput {
@@ -317,9 +317,7 @@ func (i ZoneMap) ToZoneMapOutputWithContext(ctx context.Context) ZoneMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneMapOutput)
 }
 
-type ZoneOutput struct {
-	*pulumi.OutputState
-}
+type ZoneOutput struct{ *pulumi.OutputState }
 
 func (ZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Zone)(nil))
@@ -338,14 +336,12 @@ func (o ZoneOutput) ToZonePtrOutput() ZonePtrOutput {
 }
 
 func (o ZoneOutput) ToZonePtrOutputWithContext(ctx context.Context) ZonePtrOutput {
-	return o.ApplyT(func(v Zone) *Zone {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Zone) *Zone {
 		return &v
 	}).(ZonePtrOutput)
 }
 
-type ZonePtrOutput struct {
-	*pulumi.OutputState
-}
+type ZonePtrOutput struct{ *pulumi.OutputState }
 
 func (ZonePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Zone)(nil))
@@ -357,6 +353,16 @@ func (o ZonePtrOutput) ToZonePtrOutput() ZonePtrOutput {
 
 func (o ZonePtrOutput) ToZonePtrOutputWithContext(ctx context.Context) ZonePtrOutput {
 	return o
+}
+
+func (o ZonePtrOutput) Elem() ZoneOutput {
+	return o.ApplyT(func(v *Zone) Zone {
+		if v != nil {
+			return *v
+		}
+		var ret Zone
+		return ret
+	}).(ZoneOutput)
 }
 
 type ZoneArrayOutput struct{ *pulumi.OutputState }

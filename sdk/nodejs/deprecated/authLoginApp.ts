@@ -227,111 +227,111 @@ export interface AuthLoginAppState {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application credentials scheme
      */
-    readonly credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * URL of the application's logo
      */
-    readonly logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Preconfigured app name
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Allow user to reveal password
      */
-    readonly revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean>;
     /**
      * Shared password, required for certain schemes.
      */
-    readonly sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string>;
     /**
      * Shared username, required for certain schemes.
      */
-    readonly sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Sign on mode of application.
      */
-    readonly signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string>;
     /**
      * Post login redirect URL
      */
-    readonly signOnRedirectUrl?: pulumi.Input<string>;
+    signOnRedirectUrl?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly signOnUrl?: pulumi.Input<string>;
+    signOnUrl?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.AuthLoginAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.AuthLoginAppUser>[]>;
 }
 
 /**
@@ -341,97 +341,97 @@ export interface AuthLoginAppArgs {
     /**
      * Custom error page URL
      */
-    readonly accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
      * Enable self service
      */
-    readonly accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean>;
     /**
      * Application notes for admins.
      */
-    readonly adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
-    readonly appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
-    readonly autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
      * Application credentials scheme
      */
-    readonly credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string>;
     /**
      * Application notes for end users.
      */
-    readonly enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app
      */
-    readonly hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean>;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean>;
     /**
      * Pretty name of app.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Logo of the application.
      */
-    readonly logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string>;
     /**
      * Preconfigured app name
      */
-    readonly preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Allow user to reveal password
      */
-    readonly revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean>;
     /**
      * Shared password, required for certain schemes.
      */
-    readonly sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string>;
     /**
      * Shared username, required for certain schemes.
      */
-    readonly sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string>;
     /**
      * Post login redirect URL
      */
-    readonly signOnRedirectUrl?: pulumi.Input<string>;
+    signOnRedirectUrl?: pulumi.Input<string>;
     /**
      * Login URL
      */
-    readonly signOnUrl?: pulumi.Input<string>;
+    signOnUrl?: pulumi.Input<string>;
     /**
      * Status of application.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Username template
      */
-    readonly userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
-    readonly userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string>;
     /**
      * Username template type
      */
-    readonly userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.deprecated.AuthLoginAppUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.deprecated.AuthLoginAppUser>[]>;
 }

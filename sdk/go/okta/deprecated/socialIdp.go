@@ -325,7 +325,7 @@ type SocialIdpArrayInput interface {
 type SocialIdpArray []SocialIdpInput
 
 func (SocialIdpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SocialIdp)(nil))
+	return reflect.TypeOf((*[]*SocialIdp)(nil)).Elem()
 }
 
 func (i SocialIdpArray) ToSocialIdpArrayOutput() SocialIdpArrayOutput {
@@ -350,7 +350,7 @@ type SocialIdpMapInput interface {
 type SocialIdpMap map[string]SocialIdpInput
 
 func (SocialIdpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SocialIdp)(nil))
+	return reflect.TypeOf((*map[string]*SocialIdp)(nil)).Elem()
 }
 
 func (i SocialIdpMap) ToSocialIdpMapOutput() SocialIdpMapOutput {
@@ -361,9 +361,7 @@ func (i SocialIdpMap) ToSocialIdpMapOutputWithContext(ctx context.Context) Socia
 	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpMapOutput)
 }
 
-type SocialIdpOutput struct {
-	*pulumi.OutputState
-}
+type SocialIdpOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SocialIdp)(nil))
@@ -382,14 +380,12 @@ func (o SocialIdpOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
 }
 
 func (o SocialIdpOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
-	return o.ApplyT(func(v SocialIdp) *SocialIdp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SocialIdp) *SocialIdp {
 		return &v
 	}).(SocialIdpPtrOutput)
 }
 
-type SocialIdpPtrOutput struct {
-	*pulumi.OutputState
-}
+type SocialIdpPtrOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SocialIdp)(nil))
@@ -401,6 +397,16 @@ func (o SocialIdpPtrOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
 
 func (o SocialIdpPtrOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
 	return o
+}
+
+func (o SocialIdpPtrOutput) Elem() SocialIdpOutput {
+	return o.ApplyT(func(v *SocialIdp) SocialIdp {
+		if v != nil {
+			return *v
+		}
+		var ret SocialIdp
+		return ret
+	}).(SocialIdpOutput)
 }
 
 type SocialIdpArrayOutput struct{ *pulumi.OutputState }

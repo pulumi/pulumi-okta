@@ -4,6 +4,9 @@
 package policy
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,52 @@ type GetDefaultPolicyResult struct {
 	Id string `pulumi:"id"`
 	// type of policy.
 	Type string `pulumi:"type"`
+}
+
+func GetDefaultPolicyOutput(ctx *pulumi.Context, args GetDefaultPolicyOutputArgs, opts ...pulumi.InvokeOption) GetDefaultPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDefaultPolicyResult, error) {
+			args := v.(GetDefaultPolicyArgs)
+			r, err := GetDefaultPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(GetDefaultPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getDefaultPolicy.
+type GetDefaultPolicyOutputArgs struct {
+	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDefaultPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDefaultPolicy.
+type GetDefaultPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultPolicyResult)(nil)).Elem()
+}
+
+func (o GetDefaultPolicyResultOutput) ToGetDefaultPolicyResultOutput() GetDefaultPolicyResultOutput {
+	return o
+}
+
+func (o GetDefaultPolicyResultOutput) ToGetDefaultPolicyResultOutputWithContext(ctx context.Context) GetDefaultPolicyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDefaultPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// type of policy.
+func (o GetDefaultPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDefaultPolicyResultOutput{})
 }

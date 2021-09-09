@@ -236,7 +236,7 @@ type ServerScopeArrayInput interface {
 type ServerScopeArray []ServerScopeInput
 
 func (ServerScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerScope)(nil))
+	return reflect.TypeOf((*[]*ServerScope)(nil)).Elem()
 }
 
 func (i ServerScopeArray) ToServerScopeArrayOutput() ServerScopeArrayOutput {
@@ -261,7 +261,7 @@ type ServerScopeMapInput interface {
 type ServerScopeMap map[string]ServerScopeInput
 
 func (ServerScopeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerScope)(nil))
+	return reflect.TypeOf((*map[string]*ServerScope)(nil)).Elem()
 }
 
 func (i ServerScopeMap) ToServerScopeMapOutput() ServerScopeMapOutput {
@@ -272,9 +272,7 @@ func (i ServerScopeMap) ToServerScopeMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeMapOutput)
 }
 
-type ServerScopeOutput struct {
-	*pulumi.OutputState
-}
+type ServerScopeOutput struct{ *pulumi.OutputState }
 
 func (ServerScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerScope)(nil))
@@ -293,14 +291,12 @@ func (o ServerScopeOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
 }
 
 func (o ServerScopeOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
-	return o.ApplyT(func(v ServerScope) *ServerScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerScope) *ServerScope {
 		return &v
 	}).(ServerScopePtrOutput)
 }
 
-type ServerScopePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerScopePtrOutput struct{ *pulumi.OutputState }
 
 func (ServerScopePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerScope)(nil))
@@ -312,6 +308,16 @@ func (o ServerScopePtrOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
 
 func (o ServerScopePtrOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
 	return o
+}
+
+func (o ServerScopePtrOutput) Elem() ServerScopeOutput {
+	return o.ApplyT(func(v *ServerScope) ServerScope {
+		if v != nil {
+			return *v
+		}
+		var ret ServerScope
+		return ret
+	}).(ServerScopeOutput)
 }
 
 type ServerScopeArrayOutput struct{ *pulumi.OutputState }

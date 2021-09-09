@@ -340,7 +340,7 @@ type BasicAuthArrayInput interface {
 type BasicAuthArray []BasicAuthInput
 
 func (BasicAuthArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BasicAuth)(nil))
+	return reflect.TypeOf((*[]*BasicAuth)(nil)).Elem()
 }
 
 func (i BasicAuthArray) ToBasicAuthArrayOutput() BasicAuthArrayOutput {
@@ -365,7 +365,7 @@ type BasicAuthMapInput interface {
 type BasicAuthMap map[string]BasicAuthInput
 
 func (BasicAuthMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BasicAuth)(nil))
+	return reflect.TypeOf((*map[string]*BasicAuth)(nil)).Elem()
 }
 
 func (i BasicAuthMap) ToBasicAuthMapOutput() BasicAuthMapOutput {
@@ -376,9 +376,7 @@ func (i BasicAuthMap) ToBasicAuthMapOutputWithContext(ctx context.Context) Basic
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthMapOutput)
 }
 
-type BasicAuthOutput struct {
-	*pulumi.OutputState
-}
+type BasicAuthOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BasicAuth)(nil))
@@ -397,14 +395,12 @@ func (o BasicAuthOutput) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
 }
 
 func (o BasicAuthOutput) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
-	return o.ApplyT(func(v BasicAuth) *BasicAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasicAuth) *BasicAuth {
 		return &v
 	}).(BasicAuthPtrOutput)
 }
 
-type BasicAuthPtrOutput struct {
-	*pulumi.OutputState
-}
+type BasicAuthPtrOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BasicAuth)(nil))
@@ -416,6 +412,16 @@ func (o BasicAuthPtrOutput) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
 
 func (o BasicAuthPtrOutput) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
 	return o
+}
+
+func (o BasicAuthPtrOutput) Elem() BasicAuthOutput {
+	return o.ApplyT(func(v *BasicAuth) BasicAuth {
+		if v != nil {
+			return *v
+		}
+		var ret BasicAuth
+		return ret
+	}).(BasicAuthOutput)
 }
 
 type BasicAuthArrayOutput struct{ *pulumi.OutputState }

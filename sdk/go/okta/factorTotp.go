@@ -234,7 +234,7 @@ type FactorTotpArrayInput interface {
 type FactorTotpArray []FactorTotpInput
 
 func (FactorTotpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FactorTotp)(nil))
+	return reflect.TypeOf((*[]*FactorTotp)(nil)).Elem()
 }
 
 func (i FactorTotpArray) ToFactorTotpArrayOutput() FactorTotpArrayOutput {
@@ -259,7 +259,7 @@ type FactorTotpMapInput interface {
 type FactorTotpMap map[string]FactorTotpInput
 
 func (FactorTotpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FactorTotp)(nil))
+	return reflect.TypeOf((*map[string]*FactorTotp)(nil)).Elem()
 }
 
 func (i FactorTotpMap) ToFactorTotpMapOutput() FactorTotpMapOutput {
@@ -270,9 +270,7 @@ func (i FactorTotpMap) ToFactorTotpMapOutputWithContext(ctx context.Context) Fac
 	return pulumi.ToOutputWithContext(ctx, i).(FactorTotpMapOutput)
 }
 
-type FactorTotpOutput struct {
-	*pulumi.OutputState
-}
+type FactorTotpOutput struct{ *pulumi.OutputState }
 
 func (FactorTotpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FactorTotp)(nil))
@@ -291,14 +289,12 @@ func (o FactorTotpOutput) ToFactorTotpPtrOutput() FactorTotpPtrOutput {
 }
 
 func (o FactorTotpOutput) ToFactorTotpPtrOutputWithContext(ctx context.Context) FactorTotpPtrOutput {
-	return o.ApplyT(func(v FactorTotp) *FactorTotp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactorTotp) *FactorTotp {
 		return &v
 	}).(FactorTotpPtrOutput)
 }
 
-type FactorTotpPtrOutput struct {
-	*pulumi.OutputState
-}
+type FactorTotpPtrOutput struct{ *pulumi.OutputState }
 
 func (FactorTotpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FactorTotp)(nil))
@@ -310,6 +306,16 @@ func (o FactorTotpPtrOutput) ToFactorTotpPtrOutput() FactorTotpPtrOutput {
 
 func (o FactorTotpPtrOutput) ToFactorTotpPtrOutputWithContext(ctx context.Context) FactorTotpPtrOutput {
 	return o
+}
+
+func (o FactorTotpPtrOutput) Elem() FactorTotpOutput {
+	return o.ApplyT(func(v *FactorTotp) FactorTotp {
+		if v != nil {
+			return *v
+		}
+		var ret FactorTotp
+		return ret
+	}).(FactorTotpOutput)
 }
 
 type FactorTotpArrayOutput struct{ *pulumi.OutputState }

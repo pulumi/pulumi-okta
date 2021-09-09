@@ -267,7 +267,7 @@ type UserBaseSchemaArrayInput interface {
 type UserBaseSchemaArray []UserBaseSchemaInput
 
 func (UserBaseSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserBaseSchema)(nil))
+	return reflect.TypeOf((*[]*UserBaseSchema)(nil)).Elem()
 }
 
 func (i UserBaseSchemaArray) ToUserBaseSchemaArrayOutput() UserBaseSchemaArrayOutput {
@@ -292,7 +292,7 @@ type UserBaseSchemaMapInput interface {
 type UserBaseSchemaMap map[string]UserBaseSchemaInput
 
 func (UserBaseSchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserBaseSchema)(nil))
+	return reflect.TypeOf((*map[string]*UserBaseSchema)(nil)).Elem()
 }
 
 func (i UserBaseSchemaMap) ToUserBaseSchemaMapOutput() UserBaseSchemaMapOutput {
@@ -303,9 +303,7 @@ func (i UserBaseSchemaMap) ToUserBaseSchemaMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaMapOutput)
 }
 
-type UserBaseSchemaOutput struct {
-	*pulumi.OutputState
-}
+type UserBaseSchemaOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserBaseSchema)(nil))
@@ -324,14 +322,12 @@ func (o UserBaseSchemaOutput) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOutpu
 }
 
 func (o UserBaseSchemaOutput) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
-	return o.ApplyT(func(v UserBaseSchema) *UserBaseSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserBaseSchema) *UserBaseSchema {
 		return &v
 	}).(UserBaseSchemaPtrOutput)
 }
 
-type UserBaseSchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserBaseSchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserBaseSchema)(nil))
@@ -343,6 +339,16 @@ func (o UserBaseSchemaPtrOutput) ToUserBaseSchemaPtrOutput() UserBaseSchemaPtrOu
 
 func (o UserBaseSchemaPtrOutput) ToUserBaseSchemaPtrOutputWithContext(ctx context.Context) UserBaseSchemaPtrOutput {
 	return o
+}
+
+func (o UserBaseSchemaPtrOutput) Elem() UserBaseSchemaOutput {
+	return o.ApplyT(func(v *UserBaseSchema) UserBaseSchema {
+		if v != nil {
+			return *v
+		}
+		var ret UserBaseSchema
+		return ret
+	}).(UserBaseSchemaOutput)
 }
 
 type UserBaseSchemaArrayOutput struct{ *pulumi.OutputState }

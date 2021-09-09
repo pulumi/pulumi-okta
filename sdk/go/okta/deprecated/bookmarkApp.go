@@ -281,7 +281,7 @@ type BookmarkAppArrayInput interface {
 type BookmarkAppArray []BookmarkAppInput
 
 func (BookmarkAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BookmarkApp)(nil))
+	return reflect.TypeOf((*[]*BookmarkApp)(nil)).Elem()
 }
 
 func (i BookmarkAppArray) ToBookmarkAppArrayOutput() BookmarkAppArrayOutput {
@@ -306,7 +306,7 @@ type BookmarkAppMapInput interface {
 type BookmarkAppMap map[string]BookmarkAppInput
 
 func (BookmarkAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BookmarkApp)(nil))
+	return reflect.TypeOf((*map[string]*BookmarkApp)(nil)).Elem()
 }
 
 func (i BookmarkAppMap) ToBookmarkAppMapOutput() BookmarkAppMapOutput {
@@ -317,9 +317,7 @@ func (i BookmarkAppMap) ToBookmarkAppMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkAppMapOutput)
 }
 
-type BookmarkAppOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkAppOutput struct{ *pulumi.OutputState }
 
 func (BookmarkAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BookmarkApp)(nil))
@@ -338,14 +336,12 @@ func (o BookmarkAppOutput) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
 }
 
 func (o BookmarkAppOutput) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
-	return o.ApplyT(func(v BookmarkApp) *BookmarkApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BookmarkApp) *BookmarkApp {
 		return &v
 	}).(BookmarkAppPtrOutput)
 }
 
-type BookmarkAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkAppPtrOutput struct{ *pulumi.OutputState }
 
 func (BookmarkAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BookmarkApp)(nil))
@@ -357,6 +353,16 @@ func (o BookmarkAppPtrOutput) ToBookmarkAppPtrOutput() BookmarkAppPtrOutput {
 
 func (o BookmarkAppPtrOutput) ToBookmarkAppPtrOutputWithContext(ctx context.Context) BookmarkAppPtrOutput {
 	return o
+}
+
+func (o BookmarkAppPtrOutput) Elem() BookmarkAppOutput {
+	return o.ApplyT(func(v *BookmarkApp) BookmarkApp {
+		if v != nil {
+			return *v
+		}
+		var ret BookmarkApp
+		return ret
+	}).(BookmarkAppOutput)
 }
 
 type BookmarkAppArrayOutput struct{ *pulumi.OutputState }

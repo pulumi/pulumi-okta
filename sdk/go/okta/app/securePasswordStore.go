@@ -95,7 +95,7 @@ type SecurePasswordStore struct {
 	OptionalField3Value pulumi.StringPtrOutput `pulumi:"optionalField3Value"`
 	// Login password field.
 	PasswordField pulumi.StringOutput `pulumi:"passwordField"`
-	// Allow user to reveal password.
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
@@ -206,7 +206,7 @@ type securePasswordStoreState struct {
 	OptionalField3Value *string `pulumi:"optionalField3Value"`
 	// Login password field.
 	PasswordField *string `pulumi:"passwordField"`
-	// Allow user to reveal password.
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -277,7 +277,7 @@ type SecurePasswordStoreState struct {
 	OptionalField3Value pulumi.StringPtrInput
 	// Login password field.
 	PasswordField pulumi.StringPtrInput
-	// Allow user to reveal password.
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -348,7 +348,7 @@ type securePasswordStoreArgs struct {
 	OptionalField3Value *string `pulumi:"optionalField3Value"`
 	// Login password field.
 	PasswordField string `pulumi:"passwordField"`
-	// Allow user to reveal password.
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -414,7 +414,7 @@ type SecurePasswordStoreArgs struct {
 	OptionalField3Value pulumi.StringPtrInput
 	// Login password field.
 	PasswordField pulumi.StringInput
-	// Allow user to reveal password.
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -505,7 +505,7 @@ type SecurePasswordStoreArrayInput interface {
 type SecurePasswordStoreArray []SecurePasswordStoreInput
 
 func (SecurePasswordStoreArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurePasswordStore)(nil))
+	return reflect.TypeOf((*[]*SecurePasswordStore)(nil)).Elem()
 }
 
 func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutput() SecurePasswordStoreArrayOutput {
@@ -530,7 +530,7 @@ type SecurePasswordStoreMapInput interface {
 type SecurePasswordStoreMap map[string]SecurePasswordStoreInput
 
 func (SecurePasswordStoreMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurePasswordStore)(nil))
+	return reflect.TypeOf((*map[string]*SecurePasswordStore)(nil)).Elem()
 }
 
 func (i SecurePasswordStoreMap) ToSecurePasswordStoreMapOutput() SecurePasswordStoreMapOutput {
@@ -541,9 +541,7 @@ func (i SecurePasswordStoreMap) ToSecurePasswordStoreMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreMapOutput)
 }
 
-type SecurePasswordStoreOutput struct {
-	*pulumi.OutputState
-}
+type SecurePasswordStoreOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurePasswordStore)(nil))
@@ -562,14 +560,12 @@ func (o SecurePasswordStoreOutput) ToSecurePasswordStorePtrOutput() SecurePasswo
 }
 
 func (o SecurePasswordStoreOutput) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
-	return o.ApplyT(func(v SecurePasswordStore) *SecurePasswordStore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurePasswordStore) *SecurePasswordStore {
 		return &v
 	}).(SecurePasswordStorePtrOutput)
 }
 
-type SecurePasswordStorePtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurePasswordStorePtrOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStorePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurePasswordStore)(nil))
@@ -581,6 +577,16 @@ func (o SecurePasswordStorePtrOutput) ToSecurePasswordStorePtrOutput() SecurePas
 
 func (o SecurePasswordStorePtrOutput) ToSecurePasswordStorePtrOutputWithContext(ctx context.Context) SecurePasswordStorePtrOutput {
 	return o
+}
+
+func (o SecurePasswordStorePtrOutput) Elem() SecurePasswordStoreOutput {
+	return o.ApplyT(func(v *SecurePasswordStore) SecurePasswordStore {
+		if v != nil {
+			return *v
+		}
+		var ret SecurePasswordStore
+		return ret
+	}).(SecurePasswordStoreOutput)
 }
 
 type SecurePasswordStoreArrayOutput struct{ *pulumi.OutputState }

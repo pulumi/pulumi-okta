@@ -10,35 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User
 {
     /// <summary>
-    /// Creates a User Schema property.
-    /// 
-    /// This resource allows you to create and configure a custom user schema property.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Okta.User.Schema("example", new Okta.User.SchemaArgs
-    ///         {
-    ///             Description = "My custom property name",
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Scope = "SELF",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///             UserType = data.Okta_user_type.Example.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// User schema property of default user type can be imported via the property index.

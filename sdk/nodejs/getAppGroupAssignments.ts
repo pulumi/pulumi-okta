@@ -39,7 +39,7 @@ export interface GetAppGroupAssignmentsArgs {
     /**
      * The ID of the Okta application you want to retrieve the groups for.
      */
-    readonly id: string;
+    id: string;
 }
 
 /**

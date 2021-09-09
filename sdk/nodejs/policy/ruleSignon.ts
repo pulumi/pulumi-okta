@@ -284,90 +284,90 @@ export interface RuleSignonState {
     /**
      * Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
      */
-    readonly access?: pulumi.Input<string>;
+    access?: pulumi.Input<string>;
     /**
      * Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
      */
-    readonly authtype?: pulumi.Input<string>;
+    authtype?: pulumi.Input<string>;
     /**
      * List of behavior IDs.
      */
-    readonly behaviors?: pulumi.Input<pulumi.Input<string>[]>;
+    behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
      */
-    readonly factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
+    factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
      * Elapsed time before the next MFA challenge.
      */
-    readonly mfaLifetime?: pulumi.Input<number>;
+    mfaLifetime?: pulumi.Input<number>;
     /**
      * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
      */
-    readonly mfaPrompt?: pulumi.Input<string>;
+    mfaPrompt?: pulumi.Input<string>;
     /**
      * Remember MFA device. The default `false`.
      */
-    readonly mfaRememberDevice?: pulumi.Input<boolean>;
+    mfaRememberDevice?: pulumi.Input<boolean>;
     /**
      * Require MFA. By default is `false`.
      */
-    readonly mfaRequired?: pulumi.Input<boolean>;
+    mfaRequired?: pulumi.Input<boolean>;
     /**
      * Policy Rule Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * The network zones to exclude. Conflicts with `networkIncludes`.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The network zones to include. Conflicts with `networkExcludes`.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      */
-    readonly riscLevel?: pulumi.Input<string>;
+    riscLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.,
      */
-    readonly sessionIdle?: pulumi.Input<number>;
+    sessionIdle?: pulumi.Input<number>;
     /**
      * Max minutes a session is active: Disable = 0.
      */
-    readonly sessionLifetime?: pulumi.Input<number>;
+    sessionLifetime?: pulumi.Input<number>;
     /**
      * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
      */
-    readonly sessionPersistent?: pulumi.Input<boolean>;
+    sessionPersistent?: pulumi.Input<boolean>;
     /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Set of User IDs to Exclude
      */
-    readonly usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -377,88 +377,88 @@ export interface RuleSignonArgs {
     /**
      * Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
      */
-    readonly access?: pulumi.Input<string>;
+    access?: pulumi.Input<string>;
     /**
      * Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
      */
-    readonly authtype?: pulumi.Input<string>;
+    authtype?: pulumi.Input<string>;
     /**
      * List of behavior IDs.
      */
-    readonly behaviors?: pulumi.Input<pulumi.Input<string>[]>;
+    behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
      */
-    readonly factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
+    factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
      * Elapsed time before the next MFA challenge.
      */
-    readonly mfaLifetime?: pulumi.Input<number>;
+    mfaLifetime?: pulumi.Input<number>;
     /**
      * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
      */
-    readonly mfaPrompt?: pulumi.Input<string>;
+    mfaPrompt?: pulumi.Input<string>;
     /**
      * Remember MFA device. The default `false`.
      */
-    readonly mfaRememberDevice?: pulumi.Input<boolean>;
+    mfaRememberDevice?: pulumi.Input<boolean>;
     /**
      * Require MFA. By default is `false`.
      */
-    readonly mfaRequired?: pulumi.Input<boolean>;
+    mfaRequired?: pulumi.Input<boolean>;
     /**
      * Policy Rule Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
-    readonly networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string>;
     /**
      * The network zones to exclude. Conflicts with `networkIncludes`.
      */
-    readonly networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The network zones to include. Conflicts with `networkExcludes`.
      */
-    readonly networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Policy ID.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Policy ID.
      *
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
-    readonly policyid?: pulumi.Input<string>;
+    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      */
-    readonly riscLevel?: pulumi.Input<string>;
+    riscLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.,
      */
-    readonly sessionIdle?: pulumi.Input<number>;
+    sessionIdle?: pulumi.Input<number>;
     /**
      * Max minutes a session is active: Disable = 0.
      */
-    readonly sessionLifetime?: pulumi.Input<number>;
+    sessionLifetime?: pulumi.Input<number>;
     /**
      * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
      */
-    readonly sessionPersistent?: pulumi.Input<boolean>;
+    sessionPersistent?: pulumi.Input<boolean>;
     /**
      * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Set of User IDs to Exclude
      */
-    readonly usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -187,7 +187,7 @@ type SamlKeyArrayInput interface {
 type SamlKeyArray []SamlKeyInput
 
 func (SamlKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SamlKey)(nil))
+	return reflect.TypeOf((*[]*SamlKey)(nil)).Elem()
 }
 
 func (i SamlKeyArray) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
@@ -212,7 +212,7 @@ type SamlKeyMapInput interface {
 type SamlKeyMap map[string]SamlKeyInput
 
 func (SamlKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SamlKey)(nil))
+	return reflect.TypeOf((*map[string]*SamlKey)(nil)).Elem()
 }
 
 func (i SamlKeyMap) ToSamlKeyMapOutput() SamlKeyMapOutput {
@@ -223,9 +223,7 @@ func (i SamlKeyMap) ToSamlKeyMapOutputWithContext(ctx context.Context) SamlKeyMa
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyMapOutput)
 }
 
-type SamlKeyOutput struct {
-	*pulumi.OutputState
-}
+type SamlKeyOutput struct{ *pulumi.OutputState }
 
 func (SamlKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamlKey)(nil))
@@ -244,14 +242,12 @@ func (o SamlKeyOutput) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
 }
 
 func (o SamlKeyOutput) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
-	return o.ApplyT(func(v SamlKey) *SamlKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlKey) *SamlKey {
 		return &v
 	}).(SamlKeyPtrOutput)
 }
 
-type SamlKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SamlKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SamlKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SamlKey)(nil))
@@ -263,6 +259,16 @@ func (o SamlKeyPtrOutput) ToSamlKeyPtrOutput() SamlKeyPtrOutput {
 
 func (o SamlKeyPtrOutput) ToSamlKeyPtrOutputWithContext(ctx context.Context) SamlKeyPtrOutput {
 	return o
+}
+
+func (o SamlKeyPtrOutput) Elem() SamlKeyOutput {
+	return o.ApplyT(func(v *SamlKey) SamlKey {
+		if v != nil {
+			return *v
+		}
+		var ret SamlKey
+		return ret
+	}).(SamlKeyOutput)
 }
 
 type SamlKeyArrayOutput struct{ *pulumi.OutputState }

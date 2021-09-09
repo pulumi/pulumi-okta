@@ -107,17 +107,17 @@ export interface GroupState {
     /**
      * The description of the Okta Group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Okta Group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The users associated with the group. This can also be done per user.
      *
      * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
-    readonly users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -127,15 +127,15 @@ export interface GroupArgs {
     /**
      * The description of the Okta Group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Okta Group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The users associated with the group. This can also be done per user.
      *
      * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
-    readonly users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

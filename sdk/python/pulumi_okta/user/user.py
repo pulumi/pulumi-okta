@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
 
@@ -37,6 +39,7 @@ class UserArgs:
                  nick_name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -78,6 +81,7 @@ class UserArgs:
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
+        :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -143,6 +147,8 @@ class UserArgs:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
         if postal_address is not None:
             pulumi.set(__self__, "postal_address", postal_address)
         if preferred_language is not None:
@@ -462,6 +468,18 @@ class UserArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[pulumi.Input['UserPasswordHashArgs']]:
+        """
+        Specifies a hashed password to import into Okta.
+        """
+        return pulumi.get(self, "password_hash")
+
+    @password_hash.setter
+    def password_hash(self, value: Optional[pulumi.Input['UserPasswordHashArgs']]):
+        pulumi.set(self, "password_hash", value)
+
+    @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
@@ -657,6 +675,7 @@ class _UserState:
                  nick_name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -699,6 +718,7 @@ class _UserState:
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
+        :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -769,6 +789,8 @@ class _UserState:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
         if postal_address is not None:
             pulumi.set(__self__, "postal_address", postal_address)
         if preferred_language is not None:
@@ -1090,6 +1112,18 @@ class _UserState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[pulumi.Input['UserPasswordHashArgs']]:
+        """
+        Specifies a hashed password to import into Okta.
+        """
+        return pulumi.get(self, "password_hash")
+
+    @password_hash.setter
+    def password_hash(self, value: Optional[pulumi.Input['UserPasswordHashArgs']]):
+        pulumi.set(self, "password_hash", value)
+
+    @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1299,6 +1333,7 @@ class User(pulumi.CustomResource):
                  nick_name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1394,6 +1429,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -1507,6 +1543,7 @@ class User(pulumi.CustomResource):
                  nick_name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1571,6 +1608,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["nick_name"] = nick_name
             __props__.__dict__["organization"] = organization
             __props__.__dict__["password"] = password
+            __props__.__dict__["password_hash"] = password_hash
             __props__.__dict__["postal_address"] = postal_address
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["primary_phone"] = primary_phone
@@ -1620,6 +1658,7 @@ class User(pulumi.CustomResource):
             nick_name: Optional[pulumi.Input[str]] = None,
             organization: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
+            password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
             postal_address: Optional[pulumi.Input[str]] = None,
             preferred_language: Optional[pulumi.Input[str]] = None,
             primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1667,6 +1706,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] nick_name: User profile property.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -1711,6 +1751,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["nick_name"] = nick_name
         __props__.__dict__["organization"] = organization
         __props__.__dict__["password"] = password
+        __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["postal_address"] = postal_address
         __props__.__dict__["preferred_language"] = preferred_language
         __props__.__dict__["primary_phone"] = primary_phone
@@ -1920,6 +1961,14 @@ class User(pulumi.CustomResource):
         User password.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> pulumi.Output[Optional['outputs.UserPasswordHash']]:
+        """
+        Specifies a hashed password to import into Okta.
+        """
+        return pulumi.get(self, "password_hash")
 
     @property
     @pulumi.getter(name="postalAddress")

@@ -123,15 +123,15 @@ export interface TemplateSmsState {
     /**
      * The SMS message.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
     /**
      * Set of translations for a particular template.
      */
-    readonly translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
+    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**
      * SMS template type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface TemplateSmsArgs {
     /**
      * The SMS message.
      */
-    readonly template: pulumi.Input<string>;
+    template: pulumi.Input<string>;
     /**
      * Set of translations for a particular template.
      */
-    readonly translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
+    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**
      * SMS template type
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

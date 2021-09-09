@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(okta.policy.getPolicy({
  *     name: "Password Policy Example",
  *     type: "PASSWORD",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
@@ -41,11 +41,11 @@ export interface GetPolicyArgs {
     /**
      * Name of policy to retrieve.
      */
-    readonly name: string;
+    name: string;
     /**
      * Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
      */
-    readonly type: string;
+    type: string;
 }
 
 /**

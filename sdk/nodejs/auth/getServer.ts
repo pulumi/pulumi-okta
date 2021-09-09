@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.auth.getServer({
  *     name: "Example Auth",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
@@ -39,7 +39,7 @@ export interface GetServerArgs {
     /**
      * The name of the auth server to retrieve.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

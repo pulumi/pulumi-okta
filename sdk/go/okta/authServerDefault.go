@@ -242,7 +242,7 @@ type AuthServerDefaultArrayInput interface {
 type AuthServerDefaultArray []AuthServerDefaultInput
 
 func (AuthServerDefaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AuthServerDefault)(nil))
+	return reflect.TypeOf((*[]*AuthServerDefault)(nil)).Elem()
 }
 
 func (i AuthServerDefaultArray) ToAuthServerDefaultArrayOutput() AuthServerDefaultArrayOutput {
@@ -267,7 +267,7 @@ type AuthServerDefaultMapInput interface {
 type AuthServerDefaultMap map[string]AuthServerDefaultInput
 
 func (AuthServerDefaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AuthServerDefault)(nil))
+	return reflect.TypeOf((*map[string]*AuthServerDefault)(nil)).Elem()
 }
 
 func (i AuthServerDefaultMap) ToAuthServerDefaultMapOutput() AuthServerDefaultMapOutput {
@@ -278,9 +278,7 @@ func (i AuthServerDefaultMap) ToAuthServerDefaultMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultMapOutput)
 }
 
-type AuthServerDefaultOutput struct {
-	*pulumi.OutputState
-}
+type AuthServerDefaultOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthServerDefault)(nil))
@@ -299,14 +297,12 @@ func (o AuthServerDefaultOutput) ToAuthServerDefaultPtrOutput() AuthServerDefaul
 }
 
 func (o AuthServerDefaultOutput) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
-	return o.ApplyT(func(v AuthServerDefault) *AuthServerDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthServerDefault) *AuthServerDefault {
 		return &v
 	}).(AuthServerDefaultPtrOutput)
 }
 
-type AuthServerDefaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type AuthServerDefaultPtrOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AuthServerDefault)(nil))
@@ -318,6 +314,16 @@ func (o AuthServerDefaultPtrOutput) ToAuthServerDefaultPtrOutput() AuthServerDef
 
 func (o AuthServerDefaultPtrOutput) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
 	return o
+}
+
+func (o AuthServerDefaultPtrOutput) Elem() AuthServerDefaultOutput {
+	return o.ApplyT(func(v *AuthServerDefault) AuthServerDefault {
+		if v != nil {
+			return *v
+		}
+		var ret AuthServerDefault
+		return ret
+	}).(AuthServerDefaultOutput)
 }
 
 type AuthServerDefaultArrayOutput struct{ *pulumi.OutputState }

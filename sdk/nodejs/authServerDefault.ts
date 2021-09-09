@@ -145,43 +145,43 @@ export interface AuthServerDefaultState {
     /**
      * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      */
-    readonly audiences?: pulumi.Input<pulumi.Input<string>[]>;
+    audiences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The timestamp when the authorization server started to use the `kid` for signing tokens.
      */
-    readonly credentialsLastRotated?: pulumi.Input<string>;
+    credentialsLastRotated?: pulumi.Input<string>;
     /**
      * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
      */
-    readonly credentialsNextRotation?: pulumi.Input<string>;
+    credentialsNextRotation?: pulumi.Input<string>;
     /**
      * The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
      */
-    readonly credentialsRotationMode?: pulumi.Input<string>;
+    credentialsRotationMode?: pulumi.Input<string>;
     /**
      * The description of the authorization server.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      */
-    readonly issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
     /**
      * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
      */
-    readonly issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string>;
     /**
      * The ID of the JSON Web Key used for signing tokens issued by the authorization server.
      */
-    readonly kid?: pulumi.Input<string>;
+    kid?: pulumi.Input<string>;
     /**
      * The name of the authorization server.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The status of the auth server.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -191,25 +191,25 @@ export interface AuthServerDefaultArgs {
     /**
      * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      */
-    readonly audiences?: pulumi.Input<pulumi.Input<string>[]>;
+    audiences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
      */
-    readonly credentialsRotationMode?: pulumi.Input<string>;
+    credentialsRotationMode?: pulumi.Input<string>;
     /**
      * The description of the authorization server.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
      */
-    readonly issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string>;
     /**
      * The name of the authorization server.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The status of the auth server.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

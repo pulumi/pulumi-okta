@@ -22,7 +22,7 @@ export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.I
  * A collection of arguments for invoking getDefaultPolicies.
  */
 export interface GetDefaultPoliciesArgs {
-    readonly type: string;
+    type: string;
 }
 
 /**

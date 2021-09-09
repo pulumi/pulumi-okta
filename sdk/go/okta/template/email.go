@@ -211,7 +211,7 @@ type EmailArrayInput interface {
 type EmailArray []EmailInput
 
 func (EmailArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Email)(nil))
+	return reflect.TypeOf((*[]*Email)(nil)).Elem()
 }
 
 func (i EmailArray) ToEmailArrayOutput() EmailArrayOutput {
@@ -236,7 +236,7 @@ type EmailMapInput interface {
 type EmailMap map[string]EmailInput
 
 func (EmailMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Email)(nil))
+	return reflect.TypeOf((*map[string]*Email)(nil)).Elem()
 }
 
 func (i EmailMap) ToEmailMapOutput() EmailMapOutput {
@@ -247,9 +247,7 @@ func (i EmailMap) ToEmailMapOutputWithContext(ctx context.Context) EmailMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EmailMapOutput)
 }
 
-type EmailOutput struct {
-	*pulumi.OutputState
-}
+type EmailOutput struct{ *pulumi.OutputState }
 
 func (EmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Email)(nil))
@@ -268,14 +266,12 @@ func (o EmailOutput) ToEmailPtrOutput() EmailPtrOutput {
 }
 
 func (o EmailOutput) ToEmailPtrOutputWithContext(ctx context.Context) EmailPtrOutput {
-	return o.ApplyT(func(v Email) *Email {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Email) *Email {
 		return &v
 	}).(EmailPtrOutput)
 }
 
-type EmailPtrOutput struct {
-	*pulumi.OutputState
-}
+type EmailPtrOutput struct{ *pulumi.OutputState }
 
 func (EmailPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Email)(nil))
@@ -287,6 +283,16 @@ func (o EmailPtrOutput) ToEmailPtrOutput() EmailPtrOutput {
 
 func (o EmailPtrOutput) ToEmailPtrOutputWithContext(ctx context.Context) EmailPtrOutput {
 	return o
+}
+
+func (o EmailPtrOutput) Elem() EmailOutput {
+	return o.ApplyT(func(v *Email) Email {
+		if v != nil {
+			return *v
+		}
+		var ret Email
+		return ret
+	}).(EmailOutput)
 }
 
 type EmailArrayOutput struct{ *pulumi.OutputState }

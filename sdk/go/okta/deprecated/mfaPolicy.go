@@ -256,7 +256,7 @@ type MfaPolicyArrayInput interface {
 type MfaPolicyArray []MfaPolicyInput
 
 func (MfaPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MfaPolicy)(nil))
+	return reflect.TypeOf((*[]*MfaPolicy)(nil)).Elem()
 }
 
 func (i MfaPolicyArray) ToMfaPolicyArrayOutput() MfaPolicyArrayOutput {
@@ -281,7 +281,7 @@ type MfaPolicyMapInput interface {
 type MfaPolicyMap map[string]MfaPolicyInput
 
 func (MfaPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MfaPolicy)(nil))
+	return reflect.TypeOf((*map[string]*MfaPolicy)(nil)).Elem()
 }
 
 func (i MfaPolicyMap) ToMfaPolicyMapOutput() MfaPolicyMapOutput {
@@ -292,9 +292,7 @@ func (i MfaPolicyMap) ToMfaPolicyMapOutputWithContext(ctx context.Context) MfaPo
 	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyMapOutput)
 }
 
-type MfaPolicyOutput struct {
-	*pulumi.OutputState
-}
+type MfaPolicyOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MfaPolicy)(nil))
@@ -313,14 +311,12 @@ func (o MfaPolicyOutput) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
 }
 
 func (o MfaPolicyOutput) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
-	return o.ApplyT(func(v MfaPolicy) *MfaPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MfaPolicy) *MfaPolicy {
 		return &v
 	}).(MfaPolicyPtrOutput)
 }
 
-type MfaPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type MfaPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MfaPolicy)(nil))
@@ -332,6 +328,16 @@ func (o MfaPolicyPtrOutput) ToMfaPolicyPtrOutput() MfaPolicyPtrOutput {
 
 func (o MfaPolicyPtrOutput) ToMfaPolicyPtrOutputWithContext(ctx context.Context) MfaPolicyPtrOutput {
 	return o
+}
+
+func (o MfaPolicyPtrOutput) Elem() MfaPolicyOutput {
+	return o.ApplyT(func(v *MfaPolicy) MfaPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MfaPolicy
+		return ret
+	}).(MfaPolicyOutput)
 }
 
 type MfaPolicyArrayOutput struct{ *pulumi.OutputState }

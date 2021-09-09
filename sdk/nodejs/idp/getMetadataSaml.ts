@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.idp.getMetadataSaml({
  *     idpId: "<idp id>",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getMetadataSaml(args?: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
@@ -40,7 +40,7 @@ export interface GetMetadataSamlArgs {
     /**
      * The id of the IdP to retrieve metadata for.
      */
-    readonly idpId?: string;
+    idpId?: string;
 }
 
 /**

@@ -267,7 +267,7 @@ type RulePasswordArrayInput interface {
 type RulePasswordArray []RulePasswordInput
 
 func (RulePasswordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RulePassword)(nil))
+	return reflect.TypeOf((*[]*RulePassword)(nil)).Elem()
 }
 
 func (i RulePasswordArray) ToRulePasswordArrayOutput() RulePasswordArrayOutput {
@@ -292,7 +292,7 @@ type RulePasswordMapInput interface {
 type RulePasswordMap map[string]RulePasswordInput
 
 func (RulePasswordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RulePassword)(nil))
+	return reflect.TypeOf((*map[string]*RulePassword)(nil)).Elem()
 }
 
 func (i RulePasswordMap) ToRulePasswordMapOutput() RulePasswordMapOutput {
@@ -303,9 +303,7 @@ func (i RulePasswordMap) ToRulePasswordMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordMapOutput)
 }
 
-type RulePasswordOutput struct {
-	*pulumi.OutputState
-}
+type RulePasswordOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RulePassword)(nil))
@@ -324,14 +322,12 @@ func (o RulePasswordOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
 }
 
 func (o RulePasswordOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
-	return o.ApplyT(func(v RulePassword) *RulePassword {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePassword) *RulePassword {
 		return &v
 	}).(RulePasswordPtrOutput)
 }
 
-type RulePasswordPtrOutput struct {
-	*pulumi.OutputState
-}
+type RulePasswordPtrOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RulePassword)(nil))
@@ -343,6 +339,16 @@ func (o RulePasswordPtrOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
 
 func (o RulePasswordPtrOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
 	return o
+}
+
+func (o RulePasswordPtrOutput) Elem() RulePasswordOutput {
+	return o.ApplyT(func(v *RulePassword) RulePassword {
+		if v != nil {
+			return *v
+		}
+		var ret RulePassword
+		return ret
+	}).(RulePasswordOutput)
 }
 
 type RulePasswordArrayOutput struct{ *pulumi.OutputState }

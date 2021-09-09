@@ -587,7 +587,7 @@ type OauthAppArrayInput interface {
 type OauthAppArray []OauthAppInput
 
 func (OauthAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OauthApp)(nil))
+	return reflect.TypeOf((*[]*OauthApp)(nil)).Elem()
 }
 
 func (i OauthAppArray) ToOauthAppArrayOutput() OauthAppArrayOutput {
@@ -612,7 +612,7 @@ type OauthAppMapInput interface {
 type OauthAppMap map[string]OauthAppInput
 
 func (OauthAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OauthApp)(nil))
+	return reflect.TypeOf((*map[string]*OauthApp)(nil)).Elem()
 }
 
 func (i OauthAppMap) ToOauthAppMapOutput() OauthAppMapOutput {
@@ -623,9 +623,7 @@ func (i OauthAppMap) ToOauthAppMapOutputWithContext(ctx context.Context) OauthAp
 	return pulumi.ToOutputWithContext(ctx, i).(OauthAppMapOutput)
 }
 
-type OauthAppOutput struct {
-	*pulumi.OutputState
-}
+type OauthAppOutput struct{ *pulumi.OutputState }
 
 func (OauthAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OauthApp)(nil))
@@ -644,14 +642,12 @@ func (o OauthAppOutput) ToOauthAppPtrOutput() OauthAppPtrOutput {
 }
 
 func (o OauthAppOutput) ToOauthAppPtrOutputWithContext(ctx context.Context) OauthAppPtrOutput {
-	return o.ApplyT(func(v OauthApp) *OauthApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OauthApp) *OauthApp {
 		return &v
 	}).(OauthAppPtrOutput)
 }
 
-type OauthAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type OauthAppPtrOutput struct{ *pulumi.OutputState }
 
 func (OauthAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OauthApp)(nil))
@@ -663,6 +659,16 @@ func (o OauthAppPtrOutput) ToOauthAppPtrOutput() OauthAppPtrOutput {
 
 func (o OauthAppPtrOutput) ToOauthAppPtrOutputWithContext(ctx context.Context) OauthAppPtrOutput {
 	return o
+}
+
+func (o OauthAppPtrOutput) Elem() OauthAppOutput {
+	return o.ApplyT(func(v *OauthApp) OauthApp {
+		if v != nil {
+			return *v
+		}
+		var ret OauthApp
+		return ret
+	}).(OauthAppOutput)
 }
 
 type OauthAppArrayOutput struct{ *pulumi.OutputState }

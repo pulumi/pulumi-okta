@@ -457,7 +457,7 @@ func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPt
 }
 
 func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
-	return o.ApplyT(func(v OAuthGroupsClaim) *OAuthGroupsClaim {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthGroupsClaim) *OAuthGroupsClaim {
 		return &v
 	}).(OAuthGroupsClaimPtrOutput)
 }
@@ -497,7 +497,13 @@ func (o OAuthGroupsClaimPtrOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx co
 }
 
 func (o OAuthGroupsClaimPtrOutput) Elem() OAuthGroupsClaimOutput {
-	return o.ApplyT(func(v *OAuthGroupsClaim) OAuthGroupsClaim { return *v }).(OAuthGroupsClaimOutput)
+	return o.ApplyT(func(v *OAuthGroupsClaim) OAuthGroupsClaim {
+		if v != nil {
+			return *v
+		}
+		var ret OAuthGroupsClaim
+		return ret
+	}).(OAuthGroupsClaimOutput)
 }
 
 // Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.

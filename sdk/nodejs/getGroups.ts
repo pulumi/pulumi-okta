@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(okta.getGroups({
  *     q: "Engineering - ",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupsResult> {
@@ -42,19 +42,19 @@ export interface GetGroupsArgs {
     /**
      * Searches the name property of groups for matching value.
      */
-    readonly q?: string;
+    q?: string;
     /**
      * Searches for groups with a
      * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
      * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
      * except for `"_embedded"`, `"_links"`, and `"objectClass"`
      */
-    readonly search?: string;
+    search?: string;
     /**
      * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
      */
-    readonly type?: string;
+    type?: string;
 }
 
 /**

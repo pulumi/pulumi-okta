@@ -4,6 +4,9 @@
 package group
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,78 @@ type LookupGroupResult struct {
 	Type *string `pulumi:"type"`
 	// user ids that are members of this group, only included if `includeUsers` is set to `true`.
 	Users []string `pulumi:"users"`
+}
+
+func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGroupResult, error) {
+			args := v.(LookupGroupArgs)
+			r, err := LookupGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGroupResultOutput)
+}
+
+// A collection of arguments for invoking getGroup.
+type LookupGroupOutputArgs struct {
+	// ID of the group. Conflicts with `"name"` and `"type"`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// whether to retrieve all member ids.
+	IncludeUsers pulumi.BoolPtrInput `pulumi:"includeUsers"`
+	// name of group to retrieve.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LookupGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGroup.
+type LookupGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupResult)(nil)).Elem()
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutput() LookupGroupResultOutput {
+	return o
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx context.Context) LookupGroupResultOutput {
+	return o
+}
+
+// description of group.
+func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// ID of group.
+func (o LookupGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *bool { return v.IncludeUsers }).(pulumi.BoolPtrOutput)
+}
+
+// name of group.
+func (o LookupGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// type of group.
+func (o LookupGroupResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// user ids that are members of this group, only included if `includeUsers` is set to `true`.
+func (o LookupGroupResultOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGroupResultOutput{})
 }

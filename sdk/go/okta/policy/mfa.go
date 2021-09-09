@@ -14,6 +14,36 @@ import (
 //
 // This resource allows you to create and configure an MFA Policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.NewMfa(ctx, "example", &policy.MfaArgs{
+// 			Description: pulumi.String("Example"),
+// 			GroupsIncludeds: pulumi.StringArray{
+// 				pulumi.Any(data.Okta_group.Everyone.Id),
+// 			},
+// 			OktaOtp: pulumi.StringMap{
+// 				"enroll": pulumi.String("REQUIRED"),
+// 			},
+// 			Status: pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An MFA Policy can be imported via the Okta ID.
@@ -337,7 +367,7 @@ type MfaArrayInput interface {
 type MfaArray []MfaInput
 
 func (MfaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Mfa)(nil))
+	return reflect.TypeOf((*[]*Mfa)(nil)).Elem()
 }
 
 func (i MfaArray) ToMfaArrayOutput() MfaArrayOutput {
@@ -362,7 +392,7 @@ type MfaMapInput interface {
 type MfaMap map[string]MfaInput
 
 func (MfaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Mfa)(nil))
+	return reflect.TypeOf((*map[string]*Mfa)(nil)).Elem()
 }
 
 func (i MfaMap) ToMfaMapOutput() MfaMapOutput {
@@ -373,9 +403,7 @@ func (i MfaMap) ToMfaMapOutputWithContext(ctx context.Context) MfaMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaMapOutput)
 }
 
-type MfaOutput struct {
-	*pulumi.OutputState
-}
+type MfaOutput struct{ *pulumi.OutputState }
 
 func (MfaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Mfa)(nil))
@@ -394,14 +422,12 @@ func (o MfaOutput) ToMfaPtrOutput() MfaPtrOutput {
 }
 
 func (o MfaOutput) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
-	return o.ApplyT(func(v Mfa) *Mfa {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Mfa) *Mfa {
 		return &v
 	}).(MfaPtrOutput)
 }
 
-type MfaPtrOutput struct {
-	*pulumi.OutputState
-}
+type MfaPtrOutput struct{ *pulumi.OutputState }
 
 func (MfaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Mfa)(nil))
@@ -413,6 +439,16 @@ func (o MfaPtrOutput) ToMfaPtrOutput() MfaPtrOutput {
 
 func (o MfaPtrOutput) ToMfaPtrOutputWithContext(ctx context.Context) MfaPtrOutput {
 	return o
+}
+
+func (o MfaPtrOutput) Elem() MfaOutput {
+	return o.ApplyT(func(v *Mfa) Mfa {
+		if v != nil {
+			return *v
+		}
+		var ret Mfa
+		return ret
+	}).(MfaOutput)
 }
 
 type MfaArrayOutput struct{ *pulumi.OutputState }

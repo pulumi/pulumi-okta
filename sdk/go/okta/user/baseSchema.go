@@ -260,7 +260,7 @@ type BaseSchemaArrayInput interface {
 type BaseSchemaArray []BaseSchemaInput
 
 func (BaseSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BaseSchema)(nil))
+	return reflect.TypeOf((*[]*BaseSchema)(nil)).Elem()
 }
 
 func (i BaseSchemaArray) ToBaseSchemaArrayOutput() BaseSchemaArrayOutput {
@@ -285,7 +285,7 @@ type BaseSchemaMapInput interface {
 type BaseSchemaMap map[string]BaseSchemaInput
 
 func (BaseSchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BaseSchema)(nil))
+	return reflect.TypeOf((*map[string]*BaseSchema)(nil)).Elem()
 }
 
 func (i BaseSchemaMap) ToBaseSchemaMapOutput() BaseSchemaMapOutput {
@@ -296,9 +296,7 @@ func (i BaseSchemaMap) ToBaseSchemaMapOutputWithContext(ctx context.Context) Bas
 	return pulumi.ToOutputWithContext(ctx, i).(BaseSchemaMapOutput)
 }
 
-type BaseSchemaOutput struct {
-	*pulumi.OutputState
-}
+type BaseSchemaOutput struct{ *pulumi.OutputState }
 
 func (BaseSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BaseSchema)(nil))
@@ -317,14 +315,12 @@ func (o BaseSchemaOutput) ToBaseSchemaPtrOutput() BaseSchemaPtrOutput {
 }
 
 func (o BaseSchemaOutput) ToBaseSchemaPtrOutputWithContext(ctx context.Context) BaseSchemaPtrOutput {
-	return o.ApplyT(func(v BaseSchema) *BaseSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaseSchema) *BaseSchema {
 		return &v
 	}).(BaseSchemaPtrOutput)
 }
 
-type BaseSchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type BaseSchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (BaseSchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BaseSchema)(nil))
@@ -336,6 +332,16 @@ func (o BaseSchemaPtrOutput) ToBaseSchemaPtrOutput() BaseSchemaPtrOutput {
 
 func (o BaseSchemaPtrOutput) ToBaseSchemaPtrOutputWithContext(ctx context.Context) BaseSchemaPtrOutput {
 	return o
+}
+
+func (o BaseSchemaPtrOutput) Elem() BaseSchemaOutput {
+	return o.ApplyT(func(v *BaseSchema) BaseSchema {
+		if v != nil {
+			return *v
+		}
+		var ret BaseSchema
+		return ret
+	}).(BaseSchemaOutput)
 }
 
 type BaseSchemaArrayOutput struct{ *pulumi.OutputState }

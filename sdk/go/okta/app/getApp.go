@@ -4,6 +4,9 @@
 package app
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,4 +93,110 @@ type GetAppResult struct {
 	//
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
+}
+
+func GetAppOutput(ctx *pulumi.Context, args GetAppOutputArgs, opts ...pulumi.InvokeOption) GetAppResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAppResult, error) {
+			args := v.(GetAppArgs)
+			r, err := GetApp(ctx, &args, opts...)
+			return *r, err
+		}).(GetAppResultOutput)
+}
+
+// A collection of arguments for invoking getApp.
+type GetAppOutputArgs struct {
+	// tells the provider to query for only `ACTIVE` applications.
+	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
+	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+	//
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+	// and `label`. This is used to avoid paginating through all applications.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+	// provider to do a `starts with` query as opposed to an `equals` query.
+	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// List of users IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+	//
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (GetAppOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApp.
+type GetAppResultOutput struct{ *pulumi.OutputState }
+
+func (GetAppResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppResult)(nil)).Elem()
+}
+
+func (o GetAppResultOutput) ToGetAppResultOutput() GetAppResultOutput {
+	return o
+}
+
+func (o GetAppResultOutput) ToGetAppResultOutputWithContext(ctx context.Context) GetAppResultOutput {
+	return o
+}
+
+func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
+}
+
+// List of groups IDs assigned to the application.
+// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+//
+// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
+func (o GetAppResultOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Application ID.
+func (o GetAppResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Application label.
+func (o GetAppResultOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAppResultOutput) LabelPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Generic JSON containing discoverable resources related to the app.
+func (o GetAppResultOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppResult) string { return v.Links }).(pulumi.StringOutput)
+}
+
+// Application name.
+func (o GetAppResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Application status.
+func (o GetAppResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// List of users IDs assigned to the application.
+// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+//
+// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
+func (o GetAppResultOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppResult) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAppResultOutput{})
 }

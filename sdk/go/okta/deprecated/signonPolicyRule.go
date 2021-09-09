@@ -351,7 +351,7 @@ type SignonPolicyRuleArrayInput interface {
 type SignonPolicyRuleArray []SignonPolicyRuleInput
 
 func (SignonPolicyRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SignonPolicyRule)(nil))
+	return reflect.TypeOf((*[]*SignonPolicyRule)(nil)).Elem()
 }
 
 func (i SignonPolicyRuleArray) ToSignonPolicyRuleArrayOutput() SignonPolicyRuleArrayOutput {
@@ -376,7 +376,7 @@ type SignonPolicyRuleMapInput interface {
 type SignonPolicyRuleMap map[string]SignonPolicyRuleInput
 
 func (SignonPolicyRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SignonPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*SignonPolicyRule)(nil)).Elem()
 }
 
 func (i SignonPolicyRuleMap) ToSignonPolicyRuleMapOutput() SignonPolicyRuleMapOutput {
@@ -387,9 +387,7 @@ func (i SignonPolicyRuleMap) ToSignonPolicyRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleMapOutput)
 }
 
-type SignonPolicyRuleOutput struct {
-	*pulumi.OutputState
-}
+type SignonPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignonPolicyRule)(nil))
@@ -408,14 +406,12 @@ func (o SignonPolicyRuleOutput) ToSignonPolicyRulePtrOutput() SignonPolicyRulePt
 }
 
 func (o SignonPolicyRuleOutput) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
-	return o.ApplyT(func(v SignonPolicyRule) *SignonPolicyRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignonPolicyRule) *SignonPolicyRule {
 		return &v
 	}).(SignonPolicyRulePtrOutput)
 }
 
-type SignonPolicyRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SignonPolicyRulePtrOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SignonPolicyRule)(nil))
@@ -427,6 +423,16 @@ func (o SignonPolicyRulePtrOutput) ToSignonPolicyRulePtrOutput() SignonPolicyRul
 
 func (o SignonPolicyRulePtrOutput) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
 	return o
+}
+
+func (o SignonPolicyRulePtrOutput) Elem() SignonPolicyRuleOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) SignonPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret SignonPolicyRule
+		return ret
+	}).(SignonPolicyRuleOutput)
 }
 
 type SignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }

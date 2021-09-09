@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.app.getSaml({
  *     label: "Example App",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
@@ -74,153 +74,153 @@ export interface GetSamlArgs {
     /**
      * Custom error page URL.
      */
-    readonly accessibilityErrorRedirectUrl?: string;
+    accessibilityErrorRedirectUrl?: string;
     /**
      * Custom login page URL.
      */
-    readonly accessibilityLoginRedirectUrl?: string;
+    accessibilityLoginRedirectUrl?: string;
     /**
      * Enable self-service.
      */
-    readonly accessibilitySelfService?: boolean;
+    accessibilitySelfService?: boolean;
     /**
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
-    readonly acsEndpoints?: string[];
+    acsEndpoints?: string[];
     /**
      * tells the provider to query for only `ACTIVE` applications.
      */
-    readonly activeOnly?: boolean;
+    activeOnly?: boolean;
     /**
      * Application settings in JSON format.
      */
-    readonly appSettingsJson?: string;
+    appSettingsJson?: string;
     /**
      * Determines whether the SAML assertion is digitally signed.
      */
-    readonly assertionSigned?: boolean;
+    assertionSigned?: boolean;
     /**
      * List of SAML Attribute statements.
      */
-    readonly attributeStatements?: inputs.app.GetSamlAttributeStatement[];
+    attributeStatements?: inputs.app.GetSamlAttributeStatement[];
     /**
      * Audience restriction.
      */
-    readonly audience?: string;
+    audience?: string;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication
      * statement.
      */
-    readonly authnContextClassRef?: string;
+    authnContextClassRef?: string;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: boolean;
+    autoSubmitToolbar?: boolean;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    readonly defaultRelayState?: string;
+    defaultRelayState?: string;
     /**
      * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
-    readonly destination?: string;
+    destination?: string;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
-    readonly digestAlgorithm?: string;
+    digestAlgorithm?: string;
     /**
      * features enabled.
      */
-    readonly features?: string[];
+    features?: string[];
     /**
      * List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
      */
-    readonly groups?: string[];
+    groups?: string[];
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: boolean;
+    hideIos?: boolean;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: boolean;
+    hideWeb?: boolean;
     /**
      * Prompt user to re-authenticate if SP asks for it.
      */
-    readonly honorForceAuthn?: boolean;
+    honorForceAuthn?: boolean;
     /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * SAML issuer ID.
      */
-    readonly idpIssuer?: string;
+    idpIssuer?: string;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
      * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
      * and `label`. This is used to avoid paginating through all applications.
      */
-    readonly label?: string;
+    label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
-    readonly labelPrefix?: string;
+    labelPrefix?: string;
     /**
      * The location where the app may present the SAML assertion.
      */
-    readonly recipient?: string;
+    recipient?: string;
     /**
      * Denotes whether the request is compressed or not.
      */
-    readonly requestCompressed?: boolean;
+    requestCompressed?: boolean;
     /**
      * Determines whether the SAML auth response message is digitally signed.
      */
-    readonly responseSigned?: boolean;
+    responseSigned?: boolean;
     /**
      * Signature algorithm used ot digitally sign the assertion and response.
      */
-    readonly signatureAlgorithm?: string;
+    signatureAlgorithm?: string;
     /**
      * SAML service provider issuer.
      */
-    readonly spIssuer?: string;
+    spIssuer?: string;
     /**
      * Single Sign-on Url.
      */
-    readonly ssoUrl?: string;
+    ssoUrl?: string;
     /**
      * Identifies the SAML processing rules.
      */
-    readonly subjectNameIdFormat?: string;
+    subjectNameIdFormat?: string;
     /**
      * Template for app user's username when a user is assigned to the app.
      */
-    readonly subjectNameIdTemplate?: string;
+    subjectNameIdTemplate?: string;
     /**
      * Username template.
      */
-    readonly userNameTemplate?: string;
+    userNameTemplate?: string;
     /**
      * Username template suffix.
      */
-    readonly userNameTemplateSuffix?: string;
+    userNameTemplateSuffix?: string;
     /**
      * Username template type.
      */
-    readonly userNameTemplateType?: string;
+    userNameTemplateType?: string;
     /**
      * List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
-    readonly users?: string[];
+    users?: string[];
 }
 
 /**

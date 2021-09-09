@@ -31,12 +31,12 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
 // 			Template: pulumi.String(fmt.Sprintf("%v%v%v%v", "Your ", org.Name, " code is: ", code)),
-// 			Translations: okta.TemplateSmsTranslationArray{
-// 				&okta.TemplateSmsTranslationArgs{
+// 			Translations: TemplateSmsTranslationArray{
+// 				&TemplateSmsTranslationArgs{
 // 					Language: pulumi.String("en"),
 // 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v", "Your ", org.Name, " code is: ", code)),
 // 				},
-// 				&okta.TemplateSmsTranslationArgs{
+// 				&TemplateSmsTranslationArgs{
 // 					Language: pulumi.String("es"),
 // 					Template: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Tu código de ", org.Name, " es: ", code, ".")),
 // 				},
@@ -210,7 +210,7 @@ type TemplateSmsArrayInput interface {
 type TemplateSmsArray []TemplateSmsInput
 
 func (TemplateSmsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TemplateSms)(nil))
+	return reflect.TypeOf((*[]*TemplateSms)(nil)).Elem()
 }
 
 func (i TemplateSmsArray) ToTemplateSmsArrayOutput() TemplateSmsArrayOutput {
@@ -235,7 +235,7 @@ type TemplateSmsMapInput interface {
 type TemplateSmsMap map[string]TemplateSmsInput
 
 func (TemplateSmsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TemplateSms)(nil))
+	return reflect.TypeOf((*map[string]*TemplateSms)(nil)).Elem()
 }
 
 func (i TemplateSmsMap) ToTemplateSmsMapOutput() TemplateSmsMapOutput {
@@ -246,9 +246,7 @@ func (i TemplateSmsMap) ToTemplateSmsMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsMapOutput)
 }
 
-type TemplateSmsOutput struct {
-	*pulumi.OutputState
-}
+type TemplateSmsOutput struct{ *pulumi.OutputState }
 
 func (TemplateSmsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateSms)(nil))
@@ -267,14 +265,12 @@ func (o TemplateSmsOutput) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
 }
 
 func (o TemplateSmsOutput) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
-	return o.ApplyT(func(v TemplateSms) *TemplateSms {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSms) *TemplateSms {
 		return &v
 	}).(TemplateSmsPtrOutput)
 }
 
-type TemplateSmsPtrOutput struct {
-	*pulumi.OutputState
-}
+type TemplateSmsPtrOutput struct{ *pulumi.OutputState }
 
 func (TemplateSmsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TemplateSms)(nil))
@@ -286,6 +282,16 @@ func (o TemplateSmsPtrOutput) ToTemplateSmsPtrOutput() TemplateSmsPtrOutput {
 
 func (o TemplateSmsPtrOutput) ToTemplateSmsPtrOutputWithContext(ctx context.Context) TemplateSmsPtrOutput {
 	return o
+}
+
+func (o TemplateSmsPtrOutput) Elem() TemplateSmsOutput {
+	return o.ApplyT(func(v *TemplateSms) TemplateSms {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSms
+		return ret
+	}).(TemplateSmsOutput)
 }
 
 type TemplateSmsArrayOutput struct{ *pulumi.OutputState }

@@ -378,7 +378,7 @@ type SwaAppArrayInput interface {
 type SwaAppArray []SwaAppInput
 
 func (SwaAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SwaApp)(nil))
+	return reflect.TypeOf((*[]*SwaApp)(nil)).Elem()
 }
 
 func (i SwaAppArray) ToSwaAppArrayOutput() SwaAppArrayOutput {
@@ -403,7 +403,7 @@ type SwaAppMapInput interface {
 type SwaAppMap map[string]SwaAppInput
 
 func (SwaAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SwaApp)(nil))
+	return reflect.TypeOf((*map[string]*SwaApp)(nil)).Elem()
 }
 
 func (i SwaAppMap) ToSwaAppMapOutput() SwaAppMapOutput {
@@ -414,9 +414,7 @@ func (i SwaAppMap) ToSwaAppMapOutputWithContext(ctx context.Context) SwaAppMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SwaAppMapOutput)
 }
 
-type SwaAppOutput struct {
-	*pulumi.OutputState
-}
+type SwaAppOutput struct{ *pulumi.OutputState }
 
 func (SwaAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SwaApp)(nil))
@@ -435,14 +433,12 @@ func (o SwaAppOutput) ToSwaAppPtrOutput() SwaAppPtrOutput {
 }
 
 func (o SwaAppOutput) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
-	return o.ApplyT(func(v SwaApp) *SwaApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SwaApp) *SwaApp {
 		return &v
 	}).(SwaAppPtrOutput)
 }
 
-type SwaAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type SwaAppPtrOutput struct{ *pulumi.OutputState }
 
 func (SwaAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SwaApp)(nil))
@@ -454,6 +450,16 @@ func (o SwaAppPtrOutput) ToSwaAppPtrOutput() SwaAppPtrOutput {
 
 func (o SwaAppPtrOutput) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
 	return o
+}
+
+func (o SwaAppPtrOutput) Elem() SwaAppOutput {
+	return o.ApplyT(func(v *SwaApp) SwaApp {
+		if v != nil {
+			return *v
+		}
+		var ret SwaApp
+		return ret
+	}).(SwaAppOutput)
 }
 
 type SwaAppArrayOutput struct{ *pulumi.OutputState }

@@ -124,15 +124,15 @@ export interface EmailState {
     /**
      * The default language, by default is set to `"en"`.
      */
-    readonly defaultLanguage?: pulumi.Input<string>;
+    defaultLanguage?: pulumi.Input<string>;
     /**
      * Set of translations for a particular template.
      */
-    readonly translations?: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
+    translations?: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
     /**
      * Email template type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface EmailArgs {
     /**
      * The default language, by default is set to `"en"`.
      */
-    readonly defaultLanguage?: pulumi.Input<string>;
+    defaultLanguage?: pulumi.Input<string>;
     /**
      * Set of translations for a particular template.
      */
-    readonly translations: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
+    translations: pulumi.Input<pulumi.Input<inputs.template.EmailTranslation>[]>;
     /**
      * Email template type
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

@@ -135,28 +135,28 @@ export interface RuleState {
      * The expression type to use to invoke the rule. The default
      * is `"urn:okta:expression:1.0"`.
      */
-    readonly expressionType?: pulumi.Input<string>;
+    expressionType?: pulumi.Input<string>;
     /**
      * The expression value.
      */
-    readonly expressionValue?: pulumi.Input<string>;
+    expressionValue?: pulumi.Input<string>;
     /**
      * The list of group ids to assign the users to.
      */
-    readonly groupAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupAssignments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Group Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * This tells the provider to remove users added by this rule from the assigned
      * group after destroying this resource. Default is `false`.
      */
-    readonly removeAssignedUsers?: pulumi.Input<boolean>;
+    removeAssignedUsers?: pulumi.Input<boolean>;
     /**
      * The status of the group rule.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -167,26 +167,26 @@ export interface RuleArgs {
      * The expression type to use to invoke the rule. The default
      * is `"urn:okta:expression:1.0"`.
      */
-    readonly expressionType?: pulumi.Input<string>;
+    expressionType?: pulumi.Input<string>;
     /**
      * The expression value.
      */
-    readonly expressionValue: pulumi.Input<string>;
+    expressionValue: pulumi.Input<string>;
     /**
      * The list of group ids to assign the users to.
      */
-    readonly groupAssignments: pulumi.Input<pulumi.Input<string>[]>;
+    groupAssignments: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Group Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * This tells the provider to remove users added by this rule from the assigned
      * group after destroying this resource. Default is `false`.
      */
-    readonly removeAssignedUsers?: pulumi.Input<boolean>;
+    removeAssignedUsers?: pulumi.Input<boolean>;
     /**
      * The status of the group rule.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

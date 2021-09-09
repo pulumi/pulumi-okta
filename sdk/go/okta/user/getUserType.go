@@ -4,6 +4,9 @@
 package user
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,66 @@ type LookupUserTypeResult struct {
 	Id string `pulumi:"id"`
 	// name of user type.
 	Name string `pulumi:"name"`
+}
+
+func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, opts ...pulumi.InvokeOption) LookupUserTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserTypeResult, error) {
+			args := v.(LookupUserTypeArgs)
+			r, err := LookupUserType(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserTypeResultOutput)
+}
+
+// A collection of arguments for invoking getUserType.
+type LookupUserTypeOutputArgs struct {
+	// description of user type.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// display name of user type.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// name of user type to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupUserTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserTypeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUserType.
+type LookupUserTypeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserTypeResult)(nil)).Elem()
+}
+
+func (o LookupUserTypeResultOutput) ToLookupUserTypeResultOutput() LookupUserTypeResultOutput {
+	return o
+}
+
+func (o LookupUserTypeResultOutput) ToLookupUserTypeResultOutputWithContext(ctx context.Context) LookupUserTypeResultOutput {
+	return o
+}
+
+// description of user type.
+func (o LookupUserTypeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// display name of user type.
+func (o LookupUserTypeResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// id of user type.
+func (o LookupUserTypeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// name of user type.
+func (o LookupUserTypeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserTypeResultOutput{})
 }

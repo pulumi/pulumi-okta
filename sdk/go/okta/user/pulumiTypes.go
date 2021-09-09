@@ -328,6 +328,231 @@ func (o SchemaOneOfArrayOutput) Index(i pulumi.IntInput) SchemaOneOfOutput {
 	}).(SchemaOneOfOutput)
 }
 
+type UserPasswordHash struct {
+	Algorithm string `pulumi:"algorithm"`
+	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+	Salt *string `pulumi:"salt"`
+	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+	SaltOrder *string `pulumi:"saltOrder"`
+	// .
+	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+	Value string `pulumi:"value"`
+	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+	WorkFactor *int `pulumi:"workFactor"`
+}
+
+// UserPasswordHashInput is an input type that accepts UserPasswordHashArgs and UserPasswordHashOutput values.
+// You can construct a concrete instance of `UserPasswordHashInput` via:
+//
+//          UserPasswordHashArgs{...}
+type UserPasswordHashInput interface {
+	pulumi.Input
+
+	ToUserPasswordHashOutput() UserPasswordHashOutput
+	ToUserPasswordHashOutputWithContext(context.Context) UserPasswordHashOutput
+}
+
+type UserPasswordHashArgs struct {
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+	Salt pulumi.StringPtrInput `pulumi:"salt"`
+	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+	SaltOrder pulumi.StringPtrInput `pulumi:"saltOrder"`
+	// .
+	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+	Value pulumi.StringInput `pulumi:"value"`
+	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+	WorkFactor pulumi.IntPtrInput `pulumi:"workFactor"`
+}
+
+func (UserPasswordHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPasswordHash)(nil)).Elem()
+}
+
+func (i UserPasswordHashArgs) ToUserPasswordHashOutput() UserPasswordHashOutput {
+	return i.ToUserPasswordHashOutputWithContext(context.Background())
+}
+
+func (i UserPasswordHashArgs) ToUserPasswordHashOutputWithContext(ctx context.Context) UserPasswordHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordHashOutput)
+}
+
+func (i UserPasswordHashArgs) ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput {
+	return i.ToUserPasswordHashPtrOutputWithContext(context.Background())
+}
+
+func (i UserPasswordHashArgs) ToUserPasswordHashPtrOutputWithContext(ctx context.Context) UserPasswordHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordHashOutput).ToUserPasswordHashPtrOutputWithContext(ctx)
+}
+
+// UserPasswordHashPtrInput is an input type that accepts UserPasswordHashArgs, UserPasswordHashPtr and UserPasswordHashPtrOutput values.
+// You can construct a concrete instance of `UserPasswordHashPtrInput` via:
+//
+//          UserPasswordHashArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPasswordHashPtrInput interface {
+	pulumi.Input
+
+	ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput
+	ToUserPasswordHashPtrOutputWithContext(context.Context) UserPasswordHashPtrOutput
+}
+
+type userPasswordHashPtrType UserPasswordHashArgs
+
+func UserPasswordHashPtr(v *UserPasswordHashArgs) UserPasswordHashPtrInput {
+	return (*userPasswordHashPtrType)(v)
+}
+
+func (*userPasswordHashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPasswordHash)(nil)).Elem()
+}
+
+func (i *userPasswordHashPtrType) ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput {
+	return i.ToUserPasswordHashPtrOutputWithContext(context.Background())
+}
+
+func (i *userPasswordHashPtrType) ToUserPasswordHashPtrOutputWithContext(ctx context.Context) UserPasswordHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordHashPtrOutput)
+}
+
+type UserPasswordHashOutput struct{ *pulumi.OutputState }
+
+func (UserPasswordHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPasswordHash)(nil)).Elem()
+}
+
+func (o UserPasswordHashOutput) ToUserPasswordHashOutput() UserPasswordHashOutput {
+	return o
+}
+
+func (o UserPasswordHashOutput) ToUserPasswordHashOutputWithContext(ctx context.Context) UserPasswordHashOutput {
+	return o
+}
+
+func (o UserPasswordHashOutput) ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput {
+	return o.ToUserPasswordHashPtrOutputWithContext(context.Background())
+}
+
+func (o UserPasswordHashOutput) ToUserPasswordHashPtrOutputWithContext(ctx context.Context) UserPasswordHashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPasswordHash) *UserPasswordHash {
+		return &v
+	}).(UserPasswordHashPtrOutput)
+}
+
+func (o UserPasswordHashOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPasswordHash) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+func (o UserPasswordHashOutput) Salt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPasswordHash) *string { return v.Salt }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+func (o UserPasswordHashOutput) SaltOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPasswordHash) *string { return v.SaltOrder }).(pulumi.StringPtrOutput)
+}
+
+// .
+// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+func (o UserPasswordHashOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPasswordHash) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+func (o UserPasswordHashOutput) WorkFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordHash) *int { return v.WorkFactor }).(pulumi.IntPtrOutput)
+}
+
+type UserPasswordHashPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPasswordHashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPasswordHash)(nil)).Elem()
+}
+
+func (o UserPasswordHashPtrOutput) ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput {
+	return o
+}
+
+func (o UserPasswordHashPtrOutput) ToUserPasswordHashPtrOutputWithContext(ctx context.Context) UserPasswordHashPtrOutput {
+	return o
+}
+
+func (o UserPasswordHashPtrOutput) Elem() UserPasswordHashOutput {
+	return o.ApplyT(func(v *UserPasswordHash) UserPasswordHash {
+		if v != nil {
+			return *v
+		}
+		var ret UserPasswordHash
+		return ret
+	}).(UserPasswordHashOutput)
+}
+
+func (o UserPasswordHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPasswordHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+func (o UserPasswordHashPtrOutput) Salt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPasswordHash) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Salt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+func (o UserPasswordHashPtrOutput) SaltOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPasswordHash) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaltOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// .
+// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+func (o UserPasswordHashPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPasswordHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordHash) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WorkFactor
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetUserSearch struct {
 	// Comparison to use.
 	Comparison *string `pulumi:"comparison"`
@@ -974,6 +1199,8 @@ func init() {
 	pulumi.RegisterOutputType(SchemaMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(SchemaOneOfOutput{})
 	pulumi.RegisterOutputType(SchemaOneOfArrayOutput{})
+	pulumi.RegisterOutputType(UserPasswordHashOutput{})
+	pulumi.RegisterOutputType(UserPasswordHashPtrOutput{})
 	pulumi.RegisterOutputType(GetUserSearchOutput{})
 	pulumi.RegisterOutputType(GetUserSearchArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersSearchOutput{})

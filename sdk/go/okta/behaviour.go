@@ -296,7 +296,7 @@ type BehaviourArrayInput interface {
 type BehaviourArray []BehaviourInput
 
 func (BehaviourArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Behaviour)(nil))
+	return reflect.TypeOf((*[]*Behaviour)(nil)).Elem()
 }
 
 func (i BehaviourArray) ToBehaviourArrayOutput() BehaviourArrayOutput {
@@ -321,7 +321,7 @@ type BehaviourMapInput interface {
 type BehaviourMap map[string]BehaviourInput
 
 func (BehaviourMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Behaviour)(nil))
+	return reflect.TypeOf((*map[string]*Behaviour)(nil)).Elem()
 }
 
 func (i BehaviourMap) ToBehaviourMapOutput() BehaviourMapOutput {
@@ -332,9 +332,7 @@ func (i BehaviourMap) ToBehaviourMapOutputWithContext(ctx context.Context) Behav
 	return pulumi.ToOutputWithContext(ctx, i).(BehaviourMapOutput)
 }
 
-type BehaviourOutput struct {
-	*pulumi.OutputState
-}
+type BehaviourOutput struct{ *pulumi.OutputState }
 
 func (BehaviourOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Behaviour)(nil))
@@ -353,14 +351,12 @@ func (o BehaviourOutput) ToBehaviourPtrOutput() BehaviourPtrOutput {
 }
 
 func (o BehaviourOutput) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
-	return o.ApplyT(func(v Behaviour) *Behaviour {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Behaviour) *Behaviour {
 		return &v
 	}).(BehaviourPtrOutput)
 }
 
-type BehaviourPtrOutput struct {
-	*pulumi.OutputState
-}
+type BehaviourPtrOutput struct{ *pulumi.OutputState }
 
 func (BehaviourPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Behaviour)(nil))
@@ -372,6 +368,16 @@ func (o BehaviourPtrOutput) ToBehaviourPtrOutput() BehaviourPtrOutput {
 
 func (o BehaviourPtrOutput) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
 	return o
+}
+
+func (o BehaviourPtrOutput) Elem() BehaviourOutput {
+	return o.ApplyT(func(v *Behaviour) Behaviour {
+		if v != nil {
+			return *v
+		}
+		var ret Behaviour
+		return ret
+	}).(BehaviourOutput)
 }
 
 type BehaviourArrayOutput struct{ *pulumi.OutputState }

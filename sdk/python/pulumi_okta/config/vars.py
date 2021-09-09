@@ -8,96 +8,111 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'api_token',
-    'backoff',
-    'base_url',
-    'client_id',
-    'log_level',
-    'max_api_capacity',
-    'max_retries',
-    'max_wait_seconds',
-    'min_wait_seconds',
-    'org_name',
-    'parallelism',
-    'private_key',
-    'request_timeout',
-    'scopes',
-]
+import types
 
 __config__ = pulumi.Config('okta')
 
-api_token = __config__.get('apiToken')
-"""
-API Token granting privileges to Okta API.
-"""
 
-backoff = __config__.get('backoff')
-"""
-Use exponential back off strategy for rate limits.
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def api_token(self) -> Optional[str]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return __config__.get('apiToken')
 
-base_url = __config__.get('baseUrl')
-"""
-The Okta url. (Use 'oktapreview.com' for Okta testing)
-"""
+    @property
+    def backoff(self) -> Optional[bool]:
+        """
+        Use exponential back off strategy for rate limits.
+        """
+        return __config__.get_bool('backoff')
 
-client_id = __config__.get('clientId')
-"""
-API Token granting privileges to Okta API.
-"""
+    @property
+    def base_url(self) -> Optional[str]:
+        """
+        The Okta url. (Use 'oktapreview.com' for Okta testing)
+        """
+        return __config__.get('baseUrl')
 
-log_level = __config__.get('logLevel')
-"""
-providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
-"""
+    @property
+    def client_id(self) -> Optional[str]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return __config__.get('clientId')
 
-max_api_capacity = __config__.get('maxApiCapacity')
-"""
-(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-https://developer.okta.com/docs/reference/rl-global-mgmt/
-"""
+    @property
+    def log_level(self) -> Optional[int]:
+        """
+        providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
+        """
+        return __config__.get_int('logLevel')
 
-max_retries = __config__.get('maxRetries')
-"""
-maximum number of retries to attempt before erroring out.
-"""
+    @property
+    def max_api_capacity(self) -> Optional[int]:
+        """
+        (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
+        to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        https://developer.okta.com/docs/reference/rl-global-mgmt/
+        """
+        return __config__.get_int('maxApiCapacity')
 
-max_wait_seconds = __config__.get('maxWaitSeconds')
-"""
-maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
-"""
+    @property
+    def max_retries(self) -> Optional[int]:
+        """
+        maximum number of retries to attempt before erroring out.
+        """
+        return __config__.get_int('maxRetries')
 
-min_wait_seconds = __config__.get('minWaitSeconds')
-"""
-minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
-"""
+    @property
+    def max_wait_seconds(self) -> Optional[int]:
+        """
+        maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
+        """
+        return __config__.get_int('maxWaitSeconds')
 
-org_name = __config__.get('orgName')
-"""
-The organization to manage in Okta.
-"""
+    @property
+    def min_wait_seconds(self) -> Optional[int]:
+        """
+        minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
+        """
+        return __config__.get_int('minWaitSeconds')
 
-parallelism = __config__.get('parallelism')
-"""
-Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-https://developer.okta.com/docs/api/getting_started/rate-limits.
-"""
+    @property
+    def org_name(self) -> Optional[str]:
+        """
+        The organization to manage in Okta.
+        """
+        return __config__.get('orgName')
 
-private_key = __config__.get('privateKey')
-"""
-API Token granting privileges to Okta API.
-"""
+    @property
+    def parallelism(self) -> Optional[int]:
+        """
+        Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
+        https://developer.okta.com/docs/api/getting_started/rate-limits.
+        """
+        return __config__.get_int('parallelism')
 
-request_timeout = __config__.get('requestTimeout')
-"""
-Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-value can be `300`.
-"""
+    @property
+    def private_key(self) -> Optional[str]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return __config__.get('privateKey')
 
-scopes = __config__.get('scopes')
-"""
-API Token granting privileges to Okta API.
-"""
+    @property
+    def request_timeout(self) -> Optional[int]:
+        """
+        Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
+        value can be `300`.
+        """
+        return __config__.get_int('requestTimeout')
+
+    @property
+    def scopes(self) -> Optional[str]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return __config__.get('scopes')
 

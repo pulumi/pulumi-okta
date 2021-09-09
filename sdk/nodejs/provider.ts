@@ -25,6 +25,26 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * API Token granting privileges to Okta API.
+     */
+    public readonly apiToken!: pulumi.Output<string | undefined>;
+    /**
+     * The Okta url. (Use 'oktapreview.com' for Okta testing)
+     */
+    public readonly baseUrl!: pulumi.Output<string | undefined>;
+    /**
+     * API Token granting privileges to Okta API.
+     */
+    public readonly clientId!: pulumi.Output<string | undefined>;
+    /**
+     * The organization to manage in Okta.
+     */
+    public readonly orgName!: pulumi.Output<string | undefined>;
+    /**
+     * API Token granting privileges to Okta API.
+     */
+    public readonly privateKey!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -66,61 +86,61 @@ export interface ProviderArgs {
     /**
      * API Token granting privileges to Okta API.
      */
-    readonly apiToken?: pulumi.Input<string>;
+    apiToken?: pulumi.Input<string>;
     /**
      * Use exponential back off strategy for rate limits.
      */
-    readonly backoff?: pulumi.Input<boolean>;
+    backoff?: pulumi.Input<boolean>;
     /**
      * The Okta url. (Use 'oktapreview.com' for Okta testing)
      */
-    readonly baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string>;
     /**
      * API Token granting privileges to Okta API.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
      */
-    readonly logLevel?: pulumi.Input<number>;
+    logLevel?: pulumi.Input<number>;
     /**
      * (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
      * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
      * https://developer.okta.com/docs/reference/rl-global-mgmt/
      */
-    readonly maxApiCapacity?: pulumi.Input<number>;
+    maxApiCapacity?: pulumi.Input<number>;
     /**
      * maximum number of retries to attempt before erroring out.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number>;
     /**
      * maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
      */
-    readonly maxWaitSeconds?: pulumi.Input<number>;
+    maxWaitSeconds?: pulumi.Input<number>;
     /**
      * minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
      */
-    readonly minWaitSeconds?: pulumi.Input<number>;
+    minWaitSeconds?: pulumi.Input<number>;
     /**
      * The organization to manage in Okta.
      */
-    readonly orgName?: pulumi.Input<string>;
+    orgName?: pulumi.Input<string>;
     /**
      * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
      * https://developer.okta.com/docs/api/getting_started/rate-limits.
      */
-    readonly parallelism?: pulumi.Input<number>;
+    parallelism?: pulumi.Input<number>;
     /**
      * API Token granting privileges to Okta API.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
      * value can be `300`.
      */
-    readonly requestTimeout?: pulumi.Input<number>;
+    requestTimeout?: pulumi.Input<number>;
     /**
      * API Token granting privileges to Okta API.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }

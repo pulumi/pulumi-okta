@@ -4,6 +4,9 @@
 package auth
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,56 @@ type GetServerScopesResult struct {
 	Id string `pulumi:"id"`
 	// collection of authorization server scopes retrieved from Okta with the following properties.
 	Scopes []GetServerScopesScope `pulumi:"scopes"`
+}
+
+func GetServerScopesOutput(ctx *pulumi.Context, args GetServerScopesOutputArgs, opts ...pulumi.InvokeOption) GetServerScopesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServerScopesResult, error) {
+			args := v.(GetServerScopesArgs)
+			r, err := GetServerScopes(ctx, &args, opts...)
+			return *r, err
+		}).(GetServerScopesResultOutput)
+}
+
+// A collection of arguments for invoking getServerScopes.
+type GetServerScopesOutputArgs struct {
+	// Auth server ID.
+	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
+}
+
+func (GetServerScopesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerScopesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServerScopes.
+type GetServerScopesResultOutput struct{ *pulumi.OutputState }
+
+func (GetServerScopesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerScopesResult)(nil)).Elem()
+}
+
+func (o GetServerScopesResultOutput) ToGetServerScopesResultOutput() GetServerScopesResultOutput {
+	return o
+}
+
+func (o GetServerScopesResultOutput) ToGetServerScopesResultOutputWithContext(ctx context.Context) GetServerScopesResultOutput {
+	return o
+}
+
+func (o GetServerScopesResultOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerScopesResult) string { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServerScopesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerScopesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// collection of authorization server scopes retrieved from Okta with the following properties.
+func (o GetServerScopesResultOutput) Scopes() GetServerScopesScopeArrayOutput {
+	return o.ApplyT(func(v GetServerScopesResult) []GetServerScopesScope { return v.Scopes }).(GetServerScopesScopeArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServerScopesResultOutput{})
 }

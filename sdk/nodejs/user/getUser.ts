@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *             value: "Doe",
  *         },
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -51,11 +51,11 @@ export interface GetUserArgs {
     /**
      * Map of search criteria. It supports the following properties.
      */
-    readonly searches?: inputs.user.GetUserSearch[];
+    searches?: inputs.user.GetUserSearch[];
     /**
      * String representing a specific user's id value
      */
-    readonly userId?: string;
+    userId?: string;
 }
 
 /**

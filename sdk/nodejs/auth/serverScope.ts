@@ -134,31 +134,31 @@ export interface ServerScopeState {
     /**
      * Auth Server ID.
      */
-    readonly authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string>;
     /**
      * Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
      */
-    readonly consent?: pulumi.Input<string>;
+    consent?: pulumi.Input<string>;
     /**
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      */
-    readonly default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean>;
     /**
      * Description of the Auth Server Scope.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the end user displayed in a consent dialog box.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
      */
-    readonly metadataPublish?: pulumi.Input<string>;
+    metadataPublish?: pulumi.Input<string>;
     /**
      * Auth Server scope name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -168,29 +168,29 @@ export interface ServerScopeArgs {
     /**
      * Auth Server ID.
      */
-    readonly authServerId: pulumi.Input<string>;
+    authServerId: pulumi.Input<string>;
     /**
      * Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
      */
-    readonly consent?: pulumi.Input<string>;
+    consent?: pulumi.Input<string>;
     /**
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      */
-    readonly default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean>;
     /**
      * Description of the Auth Server Scope.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the end user displayed in a consent dialog box.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
      */
-    readonly metadataPublish?: pulumi.Input<string>;
+    metadataPublish?: pulumi.Input<string>;
     /**
      * Auth Server scope name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

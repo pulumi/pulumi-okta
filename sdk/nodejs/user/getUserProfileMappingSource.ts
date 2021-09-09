@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.user.getUserProfileMappingSource({ async: true }));
+ * const example = pulumi.output(okta.user.getUserProfileMappingSource());
  * ```
  */
 export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> {

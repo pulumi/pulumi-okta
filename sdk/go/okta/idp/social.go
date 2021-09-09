@@ -481,7 +481,7 @@ type SocialArrayInput interface {
 type SocialArray []SocialInput
 
 func (SocialArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Social)(nil))
+	return reflect.TypeOf((*[]*Social)(nil)).Elem()
 }
 
 func (i SocialArray) ToSocialArrayOutput() SocialArrayOutput {
@@ -506,7 +506,7 @@ type SocialMapInput interface {
 type SocialMap map[string]SocialInput
 
 func (SocialMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Social)(nil))
+	return reflect.TypeOf((*map[string]*Social)(nil)).Elem()
 }
 
 func (i SocialMap) ToSocialMapOutput() SocialMapOutput {
@@ -517,9 +517,7 @@ func (i SocialMap) ToSocialMapOutputWithContext(ctx context.Context) SocialMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SocialMapOutput)
 }
 
-type SocialOutput struct {
-	*pulumi.OutputState
-}
+type SocialOutput struct{ *pulumi.OutputState }
 
 func (SocialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Social)(nil))
@@ -538,14 +536,12 @@ func (o SocialOutput) ToSocialPtrOutput() SocialPtrOutput {
 }
 
 func (o SocialOutput) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
-	return o.ApplyT(func(v Social) *Social {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Social) *Social {
 		return &v
 	}).(SocialPtrOutput)
 }
 
-type SocialPtrOutput struct {
-	*pulumi.OutputState
-}
+type SocialPtrOutput struct{ *pulumi.OutputState }
 
 func (SocialPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Social)(nil))
@@ -557,6 +553,16 @@ func (o SocialPtrOutput) ToSocialPtrOutput() SocialPtrOutput {
 
 func (o SocialPtrOutput) ToSocialPtrOutputWithContext(ctx context.Context) SocialPtrOutput {
 	return o
+}
+
+func (o SocialPtrOutput) Elem() SocialOutput {
+	return o.ApplyT(func(v *Social) Social {
+		if v != nil {
+			return *v
+		}
+		var ret Social
+		return ret
+	}).(SocialOutput)
 }
 
 type SocialArrayOutput struct{ *pulumi.OutputState }

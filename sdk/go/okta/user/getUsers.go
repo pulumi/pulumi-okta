@@ -4,6 +4,9 @@
 package user
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,58 @@ type GetUsersResult struct {
 	Searches []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
 	Users []GetUsersUser `pulumi:"users"`
+}
+
+func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUsersResult, error) {
+			args := v.(GetUsersArgs)
+			r, err := GetUsers(ctx, &args, opts...)
+			return *r, err
+		}).(GetUsersResultOutput)
+}
+
+// A collection of arguments for invoking getUsers.
+type GetUsersOutputArgs struct {
+	// Map of search criteria to find users. It supports the following properties.
+	Searches GetUsersSearchArrayInput `pulumi:"searches"`
+	// collection of users retrieved from Okta with the following properties.
+	Users GetUsersUserArrayInput `pulumi:"users"`
+}
+
+func (GetUsersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUsers.
+type GetUsersResultOutput struct{ *pulumi.OutputState }
+
+func (GetUsersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersResult)(nil)).Elem()
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
+	return o
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUsersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUsersResultOutput) Searches() GetUsersSearchArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []GetUsersSearch { return v.Searches }).(GetUsersSearchArrayOutput)
+}
+
+// collection of users retrieved from Okta with the following properties.
+func (o GetUsersResultOutput) Users() GetUsersUserArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []GetUsersUser { return v.Users }).(GetUsersUserArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUsersResultOutput{})
 }

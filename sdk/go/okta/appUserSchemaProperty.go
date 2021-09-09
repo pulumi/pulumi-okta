@@ -80,8 +80,6 @@ type AppUserSchemaProperty struct {
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayOutput `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -167,8 +165,6 @@ type appUserSchemaPropertyState struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -214,8 +210,6 @@ type AppUserSchemaPropertyState struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -265,8 +259,6 @@ type appUserSchemaPropertyArgs struct {
 	MinLength *int `pulumi:"minLength"`
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
@@ -313,8 +305,6 @@ type AppUserSchemaPropertyArgs struct {
 	MinLength pulumi.IntPtrInput
 	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
@@ -399,7 +389,7 @@ type AppUserSchemaPropertyArrayInput interface {
 type AppUserSchemaPropertyArray []AppUserSchemaPropertyInput
 
 func (AppUserSchemaPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((*[]*AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (i AppUserSchemaPropertyArray) ToAppUserSchemaPropertyArrayOutput() AppUserSchemaPropertyArrayOutput {
@@ -424,7 +414,7 @@ type AppUserSchemaPropertyMapInput interface {
 type AppUserSchemaPropertyMap map[string]AppUserSchemaPropertyInput
 
 func (AppUserSchemaPropertyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((*map[string]*AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (i AppUserSchemaPropertyMap) ToAppUserSchemaPropertyMapOutput() AppUserSchemaPropertyMapOutput {
@@ -435,9 +425,7 @@ func (i AppUserSchemaPropertyMap) ToAppUserSchemaPropertyMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyMapOutput)
 }
 
-type AppUserSchemaPropertyOutput struct {
-	*pulumi.OutputState
-}
+type AppUserSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (AppUserSchemaPropertyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppUserSchemaProperty)(nil))
@@ -456,14 +444,12 @@ func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyPtrOutput() AppUserS
 }
 
 func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
-	return o.ApplyT(func(v AppUserSchemaProperty) *AppUserSchemaProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppUserSchemaProperty) *AppUserSchemaProperty {
 		return &v
 	}).(AppUserSchemaPropertyPtrOutput)
 }
 
-type AppUserSchemaPropertyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AppUserSchemaPropertyPtrOutput struct{ *pulumi.OutputState }
 
 func (AppUserSchemaPropertyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AppUserSchemaProperty)(nil))
@@ -475,6 +461,16 @@ func (o AppUserSchemaPropertyPtrOutput) ToAppUserSchemaPropertyPtrOutput() AppUs
 
 func (o AppUserSchemaPropertyPtrOutput) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
 	return o
+}
+
+func (o AppUserSchemaPropertyPtrOutput) Elem() AppUserSchemaPropertyOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaProperty {
+		if v != nil {
+			return *v
+		}
+		var ret AppUserSchemaProperty
+		return ret
+	}).(AppUserSchemaPropertyOutput)
 }
 
 type AppUserSchemaPropertyArrayOutput struct{ *pulumi.OutputState }

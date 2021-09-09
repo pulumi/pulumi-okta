@@ -14,6 +14,34 @@ import (
 //
 // This resource allows you to create and configure a Password Policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := policy.NewPassword(ctx, "example", &policy.PasswordArgs{
+// 			Description: pulumi.String("Example"),
+// 			GroupsIncludeds: pulumi.StringArray{
+// 				pulumi.Any(data.Okta_group.Everyone.Id),
+// 			},
+// 			PasswordHistoryCount: pulumi.Int(4),
+// 			Status:               pulumi.String("ACTIVE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // A Password Policy can be imported via the Okta ID.
@@ -437,7 +465,7 @@ type PasswordArrayInput interface {
 type PasswordArray []PasswordInput
 
 func (PasswordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Password)(nil))
+	return reflect.TypeOf((*[]*Password)(nil)).Elem()
 }
 
 func (i PasswordArray) ToPasswordArrayOutput() PasswordArrayOutput {
@@ -462,7 +490,7 @@ type PasswordMapInput interface {
 type PasswordMap map[string]PasswordInput
 
 func (PasswordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Password)(nil))
+	return reflect.TypeOf((*map[string]*Password)(nil)).Elem()
 }
 
 func (i PasswordMap) ToPasswordMapOutput() PasswordMapOutput {
@@ -473,9 +501,7 @@ func (i PasswordMap) ToPasswordMapOutputWithContext(ctx context.Context) Passwor
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordMapOutput)
 }
 
-type PasswordOutput struct {
-	*pulumi.OutputState
-}
+type PasswordOutput struct{ *pulumi.OutputState }
 
 func (PasswordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Password)(nil))
@@ -494,14 +520,12 @@ func (o PasswordOutput) ToPasswordPtrOutput() PasswordPtrOutput {
 }
 
 func (o PasswordOutput) ToPasswordPtrOutputWithContext(ctx context.Context) PasswordPtrOutput {
-	return o.ApplyT(func(v Password) *Password {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Password) *Password {
 		return &v
 	}).(PasswordPtrOutput)
 }
 
-type PasswordPtrOutput struct {
-	*pulumi.OutputState
-}
+type PasswordPtrOutput struct{ *pulumi.OutputState }
 
 func (PasswordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Password)(nil))
@@ -513,6 +537,16 @@ func (o PasswordPtrOutput) ToPasswordPtrOutput() PasswordPtrOutput {
 
 func (o PasswordPtrOutput) ToPasswordPtrOutputWithContext(ctx context.Context) PasswordPtrOutput {
 	return o
+}
+
+func (o PasswordPtrOutput) Elem() PasswordOutput {
+	return o.ApplyT(func(v *Password) Password {
+		if v != nil {
+			return *v
+		}
+		var ret Password
+		return ret
+	}).(PasswordOutput)
 }
 
 type PasswordArrayOutput struct{ *pulumi.OutputState }

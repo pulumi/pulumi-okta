@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(okta.app.getMetadataSaml({
  *     appId: "<app id>",
  *     keyId: "<cert key id>",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
@@ -41,11 +41,11 @@ export interface GetMetadataSamlArgs {
     /**
      * The application ID.
      */
-    readonly appId: string;
+    appId: string;
     /**
      * Certificate Key ID.
      */
-    readonly keyId?: string;
+    keyId?: string;
 }
 
 /**

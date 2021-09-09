@@ -457,7 +457,7 @@ type SecurePasswordStoreAppArrayInput interface {
 type SecurePasswordStoreAppArray []SecurePasswordStoreAppInput
 
 func (SecurePasswordStoreAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurePasswordStoreApp)(nil))
+	return reflect.TypeOf((*[]*SecurePasswordStoreApp)(nil)).Elem()
 }
 
 func (i SecurePasswordStoreAppArray) ToSecurePasswordStoreAppArrayOutput() SecurePasswordStoreAppArrayOutput {
@@ -482,7 +482,7 @@ type SecurePasswordStoreAppMapInput interface {
 type SecurePasswordStoreAppMap map[string]SecurePasswordStoreAppInput
 
 func (SecurePasswordStoreAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurePasswordStoreApp)(nil))
+	return reflect.TypeOf((*map[string]*SecurePasswordStoreApp)(nil)).Elem()
 }
 
 func (i SecurePasswordStoreAppMap) ToSecurePasswordStoreAppMapOutput() SecurePasswordStoreAppMapOutput {
@@ -493,9 +493,7 @@ func (i SecurePasswordStoreAppMap) ToSecurePasswordStoreAppMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreAppMapOutput)
 }
 
-type SecurePasswordStoreAppOutput struct {
-	*pulumi.OutputState
-}
+type SecurePasswordStoreAppOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurePasswordStoreApp)(nil))
@@ -514,14 +512,12 @@ func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppPtrOutput() Secure
 }
 
 func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
-	return o.ApplyT(func(v SecurePasswordStoreApp) *SecurePasswordStoreApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurePasswordStoreApp) *SecurePasswordStoreApp {
 		return &v
 	}).(SecurePasswordStoreAppPtrOutput)
 }
 
-type SecurePasswordStoreAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurePasswordStoreAppPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurePasswordStoreApp)(nil))
@@ -533,6 +529,16 @@ func (o SecurePasswordStoreAppPtrOutput) ToSecurePasswordStoreAppPtrOutput() Sec
 
 func (o SecurePasswordStoreAppPtrOutput) ToSecurePasswordStoreAppPtrOutputWithContext(ctx context.Context) SecurePasswordStoreAppPtrOutput {
 	return o
+}
+
+func (o SecurePasswordStoreAppPtrOutput) Elem() SecurePasswordStoreAppOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) SecurePasswordStoreApp {
+		if v != nil {
+			return *v
+		}
+		var ret SecurePasswordStoreApp
+		return ret
+	}).(SecurePasswordStoreAppOutput)
 }
 
 type SecurePasswordStoreAppArrayOutput struct{ *pulumi.OutputState }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(okta.app.getOauth({
  *     label: "Example App",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
@@ -45,36 +45,36 @@ export interface GetOauthArgs {
     /**
      * tells the provider to query for only `ACTIVE` applications.
      */
-    readonly activeOnly?: boolean;
+    activeOnly?: boolean;
     /**
      * List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
      */
-    readonly groups?: string[];
+    groups?: string[];
     /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
      * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
      * and `label`. This is used to avoid paginating through all applications.
      */
-    readonly label?: string;
+    label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
-    readonly labelPrefix?: string;
+    labelPrefix?: string;
     /**
      * List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
      */
-    readonly users?: string[];
+    users?: string[];
 }
 
 /**

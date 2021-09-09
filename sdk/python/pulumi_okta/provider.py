@@ -370,3 +370,43 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Okta url. (Use 'oktapreview.com' for Okta testing)
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="orgName")
+    def org_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The organization to manage in Okta.
+        """
+        return pulumi.get(self, "org_name")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        API Token granting privileges to Okta API.
+        """
+        return pulumi.get(self, "private_key")
+

@@ -252,7 +252,7 @@ type MappingArrayInput interface {
 type MappingArray []MappingInput
 
 func (MappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Mapping)(nil))
+	return reflect.TypeOf((*[]*Mapping)(nil)).Elem()
 }
 
 func (i MappingArray) ToMappingArrayOutput() MappingArrayOutput {
@@ -277,7 +277,7 @@ type MappingMapInput interface {
 type MappingMap map[string]MappingInput
 
 func (MappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Mapping)(nil))
+	return reflect.TypeOf((*map[string]*Mapping)(nil)).Elem()
 }
 
 func (i MappingMap) ToMappingMapOutput() MappingMapOutput {
@@ -288,9 +288,7 @@ func (i MappingMap) ToMappingMapOutputWithContext(ctx context.Context) MappingMa
 	return pulumi.ToOutputWithContext(ctx, i).(MappingMapOutput)
 }
 
-type MappingOutput struct {
-	*pulumi.OutputState
-}
+type MappingOutput struct{ *pulumi.OutputState }
 
 func (MappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Mapping)(nil))
@@ -309,14 +307,12 @@ func (o MappingOutput) ToMappingPtrOutput() MappingPtrOutput {
 }
 
 func (o MappingOutput) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
-	return o.ApplyT(func(v Mapping) *Mapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Mapping) *Mapping {
 		return &v
 	}).(MappingPtrOutput)
 }
 
-type MappingPtrOutput struct {
-	*pulumi.OutputState
-}
+type MappingPtrOutput struct{ *pulumi.OutputState }
 
 func (MappingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Mapping)(nil))
@@ -328,6 +324,16 @@ func (o MappingPtrOutput) ToMappingPtrOutput() MappingPtrOutput {
 
 func (o MappingPtrOutput) ToMappingPtrOutputWithContext(ctx context.Context) MappingPtrOutput {
 	return o
+}
+
+func (o MappingPtrOutput) Elem() MappingOutput {
+	return o.ApplyT(func(v *Mapping) Mapping {
+		if v != nil {
+			return *v
+		}
+		var ret Mapping
+		return ret
+	}).(MappingOutput)
 }
 
 type MappingArrayOutput struct{ *pulumi.OutputState }

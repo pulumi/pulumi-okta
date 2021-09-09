@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(okta.auth.getServerScopes({
  *     authServerId: "default",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerScopesResult> {
@@ -39,7 +39,7 @@ export interface GetServerScopesArgs {
     /**
      * Auth server ID.
      */
-    readonly authServerId: string;
+    authServerId: string;
 }
 
 /**

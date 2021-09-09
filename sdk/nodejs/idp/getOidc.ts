@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(okta.idp.getOidc({
  *     name: "Example Provider",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promise<GetOidcResult> {
@@ -41,11 +41,11 @@ export interface GetOidcArgs {
     /**
      * The id of the idp to retrieve, conflicts with `name`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of the idp to retrieve, conflicts with `id`.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

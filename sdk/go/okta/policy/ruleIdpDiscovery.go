@@ -364,7 +364,7 @@ type RuleIdpDiscoveryArrayInput interface {
 type RuleIdpDiscoveryArray []RuleIdpDiscoveryInput
 
 func (RuleIdpDiscoveryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RuleIdpDiscovery)(nil))
+	return reflect.TypeOf((*[]*RuleIdpDiscovery)(nil)).Elem()
 }
 
 func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutput() RuleIdpDiscoveryArrayOutput {
@@ -389,7 +389,7 @@ type RuleIdpDiscoveryMapInput interface {
 type RuleIdpDiscoveryMap map[string]RuleIdpDiscoveryInput
 
 func (RuleIdpDiscoveryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RuleIdpDiscovery)(nil))
+	return reflect.TypeOf((*map[string]*RuleIdpDiscovery)(nil)).Elem()
 }
 
 func (i RuleIdpDiscoveryMap) ToRuleIdpDiscoveryMapOutput() RuleIdpDiscoveryMapOutput {
@@ -400,9 +400,7 @@ func (i RuleIdpDiscoveryMap) ToRuleIdpDiscoveryMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryMapOutput)
 }
 
-type RuleIdpDiscoveryOutput struct {
-	*pulumi.OutputState
-}
+type RuleIdpDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleIdpDiscovery)(nil))
@@ -421,14 +419,12 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscoveryPt
 }
 
 func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
-	return o.ApplyT(func(v RuleIdpDiscovery) *RuleIdpDiscovery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleIdpDiscovery) *RuleIdpDiscovery {
 		return &v
 	}).(RuleIdpDiscoveryPtrOutput)
 }
 
-type RuleIdpDiscoveryPtrOutput struct {
-	*pulumi.OutputState
-}
+type RuleIdpDiscoveryPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RuleIdpDiscovery)(nil))
@@ -440,6 +436,16 @@ func (o RuleIdpDiscoveryPtrOutput) ToRuleIdpDiscoveryPtrOutput() RuleIdpDiscover
 
 func (o RuleIdpDiscoveryPtrOutput) ToRuleIdpDiscoveryPtrOutputWithContext(ctx context.Context) RuleIdpDiscoveryPtrOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryPtrOutput) Elem() RuleIdpDiscoveryOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret RuleIdpDiscovery
+		return ret
+	}).(RuleIdpDiscoveryOutput)
 }
 
 type RuleIdpDiscoveryArrayOutput struct{ *pulumi.OutputState }

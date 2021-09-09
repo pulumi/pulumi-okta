@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -188,6 +189,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
+     * Specifies a hashed password to import into Okta.
+     */
+    public readonly passwordHash!: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
+    /**
      * User profile property.
      */
     public readonly postalAddress!: pulumi.Output<string | undefined>;
@@ -285,6 +290,7 @@ export class User extends pulumi.CustomResource {
             inputs["nickName"] = state ? state.nickName : undefined;
             inputs["organization"] = state ? state.organization : undefined;
             inputs["password"] = state ? state.password : undefined;
+            inputs["passwordHash"] = state ? state.passwordHash : undefined;
             inputs["postalAddress"] = state ? state.postalAddress : undefined;
             inputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
             inputs["primaryPhone"] = state ? state.primaryPhone : undefined;
@@ -338,6 +344,7 @@ export class User extends pulumi.CustomResource {
             inputs["nickName"] = args ? args.nickName : undefined;
             inputs["organization"] = args ? args.organization : undefined;
             inputs["password"] = args ? args.password : undefined;
+            inputs["passwordHash"] = args ? args.passwordHash : undefined;
             inputs["postalAddress"] = args ? args.postalAddress : undefined;
             inputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
             inputs["primaryPhone"] = args ? args.primaryPhone : undefined;
@@ -371,161 +378,165 @@ export interface UserState {
      *
      * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
-    readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
-    readonly city?: pulumi.Input<string>;
+    city?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly costCenter?: pulumi.Input<string>;
+    costCenter?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string>;
     /**
      * raw JSON containing all custom profile attributes.
      */
-    readonly customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly department?: pulumi.Input<string>;
+    department?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly division?: pulumi.Input<string>;
+    division?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly employeeNumber?: pulumi.Input<string>;
+    employeeNumber?: pulumi.Input<string>;
     /**
      * User's First Name, required by default.
      */
-    readonly firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
     /**
      * User profile property.
      *
      * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
      */
-    readonly groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
+    groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
-    readonly honorificPrefix?: pulumi.Input<string>;
+    honorificPrefix?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly honorificSuffix?: pulumi.Input<string>;
+    honorificSuffix?: pulumi.Input<string>;
     /**
      * User's Last Name, required by default.
      */
-    readonly lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly login?: pulumi.Input<string>;
+    login?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly manager?: pulumi.Input<string>;
+    manager?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly managerId?: pulumi.Input<string>;
+    managerId?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly middleName?: pulumi.Input<string>;
+    middleName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly mobilePhone?: pulumi.Input<string>;
+    mobilePhone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly nickName?: pulumi.Input<string>;
+    nickName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string>;
     /**
      * User password.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Specifies a hashed password to import into Okta.
+     */
+    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
      * User profile property.
      */
-    readonly postalAddress?: pulumi.Input<string>;
+    postalAddress?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly primaryPhone?: pulumi.Input<string>;
+    primaryPhone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string>;
     /**
      * The raw status of the User in Okta - (status is mapped)
      */
-    readonly rawStatus?: pulumi.Input<string>;
+    rawStatus?: pulumi.Input<string>;
     /**
      * User password recovery answer.
      */
-    readonly recoveryAnswer?: pulumi.Input<string>;
+    recoveryAnswer?: pulumi.Input<string>;
     /**
      * User password recovery question.
      */
-    readonly recoveryQuestion?: pulumi.Input<string>;
+    recoveryQuestion?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly secondEmail?: pulumi.Input<string>;
+    secondEmail?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly streetAddress?: pulumi.Input<string>;
+    streetAddress?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string>;
 }
 
 /**
@@ -538,155 +549,159 @@ export interface UserArgs {
      *
      * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
-    readonly adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
-    readonly city?: pulumi.Input<string>;
+    city?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly costCenter?: pulumi.Input<string>;
+    costCenter?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string>;
     /**
      * raw JSON containing all custom profile attributes.
      */
-    readonly customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly department?: pulumi.Input<string>;
+    department?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly division?: pulumi.Input<string>;
+    division?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly employeeNumber?: pulumi.Input<string>;
+    employeeNumber?: pulumi.Input<string>;
     /**
      * User's First Name, required by default.
      */
-    readonly firstName: pulumi.Input<string>;
+    firstName: pulumi.Input<string>;
     /**
      * User profile property.
      *
      * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
      */
-    readonly groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
+    groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
-    readonly honorificPrefix?: pulumi.Input<string>;
+    honorificPrefix?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly honorificSuffix?: pulumi.Input<string>;
+    honorificSuffix?: pulumi.Input<string>;
     /**
      * User's Last Name, required by default.
      */
-    readonly lastName: pulumi.Input<string>;
+    lastName: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly manager?: pulumi.Input<string>;
+    manager?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly managerId?: pulumi.Input<string>;
+    managerId?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly middleName?: pulumi.Input<string>;
+    middleName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly mobilePhone?: pulumi.Input<string>;
+    mobilePhone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly nickName?: pulumi.Input<string>;
+    nickName?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string>;
     /**
      * User password.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Specifies a hashed password to import into Okta.
+     */
+    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
      * User profile property.
      */
-    readonly postalAddress?: pulumi.Input<string>;
+    postalAddress?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly primaryPhone?: pulumi.Input<string>;
+    primaryPhone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string>;
     /**
      * User password recovery answer.
      */
-    readonly recoveryAnswer?: pulumi.Input<string>;
+    recoveryAnswer?: pulumi.Input<string>;
     /**
      * User password recovery question.
      */
-    readonly recoveryQuestion?: pulumi.Input<string>;
+    recoveryQuestion?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly secondEmail?: pulumi.Input<string>;
+    secondEmail?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly streetAddress?: pulumi.Input<string>;
+    streetAddress?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string>;
     /**
      * User profile property.
      */
-    readonly zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string>;
 }

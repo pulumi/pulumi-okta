@@ -45,7 +45,7 @@ export interface GetUserSecurityQuestionsArgs {
     /**
      * User ID.
      */
-    readonly userId: string;
+    userId: string;
 }
 
 /**

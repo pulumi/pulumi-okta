@@ -4,6 +4,9 @@
 package group
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,56 @@ type GetEveryoneGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	IncludeUsers *bool  `pulumi:"includeUsers"`
+}
+
+func GetEveryoneGroupOutput(ctx *pulumi.Context, args GetEveryoneGroupOutputArgs, opts ...pulumi.InvokeOption) GetEveryoneGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEveryoneGroupResult, error) {
+			args := v.(GetEveryoneGroupArgs)
+			r, err := GetEveryoneGroup(ctx, &args, opts...)
+			return *r, err
+		}).(GetEveryoneGroupResultOutput)
+}
+
+// A collection of arguments for invoking getEveryoneGroup.
+type GetEveryoneGroupOutputArgs struct {
+	// whether to retrieve all member ids.
+	IncludeUsers pulumi.BoolPtrInput `pulumi:"includeUsers"`
+}
+
+func (GetEveryoneGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEveryoneGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEveryoneGroup.
+type GetEveryoneGroupResultOutput struct{ *pulumi.OutputState }
+
+func (GetEveryoneGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEveryoneGroupResult)(nil)).Elem()
+}
+
+func (o GetEveryoneGroupResultOutput) ToGetEveryoneGroupResultOutput() GetEveryoneGroupResultOutput {
+	return o
+}
+
+func (o GetEveryoneGroupResultOutput) ToGetEveryoneGroupResultOutputWithContext(ctx context.Context) GetEveryoneGroupResultOutput {
+	return o
+}
+
+// description of group.
+func (o GetEveryoneGroupResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEveryoneGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEveryoneGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEveryoneGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEveryoneGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEveryoneGroupResult) *bool { return v.IncludeUsers }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEveryoneGroupResultOutput{})
 }

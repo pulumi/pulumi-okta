@@ -129,23 +129,23 @@ export interface AdminRoleTargetsState {
     /**
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
      */
-    readonly apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of group IDs. Conflicts with `apps`.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Role ID.
      */
-    readonly roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string>;
     /**
      * Name of the role associated with the user.
      */
-    readonly roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string>;
     /**
      * ID of the user.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -155,17 +155,17 @@ export interface AdminRoleTargetsArgs {
     /**
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
      */
-    readonly apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of group IDs. Conflicts with `apps`.
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the role associated with the user.
      */
-    readonly roleType: pulumi.Input<string>;
+    roleType: pulumi.Input<string>;
     /**
      * ID of the user.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

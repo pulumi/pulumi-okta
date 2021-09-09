@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(okta.getBehaviour({
  *     label: "New City",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
@@ -41,12 +41,12 @@ export interface GetBehaviourArgs {
     /**
      * `id` of behavior to retrieve, conflicts with `name`.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
      * Okta's API.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

@@ -4,6 +4,9 @@
 package auth
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,67 @@ type LookupServerPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func LookupServerPolicyOutput(ctx *pulumi.Context, args LookupServerPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerPolicyResult, error) {
+			args := v.(LookupServerPolicyArgs)
+			r, err := LookupServerPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getServerPolicy.
+type LookupServerPolicyOutputArgs struct {
+	// The ID of the Auth Server.
+	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
+	// Name of policy to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupServerPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServerPolicy.
+type LookupServerPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerPolicyResult)(nil)).Elem()
+}
+
+func (o LookupServerPolicyResultOutput) ToLookupServerPolicyResultOutput() LookupServerPolicyResultOutput {
+	return o
+}
+
+func (o LookupServerPolicyResultOutput) ToLookupServerPolicyResultOutputWithContext(ctx context.Context) LookupServerPolicyResultOutput {
+	return o
+}
+
+// list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
+func (o LookupServerPolicyResultOutput) AssignedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) []string { return v.AssignedClients }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupServerPolicyResultOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// description of authorization server policy.
+func (o LookupServerPolicyResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServerPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupServerPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerPolicyResultOutput{})
 }

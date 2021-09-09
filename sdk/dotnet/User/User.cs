@@ -220,6 +220,12 @@ namespace Pulumi.Okta.User
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a hashed password to import into Okta.
+        /// </summary>
+        [Output("passwordHash")]
+        public Output<Outputs.UserPasswordHash?> PasswordHash { get; private set; } = null!;
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Output("postalAddress")]
@@ -515,6 +521,12 @@ namespace Pulumi.Okta.User
         public Input<string>? Password { get; set; }
 
         /// <summary>
+        /// Specifies a hashed password to import into Okta.
+        /// </summary>
+        [Input("passwordHash")]
+        public Input<Inputs.UserPasswordHashArgs>? PasswordHash { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("postalAddress")]
@@ -763,6 +775,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// Specifies a hashed password to import into Okta.
+        /// </summary>
+        [Input("passwordHash")]
+        public Input<Inputs.UserPasswordHashGetArgs>? PasswordHash { get; set; }
 
         /// <summary>
         /// User profile property.
