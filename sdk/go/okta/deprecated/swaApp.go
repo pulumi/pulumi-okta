@@ -16,10 +16,14 @@ type SwaApp struct {
 
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -36,7 +40,7 @@ type SwaApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -48,6 +52,10 @@ type SwaApp struct {
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL
@@ -102,10 +110,14 @@ func GetSwaApp(ctx *pulumi.Context,
 type swaAppState struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -122,7 +134,7 @@ type swaAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -134,6 +146,10 @@ type swaAppState struct {
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	// Login URL
@@ -157,10 +173,14 @@ type swaAppState struct {
 type SwaAppState struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
@@ -177,7 +197,7 @@ type SwaAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
@@ -189,6 +209,10 @@ type SwaAppState struct {
 	PreconfiguredApp pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	// Login URL
@@ -216,10 +240,14 @@ func (SwaAppState) ElementType() reflect.Type {
 type swaAppArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -236,12 +264,16 @@ type swaAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// Login password field
 	PasswordField *string `pulumi:"passwordField"`
 	// Preconfigured app name
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	// Login URL
@@ -266,10 +298,14 @@ type swaAppArgs struct {
 type SwaAppArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
@@ -286,12 +322,16 @@ type SwaAppArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// Login password field
 	PasswordField pulumi.StringPtrInput
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	// Login URL

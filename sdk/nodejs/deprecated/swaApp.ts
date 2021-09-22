@@ -38,6 +38,10 @@ export class SwaApp extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
+     * Custom login page URL
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Enable self service
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
@@ -45,6 +49,10 @@ export class SwaApp extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar
      */
@@ -76,7 +84,7 @@ export class SwaApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -99,6 +107,14 @@ export class SwaApp extends pulumi.CustomResource {
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * Status of application.
      */
@@ -148,8 +164,10 @@ export class SwaApp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SwaAppState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -163,6 +181,8 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["passwordField"] = state ? state.passwordField : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
@@ -177,8 +197,10 @@ export class SwaApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -189,6 +211,8 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -217,6 +241,10 @@ export interface SwaAppState {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -224,6 +252,10 @@ export interface SwaAppState {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -255,7 +287,7 @@ export interface SwaAppState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -278,6 +310,14 @@ export interface SwaAppState {
      * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application.
      */
@@ -323,6 +363,10 @@ export interface SwaAppArgs {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -330,6 +374,10 @@ export interface SwaAppArgs {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -361,7 +409,7 @@ export interface SwaAppArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -372,6 +420,14 @@ export interface SwaAppArgs {
      * Preconfigured app name
      */
     preconfiguredApp?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application.
      */

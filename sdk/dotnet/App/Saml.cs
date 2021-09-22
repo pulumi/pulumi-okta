@@ -210,6 +210,20 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;
     /// ```
+    /// 
+    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_users
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_users/skip_groups
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_groups
+    /// ```
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]
     public partial class Saml : Pulumi.CustomResource
@@ -221,13 +235,13 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page URL.
+        /// Custom login page for this application.
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -408,7 +422,7 @@ namespace Pulumi.Okta.App
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -497,6 +511,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("singleLogoutUrl")]
         public Output<string?> SingleLogoutUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Output("skipGroups")]
+        public Output<bool?> SkipGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Output("skipUsers")]
+        public Output<bool?> SkipUsers { get; private set; } = null!;
 
         /// <summary>
         /// SAML service provider issuer.
@@ -606,13 +632,13 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page URL.
+        /// Custom login page for this application.
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -782,7 +808,7 @@ namespace Pulumi.Okta.App
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -841,6 +867,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// SAML service provider issuer.
@@ -918,13 +956,13 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page URL.
+        /// Custom login page for this application.
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service.
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -1130,7 +1168,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -1219,6 +1257,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// SAML service provider issuer.

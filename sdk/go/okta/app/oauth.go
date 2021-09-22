@@ -92,11 +92,35 @@ import (
 // ```sh
 //  $ pulumi import okta:app/oAuth:OAuth example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_groups
+// ```
 type OAuth struct {
 	pulumi.CustomResourceState
 
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// Application settings in JSON format.
+	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -145,7 +169,7 @@ type OAuth struct {
 	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
@@ -171,6 +195,10 @@ type OAuth struct {
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
@@ -223,8 +251,18 @@ func GetOAuth(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OAuth resources.
 type oauthState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format.
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -273,7 +311,7 @@ type oauthState struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
@@ -299,6 +337,10 @@ type oauthState struct {
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
@@ -317,8 +359,18 @@ type oauthState struct {
 }
 
 type OAuthState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format.
+	AppSettingsJson pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
@@ -367,7 +419,7 @@ type OAuthState struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
@@ -393,6 +445,10 @@ type OAuthState struct {
 	ResponseTypes pulumi.StringArrayInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
@@ -415,8 +471,18 @@ func (OAuthState) ElementType() reflect.Type {
 }
 
 type oauthArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format.
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -463,7 +529,7 @@ type oauthArgs struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
@@ -483,6 +549,10 @@ type oauthArgs struct {
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
@@ -502,8 +572,18 @@ type oauthArgs struct {
 
 // The set of arguments for constructing a OAuth resource.
 type OAuthArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format.
+	AppSettingsJson pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
@@ -550,7 +630,7 @@ type OAuthArgs struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
@@ -570,6 +650,10 @@ type OAuthArgs struct {
 	RefreshTokenRotation pulumi.StringPtrInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.

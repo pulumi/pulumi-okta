@@ -51,6 +51,8 @@ class SamlArgs:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -64,8 +66,8 @@ class SamlArgs:
         The set of arguments for constructing a Saml resource.
         :param pulumi.Input[str] label: label of application.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
@@ -89,7 +91,7 @@ class SamlArgs:
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -100,6 +102,8 @@ class SamlArgs:
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -185,6 +189,10 @@ class SamlArgs:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -235,7 +243,7 @@ class SamlArgs:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page URL.
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -247,7 +255,7 @@ class SamlArgs:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service.
+        Enable self-service. By default, it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -524,7 +532,7 @@ class SamlArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -640,6 +648,30 @@ class SamlArgs:
     @single_logout_url.setter
     def single_logout_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "single_logout_url", value)
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter(name="spIssuer")
@@ -801,6 +833,8 @@ class _SamlState:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -813,8 +847,8 @@ class _SamlState:
         """
         Input properties used for looking up and filtering Saml resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
@@ -845,7 +879,7 @@ class _SamlState:
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
@@ -861,6 +895,8 @@ class _SamlState:
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -969,6 +1005,10 @@ class _SamlState:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -1007,7 +1047,7 @@ class _SamlState:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page URL.
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -1019,7 +1059,7 @@ class _SamlState:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service.
+        Enable self-service. By default, it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -1380,7 +1420,7 @@ class _SamlState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -1558,6 +1598,30 @@ class _SamlState:
         pulumi.set(self, "single_logout_url", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1708,6 +1772,8 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1867,11 +1933,25 @@ class Saml(pulumi.CustomResource):
          $ pulumi import okta:app/saml:Saml example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
@@ -1896,7 +1976,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1907,6 +1987,8 @@ class Saml(pulumi.CustomResource):
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -2073,6 +2155,20 @@ class Saml(pulumi.CustomResource):
          $ pulumi import okta:app/saml:Saml example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param SamlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2124,6 +2220,8 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -2186,6 +2284,8 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
             __props__.__dict__["single_logout_issuer"] = single_logout_issuer
             __props__.__dict__["single_logout_url"] = single_logout_url
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["sp_issuer"] = sp_issuer
             __props__.__dict__["sso_url"] = sso_url
             __props__.__dict__["status"] = status
@@ -2266,6 +2366,8 @@ class Saml(pulumi.CustomResource):
             single_logout_certificate: Optional[pulumi.Input[str]] = None,
             single_logout_issuer: Optional[pulumi.Input[str]] = None,
             single_logout_url: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             sp_issuer: Optional[pulumi.Input[str]] = None,
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -2283,8 +2385,8 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
@@ -2315,7 +2417,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
@@ -2331,6 +2433,8 @@ class Saml(pulumi.CustomResource):
                Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -2393,6 +2497,8 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["single_logout_certificate"] = single_logout_certificate
         __props__.__dict__["single_logout_issuer"] = single_logout_issuer
         __props__.__dict__["single_logout_url"] = single_logout_url
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["sp_issuer"] = sp_issuer
         __props__.__dict__["sso_url"] = sso_url
         __props__.__dict__["status"] = status
@@ -2416,7 +2522,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom login page URL.
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -2424,7 +2530,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self-service.
+        Enable self-service. By default, it is `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -2665,7 +2771,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -2781,6 +2887,22 @@ class Saml(pulumi.CustomResource):
         The location where the logout response is sent.
         """
         return pulumi.get(self, "single_logout_url")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter(name="spIssuer")

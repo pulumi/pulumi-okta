@@ -33,12 +33,37 @@ namespace Pulumi.Okta.Group
     /// }
     /// ```
     /// 
+    /// Ignore users sync
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSkip = new Okta.Group.Group("exampleSkip", new Okta.Group.GroupArgs
+    ///         {
+    ///             Description = "My Example Group",
+    ///             SkipUsers = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An Okta Group can be imported via the Okta ID.
     /// 
     /// ```sh
     ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;
+    /// ```
+    /// 
+    ///  It's also possible to import group without users. In this case ID will look like this
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;/skip_users
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/group:Group")]
@@ -57,7 +82,14 @@ namespace Pulumi.Okta.Group
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Output("skipUsers")]
+        public Output<bool?> SkipUsers { get; private set; } = null!;
+
+        /// <summary>
         /// The users associated with the group. This can also be done per user.
+        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<string>> Users { get; private set; } = null!;
@@ -120,11 +152,18 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
+
         [Input("users")]
         private InputList<string>? _users;
 
         /// <summary>
         /// The users associated with the group. This can also be done per user.
+        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
         /// </summary>
         [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
         public InputList<string> Users
@@ -152,11 +191,18 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
+
         [Input("users")]
         private InputList<string>? _users;
 
         /// <summary>
         /// The users associated with the group. This can also be done per user.
+        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
         /// </summary>
         [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
         public InputList<string> Users

@@ -17,7 +17,11 @@ class BookmarkAppArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[str],
                  url: pulumi.Input[str],
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -25,25 +29,41 @@ class BookmarkAppArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  request_integration: Optional[pulumi.Input[bool]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkAppUserArgs']]]] = None):
         """
         The set of arguments for constructing a BookmarkApp resource.
         :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input['BookmarkAppUserArgs']]] users: Users associated with the application
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "url", url)
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
@@ -61,6 +81,10 @@ class BookmarkAppArgs:
             pulumi.set(__self__, "logo", logo)
         if request_integration is not None:
             pulumi.set(__self__, "request_integration", request_integration)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if users is not None:
@@ -91,6 +115,42 @@ class BookmarkAppArgs:
         pulumi.set(self, "url", value)
 
     @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
     @pulumi.getter(name="adminNote")
     def admin_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -101,6 +161,18 @@ class BookmarkAppArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -166,7 +238,7 @@ class BookmarkAppArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -182,6 +254,30 @@ class BookmarkAppArgs:
     @request_integration.setter
     def request_integration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "request_integration", value)
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter
@@ -211,7 +307,11 @@ class BookmarkAppArgs:
 @pulumi.input_type
 class _BookmarkAppState:
     def __init__(__self__, *,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -223,27 +323,43 @@ class _BookmarkAppState:
                  name: Optional[pulumi.Input[str]] = None,
                  request_integration: Optional[pulumi.Input[bool]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkAppUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering BookmarkApp resources.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input['BookmarkAppUserArgs']]] users: Users associated with the application
         """
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
@@ -269,6 +385,10 @@ class _BookmarkAppState:
             pulumi.set(__self__, "request_integration", request_integration)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -278,6 +398,42 @@ class _BookmarkAppState:
             pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
         if users is not None:
             pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
 
     @property
     @pulumi.getter(name="adminNote")
@@ -290,6 +446,18 @@ class _BookmarkAppState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -367,7 +535,7 @@ class _BookmarkAppState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -421,6 +589,30 @@ class _BookmarkAppState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -459,7 +651,11 @@ class BookmarkApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -468,6 +664,8 @@ class BookmarkApp(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  request_integration: Optional[pulumi.Input[bool]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None,
@@ -476,14 +674,20 @@ class BookmarkApp(pulumi.CustomResource):
         Create a BookmarkApp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
@@ -510,7 +714,11 @@ class BookmarkApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -519,6 +727,8 @@ class BookmarkApp(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  request_integration: Optional[pulumi.Input[bool]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None,
@@ -534,7 +744,11 @@ class BookmarkApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BookmarkAppArgs.__new__(BookmarkAppArgs)
 
+            __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+            __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
+            __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_links_json"] = app_links_json
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["enduser_note"] = enduser_note
             if groups is not None and not opts.urn:
@@ -548,6 +762,8 @@ class BookmarkApp(pulumi.CustomResource):
             __props__.__dict__["label"] = label
             __props__.__dict__["logo"] = logo
             __props__.__dict__["request_integration"] = request_integration
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -569,7 +785,11 @@ class BookmarkApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_links_json: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -581,6 +801,8 @@ class BookmarkApp(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             request_integration: Optional[pulumi.Input[bool]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None) -> 'BookmarkApp':
@@ -591,17 +813,23 @@ class BookmarkApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]] users: Users associated with the application
         """
@@ -609,7 +837,11 @@ class BookmarkApp(pulumi.CustomResource):
 
         __props__ = _BookmarkAppState.__new__(_BookmarkAppState)
 
+        __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+        __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
+        __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["groups"] = groups
@@ -621,10 +853,36 @@ class BookmarkApp(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["request_integration"] = request_integration
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["users"] = users
         return BookmarkApp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
 
     @property
     @pulumi.getter(name="adminNote")
@@ -633,6 +891,14 @@ class BookmarkApp(pulumi.CustomResource):
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -686,7 +952,7 @@ class BookmarkApp(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -718,6 +984,22 @@ class BookmarkApp(pulumi.CustomResource):
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter

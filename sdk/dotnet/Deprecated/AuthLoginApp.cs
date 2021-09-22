@@ -19,6 +19,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Custom login page URL
+        /// </summary>
+        [Output("accessibilityLoginRedirectUrl")]
+        public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Enable self service
         /// </summary>
         [Output("accessibilitySelfService")]
@@ -29,6 +35,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("adminNote")]
         public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Output("appLinksJson")]
+        public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
         /// Application settings in JSON format
@@ -79,7 +91,7 @@ namespace Pulumi.Okta.Deprecated
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Logo of the application.
+        /// Local path to logo of the application.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -137,6 +149,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("signOnUrl")]
         public Output<string?> SignOnUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
+        [Output("skipGroups")]
+        public Output<bool?> SkipGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Output("skipUsers")]
+        public Output<bool?> SkipUsers { get; private set; } = null!;
 
         /// <summary>
         /// Status of application.
@@ -221,6 +245,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
+        /// Custom login page URL
+        /// </summary>
+        [Input("accessibilityLoginRedirectUrl")]
+        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
+
+        /// <summary>
         /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
@@ -231,6 +261,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format
@@ -288,7 +324,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Logo of the application.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -328,6 +364,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
+
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// Status of application.
@@ -380,6 +428,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
+        /// Custom login page URL
+        /// </summary>
+        [Input("accessibilityLoginRedirectUrl")]
+        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
+
+        /// <summary>
         /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
@@ -390,6 +444,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format
@@ -447,7 +507,7 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Logo of the application.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -505,6 +565,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
+
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// Status of application.

@@ -38,6 +38,10 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
+     * Custom login page URL
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Enable self service
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
@@ -45,6 +49,10 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar
      */
@@ -76,7 +84,7 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -132,6 +140,14 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
+    /**
      * Status of application.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -176,8 +192,10 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SecurePasswordStoreAppState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -199,6 +217,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["sharedPassword"] = state ? state.sharedPassword : undefined;
             inputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
@@ -221,8 +241,10 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'usernameField'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -241,6 +263,8 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["revealPassword"] = args ? args.revealPassword : undefined;
             inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
             inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
@@ -268,6 +292,10 @@ export interface SecurePasswordStoreAppState {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -275,6 +303,10 @@ export interface SecurePasswordStoreAppState {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -306,7 +338,7 @@ export interface SecurePasswordStoreAppState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -362,6 +394,14 @@ export interface SecurePasswordStoreAppState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
+    /**
      * Status of application.
      */
     status?: pulumi.Input<string>;
@@ -402,6 +442,10 @@ export interface SecurePasswordStoreAppArgs {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -409,6 +453,10 @@ export interface SecurePasswordStoreAppArgs {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -440,7 +488,7 @@ export interface SecurePasswordStoreAppArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -483,6 +531,14 @@ export interface SecurePasswordStoreAppArgs {
      * Shared username, required for certain schemes.
      */
     sharedUsername?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application.
      */

@@ -85,6 +85,10 @@ export class Rule extends pulumi.CustomResource {
      * The status of the group rule.
      */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * The list of user IDs that would be excluded when rules are processed.
+     */
+    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -105,6 +109,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["removeAssignedUsers"] = state ? state.removeAssignedUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if ((!args || args.expressionValue === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["removeAssignedUsers"] = args ? args.removeAssignedUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -157,6 +163,10 @@ export interface RuleState {
      * The status of the group rule.
      */
     status?: pulumi.Input<string>;
+    /**
+     * The list of user IDs that would be excluded when rules are processed.
+     */
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -189,4 +199,8 @@ export interface RuleArgs {
      * The status of the group rule.
      */
     status?: pulumi.Input<string>;
+    /**
+     * The list of user IDs that would be excluded when rules are processed.
+     */
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

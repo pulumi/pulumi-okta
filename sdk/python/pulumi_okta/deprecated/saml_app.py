@@ -51,6 +51,8 @@ class SamlAppArgs:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -68,7 +70,7 @@ class SamlAppArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Application settings in JSON format
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -87,7 +89,7 @@ class SamlAppArgs:
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -97,6 +99,8 @@ class SamlAppArgs:
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -181,6 +185,10 @@ class SamlAppArgs:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -279,7 +287,7 @@ class SamlAppArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -516,7 +524,7 @@ class SamlAppArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -631,6 +639,30 @@ class SamlAppArgs:
     @single_logout_url.setter
     def single_logout_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "single_logout_url", value)
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter(name="spIssuer")
@@ -791,6 +823,8 @@ class _SamlAppState:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -807,7 +841,7 @@ class _SamlAppState:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Application settings in JSON format
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -833,7 +867,7 @@ class _SamlAppState:
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] metadata: SAML xml metadata payload
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL
@@ -848,6 +882,8 @@ class _SamlAppState:
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -955,6 +991,10 @@ class _SamlAppState:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -1041,7 +1081,7 @@ class _SamlAppState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1362,7 +1402,7 @@ class _SamlAppState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1539,6 +1579,30 @@ class _SamlAppState:
         pulumi.set(self, "single_logout_url", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1688,6 +1752,8 @@ class SamlApp(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1707,7 +1773,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Application settings in JSON format
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -1727,7 +1793,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1737,6 +1803,8 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -1806,6 +1874,8 @@ class SamlApp(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1868,6 +1938,8 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
             __props__.__dict__["single_logout_issuer"] = single_logout_issuer
             __props__.__dict__["single_logout_url"] = single_logout_url
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["sp_issuer"] = sp_issuer
             __props__.__dict__["sso_url"] = sso_url
             __props__.__dict__["status"] = status
@@ -1948,6 +2020,8 @@ class SamlApp(pulumi.CustomResource):
             single_logout_certificate: Optional[pulumi.Input[str]] = None,
             single_logout_issuer: Optional[pulumi.Input[str]] = None,
             single_logout_url: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             sp_issuer: Optional[pulumi.Input[str]] = None,
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -1969,7 +2043,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Application settings in JSON format
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
         :param pulumi.Input[str] audience: Audience Restriction
@@ -1995,7 +2069,7 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
         :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] metadata: SAML xml metadata payload
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL
@@ -2010,6 +2084,8 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[str] sso_url: Single Sign On URL
         :param pulumi.Input[str] status: Status of application.
@@ -2071,6 +2147,8 @@ class SamlApp(pulumi.CustomResource):
         __props__.__dict__["single_logout_certificate"] = single_logout_certificate
         __props__.__dict__["single_logout_issuer"] = single_logout_issuer
         __props__.__dict__["single_logout_url"] = single_logout_url
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["sp_issuer"] = sp_issuer
         __props__.__dict__["sso_url"] = sso_url
         __props__.__dict__["status"] = status
@@ -2126,7 +2204,7 @@ class SamlApp(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Application settings in JSON format
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -2339,7 +2417,7 @@ class SamlApp(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -2454,6 +2532,22 @@ class SamlApp(pulumi.CustomResource):
         The location where the logout response is sent
         """
         return pulumi.get(self, "single_logout_url")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter(name="spIssuer")

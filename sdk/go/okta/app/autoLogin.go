@@ -75,15 +75,33 @@ import (
 // ```sh
 //  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_groups
+// ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar.
@@ -103,7 +121,7 @@ type AutoLogin struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -123,6 +141,10 @@ type AutoLogin struct {
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -172,10 +194,14 @@ func GetAutoLogin(ctx *pulumi.Context,
 type autoLoginState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar.
@@ -195,7 +221,7 @@ type autoLoginState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -215,6 +241,10 @@ type autoLoginState struct {
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -233,10 +263,14 @@ type autoLoginState struct {
 type AutoLoginState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
@@ -256,7 +290,7 @@ type AutoLoginState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -276,6 +310,10 @@ type AutoLoginState struct {
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
@@ -298,10 +336,14 @@ func (AutoLoginState) ElementType() reflect.Type {
 type autoLoginArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar.
@@ -321,7 +363,7 @@ type autoLoginArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -335,6 +377,10 @@ type autoLoginArgs struct {
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// Login URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -354,10 +400,14 @@ type autoLoginArgs struct {
 type AutoLoginArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
@@ -377,7 +427,7 @@ type AutoLoginArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
@@ -391,6 +441,10 @@ type AutoLoginArgs struct {
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// Login URL
 	SignOnUrl pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`

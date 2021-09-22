@@ -46,11 +46,33 @@ import (
 // ```sh
 //  $ pulumi import okta:app/bookmark:Bookmark example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_groups
+// ```
 type Bookmark struct {
 	pulumi.CustomResourceState
 
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -66,7 +88,7 @@ type Bookmark struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -76,6 +98,10 @@ type Bookmark struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the bookmark.
@@ -122,8 +148,16 @@ func GetBookmark(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bookmark resources.
 type bookmarkState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -139,7 +173,7 @@ type bookmarkState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -149,6 +183,10 @@ type bookmarkState struct {
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
@@ -161,8 +199,16 @@ type bookmarkState struct {
 }
 
 type BookmarkState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -178,7 +224,7 @@ type BookmarkState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -188,6 +234,10 @@ type BookmarkState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
@@ -204,8 +254,16 @@ func (BookmarkState) ElementType() reflect.Type {
 }
 
 type bookmarkArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -221,10 +279,14 @@ type bookmarkArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
@@ -238,8 +300,16 @@ type bookmarkArgs struct {
 
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -255,10 +325,14 @@ type BookmarkArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.

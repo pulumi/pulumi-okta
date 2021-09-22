@@ -38,6 +38,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
+     * Custom login page URL
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Enable self service
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
@@ -45,6 +49,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Application settings in JSON format
      */
@@ -80,7 +88,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -120,6 +128,14 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     public readonly signOnUrl!: pulumi.Output<string | undefined>;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
+    /**
      * Status of application.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -156,8 +172,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AuthLoginAppState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
@@ -176,6 +194,8 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["signOnRedirectUrl"] = state ? state.signOnRedirectUrl : undefined;
             inputs["signOnUrl"] = state ? state.signOnUrl : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
@@ -187,8 +207,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
@@ -204,6 +226,8 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
             inputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
             inputs["signOnUrl"] = args ? args.signOnUrl : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
@@ -229,6 +253,10 @@ export interface AuthLoginAppState {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -236,6 +264,10 @@ export interface AuthLoginAppState {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
@@ -271,7 +303,7 @@ export interface AuthLoginAppState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -311,6 +343,14 @@ export interface AuthLoginAppState {
      */
     signOnUrl?: pulumi.Input<string>;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
+    /**
      * Status of application.
      */
     status?: pulumi.Input<string>;
@@ -343,6 +383,10 @@ export interface AuthLoginAppArgs {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page URL
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -350,6 +394,10 @@ export interface AuthLoginAppArgs {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Application settings in JSON format
      */
@@ -385,7 +433,7 @@ export interface AuthLoginAppArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -412,6 +460,14 @@ export interface AuthLoginAppArgs {
      * Login URL
      */
     signOnUrl?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application.
      */

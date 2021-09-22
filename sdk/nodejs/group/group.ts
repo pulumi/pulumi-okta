@@ -20,12 +20,29 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Ignore users sync
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleSkip = new okta.group.Group("example_skip", {
+ *     description: "My Example Group",
+ *     skipUsers: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * An Okta Group can be imported via the Okta ID.
  *
  * ```sh
  *  $ pulumi import okta:group/group:Group example <group id>
+ * ```
+ *
+ *  It's also possible to import group without users. In this case ID will look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:group/group:Group example <group id>/skip_users
  * ```
  */
 export class Group extends pulumi.CustomResource {
@@ -65,7 +82,12 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
+    /**
      * The users associated with the group. This can also be done per user.
+     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
      *
      * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
@@ -86,11 +108,13 @@ export class Group extends pulumi.CustomResource {
             const state = argsOrState as GroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["users"] = args ? args.users : undefined;
         }
         if (!opts.version) {
@@ -113,7 +137,12 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
+    /**
      * The users associated with the group. This can also be done per user.
+     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
      *
      * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */
@@ -133,7 +162,12 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
+    /**
      * The users associated with the group. This can also be done per user.
+     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
      *
      * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
      */

@@ -22,15 +22,33 @@ import (
 // ```sh
 //  $ pulumi import okta:app/threeField:ThreeField example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_groups
+// ```
 type ThreeField struct {
 	pulumi.CustomResourceState
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
@@ -54,7 +72,7 @@ type ThreeField struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -70,6 +88,10 @@ type ThreeField struct {
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
@@ -143,10 +165,14 @@ func GetThreeField(ctx *pulumi.Context,
 type threeFieldState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
@@ -170,7 +196,7 @@ type threeFieldState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -186,6 +212,10 @@ type threeFieldState struct {
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
@@ -210,10 +240,14 @@ type threeFieldState struct {
 type ThreeFieldState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
@@ -237,7 +271,7 @@ type ThreeFieldState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -253,6 +287,10 @@ type ThreeFieldState struct {
 	SharedUsername pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
@@ -281,10 +319,14 @@ func (ThreeFieldState) ElementType() reflect.Type {
 type threeFieldArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field CSS selector.
@@ -308,7 +350,7 @@ type threeFieldArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Login password field CSS selector.
 	PasswordSelector string `pulumi:"passwordSelector"`
@@ -318,6 +360,10 @@ type threeFieldArgs struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
@@ -343,10 +389,14 @@ type threeFieldArgs struct {
 type ThreeFieldArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
 	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field CSS selector.
@@ -370,7 +420,7 @@ type ThreeFieldArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Login password field CSS selector.
 	PasswordSelector pulumi.StringInput
@@ -380,6 +430,10 @@ type ThreeFieldArgs struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.

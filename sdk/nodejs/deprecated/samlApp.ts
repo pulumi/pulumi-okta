@@ -54,7 +54,7 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Application settings in JSON format
+     * Displays specific appLinks for the app
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -220,6 +220,14 @@ export class SamlApp extends pulumi.CustomResource {
      * The location where the logout response is sent
      */
     public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * SAML SP issuer ID
      */
@@ -319,6 +327,8 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
             inputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["spIssuer"] = state ? state.spIssuer : undefined;
             inputs["ssoUrl"] = state ? state.ssoUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -369,6 +379,8 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
             inputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["spIssuer"] = args ? args.spIssuer : undefined;
             inputs["ssoUrl"] = args ? args.ssoUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -422,7 +434,7 @@ export interface SamlAppState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Application settings in JSON format
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -529,7 +541,7 @@ export interface SamlAppState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -588,6 +600,14 @@ export interface SamlAppState {
      * The location where the logout response is sent
      */
     singleLogoutUrl?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * SAML SP issuer ID
      */
@@ -653,7 +673,7 @@ export interface SamlAppArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Application settings in JSON format
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -736,7 +756,7 @@ export interface SamlAppArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Logo of the application.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -775,6 +795,14 @@ export interface SamlAppArgs {
      * The location where the logout response is sent
      */
     singleLogoutUrl?: pulumi.Input<string>;
+    /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * SAML SP issuer ID
      */
