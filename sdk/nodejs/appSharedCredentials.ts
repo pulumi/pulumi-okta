@@ -45,6 +45,20 @@ import * as utilities from "./utilities";
  * ```sh
  *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
  * ```
+ *
+ *  It's also possible to import app without groups or/and users. In this case ID may look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+ * ```
  */
 export class AppSharedCredentials extends pulumi.CustomResource {
     /**
@@ -91,6 +105,10 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -125,7 +143,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -156,6 +174,14 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      * Authentication mode of app.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
@@ -208,6 +234,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
             inputs["checkbox"] = state ? state.checkbox : undefined;
@@ -224,6 +251,8 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["sharedPassword"] = state ? state.sharedPassword : undefined;
             inputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
@@ -241,6 +270,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
             inputs["checkbox"] = args ? args.checkbox : undefined;
@@ -254,6 +284,8 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
             inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -294,6 +326,10 @@ export interface AppSharedCredentialsState {
      */
     adminNote?: pulumi.Input<string>;
     /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -328,7 +364,7 @@ export interface AppSharedCredentialsState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -359,6 +395,14 @@ export interface AppSharedCredentialsState {
      * Authentication mode of app.
      */
     signOnMode?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
@@ -416,6 +460,10 @@ export interface AppSharedCredentialsArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
+    /**
      * Display auto submit toolbar.
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
@@ -450,7 +498,7 @@ export interface AppSharedCredentialsArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -469,6 +517,14 @@ export interface AppSharedCredentialsArgs {
      * Shared username, required for certain schemes.
      */
     sharedUsername?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */

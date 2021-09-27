@@ -30,6 +30,20 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
  * ```
+ *
+ *  It's also possible to import app without groups or/and users. In this case ID may look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users/skip_groups
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_groups
+ * ```
  */
 export class BasicAuth extends pulumi.CustomResource {
     /**
@@ -60,9 +74,25 @@ export class BasicAuth extends pulumi.CustomResource {
     }
 
     /**
+     * Custom error page URL.
+     */
+    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Custom login page for this application.
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    /**
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * The URL of the authenticating site for this app.
      */
@@ -95,7 +125,7 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -110,6 +140,14 @@ export class BasicAuth extends pulumi.CustomResource {
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
@@ -139,7 +177,11 @@ export class BasicAuth extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BasicAuthState | undefined;
+            inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
+            inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["authUrl"] = state ? state.authUrl : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -151,6 +193,8 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -165,7 +209,11 @@ export class BasicAuth extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
+            inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
+            inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["authUrl"] = args ? args.authUrl : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -174,6 +222,8 @@ export class BasicAuth extends pulumi.CustomResource {
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["label"] = args ? args.label : undefined;
             inputs["logo"] = args ? args.logo : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -193,9 +243,25 @@ export class BasicAuth extends pulumi.CustomResource {
  */
 export interface BasicAuthState {
     /**
+     * Custom error page URL.
+     */
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * The URL of the authenticating site for this app.
      */
@@ -228,7 +294,7 @@ export interface BasicAuthState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -243,6 +309,14 @@ export interface BasicAuthState {
      * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
@@ -265,9 +339,25 @@ export interface BasicAuthState {
  */
 export interface BasicAuthArgs {
     /**
+     * Custom error page URL.
+     */
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * The URL of the authenticating site for this app.
      */
@@ -300,9 +390,17 @@ export interface BasicAuthArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */

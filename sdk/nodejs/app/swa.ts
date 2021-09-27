@@ -32,6 +32,20 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/swa:Swa example <app id>
  * ```
+ *
+ *  It's also possible to import app without groups or/and users. In this case ID may look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:app/swa:Swa example <app id>/skip_users
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/swa:Swa example <app id>/skip_users/skip_groups
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/swa:Swa example <app id>/skip_groups
+ * ```
  */
 export class Swa extends pulumi.CustomResource {
     /**
@@ -66,6 +80,10 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
+     * Custom login page for this application.
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
@@ -73,6 +91,10 @@ export class Swa extends pulumi.CustomResource {
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar.
      */
@@ -105,7 +127,7 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -128,6 +150,14 @@ export class Swa extends pulumi.CustomResource {
      * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * Status of application. By default, it is `"ACTIVE"`.
      */
@@ -178,8 +208,10 @@ export class Swa extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SwaState | undefined;
             inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
@@ -193,6 +225,8 @@ export class Swa extends pulumi.CustomResource {
             inputs["passwordField"] = state ? state.passwordField : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
@@ -207,8 +241,10 @@ export class Swa extends pulumi.CustomResource {
                 throw new Error("Missing required property 'label'");
             }
             inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
@@ -219,6 +255,8 @@ export class Swa extends pulumi.CustomResource {
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -247,6 +285,10 @@ export interface SwaState {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -254,6 +296,10 @@ export interface SwaState {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -286,7 +332,7 @@ export interface SwaState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -309,6 +355,14 @@ export interface SwaState {
      * Sign-on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. By default, it is `"ACTIVE"`.
      */
@@ -355,6 +409,10 @@ export interface SwaArgs {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
      * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
@@ -362,6 +420,10 @@ export interface SwaArgs {
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -394,7 +456,7 @@ export interface SwaArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -405,6 +467,14 @@ export interface SwaArgs {
      * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     preconfiguredApp?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. By default, it is `"ACTIVE"`.
      */

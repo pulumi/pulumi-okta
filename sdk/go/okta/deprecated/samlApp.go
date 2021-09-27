@@ -24,7 +24,7 @@ type SamlApp struct {
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Application settings in JSON format
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
@@ -79,7 +79,7 @@ type SamlApp struct {
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -109,6 +109,10 @@ type SamlApp struct {
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -173,7 +177,7 @@ type samlAppState struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Application settings in JSON format
+	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -228,7 +232,7 @@ type samlAppState struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -258,6 +262,10 @@ type samlAppState struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -291,7 +299,7 @@ type SamlAppState struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
@@ -346,7 +354,7 @@ type SamlAppState struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
@@ -376,6 +384,10 @@ type SamlAppState struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL
@@ -413,7 +425,7 @@ type samlAppArgs struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Application settings in JSON format
+	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -456,7 +468,7 @@ type samlAppArgs struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -476,6 +488,10 @@ type samlAppArgs struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -510,7 +526,7 @@ type SamlAppArgs struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
@@ -553,7 +569,7 @@ type SamlAppArgs struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// Name of preexisting SAML application. For instance 'slack'
 	PreconfiguredApp pulumi.StringPtrInput
@@ -573,6 +589,10 @@ type SamlAppArgs struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL

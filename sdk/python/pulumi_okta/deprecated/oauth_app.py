@@ -17,7 +17,12 @@ class OauthAppArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -47,6 +52,8 @@ class OauthAppArgs:
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -56,7 +63,12 @@ class OauthAppArgs:
         The set of arguments for constructing a OauthApp resource.
         :param pulumi.Input[str] label: Pretty name of app.
         :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -80,7 +92,7 @@ class OauthAppArgs:
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request
         :param pulumi.Input[str] login_uri: URI that initiates login.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
@@ -92,6 +104,8 @@ class OauthAppArgs:
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
@@ -100,8 +114,18 @@ class OauthAppArgs:
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "type", type)
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_key_rotation is not None:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
@@ -166,6 +190,10 @@ class OauthAppArgs:
             pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -205,6 +233,42 @@ class OauthAppArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
     @pulumi.getter(name="adminNote")
     def admin_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -215,6 +279,30 @@ class OauthAppArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -450,7 +538,7 @@ class OauthAppArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -569,6 +657,30 @@ class OauthAppArgs:
         pulumi.set(self, "response_types", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -632,7 +744,12 @@ class OauthAppArgs:
 @pulumi.input_type
 class _OauthAppState:
     def __init__(__self__, *,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -667,6 +784,8 @@ class _OauthAppState:
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -675,7 +794,12 @@ class _OauthAppState:
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OauthApp resources.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -701,7 +825,7 @@ class _OauthAppState:
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request
         :param pulumi.Input[str] login_uri: URI that initiates login.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
@@ -716,6 +840,8 @@ class _OauthAppState:
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
@@ -723,8 +849,18 @@ class _OauthAppState:
         :param pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
+        if accessibility_error_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+        if accessibility_self_service is not None:
+            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_key_rotation is not None:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
@@ -799,6 +935,10 @@ class _OauthAppState:
             pulumi.set(__self__, "response_types", response_types)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -816,6 +956,42 @@ class _OauthAppState:
             pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
     @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @accessibility_error_redirect_url.setter
+    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_error_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @accessibility_self_service.setter
+    def accessibility_self_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accessibility_self_service", value)
+
+    @property
     @pulumi.getter(name="adminNote")
     def admin_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -826,6 +1002,30 @@ class _OauthAppState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -1085,7 +1285,7 @@ class _OauthAppState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1240,6 +1440,30 @@ class _OauthAppState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1317,7 +1541,12 @@ class OauthApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1348,6 +1577,8 @@ class OauthApp(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -1359,7 +1590,12 @@ class OauthApp(pulumi.CustomResource):
         Create a OauthApp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -1384,7 +1620,7 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request
         :param pulumi.Input[str] login_uri: URI that initiates login.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
@@ -1396,6 +1632,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
@@ -1426,7 +1664,12 @@ class OauthApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
+                 app_settings_json: Optional[pulumi.Input[str]] = None,
                  auto_key_rotation: Optional[pulumi.Input[bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1457,6 +1700,8 @@ class OauthApp(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -1475,7 +1720,12 @@ class OauthApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OauthAppArgs.__new__(OauthAppArgs)
 
+            __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+            __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
+            __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_links_json"] = app_links_json
+            __props__.__dict__["app_settings_json"] = app_settings_json
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["client_basic_secret"] = client_basic_secret
@@ -1514,6 +1764,8 @@ class OauthApp(pulumi.CustomResource):
             __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
             __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["response_types"] = response_types
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
             __props__.__dict__["tos_uri"] = tos_uri
@@ -1539,7 +1791,12 @@ class OauthApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_links_json: Optional[pulumi.Input[str]] = None,
+            app_settings_json: Optional[pulumi.Input[str]] = None,
             auto_key_rotation: Optional[pulumi.Input[bool]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             client_basic_secret: Optional[pulumi.Input[str]] = None,
@@ -1574,6 +1831,8 @@ class OauthApp(pulumi.CustomResource):
             refresh_token_rotation: Optional[pulumi.Input[str]] = None,
             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
             tos_uri: Optional[pulumi.Input[str]] = None,
@@ -1587,7 +1846,12 @@ class OauthApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
@@ -1613,7 +1877,7 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request
         :param pulumi.Input[str] login_uri: URI that initiates login.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
@@ -1628,6 +1892,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[bool] skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
@@ -1639,7 +1905,12 @@ class OauthApp(pulumi.CustomResource):
 
         __props__ = _OauthAppState.__new__(_OauthAppState)
 
+        __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+        __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
+        __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_links_json"] = app_links_json
+        __props__.__dict__["app_settings_json"] = app_settings_json
         __props__.__dict__["auto_key_rotation"] = auto_key_rotation
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["client_basic_secret"] = client_basic_secret
@@ -1674,6 +1945,8 @@ class OauthApp(pulumi.CustomResource):
         __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["response_types"] = response_types
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
         __props__.__dict__["tos_uri"] = tos_uri
@@ -1683,12 +1956,52 @@ class OauthApp(pulumi.CustomResource):
         return OauthApp(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="accessibilityErrorRedirectUrl")
+    def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom error page URL
+        """
+        return pulumi.get(self, "accessibility_error_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom login page URL
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @property
+    @pulumi.getter(name="accessibilitySelfService")
+    def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable self service
+        """
+        return pulumi.get(self, "accessibility_self_service")
+
+    @property
     @pulumi.getter(name="adminNote")
     def admin_note(self) -> pulumi.Output[Optional[str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application settings in JSON format
+        """
+        return pulumi.get(self, "app_settings_json")
 
     @property
     @pulumi.getter(name="autoKeyRotation")
@@ -1864,7 +2177,7 @@ class OauthApp(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1965,6 +2278,22 @@ class OauthApp(pulumi.CustomResource):
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter

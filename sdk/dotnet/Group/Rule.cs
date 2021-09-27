@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Group
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of user IDs that would be excluded when rules are processed.
+        /// </summary>
+        [Output("usersExcludeds")]
+        public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Rule resource with the given unique name, arguments, and options.
@@ -178,6 +184,18 @@ namespace Pulumi.Okta.Group
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        [Input("usersExcludeds")]
+        private InputList<string>? _usersExcludeds;
+
+        /// <summary>
+        /// The list of user IDs that would be excluded when rules are processed.
+        /// </summary>
+        public InputList<string> UsersExcludeds
+        {
+            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
+            set => _usersExcludeds = value;
+        }
+
         public RuleArgs()
         {
         }
@@ -228,6 +246,18 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("usersExcludeds")]
+        private InputList<string>? _usersExcludeds;
+
+        /// <summary>
+        /// The list of user IDs that would be excluded when rules are processed.
+        /// </summary>
+        public InputList<string> UsersExcludeds
+        {
+            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
+            set => _usersExcludeds = value;
+        }
 
         public RuleState()
         {

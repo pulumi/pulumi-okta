@@ -20,8 +20,10 @@ class SecurePasswordStoreArgs:
                  url: pulumi.Input[str],
                  username_field: pulumi.Input[str],
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -38,6 +40,8 @@ class SecurePasswordStoreArgs:
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
@@ -50,8 +54,10 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -59,7 +65,7 @@ class SecurePasswordStoreArgs:
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
         :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
@@ -69,6 +75,8 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
@@ -82,10 +90,14 @@ class SecurePasswordStoreArgs:
         pulumi.set(__self__, "username_field", username_field)
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
@@ -121,6 +133,10 @@ class SecurePasswordStoreArgs:
             pulumi.set(__self__, "shared_password", shared_password)
         if shared_username is not None:
             pulumi.set(__self__, "shared_username", shared_username)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
@@ -196,6 +212,18 @@ class SecurePasswordStoreArgs:
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page for this application.
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -218,6 +246,18 @@ class SecurePasswordStoreArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -296,7 +336,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -413,6 +453,30 @@ class SecurePasswordStoreArgs:
         pulumi.set(self, "shared_username", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -478,8 +542,10 @@ class SecurePasswordStoreArgs:
 class _SecurePasswordStoreState:
     def __init__(__self__, *,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -501,6 +567,8 @@ class _SecurePasswordStoreState:
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
@@ -511,8 +579,10 @@ class _SecurePasswordStoreState:
         """
         Input properties used for looking up and filtering SecurePasswordStore resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -521,7 +591,7 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
@@ -535,6 +605,8 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -546,10 +618,14 @@ class _SecurePasswordStoreState:
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+        if accessibility_login_redirect_url is not None:
+            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
@@ -595,6 +671,10 @@ class _SecurePasswordStoreState:
             pulumi.set(__self__, "shared_username", shared_username)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -626,6 +706,18 @@ class _SecurePasswordStoreState:
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom login page for this application.
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @accessibility_login_redirect_url.setter
+    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility_login_redirect_url", value)
+
+    @property
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -648,6 +740,18 @@ class _SecurePasswordStoreState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -738,7 +842,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -903,6 +1007,30 @@ class _SecurePasswordStoreState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -994,8 +1122,10 @@ class SecurePasswordStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -1014,6 +1144,8 @@ class SecurePasswordStore(pulumi.CustomResource):
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
@@ -1049,11 +1181,27 @@ class SecurePasswordStore(pulumi.CustomResource):
          $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -1062,7 +1210,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
         :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
         :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
@@ -1073,6 +1221,8 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -1115,6 +1265,20 @@ class SecurePasswordStore(pulumi.CustomResource):
          $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecurePasswordStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1131,8 +1295,10 @@ class SecurePasswordStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+                 accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
@@ -1151,6 +1317,8 @@ class SecurePasswordStore(pulumi.CustomResource):
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
@@ -1171,8 +1339,10 @@ class SecurePasswordStore(pulumi.CustomResource):
             __props__ = SecurePasswordStoreArgs.__new__(SecurePasswordStoreArgs)
 
             __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+            __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_links_json"] = app_links_json
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["credentials_scheme"] = credentials_scheme
             __props__.__dict__["enduser_note"] = enduser_note
@@ -1198,6 +1368,8 @@ class SecurePasswordStore(pulumi.CustomResource):
             __props__.__dict__["reveal_password"] = reveal_password
             __props__.__dict__["shared_password"] = shared_password
             __props__.__dict__["shared_username"] = shared_username
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -1226,8 +1398,10 @@ class SecurePasswordStore(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+            accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_links_json: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             credentials_scheme: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
@@ -1249,6 +1423,8 @@ class SecurePasswordStore(pulumi.CustomResource):
             shared_password: Optional[pulumi.Input[str]] = None,
             shared_username: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
@@ -1264,8 +1440,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -1274,7 +1452,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Logo of the application.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
@@ -1288,6 +1466,8 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] user_name_template: The default username assigned to each user.
@@ -1302,8 +1482,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__ = _SecurePasswordStoreState.__new__(_SecurePasswordStoreState)
 
         __props__.__dict__["accessibility_error_redirect_url"] = accessibility_error_redirect_url
+        __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["credentials_scheme"] = credentials_scheme
         __props__.__dict__["enduser_note"] = enduser_note
@@ -1325,6 +1507,8 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__.__dict__["shared_password"] = shared_password
         __props__.__dict__["shared_username"] = shared_username
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["user_name_template"] = user_name_template
@@ -1343,6 +1527,14 @@ class SecurePasswordStore(pulumi.CustomResource):
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @property
+    @pulumi.getter(name="accessibilityLoginRedirectUrl")
+    def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom login page for this application.
+        """
+        return pulumi.get(self, "accessibility_login_redirect_url")
+
+    @property
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1357,6 +1549,14 @@ class SecurePasswordStore(pulumi.CustomResource):
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -1419,7 +1619,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Logo of the application.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1526,6 +1726,22 @@ class SecurePasswordStore(pulumi.CustomResource):
         Sign-on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter

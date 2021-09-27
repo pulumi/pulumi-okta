@@ -29,6 +29,20 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/bookmark:Bookmark example <app id>
  * ```
+ *
+ *  It's also possible to import app without groups or/and users. In this case ID may look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_users
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_users/skip_groups
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/bookmark:Bookmark example <app id>/skip_groups
+ * ```
  */
 export class Bookmark extends pulumi.CustomResource {
     /**
@@ -59,9 +73,25 @@ export class Bookmark extends pulumi.CustomResource {
     }
 
     /**
+     * Custom error page URL.
+     */
+    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Custom login page for this application.
+     */
+    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    /**
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar.
      */
@@ -90,7 +120,7 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -109,6 +139,14 @@ export class Bookmark extends pulumi.CustomResource {
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
@@ -138,7 +176,11 @@ export class Bookmark extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BookmarkState | undefined;
+            inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
+            inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             inputs["adminNote"] = state ? state.adminNote : undefined;
+            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
@@ -150,6 +192,8 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["requestIntegration"] = state ? state.requestIntegration : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -161,7 +205,11 @@ export class Bookmark extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
+            inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
+            inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             inputs["adminNote"] = args ? args.adminNote : undefined;
+            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
@@ -170,6 +218,8 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["label"] = args ? args.label : undefined;
             inputs["logo"] = args ? args.logo : undefined;
             inputs["requestIntegration"] = args ? args.requestIntegration : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -189,9 +239,25 @@ export class Bookmark extends pulumi.CustomResource {
  */
 export interface BookmarkState {
     /**
+     * Custom error page URL.
+     */
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -220,7 +286,7 @@ export interface BookmarkState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -239,6 +305,14 @@ export interface BookmarkState {
      * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
@@ -261,9 +335,25 @@ export interface BookmarkState {
  */
 export interface BookmarkArgs {
     /**
+     * Custom error page URL.
+     */
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Custom login page for this application.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Enable self-service. By default, it is `false`.
+     */
+    accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
      * Application notes for admins.
      */
     adminNote?: pulumi.Input<string>;
+    /**
+     * Displays specific appLinks for the app
+     */
+    appLinksJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -292,13 +382,21 @@ export interface BookmarkArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
      * Would you like Okta to add an integration for this app?
      */
     requestIntegration?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */

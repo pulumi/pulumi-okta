@@ -18,7 +18,8 @@ class RuleArgs:
                  expression_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remove_assigned_users: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[str]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[str] expression_value: The expression value.
@@ -29,6 +30,7 @@ class RuleArgs:
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         pulumi.set(__self__, "expression_value", expression_value)
         pulumi.set(__self__, "group_assignments", group_assignments)
@@ -40,6 +42,8 @@ class RuleArgs:
             pulumi.set(__self__, "remove_assigned_users", remove_assigned_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if users_excludeds is not None:
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="expressionValue")
@@ -115,6 +119,18 @@ class RuleArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+    @property
+    @pulumi.getter(name="usersExcludeds")
+    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user IDs that would be excluded when rules are processed.
+        """
+        return pulumi.get(self, "users_excludeds")
+
+    @users_excludeds.setter
+    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users_excludeds", value)
+
 
 @pulumi.input_type
 class _RuleState:
@@ -124,7 +140,8 @@ class _RuleState:
                  group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remove_assigned_users: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[str]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default
@@ -135,6 +152,7 @@ class _RuleState:
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         if expression_type is not None:
             pulumi.set(__self__, "expression_type", expression_type)
@@ -148,6 +166,8 @@ class _RuleState:
             pulumi.set(__self__, "remove_assigned_users", remove_assigned_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if users_excludeds is not None:
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="expressionType")
@@ -223,6 +243,18 @@ class _RuleState:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+    @property
+    @pulumi.getter(name="usersExcludeds")
+    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user IDs that would be excluded when rules are processed.
+        """
+        return pulumi.get(self, "users_excludeds")
+
+    @users_excludeds.setter
+    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users_excludeds", value)
+
 
 class Rule(pulumi.CustomResource):
     @overload
@@ -235,6 +267,7 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  remove_assigned_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates an Okta Group Rule.
@@ -272,6 +305,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         ...
     @overload
@@ -326,6 +360,7 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  remove_assigned_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -348,6 +383,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["remove_assigned_users"] = remove_assigned_users
             __props__.__dict__["status"] = status
+            __props__.__dict__["users_excludeds"] = users_excludeds
         super(Rule, __self__).__init__(
             'okta:group/rule:Rule',
             resource_name,
@@ -363,7 +399,8 @@ class Rule(pulumi.CustomResource):
             group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             remove_assigned_users: Optional[pulumi.Input[bool]] = None,
-            status: Optional[pulumi.Input[str]] = None) -> 'Rule':
+            status: Optional[pulumi.Input[str]] = None,
+            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -379,6 +416,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -390,6 +428,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["remove_assigned_users"] = remove_assigned_users
         __props__.__dict__["status"] = status
+        __props__.__dict__["users_excludeds"] = users_excludeds
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -441,4 +480,12 @@ class Rule(pulumi.CustomResource):
         The status of the group rule.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="usersExcludeds")
+    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of user IDs that would be excluded when rules are processed.
+        """
+        return pulumi.get(self, "users_excludeds")
 

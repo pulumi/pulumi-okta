@@ -69,6 +69,20 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;
     /// ```
+    /// 
+    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;/skip_users
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;/skip_users/skip_groups
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app id&gt;/skip_groups
+    /// ```
     /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]
     public partial class AutoLogin : Pulumi.CustomResource
@@ -78,6 +92,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom login page for this application.
+        /// </summary>
+        [Output("accessibilityLoginRedirectUrl")]
+        public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
         /// Enable self-service. By default, it is `false`.
@@ -90,6 +110,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("adminNote")]
         public Output<string?> AdminNote { get; private set; } = null!;
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Output("appLinksJson")]
+        public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
         /// Application settings in JSON format.
@@ -141,7 +167,7 @@ namespace Pulumi.Okta.App
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -199,6 +225,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("signOnUrl")]
         public Output<string?> SignOnUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Output("skipGroups")]
+        public Output<bool?> SkipGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Output("skipUsers")]
+        public Output<bool?> SkipUsers { get; private set; } = null!;
 
         /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
@@ -284,6 +322,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
+        /// Custom login page for this application.
+        /// </summary>
+        [Input("accessibilityLoginRedirectUrl")]
+        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
+
+        /// <summary>
         /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
@@ -294,6 +338,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format.
@@ -352,7 +402,7 @@ namespace Pulumi.Okta.App
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -392,6 +442,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
@@ -445,6 +507,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
+        /// Custom login page for this application.
+        /// </summary>
+        [Input("accessibilityLoginRedirectUrl")]
+        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
+
+        /// <summary>
         /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
@@ -455,6 +523,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("adminNote")]
         public Input<string>? AdminNote { get; set; }
+
+        /// <summary>
+        /// Displays specific appLinks for the app
+        /// </summary>
+        [Input("appLinksJson")]
+        public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
         /// Application settings in JSON format.
@@ -513,7 +587,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -571,6 +645,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.

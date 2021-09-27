@@ -62,6 +62,20 @@ import (
 // ```sh
 //  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+// ```
 type AppSharedCredentials struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +87,8 @@ type AppSharedCredentials struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
@@ -91,7 +107,7 @@ type AppSharedCredentials struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -107,6 +123,10 @@ type AppSharedCredentials struct {
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Authentication mode of app.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -167,6 +187,8 @@ type appSharedCredentialsState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
@@ -185,7 +207,7 @@ type appSharedCredentialsState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -201,6 +223,10 @@ type appSharedCredentialsState struct {
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Authentication mode of app.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -230,6 +256,8 @@ type AppSharedCredentialsState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// CSS selector for the Sign-In button in the sign-in form.
@@ -248,7 +276,7 @@ type AppSharedCredentialsState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -264,6 +292,10 @@ type AppSharedCredentialsState struct {
 	SharedUsername pulumi.StringPtrInput
 	// Authentication mode of app.
 	SignOnMode pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -297,6 +329,8 @@ type appSharedCredentialsArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// CSS selector for the Sign-In button in the sign-in form.
@@ -315,7 +349,7 @@ type appSharedCredentialsArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField *string `pulumi:"passwordField"`
@@ -325,6 +359,10 @@ type appSharedCredentialsArgs struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -355,6 +393,8 @@ type AppSharedCredentialsArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// CSS selector for the Sign-In button in the sign-in form.
@@ -373,7 +413,7 @@ type AppSharedCredentialsArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrInput
@@ -383,6 +423,10 @@ type AppSharedCredentialsArgs struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.

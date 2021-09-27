@@ -20,6 +20,7 @@ class AppSharedCredentialsArgs:
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,8 @@ class AppSharedCredentialsArgs:
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -47,6 +50,7 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -54,11 +58,13 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -77,6 +83,8 @@ class AppSharedCredentialsArgs:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
@@ -104,6 +112,10 @@ class AppSharedCredentialsArgs:
             pulumi.set(__self__, "shared_password", shared_password)
         if shared_username is not None:
             pulumi.set(__self__, "shared_username", shared_username)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -183,6 +195,18 @@ class AppSharedCredentialsArgs:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -272,7 +296,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -327,6 +351,30 @@ class AppSharedCredentialsArgs:
     @shared_username.setter
     def shared_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_username", value)
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter
@@ -432,6 +480,7 @@ class _AppSharedCredentialsState:
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
@@ -448,6 +497,8 @@ class _AppSharedCredentialsState:
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -462,6 +513,7 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -470,7 +522,7 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
@@ -478,6 +530,8 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -495,6 +549,8 @@ class _AppSharedCredentialsState:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
+        if app_links_json is not None:
+            pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
@@ -530,6 +586,10 @@ class _AppSharedCredentialsState:
             pulumi.set(__self__, "shared_username", shared_username)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_groups is not None:
+            pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -597,6 +657,18 @@ class _AppSharedCredentialsState:
     @admin_note.setter
     def admin_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_note", value)
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
+
+    @app_links_json.setter
+    def app_links_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_links_json", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -698,7 +770,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -789,6 +861,30 @@ class _AppSharedCredentialsState:
     @sign_on_mode.setter
     def sign_on_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sign_on_mode", value)
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @skip_groups.setter
+    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_groups", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter
@@ -896,6 +992,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
@@ -909,6 +1006,8 @@ class AppSharedCredentials(pulumi.CustomResource):
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -958,12 +1057,27 @@ class AppSharedCredentials(pulumi.CustomResource):
          $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -972,11 +1086,13 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -1032,6 +1148,20 @@ class AppSharedCredentials(pulumi.CustomResource):
          $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
         ```
 
+         It's also possible to import app without groups or/and users. In this case ID may look like this
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+        ```
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+        ```
+
+        ```sh
+         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+        ```
+
         :param str resource_name: The name of the resource.
         :param AppSharedCredentialsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1051,6 +1181,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
+                 app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
@@ -1064,6 +1195,8 @@ class AppSharedCredentials(pulumi.CustomResource):
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
+                 skip_groups: Optional[pulumi.Input[bool]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -1088,6 +1221,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
+            __props__.__dict__["app_links_json"] = app_links_json
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["button_field"] = button_field
             __props__.__dict__["checkbox"] = checkbox
@@ -1106,6 +1240,8 @@ class AppSharedCredentials(pulumi.CustomResource):
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["shared_password"] = shared_password
             __props__.__dict__["shared_username"] = shared_username
+            __props__.__dict__["skip_groups"] = skip_groups
+            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["url"] = url
             __props__.__dict__["url_regex"] = url_regex
@@ -1134,6 +1270,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
+            app_links_json: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             button_field: Optional[pulumi.Input[str]] = None,
             checkbox: Optional[pulumi.Input[str]] = None,
@@ -1150,6 +1287,8 @@ class AppSharedCredentials(pulumi.CustomResource):
             shared_password: Optional[pulumi.Input[str]] = None,
             shared_username: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
+            skip_groups: Optional[pulumi.Input[bool]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
@@ -1169,6 +1308,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -1177,7 +1317,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
@@ -1185,6 +1325,8 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
+        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -1202,6 +1344,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
+        __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["button_field"] = button_field
         __props__.__dict__["checkbox"] = checkbox
@@ -1218,6 +1361,8 @@ class AppSharedCredentials(pulumi.CustomResource):
         __props__.__dict__["shared_password"] = shared_password
         __props__.__dict__["shared_username"] = shared_username
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_groups"] = skip_groups
+        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["url_regex"] = url_regex
@@ -1259,6 +1404,14 @@ class AppSharedCredentials(pulumi.CustomResource):
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter(name="appLinksJson")
+    def app_links_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Displays specific appLinks for the app
+        """
+        return pulumi.get(self, "app_links_json")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -1328,7 +1481,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -1387,6 +1540,22 @@ class AppSharedCredentials(pulumi.CustomResource):
         Authentication mode of app.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        """
+        return pulumi.get(self, "skip_users")
 
     @property
     @pulumi.getter

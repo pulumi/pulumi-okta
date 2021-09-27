@@ -14,8 +14,18 @@ import (
 type OauthApp struct {
 	pulumi.CustomResourceState
 
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -66,7 +76,7 @@ type OauthApp struct {
 	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
@@ -94,6 +104,10 @@ type OauthApp struct {
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
@@ -145,8 +159,18 @@ func GetOauthApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthApp resources.
 type oauthAppState struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -197,7 +221,7 @@ type oauthAppState struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri *string `pulumi:"loginUri"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
@@ -225,6 +249,10 @@ type oauthAppState struct {
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
@@ -242,8 +270,18 @@ type oauthAppState struct {
 }
 
 type OauthAppState struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -294,7 +332,7 @@ type OauthAppState struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
@@ -322,6 +360,10 @@ type OauthAppState struct {
 	ResponseTypes pulumi.StringArrayInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint.
@@ -343,8 +385,18 @@ func (OauthAppState) ElementType() reflect.Type {
 }
 
 type oauthAppArgs struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -393,7 +445,7 @@ type oauthAppArgs struct {
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri *string `pulumi:"loginUri"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
@@ -415,6 +467,10 @@ type oauthAppArgs struct {
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint.
@@ -433,8 +489,18 @@ type oauthAppArgs struct {
 
 // The set of arguments for constructing a OauthApp resource.
 type OauthAppArgs struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format
+	AppSettingsJson pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -483,7 +549,7 @@ type OauthAppArgs struct {
 	LoginScopes pulumi.StringArrayInput
 	// URI that initiates login.
 	LoginUri pulumi.StringPtrInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
@@ -505,6 +571,10 @@ type OauthAppArgs struct {
 	RefreshTokenRotation pulumi.StringPtrInput
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint.

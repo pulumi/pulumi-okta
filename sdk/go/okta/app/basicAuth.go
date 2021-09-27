@@ -47,11 +47,33 @@ import (
 // ```sh
 //  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_groups
+// ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
 
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
 	// Display auto submit toolbar.
@@ -69,7 +91,7 @@ type BasicAuth struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -77,6 +99,10 @@ type BasicAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -126,8 +152,16 @@ func GetBasicAuth(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BasicAuth resources.
 type basicAuthState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// The URL of the authenticating site for this app.
 	AuthUrl *string `pulumi:"authUrl"`
 	// Display auto submit toolbar.
@@ -145,7 +179,7 @@ type basicAuthState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -153,6 +187,10 @@ type basicAuthState struct {
 	Name *string `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -165,8 +203,16 @@ type basicAuthState struct {
 }
 
 type BasicAuthState struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringPtrInput
 	// Display auto submit toolbar.
@@ -184,7 +230,7 @@ type BasicAuthState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -192,6 +238,10 @@ type BasicAuthState struct {
 	Name pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -208,8 +258,16 @@ func (BasicAuthState) ElementType() reflect.Type {
 }
 
 type basicAuthArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// The URL of the authenticating site for this app.
 	AuthUrl string `pulumi:"authUrl"`
 	// Display auto submit toolbar.
@@ -227,8 +285,12 @@ type basicAuthArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -242,8 +304,16 @@ type basicAuthArgs struct {
 
 // The set of arguments for constructing a BasicAuth resource.
 type BasicAuthArgs struct {
+	// Custom error page URL.
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page for this application.
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self-service. By default, it is `false`.
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringInput
 	// Display auto submit toolbar.
@@ -261,8 +331,12 @@ type BasicAuthArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.

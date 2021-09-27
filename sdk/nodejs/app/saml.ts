@@ -156,6 +156,20 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/saml:Saml example <app id>
  * ```
+ *
+ *  It's also possible to import app without groups or/and users. In this case ID may look like this
+ *
+ * ```sh
+ *  $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+ * ```
  */
 export class Saml extends pulumi.CustomResource {
     /**
@@ -190,11 +204,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page URL.
+     * Custom login page for this application.
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service.
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -317,7 +331,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -377,6 +391,14 @@ export class Saml extends pulumi.CustomResource {
      * The location where the logout response is sent.
      */
     public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
      * SAML service provider issuer.
      */
@@ -477,6 +499,8 @@ export class Saml extends pulumi.CustomResource {
             inputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
             inputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
+            inputs["skipGroups"] = state ? state.skipGroups : undefined;
+            inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["spIssuer"] = state ? state.spIssuer : undefined;
             inputs["ssoUrl"] = state ? state.ssoUrl : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -527,6 +551,8 @@ export class Saml extends pulumi.CustomResource {
             inputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
             inputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
             inputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
+            inputs["skipGroups"] = args ? args.skipGroups : undefined;
+            inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["spIssuer"] = args ? args.spIssuer : undefined;
             inputs["ssoUrl"] = args ? args.ssoUrl : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -564,11 +590,11 @@ export interface SamlState {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page URL.
+     * Custom login page for this application.
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service.
+     * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -691,7 +717,7 @@ export interface SamlState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -752,6 +778,14 @@ export interface SamlState {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
+    /**
      * SAML service provider issuer.
      */
     spIssuer?: pulumi.Input<string>;
@@ -801,11 +835,11 @@ export interface SamlArgs {
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page URL.
+     * Custom login page for this application.
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service.
+     * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -904,7 +938,7 @@ export interface SamlArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -944,6 +978,14 @@ export interface SamlArgs {
      * The location where the logout response is sent.
      */
     singleLogoutUrl?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * SAML service provider issuer.
      */

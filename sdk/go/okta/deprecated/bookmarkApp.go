@@ -14,8 +14,16 @@ import (
 type BookmarkApp struct {
 	pulumi.CustomResourceState
 
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -30,7 +38,7 @@ type BookmarkApp struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -39,6 +47,10 @@ type BookmarkApp struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	Url    pulumi.StringOutput    `pulumi:"url"`
@@ -83,8 +95,16 @@ func GetBookmarkApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BookmarkApp resources.
 type bookmarkAppState struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -99,7 +119,7 @@ type bookmarkAppState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -108,6 +128,10 @@ type bookmarkAppState struct {
 	RequestIntegration *bool   `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	Url    *string `pulumi:"url"`
@@ -118,8 +142,16 @@ type bookmarkAppState struct {
 }
 
 type BookmarkAppState struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -134,7 +166,7 @@ type BookmarkAppState struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
@@ -143,6 +175,10 @@ type BookmarkAppState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	Url    pulumi.StringPtrInput
@@ -157,8 +193,16 @@ func (BookmarkAppState) ElementType() reflect.Type {
 }
 
 type bookmarkAppArgs struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	// Enable self service
+	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
+	// Displays specific appLinks for the app
+	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -173,9 +217,13 @@ type bookmarkAppArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// Pretty name of app.
 	Label string `pulumi:"label"`
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo               *string `pulumi:"logo"`
 	RequestIntegration *bool   `pulumi:"requestIntegration"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status *string `pulumi:"status"`
 	Url    string  `pulumi:"url"`
@@ -187,8 +235,16 @@ type bookmarkAppArgs struct {
 
 // The set of arguments for constructing a BookmarkApp resource.
 type BookmarkAppArgs struct {
+	// Custom error page URL
+	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
+	// Custom login page URL
+	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
+	// Enable self service
+	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
+	// Displays specific appLinks for the app
+	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -203,9 +259,13 @@ type BookmarkAppArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// Pretty name of app.
 	Label pulumi.StringInput
-	// Logo of the application.
+	// Local path to logo of the application.
 	Logo               pulumi.StringPtrInput
 	RequestIntegration pulumi.BoolPtrInput
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	SkipGroups pulumi.BoolPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	SkipUsers pulumi.BoolPtrInput
 	// Status of application.
 	Status pulumi.StringPtrInput
 	Url    pulumi.StringInput

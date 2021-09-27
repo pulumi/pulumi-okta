@@ -37,12 +37,41 @@ import (
 // }
 // ```
 //
+// Ignore users sync
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := group.NewGroup(ctx, "exampleSkip", &group.GroupArgs{
+// 			Description: pulumi.String("My Example Group"),
+// 			SkipUsers:   pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An Okta Group can be imported via the Okta ID.
 //
 // ```sh
 //  $ pulumi import okta:group/group:Group example <group id>
+// ```
+//
+//  It's also possible to import group without users. In this case ID will look like this
+//
+// ```sh
+//  $ pulumi import okta:group/group:Group example <group id>/skip_users
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -51,7 +80,10 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Okta Group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The users associated with the group. This can also be done per user.
+	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
 	//
 	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayOutput `pulumi:"users"`
@@ -90,7 +122,10 @@ type groupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
+	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The users associated with the group. This can also be done per user.
+	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
 	//
 	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users []string `pulumi:"users"`
@@ -101,7 +136,10 @@ type GroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
+	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The users associated with the group. This can also be done per user.
+	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
 	//
 	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayInput
@@ -116,7 +154,10 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
+	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// The users associated with the group. This can also be done per user.
+	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
 	//
 	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users []string `pulumi:"users"`
@@ -128,7 +169,10 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
+	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// The users associated with the group. This can also be done per user.
+	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
 	//
 	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
 	Users pulumi.StringArrayInput

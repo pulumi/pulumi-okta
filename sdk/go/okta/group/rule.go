@@ -67,6 +67,8 @@ type Rule struct {
 	RemoveAssignedUsers pulumi.BoolPtrOutput `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed.
+	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -118,6 +120,8 @@ type ruleState struct {
 	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status *string `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed.
+	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 type RuleState struct {
@@ -135,6 +139,8 @@ type RuleState struct {
 	RemoveAssignedUsers pulumi.BoolPtrInput
 	// The status of the group rule.
 	Status pulumi.StringPtrInput
+	// The list of user IDs that would be excluded when rules are processed.
+	UsersExcludeds pulumi.StringArrayInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -156,6 +162,8 @@ type ruleArgs struct {
 	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
 	// The status of the group rule.
 	Status *string `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed.
+	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -174,6 +182,8 @@ type RuleArgs struct {
 	RemoveAssignedUsers pulumi.BoolPtrInput
 	// The status of the group rule.
 	Status pulumi.StringPtrInput
+	// The list of user IDs that would be excluded when rules are processed.
+	UsersExcludeds pulumi.StringArrayInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

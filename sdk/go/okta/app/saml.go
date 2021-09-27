@@ -187,14 +187,28 @@ import (
 // ```sh
 //  $ pulumi import okta:app/saml:Saml example <app id>
 // ```
+//
+//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//
+// ```sh
+//  $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+// ```
+//
+// ```sh
+//  $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+// ```
 type Saml struct {
 	pulumi.CustomResourceState
 
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL.
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
@@ -257,7 +271,7 @@ type Saml struct {
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
 	// label of application.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -288,6 +302,10 @@ type Saml struct {
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -345,9 +363,9 @@ func GetSaml(ctx *pulumi.Context,
 type samlState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL.
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -410,7 +428,7 @@ type samlState struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label *string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -441,6 +459,10 @@ type samlState struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -467,9 +489,9 @@ type samlState struct {
 type SamlState struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL.
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -532,7 +554,7 @@ type SamlState struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringPtrInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
@@ -563,6 +585,10 @@ type SamlState struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign-on Url.
@@ -593,9 +619,9 @@ func (SamlState) ElementType() reflect.Type {
 type samlArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL.
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -646,7 +672,7 @@ type samlArgs struct {
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
 	// label of application.
 	Label string `pulumi:"label"`
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -667,6 +693,10 @@ type samlArgs struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -694,9 +724,9 @@ type samlArgs struct {
 type SamlArgs struct {
 	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL.
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service.
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -747,7 +777,7 @@ type SamlArgs struct {
 	KeyYearsValid pulumi.IntPtrInput
 	// label of application.
 	Label pulumi.StringInput
-	// Application logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
@@ -768,6 +798,10 @@ type SamlArgs struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
+	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	SkipGroups pulumi.BoolPtrInput
+	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign-on Url.
