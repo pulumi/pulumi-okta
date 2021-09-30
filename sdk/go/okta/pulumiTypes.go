@@ -16,7 +16,7 @@ type AppGroupAssignmentsGroup struct {
 	// Priority of group assignment
 	Priority *int `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-	Profile *string `pulumi:"profile"`
+	Profile string `pulumi:"profile"`
 }
 
 // AppGroupAssignmentsGroupInput is an input type that accepts AppGroupAssignmentsGroupArgs and AppGroupAssignmentsGroupOutput values.
@@ -36,7 +36,7 @@ type AppGroupAssignmentsGroupArgs struct {
 	// Priority of group assignment
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	Profile pulumi.StringInput `pulumi:"profile"`
 }
 
 func (AppGroupAssignmentsGroupArgs) ElementType() reflect.Type {
@@ -101,8 +101,8 @@ func (o AppGroupAssignmentsGroupOutput) Priority() pulumi.IntPtrOutput {
 }
 
 // JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-func (o AppGroupAssignmentsGroupOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppGroupAssignmentsGroup) *string { return v.Profile }).(pulumi.StringPtrOutput)
+func (o AppGroupAssignmentsGroupOutput) Profile() pulumi.StringOutput {
+	return o.ApplyT(func(v AppGroupAssignmentsGroup) string { return v.Profile }).(pulumi.StringOutput)
 }
 
 type AppGroupAssignmentsGroupArrayOutput struct{ *pulumi.OutputState }

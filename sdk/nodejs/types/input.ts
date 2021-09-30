@@ -16,7 +16,7 @@ export interface AppGroupAssignmentsGroup {
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
-    profile?: pulumi.Input<string>;
+    profile: pulumi.Input<string>;
 }
 
 export interface AppSharedCredentialsUser {

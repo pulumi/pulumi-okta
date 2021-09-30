@@ -27,8 +27,8 @@ namespace Pulumi.Okta.Inputs
         /// <summary>
         /// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         /// </summary>
-        [Input("profile")]
-        public Input<string>? Profile { get; set; }
+        [Input("profile", required: true)]
+        public Input<string> Profile { get; set; } = null!;
 
         public AppGroupAssignmentsGroupGetArgs()
         {

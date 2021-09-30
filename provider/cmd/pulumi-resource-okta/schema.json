@@ -1348,7 +1348,8 @@
             },
             "type": "object",
             "required": [
-                "id"
+                "id",
+                "profile"
             ]
         },
         "okta:index/AppSharedCredentialsUser:AppSharedCredentialsUser": {

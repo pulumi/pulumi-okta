@@ -25,18 +25,17 @@ __all__ = [
 class AppGroupAssignmentsGroupArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 priority: Optional[pulumi.Input[int]] = None,
-                 profile: Optional[pulumi.Input[str]] = None):
+                 profile: pulumi.Input[str],
+                 priority: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] id: ID of the group to assign.
-        :param pulumi.Input[int] priority: Priority of group assignment
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        :param pulumi.Input[int] priority: Priority of group assignment
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "profile", profile)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if profile is not None:
-            pulumi.set(__self__, "profile", profile)
 
     @property
     @pulumi.getter
@@ -52,6 +51,18 @@ class AppGroupAssignmentsGroupArgs:
 
     @property
     @pulumi.getter
+    def profile(self) -> pulumi.Input[str]:
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
         Priority of group assignment
@@ -61,18 +72,6 @@ class AppGroupAssignmentsGroupArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[str]]:
-        """
-        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-        """
-        return pulumi.get(self, "profile")
-
-    @profile.setter
-    def profile(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "profile", value)
 
 
 @pulumi.input_type
