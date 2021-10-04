@@ -24,7 +24,7 @@ namespace Pulumi.Okta.Outputs
         /// <summary>
         /// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         /// </summary>
-        public readonly string? Profile;
+        public readonly string Profile;
 
         [OutputConstructor]
         private AppGroupAssignmentsGroup(
@@ -32,7 +32,7 @@ namespace Pulumi.Okta.Outputs
 
             int? priority,
 
-            string? profile)
+            string profile)
         {
             Id = id;
             Priority = priority;

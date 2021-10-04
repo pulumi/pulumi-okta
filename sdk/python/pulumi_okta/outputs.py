@@ -28,18 +28,17 @@ __all__ = [
 class AppGroupAssignmentsGroup(dict):
     def __init__(__self__, *,
                  id: str,
-                 priority: Optional[int] = None,
-                 profile: Optional[str] = None):
+                 profile: str,
+                 priority: Optional[int] = None):
         """
         :param str id: ID of the group to assign.
-        :param int priority: Priority of group assignment
         :param str profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        :param int priority: Priority of group assignment
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "profile", profile)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if profile is not None:
-            pulumi.set(__self__, "profile", profile)
 
     @property
     @pulumi.getter
@@ -51,19 +50,19 @@ class AppGroupAssignmentsGroup(dict):
 
     @property
     @pulumi.getter
+    def profile(self) -> str:
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter
     def priority(self) -> Optional[int]:
         """
         Priority of group assignment
         """
         return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter
-    def profile(self) -> Optional[str]:
-        """
-        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-        """
-        return pulumi.get(self, "profile")
 
 
 @pulumi.output_type
