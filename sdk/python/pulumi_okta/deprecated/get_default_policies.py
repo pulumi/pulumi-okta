@@ -12,6 +12,7 @@ __all__ = [
     'GetDefaultPoliciesResult',
     'AwaitableGetDefaultPoliciesResult',
     'get_default_policies',
+    'get_default_policies_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,12 @@ def get_default_policies(type: Optional[str] = None,
     return AwaitableGetDefaultPoliciesResult(
         id=__ret__.id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_default_policies)
+def get_default_policies_output(type: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultPoliciesResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

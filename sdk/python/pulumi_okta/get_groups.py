@@ -13,6 +13,7 @@ __all__ = [
     'GetGroupsResult',
     'AwaitableGetGroupsResult',
     'get_groups',
+    'get_groups_output',
 ]
 
 @pulumi.output_type
@@ -126,3 +127,32 @@ def get_groups(q: Optional[str] = None,
         q=__ret__.q,
         search=__ret__.search,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_groups)
+def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
+                      search: Optional[pulumi.Input[Optional[str]]] = None,
+                      type: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
+    """
+    Use this data source to retrieve a list of groups from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_groups(q="Engineering - ")
+    ```
+
+
+    :param str q: Searches the name property of groups for matching value.
+    :param str search: Searches for groups with a
+           supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+           all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+           except for `"_embedded"`, `"_links"`, and `"objectClass"`
+    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+    """
+    ...

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -108,4 +107,22 @@ export interface GetSamlResult {
      * type of idp.
      */
     readonly type: string;
+}
+
+export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
+    return pulumi.output(args).apply(a => getSaml(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSaml.
+ */
+export interface GetSamlOutputArgs {
+    /**
+     * The id of the idp to retrieve, conflicts with `name`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the idp to retrieve, conflicts with `id`.
+     */
+    name?: pulumi.Input<string>;
 }

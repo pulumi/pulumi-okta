@@ -12,6 +12,7 @@ __all__ = [
     'GetMetadataSamlResult',
     'AwaitableGetMetadataSamlResult',
     'get_metadata_saml',
+    'get_metadata_saml_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,27 @@ def get_metadata_saml(app_id: Optional[str] = None,
         key_id=__ret__.key_id,
         metadata=__ret__.metadata,
         want_authn_requests_signed=__ret__.want_authn_requests_signed)
+
+
+@_utilities.lift_output_func(get_metadata_saml)
+def get_metadata_saml_output(app_id: Optional[pulumi.Input[str]] = None,
+                             key_id: Optional[pulumi.Input[Optional[str]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
+    """
+    Use this data source to retrieve the metadata for SAML application from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_metadata_saml(app_id="<app id>",
+        key_id="<cert key id>")
+    ```
+
+
+    :param str app_id: The application ID.
+    :param str key_id: Certificate Key ID.
+    """
+    ...

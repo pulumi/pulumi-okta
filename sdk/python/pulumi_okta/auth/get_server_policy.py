@@ -12,6 +12,7 @@ __all__ = [
     'GetServerPolicyResult',
     'AwaitableGetServerPolicyResult',
     'get_server_policy',
+    'get_server_policy_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,27 @@ def get_server_policy(auth_server_id: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_server_policy)
+def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
+                             name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerPolicyResult]:
+    """
+    Use this data source to retrieve a authorization server policy from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.auth.get_server_policy(auth_server_id="<auth server id>",
+        name="staff")
+    ```
+
+
+    :param str auth_server_id: The ID of the Auth Server.
+    :param str name: Name of policy to retrieve.
+    """
+    ...

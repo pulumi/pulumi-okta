@@ -14,6 +14,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -558,3 +559,35 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
         user_id=__ret__.user_id,
         user_type=__ret__.user_type,
         zip_code=__ret__.zip_code)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]]] = None,
+                    user_id: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Use this data source to retrieve a users from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user(searches=[
+        okta.user.GetUserSearchArgs(
+            name="profile.firstName",
+            value="John",
+        ),
+        okta.user.GetUserSearchArgs(
+            name="profile.lastName",
+            value="Doe",
+        ),
+    ])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param str user_id: String representing a specific user's id value
+    """
+    ...

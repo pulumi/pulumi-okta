@@ -126,6 +126,8 @@ func (o EmailTranslationArrayOutput) Index(i pulumi.IntInput) EmailTranslationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTranslationInput)(nil)).Elem(), EmailTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTranslationArrayInput)(nil)).Elem(), EmailTranslationArray{})
 	pulumi.RegisterOutputType(EmailTranslationOutput{})
 	pulumi.RegisterOutputType(EmailTranslationArrayOutput{})
 }

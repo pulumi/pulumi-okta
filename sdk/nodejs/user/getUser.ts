@@ -209,3 +209,21 @@ export interface GetUserResult {
      */
     readonly zipCode: string;
 }
+
+export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * Map of search criteria. It supports the following properties.
+     */
+    searches?: pulumi.Input<pulumi.Input<inputs.user.GetUserSearchArgs>[]>;
+    /**
+     * String representing a specific user's id value
+     */
+    userId?: pulumi.Input<string>;
+}

@@ -117,6 +117,8 @@ func (o HookHeaderArrayOutput) Index(i pulumi.IntInput) HookHeaderOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HookHeaderInput)(nil)).Elem(), HookHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HookHeaderArrayInput)(nil)).Elem(), HookHeaderArray{})
 	pulumi.RegisterOutputType(HookHeaderOutput{})
 	pulumi.RegisterOutputType(HookHeaderArrayOutput{})
 }

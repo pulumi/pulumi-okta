@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -73,4 +72,23 @@ export interface GetBehaviourResult {
      * Behavior type.
      */
     readonly type: string;
+}
+
+export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehaviourResult> {
+    return pulumi.output(args).apply(a => getBehaviour(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBehaviour.
+ */
+export interface GetBehaviourOutputArgs {
+    /**
+     * `id` of behavior to retrieve, conflicts with `name`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
+     * Okta's API.
+     */
+    name?: pulumi.Input<string>;
 }

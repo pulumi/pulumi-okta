@@ -401,3 +401,163 @@ export interface GetSamlResult {
      */
     readonly users?: string[];
 }
+
+export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
+    return pulumi.output(args).apply(a => getSaml(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSaml.
+ */
+export interface GetSamlOutputArgs {
+    /**
+     * Custom error page URL.
+     */
+    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Custom login page URL.
+     */
+    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    /**
+     * Enable self-service.
+     */
+    accessibilitySelfService?: pulumi.Input<boolean>;
+    /**
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     */
+    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * tells the provider to query for only `ACTIVE` applications.
+     */
+    activeOnly?: pulumi.Input<boolean>;
+    /**
+     * Application settings in JSON format.
+     */
+    appSettingsJson?: pulumi.Input<string>;
+    /**
+     * Determines whether the SAML assertion is digitally signed.
+     */
+    assertionSigned?: pulumi.Input<boolean>;
+    /**
+     * List of SAML Attribute statements.
+     */
+    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.GetSamlAttributeStatementArgs>[]>;
+    /**
+     * Audience restriction.
+     */
+    audience?: pulumi.Input<string>;
+    /**
+     * Identifies the SAML authentication context class for the assertion’s authentication
+     * statement.
+     */
+    authnContextClassRef?: pulumi.Input<string>;
+    /**
+     * Display auto submit toolbar.
+     */
+    autoSubmitToolbar?: pulumi.Input<boolean>;
+    /**
+     * Identifies a specific application resource in an IDP initiated SSO scenario.
+     */
+    defaultRelayState?: pulumi.Input<string>;
+    /**
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     */
+    destination?: pulumi.Input<string>;
+    /**
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     */
+    digestAlgorithm?: pulumi.Input<string>;
+    /**
+     * features enabled.
+     */
+    features?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
+     */
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Do not display application icon on mobile app.
+     */
+    hideIos?: pulumi.Input<boolean>;
+    /**
+     * Do not display application icon to users
+     */
+    hideWeb?: pulumi.Input<boolean>;
+    /**
+     * Prompt user to re-authenticate if SP asks for it.
+     */
+    honorForceAuthn?: pulumi.Input<boolean>;
+    /**
+     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * SAML issuer ID.
+     */
+    idpIssuer?: pulumi.Input<string>;
+    /**
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
+     */
+    labelPrefix?: pulumi.Input<string>;
+    /**
+     * The location where the app may present the SAML assertion.
+     */
+    recipient?: pulumi.Input<string>;
+    /**
+     * Denotes whether the request is compressed or not.
+     */
+    requestCompressed?: pulumi.Input<boolean>;
+    /**
+     * Determines whether the SAML auth response message is digitally signed.
+     */
+    responseSigned?: pulumi.Input<boolean>;
+    /**
+     * Signature algorithm used ot digitally sign the assertion and response.
+     */
+    signatureAlgorithm?: pulumi.Input<string>;
+    /**
+     * SAML service provider issuer.
+     */
+    spIssuer?: pulumi.Input<string>;
+    /**
+     * Single Sign-on Url.
+     */
+    ssoUrl?: pulumi.Input<string>;
+    /**
+     * Identifies the SAML processing rules.
+     */
+    subjectNameIdFormat?: pulumi.Input<string>;
+    /**
+     * Template for app user's username when a user is assigned to the app.
+     */
+    subjectNameIdTemplate?: pulumi.Input<string>;
+    /**
+     * Username template.
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type.
+     */
+    userNameTemplateType?: pulumi.Input<string>;
+    /**
+     * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
+     */
+    users?: pulumi.Input<pulumi.Input<string>[]>;
+}

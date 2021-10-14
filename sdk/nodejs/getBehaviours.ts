@@ -57,3 +57,17 @@ export interface GetBehavioursResult {
     readonly id: string;
     readonly q?: string;
 }
+
+export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehavioursResult> {
+    return pulumi.output(args).apply(a => getBehaviours(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBehaviours.
+ */
+export interface GetBehavioursOutputArgs {
+    /**
+     * Searches query to look up behaviors.
+     */
+    q?: pulumi.Input<string>;
+}

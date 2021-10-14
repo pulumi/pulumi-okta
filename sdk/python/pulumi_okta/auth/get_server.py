@@ -12,6 +12,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,24 @@ def get_server(name: Optional[str] = None,
         kid=__ret__.kid,
         name=__ret__.name,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Use this data source to retrieve an auth server from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.auth.get_server(name="Example Auth")
+    ```
+
+
+    :param str name: The name of the auth server to retrieve.
+    """
+    ...
