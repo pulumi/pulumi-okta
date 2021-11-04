@@ -161,10 +161,6 @@ class SamlKey(pulumi.CustomResource):
                  x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a SAML Identity Provider Signing Key.
-
-        This resource allows you to create and configure a SAML Identity Provider Signing Key.
-
         ## Import
 
         A SAML IdP Signing Key can be imported via the key id.
@@ -184,10 +180,6 @@ class SamlKey(pulumi.CustomResource):
                  args: SamlKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a SAML Identity Provider Signing Key.
-
-        This resource allows you to create and configure a SAML Identity Provider Signing Key.
-
         ## Import
 
         A SAML IdP Signing Key can be imported via the key id.

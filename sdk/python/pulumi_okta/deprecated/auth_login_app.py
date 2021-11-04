@@ -39,6 +39,7 @@ class AuthLoginAppArgs:
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['AuthLoginAppUserArgs']]]] = None):
@@ -68,6 +69,7 @@ class AuthLoginAppArgs:
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['AuthLoginAppUserArgs']]] users: Users associated with the application
@@ -122,6 +124,8 @@ class AuthLoginAppArgs:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -421,6 +425,18 @@ class AuthLoginAppArgs:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -487,6 +503,7 @@ class _AuthLoginAppState:
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['AuthLoginAppUserArgs']]]] = None):
@@ -519,6 +536,7 @@ class _AuthLoginAppState:
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['AuthLoginAppUserArgs']]] users: Users associated with the application
@@ -580,6 +598,8 @@ class _AuthLoginAppState:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -915,6 +935,18 @@ class _AuthLoginAppState:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -980,6 +1012,7 @@ class AuthLoginApp(pulumi.CustomResource):
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None,
@@ -1012,6 +1045,7 @@ class AuthLoginApp(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]] users: Users associated with the application
@@ -1063,6 +1097,7 @@ class AuthLoginApp(pulumi.CustomResource):
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None,
@@ -1107,6 +1142,7 @@ class AuthLoginApp(pulumi.CustomResource):
             __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             if users is not None and not opts.urn:
@@ -1153,6 +1189,7 @@ class AuthLoginApp(pulumi.CustomResource):
             skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None) -> 'AuthLoginApp':
@@ -1190,6 +1227,7 @@ class AuthLoginApp(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]] users: Users associated with the application
@@ -1225,6 +1263,7 @@ class AuthLoginApp(pulumi.CustomResource):
         __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["users"] = users
@@ -1445,6 +1484,14 @@ class AuthLoginApp(pulumi.CustomResource):
         Username template
         """
         return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")

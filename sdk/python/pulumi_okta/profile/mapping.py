@@ -17,17 +17,21 @@ class MappingArgs:
     def __init__(__self__, *,
                  source_id: pulumi.Input[str],
                  target_id: pulumi.Input[str],
+                 always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
         """
         The set of arguments for constructing a Mapping resource.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
         :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         """
         pulumi.set(__self__, "source_id", source_id)
         pulumi.set(__self__, "target_id", target_id)
+        if always_apply is not None:
+            pulumi.set(__self__, "always_apply", always_apply)
         if delete_when_absent is not None:
             pulumi.set(__self__, "delete_when_absent", delete_when_absent)
         if mappings is not None:
@@ -58,6 +62,18 @@ class MappingArgs:
         pulumi.set(self, "target_id", value)
 
     @property
+    @pulumi.getter(name="alwaysApply")
+    def always_apply(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        """
+        return pulumi.get(self, "always_apply")
+
+    @always_apply.setter
+    def always_apply(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_apply", value)
+
+    @property
     @pulumi.getter(name="deleteWhenAbsent")
     def delete_when_absent(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -85,6 +101,7 @@ class MappingArgs:
 @pulumi.input_type
 class _MappingState:
     def __init__(__self__, *,
+                 always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
@@ -95,6 +112,7 @@ class _MappingState:
                  target_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Mapping resources.
+        :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -104,6 +122,8 @@ class _MappingState:
         :param pulumi.Input[str] target_name: Name of the mapping target.
         :param pulumi.Input[str] target_type: ID of the mapping target.
         """
+        if always_apply is not None:
+            pulumi.set(__self__, "always_apply", always_apply)
         if delete_when_absent is not None:
             pulumi.set(__self__, "delete_when_absent", delete_when_absent)
         if mappings is not None:
@@ -120,6 +140,18 @@ class _MappingState:
             pulumi.set(__self__, "target_name", target_name)
         if target_type is not None:
             pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="alwaysApply")
+    def always_apply(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        """
+        return pulumi.get(self, "always_apply")
+
+    @always_apply.setter
+    def always_apply(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_apply", value)
 
     @property
     @pulumi.getter(name="deleteWhenAbsent")
@@ -223,15 +255,16 @@ class Mapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a profile mapping.
+        This resource allows you to manage a profile mapping by source and target IDs.
 
-        This resource allows you to manage a profile mapping by source id.
+        > **WARNING:** This feature available only when using api token in the provider config.
 
         ## Example Usage
 
@@ -270,6 +303,7 @@ class Mapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -282,9 +316,9 @@ class Mapping(pulumi.CustomResource):
                  args: MappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a profile mapping.
+        This resource allows you to manage a profile mapping by source and target IDs.
 
-        This resource allows you to manage a profile mapping by source id.
+        > **WARNING:** This feature available only when using api token in the provider config.
 
         ## Example Usage
 
@@ -336,6 +370,7 @@ class Mapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
@@ -352,6 +387,7 @@ class Mapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MappingArgs.__new__(MappingArgs)
 
+            __props__.__dict__["always_apply"] = always_apply
             __props__.__dict__["delete_when_absent"] = delete_when_absent
             __props__.__dict__["mappings"] = mappings
             if source_id is None and not opts.urn:
@@ -374,6 +410,7 @@ class Mapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            always_apply: Optional[pulumi.Input[bool]] = None,
             delete_when_absent: Optional[pulumi.Input[bool]] = None,
             mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
             source_id: Optional[pulumi.Input[str]] = None,
@@ -389,6 +426,7 @@ class Mapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -402,6 +440,7 @@ class Mapping(pulumi.CustomResource):
 
         __props__ = _MappingState.__new__(_MappingState)
 
+        __props__.__dict__["always_apply"] = always_apply
         __props__.__dict__["delete_when_absent"] = delete_when_absent
         __props__.__dict__["mappings"] = mappings
         __props__.__dict__["source_id"] = source_id
@@ -411,6 +450,14 @@ class Mapping(pulumi.CustomResource):
         __props__.__dict__["target_name"] = target_name
         __props__.__dict__["target_type"] = target_type
         return Mapping(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alwaysApply")
+    def always_apply(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        """
+        return pulumi.get(self, "always_apply")
 
     @property
     @pulumi.getter(name="deleteWhenAbsent")

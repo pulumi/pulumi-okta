@@ -89,7 +89,7 @@ def get_server_policy(auth_server_id: Optional[str] = None,
                       name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerPolicyResult:
     """
-    Use this data source to retrieve a authorization server policy from Okta.
+    Use this data source to retrieve an authorization server policy from Okta.
 
     ## Example Usage
 
@@ -127,7 +127,7 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerPolicyResult]:
     """
-    Use this data source to retrieve a authorization server policy from Okta.
+    Use this data source to retrieve an authorization server policy from Okta.
 
     ## Example Usage
 

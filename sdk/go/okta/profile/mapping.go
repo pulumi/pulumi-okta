@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a profile mapping.
+// This resource allows you to manage a profile mapping by source and target IDs.
 //
-// This resource allows you to manage a profile mapping by source id.
+// > **WARNING:** This feature available only when using api token in the provider config.
 //
 // ## Example Usage
 //
@@ -69,6 +69,8 @@ import (
 type Mapping struct {
 	pulumi.CustomResourceState
 
+	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
 	// Priority of the policy.
@@ -122,6 +124,8 @@ func GetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Mapping resources.
 type mappingState struct {
+	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
 	// Priority of the policy.
@@ -141,6 +145,8 @@ type mappingState struct {
 }
 
 type MappingState struct {
+	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
 	// Priority of the policy.
@@ -164,6 +170,8 @@ func (MappingState) ElementType() reflect.Type {
 }
 
 type mappingArgs struct {
+	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
 	// Priority of the policy.
@@ -176,6 +184,8 @@ type mappingArgs struct {
 
 // The set of arguments for constructing a Mapping resource.
 type MappingArgs struct {
+	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
 	// Priority of the policy.

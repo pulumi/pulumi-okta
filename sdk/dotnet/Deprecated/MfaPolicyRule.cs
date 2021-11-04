@@ -13,6 +13,18 @@ namespace Pulumi.Okta.Deprecated
     public partial class MfaPolicyRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        [Output("appExcludes")]
+        public Output<ImmutableArray<Outputs.MfaPolicyRuleAppExclude>> AppExcludes { get; private set; } = null!;
+
+        /// <summary>
+        /// Applications to include
+        /// </summary>
+        [Output("appIncludes")]
+        public Output<ImmutableArray<Outputs.MfaPolicyRuleAppInclude>> AppIncludes { get; private set; } = null!;
+
+        /// <summary>
         /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>
         [Output("enroll")]
@@ -119,6 +131,30 @@ namespace Pulumi.Okta.Deprecated
 
     public sealed class MfaPolicyRuleArgs : Pulumi.ResourceArgs
     {
+        [Input("appExcludes")]
+        private InputList<Inputs.MfaPolicyRuleAppExcludeArgs>? _appExcludes;
+
+        /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        public InputList<Inputs.MfaPolicyRuleAppExcludeArgs> AppExcludes
+        {
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.MfaPolicyRuleAppExcludeArgs>());
+            set => _appExcludes = value;
+        }
+
+        [Input("appIncludes")]
+        private InputList<Inputs.MfaPolicyRuleAppIncludeArgs>? _appIncludes;
+
+        /// <summary>
+        /// Applications to include
+        /// </summary>
+        public InputList<Inputs.MfaPolicyRuleAppIncludeArgs> AppIncludes
+        {
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.MfaPolicyRuleAppIncludeArgs>());
+            set => _appIncludes = value;
+        }
+
         /// <summary>
         /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>
@@ -205,6 +241,30 @@ namespace Pulumi.Okta.Deprecated
 
     public sealed class MfaPolicyRuleState : Pulumi.ResourceArgs
     {
+        [Input("appExcludes")]
+        private InputList<Inputs.MfaPolicyRuleAppExcludeGetArgs>? _appExcludes;
+
+        /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        public InputList<Inputs.MfaPolicyRuleAppExcludeGetArgs> AppExcludes
+        {
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.MfaPolicyRuleAppExcludeGetArgs>());
+            set => _appExcludes = value;
+        }
+
+        [Input("appIncludes")]
+        private InputList<Inputs.MfaPolicyRuleAppIncludeGetArgs>? _appIncludes;
+
+        /// <summary>
+        /// Applications to include
+        /// </summary>
+        public InputList<Inputs.MfaPolicyRuleAppIncludeGetArgs> AppIncludes
+        {
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.MfaPolicyRuleAppIncludeGetArgs>());
+            set => _appIncludes = value;
+        }
+
         /// <summary>
         /// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         /// </summary>

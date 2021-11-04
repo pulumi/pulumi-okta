@@ -53,7 +53,7 @@ export class SamlIdp extends pulumi.CustomResource {
     public readonly kid!: pulumi.Output<string>;
     public readonly maxClockSkew!: pulumi.Output<number | undefined>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     public readonly name!: pulumi.Output<string>;
     public readonly nameFormat!: pulumi.Output<string | undefined>;
@@ -210,7 +210,7 @@ export interface SamlIdpState {
     kid?: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     nameFormat?: pulumi.Input<string>;
@@ -269,7 +269,7 @@ export interface SamlIdpArgs {
     kid: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     nameFormat?: pulumi.Input<string>;

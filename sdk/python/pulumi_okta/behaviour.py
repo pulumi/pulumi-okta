@@ -287,8 +287,6 @@ class Behaviour(pulumi.CustomResource):
                  velocity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Creates different types of behavior.
-
         This resource allows you to create and configure a behavior.
 
         ## Example Usage
@@ -348,8 +346,6 @@ class Behaviour(pulumi.CustomResource):
                  args: BehaviourArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates different types of behavior.
-
         This resource allows you to create and configure a behavior.
 
         ## Example Usage

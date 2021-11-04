@@ -62,6 +62,10 @@ type GetOauthArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// List of users IDs assigned to the application.
 	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
@@ -114,6 +118,8 @@ type GetOauthResult struct {
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	SkipGroups    *bool    `pulumi:"skipGroups"`
+	SkipUsers     *bool    `pulumi:"skipUsers"`
 	// Status of application.
 	Status string `pulumi:"status"`
 	// The type of OAuth application.
@@ -153,6 +159,10 @@ type GetOauthOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 	// List of users IDs assigned to the application.
 	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
@@ -283,6 +293,14 @@ func (o GetOauthResultOutput) RedirectUris() pulumi.StringArrayOutput {
 // List of OAuth 2.0 response type strings.
 func (o GetOauthResultOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOauthResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetOauthResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 // Status of application.

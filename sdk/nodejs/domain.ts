@@ -14,9 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.Domain("example", {
- *     verify: true,
- * });
+ * const example = new okta.Domain("example", {});
  * ```
  *
  * ## Import
@@ -68,7 +66,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
     /**
-     * Indicates whether the domain should be verified.
+     * Indicates whether the domain should be verified. 
+     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
+     *
+     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */
     public readonly verify!: pulumi.Output<boolean | undefined>;
 
@@ -120,7 +121,10 @@ export interface DomainState {
      */
     validationStatus?: pulumi.Input<string>;
     /**
-     * Indicates whether the domain should be verified.
+     * Indicates whether the domain should be verified. 
+     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
+     *
+     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */
     verify?: pulumi.Input<boolean>;
 }
@@ -134,7 +138,10 @@ export interface DomainArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Indicates whether the domain should be verified.
+     * Indicates whether the domain should be verified. 
+     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
+     *
+     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */
     verify?: pulumi.Input<boolean>;
 }

@@ -57,6 +57,10 @@ class OAuthArgs:
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
@@ -79,10 +83,11 @@ class OAuthArgs:
                no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -105,6 +110,10 @@ class OAuthArgs:
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -197,6 +206,14 @@ class OAuthArgs:
             pulumi.set(__self__, "token_endpoint_auth_method", token_endpoint_auth_method)
         if tos_uri is not None:
             pulumi.set(__self__, "tos_uri", tos_uri)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users is not None:
             warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -403,7 +420,8 @@ class OAuthArgs:
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         """
         return pulumi.get(self, "grant_types")
 
@@ -428,7 +446,7 @@ class OAuthArgs:
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         """
         return pulumi.get(self, "groups_claim")
 
@@ -710,6 +728,54 @@ class OAuthArgs:
         pulumi.set(self, "tos_uri", value)
 
     @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
@@ -784,6 +850,10 @@ class _OAuthState:
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
@@ -805,10 +875,11 @@ class _OAuthState:
                no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -836,6 +907,10 @@ class _OAuthState:
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -938,6 +1013,14 @@ class _OAuthState:
             pulumi.set(__self__, "tos_uri", tos_uri)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users is not None:
             warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -1132,7 +1215,8 @@ class _OAuthState:
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         """
         return pulumi.get(self, "grant_types")
 
@@ -1157,7 +1241,7 @@ class _OAuthState:
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         """
         return pulumi.get(self, "groups_claim")
 
@@ -1499,6 +1583,54 @@ class _OAuthState:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
@@ -1571,12 +1703,14 @@ class OAuth(pulumi.CustomResource):
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an OIDC Application.
-
         This resource allows you to create and configure an OIDC Application.
 
         ## Example Usage
@@ -1651,10 +1785,11 @@ class OAuth(pulumi.CustomResource):
                no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -1679,6 +1814,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -1690,8 +1829,6 @@ class OAuth(pulumi.CustomResource):
                  args: OAuthArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an OIDC Application.
-
         This resource allows you to create and configure an OIDC Application.
 
         ## Example Usage
@@ -1805,6 +1942,10 @@ class OAuth(pulumi.CustomResource):
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1871,6 +2012,10 @@ class OAuth(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+            __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+            __props__.__dict__["user_name_template_type"] = user_name_template_type
             if users is not None and not opts.urn:
                 warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -1936,6 +2081,10 @@ class OAuth(pulumi.CustomResource):
             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
             tos_uri: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
+            user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+            user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
             wildcard_redirect: Optional[pulumi.Input[str]] = None) -> 'OAuth':
         """
@@ -1962,10 +2111,11 @@ class OAuth(pulumi.CustomResource):
                no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+               Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
                - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
@@ -1993,6 +2143,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -2047,6 +2201,10 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
         __props__.__dict__["tos_uri"] = tos_uri
         __props__.__dict__["type"] = type
+        __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+        __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+        __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["users"] = users
         __props__.__dict__["wildcard_redirect"] = wildcard_redirect
         return OAuth(resource_name, opts=opts, __props__=__props__)
@@ -2177,7 +2335,8 @@ class OAuth(pulumi.CustomResource):
     def grant_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         """
         return pulumi.get(self, "grant_types")
 
@@ -2194,7 +2353,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> pulumi.Output[Optional['outputs.OAuthGroupsClaim']]:
         """
-        Groups claim for an OpenID Connect client application.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         """
         return pulumi.get(self, "groups_claim")
 
@@ -2341,7 +2500,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenLeeway")
-    def refresh_token_leeway(self) -> pulumi.Output[Optional[int]]:
+    def refresh_token_leeway(self) -> pulumi.Output[int]:
         """
         Grace period for token rotation. Valid values: 0 to 60 seconds.
         """
@@ -2349,7 +2508,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenRotation")
-    def refresh_token_rotation(self) -> pulumi.Output[Optional[str]]:
+    def refresh_token_rotation(self) -> pulumi.Output[str]:
         """
         Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         """
@@ -2418,6 +2577,38 @@ class OAuth(pulumi.CustomResource):
         Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
 
     @property
     @pulumi.getter

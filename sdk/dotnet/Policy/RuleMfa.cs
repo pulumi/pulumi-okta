@@ -10,9 +10,63 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates an MFA Policy Rule.
-    /// 
     /// This resource allows you to create and configure an MFA Policy Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleOAuth = new Okta.App.OAuth("exampleOAuth", new Okta.App.OAuthArgs
+    ///         {
+    ///             Label = "My App",
+    ///             Type = "web",
+    ///             GrantTypes = 
+    ///             {
+    ///                 "authorization_code",
+    ///             },
+    ///             RedirectUris = 
+    ///             {
+    ///                 "http://localhost:8000",
+    ///             },
+    ///             ResponseTypes = 
+    ///             {
+    ///                 "code",
+    ///             },
+    ///             SkipGroups = true,
+    ///         });
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///             Status = "ACTIVE",
+    ///             Enroll = "LOGIN",
+    ///             AppIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Id = exampleOAuth.Id,
+    ///                     Type = "APP",
+    ///                 },
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Type = "APP_TYPE",
+    ///                     Name = "yahoo_mail",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -26,13 +80,25 @@ namespace Pulumi.Okta.Policy
     public partial class RuleMfa : Pulumi.CustomResource
     {
         /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        [Output("appExcludes")]
+        public Output<ImmutableArray<Outputs.RuleMfaAppExclude>> AppExcludes { get; private set; } = null!;
+
+        /// <summary>
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// </summary>
+        [Output("appIncludes")]
+        public Output<ImmutableArray<Outputs.RuleMfaAppInclude>> AppIncludes { get; private set; } = null!;
+
+        /// <summary>
         /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         /// </summary>
         [Output("enroll")]
         public Output<string?> Enroll { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -131,6 +197,30 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RuleMfaArgs : Pulumi.ResourceArgs
     {
+        [Input("appExcludes")]
+        private InputList<Inputs.RuleMfaAppExcludeArgs>? _appExcludes;
+
+        /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        public InputList<Inputs.RuleMfaAppExcludeArgs> AppExcludes
+        {
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleMfaAppExcludeArgs>());
+            set => _appExcludes = value;
+        }
+
+        [Input("appIncludes")]
+        private InputList<Inputs.RuleMfaAppIncludeArgs>? _appIncludes;
+
+        /// <summary>
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// </summary>
+        public InputList<Inputs.RuleMfaAppIncludeArgs> AppIncludes
+        {
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleMfaAppIncludeArgs>());
+            set => _appIncludes = value;
+        }
+
         /// <summary>
         /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         /// </summary>
@@ -138,7 +228,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -216,6 +306,30 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RuleMfaState : Pulumi.ResourceArgs
     {
+        [Input("appExcludes")]
+        private InputList<Inputs.RuleMfaAppExcludeGetArgs>? _appExcludes;
+
+        /// <summary>
+        /// Applications to exclude
+        /// </summary>
+        public InputList<Inputs.RuleMfaAppExcludeGetArgs> AppExcludes
+        {
+            get => _appExcludes ?? (_appExcludes = new InputList<Inputs.RuleMfaAppExcludeGetArgs>());
+            set => _appExcludes = value;
+        }
+
+        [Input("appIncludes")]
+        private InputList<Inputs.RuleMfaAppIncludeGetArgs>? _appIncludes;
+
+        /// <summary>
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// </summary>
+        public InputList<Inputs.RuleMfaAppIncludeGetArgs> AppIncludes
+        {
+            get => _appIncludes ?? (_appIncludes = new InputList<Inputs.RuleMfaAppIncludeGetArgs>());
+            set => _appIncludes = value;
+        }
+
         /// <summary>
         /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         /// </summary>
@@ -223,7 +337,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

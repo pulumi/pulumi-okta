@@ -42,7 +42,8 @@ export interface GetPolicyArgs {
      */
     name: string;
     /**
-     * Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: string;
 }
@@ -59,6 +60,7 @@ export interface GetPolicyResult {
      * name of policy.
      */
     readonly name: string;
+    readonly status: string;
     /**
      * type of policy.
      */
@@ -78,7 +80,8 @@ export interface GetPolicyOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: pulumi.Input<string>;
 }

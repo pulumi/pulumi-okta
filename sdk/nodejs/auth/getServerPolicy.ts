@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a authorization server policy from Okta.
+ * Use this data source to retrieve an authorization server policy from Okta.
  *
  * ## Example Usage
  *

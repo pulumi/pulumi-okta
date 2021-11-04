@@ -6,9 +6,9 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a profile mapping.
+ * This resource allows you to manage a profile mapping by source and target IDs.
  *
- * This resource allows you to manage a profile mapping by source id.
+ * > **WARNING:** This feature available only when using api token in the provider config.
  *
  * ## Example Usage
  *
@@ -75,6 +75,10 @@ export class Mapping extends pulumi.CustomResource {
     }
 
     /**
+     * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     */
+    public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
+    /**
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
     public readonly deleteWhenAbsent!: pulumi.Output<boolean | undefined>;
@@ -120,6 +124,7 @@ export class Mapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MappingState | undefined;
+            inputs["alwaysApply"] = state ? state.alwaysApply : undefined;
             inputs["deleteWhenAbsent"] = state ? state.deleteWhenAbsent : undefined;
             inputs["mappings"] = state ? state.mappings : undefined;
             inputs["sourceId"] = state ? state.sourceId : undefined;
@@ -136,6 +141,7 @@ export class Mapping extends pulumi.CustomResource {
             if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
+            inputs["alwaysApply"] = args ? args.alwaysApply : undefined;
             inputs["deleteWhenAbsent"] = args ? args.deleteWhenAbsent : undefined;
             inputs["mappings"] = args ? args.mappings : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
@@ -156,6 +162,10 @@ export class Mapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Mapping resources.
  */
 export interface MappingState {
+    /**
+     * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     */
+    alwaysApply?: pulumi.Input<boolean>;
     /**
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */
@@ -194,6 +204,10 @@ export interface MappingState {
  * The set of arguments for constructing a Mapping resource.
  */
 export interface MappingArgs {
+    /**
+     * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     */
+    alwaysApply?: pulumi.Input<boolean>;
     /**
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      */

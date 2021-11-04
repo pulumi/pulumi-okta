@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates different types of behavior.
-    /// 
     /// This resource allows you to create and configure a behavior.
     /// 
     /// ## Example Usage

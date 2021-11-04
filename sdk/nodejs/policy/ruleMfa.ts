@@ -2,12 +2,45 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an MFA Policy Rule.
- *
  * This resource allows you to create and configure an MFA Policy Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleOAuth = new okta.app.OAuth("exampleOAuth", {
+ *     label: "My App",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
+ *     redirectUris: ["http://localhost:8000"],
+ *     responseTypes: ["code"],
+ *     skipGroups: true,
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
+ *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
+ *     status: "ACTIVE",
+ *     enroll: "LOGIN",
+ *     appIncludes: [
+ *         {
+ *             id: exampleOAuth.id,
+ *             type: "APP",
+ *         },
+ *         {
+ *             type: "APP_TYPE",
+ *             name: "yahoo_mail",
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -46,11 +79,19 @@ export class RuleMfa extends pulumi.CustomResource {
     }
 
     /**
+     * Applications to exclude
+     */
+    public readonly appExcludes!: pulumi.Output<outputs.policy.RuleMfaAppExclude[] | undefined>;
+    /**
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     */
+    public readonly appIncludes!: pulumi.Output<outputs.policy.RuleMfaAppInclude[] | undefined>;
+    /**
      * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     public readonly enroll!: pulumi.Output<string | undefined>;
     /**
-     * Policy Rule Name.
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -101,6 +142,8 @@ export class RuleMfa extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleMfaState | undefined;
+            inputs["appExcludes"] = state ? state.appExcludes : undefined;
+            inputs["appIncludes"] = state ? state.appIncludes : undefined;
             inputs["enroll"] = state ? state.enroll : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
@@ -113,6 +156,8 @@ export class RuleMfa extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
+            inputs["appExcludes"] = args ? args.appExcludes : undefined;
+            inputs["appIncludes"] = args ? args.appIncludes : undefined;
             inputs["enroll"] = args ? args.enroll : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
@@ -136,11 +181,19 @@ export class RuleMfa extends pulumi.CustomResource {
  */
 export interface RuleMfaState {
     /**
+     * Applications to exclude
+     */
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
+    /**
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     */
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
+    /**
      * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Policy Rule Name.
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     name?: pulumi.Input<string>;
     /**
@@ -184,11 +237,19 @@ export interface RuleMfaState {
  */
 export interface RuleMfaArgs {
     /**
+     * Applications to exclude
+     */
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
+    /**
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     */
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
+    /**
      * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Policy Rule Name.
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     name?: pulumi.Input<string>;
     /**

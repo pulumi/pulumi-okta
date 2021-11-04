@@ -47,7 +47,7 @@ class SamlIdpArgs:
         """
         The set of arguments for constructing a SamlIdp resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: name of idp
+        :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
@@ -249,7 +249,7 @@ class SamlIdpArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        name of idp
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 
@@ -453,7 +453,7 @@ class _SamlIdpState:
         """
         Input properties used for looking up and filtering SamlIdp resources.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: name of idp
+        :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
@@ -662,7 +662,7 @@ class _SamlIdpState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        name of idp
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 
@@ -887,7 +887,7 @@ class SamlIdp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: name of idp
+        :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
@@ -1052,7 +1052,7 @@ class SamlIdp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: name of idp
+        :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
         :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
         :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
@@ -1174,7 +1174,7 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        name of idp
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 

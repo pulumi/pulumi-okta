@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates a SWA shared credentials app.
-    /// 
     /// This resource allows you to create and configure SWA shared credentials app.
     /// 
     /// ## Example Usage
@@ -178,6 +176,12 @@ namespace Pulumi.Okta
         public Output<string?> PasswordField { get; private set; } = null!;
 
         /// <summary>
+        /// Preconfigured app name
+        /// </summary>
+        [Output("preconfiguredApp")]
+        public Output<string?> PreconfiguredApp { get; private set; } = null!;
+
+        /// <summary>
         /// Redirect URL.
         /// </summary>
         [Output("redirectUrl")]
@@ -238,13 +242,19 @@ namespace Pulumi.Okta
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Username template suffix.
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -405,6 +415,12 @@ namespace Pulumi.Okta
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
+        /// Preconfigured app name
+        /// </summary>
+        [Input("preconfiguredApp")]
+        public Input<string>? PreconfiguredApp { get; set; }
+
+        /// <summary>
         /// Redirect URL.
         /// </summary>
         [Input("redirectUrl")]
@@ -459,13 +475,19 @@ namespace Pulumi.Okta
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
         /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -606,6 +628,12 @@ namespace Pulumi.Okta
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
+        /// Preconfigured app name
+        /// </summary>
+        [Input("preconfiguredApp")]
+        public Input<string>? PreconfiguredApp { get; set; }
+
+        /// <summary>
         /// Redirect URL.
         /// </summary>
         [Input("redirectUrl")]
@@ -666,13 +694,19 @@ namespace Pulumi.Okta
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
         /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Three Field Application.
-//
 // This resource allows you to create and configure a Three Field Application.
 //
 // ## Import
@@ -98,11 +96,13 @@ type ThreeField struct {
 	Url pulumi.StringOutput `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
@@ -222,11 +222,13 @@ type threeFieldState struct {
 	Url *string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex *string `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector *string `pulumi:"usernameSelector"`
@@ -297,11 +299,13 @@ type ThreeFieldState struct {
 	Url pulumi.StringPtrInput
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringPtrInput
@@ -370,11 +374,13 @@ type threeFieldArgs struct {
 	Url string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex *string `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector string `pulumi:"usernameSelector"`
@@ -440,11 +446,13 @@ type ThreeFieldArgs struct {
 	Url pulumi.StringInput
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringInput

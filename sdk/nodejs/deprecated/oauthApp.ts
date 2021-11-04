@@ -188,11 +188,11 @@ export class OauthApp extends pulumi.CustomResource {
     /**
      * *Early Access Property* Grace period for token rotation
      */
-    public readonly refreshTokenLeeway!: pulumi.Output<number | undefined>;
+    public readonly refreshTokenLeeway!: pulumi.Output<number>;
     /**
      * *Early Access Property* Refresh token rotation behavior
      */
-    public readonly refreshTokenRotation!: pulumi.Output<string | undefined>;
+    public readonly refreshTokenRotation!: pulumi.Output<string>;
     /**
      * List of OAuth 2.0 response type strings.
      */
@@ -225,6 +225,22 @@ export class OauthApp extends pulumi.CustomResource {
      * The type of client application.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Username template
+     */
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix
+     */
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * Username template type
+     */
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Users associated with the application
      *
@@ -295,6 +311,10 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["tokenEndpointAuthMethod"] = state ? state.tokenEndpointAuthMethod : undefined;
             inputs["tosUri"] = state ? state.tosUri : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
+            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
             inputs["wildcardRedirect"] = state ? state.wildcardRedirect : undefined;
         } else {
@@ -347,6 +367,10 @@ export class OauthApp extends pulumi.CustomResource {
             inputs["tokenEndpointAuthMethod"] = args ? args.tokenEndpointAuthMethod : undefined;
             inputs["tosUri"] = args ? args.tosUri : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
+            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["wildcardRedirect"] = args ? args.wildcardRedirect : undefined;
             inputs["clientSecret"] = undefined /*out*/;
@@ -558,6 +582,22 @@ export interface OauthAppState {
      */
     type?: pulumi.Input<string>;
     /**
+     * Username template
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type
+     */
+    userNameTemplateType?: pulumi.Input<string>;
+    /**
      * Users associated with the application
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -749,6 +789,22 @@ export interface OauthAppArgs {
      * The type of client application.
      */
     type: pulumi.Input<string>;
+    /**
+     * Username template
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type
+     */
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application
      *

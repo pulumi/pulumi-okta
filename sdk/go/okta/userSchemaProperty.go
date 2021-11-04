@@ -90,7 +90,7 @@ type UserSchemaProperty struct {
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the property is required for these users.
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
@@ -172,7 +172,7 @@ type userSchemaPropertyState struct {
 	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the property is required for these users.
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope *string `pulumi:"scope"`
@@ -217,7 +217,7 @@ type UserSchemaPropertyState struct {
 	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the property is required for this application's users.
+	// Whether the property is required for these users.
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrInput
@@ -266,7 +266,7 @@ type userSchemaPropertyArgs struct {
 	Pattern *string `pulumi:"pattern"`
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the property is required for these users.
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope *string `pulumi:"scope"`
@@ -312,7 +312,7 @@ type UserSchemaPropertyArgs struct {
 	Pattern pulumi.StringPtrInput
 	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the property is required for this application's users.
+	// Whether the property is required for these users.
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrInput

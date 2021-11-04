@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     /// <summary>
     /// Resource to manage a set of memberships for a specific group.
     /// 
-    /// This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `okta.group.Membership` resource several times with a single group and many different users. If you need a relationship of a single user to many groups, please use the `okta.UserGroupMemberships` resource.
+    /// This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `okta.group.Membership` resource several times with a single group and different users. If you need a relationship of a single user to many groups, please use the `okta.UserGroupMemberships` resource.
     /// 
     /// When using this with a `okta.user.User` resource, you should add a lifecycle ignore for group memberships to avoid conflicts in desired state.
     /// 
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
     public partial class GroupMemberships : Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of a Okta group.
+        /// Okta group ID.
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Okta
     public sealed class GroupMembershipsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of a Okta group.
+        /// Okta group ID.
         /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Okta
     public sealed class GroupMembershipsState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of a Okta group.
+        /// Okta group ID.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }

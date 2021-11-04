@@ -13,6 +13,8 @@ __all__ = [
     'RuleIdpDiscoveryAppIncludeArgs',
     'RuleIdpDiscoveryPlatformIncludeArgs',
     'RuleIdpDiscoveryUserIdentifierPatternArgs',
+    'RuleMfaAppExcludeArgs',
+    'RuleMfaAppIncludeArgs',
     'RuleSignonFactorSequenceArgs',
     'RuleSignonFactorSequenceSecondaryCriteriaArgs',
 ]
@@ -217,6 +219,114 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleMfaAppExcludeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: One of: `"APP"`, `"APP_TYPE"`
+        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        One of: `"APP"`, `"APP_TYPE"`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use if `type` is `"APP"` to indicate the application id to include.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class RuleMfaAppIncludeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: One of: `"APP"`, `"APP_TYPE"`
+        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        One of: `"APP"`, `"APP_TYPE"`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use if `type` is `"APP"` to indicate the application id to include.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

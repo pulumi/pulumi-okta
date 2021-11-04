@@ -160,6 +160,10 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
@@ -222,6 +226,7 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameField"] = state ? state.usernameField : undefined;
@@ -268,6 +273,7 @@ export class SecurePasswordStoreApp extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
@@ -414,6 +420,10 @@ export interface SecurePasswordStoreAppState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
@@ -551,6 +561,10 @@ export interface SecurePasswordStoreAppArgs {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */

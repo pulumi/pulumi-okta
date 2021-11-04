@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Secure Password Store Application.
-//
 // This resource allows you to create and configure a Secure Password Store Application.
 //
 // ## Example Usage
@@ -31,7 +29,7 @@ import (
 // 			CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
 // 			Label:             pulumi.String("example"),
 // 			PasswordField:     pulumi.String("pass"),
-// 			Url:               pulumi.String("http://test.com"),
+// 			Url:               pulumi.String("https://test.com"),
 // 			UsernameField:     pulumi.String("user"),
 // 		})
 // 		if err != nil {
@@ -129,11 +127,13 @@ type SecurePasswordStore struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
@@ -248,11 +248,13 @@ type securePasswordStoreState struct {
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url *string `pulumi:"url"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
@@ -327,11 +329,13 @@ type SecurePasswordStoreState struct {
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringPtrInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
@@ -404,11 +408,13 @@ type securePasswordStoreArgs struct {
 	Status *string `pulumi:"status"`
 	// Login URL.
 	Url string `pulumi:"url"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField string `pulumi:"usernameField"`
@@ -478,11 +484,13 @@ type SecurePasswordStoreArgs struct {
 	Status pulumi.StringPtrInput
 	// Login URL.
 	Url pulumi.StringInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringInput

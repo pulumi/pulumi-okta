@@ -32,7 +32,9 @@ class ServerPolicyClaimArgs:
         """
         The set of arguments for constructing a ServerPolicyClaim resource.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[str] policy_id: Auth Server Policy ID.
         :param pulumi.Input[int] priority: Priority of the auth server policy rule.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
@@ -94,7 +96,9 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
@@ -295,7 +299,9 @@ class _ServerPolicyClaimState:
         Input properties used for looking up and filtering ServerPolicyClaim resources.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
@@ -372,7 +378,9 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
@@ -597,7 +605,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
@@ -750,7 +760,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
@@ -808,7 +820,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> pulumi.Output[Sequence[str]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 

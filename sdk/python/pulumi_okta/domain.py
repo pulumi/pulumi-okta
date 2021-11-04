@@ -20,10 +20,14 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] name: Custom Domain name.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+               - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if verify is not None:
+            warnings.warn("""The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""verify is deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""")
         if verify is not None:
             pulumi.set(__self__, "verify", verify)
 
@@ -43,7 +47,8 @@ class DomainArgs:
     @pulumi.getter
     def verify(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the domain should be verified.
+        Indicates whether the domain should be verified. 
+        - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")
 
@@ -64,7 +69,8 @@ class _DomainState:
         :param pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]] dns_records: TXT and CNAME records to be registered for the Domain.
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+               - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         if dns_records is not None:
             pulumi.set(__self__, "dns_records", dns_records)
@@ -72,6 +78,9 @@ class _DomainState:
             pulumi.set(__self__, "name", name)
         if validation_status is not None:
             pulumi.set(__self__, "validation_status", validation_status)
+        if verify is not None:
+            warnings.warn("""The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""", DeprecationWarning)
+            pulumi.log.warn("""verify is deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""")
         if verify is not None:
             pulumi.set(__self__, "verify", verify)
 
@@ -115,7 +124,8 @@ class _DomainState:
     @pulumi.getter
     def verify(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the domain should be verified.
+        Indicates whether the domain should be verified. 
+        - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")
 
@@ -141,7 +151,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example", verify=True)
+        example = okta.Domain("example")
         ```
 
         ## Import
@@ -155,7 +165,8 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Custom Domain name.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+               - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         ...
     @overload
@@ -172,7 +183,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example", verify=True)
+        example = okta.Domain("example")
         ```
 
         ## Import
@@ -213,6 +224,9 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["name"] = name
+            if verify is not None and not opts.urn:
+                warnings.warn("""The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""", DeprecationWarning)
+                pulumi.log.warn("""verify is deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""")
             __props__.__dict__["verify"] = verify
             __props__.__dict__["dns_records"] = None
             __props__.__dict__["validation_status"] = None
@@ -240,7 +254,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the Domain.
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+               - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,7 +295,8 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def verify(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the domain should be verified.
+        Indicates whether the domain should be verified. 
+        - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")
 

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an OIDC Application.
-//
 // This resource allows you to create and configure an OIDC Application.
 //
 // ## Example Usage
@@ -143,14 +141,15 @@ type OAuth struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Groups claim for an OpenID Connect client application.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -188,9 +187,9 @@ type OAuth struct {
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayOutput `pulumi:"redirectUris"`
 	// Grace period for token rotation. Valid values: 0 to 60 seconds.
-	RefreshTokenLeeway pulumi.IntPtrOutput `pulumi:"refreshTokenLeeway"`
+	RefreshTokenLeeway pulumi.IntOutput `pulumi:"refreshTokenLeeway"`
 	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
-	RefreshTokenRotation pulumi.StringPtrOutput `pulumi:"refreshTokenRotation"`
+	RefreshTokenRotation pulumi.StringOutput `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign-on mode of application.
@@ -207,6 +206,14 @@ type OAuth struct {
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Username template
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
@@ -285,14 +292,15 @@ type oauthState struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
-	// Groups claim for an OpenID Connect client application.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -349,6 +357,14 @@ type oauthState struct {
 	TosUri *string `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type *string `pulumi:"type"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
@@ -393,14 +409,15 @@ type OAuthState struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -457,6 +474,14 @@ type OAuthState struct {
 	TosUri pulumi.StringPtrInput
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringPtrInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
@@ -503,14 +528,15 @@ type oauthArgs struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
-	// Groups claim for an OpenID Connect client application.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -561,6 +587,14 @@ type oauthArgs struct {
 	TosUri *string `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type string `pulumi:"type"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
@@ -604,14 +638,15 @@ type OAuthArgs struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -662,6 +697,14 @@ type OAuthArgs struct {
 	TosUri pulumi.StringPtrInput
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//

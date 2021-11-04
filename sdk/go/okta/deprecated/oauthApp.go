@@ -97,9 +97,9 @@ type OauthApp struct {
 	// okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
 	RedirectUris pulumi.StringArrayOutput `pulumi:"redirectUris"`
 	// *Early Access Property* Grace period for token rotation
-	RefreshTokenLeeway pulumi.IntPtrOutput `pulumi:"refreshTokenLeeway"`
+	RefreshTokenLeeway pulumi.IntOutput `pulumi:"refreshTokenLeeway"`
 	// *Early Access Property* Refresh token rotation behavior
-	RefreshTokenRotation pulumi.StringPtrOutput `pulumi:"refreshTokenRotation"`
+	RefreshTokenRotation pulumi.StringOutput `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign on mode of application.
@@ -116,6 +116,14 @@ type OauthApp struct {
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
 	// The type of client application.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Username template
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -261,6 +269,14 @@ type oauthAppState struct {
 	TosUri *string `pulumi:"tosUri"`
 	// The type of client application.
 	Type *string `pulumi:"type"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -372,6 +388,14 @@ type OauthAppState struct {
 	TosUri pulumi.StringPtrInput
 	// The type of client application.
 	Type pulumi.StringPtrInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -479,6 +503,14 @@ type oauthAppArgs struct {
 	TosUri *string `pulumi:"tosUri"`
 	// The type of client application.
 	Type string `pulumi:"type"`
+	// Username template
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -583,6 +615,14 @@ type OauthAppArgs struct {
 	TosUri pulumi.StringPtrInput
 	// The type of client application.
 	Type pulumi.StringInput
+	// Username template
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type
+	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.

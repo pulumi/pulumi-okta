@@ -83,7 +83,8 @@ namespace Pulumi.Okta.Policy
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+        /// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+        /// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -102,7 +103,8 @@ namespace Pulumi.Okta.Policy
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+        /// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+        /// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -124,6 +126,7 @@ namespace Pulumi.Okta.Policy
         /// name of policy.
         /// </summary>
         public readonly string Name;
+        public readonly string Status;
         /// <summary>
         /// type of policy.
         /// </summary>
@@ -135,10 +138,13 @@ namespace Pulumi.Okta.Policy
 
             string name,
 
+            string status,
+
             string type)
         {
             Id = id;
             Name = name;
+            Status = status;
             Type = type;
         }
     }

@@ -57,7 +57,7 @@ export class SocialIdp extends pulumi.CustomResource {
     public readonly matchType!: pulumi.Output<string | undefined>;
     public readonly maxClockSkew!: pulumi.Output<number | undefined>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     public readonly name!: pulumi.Output<string>;
     public readonly profileMaster!: pulumi.Output<boolean | undefined>;
@@ -211,7 +211,7 @@ export interface SocialIdpState {
     matchType?: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     profileMaster?: pulumi.Input<boolean>;
@@ -271,7 +271,7 @@ export interface SocialIdpArgs {
     matchType?: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     profileMaster?: pulumi.Input<boolean>;

@@ -69,7 +69,9 @@ namespace Pulumi.Okta.Auth
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         [Output("grantTypeWhitelists")]
         public Output<ImmutableArray<string>> GrantTypeWhitelists { get; private set; } = null!;
@@ -215,7 +217,9 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -355,7 +359,9 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"` or `"client_credentials"`. For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {

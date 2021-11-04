@@ -17,7 +17,7 @@ class GroupMembershipsArgs:
                  users: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a GroupMemberships resource.
-        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[str] group_id: Okta group ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         pulumi.set(__self__, "group_id", group_id)
@@ -27,7 +27,7 @@ class GroupMembershipsArgs:
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[str]:
         """
-        ID of a Okta group.
+        Okta group ID.
         """
         return pulumi.get(self, "group_id")
 
@@ -55,7 +55,7 @@ class _GroupMembershipsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering GroupMemberships resources.
-        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[str] group_id: Okta group ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         if group_id is not None:
@@ -67,7 +67,7 @@ class _GroupMembershipsState:
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of a Okta group.
+        Okta group ID.
         """
         return pulumi.get(self, "group_id")
 
@@ -99,7 +99,7 @@ class GroupMemberships(pulumi.CustomResource):
         """
         Resource to manage a set of memberships for a specific group.
 
-        This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and many different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
+        This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
 
         When using this with a `user.User` resource, you should add a lifecycle ignore for group memberships to avoid conflicts in desired state.
 
@@ -120,7 +120,7 @@ class GroupMemberships(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[str] group_id: Okta group ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         ...
@@ -132,7 +132,7 @@ class GroupMemberships(pulumi.CustomResource):
         """
         Resource to manage a set of memberships for a specific group.
 
-        This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and many different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
+        This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
 
         When using this with a `user.User` resource, you should add a lifecycle ignore for group memberships to avoid conflicts in desired state.
 
@@ -205,7 +205,7 @@ class GroupMemberships(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[str] group_id: Okta group ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -220,7 +220,7 @@ class GroupMemberships(pulumi.CustomResource):
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
         """
-        ID of a Okta group.
+        Okta group ID.
         """
         return pulumi.get(self, "group_id")
 

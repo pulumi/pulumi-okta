@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
-    /// Creates a SAML Identity Provider Signing Key.
-    /// 
-    /// This resource allows you to create and configure a SAML Identity Provider Signing Key.
-    /// 
     /// ## Import
     /// 
     /// A SAML IdP Signing Key can be imported via the key id.

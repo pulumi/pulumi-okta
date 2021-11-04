@@ -236,13 +236,13 @@ namespace Pulumi.Okta.Deprecated
         /// *Early Access Property* Grace period for token rotation
         /// </summary>
         [Output("refreshTokenLeeway")]
-        public Output<int?> RefreshTokenLeeway { get; private set; } = null!;
+        public Output<int> RefreshTokenLeeway { get; private set; } = null!;
 
         /// <summary>
         /// *Early Access Property* Refresh token rotation behavior
         /// </summary>
         [Output("refreshTokenRotation")]
-        public Output<string?> RefreshTokenRotation { get; private set; } = null!;
+        public Output<string> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
         /// List of OAuth 2.0 response type strings.
@@ -291,6 +291,30 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Output("userNameTemplate")]
+        public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Output("userNameTemplateSuffix")]
+        public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Output("userNameTemplateType")]
+        public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
         /// Users associated with the application
@@ -648,6 +672,30 @@ namespace Pulumi.Okta.Deprecated
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
+
         [Input("users")]
         private InputList<Inputs.OauthAppUserArgs>? _users;
 
@@ -995,6 +1043,30 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
         private InputList<Inputs.OauthAppUserGetArgs>? _users;

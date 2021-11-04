@@ -49,7 +49,7 @@ namespace Pulumi.Okta.User
     ///             PostalAddress = "1234 Testing St.",
     ///             PreferredLanguage = "en-us",
     ///             PrimaryPhone = "4445556666",
-    ///             ProfileUrl = "http://www.example.com/profile",
+    ///             ProfileUrl = "https://www.example.com/profile",
     ///             SecondEmail = "john.smith.fun@example.com",
     ///             State = "NY",
     ///             StreetAddress = "5678 Testing Ave.",
@@ -206,6 +206,14 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("nickName")]
         public Output<string?> NickName { get; private set; } = null!;
+
+        /// <summary>
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// outside the provider. After successful password change this field should be removed and `password` field should be used
+        /// for further changes.
+        /// </summary>
+        [Output("oldPassword")]
+        public Output<string?> OldPassword { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -509,6 +517,14 @@ namespace Pulumi.Okta.User
         public Input<string>? NickName { get; set; }
 
         /// <summary>
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// outside the provider. After successful password change this field should be removed and `password` field should be used
+        /// for further changes.
+        /// </summary>
+        [Input("oldPassword")]
+        public Input<string>? OldPassword { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("organization")]
@@ -763,6 +779,14 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("nickName")]
         public Input<string>? NickName { get; set; }
+
+        /// <summary>
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// outside the provider. After successful password change this field should be removed and `password` field should be used
+        /// for further changes.
+        /// </summary>
+        [Input("oldPassword")]
+        public Input<string>? OldPassword { get; set; }
 
         /// <summary>
         /// User profile property.

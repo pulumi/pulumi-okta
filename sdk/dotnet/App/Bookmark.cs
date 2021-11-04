@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates a Bookmark Application.
-    /// 
     /// This resource allows you to create and configure a Bookmark Application.
     /// 
     /// ## Example Usage

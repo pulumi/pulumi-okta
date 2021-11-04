@@ -71,7 +71,12 @@ export class UserAdminRoles extends pulumi.CustomResource {
      */
     public readonly adminRoles!: pulumi.Output<string[]>;
     /**
-     * ID of a Okta User.
+     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    public readonly disableNotifications!: pulumi.Output<boolean | undefined>;
+    /**
+     * Okta user ID.
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -89,6 +94,7 @@ export class UserAdminRoles extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserAdminRolesState | undefined;
             inputs["adminRoles"] = state ? state.adminRoles : undefined;
+            inputs["disableNotifications"] = state ? state.disableNotifications : undefined;
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserAdminRolesArgs | undefined;
@@ -99,6 +105,7 @@ export class UserAdminRoles extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["adminRoles"] = args ? args.adminRoles : undefined;
+            inputs["disableNotifications"] = args ? args.disableNotifications : undefined;
             inputs["userId"] = args ? args.userId : undefined;
         }
         if (!opts.version) {
@@ -117,7 +124,12 @@ export interface UserAdminRolesState {
      */
     adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User.
+     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    disableNotifications?: pulumi.Input<boolean>;
+    /**
+     * Okta user ID.
      */
     userId?: pulumi.Input<string>;
 }
@@ -131,7 +143,12 @@ export interface UserAdminRolesArgs {
      */
     adminRoles: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User.
+     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    disableNotifications?: pulumi.Input<boolean>;
+    /**
+     * Okta user ID.
      */
     userId: pulumi.Input<string>;
 }

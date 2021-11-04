@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Auto Login Okta Application.
-//
 // This resource allows you to create and configure an Auto Login Okta Application.
 //
 // ## Example Usage
@@ -149,9 +147,11 @@ type AutoLogin struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -249,9 +249,11 @@ type autoLoginState struct {
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -318,9 +320,11 @@ type AutoLoginState struct {
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -385,9 +389,11 @@ type autoLoginArgs struct {
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -449,9 +455,11 @@ type AutoLoginArgs struct {
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.

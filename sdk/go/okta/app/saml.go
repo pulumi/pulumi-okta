@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an SAML Application.
-//
-// This resource allows you to create and configure an SAML Application.
+// This resource allows you to create and configure a SAML Application.
 //
 // ## Example Usage
 //
@@ -36,16 +34,16 @@ import (
 // 					Type:        pulumi.String("GROUP"),
 // 				},
 // 			},
-// 			Audience:              pulumi.String("http://example.com/audience"),
+// 			Audience:              pulumi.String("https://example.com/audience"),
 // 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
-// 			Destination:           pulumi.String("http://example.com"),
+// 			Destination:           pulumi.String("https://example.com"),
 // 			DigestAlgorithm:       pulumi.String("SHA256"),
 // 			HonorForceAuthn:       pulumi.Bool(false),
 // 			Label:                 pulumi.String("example"),
-// 			Recipient:             pulumi.String("http://example.com"),
+// 			Recipient:             pulumi.String("https://example.com"),
 // 			ResponseSigned:        pulumi.Bool(true),
 // 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
-// 			SsoUrl:                pulumi.String("http://example.com"),
+// 			SsoUrl:                pulumi.String("https://example.com"),
 // 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 // 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
 // 		})
@@ -90,10 +88,10 @@ import (
 // 		}
 // 		_, err = app.NewSaml(ctx, "testSaml", &app.SamlArgs{
 // 			Label:                 pulumi.String("testAcc_replace_with_uuid"),
-// 			SsoUrl:                pulumi.String("http://google.com"),
-// 			Recipient:             pulumi.String("http://here.com"),
-// 			Destination:           pulumi.String("http://its-about-the-journey.com"),
-// 			Audience:              pulumi.String("http://audience.com"),
+// 			SsoUrl:                pulumi.String("https://google.com"),
+// 			Recipient:             pulumi.String("https://here.com"),
+// 			Destination:           pulumi.String("https://its-about-the-journey.com"),
+// 			Audience:              pulumi.String("https://audience.com"),
 // 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
 // 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 // 			ResponseSigned:        pulumi.Bool(true),
@@ -135,7 +133,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
-// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "    \"groupFilter\": \"app1.*\",\n", "    \"siteURL\": \"http://www.okta.com\"\n", "}\n", "\n")),
+// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "    \"groupFilter\": \"app1.*\",\n", "    \"siteURL\": \"https://www.okta.com\"\n", "}\n", "\n")),
 // 			Label:                pulumi.String("SharePoint (On-Premise)"),
 // 			PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
 // 			SamlVersion:          pulumi.String("1.1"),
@@ -261,6 +259,8 @@ type Saml struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Certificate key ID.
@@ -316,11 +316,13 @@ type Saml struct {
 	SubjectNameIdFormat pulumi.StringPtrOutput `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrOutput `pulumi:"subjectNameIdTemplate"`
-	// Username template.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -418,6 +420,8 @@ type samlState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate key ID.
@@ -473,11 +477,13 @@ type samlState struct {
 	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
-	// Username template.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -544,6 +550,8 @@ type SamlState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
 	// Certificate key ID.
@@ -599,11 +607,13 @@ type SamlState struct {
 	SubjectNameIdFormat pulumi.StringPtrInput
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrInput
-	// Username template.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -664,6 +674,8 @@ type samlArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
@@ -707,11 +719,13 @@ type samlArgs struct {
 	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
-	// Username template.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -769,6 +783,8 @@ type SamlArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
+	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
@@ -812,11 +828,13 @@ type SamlArgs struct {
 	SubjectNameIdFormat pulumi.StringPtrInput
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrInput
-	// Username template.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.

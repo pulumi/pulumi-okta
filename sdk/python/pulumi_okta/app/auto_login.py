@@ -39,6 +39,7 @@ class AutoLoginArgs:
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]] = None):
@@ -69,8 +70,9 @@ class AutoLoginArgs:
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -124,6 +126,8 @@ class AutoLoginArgs:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -424,6 +428,18 @@ class AutoLoginArgs:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -439,7 +455,7 @@ class AutoLoginArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -491,6 +507,7 @@ class _AutoLoginState:
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]] = None):
@@ -524,8 +541,9 @@ class _AutoLoginState:
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -586,6 +604,8 @@ class _AutoLoginState:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -922,6 +942,18 @@ class _AutoLoginState:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -937,7 +969,7 @@ class _AutoLoginState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -988,13 +1020,12 @@ class AutoLogin(pulumi.CustomResource):
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates an Auto Login Okta Application.
-
         This resource allows you to create and configure an Auto Login Okta Application.
 
         ## Example Usage
@@ -1076,8 +1107,9 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -1088,8 +1120,6 @@ class AutoLogin(pulumi.CustomResource):
                  args: AutoLoginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Auto Login Okta Application.
-
         This resource allows you to create and configure an Auto Login Okta Application.
 
         ## Example Usage
@@ -1183,6 +1213,7 @@ class AutoLogin(pulumi.CustomResource):
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None,
@@ -1227,6 +1258,7 @@ class AutoLogin(pulumi.CustomResource):
             __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             if users is not None and not opts.urn:
@@ -1273,6 +1305,7 @@ class AutoLogin(pulumi.CustomResource):
             skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None) -> 'AutoLogin':
@@ -1311,8 +1344,9 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -1347,6 +1381,7 @@ class AutoLogin(pulumi.CustomResource):
         __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["users"] = users
@@ -1570,6 +1605,14 @@ class AutoLogin(pulumi.CustomResource):
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1581,7 +1624,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

@@ -234,6 +234,218 @@ func (o BookmarkAppUserArrayOutput) Index(i pulumi.IntInput) BookmarkAppUserOutp
 	}).(BookmarkAppUserOutput)
 }
 
+type MfaPolicyRuleAppExclude struct {
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
+	Type string  `pulumi:"type"`
+}
+
+// MfaPolicyRuleAppExcludeInput is an input type that accepts MfaPolicyRuleAppExcludeArgs and MfaPolicyRuleAppExcludeOutput values.
+// You can construct a concrete instance of `MfaPolicyRuleAppExcludeInput` via:
+//
+//          MfaPolicyRuleAppExcludeArgs{...}
+type MfaPolicyRuleAppExcludeInput interface {
+	pulumi.Input
+
+	ToMfaPolicyRuleAppExcludeOutput() MfaPolicyRuleAppExcludeOutput
+	ToMfaPolicyRuleAppExcludeOutputWithContext(context.Context) MfaPolicyRuleAppExcludeOutput
+}
+
+type MfaPolicyRuleAppExcludeArgs struct {
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
+}
+
+func (MfaPolicyRuleAppExcludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRuleAppExclude)(nil)).Elem()
+}
+
+func (i MfaPolicyRuleAppExcludeArgs) ToMfaPolicyRuleAppExcludeOutput() MfaPolicyRuleAppExcludeOutput {
+	return i.ToMfaPolicyRuleAppExcludeOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyRuleAppExcludeArgs) ToMfaPolicyRuleAppExcludeOutputWithContext(ctx context.Context) MfaPolicyRuleAppExcludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleAppExcludeOutput)
+}
+
+// MfaPolicyRuleAppExcludeArrayInput is an input type that accepts MfaPolicyRuleAppExcludeArray and MfaPolicyRuleAppExcludeArrayOutput values.
+// You can construct a concrete instance of `MfaPolicyRuleAppExcludeArrayInput` via:
+//
+//          MfaPolicyRuleAppExcludeArray{ MfaPolicyRuleAppExcludeArgs{...} }
+type MfaPolicyRuleAppExcludeArrayInput interface {
+	pulumi.Input
+
+	ToMfaPolicyRuleAppExcludeArrayOutput() MfaPolicyRuleAppExcludeArrayOutput
+	ToMfaPolicyRuleAppExcludeArrayOutputWithContext(context.Context) MfaPolicyRuleAppExcludeArrayOutput
+}
+
+type MfaPolicyRuleAppExcludeArray []MfaPolicyRuleAppExcludeInput
+
+func (MfaPolicyRuleAppExcludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MfaPolicyRuleAppExclude)(nil)).Elem()
+}
+
+func (i MfaPolicyRuleAppExcludeArray) ToMfaPolicyRuleAppExcludeArrayOutput() MfaPolicyRuleAppExcludeArrayOutput {
+	return i.ToMfaPolicyRuleAppExcludeArrayOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyRuleAppExcludeArray) ToMfaPolicyRuleAppExcludeArrayOutputWithContext(ctx context.Context) MfaPolicyRuleAppExcludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleAppExcludeArrayOutput)
+}
+
+type MfaPolicyRuleAppExcludeOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyRuleAppExcludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRuleAppExclude)(nil)).Elem()
+}
+
+func (o MfaPolicyRuleAppExcludeOutput) ToMfaPolicyRuleAppExcludeOutput() MfaPolicyRuleAppExcludeOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppExcludeOutput) ToMfaPolicyRuleAppExcludeOutputWithContext(ctx context.Context) MfaPolicyRuleAppExcludeOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppExcludeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyRuleAppExcludeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyRuleAppExcludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppExclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MfaPolicyRuleAppExcludeArrayOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyRuleAppExcludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MfaPolicyRuleAppExclude)(nil)).Elem()
+}
+
+func (o MfaPolicyRuleAppExcludeArrayOutput) ToMfaPolicyRuleAppExcludeArrayOutput() MfaPolicyRuleAppExcludeArrayOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppExcludeArrayOutput) ToMfaPolicyRuleAppExcludeArrayOutputWithContext(ctx context.Context) MfaPolicyRuleAppExcludeArrayOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppExcludeArrayOutput) Index(i pulumi.IntInput) MfaPolicyRuleAppExcludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MfaPolicyRuleAppExclude {
+		return vs[0].([]MfaPolicyRuleAppExclude)[vs[1].(int)]
+	}).(MfaPolicyRuleAppExcludeOutput)
+}
+
+type MfaPolicyRuleAppInclude struct {
+	Id   *string `pulumi:"id"`
+	Name *string `pulumi:"name"`
+	Type string  `pulumi:"type"`
+}
+
+// MfaPolicyRuleAppIncludeInput is an input type that accepts MfaPolicyRuleAppIncludeArgs and MfaPolicyRuleAppIncludeOutput values.
+// You can construct a concrete instance of `MfaPolicyRuleAppIncludeInput` via:
+//
+//          MfaPolicyRuleAppIncludeArgs{...}
+type MfaPolicyRuleAppIncludeInput interface {
+	pulumi.Input
+
+	ToMfaPolicyRuleAppIncludeOutput() MfaPolicyRuleAppIncludeOutput
+	ToMfaPolicyRuleAppIncludeOutputWithContext(context.Context) MfaPolicyRuleAppIncludeOutput
+}
+
+type MfaPolicyRuleAppIncludeArgs struct {
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
+}
+
+func (MfaPolicyRuleAppIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRuleAppInclude)(nil)).Elem()
+}
+
+func (i MfaPolicyRuleAppIncludeArgs) ToMfaPolicyRuleAppIncludeOutput() MfaPolicyRuleAppIncludeOutput {
+	return i.ToMfaPolicyRuleAppIncludeOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyRuleAppIncludeArgs) ToMfaPolicyRuleAppIncludeOutputWithContext(ctx context.Context) MfaPolicyRuleAppIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleAppIncludeOutput)
+}
+
+// MfaPolicyRuleAppIncludeArrayInput is an input type that accepts MfaPolicyRuleAppIncludeArray and MfaPolicyRuleAppIncludeArrayOutput values.
+// You can construct a concrete instance of `MfaPolicyRuleAppIncludeArrayInput` via:
+//
+//          MfaPolicyRuleAppIncludeArray{ MfaPolicyRuleAppIncludeArgs{...} }
+type MfaPolicyRuleAppIncludeArrayInput interface {
+	pulumi.Input
+
+	ToMfaPolicyRuleAppIncludeArrayOutput() MfaPolicyRuleAppIncludeArrayOutput
+	ToMfaPolicyRuleAppIncludeArrayOutputWithContext(context.Context) MfaPolicyRuleAppIncludeArrayOutput
+}
+
+type MfaPolicyRuleAppIncludeArray []MfaPolicyRuleAppIncludeInput
+
+func (MfaPolicyRuleAppIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MfaPolicyRuleAppInclude)(nil)).Elem()
+}
+
+func (i MfaPolicyRuleAppIncludeArray) ToMfaPolicyRuleAppIncludeArrayOutput() MfaPolicyRuleAppIncludeArrayOutput {
+	return i.ToMfaPolicyRuleAppIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i MfaPolicyRuleAppIncludeArray) ToMfaPolicyRuleAppIncludeArrayOutputWithContext(ctx context.Context) MfaPolicyRuleAppIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MfaPolicyRuleAppIncludeArrayOutput)
+}
+
+type MfaPolicyRuleAppIncludeOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyRuleAppIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MfaPolicyRuleAppInclude)(nil)).Elem()
+}
+
+func (o MfaPolicyRuleAppIncludeOutput) ToMfaPolicyRuleAppIncludeOutput() MfaPolicyRuleAppIncludeOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppIncludeOutput) ToMfaPolicyRuleAppIncludeOutputWithContext(ctx context.Context) MfaPolicyRuleAppIncludeOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppIncludeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyRuleAppIncludeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyRuleAppIncludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MfaPolicyRuleAppInclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MfaPolicyRuleAppIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (MfaPolicyRuleAppIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MfaPolicyRuleAppInclude)(nil)).Elem()
+}
+
+func (o MfaPolicyRuleAppIncludeArrayOutput) ToMfaPolicyRuleAppIncludeArrayOutput() MfaPolicyRuleAppIncludeArrayOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppIncludeArrayOutput) ToMfaPolicyRuleAppIncludeArrayOutputWithContext(ctx context.Context) MfaPolicyRuleAppIncludeArrayOutput {
+	return o
+}
+
+func (o MfaPolicyRuleAppIncludeArrayOutput) Index(i pulumi.IntInput) MfaPolicyRuleAppIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MfaPolicyRuleAppInclude {
+		return vs[0].([]MfaPolicyRuleAppInclude)[vs[1].(int)]
+	}).(MfaPolicyRuleAppIncludeOutput)
+}
+
 type OauthAppGroupsClaim struct {
 	FilterType *string `pulumi:"filterType"`
 	Name       string  `pulumi:"name"`
@@ -1421,6 +1633,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppUserArrayInput)(nil)).Elem(), AuthLoginAppUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppUserInput)(nil)).Elem(), BookmarkAppUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppUserArrayInput)(nil)).Elem(), BookmarkAppUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleAppExcludeInput)(nil)).Elem(), MfaPolicyRuleAppExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleAppExcludeArrayInput)(nil)).Elem(), MfaPolicyRuleAppExcludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleAppIncludeInput)(nil)).Elem(), MfaPolicyRuleAppIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleAppIncludeArrayInput)(nil)).Elem(), MfaPolicyRuleAppIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppGroupsClaimInput)(nil)).Elem(), OauthAppGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppGroupsClaimPtrInput)(nil)).Elem(), OauthAppGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppJwkInput)(nil)).Elem(), OauthAppJwkArgs{})
@@ -1445,6 +1661,10 @@ func init() {
 	pulumi.RegisterOutputType(AuthLoginAppUserArrayOutput{})
 	pulumi.RegisterOutputType(BookmarkAppUserOutput{})
 	pulumi.RegisterOutputType(BookmarkAppUserArrayOutput{})
+	pulumi.RegisterOutputType(MfaPolicyRuleAppExcludeOutput{})
+	pulumi.RegisterOutputType(MfaPolicyRuleAppExcludeArrayOutput{})
+	pulumi.RegisterOutputType(MfaPolicyRuleAppIncludeOutput{})
+	pulumi.RegisterOutputType(MfaPolicyRuleAppIncludeArrayOutput{})
 	pulumi.RegisterOutputType(OauthAppGroupsClaimOutput{})
 	pulumi.RegisterOutputType(OauthAppGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OauthAppJwkOutput{})

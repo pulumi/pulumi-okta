@@ -107,6 +107,10 @@ type LookupSamlArgs struct {
 	ResponseSigned *bool `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -200,6 +204,8 @@ type LookupSamlResult struct {
 	SingleLogoutIssuer string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl string `pulumi:"singleLogoutUrl"`
+	SkipGroups      *bool  `pulumi:"skipGroups"`
+	SkipUsers       *bool  `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -212,6 +218,8 @@ type LookupSamlResult struct {
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
 	// Username template.
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update.
+	UserNameTemplatePushStatus string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
@@ -295,6 +303,10 @@ type LookupSamlOutputArgs struct {
 	ResponseSigned pulumi.BoolPtrInput `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput `pulumi:"signatureAlgorithm"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -507,6 +519,14 @@ func (o LookupSamlResultOutput) SingleLogoutUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SingleLogoutUrl }).(pulumi.StringOutput)
 }
 
+func (o LookupSamlResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupSamlResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
 // SAML service provider issuer.
 func (o LookupSamlResultOutput) SpIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.SpIssuer }).(pulumi.StringPtrOutput)
@@ -535,6 +555,11 @@ func (o LookupSamlResultOutput) SubjectNameIdTemplate() pulumi.StringPtrOutput {
 // Username template.
 func (o LookupSamlResultOutput) UserNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update.
+func (o LookupSamlResultOutput) UserNameTemplatePushStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplatePushStatus }).(pulumi.StringOutput)
 }
 
 // Username template suffix.

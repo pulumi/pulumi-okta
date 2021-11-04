@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Creates a SWA shared credentials app.
- *
  * This resource allows you to create and configure SWA shared credentials app.
  *
  * ## Example Usage
@@ -159,6 +157,10 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly passwordField!: pulumi.Output<string | undefined>;
     /**
+     * Preconfigured app name
+     */
+    public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
+    /**
      * Redirect URL.
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
@@ -199,11 +201,15 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -247,6 +253,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["logoUrl"] = state ? state.logoUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordField"] = state ? state.passwordField : undefined;
+            inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
             inputs["redirectUrl"] = state ? state.redirectUrl : undefined;
             inputs["sharedPassword"] = state ? state.sharedPassword : undefined;
             inputs["sharedUsername"] = state ? state.sharedUsername : undefined;
@@ -257,6 +264,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameField"] = state ? state.usernameField : undefined;
@@ -281,6 +289,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["label"] = args ? args.label : undefined;
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
+            inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
             inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
             inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
@@ -290,6 +299,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
@@ -380,6 +390,10 @@ export interface AppSharedCredentialsState {
      */
     passwordField?: pulumi.Input<string>;
     /**
+     * Preconfigured app name
+     */
+    preconfiguredApp?: pulumi.Input<string>;
+    /**
      * Redirect URL.
      */
     redirectUrl?: pulumi.Input<string>;
@@ -420,11 +434,15 @@ export interface AppSharedCredentialsState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -506,6 +524,10 @@ export interface AppSharedCredentialsArgs {
      */
     passwordField?: pulumi.Input<string>;
     /**
+     * Preconfigured app name
+     */
+    preconfiguredApp?: pulumi.Input<string>;
+    /**
      * Redirect URL.
      */
     redirectUrl?: pulumi.Input<string>;
@@ -542,11 +564,15 @@ export interface AppSharedCredentialsArgs {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

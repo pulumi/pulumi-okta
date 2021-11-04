@@ -115,6 +115,18 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public bool? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync. Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public bool? SkipUsers { get; set; }
+
         [Input("users")]
         private List<string>? _users;
 
@@ -176,6 +188,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync. Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         [Input("users")]
         private InputList<string>? _users;
@@ -279,6 +303,8 @@ namespace Pulumi.Okta.App
         /// List of OAuth 2.0 response type strings.
         /// </summary>
         public readonly ImmutableArray<string> ResponseTypes;
+        public readonly bool? SkipGroups;
+        public readonly bool? SkipUsers;
         /// <summary>
         /// Status of application.
         /// </summary>
@@ -338,6 +364,10 @@ namespace Pulumi.Okta.App
 
             ImmutableArray<string> responseTypes,
 
+            bool? skipGroups,
+
+            bool? skipUsers,
+
             string status,
 
             string type,
@@ -367,6 +397,8 @@ namespace Pulumi.Okta.App
             PostLogoutRedirectUris = postLogoutRedirectUris;
             RedirectUris = redirectUris;
             ResponseTypes = responseTypes;
+            SkipGroups = skipGroups;
+            SkipUsers = skipUsers;
             Status = status;
             Type = type;
             Users = users;

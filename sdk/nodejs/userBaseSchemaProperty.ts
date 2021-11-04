@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to configure a base user schema property.
  *
- * IMPORTANT NOTE:
+ * ## IMPORTANT NOTE:
  *
  * Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
  * base properties can not be modified, except to update permissions, to change the nullability of `firstName` and

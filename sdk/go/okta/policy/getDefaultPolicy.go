@@ -46,6 +46,7 @@ func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...p
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyArgs struct {
 	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type string `pulumi:"type"`
 }
 
@@ -69,6 +70,7 @@ func GetDefaultPolicyOutput(ctx *pulumi.Context, args GetDefaultPolicyOutputArgs
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyOutputArgs struct {
 	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 

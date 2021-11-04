@@ -37,6 +37,7 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
 export interface GetDefaultPolicyArgs {
     /**
      * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: string;
 }
@@ -65,6 +66,7 @@ export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: 
 export interface GetDefaultPolicyOutputArgs {
     /**
      * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: pulumi.Input<string>;
 }

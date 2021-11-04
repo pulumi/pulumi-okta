@@ -144,6 +144,10 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
@@ -198,6 +202,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -230,6 +235,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
             inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -359,6 +365,10 @@ export interface AuthLoginAppState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
@@ -476,6 +486,10 @@ export interface AuthLoginAppArgs {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */

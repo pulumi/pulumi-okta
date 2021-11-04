@@ -103,6 +103,41 @@ class AppGroupAssignments(pulumi.CustomResource):
 
         This resource allows you to create multiple App Group assignments.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        example = okta.AppGroupAssignments("example",
+            app_id="<app id>",
+            groups=[
+                okta.AppGroupAssignmentsGroupArgs(
+                    id="<group id>",
+                    priority=1,
+                ),
+                okta.AppGroupAssignmentsGroupArgs(
+                    id="<another group id>",
+                    priority=2,
+                    profile=json.dumps({
+                        "application profile field": "application profile value",
+                    }),
+                ),
+            ])
+        ```
+
+        !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        app = okta.app.OAuth("app")
+        ```
+
+        > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
+
         ## Import
 
         An application's group assignments can be imported via `app_id`.
@@ -126,6 +161,41 @@ class AppGroupAssignments(pulumi.CustomResource):
         Assigns groups to an application.
 
         This resource allows you to create multiple App Group assignments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        example = okta.AppGroupAssignments("example",
+            app_id="<app id>",
+            groups=[
+                okta.AppGroupAssignmentsGroupArgs(
+                    id="<group id>",
+                    priority=1,
+                ),
+                okta.AppGroupAssignmentsGroupArgs(
+                    id="<another group id>",
+                    priority=2,
+                    profile=json.dumps({
+                        "application profile field": "application profile value",
+                    }),
+                ),
+            ])
+        ```
+
+        !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        app = okta.app.OAuth("app")
+        ```
+
+        > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
 
         ## Import
 

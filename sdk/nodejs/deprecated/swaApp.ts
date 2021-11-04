@@ -62,6 +62,10 @@ export class SwaApp extends pulumi.CustomResource {
      */
     public readonly buttonField!: pulumi.Output<string | undefined>;
     /**
+     * CSS selector for the checkbox
+     */
+    public readonly checkbox!: pulumi.Output<string | undefined>;
+    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -104,6 +108,10 @@ export class SwaApp extends pulumi.CustomResource {
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here
+     */
+    public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
@@ -131,6 +139,10 @@ export class SwaApp extends pulumi.CustomResource {
      * Username template
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
      * Username template suffix
      */
@@ -170,6 +182,7 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
+            inputs["checkbox"] = state ? state.checkbox : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
@@ -180,6 +193,7 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordField"] = state ? state.passwordField : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
+            inputs["redirectUrl"] = state ? state.redirectUrl : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["skipGroups"] = state ? state.skipGroups : undefined;
             inputs["skipUsers"] = state ? state.skipUsers : undefined;
@@ -187,6 +201,7 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameField"] = state ? state.usernameField : undefined;
@@ -203,6 +218,7 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
+            inputs["checkbox"] = args ? args.checkbox : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
@@ -211,12 +227,14 @@ export class SwaApp extends pulumi.CustomResource {
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
+            inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             inputs["skipGroups"] = args ? args.skipGroups : undefined;
             inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
@@ -265,6 +283,10 @@ export interface SwaAppState {
      */
     buttonField?: pulumi.Input<string>;
     /**
+     * CSS selector for the checkbox
+     */
+    checkbox?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -307,6 +329,10 @@ export interface SwaAppState {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here
+     */
+    redirectUrl?: pulumi.Input<string>;
+    /**
      * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
@@ -334,6 +360,10 @@ export interface SwaAppState {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */
@@ -387,6 +417,10 @@ export interface SwaAppArgs {
      */
     buttonField?: pulumi.Input<string>;
     /**
+     * CSS selector for the checkbox
+     */
+    checkbox?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -421,6 +455,10 @@ export interface SwaAppArgs {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here
+     */
+    redirectUrl?: pulumi.Input<string>;
+    /**
      * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
      */
     skipGroups?: pulumi.Input<boolean>;
@@ -444,6 +482,10 @@ export interface SwaAppArgs {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */

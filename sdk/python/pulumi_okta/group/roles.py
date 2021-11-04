@@ -98,7 +98,7 @@ class Roles(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates Group level Admin Role Assignments.
+        > **DEPRECATED:** This resource is deprecated and will be removed in favor of using `group.Role`, please migrate as soon as possible
 
         This resource allows you to create and configure Group level Admin Role Assignments.
 
@@ -133,7 +133,7 @@ class Roles(pulumi.CustomResource):
                  args: RolesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates Group level Admin Role Assignments.
+        > **DEPRECATED:** This resource is deprecated and will be removed in favor of using `group.Role`, please migrate as soon as possible
 
         This resource allows you to create and configure Group level Admin Role Assignments.
 

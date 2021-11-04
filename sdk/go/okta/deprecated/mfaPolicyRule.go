@@ -13,6 +13,10 @@ import (
 type MfaPolicyRule struct {
 	pulumi.CustomResourceState
 
+	// Applications to exclude
+	AppExcludes MfaPolicyRuleAppExcludeArrayOutput `pulumi:"appExcludes"`
+	// Applications to include
+	AppIncludes MfaPolicyRuleAppIncludeArrayOutput `pulumi:"appIncludes"`
 	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
 	// Policy Rule Name
@@ -67,6 +71,10 @@ func GetMfaPolicyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MfaPolicyRule resources.
 type mfaPolicyRuleState struct {
+	// Applications to exclude
+	AppExcludes []MfaPolicyRuleAppExclude `pulumi:"appExcludes"`
+	// Applications to include
+	AppIncludes []MfaPolicyRuleAppInclude `pulumi:"appIncludes"`
 	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
 	// Policy Rule Name
@@ -93,6 +101,10 @@ type mfaPolicyRuleState struct {
 }
 
 type MfaPolicyRuleState struct {
+	// Applications to exclude
+	AppExcludes MfaPolicyRuleAppExcludeArrayInput
+	// Applications to include
+	AppIncludes MfaPolicyRuleAppIncludeArrayInput
 	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
 	// Policy Rule Name
@@ -123,6 +135,10 @@ func (MfaPolicyRuleState) ElementType() reflect.Type {
 }
 
 type mfaPolicyRuleArgs struct {
+	// Applications to exclude
+	AppExcludes []MfaPolicyRuleAppExclude `pulumi:"appExcludes"`
+	// Applications to include
+	AppIncludes []MfaPolicyRuleAppInclude `pulumi:"appIncludes"`
 	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
 	// Policy Rule Name
@@ -150,6 +166,10 @@ type mfaPolicyRuleArgs struct {
 
 // The set of arguments for constructing a MfaPolicyRule resource.
 type MfaPolicyRuleArgs struct {
+	// Applications to exclude
+	AppExcludes MfaPolicyRuleAppExcludeArrayInput
+	// Applications to include
+	AppIncludes MfaPolicyRuleAppIncludeArrayInput
 	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
 	// Policy Rule Name

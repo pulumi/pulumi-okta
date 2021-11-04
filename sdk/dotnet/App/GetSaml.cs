@@ -267,6 +267,18 @@ namespace Pulumi.Okta.App
         public string? SignatureAlgorithm { get; set; }
 
         /// <summary>
+        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public bool? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync. Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public bool? SkipUsers { get; set; }
+
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
@@ -522,6 +534,18 @@ namespace Pulumi.Okta.App
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
+        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Indicator that allows the app to skip `users` sync. Default is `false`.
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
+
+        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
@@ -718,6 +742,8 @@ namespace Pulumi.Okta.App
         /// The location where the logout response is sent.
         /// </summary>
         public readonly string SingleLogoutUrl;
+        public readonly bool? SkipGroups;
+        public readonly bool? SkipUsers;
         /// <summary>
         /// SAML service provider issuer.
         /// </summary>
@@ -742,6 +768,10 @@ namespace Pulumi.Okta.App
         /// Username template.
         /// </summary>
         public readonly string? UserNameTemplate;
+        /// <summary>
+        /// Push username on update.
+        /// </summary>
+        public readonly string UserNameTemplatePushStatus;
         /// <summary>
         /// Username template suffix.
         /// </summary>
@@ -826,6 +856,10 @@ namespace Pulumi.Okta.App
 
             string singleLogoutUrl,
 
+            bool? skipGroups,
+
+            bool? skipUsers,
+
             string? spIssuer,
 
             string? ssoUrl,
@@ -837,6 +871,8 @@ namespace Pulumi.Okta.App
             string? subjectNameIdTemplate,
 
             string? userNameTemplate,
+
+            string userNameTemplatePushStatus,
 
             string? userNameTemplateSuffix,
 
@@ -878,12 +914,15 @@ namespace Pulumi.Okta.App
             SingleLogoutCertificate = singleLogoutCertificate;
             SingleLogoutIssuer = singleLogoutIssuer;
             SingleLogoutUrl = singleLogoutUrl;
+            SkipGroups = skipGroups;
+            SkipUsers = skipUsers;
             SpIssuer = spIssuer;
             SsoUrl = ssoUrl;
             Status = status;
             SubjectNameIdFormat = subjectNameIdFormat;
             SubjectNameIdTemplate = subjectNameIdTemplate;
             UserNameTemplate = userNameTemplate;
+            UserNameTemplatePushStatus = userNameTemplatePushStatus;
             UserNameTemplateSuffix = userNameTemplateSuffix;
             UserNameTemplateType = userNameTemplateType;
             Users = users;

@@ -461,6 +461,236 @@ func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) Index(i pulumi.IntInpu
 	}).(RuleIdpDiscoveryUserIdentifierPatternOutput)
 }
 
+type RuleMfaAppExclude struct {
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	Name *string `pulumi:"name"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type string `pulumi:"type"`
+}
+
+// RuleMfaAppExcludeInput is an input type that accepts RuleMfaAppExcludeArgs and RuleMfaAppExcludeOutput values.
+// You can construct a concrete instance of `RuleMfaAppExcludeInput` via:
+//
+//          RuleMfaAppExcludeArgs{...}
+type RuleMfaAppExcludeInput interface {
+	pulumi.Input
+
+	ToRuleMfaAppExcludeOutput() RuleMfaAppExcludeOutput
+	ToRuleMfaAppExcludeOutputWithContext(context.Context) RuleMfaAppExcludeOutput
+}
+
+type RuleMfaAppExcludeArgs struct {
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RuleMfaAppExcludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfaAppExclude)(nil)).Elem()
+}
+
+func (i RuleMfaAppExcludeArgs) ToRuleMfaAppExcludeOutput() RuleMfaAppExcludeOutput {
+	return i.ToRuleMfaAppExcludeOutputWithContext(context.Background())
+}
+
+func (i RuleMfaAppExcludeArgs) ToRuleMfaAppExcludeOutputWithContext(ctx context.Context) RuleMfaAppExcludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppExcludeOutput)
+}
+
+// RuleMfaAppExcludeArrayInput is an input type that accepts RuleMfaAppExcludeArray and RuleMfaAppExcludeArrayOutput values.
+// You can construct a concrete instance of `RuleMfaAppExcludeArrayInput` via:
+//
+//          RuleMfaAppExcludeArray{ RuleMfaAppExcludeArgs{...} }
+type RuleMfaAppExcludeArrayInput interface {
+	pulumi.Input
+
+	ToRuleMfaAppExcludeArrayOutput() RuleMfaAppExcludeArrayOutput
+	ToRuleMfaAppExcludeArrayOutputWithContext(context.Context) RuleMfaAppExcludeArrayOutput
+}
+
+type RuleMfaAppExcludeArray []RuleMfaAppExcludeInput
+
+func (RuleMfaAppExcludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleMfaAppExclude)(nil)).Elem()
+}
+
+func (i RuleMfaAppExcludeArray) ToRuleMfaAppExcludeArrayOutput() RuleMfaAppExcludeArrayOutput {
+	return i.ToRuleMfaAppExcludeArrayOutputWithContext(context.Background())
+}
+
+func (i RuleMfaAppExcludeArray) ToRuleMfaAppExcludeArrayOutputWithContext(ctx context.Context) RuleMfaAppExcludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppExcludeArrayOutput)
+}
+
+type RuleMfaAppExcludeOutput struct{ *pulumi.OutputState }
+
+func (RuleMfaAppExcludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfaAppExclude)(nil)).Elem()
+}
+
+func (o RuleMfaAppExcludeOutput) ToRuleMfaAppExcludeOutput() RuleMfaAppExcludeOutput {
+	return o
+}
+
+func (o RuleMfaAppExcludeOutput) ToRuleMfaAppExcludeOutputWithContext(ctx context.Context) RuleMfaAppExcludeOutput {
+	return o
+}
+
+// Use if `type` is `"APP"` to indicate the application id to include.
+func (o RuleMfaAppExcludeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMfaAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+func (o RuleMfaAppExcludeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMfaAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// One of: `"APP"`, `"APP_TYPE"`
+func (o RuleMfaAppExcludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleMfaAppExclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RuleMfaAppExcludeArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleMfaAppExcludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleMfaAppExclude)(nil)).Elem()
+}
+
+func (o RuleMfaAppExcludeArrayOutput) ToRuleMfaAppExcludeArrayOutput() RuleMfaAppExcludeArrayOutput {
+	return o
+}
+
+func (o RuleMfaAppExcludeArrayOutput) ToRuleMfaAppExcludeArrayOutputWithContext(ctx context.Context) RuleMfaAppExcludeArrayOutput {
+	return o
+}
+
+func (o RuleMfaAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppExcludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleMfaAppExclude {
+		return vs[0].([]RuleMfaAppExclude)[vs[1].(int)]
+	}).(RuleMfaAppExcludeOutput)
+}
+
+type RuleMfaAppInclude struct {
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	Name *string `pulumi:"name"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type string `pulumi:"type"`
+}
+
+// RuleMfaAppIncludeInput is an input type that accepts RuleMfaAppIncludeArgs and RuleMfaAppIncludeOutput values.
+// You can construct a concrete instance of `RuleMfaAppIncludeInput` via:
+//
+//          RuleMfaAppIncludeArgs{...}
+type RuleMfaAppIncludeInput interface {
+	pulumi.Input
+
+	ToRuleMfaAppIncludeOutput() RuleMfaAppIncludeOutput
+	ToRuleMfaAppIncludeOutputWithContext(context.Context) RuleMfaAppIncludeOutput
+}
+
+type RuleMfaAppIncludeArgs struct {
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RuleMfaAppIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfaAppInclude)(nil)).Elem()
+}
+
+func (i RuleMfaAppIncludeArgs) ToRuleMfaAppIncludeOutput() RuleMfaAppIncludeOutput {
+	return i.ToRuleMfaAppIncludeOutputWithContext(context.Background())
+}
+
+func (i RuleMfaAppIncludeArgs) ToRuleMfaAppIncludeOutputWithContext(ctx context.Context) RuleMfaAppIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppIncludeOutput)
+}
+
+// RuleMfaAppIncludeArrayInput is an input type that accepts RuleMfaAppIncludeArray and RuleMfaAppIncludeArrayOutput values.
+// You can construct a concrete instance of `RuleMfaAppIncludeArrayInput` via:
+//
+//          RuleMfaAppIncludeArray{ RuleMfaAppIncludeArgs{...} }
+type RuleMfaAppIncludeArrayInput interface {
+	pulumi.Input
+
+	ToRuleMfaAppIncludeArrayOutput() RuleMfaAppIncludeArrayOutput
+	ToRuleMfaAppIncludeArrayOutputWithContext(context.Context) RuleMfaAppIncludeArrayOutput
+}
+
+type RuleMfaAppIncludeArray []RuleMfaAppIncludeInput
+
+func (RuleMfaAppIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleMfaAppInclude)(nil)).Elem()
+}
+
+func (i RuleMfaAppIncludeArray) ToRuleMfaAppIncludeArrayOutput() RuleMfaAppIncludeArrayOutput {
+	return i.ToRuleMfaAppIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i RuleMfaAppIncludeArray) ToRuleMfaAppIncludeArrayOutputWithContext(ctx context.Context) RuleMfaAppIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppIncludeArrayOutput)
+}
+
+type RuleMfaAppIncludeOutput struct{ *pulumi.OutputState }
+
+func (RuleMfaAppIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMfaAppInclude)(nil)).Elem()
+}
+
+func (o RuleMfaAppIncludeOutput) ToRuleMfaAppIncludeOutput() RuleMfaAppIncludeOutput {
+	return o
+}
+
+func (o RuleMfaAppIncludeOutput) ToRuleMfaAppIncludeOutputWithContext(ctx context.Context) RuleMfaAppIncludeOutput {
+	return o
+}
+
+// Use if `type` is `"APP"` to indicate the application id to include.
+func (o RuleMfaAppIncludeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMfaAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+func (o RuleMfaAppIncludeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMfaAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// One of: `"APP"`, `"APP_TYPE"`
+func (o RuleMfaAppIncludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleMfaAppInclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RuleMfaAppIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleMfaAppIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleMfaAppInclude)(nil)).Elem()
+}
+
+func (o RuleMfaAppIncludeArrayOutput) ToRuleMfaAppIncludeArrayOutput() RuleMfaAppIncludeArrayOutput {
+	return o
+}
+
+func (o RuleMfaAppIncludeArrayOutput) ToRuleMfaAppIncludeArrayOutputWithContext(ctx context.Context) RuleMfaAppIncludeArrayOutput {
+	return o
+}
+
+func (o RuleMfaAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleMfaAppInclude {
+		return vs[0].([]RuleMfaAppInclude)[vs[1].(int)]
+	}).(RuleMfaAppIncludeOutput)
+}
+
 type RuleSignonFactorSequence struct {
 	// Primary factor type of the auth section.
 	PrimaryCriteriaFactorType string `pulumi:"primaryCriteriaFactorType"`
@@ -693,6 +923,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPlatformIncludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryPlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPatternInput)(nil)).Elem(), RuleIdpDiscoveryUserIdentifierPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPatternArrayInput)(nil)).Elem(), RuleIdpDiscoveryUserIdentifierPatternArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppExcludeInput)(nil)).Elem(), RuleMfaAppExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppExcludeArrayInput)(nil)).Elem(), RuleMfaAppExcludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppIncludeInput)(nil)).Elem(), RuleMfaAppIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppIncludeArrayInput)(nil)).Elem(), RuleMfaAppIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceInput)(nil)).Elem(), RuleSignonFactorSequenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceArrayInput)(nil)).Elem(), RuleSignonFactorSequenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteriaInput)(nil)).Elem(), RuleSignonFactorSequenceSecondaryCriteriaArgs{})
@@ -705,6 +939,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleIdpDiscoveryPlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryUserIdentifierPatternOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryUserIdentifierPatternArrayOutput{})
+	pulumi.RegisterOutputType(RuleMfaAppExcludeOutput{})
+	pulumi.RegisterOutputType(RuleMfaAppExcludeArrayOutput{})
+	pulumi.RegisterOutputType(RuleMfaAppIncludeOutput{})
+	pulumi.RegisterOutputType(RuleMfaAppIncludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceArrayOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceSecondaryCriteriaOutput{})

@@ -28,6 +28,8 @@ type SwaApp struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field
 	ButtonField pulumi.StringPtrOutput `pulumi:"buttonField"`
+	// CSS selector for the checkbox
+	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application
@@ -50,6 +52,8 @@ type SwaApp struct {
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here
+	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
@@ -64,6 +68,8 @@ type SwaApp struct {
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -122,6 +128,8 @@ type swaAppState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
 	ButtonField *string `pulumi:"buttonField"`
+	// CSS selector for the checkbox
+	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
@@ -144,6 +152,8 @@ type swaAppState struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// Preconfigured app name
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here
+	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
@@ -158,6 +168,8 @@ type swaAppState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -185,6 +197,8 @@ type SwaAppState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
 	ButtonField pulumi.StringPtrInput
+	// CSS selector for the checkbox
+	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
@@ -207,6 +221,8 @@ type SwaAppState struct {
 	PasswordField pulumi.StringPtrInput
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrInput
+	// If going to the login page URL redirects to another page, then enter that URL here
+	RedirectUrl pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
@@ -221,6 +237,8 @@ type SwaAppState struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
@@ -252,6 +270,8 @@ type swaAppArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
 	ButtonField *string `pulumi:"buttonField"`
+	// CSS selector for the checkbox
+	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application
@@ -270,6 +290,8 @@ type swaAppArgs struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// Preconfigured app name
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here
+	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
 	SkipGroups *bool `pulumi:"skipGroups"`
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
@@ -282,6 +304,8 @@ type swaAppArgs struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -310,6 +334,8 @@ type SwaAppArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
 	ButtonField pulumi.StringPtrInput
+	// CSS selector for the checkbox
+	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application
@@ -328,6 +354,8 @@ type SwaAppArgs struct {
 	PasswordField pulumi.StringPtrInput
 	// Preconfigured app name
 	PreconfiguredApp pulumi.StringPtrInput
+	// If going to the login page URL redirects to another page, then enter that URL here
+	RedirectUrl pulumi.StringPtrInput
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
 	SkipGroups pulumi.BoolPtrInput
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
@@ -340,6 +368,8 @@ type SwaAppArgs struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type

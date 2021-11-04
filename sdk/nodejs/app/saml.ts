@@ -6,9 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an SAML Application.
- *
- * This resource allows you to create and configure an SAML Application.
+ * This resource allows you to create and configure a SAML Application.
  *
  * ## Example Usage
  *
@@ -23,16 +21,16 @@ import * as utilities from "../utilities";
  *         name: "groups",
  *         type: "GROUP",
  *     }],
- *     audience: "http://example.com/audience",
+ *     audience: "https://example.com/audience",
  *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     destination: "http://example.com",
+ *     destination: "https://example.com",
  *     digestAlgorithm: "SHA256",
  *     honorForceAuthn: false,
  *     label: "example",
- *     recipient: "http://example.com",
+ *     recipient: "https://example.com",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",
- *     ssoUrl: "http://example.com",
+ *     ssoUrl: "https://example.com",
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     subjectNameIdTemplate: "${user.userName}",
  * });
@@ -61,10 +59,10 @@ import * as utilities from "../utilities";
  * });
  * const testSaml = new okta.app.Saml("testSaml", {
  *     label: "testAcc_replace_with_uuid",
- *     ssoUrl: "http://google.com",
- *     recipient: "http://here.com",
- *     destination: "http://its-about-the-journey.com",
- *     audience: "http://audience.com",
+ *     ssoUrl: "https://google.com",
+ *     recipient: "https://here.com",
+ *     destination: "https://its-about-the-journey.com",
+ *     audience: "https://audience.com",
  *     subjectNameIdTemplate: user.userName,
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
@@ -92,7 +90,7 @@ import * as utilities from "../utilities";
  * const test = new okta.app.Saml("test", {
  *     appSettingsJson: `{
  *     "groupFilter": "app1.*",
- *     "siteURL": "http://www.okta.com"
+ *     "siteURL": "https://www.okta.com"
  * }
  * `,
  *     label: "SharePoint (On-Premise)",
@@ -311,6 +309,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    /**
      * Saml Inline Hook associated with the application.
      */
     public readonly inlineHookId!: pulumi.Output<string | undefined>;
@@ -420,15 +422,19 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly subjectNameIdTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Username template.
+     * Username template. Default: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
      * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -479,6 +485,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["httpPostBinding"] = state ? state.httpPostBinding : undefined;
             inputs["httpRedirectBinding"] = state ? state.httpRedirectBinding : undefined;
             inputs["idpIssuer"] = state ? state.idpIssuer : undefined;
+            inputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
             inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
@@ -507,6 +514,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["subjectNameIdFormat"] = state ? state.subjectNameIdFormat : undefined;
             inputs["subjectNameIdTemplate"] = state ? state.subjectNameIdTemplate : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -537,6 +545,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
             inputs["idpIssuer"] = args ? args.idpIssuer : undefined;
+            inputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
             inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
@@ -559,6 +568,7 @@ export class Saml extends pulumi.CustomResource {
             inputs["subjectNameIdFormat"] = args ? args.subjectNameIdFormat : undefined;
             inputs["subjectNameIdTemplate"] = args ? args.subjectNameIdTemplate : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -697,6 +707,10 @@ export interface SamlState {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Saml Inline Hook associated with the application.
      */
     inlineHookId?: pulumi.Input<string>;
@@ -806,15 +820,19 @@ export interface SamlState {
      */
     subjectNameIdTemplate?: pulumi.Input<string>;
     /**
-     * Username template.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -922,6 +940,10 @@ export interface SamlArgs {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
+     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     */
+    implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Saml Inline Hook associated with the application.
      */
     inlineHookId?: pulumi.Input<string>;
@@ -1007,15 +1029,19 @@ export interface SamlArgs {
      */
     subjectNameIdTemplate?: pulumi.Input<string>;
     /**
-     * Username template.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

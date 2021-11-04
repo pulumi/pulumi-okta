@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Creates different types of behavior.
- *
  * This resource allows you to create and configure a behavior.
  *
  * ## Example Usage

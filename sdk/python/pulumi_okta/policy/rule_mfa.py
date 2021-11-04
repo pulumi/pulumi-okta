@@ -7,12 +7,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RuleMfaArgs', 'RuleMfa']
 
 @pulumi.input_type
 class RuleMfaArgs:
     def __init__(__self__, *,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -25,8 +29,10 @@ class RuleMfaArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleMfa resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
-        :param pulumi.Input[str] name: Policy Rule Name.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
@@ -36,6 +42,10 @@ class RuleMfaArgs:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
+        if app_excludes is not None:
+            pulumi.set(__self__, "app_excludes", app_excludes)
+        if app_includes is not None:
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
             pulumi.set(__self__, "enroll", enroll)
         if name is not None:
@@ -61,6 +71,30 @@ class RuleMfaArgs:
             pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @app_excludes.setter
+    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
+        pulumi.set(self, "app_excludes", value)
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
+        """
+        Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        """
+        return pulumi.get(self, "app_includes")
+
+    @app_includes.setter
+    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
+        pulumi.set(self, "app_includes", value)
+
+    @property
     @pulumi.getter
     def enroll(self) -> Optional[pulumi.Input[str]]:
         """
@@ -76,7 +110,7 @@ class RuleMfaArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Name.
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
 
@@ -184,6 +218,8 @@ class RuleMfaArgs:
 @pulumi.input_type
 class _RuleMfaState:
     def __init__(__self__, *,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -196,8 +232,10 @@ class _RuleMfaState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
-        :param pulumi.Input[str] name: Policy Rule Name.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
@@ -207,6 +245,10 @@ class _RuleMfaState:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
+        if app_excludes is not None:
+            pulumi.set(__self__, "app_excludes", app_excludes)
+        if app_includes is not None:
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
             pulumi.set(__self__, "enroll", enroll)
         if name is not None:
@@ -232,6 +274,30 @@ class _RuleMfaState:
             pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @app_excludes.setter
+    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
+        pulumi.set(self, "app_excludes", value)
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
+        """
+        Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        """
+        return pulumi.get(self, "app_includes")
+
+    @app_includes.setter
+    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
+        pulumi.set(self, "app_includes", value)
+
+    @property
     @pulumi.getter
     def enroll(self) -> Optional[pulumi.Input[str]]:
         """
@@ -247,7 +313,7 @@ class _RuleMfaState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Name.
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
 
@@ -357,6 +423,8 @@ class RuleMfa(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -369,9 +437,37 @@ class RuleMfa(pulumi.CustomResource):
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates an MFA Policy Rule.
-
         This resource allows you to create and configure an MFA Policy Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_o_auth = okta.app.OAuth("exampleOAuth",
+            label="My App",
+            type="web",
+            grant_types=["authorization_code"],
+            redirect_uris=["http://localhost:8000"],
+            response_types=["code"],
+            skip_groups=True)
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            status="ACTIVE",
+            enroll="LOGIN",
+            app_includes=[
+                okta.policy.RuleMfaAppIncludeArgs(
+                    id=example_o_auth.id,
+                    type="APP",
+                ),
+                okta.policy.RuleMfaAppIncludeArgs(
+                    type="APP_TYPE",
+                    name="yahoo_mail",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -383,8 +479,10 @@ class RuleMfa(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
-        :param pulumi.Input[str] name: Policy Rule Name.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
@@ -401,9 +499,37 @@ class RuleMfa(pulumi.CustomResource):
                  args: Optional[RuleMfaArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an MFA Policy Rule.
-
         This resource allows you to create and configure an MFA Policy Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_o_auth = okta.app.OAuth("exampleOAuth",
+            label="My App",
+            type="web",
+            grant_types=["authorization_code"],
+            redirect_uris=["http://localhost:8000"],
+            response_types=["code"],
+            skip_groups=True)
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            status="ACTIVE",
+            enroll="LOGIN",
+            app_includes=[
+                okta.policy.RuleMfaAppIncludeArgs(
+                    id=example_o_auth.id,
+                    type="APP",
+                ),
+                okta.policy.RuleMfaAppIncludeArgs(
+                    type="APP_TYPE",
+                    name="yahoo_mail",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -428,6 +554,8 @@ class RuleMfa(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -450,6 +578,8 @@ class RuleMfa(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleMfaArgs.__new__(RuleMfaArgs)
 
+            __props__.__dict__["app_excludes"] = app_excludes
+            __props__.__dict__["app_includes"] = app_includes
             __props__.__dict__["enroll"] = enroll
             __props__.__dict__["name"] = name
             __props__.__dict__["network_connection"] = network_connection
@@ -473,6 +603,8 @@ class RuleMfa(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
+            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
             enroll: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_connection: Optional[pulumi.Input[str]] = None,
@@ -490,8 +622,10 @@ class RuleMfa(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
-        :param pulumi.Input[str] name: Policy Rule Name.
+        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
@@ -505,6 +639,8 @@ class RuleMfa(pulumi.CustomResource):
 
         __props__ = _RuleMfaState.__new__(_RuleMfaState)
 
+        __props__.__dict__["app_excludes"] = app_excludes
+        __props__.__dict__["app_includes"] = app_includes
         __props__.__dict__["enroll"] = enroll
         __props__.__dict__["name"] = name
         __props__.__dict__["network_connection"] = network_connection
@@ -518,6 +654,22 @@ class RuleMfa(pulumi.CustomResource):
         return RuleMfa(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleMfaAppExclude']]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleMfaAppInclude']]]:
+        """
+        Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        """
+        return pulumi.get(self, "app_includes")
+
+    @property
     @pulumi.getter
     def enroll(self) -> pulumi.Output[Optional[str]]:
         """
@@ -529,7 +681,7 @@ class RuleMfa(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy Rule Name.
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
         return pulumi.get(self, "name")
 

@@ -30,7 +30,7 @@ type SamlIdp struct {
 	IssuerMode   pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	Kid          pulumi.StringOutput    `pulumi:"kid"`
 	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	NameFormat         pulumi.StringPtrOutput `pulumi:"nameFormat"`
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
@@ -110,7 +110,7 @@ type samlIdpState struct {
 	IssuerMode   *string `pulumi:"issuerMode"`
 	Kid          *string `pulumi:"kid"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	NameFormat         *string `pulumi:"nameFormat"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
@@ -153,7 +153,7 @@ type SamlIdpState struct {
 	IssuerMode   pulumi.StringPtrInput
 	Kid          pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	NameFormat         pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
@@ -199,7 +199,7 @@ type samlIdpArgs struct {
 	IssuerMode   *string `pulumi:"issuerMode"`
 	Kid          string  `pulumi:"kid"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	NameFormat         *string `pulumi:"nameFormat"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
@@ -241,7 +241,7 @@ type SamlIdpArgs struct {
 	IssuerMode   pulumi.StringPtrInput
 	Kid          pulumi.StringInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	NameFormat         pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput

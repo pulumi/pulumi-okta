@@ -8,26 +8,49 @@ import typing
 from .admin_role_targets import *
 from .app_group_assignments import *
 from .app_oauth_api_scope import *
+from .app_saml_app_settings import *
 from .app_shared_credentials import *
+from .app_signon_policy_rule import *
 from .app_user_base_schema_property import *
 from .app_user_schema_property import *
 from .auth_server_claim_default import *
 from .auth_server_default import *
+from .authenticator import *
 from .behaviour import *
 from .domain import *
+from .domain_certificate import *
+from .domain_verification import *
+from .email_sender import *
+from .email_sender_verification import *
 from .event_hook import *
+from .event_hook_verification import *
 from .factor_totp import *
 from .get_app_group_assignments import *
+from .get_app_signon_policy import *
 from .get_app_user_assignments import *
+from .get_auth_server_claim import *
+from .get_auth_server_claims import *
+from .get_authenticator import *
 from .get_behaviour import *
 from .get_behaviours import *
 from .get_groups import *
+from .get_network_zone import *
+from .get_role_subscription import *
+from .get_trusted_origins import *
 from .get_user_security_questions import *
 from .group_memberships import *
+from .group_schema_property import *
+from .org_configuration import *
+from .org_support import *
 from .policy_mfa_default import *
 from .policy_password_default import *
+from .policy_profile_enrollment import *
+from .policy_rule_profile_enrollment import *
 from .provider import *
+from .role_subscription import *
+from .security_notification_emails import *
 from .template_sms import *
+from .threat_insight_settings import *
 from .user_admin_roles import *
 from .user_base_schema_property import *
 from .user_factor_question import *
@@ -487,10 +510,26 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/appSamlAppSettings",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/appSamlAppSettings:AppSamlAppSettings": "AppSamlAppSettings"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/appSharedCredentials",
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/appSharedCredentials:AppSharedCredentials": "AppSharedCredentials"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/appSignonPolicyRule",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/appSignonPolicyRule:AppSignonPolicyRule": "AppSignonPolicyRule"
   }
  },
  {
@@ -527,6 +566,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/authenticator",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/authenticator:Authenticator": "Authenticator"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/behaviour",
   "fqn": "pulumi_okta",
   "classes": {
@@ -543,10 +590,50 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/domainCertificate",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/domainCertificate:DomainCertificate": "DomainCertificate"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/domainVerification",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/domainVerification:DomainVerification": "DomainVerification"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailSender",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailSender:EmailSender": "EmailSender"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailSenderVerification",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailSenderVerification:EmailSenderVerification": "EmailSenderVerification"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/eventHook",
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/eventHook:EventHook": "EventHook"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/eventHookVerification",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/eventHookVerification:EventHookVerification": "EventHookVerification"
   }
  },
  {
@@ -567,6 +654,30 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/groupSchemaProperty",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/groupSchemaProperty:GroupSchemaProperty": "GroupSchemaProperty"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/orgConfiguration",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/orgConfiguration:OrgConfiguration": "OrgConfiguration"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/orgSupport",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/orgSupport:OrgSupport": "OrgSupport"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/policyMfaDefault",
   "fqn": "pulumi_okta",
   "classes": {
@@ -583,10 +694,50 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/policyProfileEnrollment",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/policyProfileEnrollment:PolicyProfileEnrollment": "PolicyProfileEnrollment"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/policyRuleProfileEnrollment",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": "PolicyRuleProfileEnrollment"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/roleSubscription",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/roleSubscription:RoleSubscription": "RoleSubscription"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/securityNotificationEmails",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/securityNotificationEmails:SecurityNotificationEmails": "SecurityNotificationEmails"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/templateSms",
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/templateSms:TemplateSms": "TemplateSms"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/threatInsightSettings",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/threatInsightSettings:ThreatInsightSettings": "ThreatInsightSettings"
   }
  },
  {

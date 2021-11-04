@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Auto Login Okta Application.
- *
  * This resource allows you to create and configure an Auto Login Okta Application.
  *
  * ## Example Usage
@@ -203,11 +201,15 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -258,6 +260,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -290,6 +293,7 @@ export class AutoLogin extends pulumi.CustomResource {
             inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -420,11 +424,15 @@ export interface AutoLoginState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -540,11 +548,15 @@ export interface AutoLoginArgs {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

@@ -240,6 +240,121 @@ func (o AppSharedCredentialsUserArrayOutput) Index(i pulumi.IntInput) AppSharedC
 	}).(AppSharedCredentialsUserOutput)
 }
 
+type AppSignonPolicyRulePlatformInclude struct {
+	// Only available when using `osType = "OTHER"`
+	OsExpression *string `pulumi:"osExpression"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+	OsType *string `pulumi:"osType"`
+	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+	Type *string `pulumi:"type"`
+}
+
+// AppSignonPolicyRulePlatformIncludeInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArgs and AppSignonPolicyRulePlatformIncludeOutput values.
+// You can construct a concrete instance of `AppSignonPolicyRulePlatformIncludeInput` via:
+//
+//          AppSignonPolicyRulePlatformIncludeArgs{...}
+type AppSignonPolicyRulePlatformIncludeInput interface {
+	pulumi.Input
+
+	ToAppSignonPolicyRulePlatformIncludeOutput() AppSignonPolicyRulePlatformIncludeOutput
+	ToAppSignonPolicyRulePlatformIncludeOutputWithContext(context.Context) AppSignonPolicyRulePlatformIncludeOutput
+}
+
+type AppSignonPolicyRulePlatformIncludeArgs struct {
+	// Only available when using `osType = "OTHER"`
+	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AppSignonPolicyRulePlatformIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSignonPolicyRulePlatformInclude)(nil)).Elem()
+}
+
+func (i AppSignonPolicyRulePlatformIncludeArgs) ToAppSignonPolicyRulePlatformIncludeOutput() AppSignonPolicyRulePlatformIncludeOutput {
+	return i.ToAppSignonPolicyRulePlatformIncludeOutputWithContext(context.Background())
+}
+
+func (i AppSignonPolicyRulePlatformIncludeArgs) ToAppSignonPolicyRulePlatformIncludeOutputWithContext(ctx context.Context) AppSignonPolicyRulePlatformIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRulePlatformIncludeOutput)
+}
+
+// AppSignonPolicyRulePlatformIncludeArrayInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArray and AppSignonPolicyRulePlatformIncludeArrayOutput values.
+// You can construct a concrete instance of `AppSignonPolicyRulePlatformIncludeArrayInput` via:
+//
+//          AppSignonPolicyRulePlatformIncludeArray{ AppSignonPolicyRulePlatformIncludeArgs{...} }
+type AppSignonPolicyRulePlatformIncludeArrayInput interface {
+	pulumi.Input
+
+	ToAppSignonPolicyRulePlatformIncludeArrayOutput() AppSignonPolicyRulePlatformIncludeArrayOutput
+	ToAppSignonPolicyRulePlatformIncludeArrayOutputWithContext(context.Context) AppSignonPolicyRulePlatformIncludeArrayOutput
+}
+
+type AppSignonPolicyRulePlatformIncludeArray []AppSignonPolicyRulePlatformIncludeInput
+
+func (AppSignonPolicyRulePlatformIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppSignonPolicyRulePlatformInclude)(nil)).Elem()
+}
+
+func (i AppSignonPolicyRulePlatformIncludeArray) ToAppSignonPolicyRulePlatformIncludeArrayOutput() AppSignonPolicyRulePlatformIncludeArrayOutput {
+	return i.ToAppSignonPolicyRulePlatformIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i AppSignonPolicyRulePlatformIncludeArray) ToAppSignonPolicyRulePlatformIncludeArrayOutputWithContext(ctx context.Context) AppSignonPolicyRulePlatformIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRulePlatformIncludeArrayOutput)
+}
+
+type AppSignonPolicyRulePlatformIncludeOutput struct{ *pulumi.OutputState }
+
+func (AppSignonPolicyRulePlatformIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSignonPolicyRulePlatformInclude)(nil)).Elem()
+}
+
+func (o AppSignonPolicyRulePlatformIncludeOutput) ToAppSignonPolicyRulePlatformIncludeOutput() AppSignonPolicyRulePlatformIncludeOutput {
+	return o
+}
+
+func (o AppSignonPolicyRulePlatformIncludeOutput) ToAppSignonPolicyRulePlatformIncludeOutputWithContext(ctx context.Context) AppSignonPolicyRulePlatformIncludeOutput {
+	return o
+}
+
+// Only available when using `osType = "OTHER"`
+func (o AppSignonPolicyRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
+}
+
+// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+func (o AppSignonPolicyRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+func (o AppSignonPolicyRulePlatformIncludeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AppSignonPolicyRulePlatformIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (AppSignonPolicyRulePlatformIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppSignonPolicyRulePlatformInclude)(nil)).Elem()
+}
+
+func (o AppSignonPolicyRulePlatformIncludeArrayOutput) ToAppSignonPolicyRulePlatformIncludeArrayOutput() AppSignonPolicyRulePlatformIncludeArrayOutput {
+	return o
+}
+
+func (o AppSignonPolicyRulePlatformIncludeArrayOutput) ToAppSignonPolicyRulePlatformIncludeArrayOutputWithContext(ctx context.Context) AppSignonPolicyRulePlatformIncludeArrayOutput {
+	return o
+}
+
+func (o AppSignonPolicyRulePlatformIncludeArrayOutput) Index(i pulumi.IntInput) AppSignonPolicyRulePlatformIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSignonPolicyRulePlatformInclude {
+		return vs[0].([]AppSignonPolicyRulePlatformInclude)[vs[1].(int)]
+	}).(AppSignonPolicyRulePlatformIncludeOutput)
+}
+
 type AppUserSchemaPropertyArrayOneOf struct {
 	// value mapping to member of `enum`.
 	Const string `pulumi:"const"`
@@ -576,6 +691,121 @@ func (o DomainDnsRecordArrayOutput) Index(i pulumi.IntInput) DomainDnsRecordOutp
 	}).(DomainDnsRecordOutput)
 }
 
+type EmailSenderDnsRecord struct {
+	// DNS record name.
+	Fqdn *string `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType *string `pulumi:"recordType"`
+	// DNS verification value
+	Value *string `pulumi:"value"`
+}
+
+// EmailSenderDnsRecordInput is an input type that accepts EmailSenderDnsRecordArgs and EmailSenderDnsRecordOutput values.
+// You can construct a concrete instance of `EmailSenderDnsRecordInput` via:
+//
+//          EmailSenderDnsRecordArgs{...}
+type EmailSenderDnsRecordInput interface {
+	pulumi.Input
+
+	ToEmailSenderDnsRecordOutput() EmailSenderDnsRecordOutput
+	ToEmailSenderDnsRecordOutputWithContext(context.Context) EmailSenderDnsRecordOutput
+}
+
+type EmailSenderDnsRecordArgs struct {
+	// DNS record name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
+	// DNS verification value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EmailSenderDnsRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailSenderDnsRecord)(nil)).Elem()
+}
+
+func (i EmailSenderDnsRecordArgs) ToEmailSenderDnsRecordOutput() EmailSenderDnsRecordOutput {
+	return i.ToEmailSenderDnsRecordOutputWithContext(context.Background())
+}
+
+func (i EmailSenderDnsRecordArgs) ToEmailSenderDnsRecordOutputWithContext(ctx context.Context) EmailSenderDnsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderDnsRecordOutput)
+}
+
+// EmailSenderDnsRecordArrayInput is an input type that accepts EmailSenderDnsRecordArray and EmailSenderDnsRecordArrayOutput values.
+// You can construct a concrete instance of `EmailSenderDnsRecordArrayInput` via:
+//
+//          EmailSenderDnsRecordArray{ EmailSenderDnsRecordArgs{...} }
+type EmailSenderDnsRecordArrayInput interface {
+	pulumi.Input
+
+	ToEmailSenderDnsRecordArrayOutput() EmailSenderDnsRecordArrayOutput
+	ToEmailSenderDnsRecordArrayOutputWithContext(context.Context) EmailSenderDnsRecordArrayOutput
+}
+
+type EmailSenderDnsRecordArray []EmailSenderDnsRecordInput
+
+func (EmailSenderDnsRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailSenderDnsRecord)(nil)).Elem()
+}
+
+func (i EmailSenderDnsRecordArray) ToEmailSenderDnsRecordArrayOutput() EmailSenderDnsRecordArrayOutput {
+	return i.ToEmailSenderDnsRecordArrayOutputWithContext(context.Background())
+}
+
+func (i EmailSenderDnsRecordArray) ToEmailSenderDnsRecordArrayOutputWithContext(ctx context.Context) EmailSenderDnsRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderDnsRecordArrayOutput)
+}
+
+type EmailSenderDnsRecordOutput struct{ *pulumi.OutputState }
+
+func (EmailSenderDnsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailSenderDnsRecord)(nil)).Elem()
+}
+
+func (o EmailSenderDnsRecordOutput) ToEmailSenderDnsRecordOutput() EmailSenderDnsRecordOutput {
+	return o
+}
+
+func (o EmailSenderDnsRecordOutput) ToEmailSenderDnsRecordOutputWithContext(ctx context.Context) EmailSenderDnsRecordOutput {
+	return o
+}
+
+// DNS record name.
+func (o EmailSenderDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Record type can be TXT or CNAME.
+func (o EmailSenderDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
+}
+
+// DNS verification value
+func (o EmailSenderDnsRecordOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EmailSenderDnsRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailSenderDnsRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailSenderDnsRecord)(nil)).Elem()
+}
+
+func (o EmailSenderDnsRecordArrayOutput) ToEmailSenderDnsRecordArrayOutput() EmailSenderDnsRecordArrayOutput {
+	return o
+}
+
+func (o EmailSenderDnsRecordArrayOutput) ToEmailSenderDnsRecordArrayOutputWithContext(ctx context.Context) EmailSenderDnsRecordArrayOutput {
+	return o
+}
+
+func (o EmailSenderDnsRecordArrayOutput) Index(i pulumi.IntInput) EmailSenderDnsRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailSenderDnsRecord {
+		return vs[0].([]EmailSenderDnsRecord)[vs[1].(int)]
+	}).(EmailSenderDnsRecordOutput)
+}
+
 type EventHookHeader struct {
 	// Key to use for authentication, usually the header name, for example `"Authorization"`.
 	Key *string `pulumi:"key"`
@@ -680,6 +910,439 @@ func (o EventHookHeaderArrayOutput) Index(i pulumi.IntInput) EventHookHeaderOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHookHeader {
 		return vs[0].([]EventHookHeader)[vs[1].(int)]
 	}).(EventHookHeaderOutput)
+}
+
+type GroupSchemaPropertyArrayOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// GroupSchemaPropertyArrayOneOfInput is an input type that accepts GroupSchemaPropertyArrayOneOfArgs and GroupSchemaPropertyArrayOneOfOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyArrayOneOfInput` via:
+//
+//          GroupSchemaPropertyArrayOneOfArgs{...}
+type GroupSchemaPropertyArrayOneOfInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyArrayOneOfOutput() GroupSchemaPropertyArrayOneOfOutput
+	ToGroupSchemaPropertyArrayOneOfOutputWithContext(context.Context) GroupSchemaPropertyArrayOneOfOutput
+}
+
+type GroupSchemaPropertyArrayOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (GroupSchemaPropertyArrayOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyArrayOneOfArgs) ToGroupSchemaPropertyArrayOneOfOutput() GroupSchemaPropertyArrayOneOfOutput {
+	return i.ToGroupSchemaPropertyArrayOneOfOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyArrayOneOfArgs) ToGroupSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) GroupSchemaPropertyArrayOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyArrayOneOfOutput)
+}
+
+// GroupSchemaPropertyArrayOneOfArrayInput is an input type that accepts GroupSchemaPropertyArrayOneOfArray and GroupSchemaPropertyArrayOneOfArrayOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyArrayOneOfArrayInput` via:
+//
+//          GroupSchemaPropertyArrayOneOfArray{ GroupSchemaPropertyArrayOneOfArgs{...} }
+type GroupSchemaPropertyArrayOneOfArrayInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyArrayOneOfArrayOutput() GroupSchemaPropertyArrayOneOfArrayOutput
+	ToGroupSchemaPropertyArrayOneOfArrayOutputWithContext(context.Context) GroupSchemaPropertyArrayOneOfArrayOutput
+}
+
+type GroupSchemaPropertyArrayOneOfArray []GroupSchemaPropertyArrayOneOfInput
+
+func (GroupSchemaPropertyArrayOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyArrayOneOfArray) ToGroupSchemaPropertyArrayOneOfArrayOutput() GroupSchemaPropertyArrayOneOfArrayOutput {
+	return i.ToGroupSchemaPropertyArrayOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyArrayOneOfArray) ToGroupSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyArrayOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyArrayOneOfArrayOutput)
+}
+
+type GroupSchemaPropertyArrayOneOfOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyArrayOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyArrayOneOfOutput) ToGroupSchemaPropertyArrayOneOfOutput() GroupSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyArrayOneOfOutput) ToGroupSchemaPropertyArrayOneOfOutputWithContext(ctx context.Context) GroupSchemaPropertyArrayOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o GroupSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o GroupSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type GroupSchemaPropertyArrayOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyArrayOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyArrayOneOf)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyArrayOneOfArrayOutput) ToGroupSchemaPropertyArrayOneOfArrayOutput() GroupSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyArrayOneOfArrayOutput) ToGroupSchemaPropertyArrayOneOfArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyArrayOneOfArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) GroupSchemaPropertyArrayOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupSchemaPropertyArrayOneOf {
+		return vs[0].([]GroupSchemaPropertyArrayOneOf)[vs[1].(int)]
+	}).(GroupSchemaPropertyArrayOneOfOutput)
+}
+
+type GroupSchemaPropertyMasterOverridePriority struct {
+	// - Type of profile source.
+	Type *string `pulumi:"type"`
+	// - ID of profile source.
+	Value string `pulumi:"value"`
+}
+
+// GroupSchemaPropertyMasterOverridePriorityInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArgs and GroupSchemaPropertyMasterOverridePriorityOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyMasterOverridePriorityInput` via:
+//
+//          GroupSchemaPropertyMasterOverridePriorityArgs{...}
+type GroupSchemaPropertyMasterOverridePriorityInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyMasterOverridePriorityOutput() GroupSchemaPropertyMasterOverridePriorityOutput
+	ToGroupSchemaPropertyMasterOverridePriorityOutputWithContext(context.Context) GroupSchemaPropertyMasterOverridePriorityOutput
+}
+
+type GroupSchemaPropertyMasterOverridePriorityArgs struct {
+	// - Type of profile source.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// - ID of profile source.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GroupSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyMasterOverridePriorityArgs) ToGroupSchemaPropertyMasterOverridePriorityOutput() GroupSchemaPropertyMasterOverridePriorityOutput {
+	return i.ToGroupSchemaPropertyMasterOverridePriorityOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyMasterOverridePriorityArgs) ToGroupSchemaPropertyMasterOverridePriorityOutputWithContext(ctx context.Context) GroupSchemaPropertyMasterOverridePriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyMasterOverridePriorityOutput)
+}
+
+// GroupSchemaPropertyMasterOverridePriorityArrayInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArray and GroupSchemaPropertyMasterOverridePriorityArrayOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyMasterOverridePriorityArrayInput` via:
+//
+//          GroupSchemaPropertyMasterOverridePriorityArray{ GroupSchemaPropertyMasterOverridePriorityArgs{...} }
+type GroupSchemaPropertyMasterOverridePriorityArrayInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyMasterOverridePriorityArrayOutput() GroupSchemaPropertyMasterOverridePriorityArrayOutput
+	ToGroupSchemaPropertyMasterOverridePriorityArrayOutputWithContext(context.Context) GroupSchemaPropertyMasterOverridePriorityArrayOutput
+}
+
+type GroupSchemaPropertyMasterOverridePriorityArray []GroupSchemaPropertyMasterOverridePriorityInput
+
+func (GroupSchemaPropertyMasterOverridePriorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyMasterOverridePriorityArray) ToGroupSchemaPropertyMasterOverridePriorityArrayOutput() GroupSchemaPropertyMasterOverridePriorityArrayOutput {
+	return i.ToGroupSchemaPropertyMasterOverridePriorityArrayOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyMasterOverridePriorityArray) ToGroupSchemaPropertyMasterOverridePriorityArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyMasterOverridePriorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyMasterOverridePriorityArrayOutput)
+}
+
+type GroupSchemaPropertyMasterOverridePriorityOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyMasterOverridePriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyMasterOverridePriorityOutput) ToGroupSchemaPropertyMasterOverridePriorityOutput() GroupSchemaPropertyMasterOverridePriorityOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyMasterOverridePriorityOutput) ToGroupSchemaPropertyMasterOverridePriorityOutputWithContext(ctx context.Context) GroupSchemaPropertyMasterOverridePriorityOutput {
+	return o
+}
+
+// - Type of profile source.
+func (o GroupSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// - ID of profile source.
+func (o GroupSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GroupSchemaPropertyMasterOverridePriorityArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyMasterOverridePriorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyMasterOverridePriority)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyMasterOverridePriorityArrayOutput) ToGroupSchemaPropertyMasterOverridePriorityArrayOutput() GroupSchemaPropertyMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyMasterOverridePriorityArrayOutput) ToGroupSchemaPropertyMasterOverridePriorityArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyMasterOverridePriorityArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.IntInput) GroupSchemaPropertyMasterOverridePriorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupSchemaPropertyMasterOverridePriority {
+		return vs[0].([]GroupSchemaPropertyMasterOverridePriority)[vs[1].(int)]
+	}).(GroupSchemaPropertyMasterOverridePriorityOutput)
+}
+
+type GroupSchemaPropertyOneOf struct {
+	// value mapping to member of `enum`.
+	Const string `pulumi:"const"`
+	// display name for the enum value.
+	Title string `pulumi:"title"`
+}
+
+// GroupSchemaPropertyOneOfInput is an input type that accepts GroupSchemaPropertyOneOfArgs and GroupSchemaPropertyOneOfOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyOneOfInput` via:
+//
+//          GroupSchemaPropertyOneOfArgs{...}
+type GroupSchemaPropertyOneOfInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyOneOfOutput() GroupSchemaPropertyOneOfOutput
+	ToGroupSchemaPropertyOneOfOutputWithContext(context.Context) GroupSchemaPropertyOneOfOutput
+}
+
+type GroupSchemaPropertyOneOfArgs struct {
+	// value mapping to member of `enum`.
+	Const pulumi.StringInput `pulumi:"const"`
+	// display name for the enum value.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (GroupSchemaPropertyOneOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyOneOfArgs) ToGroupSchemaPropertyOneOfOutput() GroupSchemaPropertyOneOfOutput {
+	return i.ToGroupSchemaPropertyOneOfOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyOneOfArgs) ToGroupSchemaPropertyOneOfOutputWithContext(ctx context.Context) GroupSchemaPropertyOneOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyOneOfOutput)
+}
+
+// GroupSchemaPropertyOneOfArrayInput is an input type that accepts GroupSchemaPropertyOneOfArray and GroupSchemaPropertyOneOfArrayOutput values.
+// You can construct a concrete instance of `GroupSchemaPropertyOneOfArrayInput` via:
+//
+//          GroupSchemaPropertyOneOfArray{ GroupSchemaPropertyOneOfArgs{...} }
+type GroupSchemaPropertyOneOfArrayInput interface {
+	pulumi.Input
+
+	ToGroupSchemaPropertyOneOfArrayOutput() GroupSchemaPropertyOneOfArrayOutput
+	ToGroupSchemaPropertyOneOfArrayOutputWithContext(context.Context) GroupSchemaPropertyOneOfArrayOutput
+}
+
+type GroupSchemaPropertyOneOfArray []GroupSchemaPropertyOneOfInput
+
+func (GroupSchemaPropertyOneOfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (i GroupSchemaPropertyOneOfArray) ToGroupSchemaPropertyOneOfArrayOutput() GroupSchemaPropertyOneOfArrayOutput {
+	return i.ToGroupSchemaPropertyOneOfArrayOutputWithContext(context.Background())
+}
+
+func (i GroupSchemaPropertyOneOfArray) ToGroupSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyOneOfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyOneOfArrayOutput)
+}
+
+type GroupSchemaPropertyOneOfOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyOneOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyOneOfOutput) ToGroupSchemaPropertyOneOfOutput() GroupSchemaPropertyOneOfOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyOneOfOutput) ToGroupSchemaPropertyOneOfOutputWithContext(ctx context.Context) GroupSchemaPropertyOneOfOutput {
+	return o
+}
+
+// value mapping to member of `enum`.
+func (o GroupSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
+}
+
+// display name for the enum value.
+func (o GroupSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type GroupSchemaPropertyOneOfArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupSchemaPropertyOneOfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupSchemaPropertyOneOf)(nil)).Elem()
+}
+
+func (o GroupSchemaPropertyOneOfArrayOutput) ToGroupSchemaPropertyOneOfArrayOutput() GroupSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyOneOfArrayOutput) ToGroupSchemaPropertyOneOfArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyOneOfArrayOutput {
+	return o
+}
+
+func (o GroupSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) GroupSchemaPropertyOneOfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupSchemaPropertyOneOf {
+		return vs[0].([]GroupSchemaPropertyOneOf)[vs[1].(int)]
+	}).(GroupSchemaPropertyOneOfOutput)
+}
+
+type PolicyRuleProfileEnrollmentProfileAttribute struct {
+	// A display-friendly label for this property
+	Label string `pulumi:"label"`
+	// The name of a User Profile property
+	Name string `pulumi:"name"`
+	// Indicates if this property is required for enrollment. Default is `false`.
+	Required *bool `pulumi:"required"`
+}
+
+// PolicyRuleProfileEnrollmentProfileAttributeInput is an input type that accepts PolicyRuleProfileEnrollmentProfileAttributeArgs and PolicyRuleProfileEnrollmentProfileAttributeOutput values.
+// You can construct a concrete instance of `PolicyRuleProfileEnrollmentProfileAttributeInput` via:
+//
+//          PolicyRuleProfileEnrollmentProfileAttributeArgs{...}
+type PolicyRuleProfileEnrollmentProfileAttributeInput interface {
+	pulumi.Input
+
+	ToPolicyRuleProfileEnrollmentProfileAttributeOutput() PolicyRuleProfileEnrollmentProfileAttributeOutput
+	ToPolicyRuleProfileEnrollmentProfileAttributeOutputWithContext(context.Context) PolicyRuleProfileEnrollmentProfileAttributeOutput
+}
+
+type PolicyRuleProfileEnrollmentProfileAttributeArgs struct {
+	// A display-friendly label for this property
+	Label pulumi.StringInput `pulumi:"label"`
+	// The name of a User Profile property
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates if this property is required for enrollment. Default is `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+}
+
+func (PolicyRuleProfileEnrollmentProfileAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttribute)(nil)).Elem()
+}
+
+func (i PolicyRuleProfileEnrollmentProfileAttributeArgs) ToPolicyRuleProfileEnrollmentProfileAttributeOutput() PolicyRuleProfileEnrollmentProfileAttributeOutput {
+	return i.ToPolicyRuleProfileEnrollmentProfileAttributeOutputWithContext(context.Background())
+}
+
+func (i PolicyRuleProfileEnrollmentProfileAttributeArgs) ToPolicyRuleProfileEnrollmentProfileAttributeOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentProfileAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentProfileAttributeOutput)
+}
+
+// PolicyRuleProfileEnrollmentProfileAttributeArrayInput is an input type that accepts PolicyRuleProfileEnrollmentProfileAttributeArray and PolicyRuleProfileEnrollmentProfileAttributeArrayOutput values.
+// You can construct a concrete instance of `PolicyRuleProfileEnrollmentProfileAttributeArrayInput` via:
+//
+//          PolicyRuleProfileEnrollmentProfileAttributeArray{ PolicyRuleProfileEnrollmentProfileAttributeArgs{...} }
+type PolicyRuleProfileEnrollmentProfileAttributeArrayInput interface {
+	pulumi.Input
+
+	ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutput() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput
+	ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutputWithContext(context.Context) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput
+}
+
+type PolicyRuleProfileEnrollmentProfileAttributeArray []PolicyRuleProfileEnrollmentProfileAttributeInput
+
+func (PolicyRuleProfileEnrollmentProfileAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyRuleProfileEnrollmentProfileAttribute)(nil)).Elem()
+}
+
+func (i PolicyRuleProfileEnrollmentProfileAttributeArray) ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutput() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+	return i.ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyRuleProfileEnrollmentProfileAttributeArray) ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput)
+}
+
+type PolicyRuleProfileEnrollmentProfileAttributeOutput struct{ *pulumi.OutputState }
+
+func (PolicyRuleProfileEnrollmentProfileAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttribute)(nil)).Elem()
+}
+
+func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) ToPolicyRuleProfileEnrollmentProfileAttributeOutput() PolicyRuleProfileEnrollmentProfileAttributeOutput {
+	return o
+}
+
+func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) ToPolicyRuleProfileEnrollmentProfileAttributeOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentProfileAttributeOutput {
+	return o
+}
+
+// A display-friendly label for this property
+func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The name of a User Profile property
+func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates if this property is required for enrollment. Default is `false`.
+func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyRuleProfileEnrollmentProfileAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyRuleProfileEnrollmentProfileAttribute)(nil)).Elem()
+}
+
+func (o PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutput() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+	return o
+}
+
+func (o PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) ToPolicyRuleProfileEnrollmentProfileAttributeArrayOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+	return o
+}
+
+func (o PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) Index(i pulumi.IntInput) PolicyRuleProfileEnrollmentProfileAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRuleProfileEnrollmentProfileAttribute {
+		return vs[0].([]PolicyRuleProfileEnrollmentProfileAttribute)[vs[1].(int)]
+	}).(PolicyRuleProfileEnrollmentProfileAttributeOutput)
 }
 
 type TemplateSmsTranslation struct {
@@ -1106,6 +1769,166 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 	}).(UserSchemaPropertyOneOfOutput)
 }
 
+type GetAuthServerClaimsClaim struct {
+	// Specifies whether to include Claims in the token.
+	AlwaysIncludeInToken bool `pulumi:"alwaysIncludeInToken"`
+	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+	ClaimType string `pulumi:"claimType"`
+	// ID of the claim.
+	Id string `pulumi:"id"`
+	// Name of the claim.
+	Name string `pulumi:"name"`
+	// Specifies the scopes for this Claim.
+	Scopes []string `pulumi:"scopes"`
+	// Status of the claim.
+	Status string `pulumi:"status"`
+	// Value of the claim
+	Value string `pulumi:"value"`
+	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+	ValueType string `pulumi:"valueType"`
+}
+
+// GetAuthServerClaimsClaimInput is an input type that accepts GetAuthServerClaimsClaimArgs and GetAuthServerClaimsClaimOutput values.
+// You can construct a concrete instance of `GetAuthServerClaimsClaimInput` via:
+//
+//          GetAuthServerClaimsClaimArgs{...}
+type GetAuthServerClaimsClaimInput interface {
+	pulumi.Input
+
+	ToGetAuthServerClaimsClaimOutput() GetAuthServerClaimsClaimOutput
+	ToGetAuthServerClaimsClaimOutputWithContext(context.Context) GetAuthServerClaimsClaimOutput
+}
+
+type GetAuthServerClaimsClaimArgs struct {
+	// Specifies whether to include Claims in the token.
+	AlwaysIncludeInToken pulumi.BoolInput `pulumi:"alwaysIncludeInToken"`
+	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+	ClaimType pulumi.StringInput `pulumi:"claimType"`
+	// ID of the claim.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the claim.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the scopes for this Claim.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// Status of the claim.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Value of the claim
+	Value pulumi.StringInput `pulumi:"value"`
+	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (GetAuthServerClaimsClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthServerClaimsClaim)(nil)).Elem()
+}
+
+func (i GetAuthServerClaimsClaimArgs) ToGetAuthServerClaimsClaimOutput() GetAuthServerClaimsClaimOutput {
+	return i.ToGetAuthServerClaimsClaimOutputWithContext(context.Background())
+}
+
+func (i GetAuthServerClaimsClaimArgs) ToGetAuthServerClaimsClaimOutputWithContext(ctx context.Context) GetAuthServerClaimsClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthServerClaimsClaimOutput)
+}
+
+// GetAuthServerClaimsClaimArrayInput is an input type that accepts GetAuthServerClaimsClaimArray and GetAuthServerClaimsClaimArrayOutput values.
+// You can construct a concrete instance of `GetAuthServerClaimsClaimArrayInput` via:
+//
+//          GetAuthServerClaimsClaimArray{ GetAuthServerClaimsClaimArgs{...} }
+type GetAuthServerClaimsClaimArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthServerClaimsClaimArrayOutput() GetAuthServerClaimsClaimArrayOutput
+	ToGetAuthServerClaimsClaimArrayOutputWithContext(context.Context) GetAuthServerClaimsClaimArrayOutput
+}
+
+type GetAuthServerClaimsClaimArray []GetAuthServerClaimsClaimInput
+
+func (GetAuthServerClaimsClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthServerClaimsClaim)(nil)).Elem()
+}
+
+func (i GetAuthServerClaimsClaimArray) ToGetAuthServerClaimsClaimArrayOutput() GetAuthServerClaimsClaimArrayOutput {
+	return i.ToGetAuthServerClaimsClaimArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthServerClaimsClaimArray) ToGetAuthServerClaimsClaimArrayOutputWithContext(ctx context.Context) GetAuthServerClaimsClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthServerClaimsClaimArrayOutput)
+}
+
+type GetAuthServerClaimsClaimOutput struct{ *pulumi.OutputState }
+
+func (GetAuthServerClaimsClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthServerClaimsClaim)(nil)).Elem()
+}
+
+func (o GetAuthServerClaimsClaimOutput) ToGetAuthServerClaimsClaimOutput() GetAuthServerClaimsClaimOutput {
+	return o
+}
+
+func (o GetAuthServerClaimsClaimOutput) ToGetAuthServerClaimsClaimOutputWithContext(ctx context.Context) GetAuthServerClaimsClaimOutput {
+	return o
+}
+
+// Specifies whether to include Claims in the token.
+func (o GetAuthServerClaimsClaimOutput) AlwaysIncludeInToken() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) bool { return v.AlwaysIncludeInToken }).(pulumi.BoolOutput)
+}
+
+// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+func (o GetAuthServerClaimsClaimOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// ID of the claim.
+func (o GetAuthServerClaimsClaimOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the claim.
+func (o GetAuthServerClaimsClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the scopes for this Claim.
+func (o GetAuthServerClaimsClaimOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Status of the claim.
+func (o GetAuthServerClaimsClaimOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Value of the claim
+func (o GetAuthServerClaimsClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+func (o GetAuthServerClaimsClaimOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ValueType }).(pulumi.StringOutput)
+}
+
+type GetAuthServerClaimsClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthServerClaimsClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthServerClaimsClaim)(nil)).Elem()
+}
+
+func (o GetAuthServerClaimsClaimArrayOutput) ToGetAuthServerClaimsClaimArrayOutput() GetAuthServerClaimsClaimArrayOutput {
+	return o
+}
+
+func (o GetAuthServerClaimsClaimArrayOutput) ToGetAuthServerClaimsClaimArrayOutputWithContext(ctx context.Context) GetAuthServerClaimsClaimArrayOutput {
+	return o
+}
+
+func (o GetAuthServerClaimsClaimArrayOutput) Index(i pulumi.IntInput) GetAuthServerClaimsClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthServerClaimsClaim {
+		return vs[0].([]GetAuthServerClaimsClaim)[vs[1].(int)]
+	}).(GetAuthServerClaimsClaimOutput)
+}
+
 type GetBehavioursBehavior struct {
 	// Behavior ID.
 	Id string `pulumi:"id"`
@@ -1366,6 +2189,139 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	}).(GetGroupsGroupOutput)
 }
 
+type GetTrustedOriginsTrustedOrigin struct {
+	// Whether the Trusted Origin is active or not - can only be issued post-creation
+	Active bool `pulumi:"active"`
+	// The ID of the Trusted Origin.
+	Id string `pulumi:"id"`
+	// Unique name for this trusted origin.
+	Name string `pulumi:"name"`
+	// Unique origin URL for this trusted origin.
+	Origin string `pulumi:"origin"`
+	// Scopes of the Trusted Origin
+	Scopes []string `pulumi:"scopes"`
+}
+
+// GetTrustedOriginsTrustedOriginInput is an input type that accepts GetTrustedOriginsTrustedOriginArgs and GetTrustedOriginsTrustedOriginOutput values.
+// You can construct a concrete instance of `GetTrustedOriginsTrustedOriginInput` via:
+//
+//          GetTrustedOriginsTrustedOriginArgs{...}
+type GetTrustedOriginsTrustedOriginInput interface {
+	pulumi.Input
+
+	ToGetTrustedOriginsTrustedOriginOutput() GetTrustedOriginsTrustedOriginOutput
+	ToGetTrustedOriginsTrustedOriginOutputWithContext(context.Context) GetTrustedOriginsTrustedOriginOutput
+}
+
+type GetTrustedOriginsTrustedOriginArgs struct {
+	// Whether the Trusted Origin is active or not - can only be issued post-creation
+	Active pulumi.BoolInput `pulumi:"active"`
+	// The ID of the Trusted Origin.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Unique name for this trusted origin.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Unique origin URL for this trusted origin.
+	Origin pulumi.StringInput `pulumi:"origin"`
+	// Scopes of the Trusted Origin
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (GetTrustedOriginsTrustedOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrustedOriginsTrustedOrigin)(nil)).Elem()
+}
+
+func (i GetTrustedOriginsTrustedOriginArgs) ToGetTrustedOriginsTrustedOriginOutput() GetTrustedOriginsTrustedOriginOutput {
+	return i.ToGetTrustedOriginsTrustedOriginOutputWithContext(context.Background())
+}
+
+func (i GetTrustedOriginsTrustedOriginArgs) ToGetTrustedOriginsTrustedOriginOutputWithContext(ctx context.Context) GetTrustedOriginsTrustedOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginsTrustedOriginOutput)
+}
+
+// GetTrustedOriginsTrustedOriginArrayInput is an input type that accepts GetTrustedOriginsTrustedOriginArray and GetTrustedOriginsTrustedOriginArrayOutput values.
+// You can construct a concrete instance of `GetTrustedOriginsTrustedOriginArrayInput` via:
+//
+//          GetTrustedOriginsTrustedOriginArray{ GetTrustedOriginsTrustedOriginArgs{...} }
+type GetTrustedOriginsTrustedOriginArrayInput interface {
+	pulumi.Input
+
+	ToGetTrustedOriginsTrustedOriginArrayOutput() GetTrustedOriginsTrustedOriginArrayOutput
+	ToGetTrustedOriginsTrustedOriginArrayOutputWithContext(context.Context) GetTrustedOriginsTrustedOriginArrayOutput
+}
+
+type GetTrustedOriginsTrustedOriginArray []GetTrustedOriginsTrustedOriginInput
+
+func (GetTrustedOriginsTrustedOriginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrustedOriginsTrustedOrigin)(nil)).Elem()
+}
+
+func (i GetTrustedOriginsTrustedOriginArray) ToGetTrustedOriginsTrustedOriginArrayOutput() GetTrustedOriginsTrustedOriginArrayOutput {
+	return i.ToGetTrustedOriginsTrustedOriginArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrustedOriginsTrustedOriginArray) ToGetTrustedOriginsTrustedOriginArrayOutputWithContext(ctx context.Context) GetTrustedOriginsTrustedOriginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginsTrustedOriginArrayOutput)
+}
+
+type GetTrustedOriginsTrustedOriginOutput struct{ *pulumi.OutputState }
+
+func (GetTrustedOriginsTrustedOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrustedOriginsTrustedOrigin)(nil)).Elem()
+}
+
+func (o GetTrustedOriginsTrustedOriginOutput) ToGetTrustedOriginsTrustedOriginOutput() GetTrustedOriginsTrustedOriginOutput {
+	return o
+}
+
+func (o GetTrustedOriginsTrustedOriginOutput) ToGetTrustedOriginsTrustedOriginOutputWithContext(ctx context.Context) GetTrustedOriginsTrustedOriginOutput {
+	return o
+}
+
+// Whether the Trusted Origin is active or not - can only be issued post-creation
+func (o GetTrustedOriginsTrustedOriginOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The ID of the Trusted Origin.
+func (o GetTrustedOriginsTrustedOriginOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Unique name for this trusted origin.
+func (o GetTrustedOriginsTrustedOriginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Unique origin URL for this trusted origin.
+func (o GetTrustedOriginsTrustedOriginOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+// Scopes of the Trusted Origin
+func (o GetTrustedOriginsTrustedOriginOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type GetTrustedOriginsTrustedOriginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrustedOriginsTrustedOriginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrustedOriginsTrustedOrigin)(nil)).Elem()
+}
+
+func (o GetTrustedOriginsTrustedOriginArrayOutput) ToGetTrustedOriginsTrustedOriginArrayOutput() GetTrustedOriginsTrustedOriginArrayOutput {
+	return o
+}
+
+func (o GetTrustedOriginsTrustedOriginArrayOutput) ToGetTrustedOriginsTrustedOriginArrayOutputWithContext(ctx context.Context) GetTrustedOriginsTrustedOriginArrayOutput {
+	return o
+}
+
+func (o GetTrustedOriginsTrustedOriginArrayOutput) Index(i pulumi.IntInput) GetTrustedOriginsTrustedOriginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrustedOriginsTrustedOrigin {
+		return vs[0].([]GetTrustedOriginsTrustedOrigin)[vs[1].(int)]
+	}).(GetTrustedOriginsTrustedOriginOutput)
+}
+
 type GetUserSecurityQuestionsQuestion struct {
 	// Security question unique key.
 	Key string `pulumi:"key"`
@@ -1477,14 +2433,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupArrayInput)(nil)).Elem(), AppGroupAssignmentsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsUserInput)(nil)).Elem(), AppSharedCredentialsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsUserArrayInput)(nil)).Elem(), AppSharedCredentialsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeArrayInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDnsRecordInput)(nil)).Elem(), DomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDnsRecordArrayInput)(nil)).Elem(), DomainDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordInput)(nil)).Elem(), EmailSenderDnsRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordArrayInput)(nil)).Elem(), EmailSenderDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderInput)(nil)).Elem(), EventHookHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderArrayInput)(nil)).Elem(), EventHookHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyArrayOneOfInput)(nil)).Elem(), GroupSchemaPropertyArrayOneOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), GroupSchemaPropertyArrayOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriorityInput)(nil)).Elem(), GroupSchemaPropertyMasterOverridePriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), GroupSchemaPropertyMasterOverridePriorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfInput)(nil)).Elem(), GroupSchemaPropertyOneOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfArrayInput)(nil)).Elem(), GroupSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeArrayInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArgs{})
@@ -1493,24 +2461,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), UserSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfInput)(nil)).Elem(), UserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfArrayInput)(nil)).Elem(), UserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimInput)(nil)).Elem(), GetAuthServerClaimsClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimArrayInput)(nil)).Elem(), GetAuthServerClaimsClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorInput)(nil)).Elem(), GetBehavioursBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorArrayInput)(nil)).Elem(), GetBehavioursBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionArrayInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArray{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupArrayOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsUserOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsUserArrayOutput{})
+	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeOutput{})
+	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfArrayOutput{})
 	pulumi.RegisterOutputType(DomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(DomainDnsRecordArrayOutput{})
+	pulumi.RegisterOutputType(EmailSenderDnsRecordOutput{})
+	pulumi.RegisterOutputType(EmailSenderDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyArrayOneOfOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyArrayOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyMasterOverridePriorityOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyMasterOverridePriorityArrayOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfOutput{})
+	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeOutput{})
+	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
@@ -1519,10 +2503,14 @@ func init() {
 	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthServerClaimsClaimOutput{})
+	pulumi.RegisterOutputType(GetAuthServerClaimsClaimArrayOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginOutput{})
+	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionOutput{})
 	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionArrayOutput{})
 }

@@ -55,6 +55,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ButtonField { get; private set; } = null!;
 
         /// <summary>
+        /// CSS selector for the checkbox
+        /// </summary>
+        [Output("checkbox")]
+        public Output<string?> Checkbox { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -115,6 +121,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here
+        /// </summary>
+        [Output("redirectUrl")]
+        public Output<string?> RedirectUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
@@ -155,6 +167,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
         /// Username template suffix
@@ -269,6 +287,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
+        /// CSS selector for the checkbox
+        /// </summary>
+        [Input("checkbox")]
+        public Input<string>? Checkbox { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -324,6 +348,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here
+        /// </summary>
+        [Input("redirectUrl")]
+        public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
         /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
         /// </summary>
         [Input("skipGroups")]
@@ -358,6 +388,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix
@@ -440,6 +476,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
+        /// CSS selector for the checkbox
+        /// </summary>
+        [Input("checkbox")]
+        public Input<string>? Checkbox { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -507,6 +549,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here
+        /// </summary>
+        [Input("redirectUrl")]
+        public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
         /// Sign on mode of application.
         /// </summary>
         [Input("signOnMode")]
@@ -547,6 +595,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix

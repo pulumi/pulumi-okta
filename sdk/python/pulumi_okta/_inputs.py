@@ -11,10 +11,16 @@ from . import _utilities
 __all__ = [
     'AppGroupAssignmentsGroupArgs',
     'AppSharedCredentialsUserArgs',
+    'AppSignonPolicyRulePlatformIncludeArgs',
     'AppUserSchemaPropertyArrayOneOfArgs',
     'AppUserSchemaPropertyOneOfArgs',
     'DomainDnsRecordArgs',
+    'EmailSenderDnsRecordArgs',
     'EventHookHeaderArgs',
+    'GroupSchemaPropertyArrayOneOfArgs',
+    'GroupSchemaPropertyMasterOverridePriorityArgs',
+    'GroupSchemaPropertyOneOfArgs',
+    'PolicyRuleProfileEnrollmentProfileAttributeArgs',
     'TemplateSmsTranslationArgs',
     'UserSchemaPropertyArrayOneOfArgs',
     'UserSchemaPropertyMasterOverridePriorityArgs',
@@ -131,6 +137,61 @@ class AppSharedCredentialsUserArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AppSignonPolicyRulePlatformIncludeArgs:
+    def __init__(__self__, *,
+                 os_expression: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] os_expression: Only available when using `os_type = "OTHER"`
+        :param pulumi.Input[str] os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        """
+        if os_expression is not None:
+            pulumi.set(__self__, "os_expression", os_expression)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="osExpression")
+    def os_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only available when using `os_type = "OTHER"`
+        """
+        return pulumi.get(self, "os_expression")
+
+    @os_expression.setter
+    def os_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_expression", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -279,6 +340,61 @@ class DomainDnsRecordArgs:
 
 
 @pulumi.input_type
+class EmailSenderDnsRecordArgs:
+    def __init__(__self__, *,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 record_type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fqdn: DNS record name.
+        :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
+        :param pulumi.Input[str] value: DNS verification value
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if record_type is not None:
+            pulumi.set(__self__, "record_type", record_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS record name.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Record type can be TXT or CNAME.
+        """
+        return pulumi.get(self, "record_type")
+
+    @record_type.setter
+    def record_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "record_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS verification value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class EventHookHeaderArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
@@ -315,6 +431,171 @@ class EventHookHeaderArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GroupSchemaPropertyArrayOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class GroupSchemaPropertyMasterOverridePriorityArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: - ID of profile source.
+        :param pulumi.Input[str] type: - Type of profile source.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        - ID of profile source.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - Type of profile source.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GroupSchemaPropertyOneOfArgs:
+    def __init__(__self__, *,
+                 const: pulumi.Input[str],
+                 title: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> pulumi.Input[str]:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @const.setter
+    def const(self, value: pulumi.Input[str]):
+        pulumi.set(self, "const", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class PolicyRuleProfileEnrollmentProfileAttributeArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 required: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] label: A display-friendly label for this property
+        :param pulumi.Input[str] name: The name of a User Profile property
+        :param pulumi.Input[bool] required: Indicates if this property is required for enrollment. Default is `false`.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        A display-friendly label for this property
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of a User Profile property
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if this property is required for enrollment. Default is `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required", value)
 
 
 @pulumi.input_type

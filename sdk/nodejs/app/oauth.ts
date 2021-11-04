@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an OIDC Application.
- *
  * This resource allows you to create and configure an OIDC Application.
  *
  * ## Example Usage
@@ -159,7 +157,8 @@ export class OAuth extends pulumi.CustomResource {
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+     * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -170,7 +169,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Groups claim for an OpenID Connect client application.
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
     public readonly groupsClaim!: pulumi.Output<outputs.app.OAuthGroupsClaim | undefined>;
     /**
@@ -245,11 +244,11 @@ export class OAuth extends pulumi.CustomResource {
     /**
      * Grace period for token rotation. Valid values: 0 to 60 seconds.
      */
-    public readonly refreshTokenLeeway!: pulumi.Output<number | undefined>;
+    public readonly refreshTokenLeeway!: pulumi.Output<number>;
     /**
      * Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
      */
-    public readonly refreshTokenRotation!: pulumi.Output<string | undefined>;
+    public readonly refreshTokenRotation!: pulumi.Output<string>;
     /**
      * List of OAuth 2.0 response type strings.
      */
@@ -282,6 +281,22 @@ export class OAuth extends pulumi.CustomResource {
      * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Username template
+     */
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix
+     */
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * Username template type
+     */
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
@@ -353,6 +368,10 @@ export class OAuth extends pulumi.CustomResource {
             inputs["tokenEndpointAuthMethod"] = state ? state.tokenEndpointAuthMethod : undefined;
             inputs["tosUri"] = state ? state.tosUri : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
+            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
             inputs["wildcardRedirect"] = state ? state.wildcardRedirect : undefined;
         } else {
@@ -405,6 +424,10 @@ export class OAuth extends pulumi.CustomResource {
             inputs["tokenEndpointAuthMethod"] = args ? args.tokenEndpointAuthMethod : undefined;
             inputs["tosUri"] = args ? args.tosUri : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
+            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["wildcardRedirect"] = args ? args.wildcardRedirect : undefined;
             inputs["clientSecret"] = undefined /*out*/;
@@ -488,7 +511,8 @@ export interface OAuthState {
     enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+     * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -499,7 +523,7 @@ export interface OAuthState {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups claim for an OpenID Connect client application.
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
     groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim>;
     /**
@@ -612,6 +636,22 @@ export interface OAuthState {
      */
     type?: pulumi.Input<string>;
     /**
+     * Username template
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type
+     */
+    userNameTemplateType?: pulumi.Input<string>;
+    /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
@@ -689,7 +729,8 @@ export interface OAuthArgs {
     enduserNote?: pulumi.Input<string>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`.
+     * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+     * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -700,7 +741,7 @@ export interface OAuthArgs {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups claim for an OpenID Connect client application.
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
     groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim>;
     /**
@@ -800,6 +841,22 @@ export interface OAuthArgs {
      * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Username template
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type
+     */
+    userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
      * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.

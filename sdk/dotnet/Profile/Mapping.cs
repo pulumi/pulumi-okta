@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Profile
 {
     /// <summary>
-    /// Manages a profile mapping.
+    /// This resource allows you to manage a profile mapping by source and target IDs.
     /// 
-    /// This resource allows you to manage a profile mapping by source id.
+    /// &gt; **WARNING:** This feature available only when using api token in the provider config.
     /// 
     /// ## Example Usage
     /// 
@@ -66,6 +66,12 @@ namespace Pulumi.Okta.Profile
     [OktaResourceType("okta:profile/mapping:Mapping")]
     public partial class Mapping : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        /// </summary>
+        [Output("alwaysApply")]
+        public Output<bool?> AlwaysApply { get; private set; } = null!;
+
         /// <summary>
         /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>
@@ -161,6 +167,12 @@ namespace Pulumi.Okta.Profile
     public sealed class MappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        /// </summary>
+        [Input("alwaysApply")]
+        public Input<bool>? AlwaysApply { get; set; }
+
+        /// <summary>
         /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>
         [Input("deleteWhenAbsent")]
@@ -197,6 +209,12 @@ namespace Pulumi.Okta.Profile
 
     public sealed class MappingState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+        /// </summary>
+        [Input("alwaysApply")]
+        public Input<bool>? AlwaysApply { get; set; }
+
         /// <summary>
         /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
         /// </summary>

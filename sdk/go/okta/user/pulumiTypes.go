@@ -335,7 +335,7 @@ type UserPasswordHash struct {
 	Salt *string `pulumi:"salt"`
 	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
 	SaltOrder *string `pulumi:"saltOrder"`
-	// .
+	// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
 	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
 	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
 	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
@@ -362,7 +362,7 @@ type UserPasswordHashArgs struct {
 	Salt pulumi.StringPtrInput `pulumi:"salt"`
 	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
 	SaltOrder pulumi.StringPtrInput `pulumi:"saltOrder"`
-	// .
+	// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
 	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
 	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
 	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
@@ -463,7 +463,7 @@ func (o UserPasswordHashOutput) SaltOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPasswordHash) *string { return v.SaltOrder }).(pulumi.StringPtrOutput)
 }
 
-// .
+// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
 // This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
 // the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
 // the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
@@ -530,7 +530,7 @@ func (o UserPasswordHashPtrOutput) SaltOrder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// .
+// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
 // This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
 // the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
 // the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
