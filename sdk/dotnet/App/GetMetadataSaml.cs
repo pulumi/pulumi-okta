@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.App
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Okta.App
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve the metadata for SAML application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.App.GetMetadataSaml.InvokeAsync(new Okta.App.GetMetadataSamlArgs
+        ///         {
+        ///             AppId = "&lt;app id&gt;",
+        ///             KeyId = "&lt;cert key id&gt;",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMetadataSamlResult> Invoke(GetMetadataSamlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Okta.App
         public string? KeyId { get; set; }
 
         public GetMetadataSamlArgs()
+        {
+        }
+    }
+
+    public sealed class GetMetadataSamlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("appId", required: true)]
+        public Input<string> AppId { get; set; } = null!;
+
+        /// <summary>
+        /// Certificate Key ID.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
+        public GetMetadataSamlInvokeArgs()
         {
         }
     }

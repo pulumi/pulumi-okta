@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Auth
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public static Task<GetServerPolicyResult> InvokeAsync(GetServerPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a authorization server policy from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Auth.GetServerPolicy.InvokeAsync(new Okta.Auth.GetServerPolicyArgs
+        ///         {
+        ///             AuthServerId = "&lt;auth server id&gt;",
+        ///             Name = "staff",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerPolicyResult> Invoke(GetServerPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Okta.Auth
         public string Name { get; set; } = null!;
 
         public GetServerPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the Auth Server.
+        /// </summary>
+        [Input("authServerId", required: true)]
+        public Input<string> AuthServerId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of policy to retrieve.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetServerPolicyInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.App
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.App
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve an application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.App.GetApp.InvokeAsync(new Okta.App.GetAppArgs
+        ///         {
+        ///             Label = "Example App",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithVersion());
     }
 
 
@@ -100,6 +130,68 @@ namespace Pulumi.Okta.App
         }
 
         public GetAppArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// tells the provider to query for only `ACTIVE` applications.
+        /// </summary>
+        [Input("activeOnly")]
+        public Input<bool>? ActiveOnly { get; set; }
+
+        [Input("groups")]
+        private InputList<string>? _groups;
+
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+        /// </summary>
+        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`")]
+        public InputList<string> Groups
+        {
+            get => _groups ?? (_groups = new InputList<string>());
+            set => _groups = value;
+        }
+
+        /// <summary>
+        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
+        /// </summary>
+        [Input("label")]
+        public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
+        /// </summary>
+        [Input("labelPrefix")]
+        public Input<string>? LabelPrefix { get; set; }
+
+        [Input("users")]
+        private InputList<string>? _users;
+
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+        /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`")]
+        public InputList<string> Users
+        {
+            get => _users ?? (_users = new InputList<string>());
+            set => _users = value;
+        }
+
+        public GetAppInvokeArgs()
         {
         }
     }

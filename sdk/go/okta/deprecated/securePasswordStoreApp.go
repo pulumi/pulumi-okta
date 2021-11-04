@@ -622,6 +622,10 @@ func (o SecurePasswordStoreAppMapOutput) MapIndex(k pulumi.StringInput) SecurePa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreAppInput)(nil)).Elem(), &SecurePasswordStoreApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreAppPtrInput)(nil)).Elem(), &SecurePasswordStoreApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreAppArrayInput)(nil)).Elem(), SecurePasswordStoreAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreAppMapInput)(nil)).Elem(), SecurePasswordStoreAppMap{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppPtrOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppArrayOutput{})

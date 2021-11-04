@@ -344,6 +344,10 @@ func (o AdminRoleTargetsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleTarge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsInput)(nil)).Elem(), &AdminRoleTargets{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsPtrInput)(nil)).Elem(), &AdminRoleTargets{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsArrayInput)(nil)).Elem(), AdminRoleTargetsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsMapInput)(nil)).Elem(), AdminRoleTargetsMap{})
 	pulumi.RegisterOutputType(AdminRoleTargetsOutput{})
 	pulumi.RegisterOutputType(AdminRoleTargetsPtrOutput{})
 	pulumi.RegisterOutputType(AdminRoleTargetsArrayOutput{})

@@ -344,6 +344,10 @@ func (o AppOauthApiScopeMapOutput) MapIndex(k pulumi.StringInput) AppOauthApiSco
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeInput)(nil)).Elem(), &AppOauthApiScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopePtrInput)(nil)).Elem(), &AppOauthApiScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeArrayInput)(nil)).Elem(), AppOauthApiScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeMapInput)(nil)).Elem(), AppOauthApiScopeMap{})
 	pulumi.RegisterOutputType(AppOauthApiScopeOutput{})
 	pulumi.RegisterOutputType(AppOauthApiScopePtrOutput{})
 	pulumi.RegisterOutputType(AppOauthApiScopeArrayOutput{})

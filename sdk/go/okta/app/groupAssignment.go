@@ -310,6 +310,10 @@ func (o GroupAssignmentMapOutput) MapIndex(k pulumi.StringInput) GroupAssignment
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAssignmentInput)(nil)).Elem(), &GroupAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAssignmentPtrInput)(nil)).Elem(), &GroupAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAssignmentArrayInput)(nil)).Elem(), GroupAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAssignmentMapInput)(nil)).Elem(), GroupAssignmentMap{})
 	pulumi.RegisterOutputType(GroupAssignmentOutput{})
 	pulumi.RegisterOutputType(GroupAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(GroupAssignmentArrayOutput{})

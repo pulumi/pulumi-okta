@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPoliciesResult> {
@@ -34,4 +33,15 @@ export interface GetDefaultPoliciesResult {
      */
     readonly id: string;
     readonly type: string;
+}
+
+export function getDefaultPoliciesOutput(args: GetDefaultPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPoliciesResult> {
+    return pulumi.output(args).apply(a => getDefaultPolicies(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDefaultPolicies.
+ */
+export interface GetDefaultPoliciesOutputArgs {
+    type: pulumi.Input<string>;
 }

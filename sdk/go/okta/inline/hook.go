@@ -371,6 +371,10 @@ func (o HookMapOutput) MapIndex(k pulumi.StringInput) HookOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HookInput)(nil)).Elem(), &Hook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HookPtrInput)(nil)).Elem(), &Hook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HookArrayInput)(nil)).Elem(), HookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HookMapInput)(nil)).Elem(), HookMap{})
 	pulumi.RegisterOutputType(HookOutput{})
 	pulumi.RegisterOutputType(HookPtrOutput{})
 	pulumi.RegisterOutputType(HookArrayOutput{})

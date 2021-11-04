@@ -12,6 +12,7 @@ __all__ = [
     'GetSamlResult',
     'AwaitableGetSamlResult',
     'get_saml',
+    'get_saml_output',
 ]
 
 @pulumi.output_type
@@ -241,3 +242,26 @@ def get_saml(id: Optional[str] = None,
         subject_filter=__ret__.subject_filter,
         subject_formats=__ret__.subject_formats,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_saml)
+def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                    name: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
+    """
+    Use this data source to retrieve a SAML IdP from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_saml(name="Example App")
+    ```
+
+
+    :param str id: The id of the idp to retrieve, conflicts with `name`.
+    :param str name: The name of the idp to retrieve, conflicts with `id`.
+    """
+    ...

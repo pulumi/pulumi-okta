@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Auth
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public static Task<GetServerScopesResult> InvokeAsync(GetServerScopesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a list of authorization server scopes from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Okta.Auth.GetServerScopes.InvokeAsync(new Okta.Auth.GetServerScopesArgs
+        ///         {
+        ///             AuthServerId = "default",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Okta.Auth
         public string AuthServerId { get; set; } = null!;
 
         public GetServerScopesArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerScopesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Auth server ID.
+        /// </summary>
+        [Input("authServerId", required: true)]
+        public Input<string> AuthServerId { get; set; } = null!;
+
+        public GetServerScopesInvokeArgs()
         {
         }
     }

@@ -14,6 +14,7 @@ __all__ = [
     'GetUsersResult',
     'AwaitableGetUsersResult',
     'get_users',
+    'get_users_output',
 ]
 
 @pulumi.output_type
@@ -101,3 +102,30 @@ def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']
         id=__ret__.id,
         searches=__ret__.searches,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_users)
+def get_users_output(searches: Optional[pulumi.Input[Sequence[pulumi.InputType['GetUsersSearchArgs']]]] = None,
+                     users: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUsersUserArgs']]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+    """
+    Use this data source to retrieve a list of users from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
+        comparison="sw",
+        name="profile.company",
+        value="Articulate",
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
+    :param Sequence[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
+    """
+    ...

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -154,4 +153,22 @@ export interface GetSocialResult {
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      */
     readonly usernameTemplate: string;
+}
+
+export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
+    return pulumi.output(args).apply(a => getSocial(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSocial.
+ */
+export interface GetSocialOutputArgs {
+    /**
+     * The id of the social idp to retrieve, conflicts with `name`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the social idp to retrieve, conflicts with `id`.
+     */
+    name?: pulumi.Input<string>;
 }

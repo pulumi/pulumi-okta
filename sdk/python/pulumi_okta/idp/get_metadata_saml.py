@@ -12,6 +12,7 @@ __all__ = [
     'GetMetadataSamlResult',
     'AwaitableGetMetadataSamlResult',
     'get_metadata_saml',
+    'get_metadata_saml_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,24 @@ def get_metadata_saml(idp_id: Optional[str] = None,
         idp_id=__ret__.idp_id,
         metadata=__ret__.metadata,
         signing_certificate=__ret__.signing_certificate)
+
+
+@_utilities.lift_output_func(get_metadata_saml)
+def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
+    """
+    Use this data source to retrieve SAML IdP metadata from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_metadata_saml(idp_id="<idp id>")
+    ```
+
+
+    :param str idp_id: The id of the IdP to retrieve metadata for.
+    """
+    ...

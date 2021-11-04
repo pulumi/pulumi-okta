@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -66,4 +65,22 @@ export interface GetServerPolicyResult {
      */
     readonly id: string;
     readonly name: string;
+}
+
+export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerPolicyResult> {
+    return pulumi.output(args).apply(a => getServerPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServerPolicy.
+ */
+export interface GetServerPolicyOutputArgs {
+    /**
+     * The ID of the Auth Server.
+     */
+    authServerId: pulumi.Input<string>;
+    /**
+     * Name of policy to retrieve.
+     */
+    name: pulumi.Input<string>;
 }

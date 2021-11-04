@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -82,4 +81,22 @@ export interface GetMetadataSamlResult {
      * Whether authn requests are signed.
      */
     readonly wantAuthnRequestsSigned: boolean;
+}
+
+export function getMetadataSamlOutput(args: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
+    return pulumi.output(args).apply(a => getMetadataSaml(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMetadataSaml.
+ */
+export interface GetMetadataSamlOutputArgs {
+    /**
+     * The application ID.
+     */
+    appId: pulumi.Input<string>;
+    /**
+     * Certificate Key ID.
+     */
+    keyId?: pulumi.Input<string>;
 }

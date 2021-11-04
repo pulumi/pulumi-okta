@@ -366,6 +366,10 @@ func (o MfaPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) MfaPolicyRuleOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleInput)(nil)).Elem(), &MfaPolicyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRulePtrInput)(nil)).Elem(), &MfaPolicyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleArrayInput)(nil)).Elem(), MfaPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MfaPolicyRuleMapInput)(nil)).Elem(), MfaPolicyRuleMap{})
 	pulumi.RegisterOutputType(MfaPolicyRuleOutput{})
 	pulumi.RegisterOutputType(MfaPolicyRulePtrOutput{})
 	pulumi.RegisterOutputType(MfaPolicyRuleArrayOutput{})

@@ -12,6 +12,7 @@ __all__ = [
     'GetOidcResult',
     'AwaitableGetOidcResult',
     'get_oidc',
+    'get_oidc_output',
 ]
 
 @pulumi.output_type
@@ -293,3 +294,26 @@ def get_oidc(id: Optional[str] = None,
         type=__ret__.type,
         user_info_binding=__ret__.user_info_binding,
         user_info_url=__ret__.user_info_url)
+
+
+@_utilities.lift_output_func(get_oidc)
+def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                    name: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOidcResult]:
+    """
+    Use this data source to retrieve a OIDC IdP from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_oidc(name="Example Provider")
+    ```
+
+
+    :param str id: The id of the idp to retrieve, conflicts with `name`.
+    :param str name: The name of the idp to retrieve, conflicts with `id`.
+    """
+    ...

@@ -476,6 +476,10 @@ func (o SignonPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) SignonPolicyRu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleInput)(nil)).Elem(), &SignonPolicyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulePtrInput)(nil)).Elem(), &SignonPolicyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleArrayInput)(nil)).Elem(), SignonPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleMapInput)(nil)).Elem(), SignonPolicyRuleMap{})
 	pulumi.RegisterOutputType(SignonPolicyRuleOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRulePtrOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRuleArrayOutput{})

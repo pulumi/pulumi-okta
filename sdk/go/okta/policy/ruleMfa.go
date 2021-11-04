@@ -372,6 +372,10 @@ func (o RuleMfaMapOutput) MapIndex(k pulumi.StringInput) RuleMfaOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaInput)(nil)).Elem(), &RuleMfa{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaPtrInput)(nil)).Elem(), &RuleMfa{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaArrayInput)(nil)).Elem(), RuleMfaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaMapInput)(nil)).Elem(), RuleMfaMap{})
 	pulumi.RegisterOutputType(RuleMfaOutput{})
 	pulumi.RegisterOutputType(RuleMfaPtrOutput{})
 	pulumi.RegisterOutputType(RuleMfaArrayOutput{})

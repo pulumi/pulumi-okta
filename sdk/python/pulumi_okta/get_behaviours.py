@@ -13,6 +13,7 @@ __all__ = [
     'GetBehavioursResult',
     'AwaitableGetBehavioursResult',
     'get_behaviours',
+    'get_behaviours_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,24 @@ def get_behaviours(q: Optional[str] = None,
         behaviors=__ret__.behaviors,
         id=__ret__.id,
         q=__ret__.q)
+
+
+@_utilities.lift_output_func(get_behaviours)
+def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehavioursResult]:
+    """
+    Use this data source to retrieve a behaviors from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_behaviours(q="New")
+    ```
+
+
+    :param str q: Searches query to look up behaviors.
+    """
+    ...

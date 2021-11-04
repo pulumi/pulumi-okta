@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta
         /// </summary>
         public static Task<GetBehavioursResult> InvokeAsync(GetBehavioursArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a behaviors from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.GetBehaviours.InvokeAsync(new Okta.GetBehavioursArgs
+        ///         {
+        ///             Q = "New",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBehavioursResult> Invoke(GetBehavioursInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Okta
         public string? Q { get; set; }
 
         public GetBehavioursArgs()
+        {
+        }
+    }
+
+    public sealed class GetBehavioursInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Searches query to look up behaviors.
+        /// </summary>
+        [Input("q")]
+        public Input<string>? Q { get; set; }
+
+        public GetBehavioursInvokeArgs()
         {
         }
     }

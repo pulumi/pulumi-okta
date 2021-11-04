@@ -76,3 +76,29 @@ export interface GetGroupsResult {
      */
     readonly type?: string;
 }
+
+export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsResult> {
+    return pulumi.output(args).apply(a => getGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGroups.
+ */
+export interface GetGroupsOutputArgs {
+    /**
+     * Searches the name property of groups for matching value.
+     */
+    q?: pulumi.Input<string>;
+    /**
+     * Searches for groups with a
+     * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+     * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+     * except for `"_embedded"`, `"_links"`, and `"objectClass"`
+     */
+    search?: pulumi.Input<string>;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
+    type?: pulumi.Input<string>;
+}

@@ -12,6 +12,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,31 @@ def get_group(id: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                     include_users: Optional[pulumi.Input[Optional[bool]]] = None,
+                     name: Optional[pulumi.Input[Optional[str]]] = None,
+                     type: Optional[pulumi.Input[Optional[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    Use this data source to retrieve a group from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.group.get_group(name="Example App")
+    ```
+
+
+    :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
+    :param bool include_users: whether to retrieve all member ids.
+    :param str name: name of group to retrieve.
+    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+    """
+    ...

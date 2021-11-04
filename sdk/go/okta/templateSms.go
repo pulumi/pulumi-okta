@@ -335,6 +335,10 @@ func (o TemplateSmsMapOutput) MapIndex(k pulumi.StringInput) TemplateSmsOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsInput)(nil)).Elem(), &TemplateSms{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsPtrInput)(nil)).Elem(), &TemplateSms{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsArrayInput)(nil)).Elem(), TemplateSmsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsMapInput)(nil)).Elem(), TemplateSmsMap{})
 	pulumi.RegisterOutputType(TemplateSmsOutput{})
 	pulumi.RegisterOutputType(TemplateSmsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmsArrayOutput{})

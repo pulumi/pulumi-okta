@@ -335,6 +335,10 @@ func (o OriginMapOutput) MapIndex(k pulumi.StringInput) OriginOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginInput)(nil)).Elem(), &Origin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginPtrInput)(nil)).Elem(), &Origin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginArrayInput)(nil)).Elem(), OriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginMapInput)(nil)).Elem(), OriginMap{})
 	pulumi.RegisterOutputType(OriginOutput{})
 	pulumi.RegisterOutputType(OriginPtrOutput{})
 	pulumi.RegisterOutputType(OriginArrayOutput{})

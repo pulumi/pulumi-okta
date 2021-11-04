@@ -587,6 +587,10 @@ func (o RuleSignonMapOutput) MapIndex(k pulumi.StringInput) RuleSignonOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonInput)(nil)).Elem(), &RuleSignon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonPtrInput)(nil)).Elem(), &RuleSignon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonArrayInput)(nil)).Elem(), RuleSignonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonMapInput)(nil)).Elem(), RuleSignonMap{})
 	pulumi.RegisterOutputType(RuleSignonOutput{})
 	pulumi.RegisterOutputType(RuleSignonPtrOutput{})
 	pulumi.RegisterOutputType(RuleSignonArrayOutput{})

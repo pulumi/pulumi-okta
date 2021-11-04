@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Deprecated
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Okta.Deprecated
     {
         public static Task<GetDefaultPoliciesResult> InvokeAsync(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesArgs(), options.WithVersion());
+
+        public static Output<GetDefaultPoliciesResult> Invoke(GetDefaultPoliciesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.Okta.Deprecated
         public string Type { get; set; } = null!;
 
         public GetDefaultPoliciesArgs()
+        {
+        }
+    }
+
+    public sealed class GetDefaultPoliciesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public GetDefaultPoliciesInvokeArgs()
         {
         }
     }

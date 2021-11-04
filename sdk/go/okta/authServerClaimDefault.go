@@ -366,6 +366,10 @@ func (o AuthServerClaimDefaultMapOutput) MapIndex(k pulumi.StringInput) AuthServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerClaimDefaultInput)(nil)).Elem(), &AuthServerClaimDefault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerClaimDefaultPtrInput)(nil)).Elem(), &AuthServerClaimDefault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerClaimDefaultArrayInput)(nil)).Elem(), AuthServerClaimDefaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerClaimDefaultMapInput)(nil)).Elem(), AuthServerClaimDefaultMap{})
 	pulumi.RegisterOutputType(AuthServerClaimDefaultOutput{})
 	pulumi.RegisterOutputType(AuthServerClaimDefaultPtrOutput{})
 	pulumi.RegisterOutputType(AuthServerClaimDefaultArrayOutput{})

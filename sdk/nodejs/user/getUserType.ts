@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -72,4 +71,26 @@ export interface GetUserTypeResult {
      * name of user type.
      */
     readonly name: string;
+}
+
+export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
+    return pulumi.output(args).apply(a => getUserType(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUserType.
+ */
+export interface GetUserTypeOutputArgs {
+    /**
+     * description of user type.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * display name of user type.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * name of user type to retrieve.
+     */
+    name: pulumi.Input<string>;
 }

@@ -539,6 +539,10 @@ func (o BasicAuthMapOutput) MapIndex(k pulumi.StringInput) BasicAuthOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthInput)(nil)).Elem(), &BasicAuth{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthPtrInput)(nil)).Elem(), &BasicAuth{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthArrayInput)(nil)).Elem(), BasicAuthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthMapInput)(nil)).Elem(), BasicAuthMap{})
 	pulumi.RegisterOutputType(BasicAuthOutput{})
 	pulumi.RegisterOutputType(BasicAuthPtrOutput{})
 	pulumi.RegisterOutputType(BasicAuthArrayOutput{})

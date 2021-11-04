@@ -590,6 +590,10 @@ func (o PasswordMapOutput) MapIndex(k pulumi.StringInput) PasswordOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordInput)(nil)).Elem(), &Password{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPtrInput)(nil)).Elem(), &Password{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordArrayInput)(nil)).Elem(), PasswordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordMapInput)(nil)).Elem(), PasswordMap{})
 	pulumi.RegisterOutputType(PasswordOutput{})
 	pulumi.RegisterOutputType(PasswordPtrOutput{})
 	pulumi.RegisterOutputType(PasswordArrayOutput{})

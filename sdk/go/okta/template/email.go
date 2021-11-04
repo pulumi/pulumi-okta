@@ -336,6 +336,10 @@ func (o EmailMapOutput) MapIndex(k pulumi.StringInput) EmailOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailInput)(nil)).Elem(), &Email{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailPtrInput)(nil)).Elem(), &Email{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailArrayInput)(nil)).Elem(), EmailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailMapInput)(nil)).Elem(), EmailMap{})
 	pulumi.RegisterOutputType(EmailOutput{})
 	pulumi.RegisterOutputType(EmailPtrOutput{})
 	pulumi.RegisterOutputType(EmailArrayOutput{})

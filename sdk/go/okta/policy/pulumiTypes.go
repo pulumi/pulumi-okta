@@ -685,6 +685,18 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) Index(i pulumi.Int
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppExcludeInput)(nil)).Elem(), RuleIdpDiscoveryAppExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppExcludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryAppExcludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppIncludeInput)(nil)).Elem(), RuleIdpDiscoveryAppIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppIncludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryAppIncludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPlatformIncludeInput)(nil)).Elem(), RuleIdpDiscoveryPlatformIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPlatformIncludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryPlatformIncludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPatternInput)(nil)).Elem(), RuleIdpDiscoveryUserIdentifierPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPatternArrayInput)(nil)).Elem(), RuleIdpDiscoveryUserIdentifierPatternArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceInput)(nil)).Elem(), RuleSignonFactorSequenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceArrayInput)(nil)).Elem(), RuleSignonFactorSequenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteriaInput)(nil)).Elem(), RuleSignonFactorSequenceSecondaryCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteriaArrayInput)(nil)).Elem(), RuleSignonFactorSequenceSecondaryCriteriaArray{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppIncludeOutput{})

@@ -421,6 +421,10 @@ func (o BehaviourMapOutput) MapIndex(k pulumi.StringInput) BehaviourOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourInput)(nil)).Elem(), &Behaviour{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourPtrInput)(nil)).Elem(), &Behaviour{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourArrayInput)(nil)).Elem(), BehaviourArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourMapInput)(nil)).Elem(), BehaviourMap{})
 	pulumi.RegisterOutputType(BehaviourOutput{})
 	pulumi.RegisterOutputType(BehaviourPtrOutput{})
 	pulumi.RegisterOutputType(BehaviourArrayOutput{})

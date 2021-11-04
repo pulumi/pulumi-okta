@@ -328,6 +328,10 @@ func (o UserAdminRolesMapOutput) MapIndex(k pulumi.StringInput) UserAdminRolesOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesInput)(nil)).Elem(), &UserAdminRoles{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesPtrInput)(nil)).Elem(), &UserAdminRoles{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesArrayInput)(nil)).Elem(), UserAdminRolesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesMapInput)(nil)).Elem(), UserAdminRolesMap{})
 	pulumi.RegisterOutputType(UserAdminRolesOutput{})
 	pulumi.RegisterOutputType(UserAdminRolesPtrOutput{})
 	pulumi.RegisterOutputType(UserAdminRolesArrayOutput{})

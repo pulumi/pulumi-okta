@@ -561,6 +561,10 @@ func (o PasswordPolicyMapOutput) MapIndex(k pulumi.StringInput) PasswordPolicyOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyInput)(nil)).Elem(), &PasswordPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyPtrInput)(nil)).Elem(), &PasswordPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyArrayInput)(nil)).Elem(), PasswordPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyMapInput)(nil)).Elem(), PasswordPolicyMap{})
 	pulumi.RegisterOutputType(PasswordPolicyOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyArrayOutput{})

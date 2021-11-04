@@ -782,6 +782,10 @@ func (o OauthAppMapOutput) MapIndex(k pulumi.StringInput) OauthAppOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppInput)(nil)).Elem(), &OauthApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppPtrInput)(nil)).Elem(), &OauthApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppArrayInput)(nil)).Elem(), OauthAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppMapInput)(nil)).Elem(), OauthAppMap{})
 	pulumi.RegisterOutputType(OauthAppOutput{})
 	pulumi.RegisterOutputType(OauthAppPtrOutput{})
 	pulumi.RegisterOutputType(OauthAppArrayOutput{})

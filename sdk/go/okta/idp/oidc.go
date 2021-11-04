@@ -671,6 +671,10 @@ func (o OidcMapOutput) MapIndex(k pulumi.StringInput) OidcOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcInput)(nil)).Elem(), &Oidc{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcPtrInput)(nil)).Elem(), &Oidc{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcArrayInput)(nil)).Elem(), OidcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OidcMapInput)(nil)).Elem(), OidcMap{})
 	pulumi.RegisterOutputType(OidcOutput{})
 	pulumi.RegisterOutputType(OidcPtrOutput{})
 	pulumi.RegisterOutputType(OidcArrayOutput{})

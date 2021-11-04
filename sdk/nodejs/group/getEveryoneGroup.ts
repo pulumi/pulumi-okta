@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -55,4 +54,18 @@ export interface GetEveryoneGroupResult {
      */
     readonly id: string;
     readonly includeUsers?: boolean;
+}
+
+export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEveryoneGroupResult> {
+    return pulumi.output(args).apply(a => getEveryoneGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEveryoneGroup.
+ */
+export interface GetEveryoneGroupOutputArgs {
+    /**
+     * whether to retrieve all member ids.
+     */
+    includeUsers?: pulumi.Input<boolean>;
 }

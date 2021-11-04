@@ -65,3 +65,21 @@ export interface GetUsersResult {
      */
     readonly users?: outputs.user.GetUsersUser[];
 }
+
+export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+    return pulumi.output(args).apply(a => getUsers(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUsers.
+ */
+export interface GetUsersOutputArgs {
+    /**
+     * Map of search criteria to find users. It supports the following properties.
+     */
+    searches: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
+    /**
+     * collection of users retrieved from Okta with the following properties.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.user.GetUsersUserArgs>[]>;
+}

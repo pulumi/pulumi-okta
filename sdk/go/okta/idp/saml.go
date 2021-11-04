@@ -625,6 +625,10 @@ func (o SamlMapOutput) MapIndex(k pulumi.StringInput) SamlOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlInput)(nil)).Elem(), &Saml{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlPtrInput)(nil)).Elem(), &Saml{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlArrayInput)(nil)).Elem(), SamlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlMapInput)(nil)).Elem(), SamlMap{})
 	pulumi.RegisterOutputType(SamlOutput{})
 	pulumi.RegisterOutputType(SamlPtrOutput{})
 	pulumi.RegisterOutputType(SamlArrayOutput{})

@@ -12,6 +12,7 @@ __all__ = [
     'GetPolicyResult',
     'AwaitableGetPolicyResult',
     'get_policy',
+    'get_policy_output',
 ]
 
 @pulumi.output_type
@@ -99,3 +100,27 @@ def get_policy(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy)
+def get_policy_output(name: Optional[pulumi.Input[str]] = None,
+                      type: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+    """
+    Use this data source to retrieve a policy from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.policy.get_policy(name="Password Policy Example",
+        type="PASSWORD")
+    ```
+
+
+    :param str name: Name of policy to retrieve.
+    :param str type: Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+    """
+    ...

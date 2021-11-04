@@ -12,6 +12,7 @@ __all__ = [
     'GetAppUserAssignmentsResult',
     'AwaitableGetAppUserAssignmentsResult',
     'get_app_user_assignments',
+    'get_app_user_assignments_output',
 ]
 
 @pulumi.output_type
@@ -82,3 +83,24 @@ def get_app_user_assignments(id: Optional[str] = None,
     return AwaitableGetAppUserAssignmentsResult(
         id=__ret__.id,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_app_user_assignments)
+def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
+    """
+    Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
+    ```
+
+
+    :param str id: The ID of the Okta application you want to retrieve the groups for.
+    """
+    ...

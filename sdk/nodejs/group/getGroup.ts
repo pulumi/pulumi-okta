@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -84,4 +83,31 @@ export interface GetGroupResult {
      * user ids that are members of this group, only included if `includeUsers` is set to `true`.
      */
     readonly users: string[];
+}
+
+export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+    return pulumi.output(args).apply(a => getGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGroup.
+ */
+export interface GetGroupOutputArgs {
+    /**
+     * ID of the group. Conflicts with `"name"` and `"type"`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * whether to retrieve all member ids.
+     */
+    includeUsers?: pulumi.Input<boolean>;
+    /**
+     * name of group to retrieve.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
+    type?: pulumi.Input<string>;
 }

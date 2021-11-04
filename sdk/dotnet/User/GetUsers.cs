@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.User
 {
@@ -47,6 +48,43 @@ namespace Pulumi.Okta.User
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a list of users from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.User.GetUsers.InvokeAsync(new Okta.User.GetUsersArgs
+        ///         {
+        ///             Searches = 
+        ///             {
+        ///                 new Okta.User.Inputs.GetUsersSearchArgs
+        ///                 {
+        ///                     Comparison = "sw",
+        ///                     Name = "profile.company",
+        ///                     Value = "Articulate",
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -77,6 +115,37 @@ namespace Pulumi.Okta.User
         }
 
         public GetUsersArgs()
+        {
+        }
+    }
+
+    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("searches", required: true)]
+        private InputList<Inputs.GetUsersSearchInputArgs>? _searches;
+
+        /// <summary>
+        /// Map of search criteria to find users. It supports the following properties.
+        /// </summary>
+        public InputList<Inputs.GetUsersSearchInputArgs> Searches
+        {
+            get => _searches ?? (_searches = new InputList<Inputs.GetUsersSearchInputArgs>());
+            set => _searches = value;
+        }
+
+        [Input("users")]
+        private InputList<Inputs.GetUsersUserInputArgs>? _users;
+
+        /// <summary>
+        /// collection of users retrieved from Okta with the following properties.
+        /// </summary>
+        public InputList<Inputs.GetUsersUserInputArgs> Users
+        {
+            get => _users ?? (_users = new InputList<Inputs.GetUsersUserInputArgs>());
+            set => _users = value;
+        }
+
+        public GetUsersInvokeArgs()
         {
         }
     }

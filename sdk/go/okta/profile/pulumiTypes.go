@@ -126,6 +126,8 @@ func (o MappingMappingArrayOutput) Index(i pulumi.IntInput) MappingMappingOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MappingMappingInput)(nil)).Elem(), MappingMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MappingMappingArrayInput)(nil)).Elem(), MappingMappingArray{})
 	pulumi.RegisterOutputType(MappingMappingOutput{})
 	pulumi.RegisterOutputType(MappingMappingArrayOutput{})
 }
