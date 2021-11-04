@@ -33,6 +33,9 @@ namespace Pulumi.Okta.App
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// Priority of group assignment.
+        /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
@@ -106,6 +109,9 @@ namespace Pulumi.Okta.App
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Priority of group assignment.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
@@ -140,6 +146,9 @@ namespace Pulumi.Okta.App
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
+        /// <summary>
+        /// Priority of group assignment.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 

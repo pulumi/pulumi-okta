@@ -74,6 +74,8 @@ type ThreeFieldApp struct {
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -196,6 +198,8 @@ type threeFieldAppState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -269,6 +273,8 @@ type ThreeFieldAppState struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
@@ -340,6 +346,8 @@ type threeFieldAppArgs struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -408,6 +416,8 @@ type ThreeFieldAppArgs struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type

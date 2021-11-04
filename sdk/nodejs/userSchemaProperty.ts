@@ -130,7 +130,7 @@ export class UserSchemaProperty extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
     /**
-     * Whether the property is required for this application's users.
+     * Whether the property is required for these users.
      */
     public readonly required!: pulumi.Output<boolean | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface UserSchemaPropertyState {
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Whether the property is required for this application's users.
+     * Whether the property is required for these users.
      */
     required?: pulumi.Input<boolean>;
     /**
@@ -383,7 +383,7 @@ export interface UserSchemaPropertyArgs {
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Whether the property is required for this application's users.
+     * Whether the property is required for these users.
      */
     required?: pulumi.Input<boolean>;
     /**

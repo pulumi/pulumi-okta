@@ -13,7 +13,7 @@ import (
 
 // Resource to manage a set of memberships for a specific group.
 //
-// This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and many different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
+// This resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `group.Membership` resource several times with a single group and different users. If you need a relationship of a single user to many groups, please use the `UserGroupMemberships` resource.
 //
 // When using this with a `user.User` resource, you should add a lifecycle ignore for group memberships to avoid conflicts in desired state.
 //
@@ -53,7 +53,7 @@ import (
 type GroupMemberships struct {
 	pulumi.CustomResourceState
 
-	// ID of a Okta group.
+	// Okta group ID.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayOutput `pulumi:"users"`
@@ -94,14 +94,14 @@ func GetGroupMemberships(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMemberships resources.
 type groupMembershipsState struct {
-	// ID of a Okta group.
+	// Okta group ID.
 	GroupId *string `pulumi:"groupId"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users []string `pulumi:"users"`
 }
 
 type GroupMembershipsState struct {
-	// ID of a Okta group.
+	// Okta group ID.
 	GroupId pulumi.StringPtrInput
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayInput
@@ -112,7 +112,7 @@ func (GroupMembershipsState) ElementType() reflect.Type {
 }
 
 type groupMembershipsArgs struct {
-	// ID of a Okta group.
+	// Okta group ID.
 	GroupId string `pulumi:"groupId"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users []string `pulumi:"users"`
@@ -120,7 +120,7 @@ type groupMembershipsArgs struct {
 
 // The set of arguments for constructing a GroupMemberships resource.
 type GroupMembershipsArgs struct {
-	// ID of a Okta group.
+	// Okta group ID.
 	GroupId pulumi.StringInput
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayInput

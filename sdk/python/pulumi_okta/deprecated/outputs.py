@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AuthLoginAppUser',
     'BookmarkAppUser',
+    'MfaPolicyRuleAppExclude',
+    'MfaPolicyRuleAppInclude',
     'OauthAppGroupsClaim',
     'OauthAppJwk',
     'OauthAppUser',
@@ -96,6 +98,62 @@ class BookmarkAppUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class MfaPolicyRuleAppExclude(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MfaPolicyRuleAppInclude(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

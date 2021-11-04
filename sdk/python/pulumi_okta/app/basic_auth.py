@@ -694,8 +694,6 @@ class BasicAuth(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates a Basic Auth Application.
-
         This resource allows you to create and configure a Basic Auth Application.
 
         ## Example Usage
@@ -762,8 +760,6 @@ class BasicAuth(pulumi.CustomResource):
                  args: BasicAuthArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Basic Auth Application.
-
         This resource allows you to create and configure a Basic Auth Application.
 
         ## Example Usage

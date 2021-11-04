@@ -141,6 +141,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    /**
      * Saml Inline Hook setting
      */
     public readonly inlineHookId!: pulumi.Output<string | undefined>;
@@ -253,6 +257,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
@@ -307,6 +315,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["httpPostBinding"] = state ? state.httpPostBinding : undefined;
             inputs["httpRedirectBinding"] = state ? state.httpRedirectBinding : undefined;
             inputs["idpIssuer"] = state ? state.idpIssuer : undefined;
+            inputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
             inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
@@ -335,6 +344,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["subjectNameIdFormat"] = state ? state.subjectNameIdFormat : undefined;
             inputs["subjectNameIdTemplate"] = state ? state.subjectNameIdTemplate : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -365,6 +375,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["hideWeb"] = args ? args.hideWeb : undefined;
             inputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
             inputs["idpIssuer"] = args ? args.idpIssuer : undefined;
+            inputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
             inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
@@ -387,6 +398,7 @@ export class SamlApp extends pulumi.CustomResource {
             inputs["subjectNameIdFormat"] = args ? args.subjectNameIdFormat : undefined;
             inputs["subjectNameIdTemplate"] = args ? args.subjectNameIdTemplate : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["users"] = args ? args.users : undefined;
@@ -521,6 +533,10 @@ export interface SamlAppState {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Saml Inline Hook setting
      */
     inlineHookId?: pulumi.Input<string>;
@@ -633,6 +649,10 @@ export interface SamlAppState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
@@ -740,6 +760,10 @@ export interface SamlAppArgs {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
+     * *Early Access Property*. Enable Federation Broker Mode.
+     */
+    implicitAssignment?: pulumi.Input<boolean>;
+    /**
      * Saml Inline Hook setting
      */
     inlineHookId?: pulumi.Input<string>;
@@ -827,6 +851,10 @@ export interface SamlAppArgs {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */

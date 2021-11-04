@@ -32,7 +32,7 @@ type SocialIdp struct {
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
 	MatchType    pulumi.StringPtrOutput `pulumi:"matchType"`
 	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
 	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
@@ -109,7 +109,7 @@ type socialIdpState struct {
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
 	MatchType    *string `pulumi:"matchType"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
@@ -152,7 +152,7 @@ type SocialIdpState struct {
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
 	MatchType    pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type socialIdpArgs struct {
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
 	MatchType    *string `pulumi:"matchType"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
@@ -237,7 +237,7 @@ type SocialIdpArgs struct {
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
 	MatchType    pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput

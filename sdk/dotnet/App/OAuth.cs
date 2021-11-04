@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates an OIDC Application.
-    /// 
     /// This resource allows you to create and configure an OIDC Application.
     /// 
     /// ## Example Usage
@@ -201,7 +199,8 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -214,7 +213,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         /// </summary>
         [Output("groupsClaim")]
         public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
@@ -328,13 +327,13 @@ namespace Pulumi.Okta.App
         /// Grace period for token rotation. Valid values: 0 to 60 seconds.
         /// </summary>
         [Output("refreshTokenLeeway")]
-        public Output<int?> RefreshTokenLeeway { get; private set; } = null!;
+        public Output<int> RefreshTokenLeeway { get; private set; } = null!;
 
         /// <summary>
         /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
         /// </summary>
         [Output("refreshTokenRotation")]
-        public Output<string?> RefreshTokenRotation { get; private set; } = null!;
+        public Output<string> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
         /// List of OAuth 2.0 response type strings.
@@ -383,6 +382,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Output("userNameTemplate")]
+        public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Output("userNameTemplateSuffix")]
+        public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Output("userNameTemplateType")]
+        public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
@@ -533,7 +556,8 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -556,7 +580,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
@@ -737,6 +761,30 @@ namespace Pulumi.Okta.App
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
+
         [Input("users")]
         private InputList<Inputs.OAuthUserArgs>? _users;
 
@@ -860,7 +908,8 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`.
+        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -883,7 +932,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }
@@ -1081,6 +1130,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Username template
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
 
         [Input("users")]
         private InputList<Inputs.OAuthUserGetArgs>? _users;

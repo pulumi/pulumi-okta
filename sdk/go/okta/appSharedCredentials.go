@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a SWA shared credentials app.
-//
 // This resource allows you to create and configure SWA shared credentials app.
 //
 // ## Example Usage
@@ -115,6 +113,8 @@ type AppSharedCredentials struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
+	// Preconfigured app name
+	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// Redirect URL.
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
@@ -135,9 +135,11 @@ type AppSharedCredentials struct {
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
@@ -215,6 +217,8 @@ type appSharedCredentialsState struct {
 	Name *string `pulumi:"name"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField *string `pulumi:"passwordField"`
+	// Preconfigured app name
+	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Redirect URL.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
@@ -235,9 +239,11 @@ type appSharedCredentialsState struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
@@ -284,6 +290,8 @@ type AppSharedCredentialsState struct {
 	Name pulumi.StringPtrInput
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrInput
+	// Preconfigured app name
+	PreconfiguredApp pulumi.StringPtrInput
 	// Redirect URL.
 	RedirectUrl pulumi.StringPtrInput
 	// Shared password, required for certain schemes.
@@ -304,9 +312,11 @@ type AppSharedCredentialsState struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
@@ -353,6 +363,8 @@ type appSharedCredentialsArgs struct {
 	Logo *string `pulumi:"logo"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField *string `pulumi:"passwordField"`
+	// Preconfigured app name
+	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Redirect URL.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
@@ -371,9 +383,11 @@ type appSharedCredentialsArgs struct {
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
@@ -417,6 +431,8 @@ type AppSharedCredentialsArgs struct {
 	Logo pulumi.StringPtrInput
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrInput
+	// Preconfigured app name
+	PreconfiguredApp pulumi.StringPtrInput
 	// Redirect URL.
 	RedirectUrl pulumi.StringPtrInput
 	// Shared password, required for certain schemes.
@@ -435,9 +451,11 @@ type AppSharedCredentialsArgs struct {
 	UrlRegex pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput

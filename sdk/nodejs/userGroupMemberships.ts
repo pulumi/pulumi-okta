@@ -37,7 +37,7 @@ export class UserGroupMemberships extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
-     * ID of a Okta User.
+     * Okta user ID.
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -83,7 +83,7 @@ export interface UserGroupMembershipsState {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User.
+     * Okta user ID.
      */
     userId?: pulumi.Input<string>;
 }
@@ -97,7 +97,7 @@ export interface UserGroupMembershipsArgs {
      */
     groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User.
+     * Okta user ID.
      */
     userId: pulumi.Input<string>;
 }

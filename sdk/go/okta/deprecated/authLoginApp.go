@@ -70,6 +70,8 @@ type AuthLoginApp struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Username template
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -168,6 +170,8 @@ type authLoginAppState struct {
 	Status *string `pulumi:"status"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -235,6 +239,8 @@ type AuthLoginAppState struct {
 	Status pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
@@ -300,6 +306,8 @@ type authLoginAppArgs struct {
 	Status *string `pulumi:"status"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -362,6 +370,8 @@ type AuthLoginAppArgs struct {
 	Status pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type

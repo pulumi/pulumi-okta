@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates different types of behavior.
-//
 // This resource allows you to create and configure a behavior.
 //
 // ## Example Usage

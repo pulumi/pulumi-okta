@@ -26,8 +26,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppGroupAssignments{}
 	case "okta:index/appOauthApiScope:AppOauthApiScope":
 		r = &AppOauthApiScope{}
+	case "okta:index/appSamlAppSettings:AppSamlAppSettings":
+		r = &AppSamlAppSettings{}
 	case "okta:index/appSharedCredentials:AppSharedCredentials":
 		r = &AppSharedCredentials{}
+	case "okta:index/appSignonPolicyRule:AppSignonPolicyRule":
+		r = &AppSignonPolicyRule{}
 	case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
 		r = &AppUserBaseSchemaProperty{}
 	case "okta:index/appUserSchemaProperty:AppUserSchemaProperty":
@@ -36,22 +40,50 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthServerClaimDefault{}
 	case "okta:index/authServerDefault:AuthServerDefault":
 		r = &AuthServerDefault{}
+	case "okta:index/authenticator:Authenticator":
+		r = &Authenticator{}
 	case "okta:index/behaviour:Behaviour":
 		r = &Behaviour{}
 	case "okta:index/domain:Domain":
 		r = &Domain{}
+	case "okta:index/domainCertificate:DomainCertificate":
+		r = &DomainCertificate{}
+	case "okta:index/domainVerification:DomainVerification":
+		r = &DomainVerification{}
+	case "okta:index/emailSender:EmailSender":
+		r = &EmailSender{}
+	case "okta:index/emailSenderVerification:EmailSenderVerification":
+		r = &EmailSenderVerification{}
 	case "okta:index/eventHook:EventHook":
 		r = &EventHook{}
+	case "okta:index/eventHookVerification:EventHookVerification":
+		r = &EventHookVerification{}
 	case "okta:index/factorTotp:FactorTotp":
 		r = &FactorTotp{}
 	case "okta:index/groupMemberships:GroupMemberships":
 		r = &GroupMemberships{}
+	case "okta:index/groupSchemaProperty:GroupSchemaProperty":
+		r = &GroupSchemaProperty{}
+	case "okta:index/orgConfiguration:OrgConfiguration":
+		r = &OrgConfiguration{}
+	case "okta:index/orgSupport:OrgSupport":
+		r = &OrgSupport{}
 	case "okta:index/policyMfaDefault:PolicyMfaDefault":
 		r = &PolicyMfaDefault{}
 	case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
 		r = &PolicyPasswordDefault{}
+	case "okta:index/policyProfileEnrollment:PolicyProfileEnrollment":
+		r = &PolicyProfileEnrollment{}
+	case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
+		r = &PolicyRuleProfileEnrollment{}
+	case "okta:index/roleSubscription:RoleSubscription":
+		r = &RoleSubscription{}
+	case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
+		r = &SecurityNotificationEmails{}
 	case "okta:index/templateSms:TemplateSms":
 		r = &TemplateSms{}
+	case "okta:index/threatInsightSettings:ThreatInsightSettings":
+		r = &ThreatInsightSettings{}
 	case "okta:index/userAdminRoles:UserAdminRoles":
 		r = &UserAdminRoles{}
 	case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
@@ -110,7 +142,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/appSamlAppSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/appSharedCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/appSignonPolicyRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -135,6 +177,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/authenticator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/behaviour",
 		&module{version},
 	)
@@ -145,7 +192,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/domainCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/domainVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailSender",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailSenderVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/eventHook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/eventHookVerification",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -160,6 +232,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/groupSchemaProperty",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/orgConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/orgSupport",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/policyMfaDefault",
 		&module{version},
 	)
@@ -170,7 +257,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/policyProfileEnrollment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/policyRuleProfileEnrollment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/roleSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/securityNotificationEmails",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/templateSms",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/threatInsightSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

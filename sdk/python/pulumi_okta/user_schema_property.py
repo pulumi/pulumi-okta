@@ -55,7 +55,7 @@ class UserSchemaPropertyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
+        :param pulumi.Input[bool] required: Whether the property is required for these users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
@@ -308,7 +308,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the property is required for these users.
         """
         return pulumi.get(self, "required")
 
@@ -394,7 +394,7 @@ class _UserSchemaPropertyState:
         :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
+        :param pulumi.Input[bool] required: Whether the property is required for these users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: - Type of profile source.
@@ -628,7 +628,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the property is required for these users.
         """
         return pulumi.get(self, "required")
 
@@ -776,7 +776,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
+        :param pulumi.Input[bool] required: Whether the property is required for these users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: - Type of profile source.
@@ -952,7 +952,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
+        :param pulumi.Input[bool] required: Whether the property is required for these users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: - Type of profile source.
@@ -1110,7 +1110,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the property is required for these users.
         """
         return pulumi.get(self, "required")
 

@@ -33,6 +33,8 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
         "users": args.users,
     }, opts);
 }
@@ -67,6 +69,14 @@ export interface GetOauthArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: string;
+    /**
+     * Indicator that allows the app to skip `groups` sync. Default is `false`.
+     */
+    skipGroups?: boolean;
+    /**
+     * Indicator that allows the app to skip `users` sync. Default is `false`.
+     */
+    skipUsers?: boolean;
     /**
      * List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
@@ -161,6 +171,8 @@ export interface GetOauthResult {
      * List of OAuth 2.0 response type strings.
      */
     readonly responseTypes: string[];
+    readonly skipGroups?: boolean;
+    readonly skipUsers?: boolean;
     /**
      * Status of application.
      */
@@ -213,6 +225,14 @@ export interface GetOauthOutputArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync. Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync. Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.

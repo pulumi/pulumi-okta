@@ -11,16 +11,24 @@ from . import _utilities
 __all__ = [
     'AppGroupAssignmentsGroup',
     'AppSharedCredentialsUser',
+    'AppSignonPolicyRulePlatformInclude',
     'AppUserSchemaPropertyArrayOneOf',
     'AppUserSchemaPropertyOneOf',
     'DomainDnsRecord',
+    'EmailSenderDnsRecord',
     'EventHookHeader',
+    'GroupSchemaPropertyArrayOneOf',
+    'GroupSchemaPropertyMasterOverridePriority',
+    'GroupSchemaPropertyOneOf',
+    'PolicyRuleProfileEnrollmentProfileAttribute',
     'TemplateSmsTranslation',
     'UserSchemaPropertyArrayOneOf',
     'UserSchemaPropertyMasterOverridePriority',
     'UserSchemaPropertyOneOf',
+    'GetAuthServerClaimsClaimResult',
     'GetBehavioursBehaviorResult',
     'GetGroupsGroupResult',
+    'GetTrustedOriginsTrustedOriginResult',
     'GetUserSecurityQuestionsQuestionResult',
 ]
 
@@ -106,6 +114,68 @@ class AppSharedCredentialsUser(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class AppSignonPolicyRulePlatformInclude(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osExpression":
+            suggest = "os_expression"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppSignonPolicyRulePlatformInclude. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppSignonPolicyRulePlatformInclude.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppSignonPolicyRulePlatformInclude.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_expression: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str os_expression: Only available when using `os_type = "OTHER"`
+        :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        :param str type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        """
+        if os_expression is not None:
+            pulumi.set(__self__, "os_expression", os_expression)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="osExpression")
+    def os_expression(self) -> Optional[str]:
+        """
+        Only available when using `os_type = "OTHER"`
+        """
+        return pulumi.get(self, "os_expression")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -239,6 +309,66 @@ class DomainDnsRecord(dict):
 
 
 @pulumi.output_type
+class EmailSenderDnsRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordType":
+            suggest = "record_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailSenderDnsRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailSenderDnsRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailSenderDnsRecord.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: Optional[str] = None,
+                 record_type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str fqdn: DNS record name.
+        :param str record_type: Record type can be TXT or CNAME.
+        :param str value: DNS verification value
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if record_type is not None:
+            pulumi.set(__self__, "record_type", record_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        DNS record name.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> Optional[str]:
+        """
+        Record type can be TXT or CNAME.
+        """
+        return pulumi.get(self, "record_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        DNS verification value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventHookHeader(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -267,6 +397,135 @@ class EventHookHeader(dict):
         Authentication secret.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GroupSchemaPropertyArrayOneOf(dict):
+    def __init__(__self__, *,
+                 const: str,
+                 title: str):
+        """
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> str:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class GroupSchemaPropertyMasterOverridePriority(dict):
+    def __init__(__self__, *,
+                 value: str,
+                 type: Optional[str] = None):
+        """
+        :param str value: - ID of profile source.
+        :param str type: - Type of profile source.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        - ID of profile source.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        - Type of profile source.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GroupSchemaPropertyOneOf(dict):
+    def __init__(__self__, *,
+                 const: str,
+                 title: str):
+        """
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
+        """
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def const(self) -> str:
+        """
+        value mapping to member of `enum`.
+        """
+        return pulumi.get(self, "const")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        display name for the enum value.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class PolicyRuleProfileEnrollmentProfileAttribute(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 name: str,
+                 required: Optional[bool] = None):
+        """
+        :param str label: A display-friendly label for this property
+        :param str name: The name of a User Profile property
+        :param bool required: Indicates if this property is required for enrollment. Default is `false`.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        A display-friendly label for this property
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of a User Profile property
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Indicates if this property is required for enrollment. Default is `false`.
+        """
+        return pulumi.get(self, "required")
 
 
 @pulumi.output_type
@@ -387,6 +646,101 @@ class UserSchemaPropertyOneOf(dict):
 
 
 @pulumi.output_type
+class GetAuthServerClaimsClaimResult(dict):
+    def __init__(__self__, *,
+                 always_include_in_token: bool,
+                 claim_type: str,
+                 id: str,
+                 name: str,
+                 scopes: Sequence[str],
+                 status: str,
+                 value: str,
+                 value_type: str):
+        """
+        :param bool always_include_in_token: Specifies whether to include Claims in the token.
+        :param str claim_type: Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        :param str id: ID of the claim.
+        :param str name: Name of the claim.
+        :param Sequence[str] scopes: Specifies the scopes for this Claim.
+        :param str status: Status of the claim.
+        :param str value: Value of the claim
+        :param str value_type: Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        """
+        pulumi.set(__self__, "always_include_in_token", always_include_in_token)
+        pulumi.set(__self__, "claim_type", claim_type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter(name="alwaysIncludeInToken")
+    def always_include_in_token(self) -> bool:
+        """
+        Specifies whether to include Claims in the token.
+        """
+        return pulumi.get(self, "always_include_in_token")
+
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> str:
+        """
+        Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        """
+        return pulumi.get(self, "claim_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the claim.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the claim.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        Specifies the scopes for this Claim.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the claim.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the claim
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> str:
+        """
+        Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        """
+        return pulumi.get(self, "value_type")
+
+
+@pulumi.output_type
 class GetBehavioursBehaviorResult(dict):
     def __init__(__self__, *,
                  id: str,
@@ -499,6 +853,68 @@ class GetGroupsGroupResult(dict):
         (Imported App Groups), or `BUILT_IN` (Okta System Groups).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTrustedOriginsTrustedOriginResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 id: str,
+                 name: str,
+                 origin: str,
+                 scopes: Sequence[str]):
+        """
+        :param bool active: Whether the Trusted Origin is active or not - can only be issued post-creation
+        :param str id: The ID of the Trusted Origin.
+        :param str name: Unique name for this trusted origin.
+        :param str origin: Unique origin URL for this trusted origin.
+        :param Sequence[str] scopes: Scopes of the Trusted Origin
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Whether the Trusted Origin is active or not - can only be issued post-creation
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Trusted Origin.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique name for this trusted origin.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        """
+        Unique origin URL for this trusted origin.
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        Scopes of the Trusted Origin
+        """
+        return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type

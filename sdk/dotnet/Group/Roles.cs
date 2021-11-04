@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Group
 {
     /// <summary>
-    /// Creates Group level Admin Role Assignments.
+    /// &gt; **DEPRECATED:** This resource is deprecated and will be removed in favor of using `okta.group.Role`, please migrate as soon as possible
     /// 
     /// This resource allows you to create and configure Group level Admin Role Assignments.
     /// 

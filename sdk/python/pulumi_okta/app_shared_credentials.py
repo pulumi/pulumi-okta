@@ -30,6 +30,7 @@ class AppSharedCredentialsArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class AppSharedCredentialsArgs:
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
@@ -60,6 +62,7 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
@@ -69,8 +72,9 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: Users associated with the application
         """
@@ -106,6 +110,8 @@ class AppSharedCredentialsArgs:
             pulumi.set(__self__, "logo", logo)
         if password_field is not None:
             pulumi.set(__self__, "password_field", password_field)
+        if preconfigured_app is not None:
+            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if shared_password is not None:
@@ -124,6 +130,8 @@ class AppSharedCredentialsArgs:
             pulumi.set(__self__, "url_regex", url_regex)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -317,6 +325,18 @@ class AppSharedCredentialsArgs:
         pulumi.set(self, "password_field", value)
 
     @property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
+        """
+        Preconfigured app name
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @preconfigured_app.setter
+    def preconfigured_app(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preconfigured_app", value)
+
+    @property
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -425,6 +445,18 @@ class AppSharedCredentialsArgs:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -440,7 +472,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -493,6 +525,7 @@ class _AppSharedCredentialsState:
                  logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
@@ -503,6 +536,7 @@ class _AppSharedCredentialsState:
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
@@ -526,6 +560,7 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
@@ -536,8 +571,9 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: Users associated with the application
         """
@@ -578,6 +614,8 @@ class _AppSharedCredentialsState:
             pulumi.set(__self__, "name", name)
         if password_field is not None:
             pulumi.set(__self__, "password_field", password_field)
+        if preconfigured_app is not None:
+            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if shared_password is not None:
@@ -598,6 +636,8 @@ class _AppSharedCredentialsState:
             pulumi.set(__self__, "url_regex", url_regex)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -815,6 +855,18 @@ class _AppSharedCredentialsState:
         pulumi.set(self, "password_field", value)
 
     @property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
+        """
+        Preconfigured app name
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @preconfigured_app.setter
+    def preconfigured_app(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preconfigured_app", value)
+
+    @property
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -935,6 +987,18 @@ class _AppSharedCredentialsState:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -950,7 +1014,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1003,6 +1067,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
@@ -1012,14 +1077,13 @@ class AppSharedCredentials(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates a SWA shared credentials app.
-
         This resource allows you to create and configure SWA shared credentials app.
 
         ## Example Usage
@@ -1088,6 +1152,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
@@ -1097,8 +1162,9 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: Users associated with the application
         """
@@ -1109,8 +1175,6 @@ class AppSharedCredentials(pulumi.CustomResource):
                  args: AppSharedCredentialsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a SWA shared credentials app.
-
         This resource allows you to create and configure SWA shared credentials app.
 
         ## Example Usage
@@ -1192,6 +1256,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
+                 preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
@@ -1201,6 +1266,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
@@ -1237,6 +1303,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             __props__.__dict__["label"] = label
             __props__.__dict__["logo"] = logo
             __props__.__dict__["password_field"] = password_field
+            __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["shared_password"] = shared_password
             __props__.__dict__["shared_username"] = shared_username
@@ -1246,6 +1313,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["url_regex"] = url_regex
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             __props__.__dict__["username_field"] = username_field
@@ -1283,6 +1351,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password_field: Optional[pulumi.Input[str]] = None,
+            preconfigured_app: Optional[pulumi.Input[str]] = None,
             redirect_url: Optional[pulumi.Input[str]] = None,
             shared_password: Optional[pulumi.Input[str]] = None,
             shared_username: Optional[pulumi.Input[str]] = None,
@@ -1293,6 +1362,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
@@ -1321,6 +1391,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
         :param pulumi.Input[str] redirect_url: Redirect URL.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
@@ -1331,8 +1402,9 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: Users associated with the application
         """
@@ -1357,6 +1429,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["password_field"] = password_field
+        __props__.__dict__["preconfigured_app"] = preconfigured_app
         __props__.__dict__["redirect_url"] = redirect_url
         __props__.__dict__["shared_password"] = shared_password
         __props__.__dict__["shared_username"] = shared_username
@@ -1367,6 +1440,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         __props__.__dict__["url_regex"] = url_regex
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["username_field"] = username_field
@@ -1510,6 +1584,14 @@ class AppSharedCredentials(pulumi.CustomResource):
         return pulumi.get(self, "password_field")
 
     @property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
+        """
+        Preconfigured app name
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @property
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1590,6 +1672,14 @@ class AppSharedCredentials(pulumi.CustomResource):
         return pulumi.get(self, "user_name_template")
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1601,7 +1691,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

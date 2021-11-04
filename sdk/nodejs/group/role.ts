@@ -59,6 +59,11 @@ export class Role extends pulumi.CustomResource {
     }
 
     /**
+     * When this setting is enabled, the admins won't receive any of the default Okta
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    public readonly disableNotifications!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of group to attach admin roles to.
      */
     public readonly groupId!: pulumi.Output<string>;
@@ -94,6 +99,7 @@ export class Role extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
+            inputs["disableNotifications"] = state ? state.disableNotifications : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["roleType"] = state ? state.roleType : undefined;
             inputs["targetAppLists"] = state ? state.targetAppLists : undefined;
@@ -106,6 +112,7 @@ export class Role extends pulumi.CustomResource {
             if ((!args || args.roleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
+            inputs["disableNotifications"] = args ? args.disableNotifications : undefined;
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
             inputs["targetAppLists"] = args ? args.targetAppLists : undefined;
@@ -122,6 +129,11 @@ export class Role extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Role resources.
  */
 export interface RoleState {
+    /**
+     * When this setting is enabled, the admins won't receive any of the default Okta
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    disableNotifications?: pulumi.Input<boolean>;
     /**
      * The ID of group to attach admin roles to.
      */
@@ -150,6 +162,11 @@ export interface RoleState {
  * The set of arguments for constructing a Role resource.
  */
 export interface RoleArgs {
+    /**
+     * When this setting is enabled, the admins won't receive any of the default Okta
+     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     */
+    disableNotifications?: pulumi.Input<boolean>;
     /**
      * The ID of group to attach admin roles to.
      */

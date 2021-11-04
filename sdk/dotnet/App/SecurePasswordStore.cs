@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates a Secure Password Store Application.
-    /// 
     /// This resource allows you to create and configure a Secure Password Store Application.
     /// 
     /// ## Example Usage
@@ -29,7 +27,7 @@ namespace Pulumi.Okta.App
     ///             CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
     ///             Label = "example",
     ///             PasswordField = "pass",
-    ///             Url = "http://test.com",
+    ///             Url = "https://test.com",
     ///             UsernameField = "user",
     ///         });
     ///     }
@@ -244,19 +242,25 @@ namespace Pulumi.Okta.App
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -491,19 +495,25 @@ namespace Pulumi.Okta.App
         public Input<string> Url { get; set; } = null!;
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -724,19 +734,25 @@ namespace Pulumi.Okta.App
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

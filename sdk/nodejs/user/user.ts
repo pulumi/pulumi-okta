@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     postalAddress: "1234 Testing St.",
  *     preferredLanguage: "en-us",
  *     primaryPhone: "4445556666",
- *     profileUrl: "http://www.example.com/profile",
+ *     profileUrl: "https://www.example.com/profile",
  *     secondEmail: "john.smith.fun@example.com",
  *     state: "NY",
  *     streetAddress: "5678 Testing Ave.",
@@ -181,6 +181,12 @@ export class User extends pulumi.CustomResource {
      */
     public readonly nickName!: pulumi.Output<string | undefined>;
     /**
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
+     */
+    public readonly oldPassword!: pulumi.Output<string | undefined>;
+    /**
      * User profile property.
      */
     public readonly organization!: pulumi.Output<string | undefined>;
@@ -288,6 +294,7 @@ export class User extends pulumi.CustomResource {
             inputs["middleName"] = state ? state.middleName : undefined;
             inputs["mobilePhone"] = state ? state.mobilePhone : undefined;
             inputs["nickName"] = state ? state.nickName : undefined;
+            inputs["oldPassword"] = state ? state.oldPassword : undefined;
             inputs["organization"] = state ? state.organization : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["passwordHash"] = state ? state.passwordHash : undefined;
@@ -342,6 +349,7 @@ export class User extends pulumi.CustomResource {
             inputs["middleName"] = args ? args.middleName : undefined;
             inputs["mobilePhone"] = args ? args.mobilePhone : undefined;
             inputs["nickName"] = args ? args.nickName : undefined;
+            inputs["oldPassword"] = args ? args.oldPassword : undefined;
             inputs["organization"] = args ? args.organization : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["passwordHash"] = args ? args.passwordHash : undefined;
@@ -465,6 +473,12 @@ export interface UserState {
      * User profile property.
      */
     nickName?: pulumi.Input<string>;
+    /**
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
+     */
+    oldPassword?: pulumi.Input<string>;
     /**
      * User profile property.
      */
@@ -636,6 +650,12 @@ export interface UserArgs {
      * User profile property.
      */
     nickName?: pulumi.Input<string>;
+    /**
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
+     */
+    oldPassword?: pulumi.Input<string>;
     /**
      * User profile property.
      */

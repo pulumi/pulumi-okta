@@ -22,6 +22,7 @@ class GroupAssignmentArgs:
         The set of arguments for constructing a GroupAssignment resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[int] priority: Priority of group assignment.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
@@ -61,6 +62,9 @@ class GroupAssignmentArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of group assignment.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -104,6 +108,7 @@ class _GroupAssignmentState:
         Input properties used for looking up and filtering GroupAssignment resources.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[int] priority: Priority of group assignment.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
@@ -145,6 +150,9 @@ class _GroupAssignmentState:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority of group assignment.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -200,6 +208,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[int] priority: Priority of group assignment.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
@@ -283,6 +292,7 @@ class GroupAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[str] group_id: The ID of the group to assign the app to.
+        :param pulumi.Input[int] priority: Priority of group assignment.
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
@@ -316,6 +326,9 @@ class GroupAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
+        """
+        Priority of group assignment.
+        """
         return pulumi.get(self, "priority")
 
     @property

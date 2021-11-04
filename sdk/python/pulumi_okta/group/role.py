@@ -15,6 +15,7 @@ class RoleArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[str],
                  role_type: pulumi.Input[str],
+                 disable_notifications: Optional[pulumi.Input[bool]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -23,6 +24,8 @@ class RoleArgs:
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
                , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
+               administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -32,6 +35,8 @@ class RoleArgs:
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "role_type", role_type)
+        if disable_notifications is not None:
+            pulumi.set(__self__, "disable_notifications", disable_notifications)
         if target_app_lists is not None:
             pulumi.set(__self__, "target_app_lists", target_app_lists)
         if target_group_lists is not None:
@@ -62,6 +67,19 @@ class RoleArgs:
     @role_type.setter
     def role_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_type", value)
+
+    @property
+    @pulumi.getter(name="disableNotifications")
+    def disable_notifications(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this setting is enabled, the admins won't receive any of the default Okta
+        administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        """
+        return pulumi.get(self, "disable_notifications")
+
+    @disable_notifications.setter
+    def disable_notifications(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_notifications", value)
 
     @property
     @pulumi.getter(name="targetAppLists")
@@ -95,12 +113,15 @@ class RoleArgs:
 @pulumi.input_type
 class _RoleState:
     def __init__(__self__, *,
+                 disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Role resources.
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
+               administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
@@ -112,6 +133,8 @@ class _RoleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
+        if disable_notifications is not None:
+            pulumi.set(__self__, "disable_notifications", disable_notifications)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
         if role_type is not None:
@@ -120,6 +143,19 @@ class _RoleState:
             pulumi.set(__self__, "target_app_lists", target_app_lists)
         if target_group_lists is not None:
             pulumi.set(__self__, "target_group_lists", target_group_lists)
+
+    @property
+    @pulumi.getter(name="disableNotifications")
+    def disable_notifications(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this setting is enabled, the admins won't receive any of the default Okta
+        administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        """
+        return pulumi.get(self, "disable_notifications")
+
+    @disable_notifications.setter
+    def disable_notifications(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_notifications", value)
 
     @property
     @pulumi.getter(name="groupId")
@@ -181,6 +217,7 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -213,6 +250,8 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
+               administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
@@ -270,6 +309,7 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -286,6 +326,7 @@ class Role(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleArgs.__new__(RoleArgs)
 
+            __props__.__dict__["disable_notifications"] = disable_notifications
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
@@ -304,6 +345,7 @@ class Role(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            disable_notifications: Optional[pulumi.Input[bool]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
             role_type: Optional[pulumi.Input[str]] = None,
             target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -315,6 +357,8 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
+               administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
                , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
@@ -330,11 +374,21 @@ class Role(pulumi.CustomResource):
 
         __props__ = _RoleState.__new__(_RoleState)
 
+        __props__.__dict__["disable_notifications"] = disable_notifications
         __props__.__dict__["group_id"] = group_id
         __props__.__dict__["role_type"] = role_type
         __props__.__dict__["target_app_lists"] = target_app_lists
         __props__.__dict__["target_group_lists"] = target_group_lists
         return Role(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="disableNotifications")
+    def disable_notifications(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this setting is enabled, the admins won't receive any of the default Okta
+        administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        """
+        return pulumi.get(self, "disable_notifications")
 
     @property
     @pulumi.getter(name="groupId")

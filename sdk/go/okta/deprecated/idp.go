@@ -31,7 +31,7 @@ type Idp struct {
 	JwksBinding  pulumi.StringOutput    `pulumi:"jwksBinding"`
 	JwksUrl      pulumi.StringOutput    `pulumi:"jwksUrl"`
 	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
 	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
@@ -133,7 +133,7 @@ type idpState struct {
 	JwksBinding  *string `pulumi:"jwksBinding"`
 	JwksUrl      *string `pulumi:"jwksUrl"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
@@ -177,7 +177,7 @@ type IdpState struct {
 	JwksBinding  pulumi.StringPtrInput
 	JwksUrl      pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type idpArgs struct {
 	JwksBinding  string  `pulumi:"jwksBinding"`
 	JwksUrl      string  `pulumi:"jwksUrl"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
-	// name of idp
+	// Name of the IdP
 	Name               *string `pulumi:"name"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
@@ -269,7 +269,7 @@ type IdpArgs struct {
 	JwksBinding  pulumi.StringInput
 	JwksUrl      pulumi.StringInput
 	MaxClockSkew pulumi.IntPtrInput
-	// name of idp
+	// Name of the IdP
 	Name               pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput

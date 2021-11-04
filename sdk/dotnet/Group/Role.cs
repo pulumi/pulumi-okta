@@ -47,6 +47,13 @@ namespace Pulumi.Okta.Group
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>
+        /// When this setting is enabled, the admins won't receive any of the default Okta
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Output("disableNotifications")]
+        public Output<bool?> DisableNotifications { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of group to attach admin roles to.
         /// </summary>
         [Output("groupId")]
@@ -123,6 +130,13 @@ namespace Pulumi.Okta.Group
     public sealed class RoleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When this setting is enabled, the admins won't receive any of the default Okta
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Input("disableNotifications")]
+        public Input<bool>? DisableNotifications { get; set; }
+
+        /// <summary>
         /// The ID of group to attach admin roles to.
         /// </summary>
         [Input("groupId", required: true)]
@@ -171,6 +185,13 @@ namespace Pulumi.Okta.Group
 
     public sealed class RoleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When this setting is enabled, the admins won't receive any of the default Okta
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Input("disableNotifications")]
+        public Input<bool>? DisableNotifications { get; set; }
+
         /// <summary>
         /// The ID of group to attach admin roles to.
         /// </summary>

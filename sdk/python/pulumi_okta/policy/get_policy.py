@@ -20,13 +20,16 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, id=None, name=None, type=None):
+    def __init__(__self__, id=None, name=None, status=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -49,6 +52,11 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         type of policy.
@@ -64,6 +72,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         return GetPolicyResult(
             id=self.id,
             name=self.name,
+            status=self.status,
             type=self.type)
 
 
@@ -85,7 +94,8 @@ def get_policy(name: Optional[str] = None,
 
 
     :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+    :param str type: Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -99,6 +109,7 @@ def get_policy(name: Optional[str] = None,
     return AwaitableGetPolicyResult(
         id=__ret__.id,
         name=__ret__.name,
+        status=__ret__.status,
         type=__ret__.type)
 
 
@@ -121,6 +132,7 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+    :param str type: Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
+           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
     """
     ...

@@ -24,7 +24,6 @@ namespace Pulumi.Okta
     ///     {
     ///         var example = new Okta.Domain("example", new Okta.DomainArgs
     ///         {
-    ///             Verify = true,
     ///         });
     ///     }
     /// 
@@ -61,7 +60,8 @@ namespace Pulumi.Okta
         public Output<string> ValidationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the domain should be verified.
+        /// Indicates whether the domain should be verified. 
+        /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Output("verify")]
         public Output<bool?> Verify { get; private set; } = null!;
@@ -119,7 +119,8 @@ namespace Pulumi.Okta
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates whether the domain should be verified.
+        /// Indicates whether the domain should be verified. 
+        /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Input("verify")]
         public Input<bool>? Verify { get; set; }
@@ -156,7 +157,8 @@ namespace Pulumi.Okta
         public Input<string>? ValidationStatus { get; set; }
 
         /// <summary>
-        /// Indicates whether the domain should be verified.
+        /// Indicates whether the domain should be verified. 
+        /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Input("verify")]
         public Input<bool>? Verify { get; set; }

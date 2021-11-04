@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a authorization server policy from Okta.
+// Use this data source to retrieve an authorization server policy from Okta.
 //
 // ## Example Usage
 //

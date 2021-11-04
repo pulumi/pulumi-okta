@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Auth
     public static class GetServerPolicy
     {
         /// <summary>
-        /// Use this data source to retrieve a authorization server policy from Okta.
+        /// Use this data source to retrieve an authorization server policy from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -43,7 +43,7 @@ namespace Pulumi.Okta.Auth
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithVersion());
 
         /// <summary>
-        /// Use this data source to retrieve a authorization server policy from Okta.
+        /// Use this data source to retrieve an authorization server policy from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

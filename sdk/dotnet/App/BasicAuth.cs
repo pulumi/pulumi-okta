@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates a Basic Auth Application.
-    /// 
     /// This resource allows you to create and configure a Basic Auth Application.
     /// 
     /// ## Example Usage

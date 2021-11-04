@@ -78,6 +78,8 @@ type SecurePasswordStoreApp struct {
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Username template
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -195,6 +197,8 @@ type securePasswordStoreAppState struct {
 	Url *string `pulumi:"url"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -272,6 +276,8 @@ type SecurePasswordStoreAppState struct {
 	Url pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
@@ -347,6 +353,8 @@ type securePasswordStoreAppArgs struct {
 	Url string `pulumi:"url"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -419,6 +427,8 @@ type SecurePasswordStoreAppArgs struct {
 	Url pulumi.StringInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type

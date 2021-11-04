@@ -7,12 +7,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MfaPolicyRuleArgs', 'MfaPolicyRule']
 
 @pulumi.input_type
 class MfaPolicyRuleArgs:
     def __init__(__self__, *,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -25,6 +29,8 @@ class MfaPolicyRuleArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MfaPolicyRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]] app_includes: Applications to include
         :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -37,6 +43,10 @@ class MfaPolicyRuleArgs:
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
+        if app_excludes is not None:
+            pulumi.set(__self__, "app_excludes", app_excludes)
+        if app_includes is not None:
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
             pulumi.set(__self__, "enroll", enroll)
         if name is not None:
@@ -60,6 +70,30 @@ class MfaPolicyRuleArgs:
             pulumi.set(__self__, "status", status)
         if users_excludeds is not None:
             pulumi.set(__self__, "users_excludeds", users_excludeds)
+
+    @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @app_excludes.setter
+    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]]):
+        pulumi.set(self, "app_excludes", value)
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]]:
+        """
+        Applications to include
+        """
+        return pulumi.get(self, "app_includes")
+
+    @app_includes.setter
+    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]]):
+        pulumi.set(self, "app_includes", value)
 
     @property
     @pulumi.getter
@@ -186,6 +220,8 @@ class MfaPolicyRuleArgs:
 @pulumi.input_type
 class _MfaPolicyRuleState:
     def __init__(__self__, *,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -198,6 +234,8 @@ class _MfaPolicyRuleState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering MfaPolicyRule resources.
+        :param pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]] app_includes: Applications to include
         :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -210,6 +248,10 @@ class _MfaPolicyRuleState:
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
+        if app_excludes is not None:
+            pulumi.set(__self__, "app_excludes", app_excludes)
+        if app_includes is not None:
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
             pulumi.set(__self__, "enroll", enroll)
         if name is not None:
@@ -233,6 +275,30 @@ class _MfaPolicyRuleState:
             pulumi.set(__self__, "status", status)
         if users_excludeds is not None:
             pulumi.set(__self__, "users_excludeds", users_excludeds)
+
+    @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @app_excludes.setter
+    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppExcludeArgs']]]]):
+        pulumi.set(self, "app_excludes", value)
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]]:
+        """
+        Applications to include
+        """
+        return pulumi.get(self, "app_includes")
+
+    @app_includes.setter
+    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MfaPolicyRuleAppIncludeArgs']]]]):
+        pulumi.set(self, "app_includes", value)
 
     @property
     @pulumi.getter
@@ -361,6 +427,8 @@ class MfaPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppExcludeArgs']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppIncludeArgs']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -376,6 +444,8 @@ class MfaPolicyRule(pulumi.CustomResource):
         Create a MfaPolicyRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppIncludeArgs']]]] app_includes: Applications to include
         :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -411,6 +481,8 @@ class MfaPolicyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppExcludeArgs']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppIncludeArgs']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -433,6 +505,8 @@ class MfaPolicyRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MfaPolicyRuleArgs.__new__(MfaPolicyRuleArgs)
 
+            __props__.__dict__["app_excludes"] = app_excludes
+            __props__.__dict__["app_includes"] = app_includes
             __props__.__dict__["enroll"] = enroll
             __props__.__dict__["name"] = name
             __props__.__dict__["network_connection"] = network_connection
@@ -456,6 +530,8 @@ class MfaPolicyRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppExcludeArgs']]]]] = None,
+            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppIncludeArgs']]]]] = None,
             enroll: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_connection: Optional[pulumi.Input[str]] = None,
@@ -473,6 +549,8 @@ class MfaPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MfaPolicyRuleAppIncludeArgs']]]] app_includes: Applications to include
         :param pulumi.Input[str] enroll: Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
         :param pulumi.Input[str] name: Policy Rule Name
         :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -489,6 +567,8 @@ class MfaPolicyRule(pulumi.CustomResource):
 
         __props__ = _MfaPolicyRuleState.__new__(_MfaPolicyRuleState)
 
+        __props__.__dict__["app_excludes"] = app_excludes
+        __props__.__dict__["app_includes"] = app_includes
         __props__.__dict__["enroll"] = enroll
         __props__.__dict__["name"] = name
         __props__.__dict__["network_connection"] = network_connection
@@ -500,6 +580,22 @@ class MfaPolicyRule(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["users_excludeds"] = users_excludeds
         return MfaPolicyRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appExcludes")
+    def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.MfaPolicyRuleAppExclude']]]:
+        """
+        Applications to exclude
+        """
+        return pulumi.get(self, "app_excludes")
+
+    @property
+    @pulumi.getter(name="appIncludes")
+    def app_includes(self) -> pulumi.Output[Optional[Sequence['outputs.MfaPolicyRuleAppInclude']]]:
+        """
+        Applications to include
+        """
+        return pulumi.get(self, "app_includes")
 
     @property
     @pulumi.getter

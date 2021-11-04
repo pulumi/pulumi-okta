@@ -42,6 +42,7 @@ class ThreeFieldAppArgs:
                  status: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]]] = None):
@@ -74,6 +75,7 @@ class ThreeFieldAppArgs:
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldAppUserArgs']]] users: Users associated with the application
@@ -128,6 +130,8 @@ class ThreeFieldAppArgs:
             pulumi.set(__self__, "url_regex", url_regex)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -463,6 +467,18 @@ class ThreeFieldAppArgs:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -531,6 +547,7 @@ class _ThreeFieldAppState:
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
@@ -566,6 +583,7 @@ class _ThreeFieldAppState:
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_selector: Login username field CSS selector
@@ -632,6 +650,8 @@ class _ThreeFieldAppState:
             pulumi.set(__self__, "url_regex", url_regex)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -993,6 +1013,18 @@ class _ThreeFieldAppState:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1072,6 +1104,7 @@ class ThreeFieldApp(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
@@ -1107,6 +1140,7 @@ class ThreeFieldApp(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_selector: Login username field CSS selector
@@ -1161,6 +1195,7 @@ class ThreeFieldApp(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
@@ -1218,6 +1253,7 @@ class ThreeFieldApp(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["url_regex"] = url_regex
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             if username_selector is None and not opts.urn:
@@ -1269,6 +1305,7 @@ class ThreeFieldApp(pulumi.CustomResource):
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_selector: Optional[pulumi.Input[str]] = None,
@@ -1309,6 +1346,7 @@ class ThreeFieldApp(pulumi.CustomResource):
         :param pulumi.Input[str] url: Login URL
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
         :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[str] username_selector: Login username field CSS selector
@@ -1347,6 +1385,7 @@ class ThreeFieldApp(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         __props__.__dict__["url_regex"] = url_regex
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["username_selector"] = username_selector
@@ -1584,6 +1623,14 @@ class ThreeFieldApp(pulumi.CustomResource):
         Username template
         """
         return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")

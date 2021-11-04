@@ -24,7 +24,8 @@ type GroupAssignment struct {
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// The ID of the group to assign the app to.
-	GroupId  pulumi.StringOutput `pulumi:"groupId"`
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// Priority of group assignment.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
@@ -70,8 +71,9 @@ type groupAssignmentState struct {
 	// The ID of the application to assign a group to.
 	AppId *string `pulumi:"appId"`
 	// The ID of the group to assign the app to.
-	GroupId  *string `pulumi:"groupId"`
-	Priority *int    `pulumi:"priority"`
+	GroupId *string `pulumi:"groupId"`
+	// Priority of group assignment.
+	Priority *int `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile *string `pulumi:"profile"`
 	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
@@ -82,7 +84,8 @@ type GroupAssignmentState struct {
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringPtrInput
 	// The ID of the group to assign the app to.
-	GroupId  pulumi.StringPtrInput
+	GroupId pulumi.StringPtrInput
+	// Priority of group assignment.
 	Priority pulumi.IntPtrInput
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrInput
@@ -98,8 +101,9 @@ type groupAssignmentArgs struct {
 	// The ID of the application to assign a group to.
 	AppId string `pulumi:"appId"`
 	// The ID of the group to assign the app to.
-	GroupId  string `pulumi:"groupId"`
-	Priority *int   `pulumi:"priority"`
+	GroupId string `pulumi:"groupId"`
+	// Priority of group assignment.
+	Priority *int `pulumi:"priority"`
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile *string `pulumi:"profile"`
 	// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
@@ -111,7 +115,8 @@ type GroupAssignmentArgs struct {
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringInput
 	// The ID of the group to assign the app to.
-	GroupId  pulumi.StringInput
+	GroupId pulumi.StringInput
+	// Priority of group assignment.
 	Priority pulumi.IntPtrInput
 	// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
 	Profile pulumi.StringPtrInput

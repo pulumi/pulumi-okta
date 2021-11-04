@@ -37,6 +37,7 @@ class UserArgs:
                  middle_name: Optional[pulumi.Input[str]] = None,
                  mobile_phone: Optional[pulumi.Input[str]] = None,
                  nick_name: Optional[pulumi.Input[str]] = None,
+                 old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
@@ -79,6 +80,9 @@ class UserArgs:
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+               outside the provider. After successful password change this field should be removed and `password` field should be used
+               for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
@@ -143,6 +147,8 @@ class UserArgs:
             pulumi.set(__self__, "mobile_phone", mobile_phone)
         if nick_name is not None:
             pulumi.set(__self__, "nick_name", nick_name)
+        if old_password is not None:
+            pulumi.set(__self__, "old_password", old_password)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
@@ -444,6 +450,20 @@ class UserArgs:
         pulumi.set(self, "nick_name", value)
 
     @property
+    @pulumi.getter(name="oldPassword")
+    def old_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        outside the provider. After successful password change this field should be removed and `password` field should be used
+        for further changes.
+        """
+        return pulumi.get(self, "old_password")
+
+    @old_password.setter
+    def old_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "old_password", value)
+
+    @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
@@ -673,6 +693,7 @@ class _UserState:
                  middle_name: Optional[pulumi.Input[str]] = None,
                  mobile_phone: Optional[pulumi.Input[str]] = None,
                  nick_name: Optional[pulumi.Input[str]] = None,
+                 old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
@@ -716,6 +737,9 @@ class _UserState:
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+               outside the provider. After successful password change this field should be removed and `password` field should be used
+               for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
@@ -785,6 +809,8 @@ class _UserState:
             pulumi.set(__self__, "mobile_phone", mobile_phone)
         if nick_name is not None:
             pulumi.set(__self__, "nick_name", nick_name)
+        if old_password is not None:
+            pulumi.set(__self__, "old_password", old_password)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
@@ -1088,6 +1114,20 @@ class _UserState:
         pulumi.set(self, "nick_name", value)
 
     @property
+    @pulumi.getter(name="oldPassword")
+    def old_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        outside the provider. After successful password change this field should be removed and `password` field should be used
+        for further changes.
+        """
+        return pulumi.get(self, "old_password")
+
+    @old_password.setter
+    def old_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "old_password", value)
+
+    @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1331,6 +1371,7 @@ class User(pulumi.CustomResource):
                  middle_name: Optional[pulumi.Input[str]] = None,
                  mobile_phone: Optional[pulumi.Input[str]] = None,
                  nick_name: Optional[pulumi.Input[str]] = None,
+                 old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
@@ -1384,7 +1425,7 @@ class User(pulumi.CustomResource):
             postal_address="1234 Testing St.",
             preferred_language="en-us",
             primary_phone="4445556666",
-            profile_url="http://www.example.com/profile",
+            profile_url="https://www.example.com/profile",
             second_email="john.smith.fun@example.com",
             state="NY",
             street_address="5678 Testing Ave.",
@@ -1427,6 +1468,9 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+               outside the provider. After successful password change this field should be removed and `password` field should be used
+               for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
@@ -1486,7 +1530,7 @@ class User(pulumi.CustomResource):
             postal_address="1234 Testing St.",
             preferred_language="en-us",
             primary_phone="4445556666",
-            profile_url="http://www.example.com/profile",
+            profile_url="https://www.example.com/profile",
             second_email="john.smith.fun@example.com",
             state="NY",
             street_address="5678 Testing Ave.",
@@ -1541,6 +1585,7 @@ class User(pulumi.CustomResource):
                  middle_name: Optional[pulumi.Input[str]] = None,
                  mobile_phone: Optional[pulumi.Input[str]] = None,
                  nick_name: Optional[pulumi.Input[str]] = None,
+                 old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
@@ -1606,6 +1651,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["middle_name"] = middle_name
             __props__.__dict__["mobile_phone"] = mobile_phone
             __props__.__dict__["nick_name"] = nick_name
+            __props__.__dict__["old_password"] = old_password
             __props__.__dict__["organization"] = organization
             __props__.__dict__["password"] = password
             __props__.__dict__["password_hash"] = password_hash
@@ -1656,6 +1702,7 @@ class User(pulumi.CustomResource):
             middle_name: Optional[pulumi.Input[str]] = None,
             mobile_phone: Optional[pulumi.Input[str]] = None,
             nick_name: Optional[pulumi.Input[str]] = None,
+            old_password: Optional[pulumi.Input[str]] = None,
             organization: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
@@ -1704,6 +1751,9 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+               outside the provider. After successful password change this field should be removed and `password` field should be used
+               for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
@@ -1749,6 +1799,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["middle_name"] = middle_name
         __props__.__dict__["mobile_phone"] = mobile_phone
         __props__.__dict__["nick_name"] = nick_name
+        __props__.__dict__["old_password"] = old_password
         __props__.__dict__["organization"] = organization
         __props__.__dict__["password"] = password
         __props__.__dict__["password_hash"] = password_hash
@@ -1945,6 +1996,16 @@ class User(pulumi.CustomResource):
         User profile property.
         """
         return pulumi.get(self, "nick_name")
+
+    @property
+    @pulumi.getter(name="oldPassword")
+    def old_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        outside the provider. After successful password change this field should be removed and `password` field should be used
+        for further changes.
+        """
+        return pulumi.get(self, "old_password")
 
     @property
     @pulumi.getter

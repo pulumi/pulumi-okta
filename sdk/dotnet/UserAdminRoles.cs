@@ -65,7 +65,14 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
 
         /// <summary>
-        /// ID of a Okta User.
+        /// When this setting is enabled, the admins won't receive any of the default Okta 
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Output("disableNotifications")]
+        public Output<bool?> DisableNotifications { get; private set; } = null!;
+
+        /// <summary>
+        /// Okta user ID.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -129,7 +136,14 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of a Okta User.
+        /// When this setting is enabled, the admins won't receive any of the default Okta 
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Input("disableNotifications")]
+        public Input<bool>? DisableNotifications { get; set; }
+
+        /// <summary>
+        /// Okta user ID.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -154,7 +168,14 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of a Okta User.
+        /// When this setting is enabled, the admins won't receive any of the default Okta 
+        /// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+        /// </summary>
+        [Input("disableNotifications")]
+        public Input<bool>? DisableNotifications { get; set; }
+
+        /// <summary>
+        /// Okta user ID.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

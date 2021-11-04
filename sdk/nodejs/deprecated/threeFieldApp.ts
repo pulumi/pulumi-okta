@@ -152,6 +152,10 @@ export class ThreeFieldApp extends pulumi.CustomResource {
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
+     * Push username on update
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
      * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
@@ -212,6 +216,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameSelector"] = state ? state.usernameSelector : undefined;
@@ -265,6 +270,7 @@ export class ThreeFieldApp extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameSelector"] = args ? args.usernameSelector : undefined;
@@ -403,6 +409,10 @@ export interface ThreeFieldAppState {
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
      * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
@@ -532,6 +542,10 @@ export interface ThreeFieldAppArgs {
      * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
      * Username template suffix
      */

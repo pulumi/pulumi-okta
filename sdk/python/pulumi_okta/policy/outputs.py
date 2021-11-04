@@ -14,6 +14,8 @@ __all__ = [
     'RuleIdpDiscoveryAppInclude',
     'RuleIdpDiscoveryPlatformInclude',
     'RuleIdpDiscoveryUserIdentifierPattern',
+    'RuleMfaAppExclude',
+    'RuleMfaAppInclude',
     'RuleSignonFactorSequence',
     'RuleSignonFactorSequenceSecondaryCriteria',
 ]
@@ -210,6 +212,90 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
         The regex or simple match string to match against.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleMfaAppExclude(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str type: One of: `"APP"`, `"APP_TYPE"`
+        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
+        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        One of: `"APP"`, `"APP_TYPE"`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Use if `type` is `"APP"` to indicate the application id to include.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RuleMfaAppInclude(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str type: One of: `"APP"`, `"APP_TYPE"`
+        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
+        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        One of: `"APP"`, `"APP_TYPE"`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Use if `type` is `"APP"` to indicate the application id to include.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

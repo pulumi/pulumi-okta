@@ -29,6 +29,21 @@ export interface AppSharedCredentialsUser {
     username?: string;
 }
 
+export interface AppSignonPolicyRulePlatformInclude {
+    /**
+     * Only available when using `osType = "OTHER"`
+     */
+    osExpression?: string;
+    /**
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     */
+    osType?: string;
+    /**
+     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     */
+    type?: string;
+}
+
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
      * value mapping to member of `enum`.
@@ -70,6 +85,21 @@ export interface DomainDnsRecord {
     values: string[];
 }
 
+export interface EmailSenderDnsRecord {
+    /**
+     * DNS record name.
+     */
+    fqdn: string;
+    /**
+     * Record type can be TXT or CNAME.
+     */
+    recordType: string;
+    /**
+     * DNS verification value
+     */
+    value: string;
+}
+
 export interface EventHookHeader {
     /**
      * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -79,6 +109,41 @@ export interface EventHookHeader {
      * Authentication secret.
      */
     value?: string;
+}
+
+export interface GetAuthServerClaimsClaim {
+    /**
+     * Specifies whether to include Claims in the token.
+     */
+    alwaysIncludeInToken: boolean;
+    /**
+     * Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+     */
+    claimType: string;
+    /**
+     * ID of the claim.
+     */
+    id: string;
+    /**
+     * Name of the claim.
+     */
+    name: string;
+    /**
+     * Specifies the scopes for this Claim.
+     */
+    scopes: string[];
+    /**
+     * Status of the claim.
+     */
+    status: string;
+    /**
+     * Value of the claim
+     */
+    value: string;
+    /**
+     * Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+     */
+    valueType: string;
 }
 
 export interface GetBehavioursBehavior {
@@ -124,6 +189,29 @@ export interface GetGroupsGroup {
     type: string;
 }
 
+export interface GetTrustedOriginsTrustedOrigin {
+    /**
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
+     */
+    active: boolean;
+    /**
+     * The ID of the Trusted Origin.
+     */
+    id: string;
+    /**
+     * Unique name for this trusted origin.
+     */
+    name: string;
+    /**
+     * Unique origin URL for this trusted origin.
+     */
+    origin: string;
+    /**
+     * Scopes of the Trusted Origin
+     */
+    scopes: string[];
+}
+
 export interface GetUserSecurityQuestionsQuestion {
     /**
      * Security question unique key.
@@ -133,6 +221,54 @@ export interface GetUserSecurityQuestionsQuestion {
      * Display text for security question.
      */
     text: string;
+}
+
+export interface GroupSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
+}
+
+export interface GroupSchemaPropertyMasterOverridePriority {
+    /**
+     * - Type of profile source.
+     */
+    type?: string;
+    /**
+     * - ID of profile source.
+     */
+    value: string;
+}
+
+export interface GroupSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: string;
+    /**
+     * display name for the enum value.
+     */
+    title: string;
+}
+
+export interface PolicyRuleProfileEnrollmentProfileAttribute {
+    /**
+     * A display-friendly label for this property
+     */
+    label: string;
+    /**
+     * The name of a User Profile property
+     */
+    name: string;
+    /**
+     * Indicates if this property is required for enrollment. Default is `false`.
+     */
+    required?: boolean;
 }
 
 export interface TemplateSmsTranslation {
@@ -405,6 +541,18 @@ export namespace deprecated {
         username?: string;
     }
 
+    export interface MfaPolicyRuleAppExclude {
+        id?: string;
+        name?: string;
+        type: string;
+    }
+
+    export interface MfaPolicyRuleAppInclude {
+        id?: string;
+        name?: string;
+        type: string;
+    }
+
     export interface OauthAppGroupsClaim {
         filterType?: string;
         name: string;
@@ -545,6 +693,36 @@ export namespace policy {
          * The regex or simple match string to match against.
          */
         value?: string;
+    }
+
+    export interface RuleMfaAppExclude {
+        /**
+         * Use if `type` is `"APP"` to indicate the application id to include.
+         */
+        id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
+        name?: string;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
+        type: string;
+    }
+
+    export interface RuleMfaAppInclude {
+        /**
+         * Use if `type` is `"APP"` to indicate the application id to include.
+         */
+        id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
+        name?: string;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
+        type: string;
     }
 
     export interface RuleSignonFactorSequence {
@@ -831,7 +1009,7 @@ export namespace user {
          */
         saltOrder?: string;
         /**
-         * . 
+         * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used). 
          * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
          * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
          * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.

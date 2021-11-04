@@ -172,6 +172,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Output("implicitAssignment")]
+        public Output<bool?> ImplicitAssignment { get; private set; } = null!;
+
+        /// <summary>
         /// Saml Inline Hook setting
         /// </summary>
         [Output("inlineHookId")]
@@ -338,6 +344,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
         /// Username template suffix
@@ -557,6 +569,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Saml Inline Hook setting
         /// </summary>
         [Input("inlineHookId")]
@@ -687,6 +705,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix
@@ -904,6 +928,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enable Federation Broker Mode.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Saml Inline Hook setting
         /// </summary>
         [Input("inlineHookId")]
@@ -1070,6 +1100,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix

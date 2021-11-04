@@ -22,7 +22,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, skip_groups=None, skip_users=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_push_status=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -129,6 +129,12 @@ class GetSamlResult:
         if single_logout_url and not isinstance(single_logout_url, str):
             raise TypeError("Expected argument 'single_logout_url' to be a str")
         pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups and not isinstance(skip_groups, bool):
+            raise TypeError("Expected argument 'skip_groups' to be a bool")
+        pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users and not isinstance(skip_users, bool):
+            raise TypeError("Expected argument 'skip_users' to be a bool")
+        pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer and not isinstance(sp_issuer, str):
             raise TypeError("Expected argument 'sp_issuer' to be a str")
         pulumi.set(__self__, "sp_issuer", sp_issuer)
@@ -147,6 +153,9 @@ class GetSamlResult:
         if user_name_template and not isinstance(user_name_template, str):
             raise TypeError("Expected argument 'user_name_template' to be a str")
         pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status and not isinstance(user_name_template_push_status, str):
+            raise TypeError("Expected argument 'user_name_template_push_status' to be a str")
+        pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix and not isinstance(user_name_template_suffix, str):
             raise TypeError("Expected argument 'user_name_template_suffix' to be a str")
         pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
@@ -430,6 +439,16 @@ class GetSamlResult:
         return pulumi.get(self, "single_logout_url")
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_users")
+
+    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[str]:
         """
@@ -476,6 +495,14 @@ class GetSamlResult:
         Username template.
         """
         return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> str:
+        """
+        Push username on update.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
@@ -543,12 +570,15 @@ class AwaitableGetSamlResult(GetSamlResult):
             single_logout_certificate=self.single_logout_certificate,
             single_logout_issuer=self.single_logout_issuer,
             single_logout_url=self.single_logout_url,
+            skip_groups=self.skip_groups,
+            skip_users=self.skip_users,
             sp_issuer=self.sp_issuer,
             sso_url=self.sso_url,
             status=self.status,
             subject_name_id_format=self.subject_name_id_format,
             subject_name_id_template=self.subject_name_id_template,
             user_name_template=self.user_name_template,
+            user_name_template_push_status=self.user_name_template_push_status,
             user_name_template_suffix=self.user_name_template_suffix,
             user_name_template_type=self.user_name_template_type,
             users=self.users)
@@ -581,6 +611,8 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
              request_compressed: Optional[bool] = None,
              response_signed: Optional[bool] = None,
              signature_algorithm: Optional[str] = None,
+             skip_groups: Optional[bool] = None,
+             skip_users: Optional[bool] = None,
              sp_issuer: Optional[str] = None,
              sso_url: Optional[str] = None,
              subject_name_id_format: Optional[str] = None,
@@ -635,6 +667,8 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     :param bool request_compressed: Denotes whether the request is compressed or not.
     :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
     :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
+    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     :param str sp_issuer: SAML service provider issuer.
     :param str sso_url: Single Sign-on Url.
     :param str subject_name_id_format: Identifies the SAML processing rules.
@@ -673,6 +707,8 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     __args__['requestCompressed'] = request_compressed
     __args__['responseSigned'] = response_signed
     __args__['signatureAlgorithm'] = signature_algorithm
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
     __args__['spIssuer'] = sp_issuer
     __args__['ssoUrl'] = sso_url
     __args__['subjectNameIdFormat'] = subject_name_id_format
@@ -722,12 +758,15 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
         single_logout_certificate=__ret__.single_logout_certificate,
         single_logout_issuer=__ret__.single_logout_issuer,
         single_logout_url=__ret__.single_logout_url,
+        skip_groups=__ret__.skip_groups,
+        skip_users=__ret__.skip_users,
         sp_issuer=__ret__.sp_issuer,
         sso_url=__ret__.sso_url,
         status=__ret__.status,
         subject_name_id_format=__ret__.subject_name_id_format,
         subject_name_id_template=__ret__.subject_name_id_template,
         user_name_template=__ret__.user_name_template,
+        user_name_template_push_status=__ret__.user_name_template_push_status,
         user_name_template_suffix=__ret__.user_name_template_suffix,
         user_name_template_type=__ret__.user_name_template_type,
         users=__ret__.users)
@@ -761,6 +800,8 @@ def get_saml_output(accessibility_error_redirect_url: Optional[pulumi.Input[Opti
                     request_compressed: Optional[pulumi.Input[Optional[bool]]] = None,
                     response_signed: Optional[pulumi.Input[Optional[bool]]] = None,
                     signature_algorithm: Optional[pulumi.Input[Optional[str]]] = None,
+                    skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                    skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                     sp_issuer: Optional[pulumi.Input[Optional[str]]] = None,
                     sso_url: Optional[pulumi.Input[Optional[str]]] = None,
                     subject_name_id_format: Optional[pulumi.Input[Optional[str]]] = None,
@@ -815,6 +856,8 @@ def get_saml_output(accessibility_error_redirect_url: Optional[pulumi.Input[Opti
     :param bool request_compressed: Denotes whether the request is compressed or not.
     :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
     :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
+    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     :param str sp_issuer: SAML service provider issuer.
     :param str sso_url: Single Sign-on Url.
     :param str subject_name_id_format: Identifies the SAML processing rules.

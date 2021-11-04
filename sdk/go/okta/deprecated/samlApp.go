@@ -69,6 +69,8 @@ type SamlApp struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Saml Inline Hook setting
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Certificate ID
@@ -125,6 +127,8 @@ type SamlApp struct {
 	SubjectNameIdTemplate pulumi.StringPtrOutput `pulumi:"subjectNameIdTemplate"`
 	// Username template
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -222,6 +226,8 @@ type samlAppState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook setting
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate ID
@@ -278,6 +284,8 @@ type samlAppState struct {
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -344,6 +352,8 @@ type SamlAppState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook setting
 	InlineHookId pulumi.StringPtrInput
 	// Certificate ID
@@ -400,6 +410,8 @@ type SamlAppState struct {
 	SubjectNameIdTemplate pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type
@@ -460,6 +472,8 @@ type samlAppArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID
 	IdpIssuer *string `pulumi:"idpIssuer"`
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook setting
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -504,6 +518,8 @@ type samlAppArgs struct {
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
 	// Username template
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type
@@ -561,6 +577,8 @@ type SamlAppArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID
 	IdpIssuer pulumi.StringPtrInput
+	// *Early Access Property*. Enable Federation Broker Mode.
+	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook setting
 	InlineHookId pulumi.StringPtrInput
 	// Certificate name. This modulates the rotation of keys. New name == new key.
@@ -605,6 +623,8 @@ type SamlAppArgs struct {
 	SubjectNameIdTemplate pulumi.StringPtrInput
 	// Username template
 	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update
+	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type

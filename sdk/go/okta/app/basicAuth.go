@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Basic Auth Application.
-//
 // This resource allows you to create and configure a Basic Auth Application.
 //
 // ## Example Usage

@@ -38,6 +38,7 @@ class SamlArgs:
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -59,6 +60,7 @@ class SamlArgs:
                  subject_name_id_format: Optional[pulumi.Input[str]] = None,
                  subject_name_id_template: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]] = None):
@@ -88,6 +90,7 @@ class SamlArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -109,9 +112,10 @@ class SamlArgs:
         :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
         :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
-        :param pulumi.Input[str] user_name_template: Username template.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -163,6 +167,8 @@ class SamlArgs:
             pulumi.set(__self__, "honor_force_authn", honor_force_authn)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if implicit_assignment is not None:
+            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
         if inline_hook_id is not None:
             pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_name is not None:
@@ -205,6 +211,8 @@ class SamlArgs:
             pulumi.set(__self__, "subject_name_id_template", subject_name_id_template)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -493,6 +501,18 @@ class SamlArgs:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="implicitAssignment")
+    def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        """
+        return pulumi.get(self, "implicit_assignment")
+
+    @implicit_assignment.setter
+    def implicit_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "implicit_assignment", value)
+
+    @property
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -737,13 +757,25 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
     def user_name_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
@@ -761,7 +793,7 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -813,6 +845,7 @@ class _SamlState:
                  http_post_binding: Optional[pulumi.Input[str]] = None,
                  http_redirect_binding: Optional[pulumi.Input[str]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -841,6 +874,7 @@ class _SamlState:
                  subject_name_id_format: Optional[pulumi.Input[str]] = None,
                  subject_name_id_template: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]] = None):
@@ -874,6 +908,7 @@ class _SamlState:
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
@@ -902,9 +937,10 @@ class _SamlState:
         :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
         :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
-        :param pulumi.Input[str] user_name_template: Username template.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -965,6 +1001,8 @@ class _SamlState:
             pulumi.set(__self__, "http_redirect_binding", http_redirect_binding)
         if idp_issuer is not None:
             pulumi.set(__self__, "idp_issuer", idp_issuer)
+        if implicit_assignment is not None:
+            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
         if inline_hook_id is not None:
             pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if key_id is not None:
@@ -1021,6 +1059,8 @@ class _SamlState:
             pulumi.set(__self__, "subject_name_id_template", subject_name_id_template)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -1357,6 +1397,18 @@ class _SamlState:
         pulumi.set(self, "idp_issuer", value)
 
     @property
+    @pulumi.getter(name="implicitAssignment")
+    def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        """
+        return pulumi.get(self, "implicit_assignment")
+
+    @implicit_assignment.setter
+    def implicit_assignment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "implicit_assignment", value)
+
+    @property
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1685,13 +1737,25 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
     def user_name_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
@@ -1709,7 +1773,7 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1758,6 +1822,7 @@ class Saml(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -1780,14 +1845,13 @@ class Saml(pulumi.CustomResource):
                  subject_name_id_format: Optional[pulumi.Input[str]] = None,
                  subject_name_id_template: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates an SAML Application.
-
-        This resource allows you to create and configure an SAML Application.
+        This resource allows you to create and configure a SAML Application.
 
         ## Example Usage
 
@@ -1802,16 +1866,16 @@ class Saml(pulumi.CustomResource):
                 name="groups",
                 type="GROUP",
             )],
-            audience="http://example.com/audience",
+            audience="https://example.com/audience",
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            destination="http://example.com",
+            destination="https://example.com",
             digest_algorithm="SHA256",
             honor_force_authn=False,
             label="example",
-            recipient="http://example.com",
+            recipient="https://example.com",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
-            sso_url="http://example.com",
+            sso_url="https://example.com",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             subject_name_id_template=user["userName"])
         ```
@@ -1838,10 +1902,10 @@ class Saml(pulumi.CustomResource):
             })
         test_saml = okta.app.Saml("testSaml",
             label="testAcc_replace_with_uuid",
-            sso_url="http://google.com",
-            recipient="http://here.com",
-            destination="http://its-about-the-journey.com",
-            audience="http://audience.com",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
             subject_name_id_template=user["userName"],
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
@@ -1867,7 +1931,7 @@ class Saml(pulumi.CustomResource):
         test = okta.app.Saml("test",
             app_settings_json=\"\"\"{
             "groupFilter": "app1.*",
-            "siteURL": "http://www.okta.com"
+            "siteURL": "https://www.okta.com"
         }
 
         \"\"\",
@@ -1972,6 +2036,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -1994,9 +2059,10 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
         :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
-        :param pulumi.Input[str] user_name_template: Username template.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -2007,9 +2073,7 @@ class Saml(pulumi.CustomResource):
                  args: SamlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an SAML Application.
-
-        This resource allows you to create and configure an SAML Application.
+        This resource allows you to create and configure a SAML Application.
 
         ## Example Usage
 
@@ -2024,16 +2088,16 @@ class Saml(pulumi.CustomResource):
                 name="groups",
                 type="GROUP",
             )],
-            audience="http://example.com/audience",
+            audience="https://example.com/audience",
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            destination="http://example.com",
+            destination="https://example.com",
             digest_algorithm="SHA256",
             honor_force_authn=False,
             label="example",
-            recipient="http://example.com",
+            recipient="https://example.com",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
-            sso_url="http://example.com",
+            sso_url="https://example.com",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             subject_name_id_template=user["userName"])
         ```
@@ -2060,10 +2124,10 @@ class Saml(pulumi.CustomResource):
             })
         test_saml = okta.app.Saml("testSaml",
             label="testAcc_replace_with_uuid",
-            sso_url="http://google.com",
-            recipient="http://here.com",
-            destination="http://its-about-the-journey.com",
-            audience="http://audience.com",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
             subject_name_id_template=user["userName"],
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
@@ -2089,7 +2153,7 @@ class Saml(pulumi.CustomResource):
         test = okta.app.Saml("test",
             app_settings_json=\"\"\"{
             "groupFilter": "app1.*",
-            "siteURL": "http://www.okta.com"
+            "siteURL": "https://www.okta.com"
         }
 
         \"\"\",
@@ -2206,6 +2270,7 @@ class Saml(pulumi.CustomResource):
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
                  idp_issuer: Optional[pulumi.Input[str]] = None,
+                 implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_years_valid: Optional[pulumi.Input[int]] = None,
@@ -2228,6 +2293,7 @@ class Saml(pulumi.CustomResource):
                  subject_name_id_format: Optional[pulumi.Input[str]] = None,
                  subject_name_id_template: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None,
@@ -2268,6 +2334,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["honor_force_authn"] = honor_force_authn
             __props__.__dict__["idp_issuer"] = idp_issuer
+            __props__.__dict__["implicit_assignment"] = implicit_assignment
             __props__.__dict__["inline_hook_id"] = inline_hook_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_years_valid"] = key_years_valid
@@ -2292,6 +2359,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["subject_name_id_format"] = subject_name_id_format
             __props__.__dict__["subject_name_id_template"] = subject_name_id_template
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             if users is not None and not opts.urn:
@@ -2346,6 +2414,7 @@ class Saml(pulumi.CustomResource):
             http_post_binding: Optional[pulumi.Input[str]] = None,
             http_redirect_binding: Optional[pulumi.Input[str]] = None,
             idp_issuer: Optional[pulumi.Input[str]] = None,
+            implicit_assignment: Optional[pulumi.Input[bool]] = None,
             inline_hook_id: Optional[pulumi.Input[str]] = None,
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
@@ -2374,6 +2443,7 @@ class Saml(pulumi.CustomResource):
             subject_name_id_format: Optional[pulumi.Input[str]] = None,
             subject_name_id_template: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None) -> 'Saml':
@@ -2412,6 +2482,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
@@ -2440,9 +2511,10 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
         :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
-        :param pulumi.Input[str] user_name_template: Username template.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -2477,6 +2549,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["http_post_binding"] = http_post_binding
         __props__.__dict__["http_redirect_binding"] = http_redirect_binding
         __props__.__dict__["idp_issuer"] = idp_issuer
+        __props__.__dict__["implicit_assignment"] = implicit_assignment
         __props__.__dict__["inline_hook_id"] = inline_hook_id
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["key_name"] = key_name
@@ -2505,6 +2578,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["subject_name_id_format"] = subject_name_id_format
         __props__.__dict__["subject_name_id_template"] = subject_name_id_template
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["users"] = users
@@ -2728,6 +2802,14 @@ class Saml(pulumi.CustomResource):
         return pulumi.get(self, "idp_issuer")
 
     @property
+    @pulumi.getter(name="implicitAssignment")
+    def implicit_assignment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        """
+        return pulumi.get(self, "implicit_assignment")
+
+    @property
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2948,9 +3030,17 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
@@ -2964,7 +3054,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

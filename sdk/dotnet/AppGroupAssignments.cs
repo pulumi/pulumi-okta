@@ -14,6 +14,64 @@ namespace Pulumi.Okta
     /// 
     /// This resource allows you to create multiple App Group assignments.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.AppGroupAssignments("example", new Okta.AppGroupAssignmentsArgs
+    ///         {
+    ///             AppId = "&lt;app id&gt;",
+    ///             Groups = 
+    ///             {
+    ///                 new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///                 {
+    ///                     Id = "&lt;group id&gt;",
+    ///                     Priority = 1,
+    ///                 },
+    ///                 new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///                 {
+    ///                     Id = "&lt;another group id&gt;",
+    ///                     Priority = 2,
+    ///                     Profile = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "application profile field", "application profile value" },
+    ///                     }),
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// !&gt; **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Okta.App.OAuth("app", new Okta.App.OAuthArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
+    /// 
     /// ## Import
     /// 
     /// An application's group assignments can be imported via `app_id`.

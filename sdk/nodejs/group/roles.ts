@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates Group level Admin Role Assignments.
+ * > **DEPRECATED:** This resource is deprecated and will be removed in favor of using `okta.group.Role`, please migrate as soon as possible
  *
  * This resource allows you to create and configure Group level Admin Role Assignments.
  *

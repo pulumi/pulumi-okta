@@ -147,7 +147,7 @@ namespace Pulumi.Okta
         public Output<string?> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the property is required for this application's users.
+        /// Whether the property is required for these users.
         /// </summary>
         [Output("required")]
         public Output<bool?> Required { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Okta
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the property is required for this application's users.
+        /// Whether the property is required for these users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.Okta
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the property is required for this application's users.
+        /// Whether the property is required for these users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }

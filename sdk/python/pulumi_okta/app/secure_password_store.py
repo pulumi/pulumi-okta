@@ -44,6 +44,7 @@ class SecurePasswordStoreArgs:
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]] = None):
@@ -78,9 +79,10 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
@@ -141,6 +143,8 @@ class SecurePasswordStoreArgs:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -492,7 +496,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The default username assigned to each user.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -501,10 +505,22 @@ class SecurePasswordStoreArgs:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -516,7 +532,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -572,6 +588,7 @@ class _SecurePasswordStoreState:
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
@@ -609,9 +626,10 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -681,6 +699,8 @@ class _SecurePasswordStoreState:
             pulumi.set(__self__, "url", url)
         if user_name_template is not None:
             pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
@@ -1058,7 +1078,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The default username assigned to each user.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1067,10 +1087,22 @@ class _SecurePasswordStoreState:
         pulumi.set(self, "user_name_template", value)
 
     @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1082,7 +1114,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1149,14 +1181,13 @@ class SecurePasswordStore(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates a Secure Password Store Application.
-
         This resource allows you to create and configure a Secure Password Store Application.
 
         ## Example Usage
@@ -1169,7 +1200,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             credentials_scheme="ADMIN_SETS_CREDENTIALS",
             label="example",
             password_field="pass",
-            url="http://test.com",
+            url="https://test.com",
             username_field="user")
         ```
 
@@ -1225,9 +1256,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -1239,8 +1271,6 @@ class SecurePasswordStore(pulumi.CustomResource):
                  args: SecurePasswordStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Secure Password Store Application.
-
         This resource allows you to create and configure a Secure Password Store Application.
 
         ## Example Usage
@@ -1253,7 +1283,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             credentials_scheme="ADMIN_SETS_CREDENTIALS",
             label="example",
             password_field="pass",
-            url="http://test.com",
+            url="https://test.com",
             username_field="user")
         ```
 
@@ -1322,6 +1352,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
@@ -1375,6 +1406,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             if username_field is None and not opts.urn:
@@ -1428,6 +1460,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
             username_field: Optional[pulumi.Input[str]] = None,
@@ -1470,9 +1503,10 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: The default username assigned to each user.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: The Username template type.
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -1512,6 +1546,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["username_field"] = username_field
@@ -1763,15 +1798,23 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        The default username assigned to each user.
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        """
+        return pulumi.get(self, "user_name_template_push_status")
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1779,7 +1822,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The Username template type.
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

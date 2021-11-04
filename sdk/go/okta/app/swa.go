@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an SWA Application.
-//
-// This resource allows you to create and configure an SWA Application.
+// This resource allows you to create and configure a SWA Application.
 //
 // ## Example Usage
 //
@@ -80,6 +78,8 @@ type Swa struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field.
 	ButtonField pulumi.StringPtrOutput `pulumi:"buttonField"`
+	// CSS selector for the checkbox.
+	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -103,6 +103,8 @@ type Swa struct {
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here.
+	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
@@ -115,11 +117,13 @@ type Swa struct {
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
@@ -176,6 +180,8 @@ type swaState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field.
 	ButtonField *string `pulumi:"buttonField"`
+	// CSS selector for the checkbox.
+	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -199,6 +205,8 @@ type swaState struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here.
+	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
@@ -211,11 +219,13 @@ type swaState struct {
 	Url *string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex *string `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
@@ -241,6 +251,8 @@ type SwaState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field.
 	ButtonField pulumi.StringPtrInput
+	// CSS selector for the checkbox.
+	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -264,6 +276,8 @@ type SwaState struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
+	// If going to the login page URL redirects to another page, then enter that URL here.
+	RedirectUrl pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
@@ -276,11 +290,13 @@ type SwaState struct {
 	Url pulumi.StringPtrInput
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
@@ -310,6 +326,8 @@ type swaArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field.
 	ButtonField *string `pulumi:"buttonField"`
+	// CSS selector for the checkbox.
+	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -329,6 +347,8 @@ type swaArgs struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
+	// If going to the login page URL redirects to another page, then enter that URL here.
+	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
 	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
@@ -339,11 +359,13 @@ type swaArgs struct {
 	Url *string `pulumi:"url"`
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex *string `pulumi:"urlRegex"`
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
@@ -370,6 +392,8 @@ type SwaArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field.
 	ButtonField pulumi.StringPtrInput
+	// CSS selector for the checkbox.
+	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
@@ -389,6 +413,8 @@ type SwaArgs struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
+	// If going to the login page URL redirects to another page, then enter that URL here.
+	RedirectUrl pulumi.StringPtrInput
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput
 	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
@@ -399,11 +425,13 @@ type SwaArgs struct {
 	Url pulumi.StringPtrInput
 	// A regex that further restricts URL to the specified regex.
 	UrlRegex pulumi.StringPtrInput
-	// The default username assigned to each user.
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Username template suffix
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// The Username template type.
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringPtrInput

@@ -62,6 +62,10 @@ type GetAppArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// List of users IDs assigned to the application.
 	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
@@ -85,7 +89,9 @@ type GetAppResult struct {
 	// Generic JSON containing discoverable resources related to the app.
 	Links string `pulumi:"links"`
 	// Application name.
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
+	SkipGroups *bool  `pulumi:"skipGroups"`
+	SkipUsers  *bool  `pulumi:"skipUsers"`
 	// Application status.
 	Status string `pulumi:"status"`
 	// List of users IDs assigned to the application.
@@ -122,6 +128,10 @@ type GetAppOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Indicator that allows the app to skip `groups` sync. Default is `false`.
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Indicator that allows the app to skip `users` sync. Default is `false`.
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 	// List of users IDs assigned to the application.
 	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
@@ -182,6 +192,14 @@ func (o GetAppResultOutput) Links() pulumi.StringOutput {
 // Application name.
 func (o GetAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAppResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetAppResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 // Application status.

@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Three Field Application.
- *
  * This resource allows you to create and configure a Three Field Application.
  *
  * ## Example Usage
@@ -191,15 +189,19 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -256,6 +258,7 @@ export class ThreeField extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameSelector"] = state ? state.usernameSelector : undefined;
@@ -309,6 +312,7 @@ export class ThreeField extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameSelector"] = args ? args.usernameSelector : undefined;
@@ -444,15 +448,19 @@ export interface ThreeFieldState {
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -576,15 +584,19 @@ export interface ThreeFieldArgs {
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

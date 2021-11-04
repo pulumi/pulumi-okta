@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 export class MfaPolicyRule extends pulumi.CustomResource {
@@ -32,6 +33,14 @@ export class MfaPolicyRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MfaPolicyRule.__pulumiType;
     }
 
+    /**
+     * Applications to exclude
+     */
+    public readonly appExcludes!: pulumi.Output<outputs.deprecated.MfaPolicyRuleAppExclude[] | undefined>;
+    /**
+     * Applications to include
+     */
+    public readonly appIncludes!: pulumi.Output<outputs.deprecated.MfaPolicyRuleAppInclude[] | undefined>;
     /**
      * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */
@@ -89,6 +98,8 @@ export class MfaPolicyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MfaPolicyRuleState | undefined;
+            inputs["appExcludes"] = state ? state.appExcludes : undefined;
+            inputs["appIncludes"] = state ? state.appIncludes : undefined;
             inputs["enroll"] = state ? state.enroll : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkConnection"] = state ? state.networkConnection : undefined;
@@ -101,6 +112,8 @@ export class MfaPolicyRule extends pulumi.CustomResource {
             inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as MfaPolicyRuleArgs | undefined;
+            inputs["appExcludes"] = args ? args.appExcludes : undefined;
+            inputs["appIncludes"] = args ? args.appIncludes : undefined;
             inputs["enroll"] = args ? args.enroll : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkConnection"] = args ? args.networkConnection : undefined;
@@ -123,6 +136,14 @@ export class MfaPolicyRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MfaPolicyRule resources.
  */
 export interface MfaPolicyRuleState {
+    /**
+     * Applications to exclude
+     */
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.deprecated.MfaPolicyRuleAppExclude>[]>;
+    /**
+     * Applications to include
+     */
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.deprecated.MfaPolicyRuleAppInclude>[]>;
     /**
      * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */
@@ -172,6 +193,14 @@ export interface MfaPolicyRuleState {
  * The set of arguments for constructing a MfaPolicyRule resource.
  */
 export interface MfaPolicyRuleArgs {
+    /**
+     * Applications to exclude
+     */
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.deprecated.MfaPolicyRuleAppExclude>[]>;
+    /**
+     * Applications to include
+     */
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.deprecated.MfaPolicyRuleAppInclude>[]>;
     /**
      * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      */

@@ -57,6 +57,10 @@ class OauthAppArgs:
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
@@ -109,6 +113,10 @@ class OauthAppArgs:
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
@@ -200,6 +208,14 @@ class OauthAppArgs:
             pulumi.set(__self__, "token_endpoint_auth_method", token_endpoint_auth_method)
         if tos_uri is not None:
             pulumi.set(__self__, "tos_uri", tos_uri)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users is not None:
             warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -717,6 +733,54 @@ class OauthAppArgs:
         pulumi.set(self, "tos_uri", value)
 
     @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]]:
         """
@@ -790,6 +854,10 @@ class _OauthAppState:
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
@@ -846,6 +914,10 @@ class _OauthAppState:
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
@@ -947,6 +1019,14 @@ class _OauthAppState:
             pulumi.set(__self__, "tos_uri", tos_uri)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users is not None:
             warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -1512,6 +1592,54 @@ class _OauthAppState:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
+    @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthAppUserArgs']]]]:
         """
@@ -1583,6 +1711,10 @@ class OauthApp(pulumi.CustomResource):
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1638,6 +1770,10 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
@@ -1706,6 +1842,10 @@ class OauthApp(pulumi.CustomResource):
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_name_template: Optional[pulumi.Input[str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1772,6 +1912,10 @@ class OauthApp(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+            __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+            __props__.__dict__["user_name_template_type"] = user_name_template_type
             if users is not None and not opts.urn:
                 warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
@@ -1837,6 +1981,10 @@ class OauthApp(pulumi.CustomResource):
             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
             tos_uri: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
+            user_name_template: Optional[pulumi.Input[str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+            user_name_template_type: Optional[pulumi.Input[str]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]]] = None,
             wildcard_redirect: Optional[pulumi.Input[str]] = None) -> 'OauthApp':
         """
@@ -1898,6 +2046,10 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]] users: Users associated with the application
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         """
@@ -1951,6 +2103,10 @@ class OauthApp(pulumi.CustomResource):
         __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
         __props__.__dict__["tos_uri"] = tos_uri
         __props__.__dict__["type"] = type
+        __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+        __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+        __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["users"] = users
         __props__.__dict__["wildcard_redirect"] = wildcard_redirect
         return OauthApp(resource_name, opts=opts, __props__=__props__)
@@ -2249,7 +2405,7 @@ class OauthApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenLeeway")
-    def refresh_token_leeway(self) -> pulumi.Output[Optional[int]]:
+    def refresh_token_leeway(self) -> pulumi.Output[int]:
         """
         *Early Access Property* Grace period for token rotation
         """
@@ -2257,7 +2413,7 @@ class OauthApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenRotation")
-    def refresh_token_rotation(self) -> pulumi.Output[Optional[str]]:
+    def refresh_token_rotation(self) -> pulumi.Output[str]:
         """
         *Early Access Property* Refresh token rotation behavior
         """
@@ -2326,6 +2482,38 @@ class OauthApp(pulumi.CustomResource):
         The type of client application.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Push username on update
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username template type
+        """
+        return pulumi.get(self, "user_name_template_type")
 
     @property
     @pulumi.getter

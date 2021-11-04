@@ -61,7 +61,9 @@ type ServerPolicyRule struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayOutput `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
@@ -143,7 +145,9 @@ type serverPolicyRuleState struct {
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId *string `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
@@ -179,7 +183,9 @@ type ServerPolicyRuleState struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringPtrInput
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput
@@ -219,7 +225,9 @@ type serverPolicyRuleArgs struct {
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
 	// Auth Server ID.
 	AuthServerId string `pulumi:"authServerId"`
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
@@ -256,7 +264,9 @@ type ServerPolicyRuleArgs struct {
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
 	// Auth Server ID.
 	AuthServerId pulumi.StringInput
-	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"` or `"clientCredentials"`. For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput

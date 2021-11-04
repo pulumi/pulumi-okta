@@ -695,8 +695,6 @@ class Bookmark(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]]] = None,
                  __props__=None):
         """
-        Creates a Bookmark Application.
-
         This resource allows you to create and configure a Bookmark Application.
 
         ## Example Usage
@@ -762,8 +760,6 @@ class Bookmark(pulumi.CustomResource):
                  args: BookmarkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Bookmark Application.
-
         This resource allows you to create and configure a Bookmark Application.
 
         ## Example Usage

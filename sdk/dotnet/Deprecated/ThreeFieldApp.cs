@@ -187,6 +187,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Username template suffix
         /// </summary>
         [Output("userNameTemplateSuffix")]
@@ -420,6 +426,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
         /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
@@ -637,6 +649,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix

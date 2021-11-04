@@ -56,6 +56,8 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "requestCompressed": args.requestCompressed,
         "responseSigned": args.responseSigned,
         "signatureAlgorithm": args.signatureAlgorithm,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
         "spIssuer": args.spIssuer,
         "ssoUrl": args.ssoUrl,
         "subjectNameIdFormat": args.subjectNameIdFormat,
@@ -186,6 +188,14 @@ export interface GetSamlArgs {
      * Signature algorithm used ot digitally sign the assertion and response.
      */
     signatureAlgorithm?: string;
+    /**
+     * Indicator that allows the app to skip `groups` sync. Default is `false`.
+     */
+    skipGroups?: boolean;
+    /**
+     * Indicator that allows the app to skip `users` sync. Default is `false`.
+     */
+    skipUsers?: boolean;
     /**
      * SAML service provider issuer.
      */
@@ -361,6 +371,8 @@ export interface GetSamlResult {
      * The location where the logout response is sent.
      */
     readonly singleLogoutUrl: string;
+    readonly skipGroups?: boolean;
+    readonly skipUsers?: boolean;
     /**
      * SAML service provider issuer.
      */
@@ -385,6 +397,10 @@ export interface GetSamlResult {
      * Username template.
      */
     readonly userNameTemplate?: string;
+    /**
+     * Push username on update.
+     */
+    readonly userNameTemplatePushStatus: string;
     /**
      * Username template suffix.
      */
@@ -525,6 +541,14 @@ export interface GetSamlOutputArgs {
      * Signature algorithm used ot digitally sign the assertion and response.
      */
     signatureAlgorithm?: pulumi.Input<string>;
+    /**
+     * Indicator that allows the app to skip `groups` sync. Default is `false`.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Indicator that allows the app to skip `users` sync. Default is `false`.
+     */
+    skipUsers?: pulumi.Input<boolean>;
     /**
      * SAML service provider issuer.
      */

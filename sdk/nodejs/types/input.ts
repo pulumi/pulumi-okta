@@ -29,6 +29,21 @@ export interface AppSharedCredentialsUser {
     username?: pulumi.Input<string>;
 }
 
+export interface AppSignonPolicyRulePlatformInclude {
+    /**
+     * Only available when using `osType = "OTHER"`
+     */
+    osExpression?: pulumi.Input<string>;
+    /**
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     */
+    osType?: pulumi.Input<string>;
+    /**
+     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     */
+    type?: pulumi.Input<string>;
+}
+
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
      * value mapping to member of `enum`.
@@ -70,6 +85,21 @@ export interface DomainDnsRecord {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface EmailSenderDnsRecord {
+    /**
+     * DNS record name.
+     */
+    fqdn?: pulumi.Input<string>;
+    /**
+     * Record type can be TXT or CNAME.
+     */
+    recordType?: pulumi.Input<string>;
+    /**
+     * DNS verification value
+     */
+    value?: pulumi.Input<string>;
+}
+
 export interface EventHookHeader {
     /**
      * Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -79,6 +109,54 @@ export interface EventHookHeader {
      * Authentication secret.
      */
     value?: pulumi.Input<string>;
+}
+
+export interface GroupSchemaPropertyArrayOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
+}
+
+export interface GroupSchemaPropertyMasterOverridePriority {
+    /**
+     * - Type of profile source.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * - ID of profile source.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GroupSchemaPropertyOneOf {
+    /**
+     * value mapping to member of `enum`.
+     */
+    const: pulumi.Input<string>;
+    /**
+     * display name for the enum value.
+     */
+    title: pulumi.Input<string>;
+}
+
+export interface PolicyRuleProfileEnrollmentProfileAttribute {
+    /**
+     * A display-friendly label for this property
+     */
+    label: pulumi.Input<string>;
+    /**
+     * The name of a User Profile property
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Indicates if this property is required for enrollment. Default is `false`.
+     */
+    required?: pulumi.Input<boolean>;
 }
 
 export interface TemplateSmsTranslation {
@@ -124,6 +202,7 @@ export interface UserSchemaPropertyOneOf {
      */
     title: pulumi.Input<string>;
 }
+
 export namespace app {
     export interface AutoLoginUser {
         id?: pulumi.Input<string>;
@@ -341,6 +420,18 @@ export namespace deprecated {
         username?: pulumi.Input<string>;
     }
 
+    export interface MfaPolicyRuleAppExclude {
+        id?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface MfaPolicyRuleAppInclude {
+        id?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface OauthAppGroupsClaim {
         filterType?: pulumi.Input<string>;
         name: pulumi.Input<string>;
@@ -479,6 +570,36 @@ export namespace policy {
          * The regex or simple match string to match against.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface RuleMfaAppExclude {
+        /**
+         * Use if `type` is `"APP"` to indicate the application id to include.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleMfaAppInclude {
+        /**
+         * Use if `type` is `"APP"` to indicate the application id to include.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RuleSignonFactorSequence {
@@ -936,7 +1057,7 @@ export namespace user {
          */
         saltOrder?: pulumi.Input<string>;
         /**
-         * . 
+         * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used). 
          * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
          * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
          * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.

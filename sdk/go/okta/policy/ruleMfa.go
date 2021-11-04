@@ -10,9 +10,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an MFA Policy Rule.
-//
 // This resource allows you to create and configure an MFA Policy Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+// 			Type: "MFA_ENROLL",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleOAuth, err := app.NewOAuth(ctx, "exampleOAuth", &app.OAuthArgs{
+// 			Label: pulumi.String("My App"),
+// 			Type:  pulumi.String("web"),
+// 			GrantTypes: pulumi.StringArray{
+// 				pulumi.String("authorization_code"),
+// 			},
+// 			RedirectUris: pulumi.StringArray{
+// 				pulumi.String("http://localhost:8000"),
+// 			},
+// 			ResponseTypes: pulumi.StringArray{
+// 				pulumi.String("code"),
+// 			},
+// 			SkipGroups: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+// 			Status:   pulumi.String("ACTIVE"),
+// 			Enroll:   pulumi.String("LOGIN"),
+// 			AppIncludes: policy.RuleMfaAppIncludeArray{
+// 				&policy.RuleMfaAppIncludeArgs{
+// 					Id:   exampleOAuth.ID(),
+// 					Type: pulumi.String("APP"),
+// 				},
+// 				&policy.RuleMfaAppIncludeArgs{
+// 					Type: pulumi.String("APP_TYPE"),
+// 					Name: pulumi.String("yahoo_mail"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -24,9 +81,13 @@ import (
 type RuleMfa struct {
 	pulumi.CustomResourceState
 
+	// Applications to exclude
+	AppExcludes RuleMfaAppExcludeArrayOutput `pulumi:"appExcludes"`
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	AppIncludes RuleMfaAppIncludeArrayOutput `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
-	// Policy Rule Name.
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
@@ -77,9 +138,13 @@ func GetRuleMfa(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleMfa resources.
 type ruleMfaState struct {
+	// Applications to exclude
+	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll *string `pulumi:"enroll"`
-	// Policy Rule Name.
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -102,9 +167,13 @@ type ruleMfaState struct {
 }
 
 type RuleMfaState struct {
+	// Applications to exclude
+	AppExcludes RuleMfaAppExcludeArrayInput
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrInput
-	// Policy Rule Name.
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrInput
@@ -131,9 +200,13 @@ func (RuleMfaState) ElementType() reflect.Type {
 }
 
 type ruleMfaArgs struct {
+	// Applications to exclude
+	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll *string `pulumi:"enroll"`
-	// Policy Rule Name.
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -157,9 +230,13 @@ type ruleMfaArgs struct {
 
 // The set of arguments for constructing a RuleMfa resource.
 type RuleMfaArgs struct {
+	// Applications to exclude
+	AppExcludes RuleMfaAppExcludeArrayInput
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrInput
-	// Policy Rule Name.
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrInput

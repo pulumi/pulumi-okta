@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates an SAML Application.
-    /// 
-    /// This resource allows you to create and configure an SAML Application.
+    /// This resource allows you to create and configure a SAML Application.
     /// 
     /// ## Example Usage
     /// 
@@ -36,16 +34,16 @@ namespace Pulumi.Okta.App
     ///                     Type = "GROUP",
     ///                 },
     ///             },
-    ///             Audience = "http://example.com/audience",
+    ///             Audience = "https://example.com/audience",
     ///             AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///             Destination = "http://example.com",
+    ///             Destination = "https://example.com",
     ///             DigestAlgorithm = "SHA256",
     ///             HonorForceAuthn = false,
     ///             Label = "example",
-    ///             Recipient = "http://example.com",
+    ///             Recipient = "https://example.com",
     ///             ResponseSigned = true,
     ///             SignatureAlgorithm = "RSA_SHA256",
-    ///             SsoUrl = "http://example.com",
+    ///             SsoUrl = "https://example.com",
     ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
     ///             SubjectNameIdTemplate = user.UserName,
     ///         });
@@ -85,10 +83,10 @@ namespace Pulumi.Okta.App
     ///         var testSaml = new Okta.App.Saml("testSaml", new Okta.App.SamlArgs
     ///         {
     ///             Label = "testAcc_replace_with_uuid",
-    ///             SsoUrl = "http://google.com",
-    ///             Recipient = "http://here.com",
-    ///             Destination = "http://its-about-the-journey.com",
-    ///             Audience = "http://audience.com",
+    ///             SsoUrl = "https://google.com",
+    ///             Recipient = "https://here.com",
+    ///             Destination = "https://its-about-the-journey.com",
+    ///             Audience = "https://audience.com",
     ///             SubjectNameIdTemplate = user.UserName,
     ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
     ///             ResponseSigned = true,
@@ -132,7 +130,7 @@ namespace Pulumi.Okta.App
     ///         {
     ///             AppSettingsJson = @"{
     ///     ""groupFilter"": ""app1.*"",
-    ///     ""siteURL"": ""http://www.okta.com""
+    ///     ""siteURL"": ""https://www.okta.com""
     /// }
     /// 
     /// ",
@@ -392,6 +390,12 @@ namespace Pulumi.Okta.App
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Output("implicitAssignment")]
+        public Output<bool?> ImplicitAssignment { get; private set; } = null!;
+
+        /// <summary>
         /// Saml Inline Hook associated with the application.
         /// </summary>
         [Output("inlineHookId")]
@@ -555,10 +559,16 @@ namespace Pulumi.Okta.App
         public Output<string?> SubjectNameIdTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Username template.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
         /// Username template suffix.
@@ -567,7 +577,7 @@ namespace Pulumi.Okta.App
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -784,6 +794,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Saml Inline Hook associated with the application.
         /// </summary>
         [Input("inlineHookId")]
@@ -911,10 +927,16 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix.
@@ -923,7 +945,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -1138,6 +1160,12 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
+        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// </summary>
+        [Input("implicitAssignment")]
+        public Input<bool>? ImplicitAssignment { get; set; }
+
+        /// <summary>
         /// Saml Inline Hook associated with the application.
         /// </summary>
         [Input("inlineHookId")]
@@ -1301,10 +1329,16 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
         /// Username template suffix.
@@ -1313,7 +1347,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

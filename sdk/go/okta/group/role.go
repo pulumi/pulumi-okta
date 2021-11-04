@@ -50,6 +50,9 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
+	// When this setting is enabled, the admins won't receive any of the default Okta
+	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	DisableNotifications pulumi.BoolPtrOutput `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
@@ -101,6 +104,9 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
+	// When this setting is enabled, the admins won't receive any of the default Okta
+	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId *string `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
@@ -118,6 +124,9 @@ type roleState struct {
 }
 
 type RoleState struct {
+	// When this setting is enabled, the admins won't receive any of the default Okta
+	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	DisableNotifications pulumi.BoolPtrInput
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
@@ -139,6 +148,9 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
+	// When this setting is enabled, the admins won't receive any of the default Okta
+	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId string `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
@@ -157,6 +169,9 @@ type roleArgs struct {
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
+	// When this setting is enabled, the admins won't receive any of the default Okta
+	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	DisableNotifications pulumi.BoolPtrInput
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringInput
 	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`

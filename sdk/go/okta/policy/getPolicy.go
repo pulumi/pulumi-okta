@@ -48,7 +48,8 @@ func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOp
 type GetPolicyArgs struct {
 	// Name of policy to retrieve.
 	Name string `pulumi:"name"`
-	// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`,
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type string `pulumi:"type"`
 }
 
@@ -57,7 +58,8 @@ type GetPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// name of policy.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Status string `pulumi:"status"`
 	// type of policy.
 	Type string `pulumi:"type"`
 }
@@ -75,7 +77,8 @@ func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulu
 type GetPolicyOutputArgs struct {
 	// Name of policy to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of policy to retrieve. Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`,
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -106,6 +109,10 @@ func (o GetPolicyResultOutput) Id() pulumi.StringOutput {
 // name of policy.
 func (o GetPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPolicyResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // type of policy.

@@ -71,6 +71,7 @@ def get_default_policy(type: Optional[str] = None,
 
 
     :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
     """
     __args__ = dict()
     __args__['type'] = type
@@ -102,5 +103,6 @@ def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
 
 
     :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
     """
     ...

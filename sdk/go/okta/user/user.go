@@ -51,7 +51,7 @@ import (
 // 			PostalAddress:     pulumi.String("1234 Testing St."),
 // 			PreferredLanguage: pulumi.String("en-us"),
 // 			PrimaryPhone:      pulumi.String("4445556666"),
-// 			ProfileUrl:        pulumi.String("http://www.example.com/profile"),
+// 			ProfileUrl:        pulumi.String("https://www.example.com/profile"),
 // 			SecondEmail:       pulumi.String("john.smith.fun@example.com"),
 // 			State:             pulumi.String("NY"),
 // 			StreetAddress:     pulumi.String("5678 Testing Ave."),
@@ -127,6 +127,10 @@ type User struct {
 	MobilePhone pulumi.StringPtrOutput `pulumi:"mobilePhone"`
 	// User profile property.
 	NickName pulumi.StringPtrOutput `pulumi:"nickName"`
+	// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+	// outside the provider. After successful password change this field should be removed and `password` field should be used
+	// for further changes.
+	OldPassword pulumi.StringPtrOutput `pulumi:"oldPassword"`
 	// User profile property.
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// User password.
@@ -255,6 +259,10 @@ type userState struct {
 	MobilePhone *string `pulumi:"mobilePhone"`
 	// User profile property.
 	NickName *string `pulumi:"nickName"`
+	// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+	// outside the provider. After successful password change this field should be removed and `password` field should be used
+	// for further changes.
+	OldPassword *string `pulumi:"oldPassword"`
 	// User profile property.
 	Organization *string `pulumi:"organization"`
 	// User password.
@@ -343,6 +351,10 @@ type UserState struct {
 	MobilePhone pulumi.StringPtrInput
 	// User profile property.
 	NickName pulumi.StringPtrInput
+	// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+	// outside the provider. After successful password change this field should be removed and `password` field should be used
+	// for further changes.
+	OldPassword pulumi.StringPtrInput
 	// User profile property.
 	Organization pulumi.StringPtrInput
 	// User password.
@@ -435,6 +447,10 @@ type userArgs struct {
 	MobilePhone *string `pulumi:"mobilePhone"`
 	// User profile property.
 	NickName *string `pulumi:"nickName"`
+	// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+	// outside the provider. After successful password change this field should be removed and `password` field should be used
+	// for further changes.
+	OldPassword *string `pulumi:"oldPassword"`
 	// User profile property.
 	Organization *string `pulumi:"organization"`
 	// User password.
@@ -522,6 +538,10 @@ type UserArgs struct {
 	MobilePhone pulumi.StringPtrInput
 	// User profile property.
 	NickName pulumi.StringPtrInput
+	// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+	// outside the provider. After successful password change this field should be removed and `password` field should be used
+	// for further changes.
+	OldPassword pulumi.StringPtrInput
 	// User profile property.
 	Organization pulumi.StringPtrInput
 	// User password.

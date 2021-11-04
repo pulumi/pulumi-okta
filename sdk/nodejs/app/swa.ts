@@ -6,9 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an SWA Application.
- *
- * This resource allows you to create and configure an SWA Application.
+ * This resource allows you to create and configure a SWA Application.
  *
  * ## Example Usage
  *
@@ -104,6 +102,10 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly buttonField!: pulumi.Output<string | undefined>;
     /**
+     * CSS selector for the checkbox.
+     */
+    public readonly checkbox!: pulumi.Output<string | undefined>;
+    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -147,6 +149,10 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here.
+     */
+    public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    /**
      * Sign-on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
@@ -171,15 +177,19 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -214,6 +224,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             inputs["buttonField"] = state ? state.buttonField : undefined;
+            inputs["checkbox"] = state ? state.checkbox : undefined;
             inputs["enduserNote"] = state ? state.enduserNote : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["hideIos"] = state ? state.hideIos : undefined;
@@ -224,6 +235,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["passwordField"] = state ? state.passwordField : undefined;
             inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
+            inputs["redirectUrl"] = state ? state.redirectUrl : undefined;
             inputs["signOnMode"] = state ? state.signOnMode : undefined;
             inputs["skipGroups"] = state ? state.skipGroups : undefined;
             inputs["skipUsers"] = state ? state.skipUsers : undefined;
@@ -231,6 +243,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
             inputs["urlRegex"] = state ? state.urlRegex : undefined;
             inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             inputs["usernameField"] = state ? state.usernameField : undefined;
@@ -247,6 +260,7 @@ export class Swa extends pulumi.CustomResource {
             inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             inputs["buttonField"] = args ? args.buttonField : undefined;
+            inputs["checkbox"] = args ? args.checkbox : undefined;
             inputs["enduserNote"] = args ? args.enduserNote : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["hideIos"] = args ? args.hideIos : undefined;
@@ -255,12 +269,14 @@ export class Swa extends pulumi.CustomResource {
             inputs["logo"] = args ? args.logo : undefined;
             inputs["passwordField"] = args ? args.passwordField : undefined;
             inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
+            inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             inputs["skipGroups"] = args ? args.skipGroups : undefined;
             inputs["skipUsers"] = args ? args.skipUsers : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["urlRegex"] = args ? args.urlRegex : undefined;
             inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             inputs["usernameField"] = args ? args.usernameField : undefined;
@@ -309,6 +325,10 @@ export interface SwaState {
      */
     buttonField?: pulumi.Input<string>;
     /**
+     * CSS selector for the checkbox.
+     */
+    checkbox?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -352,6 +372,10 @@ export interface SwaState {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here.
+     */
+    redirectUrl?: pulumi.Input<string>;
+    /**
      * Sign-on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
@@ -376,15 +400,19 @@ export interface SwaState {
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -433,6 +461,10 @@ export interface SwaArgs {
      */
     buttonField?: pulumi.Input<string>;
     /**
+     * CSS selector for the checkbox.
+     */
+    checkbox?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -468,6 +500,10 @@ export interface SwaArgs {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
+     * If going to the login page URL redirects to another page, then enter that URL here.
+     */
+    redirectUrl?: pulumi.Input<string>;
+    /**
      * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
      */
     skipGroups?: pulumi.Input<boolean>;
@@ -488,15 +524,19 @@ export interface SwaArgs {
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * The default username assigned to each user.
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * The Username template type.
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

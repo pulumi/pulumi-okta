@@ -49,6 +49,9 @@ export class GroupAssignment extends pulumi.CustomResource {
      * The ID of the group to assign the app to.
      */
     public readonly groupId!: pulumi.Output<string>;
+    /**
+     * Priority of group assignment.
+     */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
@@ -110,6 +113,9 @@ export interface GroupAssignmentState {
      * The ID of the group to assign the app to.
      */
     groupId?: pulumi.Input<string>;
+    /**
+     * Priority of group assignment.
+     */
     priority?: pulumi.Input<number>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
@@ -133,6 +139,9 @@ export interface GroupAssignmentArgs {
      * The ID of the group to assign the app to.
      */
     groupId: pulumi.Input<string>;
+    /**
+     * Priority of group assignment.
+     */
     priority?: pulumi.Input<number>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)

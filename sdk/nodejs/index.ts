@@ -8,26 +8,49 @@ import * as utilities from "./utilities";
 export * from "./adminRoleTargets";
 export * from "./appGroupAssignments";
 export * from "./appOauthApiScope";
+export * from "./appSamlAppSettings";
 export * from "./appSharedCredentials";
+export * from "./appSignonPolicyRule";
 export * from "./appUserBaseSchemaProperty";
 export * from "./appUserSchemaProperty";
 export * from "./authServerClaimDefault";
 export * from "./authServerDefault";
+export * from "./authenticator";
 export * from "./behaviour";
 export * from "./domain";
+export * from "./domainCertificate";
+export * from "./domainVerification";
+export * from "./emailSender";
+export * from "./emailSenderVerification";
 export * from "./eventHook";
+export * from "./eventHookVerification";
 export * from "./factorTotp";
 export * from "./getAppGroupAssignments";
+export * from "./getAppSignonPolicy";
 export * from "./getAppUserAssignments";
+export * from "./getAuthServerClaim";
+export * from "./getAuthServerClaims";
+export * from "./getAuthenticator";
 export * from "./getBehaviour";
 export * from "./getBehaviours";
 export * from "./getGroups";
+export * from "./getNetworkZone";
+export * from "./getRoleSubscription";
+export * from "./getTrustedOrigins";
 export * from "./getUserSecurityQuestions";
 export * from "./groupMemberships";
+export * from "./groupSchemaProperty";
+export * from "./orgConfiguration";
+export * from "./orgSupport";
 export * from "./policyMfaDefault";
 export * from "./policyPasswordDefault";
+export * from "./policyProfileEnrollment";
+export * from "./policyRuleProfileEnrollment";
 export * from "./provider";
+export * from "./roleSubscription";
+export * from "./securityNotificationEmails";
 export * from "./templateSms";
+export * from "./threatInsightSettings";
 export * from "./userAdminRoles";
 export * from "./userBaseSchemaProperty";
 export * from "./userFactorQuestion";
@@ -73,19 +96,35 @@ export {
 import { AdminRoleTargets } from "./adminRoleTargets";
 import { AppGroupAssignments } from "./appGroupAssignments";
 import { AppOauthApiScope } from "./appOauthApiScope";
+import { AppSamlAppSettings } from "./appSamlAppSettings";
 import { AppSharedCredentials } from "./appSharedCredentials";
+import { AppSignonPolicyRule } from "./appSignonPolicyRule";
 import { AppUserBaseSchemaProperty } from "./appUserBaseSchemaProperty";
 import { AppUserSchemaProperty } from "./appUserSchemaProperty";
 import { AuthServerClaimDefault } from "./authServerClaimDefault";
 import { AuthServerDefault } from "./authServerDefault";
+import { Authenticator } from "./authenticator";
 import { Behaviour } from "./behaviour";
 import { Domain } from "./domain";
+import { DomainCertificate } from "./domainCertificate";
+import { DomainVerification } from "./domainVerification";
+import { EmailSender } from "./emailSender";
+import { EmailSenderVerification } from "./emailSenderVerification";
 import { EventHook } from "./eventHook";
+import { EventHookVerification } from "./eventHookVerification";
 import { FactorTotp } from "./factorTotp";
 import { GroupMemberships } from "./groupMemberships";
+import { GroupSchemaProperty } from "./groupSchemaProperty";
+import { OrgConfiguration } from "./orgConfiguration";
+import { OrgSupport } from "./orgSupport";
 import { PolicyMfaDefault } from "./policyMfaDefault";
 import { PolicyPasswordDefault } from "./policyPasswordDefault";
+import { PolicyProfileEnrollment } from "./policyProfileEnrollment";
+import { PolicyRuleProfileEnrollment } from "./policyRuleProfileEnrollment";
+import { RoleSubscription } from "./roleSubscription";
+import { SecurityNotificationEmails } from "./securityNotificationEmails";
 import { TemplateSms } from "./templateSms";
+import { ThreatInsightSettings } from "./threatInsightSettings";
 import { UserAdminRoles } from "./userAdminRoles";
 import { UserBaseSchemaProperty } from "./userBaseSchemaProperty";
 import { UserFactorQuestion } from "./userFactorQuestion";
@@ -102,8 +141,12 @@ const _module = {
                 return new AppGroupAssignments(name, <any>undefined, { urn })
             case "okta:index/appOauthApiScope:AppOauthApiScope":
                 return new AppOauthApiScope(name, <any>undefined, { urn })
+            case "okta:index/appSamlAppSettings:AppSamlAppSettings":
+                return new AppSamlAppSettings(name, <any>undefined, { urn })
             case "okta:index/appSharedCredentials:AppSharedCredentials":
                 return new AppSharedCredentials(name, <any>undefined, { urn })
+            case "okta:index/appSignonPolicyRule:AppSignonPolicyRule":
+                return new AppSignonPolicyRule(name, <any>undefined, { urn })
             case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
                 return new AppUserBaseSchemaProperty(name, <any>undefined, { urn })
             case "okta:index/appUserSchemaProperty:AppUserSchemaProperty":
@@ -112,22 +155,50 @@ const _module = {
                 return new AuthServerClaimDefault(name, <any>undefined, { urn })
             case "okta:index/authServerDefault:AuthServerDefault":
                 return new AuthServerDefault(name, <any>undefined, { urn })
+            case "okta:index/authenticator:Authenticator":
+                return new Authenticator(name, <any>undefined, { urn })
             case "okta:index/behaviour:Behaviour":
                 return new Behaviour(name, <any>undefined, { urn })
             case "okta:index/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "okta:index/domainCertificate:DomainCertificate":
+                return new DomainCertificate(name, <any>undefined, { urn })
+            case "okta:index/domainVerification:DomainVerification":
+                return new DomainVerification(name, <any>undefined, { urn })
+            case "okta:index/emailSender:EmailSender":
+                return new EmailSender(name, <any>undefined, { urn })
+            case "okta:index/emailSenderVerification:EmailSenderVerification":
+                return new EmailSenderVerification(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
+            case "okta:index/eventHookVerification:EventHookVerification":
+                return new EventHookVerification(name, <any>undefined, { urn })
             case "okta:index/factorTotp:FactorTotp":
                 return new FactorTotp(name, <any>undefined, { urn })
             case "okta:index/groupMemberships:GroupMemberships":
                 return new GroupMemberships(name, <any>undefined, { urn })
+            case "okta:index/groupSchemaProperty:GroupSchemaProperty":
+                return new GroupSchemaProperty(name, <any>undefined, { urn })
+            case "okta:index/orgConfiguration:OrgConfiguration":
+                return new OrgConfiguration(name, <any>undefined, { urn })
+            case "okta:index/orgSupport:OrgSupport":
+                return new OrgSupport(name, <any>undefined, { urn })
             case "okta:index/policyMfaDefault:PolicyMfaDefault":
                 return new PolicyMfaDefault(name, <any>undefined, { urn })
             case "okta:index/policyPasswordDefault:PolicyPasswordDefault":
                 return new PolicyPasswordDefault(name, <any>undefined, { urn })
+            case "okta:index/policyProfileEnrollment:PolicyProfileEnrollment":
+                return new PolicyProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
+                return new PolicyRuleProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/roleSubscription:RoleSubscription":
+                return new RoleSubscription(name, <any>undefined, { urn })
+            case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
+                return new SecurityNotificationEmails(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
                 return new TemplateSms(name, <any>undefined, { urn })
+            case "okta:index/threatInsightSettings:ThreatInsightSettings":
+                return new ThreatInsightSettings(name, <any>undefined, { urn })
             case "okta:index/userAdminRoles:UserAdminRoles":
                 return new UserAdminRoles(name, <any>undefined, { urn })
             case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
@@ -146,19 +217,35 @@ const _module = {
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appSamlAppSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appSharedCredentials", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appSignonPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appUserBaseSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appUserSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
+pulumi.runtime.registerResourceModule("okta", "index/authenticator", _module)
 pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
+pulumi.runtime.registerResourceModule("okta", "index/domainCertificate", _module)
+pulumi.runtime.registerResourceModule("okta", "index/domainVerification", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailSender", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailSenderVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
+pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
+pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
+pulumi.runtime.registerResourceModule("okta", "index/orgConfiguration", _module)
+pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _module)
+pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
+pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
+pulumi.runtime.registerResourceModule("okta", "index/threatInsightSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userAdminRoles", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userFactorQuestion", _module)

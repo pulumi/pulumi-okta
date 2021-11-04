@@ -52,7 +52,7 @@ export class Idp extends pulumi.CustomResource {
     public readonly jwksUrl!: pulumi.Output<string>;
     public readonly maxClockSkew!: pulumi.Output<number | undefined>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     public readonly name!: pulumi.Output<string>;
     public readonly profileMaster!: pulumi.Output<boolean | undefined>;
@@ -233,7 +233,7 @@ export interface IdpState {
     jwksUrl?: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     profileMaster?: pulumi.Input<boolean>;
@@ -292,7 +292,7 @@ export interface IdpArgs {
     jwksUrl: pulumi.Input<string>;
     maxClockSkew?: pulumi.Input<number>;
     /**
-     * name of idp
+     * Name of the IdP
      */
     name?: pulumi.Input<string>;
     profileMaster?: pulumi.Input<boolean>;

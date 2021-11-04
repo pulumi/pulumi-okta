@@ -20,7 +20,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None, users=None, wildcard_redirect=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, users=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -88,6 +88,12 @@ class GetOauthResult:
         if response_types and not isinstance(response_types, list):
             raise TypeError("Expected argument 'response_types' to be a list")
         pulumi.set(__self__, "response_types", response_types)
+        if skip_groups and not isinstance(skip_groups, bool):
+            raise TypeError("Expected argument 'skip_groups' to be a bool")
+        pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users and not isinstance(skip_users, bool):
+            raise TypeError("Expected argument 'skip_users' to be a bool")
+        pulumi.set(__self__, "skip_users", skip_users)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -269,6 +275,16 @@ class GetOauthResult:
         return pulumi.get(self, "response_types")
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_users")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -326,6 +342,8 @@ class AwaitableGetOauthResult(GetOauthResult):
             post_logout_redirect_uris=self.post_logout_redirect_uris,
             redirect_uris=self.redirect_uris,
             response_types=self.response_types,
+            skip_groups=self.skip_groups,
+            skip_users=self.skip_users,
             status=self.status,
             type=self.type,
             users=self.users,
@@ -337,6 +355,8 @@ def get_oauth(active_only: Optional[bool] = None,
               id: Optional[str] = None,
               label: Optional[str] = None,
               label_prefix: Optional[str] = None,
+              skip_groups: Optional[bool] = None,
+              skip_users: Optional[bool] = None,
               users: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOauthResult:
     """
@@ -361,6 +381,8 @@ def get_oauth(active_only: Optional[bool] = None,
            and `label`. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
+    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     :param Sequence[str] users: List of users IDs assigned to the application.
            - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
@@ -370,6 +392,8 @@ def get_oauth(active_only: Optional[bool] = None,
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
     __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -399,6 +423,8 @@ def get_oauth(active_only: Optional[bool] = None,
         post_logout_redirect_uris=__ret__.post_logout_redirect_uris,
         redirect_uris=__ret__.redirect_uris,
         response_types=__ret__.response_types,
+        skip_groups=__ret__.skip_groups,
+        skip_users=__ret__.skip_users,
         status=__ret__.status,
         type=__ret__.type,
         users=__ret__.users,
@@ -411,6 +437,8 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                      id: Optional[pulumi.Input[Optional[str]]] = None,
                      label: Optional[pulumi.Input[Optional[str]]] = None,
                      label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                     skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                      users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOauthResult]:
     """
@@ -435,6 +463,8 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
            and `label`. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
+    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     :param Sequence[str] users: List of users IDs assigned to the application.
            - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """

@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Creates an SWA Application.
-    /// 
-    /// This resource allows you to create and configure an SWA Application.
+    /// This resource allows you to create and configure a SWA Application.
     /// 
     /// ## Example Usage
     /// 
@@ -105,6 +103,12 @@ namespace Pulumi.Okta.App
         public Output<string?> ButtonField { get; private set; } = null!;
 
         /// <summary>
+        /// CSS selector for the checkbox.
+        /// </summary>
+        [Output("checkbox")]
+        public Output<string?> Checkbox { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -166,6 +170,12 @@ namespace Pulumi.Okta.App
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// </summary>
+        [Output("redirectUrl")]
+        public Output<string?> RedirectUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Sign-on mode of application.
         /// </summary>
         [Output("signOnMode")]
@@ -202,19 +212,25 @@ namespace Pulumi.Okta.App
         public Output<string?> UrlRegex { get; private set; } = null!;
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -321,6 +337,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
+        /// CSS selector for the checkbox.
+        /// </summary>
+        [Input("checkbox")]
+        public Input<string>? Checkbox { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -377,6 +399,12 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// </summary>
+        [Input("redirectUrl")]
+        public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
         /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         /// </summary>
         [Input("skipGroups")]
@@ -407,19 +435,25 @@ namespace Pulumi.Okta.App
         public Input<string>? UrlRegex { get; set; }
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -494,6 +528,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
+        /// CSS selector for the checkbox.
+        /// </summary>
+        [Input("checkbox")]
+        public Input<string>? Checkbox { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -562,6 +602,12 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
+        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// </summary>
+        [Input("redirectUrl")]
+        public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
         /// Sign-on mode of application.
         /// </summary>
         [Input("signOnMode")]
@@ -598,19 +644,25 @@ namespace Pulumi.Okta.App
         public Input<string>? UrlRegex { get; set; }
 
         /// <summary>
-        /// The default username assigned to each user.
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// The Username template type.
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
