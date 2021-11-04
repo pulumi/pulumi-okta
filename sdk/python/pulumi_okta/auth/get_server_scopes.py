@@ -13,6 +13,7 @@ __all__ = [
     'GetServerScopesResult',
     'AwaitableGetServerScopesResult',
     'get_server_scopes',
+    'get_server_scopes_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,24 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
         auth_server_id=__ret__.auth_server_id,
         id=__ret__.id,
         scopes=__ret__.scopes)
+
+
+@_utilities.lift_output_func(get_server_scopes)
+def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerScopesResult]:
+    """
+    Use this data source to retrieve a list of authorization server scopes from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.auth.get_server_scopes(auth_server_id="default")
+    ```
+
+
+    :param str auth_server_id: Auth server ID.
+    """
+    ...

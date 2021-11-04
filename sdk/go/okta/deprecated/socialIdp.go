@@ -450,6 +450,10 @@ func (o SocialIdpMapOutput) MapIndex(k pulumi.StringInput) SocialIdpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpInput)(nil)).Elem(), &SocialIdp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpPtrInput)(nil)).Elem(), &SocialIdp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpArrayInput)(nil)).Elem(), SocialIdpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpMapInput)(nil)).Elem(), SocialIdpMap{})
 	pulumi.RegisterOutputType(SocialIdpOutput{})
 	pulumi.RegisterOutputType(SocialIdpPtrOutput{})
 	pulumi.RegisterOutputType(SocialIdpArrayOutput{})

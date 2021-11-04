@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,4 +53,18 @@ export interface GetDefaultPolicyResult {
      * type of policy.
      */
     readonly type: string;
+}
+
+export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPolicyResult> {
+    return pulumi.output(args).apply(a => getDefaultPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDefaultPolicy.
+ */
+export interface GetDefaultPolicyOutputArgs {
+    /**
+     * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     */
+    type: pulumi.Input<string>;
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -84,4 +83,18 @@ export interface GetMetadataSamlResult {
      * SAML request signing certificate.
      */
     readonly signingCertificate: string;
+}
+
+export function getMetadataSamlOutput(args?: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
+    return pulumi.output(args).apply(a => getMetadataSaml(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMetadataSaml.
+ */
+export interface GetMetadataSamlOutputArgs {
+    /**
+     * The id of the IdP to retrieve metadata for.
+     */
+    idpId?: pulumi.Input<string>;
 }

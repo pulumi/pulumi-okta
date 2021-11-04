@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta
         /// </summary>
         public static Task<GetGroupsResult> InvokeAsync(GetGroupsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupsResult>("okta:index/getGroups:getGroups", args ?? new GetGroupsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a list of groups from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.GetGroups.InvokeAsync(new Okta.GetGroupsArgs
+        ///         {
+        ///             Q = "Engineering - ",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetGroupsResult> Invoke(GetGroupsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGroupsResult>("okta:index/getGroups:getGroups", args ?? new GetGroupsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +97,35 @@ namespace Pulumi.Okta
         public string? Type { get; set; }
 
         public GetGroupsArgs()
+        {
+        }
+    }
+
+    public sealed class GetGroupsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Searches the name property of groups for matching value.
+        /// </summary>
+        [Input("q")]
+        public Input<string>? Q { get; set; }
+
+        /// <summary>
+        /// Searches for groups with a
+        /// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+        /// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+        /// except for `"_embedded"`, `"_links"`, and `"objectClass"`
+        /// </summary>
+        [Input("search")]
+        public Input<string>? Search { get; set; }
+
+        /// <summary>
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public GetGroupsInvokeArgs()
         {
         }
     }

@@ -466,6 +466,10 @@ func (o BookmarkAppMapOutput) MapIndex(k pulumi.StringInput) BookmarkAppOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppInput)(nil)).Elem(), &BookmarkApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppPtrInput)(nil)).Elem(), &BookmarkApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppArrayInput)(nil)).Elem(), BookmarkAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkAppMapInput)(nil)).Elem(), BookmarkAppMap{})
 	pulumi.RegisterOutputType(BookmarkAppOutput{})
 	pulumi.RegisterOutputType(BookmarkAppPtrOutput{})
 	pulumi.RegisterOutputType(BookmarkAppArrayOutput{})

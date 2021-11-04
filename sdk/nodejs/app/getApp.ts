@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -117,4 +116,47 @@ export interface GetAppResult {
      * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users?: string[];
+}
+
+export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+    return pulumi.output(args).apply(a => getApp(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApp.
+ */
+export interface GetAppOutputArgs {
+    /**
+     * tells the provider to query for only `ACTIVE` applications.
+     */
+    activeOnly?: pulumi.Input<boolean>;
+    /**
+     * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+     *
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
+     */
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
+     */
+    labelPrefix?: pulumi.Input<string>;
+    /**
+     * List of users IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+     *
+     * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
+     */
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

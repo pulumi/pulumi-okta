@@ -12,6 +12,7 @@ __all__ = [
     'GetSocialResult',
     'AwaitableGetSocialResult',
     'get_social',
+    'get_social_output',
 ]
 
 @pulumi.output_type
@@ -404,3 +405,26 @@ def get_social(id: Optional[str] = None,
         token_url=__ret__.token_url,
         type=__ret__.type,
         username_template=__ret__.username_template)
+
+
+@_utilities.lift_output_func(get_social)
+def get_social_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSocialResult]:
+    """
+    Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_social(name="My Facebook IdP")
+    ```
+
+
+    :param str id: The id of the social idp to retrieve, conflicts with `name`.
+    :param str name: The name of the social idp to retrieve, conflicts with `id`.
+    """
+    ...

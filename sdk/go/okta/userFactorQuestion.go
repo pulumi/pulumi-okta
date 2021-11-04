@@ -361,6 +361,10 @@ func (o UserFactorQuestionMapOutput) MapIndex(k pulumi.StringInput) UserFactorQu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionInput)(nil)).Elem(), &UserFactorQuestion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionPtrInput)(nil)).Elem(), &UserFactorQuestion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionArrayInput)(nil)).Elem(), UserFactorQuestionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionMapInput)(nil)).Elem(), UserFactorQuestionMap{})
 	pulumi.RegisterOutputType(UserFactorQuestionOutput{})
 	pulumi.RegisterOutputType(UserFactorQuestionPtrOutput{})
 	pulumi.RegisterOutputType(UserFactorQuestionArrayOutput{})

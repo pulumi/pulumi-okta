@@ -12,6 +12,7 @@ __all__ = [
     'GetOauthResult',
     'AwaitableGetOauthResult',
     'get_oauth',
+    'get_oauth_output',
 ]
 
 @pulumi.output_type
@@ -288,7 +289,7 @@ class GetOauthResult:
     def users(self) -> Optional[Sequence[str]]:
         """
         List of users IDs assigned to the application.
-        - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
         """
         return pulumi.get(self, "users")
 
@@ -361,7 +362,7 @@ def get_oauth(active_only: Optional[bool] = None,
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
     :param Sequence[str] users: List of users IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -402,3 +403,39 @@ def get_oauth(active_only: Optional[bool] = None,
         type=__ret__.type,
         users=__ret__.users,
         wildcard_redirect=__ret__.wildcard_redirect)
+
+
+@_utilities.lift_output_func(get_oauth)
+def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
+                     groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                     id: Optional[pulumi.Input[Optional[str]]] = None,
+                     label: Optional[pulumi.Input[Optional[str]]] = None,
+                     label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                     users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOauthResult]:
+    """
+    Use this data source to retrieve an OIDC application from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.app.get_oauth(label="Example App")
+    ```
+
+
+    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
+    :param Sequence[str] groups: List of groups IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
+    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+           and `label`. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+           provider to do a `starts with` query as opposed to an `equals` query.
+    :param Sequence[str] users: List of users IDs assigned to the application.
+           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
+    """
+    ...

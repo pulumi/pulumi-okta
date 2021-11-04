@@ -306,6 +306,10 @@ func (o FactorMapOutput) MapIndex(k pulumi.StringInput) FactorOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorInput)(nil)).Elem(), &Factor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorPtrInput)(nil)).Elem(), &Factor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorArrayInput)(nil)).Elem(), FactorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorMapInput)(nil)).Elem(), FactorMap{})
 	pulumi.RegisterOutputType(FactorOutput{})
 	pulumi.RegisterOutputType(FactorPtrOutput{})
 	pulumi.RegisterOutputType(FactorArrayOutput{})

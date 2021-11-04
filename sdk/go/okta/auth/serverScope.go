@@ -361,6 +361,10 @@ func (o ServerScopeMapOutput) MapIndex(k pulumi.StringInput) ServerScopeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeInput)(nil)).Elem(), &ServerScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopePtrInput)(nil)).Elem(), &ServerScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeArrayInput)(nil)).Elem(), ServerScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeMapInput)(nil)).Elem(), ServerScopeMap{})
 	pulumi.RegisterOutputType(ServerScopeOutput{})
 	pulumi.RegisterOutputType(ServerScopePtrOutput{})
 	pulumi.RegisterOutputType(ServerScopeArrayOutput{})

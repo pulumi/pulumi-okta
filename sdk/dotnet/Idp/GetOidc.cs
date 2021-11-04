@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Idp
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Task<GetOidcResult> InvokeAsync(GetOidcArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a OIDC IdP from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Idp.GetOidc.InvokeAsync(new Okta.Idp.GetOidcArgs
+        ///         {
+        ///             Name = "Example Provider",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOidcResult> Invoke(GetOidcInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Okta.Idp
         public string? Name { get; set; }
 
         public GetOidcArgs()
+        {
+        }
+    }
+
+    public sealed class GetOidcInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The id of the idp to retrieve, conflicts with `name`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the idp to retrieve, conflicts with `id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetOidcInvokeArgs()
         {
         }
     }

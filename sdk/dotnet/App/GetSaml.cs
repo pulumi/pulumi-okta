@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.App
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.App
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve an SAML application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.App.GetSaml.InvokeAsync(new Okta.App.GetSamlArgs
+        ///         {
+        ///             Label = "Example App",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -293,6 +323,261 @@ namespace Pulumi.Okta.App
         }
 
         public GetSamlArgs()
+        {
+        }
+    }
+
+    public sealed class GetSamlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Custom error page URL.
+        /// </summary>
+        [Input("accessibilityErrorRedirectUrl")]
+        public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
+
+        /// <summary>
+        /// Custom login page URL.
+        /// </summary>
+        [Input("accessibilityLoginRedirectUrl")]
+        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
+
+        /// <summary>
+        /// Enable self-service.
+        /// </summary>
+        [Input("accessibilitySelfService")]
+        public Input<bool>? AccessibilitySelfService { get; set; }
+
+        [Input("acsEndpoints")]
+        private InputList<string>? _acsEndpoints;
+
+        /// <summary>
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// </summary>
+        public InputList<string> AcsEndpoints
+        {
+            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
+            set => _acsEndpoints = value;
+        }
+
+        /// <summary>
+        /// tells the provider to query for only `ACTIVE` applications.
+        /// </summary>
+        [Input("activeOnly")]
+        public Input<bool>? ActiveOnly { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format.
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
+        /// Determines whether the SAML assertion is digitally signed.
+        /// </summary>
+        [Input("assertionSigned")]
+        public Input<bool>? AssertionSigned { get; set; }
+
+        [Input("attributeStatements")]
+        private InputList<Inputs.GetSamlAttributeStatementInputArgs>? _attributeStatements;
+
+        /// <summary>
+        /// List of SAML Attribute statements.
+        /// </summary>
+        public InputList<Inputs.GetSamlAttributeStatementInputArgs> AttributeStatements
+        {
+            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.GetSamlAttributeStatementInputArgs>());
+            set => _attributeStatements = value;
+        }
+
+        /// <summary>
+        /// Audience restriction.
+        /// </summary>
+        [Input("audience")]
+        public Input<string>? Audience { get; set; }
+
+        /// <summary>
+        /// Identifies the SAML authentication context class for the assertion’s authentication
+        /// statement.
+        /// </summary>
+        [Input("authnContextClassRef")]
+        public Input<string>? AuthnContextClassRef { get; set; }
+
+        /// <summary>
+        /// Display auto submit toolbar.
+        /// </summary>
+        [Input("autoSubmitToolbar")]
+        public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// Identifies a specific application resource in an IDP initiated SSO scenario.
+        /// </summary>
+        [Input("defaultRelayState")]
+        public Input<string>? DefaultRelayState { get; set; }
+
+        /// <summary>
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        /// </summary>
+        [Input("destination")]
+        public Input<string>? Destination { get; set; }
+
+        /// <summary>
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        /// </summary>
+        [Input("digestAlgorithm")]
+        public Input<string>? DigestAlgorithm { get; set; }
+
+        [Input("features")]
+        private InputList<string>? _features;
+
+        /// <summary>
+        /// features enabled.
+        /// </summary>
+        public InputList<string> Features
+        {
+            get => _features ?? (_features = new InputList<string>());
+            set => _features = value;
+        }
+
+        [Input("groups")]
+        private InputList<string>? _groups;
+
+        /// <summary>
+        /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
+        /// </summary>
+        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`")]
+        public InputList<string> Groups
+        {
+            get => _groups ?? (_groups = new InputList<string>());
+            set => _groups = value;
+        }
+
+        /// <summary>
+        /// Do not display application icon on mobile app.
+        /// </summary>
+        [Input("hideIos")]
+        public Input<bool>? HideIos { get; set; }
+
+        /// <summary>
+        /// Do not display application icon to users
+        /// </summary>
+        [Input("hideWeb")]
+        public Input<bool>? HideWeb { get; set; }
+
+        /// <summary>
+        /// Prompt user to re-authenticate if SP asks for it.
+        /// </summary>
+        [Input("honorForceAuthn")]
+        public Input<bool>? HonorForceAuthn { get; set; }
+
+        /// <summary>
+        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// SAML issuer ID.
+        /// </summary>
+        [Input("idpIssuer")]
+        public Input<string>? IdpIssuer { get; set; }
+
+        /// <summary>
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
+        /// </summary>
+        [Input("label")]
+        public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
+        /// </summary>
+        [Input("labelPrefix")]
+        public Input<string>? LabelPrefix { get; set; }
+
+        /// <summary>
+        /// The location where the app may present the SAML assertion.
+        /// </summary>
+        [Input("recipient")]
+        public Input<string>? Recipient { get; set; }
+
+        /// <summary>
+        /// Denotes whether the request is compressed or not.
+        /// </summary>
+        [Input("requestCompressed")]
+        public Input<bool>? RequestCompressed { get; set; }
+
+        /// <summary>
+        /// Determines whether the SAML auth response message is digitally signed.
+        /// </summary>
+        [Input("responseSigned")]
+        public Input<bool>? ResponseSigned { get; set; }
+
+        /// <summary>
+        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// </summary>
+        [Input("signatureAlgorithm")]
+        public Input<string>? SignatureAlgorithm { get; set; }
+
+        /// <summary>
+        /// SAML service provider issuer.
+        /// </summary>
+        [Input("spIssuer")]
+        public Input<string>? SpIssuer { get; set; }
+
+        /// <summary>
+        /// Single Sign-on Url.
+        /// </summary>
+        [Input("ssoUrl")]
+        public Input<string>? SsoUrl { get; set; }
+
+        /// <summary>
+        /// Identifies the SAML processing rules.
+        /// </summary>
+        [Input("subjectNameIdFormat")]
+        public Input<string>? SubjectNameIdFormat { get; set; }
+
+        /// <summary>
+        /// Template for app user's username when a user is assigned to the app.
+        /// </summary>
+        [Input("subjectNameIdTemplate")]
+        public Input<string>? SubjectNameIdTemplate { get; set; }
+
+        /// <summary>
+        /// Username template.
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Username template suffix.
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type.
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
+
+        [Input("users")]
+        private InputList<string>? _users;
+
+        /// <summary>
+        /// List of users IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
+        /// </summary>
+        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`")]
+        public InputList<string> Users
+        {
+            get => _users ?? (_users = new InputList<string>());
+            set => _users = value;
+        }
+
+        public GetSamlInvokeArgs()
         {
         }
     }

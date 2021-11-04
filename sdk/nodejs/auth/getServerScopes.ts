@@ -56,3 +56,17 @@ export interface GetServerScopesResult {
      */
     readonly scopes: outputs.auth.GetServerScopesScope[];
 }
+
+export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
+    return pulumi.output(args).apply(a => getServerScopes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServerScopes.
+ */
+export interface GetServerScopesOutputArgs {
+    /**
+     * Auth server ID.
+     */
+    authServerId: pulumi.Input<string>;
+}

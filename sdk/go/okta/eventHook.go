@@ -360,6 +360,10 @@ func (o EventHookMapOutput) MapIndex(k pulumi.StringInput) EventHookOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHookInput)(nil)).Elem(), &EventHook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHookPtrInput)(nil)).Elem(), &EventHook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHookArrayInput)(nil)).Elem(), EventHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHookMapInput)(nil)).Elem(), EventHookMap{})
 	pulumi.RegisterOutputType(EventHookOutput{})
 	pulumi.RegisterOutputType(EventHookPtrOutput{})
 	pulumi.RegisterOutputType(EventHookArrayOutput{})

@@ -171,6 +171,8 @@ func (o GetServerScopesScopeArrayOutput) Index(i pulumi.IntInput) GetServerScope
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerScopesScopeInput)(nil)).Elem(), GetServerScopesScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerScopesScopeArrayInput)(nil)).Elem(), GetServerScopesScopeArray{})
 	pulumi.RegisterOutputType(GetServerScopesScopeOutput{})
 	pulumi.RegisterOutputType(GetServerScopesScopeArrayOutput{})
 }

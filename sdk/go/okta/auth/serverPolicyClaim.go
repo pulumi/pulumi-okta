@@ -474,6 +474,10 @@ func (o ServerPolicyClaimMapOutput) MapIndex(k pulumi.StringInput) ServerPolicyC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerPolicyClaimInput)(nil)).Elem(), &ServerPolicyClaim{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerPolicyClaimPtrInput)(nil)).Elem(), &ServerPolicyClaim{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerPolicyClaimArrayInput)(nil)).Elem(), ServerPolicyClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerPolicyClaimMapInput)(nil)).Elem(), ServerPolicyClaimMap{})
 	pulumi.RegisterOutputType(ServerPolicyClaimOutput{})
 	pulumi.RegisterOutputType(ServerPolicyClaimPtrOutput{})
 	pulumi.RegisterOutputType(ServerPolicyClaimArrayOutput{})

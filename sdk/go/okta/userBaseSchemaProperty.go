@@ -394,6 +394,10 @@ func (o UserBaseSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) UserBase
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyInput)(nil)).Elem(), &UserBaseSchemaProperty{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyPtrInput)(nil)).Elem(), &UserBaseSchemaProperty{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyArrayInput)(nil)).Elem(), UserBaseSchemaPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyMapInput)(nil)).Elem(), UserBaseSchemaPropertyMap{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyOutput{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyPtrOutput{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyArrayOutput{})

@@ -485,6 +485,10 @@ func (o IdpMapOutput) MapIndex(k pulumi.StringInput) IdpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdpInput)(nil)).Elem(), &Idp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdpPtrInput)(nil)).Elem(), &Idp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdpArrayInput)(nil)).Elem(), IdpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdpMapInput)(nil)).Elem(), IdpMap{})
 	pulumi.RegisterOutputType(IdpOutput{})
 	pulumi.RegisterOutputType(IdpPtrOutput{})
 	pulumi.RegisterOutputType(IdpArrayOutput{})

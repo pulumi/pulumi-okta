@@ -359,6 +359,10 @@ func (o FactorTotpMapOutput) MapIndex(k pulumi.StringInput) FactorTotpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorTotpInput)(nil)).Elem(), &FactorTotp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorTotpPtrInput)(nil)).Elem(), &FactorTotp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorTotpArrayInput)(nil)).Elem(), FactorTotpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactorTotpMapInput)(nil)).Elem(), FactorTotpMap{})
 	pulumi.RegisterOutputType(FactorTotpOutput{})
 	pulumi.RegisterOutputType(FactorTotpPtrOutput{})
 	pulumi.RegisterOutputType(FactorTotpArrayOutput{})

@@ -1193,6 +1193,20 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaArrayOneOfInput)(nil)).Elem(), SchemaArrayOneOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaArrayOneOfArrayInput)(nil)).Elem(), SchemaArrayOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMasterOverridePriorityInput)(nil)).Elem(), SchemaMasterOverridePriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMasterOverridePriorityArrayInput)(nil)).Elem(), SchemaMasterOverridePriorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaOneOfInput)(nil)).Elem(), SchemaOneOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaOneOfArrayInput)(nil)).Elem(), SchemaOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordHashInput)(nil)).Elem(), UserPasswordHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordHashPtrInput)(nil)).Elem(), UserPasswordHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSearchInput)(nil)).Elem(), GetUserSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSearchArrayInput)(nil)).Elem(), GetUserSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersSearchInput)(nil)).Elem(), GetUsersSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersSearchArrayInput)(nil)).Elem(), GetUsersSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(SchemaArrayOneOfOutput{})
 	pulumi.RegisterOutputType(SchemaArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(SchemaMasterOverridePriorityOutput{})

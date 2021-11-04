@@ -651,6 +651,10 @@ func (o AutoLoginMapOutput) MapIndex(k pulumi.StringInput) AutoLoginOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginInput)(nil)).Elem(), &AutoLogin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginPtrInput)(nil)).Elem(), &AutoLogin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginArrayInput)(nil)).Elem(), AutoLoginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginMapInput)(nil)).Elem(), AutoLoginMap{})
 	pulumi.RegisterOutputType(AutoLoginOutput{})
 	pulumi.RegisterOutputType(AutoLoginPtrOutput{})
 	pulumi.RegisterOutputType(AutoLoginArrayOutput{})

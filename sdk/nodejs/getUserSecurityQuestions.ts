@@ -62,3 +62,17 @@ export interface GetUserSecurityQuestionsResult {
     readonly questions: outputs.GetUserSecurityQuestionsQuestion[];
     readonly userId: string;
 }
+
+export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
+    return pulumi.output(args).apply(a => getUserSecurityQuestions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUserSecurityQuestions.
+ */
+export interface GetUserSecurityQuestionsOutputArgs {
+    /**
+     * User ID.
+     */
+    userId: pulumi.Input<string>;
+}

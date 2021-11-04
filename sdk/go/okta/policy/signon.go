@@ -339,6 +339,10 @@ func (o SignonMapOutput) MapIndex(k pulumi.StringInput) SignonOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonInput)(nil)).Elem(), &Signon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPtrInput)(nil)).Elem(), &Signon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonArrayInput)(nil)).Elem(), SignonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonMapInput)(nil)).Elem(), SignonMap{})
 	pulumi.RegisterOutputType(SignonOutput{})
 	pulumi.RegisterOutputType(SignonPtrOutput{})
 	pulumi.RegisterOutputType(SignonArrayOutput{})

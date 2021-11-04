@@ -543,6 +543,10 @@ func (o SwaAppMapOutput) MapIndex(k pulumi.StringInput) SwaAppOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppInput)(nil)).Elem(), &SwaApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppPtrInput)(nil)).Elem(), &SwaApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppArrayInput)(nil)).Elem(), SwaAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppMapInput)(nil)).Elem(), SwaAppMap{})
 	pulumi.RegisterOutputType(SwaAppOutput{})
 	pulumi.RegisterOutputType(SwaAppPtrOutput{})
 	pulumi.RegisterOutputType(SwaAppArrayOutput{})

@@ -12,6 +12,7 @@ __all__ = [
     'GetAppGroupAssignmentsResult',
     'AwaitableGetAppGroupAssignmentsResult',
     'get_app_group_assignments',
+    'get_app_group_assignments_output',
 ]
 
 @pulumi.output_type
@@ -82,3 +83,24 @@ def get_app_group_assignments(id: Optional[str] = None,
     return AwaitableGetAppGroupAssignmentsResult(
         groups=__ret__.groups,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_app_group_assignments)
+def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppGroupAssignmentsResult]:
+    """
+    Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_app_group_assignments(id=okta_app_oauth["test"]["id"])
+    ```
+
+
+    :param str id: The ID of the Okta application you want to retrieve the groups for.
+    """
+    ...

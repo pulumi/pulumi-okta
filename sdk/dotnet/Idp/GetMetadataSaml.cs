@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Idp
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve SAML IdP metadata from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Idp.GetMetadataSaml.InvokeAsync(new Okta.Idp.GetMetadataSamlArgs
+        ///         {
+        ///             IdpId = "&lt;idp id&gt;",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMetadataSamlResult> Invoke(GetMetadataSamlInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Okta.Idp
         public string? IdpId { get; set; }
 
         public GetMetadataSamlArgs()
+        {
+        }
+    }
+
+    public sealed class GetMetadataSamlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The id of the IdP to retrieve metadata for.
+        /// </summary>
+        [Input("idpId")]
+        public Input<string>? IdpId { get; set; }
+
+        public GetMetadataSamlInvokeArgs()
         {
         }
     }

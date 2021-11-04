@@ -489,6 +489,10 @@ func (o RuleIdpDiscoveryMapOutput) MapIndex(k pulumi.StringInput) RuleIdpDiscove
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryInput)(nil)).Elem(), &RuleIdpDiscovery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPtrInput)(nil)).Elem(), &RuleIdpDiscovery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryArrayInput)(nil)).Elem(), RuleIdpDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryMapInput)(nil)).Elem(), RuleIdpDiscoveryMap{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryArrayOutput{})

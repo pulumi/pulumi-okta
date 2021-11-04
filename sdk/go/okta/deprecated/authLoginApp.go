@@ -563,6 +563,10 @@ func (o AuthLoginAppMapOutput) MapIndex(k pulumi.StringInput) AuthLoginAppOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppInput)(nil)).Elem(), &AuthLoginApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppPtrInput)(nil)).Elem(), &AuthLoginApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppArrayInput)(nil)).Elem(), AuthLoginAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppMapInput)(nil)).Elem(), AuthLoginAppMap{})
 	pulumi.RegisterOutputType(AuthLoginAppOutput{})
 	pulumi.RegisterOutputType(AuthLoginAppPtrOutput{})
 	pulumi.RegisterOutputType(AuthLoginAppArrayOutput{})

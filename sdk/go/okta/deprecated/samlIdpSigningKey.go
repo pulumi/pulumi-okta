@@ -283,6 +283,10 @@ func (o SamlIdpSigningKeyMapOutput) MapIndex(k pulumi.StringInput) SamlIdpSignin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpSigningKeyInput)(nil)).Elem(), &SamlIdpSigningKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpSigningKeyPtrInput)(nil)).Elem(), &SamlIdpSigningKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpSigningKeyArrayInput)(nil)).Elem(), SamlIdpSigningKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpSigningKeyMapInput)(nil)).Elem(), SamlIdpSigningKeyMap{})
 	pulumi.RegisterOutputType(SamlIdpSigningKeyOutput{})
 	pulumi.RegisterOutputType(SamlIdpSigningKeyPtrOutput{})
 	pulumi.RegisterOutputType(SamlIdpSigningKeyArrayOutput{})

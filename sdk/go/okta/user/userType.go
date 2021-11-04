@@ -323,6 +323,10 @@ func (o UserTypeMapOutput) MapIndex(k pulumi.StringInput) UserTypeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypeInput)(nil)).Elem(), &UserType{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypePtrInput)(nil)).Elem(), &UserType{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypeArrayInput)(nil)).Elem(), UserTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypeMapInput)(nil)).Elem(), UserTypeMap{})
 	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserTypePtrOutput{})
 	pulumi.RegisterOutputType(UserTypeArrayOutput{})

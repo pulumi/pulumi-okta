@@ -638,6 +638,10 @@ func (o AppSharedCredentialsMapOutput) MapIndex(k pulumi.StringInput) AppSharedC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsInput)(nil)).Elem(), &AppSharedCredentials{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsPtrInput)(nil)).Elem(), &AppSharedCredentials{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsArrayInput)(nil)).Elem(), AppSharedCredentialsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsMapInput)(nil)).Elem(), AppSharedCredentialsMap{})
 	pulumi.RegisterOutputType(AppSharedCredentialsOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsArrayOutput{})

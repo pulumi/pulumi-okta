@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -54,4 +53,18 @@ export interface GetAppGroupAssignmentsResult {
      * ID of application.
      */
     readonly id: string;
+}
+
+export function getAppGroupAssignmentsOutput(args: GetAppGroupAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppGroupAssignmentsResult> {
+    return pulumi.output(args).apply(a => getAppGroupAssignments(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAppGroupAssignments.
+ */
+export interface GetAppGroupAssignmentsOutputArgs {
+    /**
+     * The ID of the Okta application you want to retrieve the groups for.
+     */
+    id: pulumi.Input<string>;
 }

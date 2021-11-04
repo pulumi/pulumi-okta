@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a behavior from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs
+        ///         {
+        ///             Label = "New City",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +88,26 @@ namespace Pulumi.Okta
         public string? Name { get; set; }
 
         public GetBehaviourArgs()
+        {
+        }
+    }
+
+    public sealed class GetBehaviourInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// `id` of behavior to retrieve, conflicts with `name`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by 
+        /// Okta's API.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetBehaviourInvokeArgs()
         {
         }
     }

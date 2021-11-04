@@ -13,6 +13,7 @@ __all__ = [
     'GetUserSecurityQuestionsResult',
     'AwaitableGetUserSecurityQuestionsResult',
     'get_user_security_questions',
+    'get_user_security_questions_output',
 ]
 
 @pulumi.output_type
@@ -98,3 +99,29 @@ def get_user_security_questions(user_id: Optional[str] = None,
         id=__ret__.id,
         questions=__ret__.questions,
         user_id=__ret__.user_id)
+
+
+@_utilities.lift_output_func(get_user_security_questions)
+def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
+    """
+    Use this data source to retrieve a list of user's security questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_user = okta.user.User("exampleUser",
+        first_name="John",
+        last_name="Smith",
+        login="john.smith@example.com",
+        email="john.smith@example.com")
+    example_user_security_questions = example_user.id.apply(lambda id: okta.get_user_security_questions(user_id=id))
+    ```
+
+
+    :param str user_id: User ID.
+    """
+    ...

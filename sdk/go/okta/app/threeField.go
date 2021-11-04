@@ -646,6 +646,10 @@ func (o ThreeFieldMapOutput) MapIndex(k pulumi.StringInput) ThreeFieldOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldInput)(nil)).Elem(), &ThreeField{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldPtrInput)(nil)).Elem(), &ThreeField{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldArrayInput)(nil)).Elem(), ThreeFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldMapInput)(nil)).Elem(), ThreeFieldMap{})
 	pulumi.RegisterOutputType(ThreeFieldOutput{})
 	pulumi.RegisterOutputType(ThreeFieldPtrOutput{})
 	pulumi.RegisterOutputType(ThreeFieldArrayOutput{})

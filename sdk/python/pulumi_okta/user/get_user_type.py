@@ -12,6 +12,7 @@ __all__ = [
     'GetUserTypeResult',
     'AwaitableGetUserTypeResult',
     'get_user_type',
+    'get_user_type_output',
 ]
 
 @pulumi.output_type
@@ -114,3 +115,28 @@ def get_user_type(description: Optional[str] = None,
         display_name=__ret__.display_name,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_user_type)
+def get_user_type_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                         display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                         name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
+    """
+    Use this data source to retrieve a user type from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user_type(name="example")
+    ```
+
+
+    :param str description: description of user type.
+    :param str display_name: display name of user type.
+    :param str name: name of user type to retrieve.
+    """
+    ...

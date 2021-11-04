@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Idp
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Task<GetSocialResult> InvokeAsync(GetSocialArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Idp.GetSocial.InvokeAsync(new Okta.Idp.GetSocialArgs
+        ///         {
+        ///             Name = "My Facebook IdP",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Okta.Idp
         public string? Name { get; set; }
 
         public GetSocialArgs()
+        {
+        }
+    }
+
+    public sealed class GetSocialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The id of the social idp to retrieve, conflicts with `name`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the social idp to retrieve, conflicts with `id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetSocialInvokeArgs()
         {
         }
     }

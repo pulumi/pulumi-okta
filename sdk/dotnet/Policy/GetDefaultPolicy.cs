@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Policy
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         public static Task<GetDefaultPolicyResult> InvokeAsync(GetDefaultPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+        ///         {
+        ///             Type = "PASSWORD",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDefaultPolicyResult> Invoke(GetDefaultPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Okta.Policy
         public string Type { get; set; } = null!;
 
         public GetDefaultPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDefaultPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public GetDefaultPolicyInvokeArgs()
         {
         }
     }

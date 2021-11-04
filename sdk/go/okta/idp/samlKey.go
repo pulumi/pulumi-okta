@@ -312,6 +312,10 @@ func (o SamlKeyMapOutput) MapIndex(k pulumi.StringInput) SamlKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyInput)(nil)).Elem(), &SamlKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyPtrInput)(nil)).Elem(), &SamlKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyArrayInput)(nil)).Elem(), SamlKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyMapInput)(nil)).Elem(), SamlKeyMap{})
 	pulumi.RegisterOutputType(SamlKeyOutput{})
 	pulumi.RegisterOutputType(SamlKeyPtrOutput{})
 	pulumi.RegisterOutputType(SamlKeyArrayOutput{})

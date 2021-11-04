@@ -179,6 +179,33 @@ export namespace app {
         values?: string[];
     }
 
+    export interface GetSamlAttributeStatementArgs {
+        /**
+         * Type of group attribute filter.
+         */
+        filterType?: pulumi.Input<string>;
+        /**
+         * Filter value to use.
+         */
+        filterValue?: pulumi.Input<string>;
+        /**
+         * The name of the attribute statement.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The attribute namespace.
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * The type of attribute statement value.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Array of values to use.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
@@ -531,6 +558,36 @@ export namespace user {
         value: string;
     }
 
+    export interface GetUserSearchArgs {
+        /**
+         * Comparison to use.
+         */
+        comparison?: pulumi.Input<string>;
+        /**
+         * Name of property to search against.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value to compare with.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface GetUsersSearchArgs {
+        /**
+         * Comparison to use.
+         */
+        comparison?: pulumi.Input<string>;
+        /**
+         * Name of property to search against.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value to compare with.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface GetUsersSearch {
         /**
          * Comparison to use.
@@ -688,6 +745,150 @@ export namespace user {
          * user profile property.
          */
         zipCode?: string;
+    }
+
+    export interface GetUsersUserArgs {
+        /**
+         * Administrator roles assigned to user.
+         */
+        adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * user profile property.
+         */
+        city?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        costCenter?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        countryCode?: pulumi.Input<string>;
+        /**
+         * raw JSON containing all custom profile attributes.
+         */
+        customProfileAttributes?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        department?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        division?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        employeeNumber?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        firstName?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * user profile property.
+         */
+        honorificPrefix?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        honorificSuffix?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        lastName?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        locale?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        login?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        manager?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        managerId?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        middleName?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        mobilePhone?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        nickName?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        organization?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        postalAddress?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        preferredLanguage?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        primaryPhone?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        profileUrl?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        secondEmail?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        streetAddress?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        timezone?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        title?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        userType?: pulumi.Input<string>;
+        /**
+         * user profile property.
+         */
+        zipCode?: pulumi.Input<string>;
     }
 
     export interface SchemaArrayOneOf {

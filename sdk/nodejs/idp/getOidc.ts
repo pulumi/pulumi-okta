@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -124,4 +123,22 @@ export interface GetOidcResult {
      * Protected resource endpoint that returns claims about the authenticated user.
      */
     readonly userInfoUrl: string;
+}
+
+export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcResult> {
+    return pulumi.output(args).apply(a => getOidc(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOidc.
+ */
+export interface GetOidcOutputArgs {
+    /**
+     * The id of the idp to retrieve, conflicts with `name`.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the idp to retrieve, conflicts with `id`.
+     */
+    name?: pulumi.Input<string>;
 }

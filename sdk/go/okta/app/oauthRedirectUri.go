@@ -273,6 +273,10 @@ func (o OAuthRedirectUriMapOutput) MapIndex(k pulumi.StringInput) OAuthRedirectU
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriInput)(nil)).Elem(), &OAuthRedirectUri{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriPtrInput)(nil)).Elem(), &OAuthRedirectUri{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriArrayInput)(nil)).Elem(), OAuthRedirectUriArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriMapInput)(nil)).Elem(), OAuthRedirectUriMap{})
 	pulumi.RegisterOutputType(OAuthRedirectUriOutput{})
 	pulumi.RegisterOutputType(OAuthRedirectUriPtrOutput{})
 	pulumi.RegisterOutputType(OAuthRedirectUriArrayOutput{})

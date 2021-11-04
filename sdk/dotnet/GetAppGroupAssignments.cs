@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Okta
         /// </summary>
         public static Task<GetAppGroupAssignmentsResult> InvokeAsync(GetAppGroupAssignmentsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Okta.GetAppGroupAssignments.InvokeAsync(new Okta.GetAppGroupAssignmentsArgs
+        ///         {
+        ///             Id = okta_app_oauth.Test.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAppGroupAssignmentsResult> Invoke(GetAppGroupAssignmentsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Okta
         public string Id { get; set; } = null!;
 
         public GetAppGroupAssignmentsArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppGroupAssignmentsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the Okta application you want to retrieve the groups for.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        public GetAppGroupAssignmentsInvokeArgs()
         {
         }
     }
