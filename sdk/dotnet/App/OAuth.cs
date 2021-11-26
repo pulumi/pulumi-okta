@@ -366,7 +366,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         /// </summary>
         [Output("tokenEndpointAuthMethod")]
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
@@ -384,25 +384,25 @@ namespace Pulumi.Okta.App
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Output("userNameTemplatePushStatus")]
         public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -744,7 +744,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -762,25 +762,25 @@ namespace Pulumi.Okta.App
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -1114,7 +1114,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -1132,25 +1132,25 @@ namespace Pulumi.Okta.App
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

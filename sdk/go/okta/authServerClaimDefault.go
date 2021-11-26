@@ -153,6 +153,8 @@ func (AuthServerClaimDefaultState) ElementType() reflect.Type {
 }
 
 type authServerClaimDefaultArgs struct {
+	// Specifies whether to include claims in token.
+	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
 	// ID of the authorization server.
 	AuthServerId string `pulumi:"authServerId"`
 	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
@@ -165,6 +167,8 @@ type authServerClaimDefaultArgs struct {
 
 // The set of arguments for constructing a AuthServerClaimDefault resource.
 type AuthServerClaimDefaultArgs struct {
+	// Specifies whether to include claims in token.
+	AlwaysIncludeInToken pulumi.BoolPtrInput
 	// ID of the authorization server.
 	AuthServerId pulumi.StringInput
 	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,

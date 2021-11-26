@@ -36,7 +36,7 @@ class GetUserTypeResult:
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> str:
         """
         description of user type.
         """
@@ -44,7 +44,7 @@ class GetUserTypeResult:
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> str:
         """
         display name of user type.
         """
@@ -54,7 +54,7 @@ class GetUserTypeResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        id of user type.
+        The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
 
@@ -79,9 +79,7 @@ class AwaitableGetUserTypeResult(GetUserTypeResult):
             name=self.name)
 
 
-def get_user_type(description: Optional[str] = None,
-                  display_name: Optional[str] = None,
-                  name: Optional[str] = None,
+def get_user_type(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserTypeResult:
     """
     Use this data source to retrieve a user type from Okta.
@@ -96,13 +94,9 @@ def get_user_type(description: Optional[str] = None,
     ```
 
 
-    :param str description: description of user type.
-    :param str display_name: display name of user type.
     :param str name: name of user type to retrieve.
     """
     __args__ = dict()
-    __args__['description'] = description
-    __args__['displayName'] = display_name
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -118,9 +112,7 @@ def get_user_type(description: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_type)
-def get_user_type_output(description: Optional[pulumi.Input[Optional[str]]] = None,
-                         display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                         name: Optional[pulumi.Input[str]] = None,
+def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
     """
     Use this data source to retrieve a user type from Okta.
@@ -135,8 +127,6 @@ def get_user_type_output(description: Optional[pulumi.Input[Optional[str]]] = No
     ```
 
 
-    :param str description: description of user type.
-    :param str display_name: display name of user type.
     :param str name: name of user type to retrieve.
     """
     ...

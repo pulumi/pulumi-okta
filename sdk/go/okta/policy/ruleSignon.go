@@ -10,7 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Sign On Policy Rule.
+// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel`
+// to an empty string, since this feature is not enabled.
 //
 // ## Example Usage
 //
@@ -154,6 +155,9 @@ type RuleSignon struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
+	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+	PrimaryFactor pulumi.StringOutput `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
@@ -167,7 +171,7 @@ type RuleSignon struct {
 	SessionPersistent pulumi.BoolPtrOutput `pulumi:"sessionPersistent"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Set of User IDs to Exclude
+	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
 }
 
@@ -230,6 +234,9 @@ type ruleSignonState struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
+	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+	PrimaryFactor *string `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
@@ -243,7 +250,7 @@ type ruleSignonState struct {
 	SessionPersistent *bool `pulumi:"sessionPersistent"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Set of User IDs to Exclude
+	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
@@ -278,6 +285,9 @@ type RuleSignonState struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
+	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+	PrimaryFactor pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
@@ -291,7 +301,7 @@ type RuleSignonState struct {
 	SessionPersistent pulumi.BoolPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Set of User IDs to Exclude
+	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds pulumi.StringArrayInput
 }
 
@@ -330,6 +340,9 @@ type ruleSignonArgs struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
+	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+	PrimaryFactor *string `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
@@ -343,7 +356,7 @@ type ruleSignonArgs struct {
 	SessionPersistent *bool `pulumi:"sessionPersistent"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Set of User IDs to Exclude
+	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
@@ -379,6 +392,9 @@ type RuleSignonArgs struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
+	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+	PrimaryFactor pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
@@ -392,7 +408,7 @@ type RuleSignonArgs struct {
 	SessionPersistent pulumi.BoolPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Set of User IDs to Exclude
+	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds pulumi.StringArrayInput
 }
 

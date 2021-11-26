@@ -270,7 +270,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -282,19 +282,19 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -624,7 +624,7 @@ export interface OAuthState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -636,19 +636,19 @@ export interface OAuthState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -830,7 +830,7 @@ export interface OAuthArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -842,19 +842,19 @@ export interface OAuthArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

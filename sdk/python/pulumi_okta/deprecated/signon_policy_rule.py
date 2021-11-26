@@ -29,6 +29,7 @@ class SignonPolicyRuleArgs:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -51,6 +52,7 @@ class SignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[str] primary_factor: Primary factor.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH
@@ -92,6 +94,8 @@ class SignonPolicyRuleArgs:
             pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
+        if primary_factor is not None:
+            pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
@@ -271,6 +275,18 @@ class SignonPolicyRuleArgs:
     @policyid.setter
     def policyid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policyid", value)
+
+    @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary factor.
+        """
+        return pulumi.get(self, "primary_factor")
+
+    @primary_factor.setter
+    def primary_factor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_factor", value)
 
     @property
     @pulumi.getter
@@ -376,6 +392,7 @@ class _SignonPolicyRuleState:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -398,6 +415,7 @@ class _SignonPolicyRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[str] primary_factor: Primary factor.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH
@@ -439,6 +457,8 @@ class _SignonPolicyRuleState:
             pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
+        if primary_factor is not None:
+            pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
@@ -618,6 +638,18 @@ class _SignonPolicyRuleState:
     @policyid.setter
     def policyid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policyid", value)
+
+    @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary factor.
+        """
+        return pulumi.get(self, "primary_factor")
+
+    @primary_factor.setter
+    def primary_factor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_factor", value)
 
     @property
     @pulumi.getter
@@ -725,6 +757,7 @@ class SignonPolicyRule(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -750,6 +783,7 @@ class SignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[str] primary_factor: Primary factor.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH
@@ -797,6 +831,7 @@ class SignonPolicyRule(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -833,6 +868,7 @@ class SignonPolicyRule(pulumi.CustomResource):
                 warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
                 pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
             __props__.__dict__["policyid"] = policyid
+            __props__.__dict__["primary_factor"] = primary_factor
             __props__.__dict__["priority"] = priority
             __props__.__dict__["risc_level"] = risc_level
             __props__.__dict__["session_idle"] = session_idle
@@ -864,6 +900,7 @@ class SignonPolicyRule(pulumi.CustomResource):
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
+            primary_factor: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             risc_level: Optional[pulumi.Input[str]] = None,
             session_idle: Optional[pulumi.Input[int]] = None,
@@ -891,6 +928,7 @@ class SignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[str] policy_id: Policy ID of the Rule
         :param pulumi.Input[str] policyid: Policy ID of the Rule
+        :param pulumi.Input[str] primary_factor: Primary factor.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
                invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH
@@ -919,6 +957,7 @@ class SignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["network_includes"] = network_includes
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["policyid"] = policyid
+        __props__.__dict__["primary_factor"] = primary_factor
         __props__.__dict__["priority"] = priority
         __props__.__dict__["risc_level"] = risc_level
         __props__.__dict__["session_idle"] = session_idle
@@ -1036,6 +1075,14 @@ class SignonPolicyRule(pulumi.CustomResource):
         Policy ID of the Rule
         """
         return pulumi.get(self, "policyid")
+
+    @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> pulumi.Output[str]:
+        """
+        Primary factor.
+        """
+        return pulumi.get(self, "primary_factor")
 
     @property
     @pulumi.getter

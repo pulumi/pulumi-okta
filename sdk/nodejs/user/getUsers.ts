@@ -33,7 +33,6 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("okta:user/getUsers:getUsers", {
         "searches": args.searches,
-        "users": args.users,
     }, opts);
 }
 
@@ -45,10 +44,6 @@ export interface GetUsersArgs {
      * Map of search criteria to find users. It supports the following properties.
      */
     searches: inputs.user.GetUsersSearch[];
-    /**
-     * collection of users retrieved from Okta with the following properties.
-     */
-    users?: inputs.user.GetUsersUser[];
 }
 
 /**
@@ -63,7 +58,7 @@ export interface GetUsersResult {
     /**
      * collection of users retrieved from Okta with the following properties.
      */
-    readonly users?: outputs.user.GetUsersUser[];
+    readonly users: outputs.user.GetUsersUser[];
 }
 
 export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
@@ -78,8 +73,4 @@ export interface GetUsersOutputArgs {
      * Map of search criteria to find users. It supports the following properties.
      */
     searches: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
-    /**
-     * collection of users retrieved from Okta with the following properties.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.user.GetUsersUserArgs>[]>;
 }

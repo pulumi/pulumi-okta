@@ -4527,7 +4527,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`.\n"
+                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -4539,19 +4539,19 @@
                 },
                 "userNameTemplate": {
                     "type": "string",
-                    "description": "Username template\n"
+                    "description": "Username template. Default: `\"${source.login}\"`\n"
                 },
                 "userNameTemplatePushStatus": {
                     "type": "string",
-                    "description": "Push username on update\n"
+                    "description": "Push username on update. Valid values: `\"PUSH\"` and `\"DONT_PUSH\"`.\n"
                 },
                 "userNameTemplateSuffix": {
                     "type": "string",
-                    "description": "Username template suffix\n"
+                    "description": "Username template suffix.\n"
                 },
                 "userNameTemplateType": {
                     "type": "string",
-                    "description": "Username template type\n"
+                    "description": "Username template type. Default: `\"BUILT_IN\"`.\n"
                 },
                 "users": {
                     "type": "array",
@@ -4758,7 +4758,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`.\n"
+                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -4770,19 +4770,19 @@
                 },
                 "userNameTemplate": {
                     "type": "string",
-                    "description": "Username template\n"
+                    "description": "Username template. Default: `\"${source.login}\"`\n"
                 },
                 "userNameTemplatePushStatus": {
                     "type": "string",
-                    "description": "Push username on update\n"
+                    "description": "Push username on update. Valid values: `\"PUSH\"` and `\"DONT_PUSH\"`.\n"
                 },
                 "userNameTemplateSuffix": {
                     "type": "string",
-                    "description": "Username template suffix\n"
+                    "description": "Username template suffix.\n"
                 },
                 "userNameTemplateType": {
                     "type": "string",
-                    "description": "Username template type\n"
+                    "description": "Username template type. Default: `\"BUILT_IN\"`.\n"
                 },
                 "users": {
                     "type": "array",
@@ -5000,7 +5000,7 @@
                     },
                     "tokenEndpointAuthMethod": {
                         "type": "string",
-                        "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`.\n"
+                        "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
                     },
                     "tosUri": {
                         "type": "string",
@@ -5012,19 +5012,19 @@
                     },
                     "userNameTemplate": {
                         "type": "string",
-                        "description": "Username template\n"
+                        "description": "Username template. Default: `\"${source.login}\"`\n"
                     },
                     "userNameTemplatePushStatus": {
                         "type": "string",
-                        "description": "Push username on update\n"
+                        "description": "Push username on update. Valid values: `\"PUSH\"` and `\"DONT_PUSH\"`.\n"
                     },
                     "userNameTemplateSuffix": {
                         "type": "string",
-                        "description": "Username template suffix\n"
+                        "description": "Username template suffix.\n"
                     },
                     "userNameTemplateType": {
                         "type": "string",
-                        "description": "Username template type\n"
+                        "description": "Username template type. Default: `\"BUILT_IN\"`.\n"
                     },
                     "users": {
                         "type": "array",
@@ -7273,7 +7273,7 @@
             }
         },
         "okta:app/userBaseSchema:UserBaseSchema": {
-            "description": "Manages an Application User Base Schema property.\n\nThis resource allows you to configure a base app user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.UserBaseSchema(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.UserBaseSchema(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.UserBaseSchema(\"example\", new Okta.App.UserBaseSchemaArgs\n        {\n            AppId = \"\u003capp id\u003e\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewUserBaseSchema(ctx, \"example\", \u0026app.UserBaseSchemaArgs{\n\t\t\tAppId:  pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tIndex:  pulumi.String(\"customPropertyName\"),\n\t\t\tMaster: pulumi.String(\"OKTA\"),\n\t\t\tTitle:  pulumi.String(\"customPropertyName\"),\n\t\t\tType:   pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nApp user base schema property can be imported via the property index and app id.\n\n```sh\n $ pulumi import okta:app/userBaseSchema:UserBaseSchema example \u003capp id\u003e/\u003cproperty name\u003e\n```\n\n ",
+            "description": "\u003e **DEPRECATED** use `okta.AppUserBaseSchemaProperty` instead.\n\nThis resource allows you to configure a base app user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.UserBaseSchema(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.UserBaseSchema(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.UserBaseSchema(\"example\", new Okta.App.UserBaseSchemaArgs\n        {\n            AppId = \"\u003capp id\u003e\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewUserBaseSchema(ctx, \"example\", \u0026app.UserBaseSchemaArgs{\n\t\t\tAppId:  pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tIndex:  pulumi.String(\"customPropertyName\"),\n\t\t\tMaster: pulumi.String(\"OKTA\"),\n\t\t\tTitle:  pulumi.String(\"customPropertyName\"),\n\t\t\tType:   pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nApp user base schema property can be imported via the property index and app id.\n\n```sh\n $ pulumi import okta:app/userBaseSchema:UserBaseSchema example \u003capp id\u003e/\u003cproperty name\u003e\n```\n\n ",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -13591,6 +13591,10 @@
                     "description": "Policy ID of the Rule\n",
                     "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
                 },
+                "primaryFactor": {
+                    "type": "string",
+                    "description": "Primary factor.\n"
+                },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an\ninvalid priority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -13624,7 +13628,8 @@
                 }
             },
             "required": [
-                "name"
+                "name",
+                "primaryFactor"
             ],
             "inputProperties": {
                 "access": {
@@ -13694,6 +13699,10 @@
                     "type": "string",
                     "description": "Policy ID of the Rule\n",
                     "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
+                },
+                "primaryFactor": {
+                    "type": "string",
+                    "description": "Primary factor.\n"
                 },
                 "priority": {
                     "type": "integer",
@@ -13797,6 +13806,10 @@
                         "type": "string",
                         "description": "Policy ID of the Rule\n",
                         "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
+                    },
+                    "primaryFactor": {
+                        "type": "string",
+                        "description": "Primary factor.\n"
                     },
                     "priority": {
                         "type": "integer",
@@ -16952,6 +16965,138 @@
                 "type": "object"
             }
         },
+        "okta:index/adminRoleCustom:AdminRoleCustom": {
+            "description": "These operations allow the creation and manipulation of custom roles as custom collections of permissions.\n\n\u003e **NOTE:** This an `Early Access` feature.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AdminRoleCustom(\"example\", {\n    description: \"This role allows app assignment management\",\n    label: \"AppAssignmentManager\",\n    permissions: [\"okta.apps.assignment.manage\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.AdminRoleCustom(\"example\",\n    description=\"This role allows app assignment management\",\n    label=\"AppAssignmentManager\",\n    permissions=[\"okta.apps.assignment.manage\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.AdminRoleCustom(\"example\", new Okta.AdminRoleCustomArgs\n        {\n            Description = \"This role allows app assignment management\",\n            Label = \"AppAssignmentManager\",\n            Permissions = \n            {\n                \"okta.apps.assignment.manage\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewAdminRoleCustom(ctx, \"example\", \u0026okta.AdminRoleCustomArgs{\n\t\t\tDescription: pulumi.String(\"This role allows app assignment management\"),\n\t\t\tLabel:       pulumi.String(\"AppAssignmentManager\"),\n\t\t\tPermissions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"okta.apps.assignment.manage\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Custom Admin Role can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example \u003ccustom role id\u003e\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the new Role.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The name given to the new Role.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values:`\"okta.users.manage\"`,\n`\"okta.users.create\"`,`\"okta.users.read\"`,`\"okta.users.credentials.manage\"`,`\"okta.users.userprofile.manage\"`,\n`\"okta.users.lifecycle.manage\"`,`\"okta.users.groupMembership.manage\"`,`\"okta.users.appAssignment.manage\"`,\n`\"okta.groups.manage\"`,`\"okta.groups.create\"`,`\"okta.groups.members.manage\"`,`\"okta.groups.read\"`,\n`\"okta.groups.appAssignment.manage\"`,`\"okta.apps.read\"`,`\"okta.apps.manage\"`,`\"okta.apps.assignment.manage\"`.\n"
+                }
+            },
+            "required": [
+                "description",
+                "label"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-readable description of the new Role.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "The name given to the new Role.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values:`\"okta.users.manage\"`,\n`\"okta.users.create\"`,`\"okta.users.read\"`,`\"okta.users.credentials.manage\"`,`\"okta.users.userprofile.manage\"`,\n`\"okta.users.lifecycle.manage\"`,`\"okta.users.groupMembership.manage\"`,`\"okta.users.appAssignment.manage\"`,\n`\"okta.groups.manage\"`,`\"okta.groups.create\"`,`\"okta.groups.members.manage\"`,`\"okta.groups.read\"`,\n`\"okta.groups.appAssignment.manage\"`,`\"okta.apps.read\"`,`\"okta.apps.manage\"`,`\"okta.apps.assignment.manage\"`.\n"
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "label"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AdminRoleCustom resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A human-readable description of the new Role.\n"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "The name given to the new Role.\n"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values:`\"okta.users.manage\"`,\n`\"okta.users.create\"`,`\"okta.users.read\"`,`\"okta.users.credentials.manage\"`,`\"okta.users.userprofile.manage\"`,\n`\"okta.users.lifecycle.manage\"`,`\"okta.users.groupMembership.manage\"`,`\"okta.users.appAssignment.manage\"`,\n`\"okta.groups.manage\"`,`\"okta.groups.create\"`,`\"okta.groups.members.manage\"`,`\"okta.groups.read\"`,\n`\"okta.groups.appAssignment.manage\"`,`\"okta.apps.read\"`,`\"okta.apps.manage\"`,`\"okta.apps.assignment.manage\"`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments": {
+            "description": "This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:\n - Groups\n - Users\n\n\u003e **NOTE:** This an `Early Access` feature.\n\n\n## Import\n\nOkta Custom Admin Role Assignments can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example \u003cresource_set_id\u003e/\u003ccustom_role_id\u003e\n```\n\n ",
+            "properties": {
+                "customRoleId": {
+                    "type": "string",
+                    "description": "ID of the Custom Role.\n"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one\npermission must be specified when creating custom role.\n"
+                },
+                "resourceSetId": {
+                    "type": "string",
+                    "description": "ID of the target Resource Set.\n"
+                }
+            },
+            "required": [
+                "customRoleId",
+                "resourceSetId"
+            ],
+            "inputProperties": {
+                "customRoleId": {
+                    "type": "string",
+                    "description": "ID of the Custom Role.\n"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one\npermission must be specified when creating custom role.\n"
+                },
+                "resourceSetId": {
+                    "type": "string",
+                    "description": "ID of the target Resource Set.\n"
+                }
+            },
+            "requiredInputs": [
+                "customRoleId",
+                "resourceSetId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AdminRoleCustomAssignments resources.\n",
+                "properties": {
+                    "customRoleId": {
+                        "type": "string",
+                        "description": "ID of the Custom Role.\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one\npermission must be specified when creating custom role.\n"
+                    },
+                    "resourceSetId": {
+                        "type": "string",
+                        "description": "ID of the target Resource Set.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/adminRoleTargets:AdminRoleTargets": {
             "description": "Manages targets for administrator roles.\n\nThis resource allows you to define permissions for admin roles into a smaller subset of Groups or Apps within your org.\nYou can define admin roles to target Groups, Applications, and Application Instances.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AdminRoleTargets(\"example\", {\n    apps: [\n        \"oidc_client.\u003capp_id\u003e\",\n        \"facebook\",\n    ],\n    roleType: \"APP_ADMIN\",\n    userId: \"\u003cuser_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.AdminRoleTargets(\"example\",\n    apps=[\n        \"oidc_client.\u003capp_id\u003e\",\n        \"facebook\",\n    ],\n    role_type=\"APP_ADMIN\",\n    user_id=\"\u003cuser_id\u003e\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.AdminRoleTargets(\"example\", new Okta.AdminRoleTargetsArgs\n        {\n            Apps = \n            {\n                \"oidc_client.\u003capp_id\u003e\",\n                \"facebook\",\n            },\n            RoleType = \"APP_ADMIN\",\n            UserId = \"\u003cuser_id\u003e\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewAdminRoleTargets(ctx, \"example\", \u0026okta.AdminRoleTargetsArgs{\n\t\t\tApps: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"oidc_client.\u003capp_id\u003e\"),\n\t\t\t\tpulumi.String(\"facebook\"),\n\t\t\t},\n\t\t\tRoleType: pulumi.String(\"APP_ADMIN\"),\n\t\t\tUserId:   pulumi.String(\"\u003cuser_id\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Admin Role Targets can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example \u003cuser id\u003e/\u003crole type\u003e\n```\n\n ",
             "properties": {
@@ -18153,7 +18298,7 @@
             }
         },
         "okta:index/appUserSchemaProperty:AppUserSchemaProperty": {
-            "description": "Creates an Application User Schema property.\n\nThis resource allows you to create and configure a custom user schema property and associate it with an application.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AppUserSchemaProperty(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.AppUserSchemaProperty(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.AppUserSchemaProperty(\"example\", new Okta.AppUserSchemaPropertyArgs\n        {\n            AppId = \"\u003capp id\u003e\",\n            Description = \"My custom property name\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Scope = \"SELF\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewAppUserSchemaProperty(ctx, \"example\", \u0026okta.AppUserSchemaPropertyArgs{\n\t\t\tAppId:       pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nApp user schema property can be imported via the property index and app id.\n\n```sh\n $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example \u003capp id\u003e/\u003cproperty name\u003e\n```\n\n ",
+            "description": "This resource allows you to create and configure a custom user schema property and associate it with an application.\nMake sure that the app instance is `active` before creating the schema property, because in some cases API might return `404` error.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AppUserSchemaProperty(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.AppUserSchemaProperty(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.AppUserSchemaProperty(\"example\", new Okta.AppUserSchemaPropertyArgs\n        {\n            AppId = \"\u003capp id\u003e\",\n            Description = \"My custom property name\",\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Scope = \"SELF\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewAppUserSchemaProperty(ctx, \"example\", \u0026okta.AppUserSchemaPropertyArgs{\n\t\t\tAppId:       pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nApp user schema property can be imported via the property index and app id.\n\n```sh\n $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example \u003capp id\u003e/\u003cproperty name\u003e\n```\n\n ",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -18514,6 +18659,10 @@
                 "valueType"
             ],
             "inputProperties": {
+                "alwaysIncludeInToken": {
+                    "type": "boolean",
+                    "description": "Specifies whether to include claims in token.\n"
+                },
                 "authServerId": {
                     "type": "string",
                     "description": "ID of the authorization server.\n"
@@ -18947,6 +19096,124 @@
                     "velocity": {
                         "type": "integer",
                         "description": "Velocity (in kilometers per hour). Should be at least 1. Required for `\"VELOCITY\"` behavior\ntype.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/captcha:Captcha": {
+            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to create and configure a CAPTCHA.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.Captcha(\"example\", {\n    secretKey: \"some_secret_key\",\n    siteKey: \"some_key\",\n    type: \"HCAPTCHA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Captcha(\"example\",\n    secret_key=\"some_secret_key\",\n    site_key=\"some_key\",\n    type=\"HCAPTCHA\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Captcha(\"example\", new Okta.CaptchaArgs\n        {\n            SecretKey = \"some_secret_key\",\n            SiteKey = \"some_key\",\n            Type = \"HCAPTCHA\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewCaptcha(ctx, \"example\", \u0026okta.CaptchaArgs{\n\t\t\tSecretKey: pulumi.String(\"some_secret_key\"),\n\t\t\tSiteKey:   pulumi.String(\"some_key\"),\n\t\t\tType:      pulumi.String(\"HCAPTCHA\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBehavior can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/captcha:Captcha example \u003ccaptcha id\u003e\n```\n\n ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the captcha.\n"
+                },
+                "secretKey": {
+                    "type": "string",
+                    "description": "Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.\n"
+                },
+                "siteKey": {
+                    "type": "string",
+                    "description": "Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the captcha. Valid values: `\"HCAPTCHA\"`, `\"RECAPTCHA_V2\"`.\n"
+                }
+            },
+            "required": [
+                "name",
+                "secretKey",
+                "siteKey",
+                "type"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the captcha.\n"
+                },
+                "secretKey": {
+                    "type": "string",
+                    "description": "Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.\n"
+                },
+                "siteKey": {
+                    "type": "string",
+                    "description": "Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the captcha. Valid values: `\"HCAPTCHA\"`, `\"RECAPTCHA_V2\"`.\n"
+                }
+            },
+            "requiredInputs": [
+                "secretKey",
+                "siteKey",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Captcha resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the captcha.\n"
+                    },
+                    "secretKey": {
+                        "type": "string",
+                        "description": "Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.\n"
+                    },
+                    "siteKey": {
+                        "type": "string",
+                        "description": "Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the captcha. Valid values: `\"HCAPTCHA\"`, `\"RECAPTCHA_V2\"`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings": {
+            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.\nCAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleCaptcha = new okta.Captcha(\"exampleCaptcha\", {\n    type: \"HCAPTCHA\",\n    siteKey: \"some_key\",\n    secretKey: \"some_secret_key\",\n});\nconst exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings(\"exampleCaptchaOrgWideSettings\", {\n    captchaId: okta_captcha.test.id,\n    enabledFors: [\"SSR\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_captcha = okta.Captcha(\"exampleCaptcha\",\n    type=\"HCAPTCHA\",\n    site_key=\"some_key\",\n    secret_key=\"some_secret_key\")\nexample_captcha_org_wide_settings = okta.CaptchaOrgWideSettings(\"exampleCaptchaOrgWideSettings\",\n    captcha_id=okta_captcha[\"test\"][\"id\"],\n    enabled_fors=[\"SSR\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleCaptcha = new Okta.Captcha(\"exampleCaptcha\", new Okta.CaptchaArgs\n        {\n            Type = \"HCAPTCHA\",\n            SiteKey = \"some_key\",\n            SecretKey = \"some_secret_key\",\n        });\n        var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings(\"exampleCaptchaOrgWideSettings\", new Okta.CaptchaOrgWideSettingsArgs\n        {\n            CaptchaId = okta_captcha.Test.Id,\n            EnabledFors = \n            {\n                \"SSR\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewCaptcha(ctx, \"exampleCaptcha\", \u0026okta.CaptchaArgs{\n\t\t\tType:      pulumi.String(\"HCAPTCHA\"),\n\t\t\tSiteKey:   pulumi.String(\"some_key\"),\n\t\t\tSecretKey: pulumi.String(\"some_secret_key\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewCaptchaOrgWideSettings(ctx, \"exampleCaptchaOrgWideSettings\", \u0026okta.CaptchaOrgWideSettingsArgs{\n\t\t\tCaptchaId: pulumi.Any(okta_captcha.Test.Id),\n\t\t\tEnabledFors: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"SSR\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nThe following example disables org-wide CAPTCHA.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleCaptcha = new okta.Captcha(\"example\", {\n    secretKey: \"some_secret_key\",\n    siteKey: \"some_key\",\n    type: \"HCAPTCHA\",\n});\nconst exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings(\"example\", {});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_captcha = okta.Captcha(\"exampleCaptcha\",\n    secret_key=\"some_secret_key\",\n    site_key=\"some_key\",\n    type=\"HCAPTCHA\")\nexample_captcha_org_wide_settings = okta.CaptchaOrgWideSettings(\"exampleCaptchaOrgWideSettings\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleCaptcha = new Okta.Captcha(\"exampleCaptcha\", new Okta.CaptchaArgs\n        {\n            SecretKey = \"some_secret_key\",\n            SiteKey = \"some_key\",\n            Type = \"HCAPTCHA\",\n        });\n        var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings(\"exampleCaptchaOrgWideSettings\", new Okta.CaptchaOrgWideSettingsArgs\n        {\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewCaptcha(ctx, \"exampleCaptcha\", \u0026okta.CaptchaArgs{\n\t\t\tSecretKey: pulumi.String(\"some_secret_key\"),\n\t\t\tSiteKey:   pulumi.String(\"some_key\"),\n\t\t\tType:      pulumi.String(\"HCAPTCHA\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewCaptchaOrgWideSettings(ctx, \"exampleCaptchaOrgWideSettings\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOrg-Wide CAPTCHA settings can be imported without any parameters.\n\n```sh\n $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _\n```\n\n ",
+            "properties": {
+                "captchaId": {
+                    "type": "string",
+                    "description": "The ID of the CAPTCHA.\n"
+                },
+                "enabledFors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of pages that have CAPTCHA enabled. Valid values: `\"SSR\"`, `\"SSPR\"` and `\"SIGN_IN\"`.\n"
+                }
+            },
+            "inputProperties": {
+                "captchaId": {
+                    "type": "string",
+                    "description": "The ID of the CAPTCHA.\n"
+                },
+                "enabledFors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of pages that have CAPTCHA enabled. Valid values: `\"SSR\"`, `\"SSPR\"` and `\"SIGN_IN\"`.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CaptchaOrgWideSettings resources.\n",
+                "properties": {
+                    "captchaId": {
+                        "type": "string",
+                        "description": "The ID of the CAPTCHA.\n"
+                    },
+                    "enabledFors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Array of pages that have CAPTCHA enabled. Valid values: `\"SSR\"`, `\"SSPR\"` and `\"SIGN_IN\"`.\n"
                     }
                 },
                 "type": "object"
@@ -19840,6 +20107,173 @@
                     "unique": {
                         "type": "string",
                         "description": "Whether the property should be unique. It can be set to `\"UNIQUE_VALIDATED\"` or `\"NOT_UNIQUE\"`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/linkDefinition:LinkDefinition": {
+            "description": "Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link \ndefinition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.\n\n\u003e **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.LinkDefinition(\"example\", {\n    associatedDescription: \"Elite military force member\",\n    associatedName: \"sardaukar\",\n    associatedTitle: \"Sardaukar\",\n    primaryDescription: \"Hereditary ruler of the Imperium and the Known Universe\",\n    primaryName: \"emperor\",\n    primaryTitle: \"Emperor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.LinkDefinition(\"example\",\n    associated_description=\"Elite military force member\",\n    associated_name=\"sardaukar\",\n    associated_title=\"Sardaukar\",\n    primary_description=\"Hereditary ruler of the Imperium and the Known Universe\",\n    primary_name=\"emperor\",\n    primary_title=\"Emperor\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.LinkDefinition(\"example\", new Okta.LinkDefinitionArgs\n        {\n            AssociatedDescription = \"Elite military force member\",\n            AssociatedName = \"sardaukar\",\n            AssociatedTitle = \"Sardaukar\",\n            PrimaryDescription = \"Hereditary ruler of the Imperium and the Known Universe\",\n            PrimaryName = \"emperor\",\n            PrimaryTitle = \"Emperor\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewLinkDefinition(ctx, \"example\", \u0026okta.LinkDefinitionArgs{\n\t\t\tAssociatedDescription: pulumi.String(\"Elite military force member\"),\n\t\t\tAssociatedName:        pulumi.String(\"sardaukar\"),\n\t\t\tAssociatedTitle:       pulumi.String(\"Sardaukar\"),\n\t\t\tPrimaryDescription:    pulumi.String(\"Hereditary ruler of the Imperium and the Known Universe\"),\n\t\t\tPrimaryName:           pulumi.String(\"emperor\"),\n\t\t\tPrimaryTitle:          pulumi.String(\"Emperor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Link Definition can be imported via the Okta Primary Link Name.\n\n```sh\n $ pulumi import okta:index/linkDefinition:LinkDefinition example \u003cprimary_name\u003e\n```\n\n ",
+            "properties": {
+                "associatedDescription": {
+                    "type": "string",
+                    "description": "Description of the associated relationship.\n"
+                },
+                "associatedName": {
+                    "type": "string",
+                    "description": "API name of the associated link.\n"
+                },
+                "associatedTitle": {
+                    "type": "string",
+                    "description": "Display name of the associated link.\n"
+                },
+                "primaryDescription": {
+                    "type": "string",
+                    "description": "Description of the primary relationship.\n"
+                },
+                "primaryName": {
+                    "type": "string",
+                    "description": "API name of the primary link.\n"
+                },
+                "primaryTitle": {
+                    "type": "string",
+                    "description": "Display name of the primary link.\n"
+                }
+            },
+            "required": [
+                "associatedDescription",
+                "associatedName",
+                "associatedTitle",
+                "primaryDescription",
+                "primaryName",
+                "primaryTitle"
+            ],
+            "inputProperties": {
+                "associatedDescription": {
+                    "type": "string",
+                    "description": "Description of the associated relationship.\n"
+                },
+                "associatedName": {
+                    "type": "string",
+                    "description": "API name of the associated link.\n"
+                },
+                "associatedTitle": {
+                    "type": "string",
+                    "description": "Display name of the associated link.\n"
+                },
+                "primaryDescription": {
+                    "type": "string",
+                    "description": "Description of the primary relationship.\n"
+                },
+                "primaryName": {
+                    "type": "string",
+                    "description": "API name of the primary link.\n"
+                },
+                "primaryTitle": {
+                    "type": "string",
+                    "description": "Display name of the primary link.\n"
+                }
+            },
+            "requiredInputs": [
+                "associatedDescription",
+                "associatedName",
+                "associatedTitle",
+                "primaryDescription",
+                "primaryName",
+                "primaryTitle"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LinkDefinition resources.\n",
+                "properties": {
+                    "associatedDescription": {
+                        "type": "string",
+                        "description": "Description of the associated relationship.\n"
+                    },
+                    "associatedName": {
+                        "type": "string",
+                        "description": "API name of the associated link.\n"
+                    },
+                    "associatedTitle": {
+                        "type": "string",
+                        "description": "Display name of the associated link.\n"
+                    },
+                    "primaryDescription": {
+                        "type": "string",
+                        "description": "Description of the primary relationship.\n"
+                    },
+                    "primaryName": {
+                        "type": "string",
+                        "description": "API name of the primary link.\n"
+                    },
+                    "primaryTitle": {
+                        "type": "string",
+                        "description": "Display name of the primary link.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/linkValue:LinkValue": {
+            "description": "Link value operations allow you to create relationships between primary and associated users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst padishah = new okta.LinkDefinition(\"padishah\", {\n    primaryName: \"emperor\",\n    primaryTitle: \"Emperor\",\n    primaryDescription: \"Hereditary ruler of the Imperium and the Known Universe\",\n    associatedName: \"sardaukar\",\n    associatedTitle: \"Sardaukar\",\n    associatedDescription: \"Elite military force member\",\n});\nconst emperor = new okta.user.User(\"emperor\", {\n    firstName: \"Shaddam\",\n    lastName: \"Corrino IV\",\n    login: \"shaddam.corrino.iv@salusa-secundus.planet\",\n    email: \"shaddam.corrino.iv@salusa-secundus.planet\",\n});\nconst sardaukars: okta.user.User[];\nfor (const range = {value: 0}; range.value \u003c 5; range.value++) {\n    sardaukars.push(new okta.user.User(`sardaukars-${range.value}`, {\n        firstName: \"Amrit\",\n        lastName: `Sardaukar_${range.value}`,\n        login: `amritsardaukar_${range.value}@salusa-secundus.planet`,\n        email: `amritsardaukar_${range.value}@salusa-secundus.planet`,\n    }));\n}\nconst example = new okta.LinkValue(\"example\", {\n    primaryName: padishah.primaryName,\n    primaryUserId: emperor.id,\n    associatedUserIds: [\n        sardaukars[0].id,\n        sardaukars[1].id,\n        sardaukars[2].id,\n        sardaukars[3].id,\n        sardaukars[4].id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\npadishah = okta.LinkDefinition(\"padishah\",\n    primary_name=\"emperor\",\n    primary_title=\"Emperor\",\n    primary_description=\"Hereditary ruler of the Imperium and the Known Universe\",\n    associated_name=\"sardaukar\",\n    associated_title=\"Sardaukar\",\n    associated_description=\"Elite military force member\")\nemperor = okta.user.User(\"emperor\",\n    first_name=\"Shaddam\",\n    last_name=\"Corrino IV\",\n    login=\"shaddam.corrino.iv@salusa-secundus.planet\",\n    email=\"shaddam.corrino.iv@salusa-secundus.planet\")\nsardaukars = []\nfor range in [{\"value\": i} for i in range(0, 5)]:\n    sardaukars.append(okta.user.User(f\"sardaukars-{range['value']}\",\n        first_name=\"Amrit\",\n        last_name=f\"Sardaukar_{range['value']}\",\n        login=f\"amritsardaukar_{range['value']}@salusa-secundus.planet\",\n        email=f\"amritsardaukar_{range['value']}@salusa-secundus.planet\"))\nexample = okta.LinkValue(\"example\",\n    primary_name=padishah.primary_name,\n    primary_user_id=emperor.id,\n    associated_user_ids=[\n        sardaukars[0].id,\n        sardaukars[1].id,\n        sardaukars[2].id,\n        sardaukars[3].id,\n        sardaukars[4].id,\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var padishah = new Okta.LinkDefinition(\"padishah\", new Okta.LinkDefinitionArgs\n        {\n            PrimaryName = \"emperor\",\n            PrimaryTitle = \"Emperor\",\n            PrimaryDescription = \"Hereditary ruler of the Imperium and the Known Universe\",\n            AssociatedName = \"sardaukar\",\n            AssociatedTitle = \"Sardaukar\",\n            AssociatedDescription = \"Elite military force member\",\n        });\n        var emperor = new Okta.User.User(\"emperor\", new Okta.User.UserArgs\n        {\n            FirstName = \"Shaddam\",\n            LastName = \"Corrino IV\",\n            Login = \"shaddam.corrino.iv@salusa-secundus.planet\",\n            Email = \"shaddam.corrino.iv@salusa-secundus.planet\",\n        });\n        var sardaukars = new List\u003cOkta.User.User\u003e();\n        for (var rangeIndex = 0; rangeIndex \u003c 5; rangeIndex++)\n        {\n            var range = new { Value = rangeIndex };\n            sardaukars.Add(new Okta.User.User($\"sardaukars-{range.Value}\", new Okta.User.UserArgs\n            {\n                FirstName = \"Amrit\",\n                LastName = $\"Sardaukar_{range.Value}\",\n                Login = $\"amritsardaukar_{range.Value}@salusa-secundus.planet\",\n                Email = $\"amritsardaukar_{range.Value}@salusa-secundus.planet\",\n            }));\n        }\n        var example = new Okta.LinkValue(\"example\", new Okta.LinkValueArgs\n        {\n            PrimaryName = padishah.PrimaryName,\n            PrimaryUserId = emperor.Id,\n            AssociatedUserIds = \n            {\n                sardaukars[0].Id,\n                sardaukars[1].Id,\n                sardaukars[2].Id,\n                sardaukars[3].Id,\n                sardaukars[4].Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tpadishah, err := okta.NewLinkDefinition(ctx, \"padishah\", \u0026okta.LinkDefinitionArgs{\n\t\t\tPrimaryName:           pulumi.String(\"emperor\"),\n\t\t\tPrimaryTitle:          pulumi.String(\"Emperor\"),\n\t\t\tPrimaryDescription:    pulumi.String(\"Hereditary ruler of the Imperium and the Known Universe\"),\n\t\t\tAssociatedName:        pulumi.String(\"sardaukar\"),\n\t\t\tAssociatedTitle:       pulumi.String(\"Sardaukar\"),\n\t\t\tAssociatedDescription: pulumi.String(\"Elite military force member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\temperor, err := user.NewUser(ctx, \"emperor\", \u0026user.UserArgs{\n\t\t\tFirstName: pulumi.String(\"Shaddam\"),\n\t\t\tLastName:  pulumi.String(\"Corrino IV\"),\n\t\t\tLogin:     pulumi.String(\"shaddam.corrino.iv@salusa-secundus.planet\"),\n\t\t\tEmail:     pulumi.String(\"shaddam.corrino.iv@salusa-secundus.planet\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar sardaukars []*user.User\n\t\tfor key0, val0 := range 5 {\n\t\t\t__res, err := user.NewUser(ctx, fmt.Sprintf(\"sardaukars-%v\", key0), \u0026user.UserArgs{\n\t\t\t\tFirstName: pulumi.String(\"Amrit\"),\n\t\t\t\tLastName:  pulumi.String(fmt.Sprintf(\"%v%v\", \"Sardaukar_\", val0)),\n\t\t\t\tLogin:     pulumi.String(fmt.Sprintf(\"%v%v%v\", \"amritsardaukar_\", val0, \"@salusa-secundus.planet\")),\n\t\t\t\tEmail:     pulumi.String(fmt.Sprintf(\"%v%v%v\", \"amritsardaukar_\", val0, \"@salusa-secundus.planet\")),\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tsardaukars = append(sardaukars, __res)\n\t\t}\n\t\t_, err = okta.NewLinkValue(ctx, \"example\", \u0026okta.LinkValueArgs{\n\t\t\tPrimaryName:   padishah.PrimaryName,\n\t\t\tPrimaryUserId: emperor.ID(),\n\t\t\tAssociatedUserIds: pulumi.StringArray{\n\t\t\t\tsardaukars[0].ID(),\n\t\t\t\tsardaukars[1].ID(),\n\t\t\t\tsardaukars[2].ID(),\n\t\t\t\tsardaukars[3].ID(),\n\t\t\t\tsardaukars[4].ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Link Value can be imported via Primary Name and Primary User ID.\n\n```sh\n $ pulumi import okta:index/linkValue:LinkValue example \u003cprimary_name\u003e/\u003cprimary_user_id\u003e\n```\n\n ",
+            "properties": {
+                "associatedUserIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of User IDs or login values of the users to be assigned the 'associated' relationship.\n"
+                },
+                "primaryName": {
+                    "type": "string",
+                    "description": "Name of the `primary` relationship being assigned.\n"
+                },
+                "primaryUserId": {
+                    "type": "string",
+                    "description": "User ID to be assigned to `primary` for the `associated` user in the specified relationship.\n"
+                }
+            },
+            "required": [
+                "primaryName",
+                "primaryUserId"
+            ],
+            "inputProperties": {
+                "associatedUserIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of User IDs or login values of the users to be assigned the 'associated' relationship.\n"
+                },
+                "primaryName": {
+                    "type": "string",
+                    "description": "Name of the `primary` relationship being assigned.\n"
+                },
+                "primaryUserId": {
+                    "type": "string",
+                    "description": "User ID to be assigned to `primary` for the `associated` user in the specified relationship.\n"
+                }
+            },
+            "requiredInputs": [
+                "primaryName",
+                "primaryUserId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LinkValue resources.\n",
+                "properties": {
+                    "associatedUserIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of User IDs or login values of the users to be assigned the 'associated' relationship.\n"
+                    },
+                    "primaryName": {
+                        "type": "string",
+                        "description": "Name of the `primary` relationship being assigned.\n"
+                    },
+                    "primaryUserId": {
+                        "type": "string",
+                        "description": "User ID to be assigned to `primary` for the `associated` user in the specified relationship.\n"
                     }
                 },
                 "type": "object"
@@ -21015,6 +21449,129 @@
                     "unknownUserAction": {
                         "type": "string",
                         "description": "Which action should be taken if this User is new. Valid values are: `\"DENY\"`, `\"REGISTER\"`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/rateLimiting:RateLimiting": {
+            "description": "This resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\n\u003e **WARNING:** This resource is available only when using api token in the provider config.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimit(\"example\", {\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n    login: \"ENFORCE\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRate limit settings can be imported without any parameters.\n\n```sh\n $ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n ",
+            "properties": {
+                "authorize": {
+                    "type": "string",
+                    "description": "Called during authentication. Valid values: `\"ENFORCE\"` _(Enforce limit and\nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                },
+                "communicationsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable or disable rate limiting communications. By default, it is `true`.\n"
+                },
+                "login": {
+                    "type": "string",
+                    "description": "Called when accessing the Okta hosted login page. Valid values: `\"ENFORCE\"` _(Enforce limit and \nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                }
+            },
+            "required": [
+                "authorize",
+                "login"
+            ],
+            "inputProperties": {
+                "authorize": {
+                    "type": "string",
+                    "description": "Called during authentication. Valid values: `\"ENFORCE\"` _(Enforce limit and\nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                },
+                "communicationsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable or disable rate limiting communications. By default, it is `true`.\n"
+                },
+                "login": {
+                    "type": "string",
+                    "description": "Called when accessing the Okta hosted login page. Valid values: `\"ENFORCE\"` _(Enforce limit and \nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                }
+            },
+            "requiredInputs": [
+                "authorize",
+                "login"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RateLimiting resources.\n",
+                "properties": {
+                    "authorize": {
+                        "type": "string",
+                        "description": "Called during authentication. Valid values: `\"ENFORCE\"` _(Enforce limit and\nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                    },
+                    "communicationsEnabled": {
+                        "type": "boolean",
+                        "description": "Enable or disable rate limiting communications. By default, it is `true`.\n"
+                    },
+                    "login": {
+                        "type": "string",
+                        "description": "Called when accessing the Okta hosted login page. Valid values: `\"ENFORCE\"` _(Enforce limit and \nlog per client (recommended))_, `\"DISABLE\"` _(Do nothing (not recommended))_, `\"PREVIEW\"` _(Log per client)_.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/resourceSet:ResourceSet": {
+            "description": "This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use \nOkta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.\nThe `resources` field supports the following:\n - Apps\n - Groups\n - All Users within a Group\n - All Users within the org\n - All Groups within the org\n - All Apps within the org\n - All Apps of the same type\n\n\u003e **NOTE:** This an `Early Access` feature.\n\n\n## Import\n\nOkta Resource Set can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/resourceSet:ResourceSet example \u003cresource_set_id\u003e\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Resource Set.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Unique name given to the Resource Set.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one\nendpoint must be specified when creating resource set.\n"
+                }
+            },
+            "required": [
+                "description",
+                "label"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Resource Set.\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Unique name given to the Resource Set.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one\nendpoint must be specified when creating resource set.\n"
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "label"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ResourceSet resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the Resource Set.\n"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Unique name given to the Resource Set.\n"
+                    },
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one\nendpoint must be specified when creating resource set.\n"
                     }
                 },
                 "type": "object"
@@ -23642,7 +24199,7 @@
             }
         },
         "okta:policy/ruleSignon:RuleSignon": {
-            "description": "Creates a Sign On Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.policy.Signon(\"test\", {\n    status: \"ACTIVE\",\n    description: \"Example Policy\",\n});\nconst newCity = okta.getBehaviour({\n    name: \"New City\",\n});\nconst example = new okta.policy.RuleSignon(\"example\", {\n    access: \"CHALLENGE\",\n    authtype: \"RADIUS\",\n    networkConnection: \"ANYWHERE\",\n    policyId: okta_policy_signon.example.id,\n    status: \"ACTIVE\",\n    riscLevel: \"HIGH\",\n    behaviors: [newCity.then(newCity =\u003e newCity.id)],\n    factorSequences: [\n        {\n            primaryCriteriaFactorType: \"token:hotp\",\n            primaryCriteriaProvider: \"CUSTOM\",\n            secondaryCriterias: [\n                {\n                    factorType: \"token:software:totp\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"push\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"password\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"question\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"sms\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"token:software:totp\",\n                    provider: \"GOOGLE\",\n                },\n                {\n                    factorType: \"email\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"call\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"webauthn\",\n                    provider: \"FIDO\",\n                },\n                {\n                    factorType: \"token\",\n                    provider: \"RSA\",\n                },\n                {\n                    factorType: \"token\",\n                    provider: \"SYMANTEC\",\n                },\n            ],\n        },\n        {\n            primaryCriteriaFactorType: \"token:software:totp\",\n            primaryCriteriaProvider: \"OKTA\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.policy.Signon(\"test\",\n    status=\"ACTIVE\",\n    description=\"Example Policy\")\nnew_city = okta.get_behaviour(name=\"New City\")\nexample = okta.policy.RuleSignon(\"example\",\n    access=\"CHALLENGE\",\n    authtype=\"RADIUS\",\n    network_connection=\"ANYWHERE\",\n    policy_id=okta_policy_signon[\"example\"][\"id\"],\n    status=\"ACTIVE\",\n    risc_level=\"HIGH\",\n    behaviors=[new_city.id],\n    factor_sequences=[\n        okta.policy.RuleSignonFactorSequenceArgs(\n            primary_criteria_factor_type=\"token:hotp\",\n            primary_criteria_provider=\"CUSTOM\",\n            secondary_criterias=[\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token:software:totp\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"push\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"password\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"question\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"sms\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token:software:totp\",\n                    provider=\"GOOGLE\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"email\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"call\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"webauthn\",\n                    provider=\"FIDO\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token\",\n                    provider=\"RSA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token\",\n                    provider=\"SYMANTEC\",\n                ),\n            ],\n        ),\n        okta.policy.RuleSignonFactorSequenceArgs(\n            primary_criteria_factor_type=\"token:software:totp\",\n            primary_criteria_provider=\"OKTA\",\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.Policy.Signon(\"test\", new Okta.Policy.SignonArgs\n        {\n            Status = \"ACTIVE\",\n            Description = \"Example Policy\",\n        });\n        var newCity = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs\n        {\n            Name = \"New City\",\n        }));\n        var example = new Okta.Policy.RuleSignon(\"example\", new Okta.Policy.RuleSignonArgs\n        {\n            Access = \"CHALLENGE\",\n            Authtype = \"RADIUS\",\n            NetworkConnection = \"ANYWHERE\",\n            PolicyId = okta_policy_signon.Example.Id,\n            Status = \"ACTIVE\",\n            RiscLevel = \"HIGH\",\n            Behaviors = \n            {\n                newCity.Apply(newCity =\u003e newCity.Id),\n            },\n            FactorSequences = \n            {\n                new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs\n                {\n                    PrimaryCriteriaFactorType = \"token:hotp\",\n                    PrimaryCriteriaProvider = \"CUSTOM\",\n                    SecondaryCriterias = \n                    {\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token:software:totp\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"push\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"password\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"question\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"sms\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token:software:totp\",\n                            Provider = \"GOOGLE\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"email\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"call\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"webauthn\",\n                            Provider = \"FIDO\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token\",\n                            Provider = \"RSA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token\",\n                            Provider = \"SYMANTEC\",\n                        },\n                    },\n                },\n                new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs\n                {\n                    PrimaryCriteriaFactorType = \"token:software:totp\",\n                    PrimaryCriteriaProvider = \"OKTA\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewSignon(ctx, \"test\", \u0026policy.SignonArgs{\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example Policy\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"New City\"\n\t\tnewCity, err := okta.LookupBehaviour(ctx, \u0026GetBehaviourArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewRuleSignon(ctx, \"example\", \u0026policy.RuleSignonArgs{\n\t\t\tAccess:            pulumi.String(\"CHALLENGE\"),\n\t\t\tAuthtype:          pulumi.String(\"RADIUS\"),\n\t\t\tNetworkConnection: pulumi.String(\"ANYWHERE\"),\n\t\t\tPolicyId:          pulumi.Any(okta_policy_signon.Example.Id),\n\t\t\tStatus:            pulumi.String(\"ACTIVE\"),\n\t\t\tRiscLevel:         pulumi.String(\"HIGH\"),\n\t\t\tBehaviors: pulumi.StringArray{\n\t\t\t\tpulumi.String(newCity.Id),\n\t\t\t},\n\t\t\tFactorSequences: policy.RuleSignonFactorSequenceArray{\n\t\t\t\t\u0026policy.RuleSignonFactorSequenceArgs{\n\t\t\t\t\tPrimaryCriteriaFactorType: pulumi.String(\"token:hotp\"),\n\t\t\t\t\tPrimaryCriteriaProvider:   pulumi.String(\"CUSTOM\"),\n\t\t\t\t\tSecondaryCriterias: policy.RuleSignonFactorSequenceSecondaryCriteriaArray{\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"push\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"password\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"question\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"sms\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"GOOGLE\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"email\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"call\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"webauthn\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"FIDO\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"RSA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"SYMANTEC\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleSignonFactorSequenceArgs{\n\t\t\t\t\tPrimaryCriteriaFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\tPrimaryCriteriaProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleSignon:RuleSignon example \u003cpolicy id\u003e/\u003crule id\u003e\n```\n\n ",
+            "description": "Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`\nto an empty string, since this feature is not enabled.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.policy.Signon(\"test\", {\n    status: \"ACTIVE\",\n    description: \"Example Policy\",\n});\nconst newCity = okta.getBehaviour({\n    name: \"New City\",\n});\nconst example = new okta.policy.RuleSignon(\"example\", {\n    access: \"CHALLENGE\",\n    authtype: \"RADIUS\",\n    networkConnection: \"ANYWHERE\",\n    policyId: okta_policy_signon.example.id,\n    status: \"ACTIVE\",\n    riscLevel: \"HIGH\",\n    behaviors: [newCity.then(newCity =\u003e newCity.id)],\n    factorSequences: [\n        {\n            primaryCriteriaFactorType: \"token:hotp\",\n            primaryCriteriaProvider: \"CUSTOM\",\n            secondaryCriterias: [\n                {\n                    factorType: \"token:software:totp\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"push\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"password\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"question\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"sms\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"token:software:totp\",\n                    provider: \"GOOGLE\",\n                },\n                {\n                    factorType: \"email\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"call\",\n                    provider: \"OKTA\",\n                },\n                {\n                    factorType: \"webauthn\",\n                    provider: \"FIDO\",\n                },\n                {\n                    factorType: \"token\",\n                    provider: \"RSA\",\n                },\n                {\n                    factorType: \"token\",\n                    provider: \"SYMANTEC\",\n                },\n            ],\n        },\n        {\n            primaryCriteriaFactorType: \"token:software:totp\",\n            primaryCriteriaProvider: \"OKTA\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.policy.Signon(\"test\",\n    status=\"ACTIVE\",\n    description=\"Example Policy\")\nnew_city = okta.get_behaviour(name=\"New City\")\nexample = okta.policy.RuleSignon(\"example\",\n    access=\"CHALLENGE\",\n    authtype=\"RADIUS\",\n    network_connection=\"ANYWHERE\",\n    policy_id=okta_policy_signon[\"example\"][\"id\"],\n    status=\"ACTIVE\",\n    risc_level=\"HIGH\",\n    behaviors=[new_city.id],\n    factor_sequences=[\n        okta.policy.RuleSignonFactorSequenceArgs(\n            primary_criteria_factor_type=\"token:hotp\",\n            primary_criteria_provider=\"CUSTOM\",\n            secondary_criterias=[\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token:software:totp\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"push\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"password\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"question\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"sms\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token:software:totp\",\n                    provider=\"GOOGLE\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"email\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"call\",\n                    provider=\"OKTA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"webauthn\",\n                    provider=\"FIDO\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token\",\n                    provider=\"RSA\",\n                ),\n                okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(\n                    factor_type=\"token\",\n                    provider=\"SYMANTEC\",\n                ),\n            ],\n        ),\n        okta.policy.RuleSignonFactorSequenceArgs(\n            primary_criteria_factor_type=\"token:software:totp\",\n            primary_criteria_provider=\"OKTA\",\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.Policy.Signon(\"test\", new Okta.Policy.SignonArgs\n        {\n            Status = \"ACTIVE\",\n            Description = \"Example Policy\",\n        });\n        var newCity = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs\n        {\n            Name = \"New City\",\n        }));\n        var example = new Okta.Policy.RuleSignon(\"example\", new Okta.Policy.RuleSignonArgs\n        {\n            Access = \"CHALLENGE\",\n            Authtype = \"RADIUS\",\n            NetworkConnection = \"ANYWHERE\",\n            PolicyId = okta_policy_signon.Example.Id,\n            Status = \"ACTIVE\",\n            RiscLevel = \"HIGH\",\n            Behaviors = \n            {\n                newCity.Apply(newCity =\u003e newCity.Id),\n            },\n            FactorSequences = \n            {\n                new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs\n                {\n                    PrimaryCriteriaFactorType = \"token:hotp\",\n                    PrimaryCriteriaProvider = \"CUSTOM\",\n                    SecondaryCriterias = \n                    {\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token:software:totp\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"push\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"password\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"question\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"sms\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token:software:totp\",\n                            Provider = \"GOOGLE\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"email\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"call\",\n                            Provider = \"OKTA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"webauthn\",\n                            Provider = \"FIDO\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token\",\n                            Provider = \"RSA\",\n                        },\n                        new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs\n                        {\n                            FactorType = \"token\",\n                            Provider = \"SYMANTEC\",\n                        },\n                    },\n                },\n                new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs\n                {\n                    PrimaryCriteriaFactorType = \"token:software:totp\",\n                    PrimaryCriteriaProvider = \"OKTA\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewSignon(ctx, \"test\", \u0026policy.SignonArgs{\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example Policy\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt0 := \"New City\"\n\t\tnewCity, err := okta.LookupBehaviour(ctx, \u0026GetBehaviourArgs{\n\t\t\tName: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewRuleSignon(ctx, \"example\", \u0026policy.RuleSignonArgs{\n\t\t\tAccess:            pulumi.String(\"CHALLENGE\"),\n\t\t\tAuthtype:          pulumi.String(\"RADIUS\"),\n\t\t\tNetworkConnection: pulumi.String(\"ANYWHERE\"),\n\t\t\tPolicyId:          pulumi.Any(okta_policy_signon.Example.Id),\n\t\t\tStatus:            pulumi.String(\"ACTIVE\"),\n\t\t\tRiscLevel:         pulumi.String(\"HIGH\"),\n\t\t\tBehaviors: pulumi.StringArray{\n\t\t\t\tpulumi.String(newCity.Id),\n\t\t\t},\n\t\t\tFactorSequences: policy.RuleSignonFactorSequenceArray{\n\t\t\t\t\u0026policy.RuleSignonFactorSequenceArgs{\n\t\t\t\t\tPrimaryCriteriaFactorType: pulumi.String(\"token:hotp\"),\n\t\t\t\t\tPrimaryCriteriaProvider:   pulumi.String(\"CUSTOM\"),\n\t\t\t\t\tSecondaryCriterias: policy.RuleSignonFactorSequenceSecondaryCriteriaArray{\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"push\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"password\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"question\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"sms\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"GOOGLE\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"email\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"call\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"webauthn\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"FIDO\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"RSA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{\n\t\t\t\t\t\t\tFactorType: pulumi.String(\"token\"),\n\t\t\t\t\t\t\tProvider:   pulumi.String(\"SYMANTEC\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleSignonFactorSequenceArgs{\n\t\t\t\t\tPrimaryCriteriaFactorType: pulumi.String(\"token:software:totp\"),\n\t\t\t\t\tPrimaryCriteriaProvider:   pulumi.String(\"OKTA\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleSignon:RuleSignon example \u003cpolicy id\u003e/\u003crule id\u003e\n```\n\n ",
             "properties": {
                 "access": {
                     "type": "string",
@@ -23713,6 +24270,10 @@
                     "description": "Policy ID.\n",
                     "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
                 },
+                "primaryFactor": {
+                    "type": "string",
+                    "description": "Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: \n`\"PASSWORD_IDP_ANY_FACTOR\"`, `\"PASSWORD_IDP\"`.\n"
+                },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -23742,11 +24303,12 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Set of User IDs to Exclude\n"
+                    "description": "The list of user IDs that would be excluded when rules are processed.\n"
                 }
             },
             "required": [
-                "name"
+                "name",
+                "primaryFactor"
             ],
             "inputProperties": {
                 "access": {
@@ -23818,6 +24380,10 @@
                     "description": "Policy ID.\n",
                     "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
                 },
+                "primaryFactor": {
+                    "type": "string",
+                    "description": "Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: \n`\"PASSWORD_IDP_ANY_FACTOR\"`, `\"PASSWORD_IDP\"`.\n"
+                },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -23847,7 +24413,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Set of User IDs to Exclude\n"
+                    "description": "The list of user IDs that would be excluded when rules are processed.\n"
                 }
             },
             "stateInputs": {
@@ -23922,6 +24488,10 @@
                         "description": "Policy ID.\n",
                         "deprecationMessage": "Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead"
                     },
+                    "primaryFactor": {
+                        "type": "string",
+                        "description": "Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: \n`\"PASSWORD_IDP_ANY_FACTOR\"`, `\"PASSWORD_IDP\"`.\n"
+                    },
                     "priority": {
                         "type": "integer",
                         "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -23951,7 +24521,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Set of User IDs to Exclude\n"
+                        "description": "The list of user IDs that would be excluded when rules are processed.\n"
                     }
                 },
                 "type": "object"
@@ -24329,7 +24899,7 @@
             }
         },
         "okta:user/baseSchema:BaseSchema": {
-            "description": "Manages a User Base Schema property.\n\nThis resource allows you to configure a base user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.BaseSchema(\"example\", {\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: okta_user_type_example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.BaseSchema(\"example\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.BaseSchema(\"example\", new Okta.User.BaseSchemaArgs\n        {\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n            UserType = data.Okta_user_type.Example.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewBaseSchema(ctx, \"example\", \u0026user.BaseSchemaArgs{\n\t\t\tIndex:    pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:   pulumi.String(\"OKTA\"),\n\t\t\tTitle:    pulumi.String(\"customPropertyName\"),\n\t\t\tType:     pulumi.String(\"string\"),\n\t\t\tUserType: pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cproperty name\u003e\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cuser type id\u003e.\u003cproperty name\u003e\n```\n\n ",
+            "description": "\u003e **DEPRECATED** use `okta.UserBaseSchemaProperty` instead.\n\nThis resource allows you to configure a base user schema property.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.BaseSchema(\"example\", {\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: okta_user_type_example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.BaseSchema(\"example\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.User.BaseSchema(\"example\", new Okta.User.BaseSchemaArgs\n        {\n            Index = \"customPropertyName\",\n            Master = \"OKTA\",\n            Title = \"customPropertyName\",\n            Type = \"string\",\n            UserType = data.Okta_user_type.Example.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewBaseSchema(ctx, \"example\", \u0026user.BaseSchemaArgs{\n\t\t\tIndex:    pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:   pulumi.String(\"OKTA\"),\n\t\t\tTitle:    pulumi.String(\"customPropertyName\"),\n\t\t\tType:     pulumi.String(\"string\"),\n\t\t\tUserType: pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property index.\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cproperty name\u003e\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:user/baseSchema:BaseSchema example \u003cuser type id\u003e.\u003cproperty name\u003e\n```\n\n ",
             "properties": {
                 "index": {
                     "type": "string",
@@ -25374,14 +25944,6 @@
                         "type": "boolean",
                         "description": "tells the provider to query for only `ACTIVE` applications.\n"
                     },
-                    "groups": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of groups IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.\n",
-                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`"
-                    },
                     "id": {
                         "type": "string",
                         "description": "`id` of application to retrieve, conflicts with `label` and `label_prefix`.\n"
@@ -25401,14 +25963,6 @@
                     "skipUsers": {
                         "type": "boolean",
                         "description": "Indicator that allows the app to skip `users` sync. Default is `false`.\n"
-                    },
-                    "users": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of users IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.\n",
-                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`"
                     }
                 },
                 "type": "object"
@@ -25467,9 +26021,11 @@
                 },
                 "type": "object",
                 "required": [
+                    "groups",
                     "links",
                     "name",
-                    "status"
+                    "status",
+                    "users"
                 ]
             }
         },
@@ -25552,14 +26108,6 @@
                         "type": "boolean",
                         "description": "tells the provider to query for only `ACTIVE` applications.\n"
                     },
-                    "groups": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of groups IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.\n",
-                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`"
-                    },
                     "id": {
                         "type": "string",
                         "description": "`id` of application to retrieve, conflicts with `label` and `label_prefix`.\n"
@@ -25579,14 +26127,6 @@
                     "skipUsers": {
                         "type": "boolean",
                         "description": "Indicator that allows the app to skip `users` sync. Default is `false`.\n"
-                    },
-                    "users": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of users IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.\n",
-                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`"
                     }
                 },
                 "type": "object"
@@ -25727,6 +26267,7 @@
                     "clientId",
                     "clientUri",
                     "grantTypes",
+                    "groups",
                     "hideIos",
                     "hideWeb",
                     "links",
@@ -25741,6 +26282,7 @@
                     "responseTypes",
                     "status",
                     "type",
+                    "users",
                     "wildcardRedirect"
                 ]
             }
@@ -25750,102 +26292,13 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getSaml.\n",
                 "properties": {
-                    "accessibilityErrorRedirectUrl": {
-                        "type": "string",
-                        "description": "Custom error page URL.\n"
-                    },
-                    "accessibilityLoginRedirectUrl": {
-                        "type": "string",
-                        "description": "Custom login page URL.\n"
-                    },
-                    "accessibilitySelfService": {
-                        "type": "boolean",
-                        "description": "Enable self-service.\n"
-                    },
-                    "acsEndpoints": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
-                    },
                     "activeOnly": {
                         "type": "boolean",
                         "description": "tells the provider to query for only `ACTIVE` applications.\n"
                     },
-                    "appSettingsJson": {
-                        "type": "string",
-                        "description": "Application settings in JSON format.\n"
-                    },
-                    "assertionSigned": {
-                        "type": "boolean",
-                        "description": "Determines whether the SAML assertion is digitally signed.\n"
-                    },
-                    "attributeStatements": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/okta:app/getSamlAttributeStatement:getSamlAttributeStatement"
-                        },
-                        "description": "List of SAML Attribute statements.\n"
-                    },
-                    "audience": {
-                        "type": "string",
-                        "description": "Audience restriction.\n"
-                    },
-                    "authnContextClassRef": {
-                        "type": "string",
-                        "description": "Identifies the SAML authentication context class for the assertion’s authentication\nstatement.\n"
-                    },
-                    "autoSubmitToolbar": {
-                        "type": "boolean",
-                        "description": "Display auto submit toolbar.\n"
-                    },
-                    "defaultRelayState": {
-                        "type": "string",
-                        "description": "Identifies a specific application resource in an IDP initiated SSO scenario.\n"
-                    },
-                    "destination": {
-                        "type": "string",
-                        "description": "Identifies the location where the SAML response is intended to be sent inside the SAML assertion.\n"
-                    },
-                    "digestAlgorithm": {
-                        "type": "string",
-                        "description": "Determines the digest algorithm used to digitally sign the SAML assertion and response.\n"
-                    },
-                    "features": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "features enabled.\n"
-                    },
-                    "groups": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of groups IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.\n",
-                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`"
-                    },
-                    "hideIos": {
-                        "type": "boolean",
-                        "description": "Do not display application icon on mobile app.\n"
-                    },
-                    "hideWeb": {
-                        "type": "boolean",
-                        "description": "Do not display application icon to users\n"
-                    },
-                    "honorForceAuthn": {
-                        "type": "boolean",
-                        "description": "Prompt user to re-authenticate if SP asks for it.\n"
-                    },
                     "id": {
                         "type": "string",
                         "description": "`id` of application to retrieve, conflicts with `label` and `label_prefix`.\n"
-                    },
-                    "idpIssuer": {
-                        "type": "string",
-                        "description": "SAML issuer ID.\n"
                     },
                     "label": {
                         "type": "string",
@@ -25855,21 +26308,9 @@
                         "type": "string",
                         "description": "Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the\nprovider to do a `starts with` query as opposed to an `equals` query.\n"
                     },
-                    "recipient": {
-                        "type": "string",
-                        "description": "The location where the app may present the SAML assertion.\n"
-                    },
                     "requestCompressed": {
                         "type": "boolean",
                         "description": "Denotes whether the request is compressed or not.\n"
-                    },
-                    "responseSigned": {
-                        "type": "boolean",
-                        "description": "Determines whether the SAML auth response message is digitally signed.\n"
-                    },
-                    "signatureAlgorithm": {
-                        "type": "string",
-                        "description": "Signature algorithm used ot digitally sign the assertion and response.\n"
                     },
                     "skipGroups": {
                         "type": "boolean",
@@ -25878,42 +26319,6 @@
                     "skipUsers": {
                         "type": "boolean",
                         "description": "Indicator that allows the app to skip `users` sync. Default is `false`.\n"
-                    },
-                    "spIssuer": {
-                        "type": "string",
-                        "description": "SAML service provider issuer.\n"
-                    },
-                    "ssoUrl": {
-                        "type": "string",
-                        "description": "Single Sign-on Url.\n"
-                    },
-                    "subjectNameIdFormat": {
-                        "type": "string",
-                        "description": "Identifies the SAML processing rules.\n"
-                    },
-                    "subjectNameIdTemplate": {
-                        "type": "string",
-                        "description": "Template for app user's username when a user is assigned to the app.\n"
-                    },
-                    "userNameTemplate": {
-                        "type": "string",
-                        "description": "Username template.\n"
-                    },
-                    "userNameTemplateSuffix": {
-                        "type": "string",
-                        "description": "Username template suffix.\n"
-                    },
-                    "userNameTemplateType": {
-                        "type": "string",
-                        "description": "Username template type.\n"
-                    },
-                    "users": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of users IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.\n",
-                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`"
                     }
                 },
                 "type": "object"
@@ -26121,15 +26526,45 @@
                 },
                 "type": "object",
                 "required": [
+                    "accessibilityErrorRedirectUrl",
+                    "accessibilityLoginRedirectUrl",
+                    "accessibilitySelfService",
+                    "acsEndpoints",
+                    "appSettingsJson",
+                    "assertionSigned",
+                    "attributeStatements",
+                    "audience",
+                    "authnContextClassRef",
+                    "autoSubmitToolbar",
+                    "defaultRelayState",
+                    "destination",
+                    "digestAlgorithm",
+                    "features",
+                    "groups",
+                    "hideIos",
+                    "hideWeb",
+                    "honorForceAuthn",
+                    "idpIssuer",
                     "inlineHookId",
                     "keyId",
                     "links",
                     "name",
+                    "recipient",
+                    "responseSigned",
+                    "signatureAlgorithm",
                     "singleLogoutCertificate",
                     "singleLogoutIssuer",
                     "singleLogoutUrl",
+                    "spIssuer",
+                    "ssoUrl",
                     "status",
-                    "userNameTemplatePushStatus"
+                    "subjectNameIdFormat",
+                    "subjectNameIdTemplate",
+                    "userNameTemplate",
+                    "userNameTemplatePushStatus",
+                    "userNameTemplateSuffix",
+                    "userNameTemplateType",
+                    "users"
                 ]
             }
         },
@@ -27869,14 +28304,6 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getUserType.\n",
                 "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "description of user type.\n"
-                    },
-                    "displayName": {
-                        "type": "string",
-                        "description": "display name of user type.\n"
-                    },
                     "name": {
                         "type": "string",
                         "description": "name of user type to retrieve.\n"
@@ -27900,7 +28327,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "id of user type.\n"
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "name": {
                         "type": "string",
@@ -27909,8 +28336,10 @@
                 },
                 "type": "object",
                 "required": [
-                    "id",
-                    "name"
+                    "description",
+                    "displayName",
+                    "name",
+                    "id"
                 ]
             }
         },
@@ -27925,13 +28354,6 @@
                             "$ref": "#/types/okta:user/getUsersSearch:getUsersSearch"
                         },
                         "description": "Map of search criteria to find users. It supports the following properties.\n"
-                    },
-                    "users": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/okta:user/getUsersUser:getUsersUser"
-                        },
-                        "description": "collection of users retrieved from Okta with the following properties.\n"
                     }
                 },
                 "type": "object",
@@ -27963,6 +28385,7 @@
                 "type": "object",
                 "required": [
                     "searches",
+                    "users",
                     "id"
                 ]
             }

@@ -42,6 +42,8 @@ type SignonPolicyRule struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
+	// Primary factor.
+	PrimaryFactor pulumi.StringOutput `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
@@ -118,6 +120,8 @@ type signonPolicyRuleState struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
+	// Primary factor.
+	PrimaryFactor *string `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
@@ -166,6 +170,8 @@ type SignonPolicyRuleState struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
+	// Primary factor.
+	PrimaryFactor pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
@@ -218,6 +224,8 @@ type signonPolicyRuleArgs struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid *string `pulumi:"policyid"`
+	// Primary factor.
+	PrimaryFactor *string `pulumi:"primaryFactor"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
@@ -267,6 +275,8 @@ type SignonPolicyRuleArgs struct {
 	//
 	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
 	Policyid pulumi.StringPtrInput
+	// Primary factor.
+	PrimaryFactor pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
 	// invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput

@@ -6,7 +6,8 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Sign On Policy Rule.
+ * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel`
+ * to an empty string, since this feature is not enabled.
  *
  * ## Example Usage
  *
@@ -183,6 +184,11 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly policyid!: pulumi.Output<string | undefined>;
     /**
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     */
+    public readonly primaryFactor!: pulumi.Output<string>;
+    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
@@ -208,7 +214,7 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Set of User IDs to Exclude
+     * The list of user IDs that would be excluded when rules are processed.
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
@@ -239,6 +245,7 @@ export class RuleSignon extends pulumi.CustomResource {
             inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
+            inputs["primaryFactor"] = state ? state.primaryFactor : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["riscLevel"] = state ? state.riscLevel : undefined;
             inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
@@ -262,6 +269,7 @@ export class RuleSignon extends pulumi.CustomResource {
             inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
+            inputs["primaryFactor"] = args ? args.primaryFactor : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["riscLevel"] = args ? args.riscLevel : undefined;
             inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
@@ -340,6 +348,11 @@ export interface RuleSignonState {
      */
     policyid?: pulumi.Input<string>;
     /**
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     */
+    primaryFactor?: pulumi.Input<string>;
+    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
@@ -365,7 +378,7 @@ export interface RuleSignonState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Set of User IDs to Exclude
+     * The list of user IDs that would be excluded when rules are processed.
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -433,6 +446,11 @@ export interface RuleSignonArgs {
      */
     policyid?: pulumi.Input<string>;
     /**
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     */
+    primaryFactor?: pulumi.Input<string>;
+    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
@@ -458,7 +476,7 @@ export interface RuleSignonArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Set of User IDs to Exclude
+     * The list of user IDs that would be excluded when rules are processed.
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

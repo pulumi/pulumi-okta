@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User
 {
     /// <summary>
-    /// Manages a User Base Schema property.
+    /// &gt; **DEPRECATED** use `okta.UserBaseSchemaProperty` instead.
     /// 
     /// This resource allows you to configure a base user schema property.
     /// 

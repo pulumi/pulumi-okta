@@ -48,7 +48,7 @@ class GetUsersResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.GetUsersUserResult']]:
+    def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
         collection of users retrieved from Okta with the following properties.
         """
@@ -67,7 +67,6 @@ class AwaitableGetUsersResult(GetUsersResult):
 
 
 def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
-              users: Optional[Sequence[pulumi.InputType['GetUsersUserArgs']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to retrieve a list of users from Okta.
@@ -87,11 +86,9 @@ def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']
 
 
     :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
-    :param Sequence[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
     """
     __args__ = dict()
     __args__['searches'] = searches
-    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -106,7 +103,6 @@ def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']
 
 @_utilities.lift_output_func(get_users)
 def get_users_output(searches: Optional[pulumi.Input[Sequence[pulumi.InputType['GetUsersSearchArgs']]]] = None,
-                     users: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUsersUserArgs']]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve a list of users from Okta.
@@ -126,6 +122,5 @@ def get_users_output(searches: Optional[pulumi.Input[Sequence[pulumi.InputType['
 
 
     :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
-    :param Sequence[pulumi.InputType['GetUsersUserArgs']] users: collection of users retrieved from Okta with the following properties.
     """
     ...

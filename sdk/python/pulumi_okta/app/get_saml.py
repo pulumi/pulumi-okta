@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetSamlResult',
@@ -172,7 +171,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[str]:
+    def accessibility_error_redirect_url(self) -> str:
         """
         Custom error page URL.
         """
@@ -180,7 +179,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[str]:
+    def accessibility_login_redirect_url(self) -> str:
         """
         Custom login page URL.
         """
@@ -188,7 +187,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[bool]:
+    def accessibility_self_service(self) -> bool:
         """
         Enable self-service.
         """
@@ -196,7 +195,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="acsEndpoints")
-    def acs_endpoints(self) -> Optional[Sequence[str]]:
+    def acs_endpoints(self) -> Sequence[str]:
         """
         An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
@@ -209,7 +208,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[str]:
+    def app_settings_json(self) -> str:
         """
         Application settings in JSON format.
         """
@@ -217,7 +216,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="assertionSigned")
-    def assertion_signed(self) -> Optional[bool]:
+    def assertion_signed(self) -> bool:
         """
         Determines whether the SAML assertion is digitally signed.
         """
@@ -225,7 +224,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> Optional[Sequence['outputs.GetSamlAttributeStatementResult']]:
+    def attribute_statements(self) -> Sequence['outputs.GetSamlAttributeStatementResult']:
         """
         List of SAML Attribute statements.
         """
@@ -233,7 +232,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def audience(self) -> Optional[str]:
+    def audience(self) -> str:
         """
         Audience restriction.
         """
@@ -241,7 +240,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="authnContextClassRef")
-    def authn_context_class_ref(self) -> Optional[str]:
+    def authn_context_class_ref(self) -> str:
         """
         Identifies the SAML authentication context class for the assertion’s authentication
         statement.
@@ -250,7 +249,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[bool]:
+    def auto_submit_toolbar(self) -> bool:
         """
         Display auto submit toolbar.
         """
@@ -258,7 +257,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="defaultRelayState")
-    def default_relay_state(self) -> Optional[str]:
+    def default_relay_state(self) -> str:
         """
         Identifies a specific application resource in an IDP initiated SSO scenario.
         """
@@ -266,7 +265,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[str]:
+    def destination(self) -> str:
         """
         Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         """
@@ -274,7 +273,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="digestAlgorithm")
-    def digest_algorithm(self) -> Optional[str]:
+    def digest_algorithm(self) -> str:
         """
         Determines the digest algorithm used to digitally sign the SAML assertion and response.
         """
@@ -282,7 +281,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Sequence[str]]:
+    def features(self) -> Sequence[str]:
         """
         features enabled.
         """
@@ -290,7 +289,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence[str]]:
+    def groups(self) -> Sequence[str]:
         """
         List of groups IDs assigned to the application.
         - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
@@ -299,7 +298,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[bool]:
+    def hide_ios(self) -> bool:
         """
         Do not display application icon on mobile app.
         """
@@ -307,7 +306,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[bool]:
+    def hide_web(self) -> bool:
         """
         Do not display application icon to users
         """
@@ -315,7 +314,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="honorForceAuthn")
-    def honor_force_authn(self) -> Optional[bool]:
+    def honor_force_authn(self) -> bool:
         """
         Prompt user to re-authenticate if SP asks for it.
         """
@@ -331,7 +330,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="idpIssuer")
-    def idp_issuer(self) -> Optional[str]:
+    def idp_issuer(self) -> str:
         """
         SAML issuer ID.
         """
@@ -384,7 +383,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def recipient(self) -> Optional[str]:
+    def recipient(self) -> str:
         """
         The location where the app may present the SAML assertion.
         """
@@ -400,7 +399,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="responseSigned")
-    def response_signed(self) -> Optional[bool]:
+    def response_signed(self) -> bool:
         """
         Determines whether the SAML auth response message is digitally signed.
         """
@@ -408,7 +407,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="signatureAlgorithm")
-    def signature_algorithm(self) -> Optional[str]:
+    def signature_algorithm(self) -> str:
         """
         Signature algorithm used ot digitally sign the assertion and response.
         """
@@ -450,7 +449,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="spIssuer")
-    def sp_issuer(self) -> Optional[str]:
+    def sp_issuer(self) -> str:
         """
         SAML service provider issuer.
         """
@@ -458,7 +457,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> Optional[str]:
+    def sso_url(self) -> str:
         """
         Single Sign-on Url.
         """
@@ -474,7 +473,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="subjectNameIdFormat")
-    def subject_name_id_format(self) -> Optional[str]:
+    def subject_name_id_format(self) -> str:
         """
         Identifies the SAML processing rules.
         """
@@ -482,7 +481,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="subjectNameIdTemplate")
-    def subject_name_id_template(self) -> Optional[str]:
+    def subject_name_id_template(self) -> str:
         """
         Template for app user's username when a user is assigned to the app.
         """
@@ -490,7 +489,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[str]:
+    def user_name_template(self) -> str:
         """
         Username template.
         """
@@ -506,7 +505,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[str]:
+    def user_name_template_suffix(self) -> str:
         """
         Username template suffix.
         """
@@ -514,7 +513,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[str]:
+    def user_name_template_type(self) -> str:
         """
         Username template type.
         """
@@ -522,7 +521,7 @@ class GetSamlResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence[str]]:
+    def users(self) -> Sequence[str]:
         """
         List of users IDs assigned to the application.
         - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
@@ -584,43 +583,13 @@ class AwaitableGetSamlResult(GetSamlResult):
             users=self.users)
 
 
-def get_saml(accessibility_error_redirect_url: Optional[str] = None,
-             accessibility_login_redirect_url: Optional[str] = None,
-             accessibility_self_service: Optional[bool] = None,
-             acs_endpoints: Optional[Sequence[str]] = None,
-             active_only: Optional[bool] = None,
-             app_settings_json: Optional[str] = None,
-             assertion_signed: Optional[bool] = None,
-             attribute_statements: Optional[Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']]] = None,
-             audience: Optional[str] = None,
-             authn_context_class_ref: Optional[str] = None,
-             auto_submit_toolbar: Optional[bool] = None,
-             default_relay_state: Optional[str] = None,
-             destination: Optional[str] = None,
-             digest_algorithm: Optional[str] = None,
-             features: Optional[Sequence[str]] = None,
-             groups: Optional[Sequence[str]] = None,
-             hide_ios: Optional[bool] = None,
-             hide_web: Optional[bool] = None,
-             honor_force_authn: Optional[bool] = None,
+def get_saml(active_only: Optional[bool] = None,
              id: Optional[str] = None,
-             idp_issuer: Optional[str] = None,
              label: Optional[str] = None,
              label_prefix: Optional[str] = None,
-             recipient: Optional[str] = None,
              request_compressed: Optional[bool] = None,
-             response_signed: Optional[bool] = None,
-             signature_algorithm: Optional[str] = None,
              skip_groups: Optional[bool] = None,
              skip_users: Optional[bool] = None,
-             sp_issuer: Optional[str] = None,
-             sso_url: Optional[str] = None,
-             subject_name_id_format: Optional[str] = None,
-             subject_name_id_template: Optional[str] = None,
-             user_name_template: Optional[str] = None,
-             user_name_template_suffix: Optional[str] = None,
-             user_name_template_type: Optional[str] = None,
-             users: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
     Use this data source to retrieve an SAML application from Okta.
@@ -635,88 +604,25 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
     ```
 
 
-    :param str accessibility_error_redirect_url: Custom error page URL.
-    :param str accessibility_login_redirect_url: Custom login page URL.
-    :param bool accessibility_self_service: Enable self-service.
-    :param Sequence[str] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str app_settings_json: Application settings in JSON format.
-    :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
-    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: List of SAML Attribute statements.
-    :param str audience: Audience restriction.
-    :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication
-           statement.
-    :param bool auto_submit_toolbar: Display auto submit toolbar.
-    :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-    :param str destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-    :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
-    :param Sequence[str] features: features enabled.
-    :param Sequence[str] groups: List of groups IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-    :param bool hide_ios: Do not display application icon on mobile app.
-    :param bool hide_web: Do not display application icon to users
-    :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str idp_issuer: SAML issuer ID.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
            and `label`. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
-    :param str recipient: The location where the app may present the SAML assertion.
     :param bool request_compressed: Denotes whether the request is compressed or not.
-    :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
-    :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
     :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
-    :param str sp_issuer: SAML service provider issuer.
-    :param str sso_url: Single Sign-on Url.
-    :param str subject_name_id_format: Identifies the SAML processing rules.
-    :param str subject_name_id_template: Template for app user's username when a user is assigned to the app.
-    :param str user_name_template: Username template.
-    :param str user_name_template_suffix: Username template suffix.
-    :param str user_name_template_type: Username template type.
-    :param Sequence[str] users: List of users IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
     __args__ = dict()
-    __args__['accessibilityErrorRedirectUrl'] = accessibility_error_redirect_url
-    __args__['accessibilityLoginRedirectUrl'] = accessibility_login_redirect_url
-    __args__['accessibilitySelfService'] = accessibility_self_service
-    __args__['acsEndpoints'] = acs_endpoints
     __args__['activeOnly'] = active_only
-    __args__['appSettingsJson'] = app_settings_json
-    __args__['assertionSigned'] = assertion_signed
-    __args__['attributeStatements'] = attribute_statements
-    __args__['audience'] = audience
-    __args__['authnContextClassRef'] = authn_context_class_ref
-    __args__['autoSubmitToolbar'] = auto_submit_toolbar
-    __args__['defaultRelayState'] = default_relay_state
-    __args__['destination'] = destination
-    __args__['digestAlgorithm'] = digest_algorithm
-    __args__['features'] = features
-    __args__['groups'] = groups
-    __args__['hideIos'] = hide_ios
-    __args__['hideWeb'] = hide_web
-    __args__['honorForceAuthn'] = honor_force_authn
     __args__['id'] = id
-    __args__['idpIssuer'] = idp_issuer
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
-    __args__['recipient'] = recipient
     __args__['requestCompressed'] = request_compressed
-    __args__['responseSigned'] = response_signed
-    __args__['signatureAlgorithm'] = signature_algorithm
     __args__['skipGroups'] = skip_groups
     __args__['skipUsers'] = skip_users
-    __args__['spIssuer'] = sp_issuer
-    __args__['ssoUrl'] = sso_url
-    __args__['subjectNameIdFormat'] = subject_name_id_format
-    __args__['subjectNameIdTemplate'] = subject_name_id_template
-    __args__['userNameTemplate'] = user_name_template
-    __args__['userNameTemplateSuffix'] = user_name_template_suffix
-    __args__['userNameTemplateType'] = user_name_template_type
-    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -773,43 +679,13 @@ def get_saml(accessibility_error_redirect_url: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_saml)
-def get_saml_output(accessibility_error_redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
-                    accessibility_login_redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
-                    accessibility_self_service: Optional[pulumi.Input[Optional[bool]]] = None,
-                    acs_endpoints: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                    active_only: Optional[pulumi.Input[Optional[bool]]] = None,
-                    app_settings_json: Optional[pulumi.Input[Optional[str]]] = None,
-                    assertion_signed: Optional[pulumi.Input[Optional[bool]]] = None,
-                    attribute_statements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']]]]] = None,
-                    audience: Optional[pulumi.Input[Optional[str]]] = None,
-                    authn_context_class_ref: Optional[pulumi.Input[Optional[str]]] = None,
-                    auto_submit_toolbar: Optional[pulumi.Input[Optional[bool]]] = None,
-                    default_relay_state: Optional[pulumi.Input[Optional[str]]] = None,
-                    destination: Optional[pulumi.Input[Optional[str]]] = None,
-                    digest_algorithm: Optional[pulumi.Input[Optional[str]]] = None,
-                    features: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                    groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                    hide_ios: Optional[pulumi.Input[Optional[bool]]] = None,
-                    hide_web: Optional[pulumi.Input[Optional[bool]]] = None,
-                    honor_force_authn: Optional[pulumi.Input[Optional[bool]]] = None,
+def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     id: Optional[pulumi.Input[Optional[str]]] = None,
-                    idp_issuer: Optional[pulumi.Input[Optional[str]]] = None,
                     label: Optional[pulumi.Input[Optional[str]]] = None,
                     label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                    recipient: Optional[pulumi.Input[Optional[str]]] = None,
                     request_compressed: Optional[pulumi.Input[Optional[bool]]] = None,
-                    response_signed: Optional[pulumi.Input[Optional[bool]]] = None,
-                    signature_algorithm: Optional[pulumi.Input[Optional[str]]] = None,
                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
-                    sp_issuer: Optional[pulumi.Input[Optional[str]]] = None,
-                    sso_url: Optional[pulumi.Input[Optional[str]]] = None,
-                    subject_name_id_format: Optional[pulumi.Input[Optional[str]]] = None,
-                    subject_name_id_template: Optional[pulumi.Input[Optional[str]]] = None,
-                    user_name_template: Optional[pulumi.Input[Optional[str]]] = None,
-                    user_name_template_suffix: Optional[pulumi.Input[Optional[str]]] = None,
-                    user_name_template_type: Optional[pulumi.Input[Optional[str]]] = None,
-                    users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
     Use this data source to retrieve an SAML application from Okta.
@@ -824,48 +700,15 @@ def get_saml_output(accessibility_error_redirect_url: Optional[pulumi.Input[Opti
     ```
 
 
-    :param str accessibility_error_redirect_url: Custom error page URL.
-    :param str accessibility_login_redirect_url: Custom login page URL.
-    :param bool accessibility_self_service: Enable self-service.
-    :param Sequence[str] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str app_settings_json: Application settings in JSON format.
-    :param bool assertion_signed: Determines whether the SAML assertion is digitally signed.
-    :param Sequence[pulumi.InputType['GetSamlAttributeStatementArgs']] attribute_statements: List of SAML Attribute statements.
-    :param str audience: Audience restriction.
-    :param str authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication
-           statement.
-    :param bool auto_submit_toolbar: Display auto submit toolbar.
-    :param str default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-    :param str destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-    :param str digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
-    :param Sequence[str] features: features enabled.
-    :param Sequence[str] groups: List of groups IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-    :param bool hide_ios: Do not display application icon on mobile app.
-    :param bool hide_web: Do not display application icon to users
-    :param bool honor_force_authn: Prompt user to re-authenticate if SP asks for it.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str idp_issuer: SAML issuer ID.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
            and `label`. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
-    :param str recipient: The location where the app may present the SAML assertion.
     :param bool request_compressed: Denotes whether the request is compressed or not.
-    :param bool response_signed: Determines whether the SAML auth response message is digitally signed.
-    :param str signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
     :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
-    :param str sp_issuer: SAML service provider issuer.
-    :param str sso_url: Single Sign-on Url.
-    :param str subject_name_id_format: Identifies the SAML processing rules.
-    :param str subject_name_id_template: Template for app user's username when a user is assigned to the app.
-    :param str user_name_template: Username template.
-    :param str user_name_template_suffix: Username template suffix.
-    :param str user_name_template_type: Username template type.
-    :param Sequence[str] users: List of users IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
     ...

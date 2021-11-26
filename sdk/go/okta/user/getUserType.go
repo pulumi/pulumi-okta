@@ -45,10 +45,6 @@ func LookupUserType(ctx *pulumi.Context, args *LookupUserTypeArgs, opts ...pulum
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeArgs struct {
-	// description of user type.
-	Description *string `pulumi:"description"`
-	// display name of user type.
-	DisplayName *string `pulumi:"displayName"`
 	// name of user type to retrieve.
 	Name string `pulumi:"name"`
 }
@@ -56,10 +52,10 @@ type LookupUserTypeArgs struct {
 // A collection of values returned by getUserType.
 type LookupUserTypeResult struct {
 	// description of user type.
-	Description *string `pulumi:"description"`
+	Description string `pulumi:"description"`
 	// display name of user type.
-	DisplayName *string `pulumi:"displayName"`
-	// id of user type.
+	DisplayName string `pulumi:"displayName"`
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// name of user type.
 	Name string `pulumi:"name"`
@@ -76,10 +72,6 @@ func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, op
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeOutputArgs struct {
-	// description of user type.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// display name of user type.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// name of user type to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -104,16 +96,16 @@ func (o LookupUserTypeResultOutput) ToLookupUserTypeResultOutputWithContext(ctx 
 }
 
 // description of user type.
-func (o LookupUserTypeResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o LookupUserTypeResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // display name of user type.
-func (o LookupUserTypeResultOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o LookupUserTypeResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// id of user type.
+// The provider-assigned unique ID for this managed resource.
 func (o LookupUserTypeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Id }).(pulumi.StringOutput)
 }

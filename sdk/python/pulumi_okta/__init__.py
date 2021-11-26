@@ -5,6 +5,8 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .admin_role_custom import *
+from .admin_role_custom_assignments import *
 from .admin_role_targets import *
 from .app_group_assignments import *
 from .app_oauth_api_scope import *
@@ -17,6 +19,8 @@ from .auth_server_claim_default import *
 from .auth_server_default import *
 from .authenticator import *
 from .behaviour import *
+from .captcha import *
+from .captcha_org_wide_settings import *
 from .domain import *
 from .domain_certificate import *
 from .domain_verification import *
@@ -40,6 +44,8 @@ from .get_trusted_origins import *
 from .get_user_security_questions import *
 from .group_memberships import *
 from .group_schema_property import *
+from .link_definition import *
+from .link_value import *
 from .org_configuration import *
 from .org_support import *
 from .policy_mfa_default import *
@@ -47,6 +53,8 @@ from .policy_password_default import *
 from .policy_profile_enrollment import *
 from .policy_rule_profile_enrollment import *
 from .provider import *
+from .rate_limiting import *
+from .resource_set import *
 from .role_subscription import *
 from .security_notification_emails import *
 from .template_sms import *
@@ -486,6 +494,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/adminRoleCustom",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/adminRoleCustom:AdminRoleCustom": "AdminRoleCustom"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/adminRoleCustomAssignments",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments": "AdminRoleCustomAssignments"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/adminRoleTargets",
   "fqn": "pulumi_okta",
   "classes": {
@@ -582,6 +606,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/captcha",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/captcha:Captcha": "Captcha"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/captchaOrgWideSettings",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings": "CaptchaOrgWideSettings"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/domain",
   "fqn": "pulumi_okta",
   "classes": {
@@ -662,6 +702,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/linkDefinition",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/linkDefinition:LinkDefinition": "LinkDefinition"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/linkValue",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/linkValue:LinkValue": "LinkValue"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/orgConfiguration",
   "fqn": "pulumi_okta",
   "classes": {
@@ -706,6 +762,22 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": "PolicyRuleProfileEnrollment"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/rateLimiting",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/rateLimiting:RateLimiting": "RateLimiting"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/resourceSet",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/resourceSet:ResourceSet": "ResourceSet"
   }
  },
  {

@@ -108,12 +108,12 @@ class OAuthArgs:
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -707,7 +707,7 @@ class OAuthArgs:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -731,7 +731,7 @@ class OAuthArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -743,7 +743,7 @@ class OAuthArgs:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -755,7 +755,7 @@ class OAuthArgs:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -767,7 +767,7 @@ class OAuthArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -904,13 +904,13 @@ class _OAuthState:
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -1550,7 +1550,7 @@ class _OAuthState:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -1586,7 +1586,7 @@ class _OAuthState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1598,7 +1598,7 @@ class _OAuthState:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -1610,7 +1610,7 @@ class _OAuthState:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1622,7 +1622,7 @@ class _OAuthState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1811,13 +1811,13 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -2140,13 +2140,13 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
                - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -2558,7 +2558,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> pulumi.Output[Optional[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.
+        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -2582,7 +2582,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template
+        Username template. Default: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -2590,7 +2590,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -2598,7 +2598,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -2606,7 +2606,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type
+        Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

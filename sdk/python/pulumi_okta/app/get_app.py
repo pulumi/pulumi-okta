@@ -70,7 +70,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence[str]]:
+    def groups(self) -> Sequence[str]:
         """
         List of groups IDs assigned to the application.
         - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
@@ -134,7 +134,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence[str]]:
+    def users(self) -> Sequence[str]:
         """
         List of users IDs assigned to the application.
         - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
@@ -162,13 +162,11 @@ class AwaitableGetAppResult(GetAppResult):
 
 
 def get_app(active_only: Optional[bool] = None,
-            groups: Optional[Sequence[str]] = None,
             id: Optional[str] = None,
             label: Optional[str] = None,
             label_prefix: Optional[str] = None,
             skip_groups: Optional[bool] = None,
             skip_users: Optional[bool] = None,
-            users: Optional[Sequence[str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Use this data source to retrieve an application from Okta.
@@ -184,8 +182,6 @@ def get_app(active_only: Optional[bool] = None,
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param Sequence[str] groups: List of groups IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -194,18 +190,14 @@ def get_app(active_only: Optional[bool] = None,
            provider to do a `starts with` query as opposed to an `equals` query.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
     :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
-    :param Sequence[str] users: List of users IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
-    __args__['groups'] = groups
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
     __args__['skipGroups'] = skip_groups
     __args__['skipUsers'] = skip_users
-    __args__['users'] = users
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -228,13 +220,11 @@ def get_app(active_only: Optional[bool] = None,
 
 @_utilities.lift_output_func(get_app)
 def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
-                   groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
                    label: Optional[pulumi.Input[Optional[str]]] = None,
                    label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                    skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                    skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
-                   users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Use this data source to retrieve an application from Okta.
@@ -250,8 +240,6 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param Sequence[str] groups: List of groups IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
     :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
            the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -260,7 +248,5 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
            provider to do a `starts with` query as opposed to an `equals` query.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
     :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
-    :param Sequence[str] users: List of users IDs assigned to the application.
-           - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
     """
     ...

@@ -326,7 +326,7 @@ class UserBaseSchema(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Application User Base Schema property.
+        > **DEPRECATED** use `AppUserBaseSchemaProperty` instead.
 
         This resource allows you to configure a base app user schema property.
 
@@ -371,7 +371,7 @@ class UserBaseSchema(pulumi.CustomResource):
                  args: UserBaseSchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Application User Base Schema property.
+        > **DEPRECATED** use `AppUserBaseSchemaProperty` instead.
 
         This resource allows you to configure a base app user schema property.
 

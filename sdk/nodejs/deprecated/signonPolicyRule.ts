@@ -89,6 +89,10 @@ export class SignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly policyid!: pulumi.Output<string | undefined>;
     /**
+     * Primary factor.
+     */
+    public readonly primaryFactor!: pulumi.Output<string>;
+    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
@@ -146,6 +150,7 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["policyid"] = state ? state.policyid : undefined;
+            inputs["primaryFactor"] = state ? state.primaryFactor : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["riscLevel"] = state ? state.riscLevel : undefined;
             inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
@@ -169,6 +174,7 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["policyid"] = args ? args.policyid : undefined;
+            inputs["primaryFactor"] = args ? args.primaryFactor : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["riscLevel"] = args ? args.riscLevel : undefined;
             inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
@@ -243,6 +249,10 @@ export interface SignonPolicyRuleState {
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
     policyid?: pulumi.Input<string>;
+    /**
+     * Primary factor.
+     */
+    primaryFactor?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -334,6 +344,10 @@ export interface SignonPolicyRuleArgs {
      * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
      */
     policyid?: pulumi.Input<string>;
+    /**
+     * Primary factor.
+     */
+    primaryFactor?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
      * invalid priority is provided. API defaults it to the last (lowest) if not there.

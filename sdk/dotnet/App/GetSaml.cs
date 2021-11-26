@@ -75,157 +75,16 @@ namespace Pulumi.Okta.App
     public sealed class GetSamlArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Custom error page URL.
-        /// </summary>
-        [Input("accessibilityErrorRedirectUrl")]
-        public string? AccessibilityErrorRedirectUrl { get; set; }
-
-        /// <summary>
-        /// Custom login page URL.
-        /// </summary>
-        [Input("accessibilityLoginRedirectUrl")]
-        public string? AccessibilityLoginRedirectUrl { get; set; }
-
-        /// <summary>
-        /// Enable self-service.
-        /// </summary>
-        [Input("accessibilitySelfService")]
-        public bool? AccessibilitySelfService { get; set; }
-
-        [Input("acsEndpoints")]
-        private List<string>? _acsEndpoints;
-
-        /// <summary>
-        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        /// </summary>
-        public List<string> AcsEndpoints
-        {
-            get => _acsEndpoints ?? (_acsEndpoints = new List<string>());
-            set => _acsEndpoints = value;
-        }
-
-        /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
         /// </summary>
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
-        /// </summary>
-        [Input("appSettingsJson")]
-        public string? AppSettingsJson { get; set; }
-
-        /// <summary>
-        /// Determines whether the SAML assertion is digitally signed.
-        /// </summary>
-        [Input("assertionSigned")]
-        public bool? AssertionSigned { get; set; }
-
-        [Input("attributeStatements")]
-        private List<Inputs.GetSamlAttributeStatementArgs>? _attributeStatements;
-
-        /// <summary>
-        /// List of SAML Attribute statements.
-        /// </summary>
-        public List<Inputs.GetSamlAttributeStatementArgs> AttributeStatements
-        {
-            get => _attributeStatements ?? (_attributeStatements = new List<Inputs.GetSamlAttributeStatementArgs>());
-            set => _attributeStatements = value;
-        }
-
-        /// <summary>
-        /// Audience restriction.
-        /// </summary>
-        [Input("audience")]
-        public string? Audience { get; set; }
-
-        /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication
-        /// statement.
-        /// </summary>
-        [Input("authnContextClassRef")]
-        public string? AuthnContextClassRef { get; set; }
-
-        /// <summary>
-        /// Display auto submit toolbar.
-        /// </summary>
-        [Input("autoSubmitToolbar")]
-        public bool? AutoSubmitToolbar { get; set; }
-
-        /// <summary>
-        /// Identifies a specific application resource in an IDP initiated SSO scenario.
-        /// </summary>
-        [Input("defaultRelayState")]
-        public string? DefaultRelayState { get; set; }
-
-        /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        /// </summary>
-        [Input("destination")]
-        public string? Destination { get; set; }
-
-        /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
-        /// </summary>
-        [Input("digestAlgorithm")]
-        public string? DigestAlgorithm { get; set; }
-
-        [Input("features")]
-        private List<string>? _features;
-
-        /// <summary>
-        /// features enabled.
-        /// </summary>
-        public List<string> Features
-        {
-            get => _features ?? (_features = new List<string>());
-            set => _features = value;
-        }
-
-        [Input("groups")]
-        private List<string>? _groups;
-
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-        /// </summary>
-        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`")]
-        public List<string> Groups
-        {
-            get => _groups ?? (_groups = new List<string>());
-            set => _groups = value;
-        }
-
-        /// <summary>
-        /// Do not display application icon on mobile app.
-        /// </summary>
-        [Input("hideIos")]
-        public bool? HideIos { get; set; }
-
-        /// <summary>
-        /// Do not display application icon to users
-        /// </summary>
-        [Input("hideWeb")]
-        public bool? HideWeb { get; set; }
-
-        /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it.
-        /// </summary>
-        [Input("honorForceAuthn")]
-        public bool? HonorForceAuthn { get; set; }
-
-        /// <summary>
         /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
-
-        /// <summary>
-        /// SAML issuer ID.
-        /// </summary>
-        [Input("idpIssuer")]
-        public string? IdpIssuer { get; set; }
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
@@ -243,28 +102,10 @@ namespace Pulumi.Okta.App
         public string? LabelPrefix { get; set; }
 
         /// <summary>
-        /// The location where the app may present the SAML assertion.
-        /// </summary>
-        [Input("recipient")]
-        public string? Recipient { get; set; }
-
-        /// <summary>
         /// Denotes whether the request is compressed or not.
         /// </summary>
         [Input("requestCompressed")]
         public bool? RequestCompressed { get; set; }
-
-        /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed.
-        /// </summary>
-        [Input("responseSigned")]
-        public bool? ResponseSigned { get; set; }
-
-        /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
-        /// </summary>
-        [Input("signatureAlgorithm")]
-        public string? SignatureAlgorithm { get; set; }
 
         /// <summary>
         /// Indicator that allows the app to skip `groups` sync. Default is `false`.
@@ -278,62 +119,6 @@ namespace Pulumi.Okta.App
         [Input("skipUsers")]
         public bool? SkipUsers { get; set; }
 
-        /// <summary>
-        /// SAML service provider issuer.
-        /// </summary>
-        [Input("spIssuer")]
-        public string? SpIssuer { get; set; }
-
-        /// <summary>
-        /// Single Sign-on Url.
-        /// </summary>
-        [Input("ssoUrl")]
-        public string? SsoUrl { get; set; }
-
-        /// <summary>
-        /// Identifies the SAML processing rules.
-        /// </summary>
-        [Input("subjectNameIdFormat")]
-        public string? SubjectNameIdFormat { get; set; }
-
-        /// <summary>
-        /// Template for app user's username when a user is assigned to the app.
-        /// </summary>
-        [Input("subjectNameIdTemplate")]
-        public string? SubjectNameIdTemplate { get; set; }
-
-        /// <summary>
-        /// Username template.
-        /// </summary>
-        [Input("userNameTemplate")]
-        public string? UserNameTemplate { get; set; }
-
-        /// <summary>
-        /// Username template suffix.
-        /// </summary>
-        [Input("userNameTemplateSuffix")]
-        public string? UserNameTemplateSuffix { get; set; }
-
-        /// <summary>
-        /// Username template type.
-        /// </summary>
-        [Input("userNameTemplateType")]
-        public string? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private List<string>? _users;
-
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`")]
-        public List<string> Users
-        {
-            get => _users ?? (_users = new List<string>());
-            set => _users = value;
-        }
-
         public GetSamlArgs()
         {
         }
@@ -342,157 +127,16 @@ namespace Pulumi.Okta.App
     public sealed class GetSamlInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Custom error page URL.
-        /// </summary>
-        [Input("accessibilityErrorRedirectUrl")]
-        public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
-
-        /// <summary>
-        /// Custom login page URL.
-        /// </summary>
-        [Input("accessibilityLoginRedirectUrl")]
-        public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
-
-        /// <summary>
-        /// Enable self-service.
-        /// </summary>
-        [Input("accessibilitySelfService")]
-        public Input<bool>? AccessibilitySelfService { get; set; }
-
-        [Input("acsEndpoints")]
-        private InputList<string>? _acsEndpoints;
-
-        /// <summary>
-        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        /// </summary>
-        public InputList<string> AcsEndpoints
-        {
-            get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
-            set => _acsEndpoints = value;
-        }
-
-        /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
         /// </summary>
         [Input("activeOnly")]
         public Input<bool>? ActiveOnly { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
-        /// </summary>
-        [Input("appSettingsJson")]
-        public Input<string>? AppSettingsJson { get; set; }
-
-        /// <summary>
-        /// Determines whether the SAML assertion is digitally signed.
-        /// </summary>
-        [Input("assertionSigned")]
-        public Input<bool>? AssertionSigned { get; set; }
-
-        [Input("attributeStatements")]
-        private InputList<Inputs.GetSamlAttributeStatementInputArgs>? _attributeStatements;
-
-        /// <summary>
-        /// List of SAML Attribute statements.
-        /// </summary>
-        public InputList<Inputs.GetSamlAttributeStatementInputArgs> AttributeStatements
-        {
-            get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.GetSamlAttributeStatementInputArgs>());
-            set => _attributeStatements = value;
-        }
-
-        /// <summary>
-        /// Audience restriction.
-        /// </summary>
-        [Input("audience")]
-        public Input<string>? Audience { get; set; }
-
-        /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication
-        /// statement.
-        /// </summary>
-        [Input("authnContextClassRef")]
-        public Input<string>? AuthnContextClassRef { get; set; }
-
-        /// <summary>
-        /// Display auto submit toolbar.
-        /// </summary>
-        [Input("autoSubmitToolbar")]
-        public Input<bool>? AutoSubmitToolbar { get; set; }
-
-        /// <summary>
-        /// Identifies a specific application resource in an IDP initiated SSO scenario.
-        /// </summary>
-        [Input("defaultRelayState")]
-        public Input<string>? DefaultRelayState { get; set; }
-
-        /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        /// </summary>
-        [Input("destination")]
-        public Input<string>? Destination { get; set; }
-
-        /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
-        /// </summary>
-        [Input("digestAlgorithm")]
-        public Input<string>? DigestAlgorithm { get; set; }
-
-        [Input("features")]
-        private InputList<string>? _features;
-
-        /// <summary>
-        /// features enabled.
-        /// </summary>
-        public InputList<string> Features
-        {
-            get => _features ?? (_features = new InputList<string>());
-            set => _features = value;
-        }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-        /// </summary>
-        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
-        /// <summary>
-        /// Do not display application icon on mobile app.
-        /// </summary>
-        [Input("hideIos")]
-        public Input<bool>? HideIos { get; set; }
-
-        /// <summary>
-        /// Do not display application icon to users
-        /// </summary>
-        [Input("hideWeb")]
-        public Input<bool>? HideWeb { get; set; }
-
-        /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it.
-        /// </summary>
-        [Input("honorForceAuthn")]
-        public Input<bool>? HonorForceAuthn { get; set; }
-
-        /// <summary>
         /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// SAML issuer ID.
-        /// </summary>
-        [Input("idpIssuer")]
-        public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
@@ -510,28 +154,10 @@ namespace Pulumi.Okta.App
         public Input<string>? LabelPrefix { get; set; }
 
         /// <summary>
-        /// The location where the app may present the SAML assertion.
-        /// </summary>
-        [Input("recipient")]
-        public Input<string>? Recipient { get; set; }
-
-        /// <summary>
         /// Denotes whether the request is compressed or not.
         /// </summary>
         [Input("requestCompressed")]
         public Input<bool>? RequestCompressed { get; set; }
-
-        /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed.
-        /// </summary>
-        [Input("responseSigned")]
-        public Input<bool>? ResponseSigned { get; set; }
-
-        /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
-        /// </summary>
-        [Input("signatureAlgorithm")]
-        public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
         /// Indicator that allows the app to skip `groups` sync. Default is `false`.
@@ -545,62 +171,6 @@ namespace Pulumi.Okta.App
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
 
-        /// <summary>
-        /// SAML service provider issuer.
-        /// </summary>
-        [Input("spIssuer")]
-        public Input<string>? SpIssuer { get; set; }
-
-        /// <summary>
-        /// Single Sign-on Url.
-        /// </summary>
-        [Input("ssoUrl")]
-        public Input<string>? SsoUrl { get; set; }
-
-        /// <summary>
-        /// Identifies the SAML processing rules.
-        /// </summary>
-        [Input("subjectNameIdFormat")]
-        public Input<string>? SubjectNameIdFormat { get; set; }
-
-        /// <summary>
-        /// Template for app user's username when a user is assigned to the app.
-        /// </summary>
-        [Input("subjectNameIdTemplate")]
-        public Input<string>? SubjectNameIdTemplate { get; set; }
-
-        /// <summary>
-        /// Username template.
-        /// </summary>
-        [Input("userNameTemplate")]
-        public Input<string>? UserNameTemplate { get; set; }
-
-        /// <summary>
-        /// Username template suffix.
-        /// </summary>
-        [Input("userNameTemplateSuffix")]
-        public Input<string>? UserNameTemplateSuffix { get; set; }
-
-        /// <summary>
-        /// Username template type.
-        /// </summary>
-        [Input("userNameTemplateType")]
-        public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<string>? _users;
-
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`")]
-        public InputList<string> Users
-        {
-            get => _users ?? (_users = new InputList<string>());
-            set => _users = value;
-        }
-
         public GetSamlInvokeArgs()
         {
         }
@@ -613,15 +183,15 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Custom error page URL.
         /// </summary>
-        public readonly string? AccessibilityErrorRedirectUrl;
+        public readonly string AccessibilityErrorRedirectUrl;
         /// <summary>
         /// Custom login page URL.
         /// </summary>
-        public readonly string? AccessibilityLoginRedirectUrl;
+        public readonly string AccessibilityLoginRedirectUrl;
         /// <summary>
         /// Enable self-service.
         /// </summary>
-        public readonly bool? AccessibilitySelfService;
+        public readonly bool AccessibilitySelfService;
         /// <summary>
         /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         /// </summary>
@@ -630,11 +200,11 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Application settings in JSON format.
         /// </summary>
-        public readonly string? AppSettingsJson;
+        public readonly string AppSettingsJson;
         /// <summary>
         /// Determines whether the SAML assertion is digitally signed.
         /// </summary>
-        public readonly bool? AssertionSigned;
+        public readonly bool AssertionSigned;
         /// <summary>
         /// List of SAML Attribute statements.
         /// </summary>
@@ -642,28 +212,28 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Audience restriction.
         /// </summary>
-        public readonly string? Audience;
+        public readonly string Audience;
         /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication
         /// statement.
         /// </summary>
-        public readonly string? AuthnContextClassRef;
+        public readonly string AuthnContextClassRef;
         /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
-        public readonly bool? AutoSubmitToolbar;
+        public readonly bool AutoSubmitToolbar;
         /// <summary>
         /// Identifies a specific application resource in an IDP initiated SSO scenario.
         /// </summary>
-        public readonly string? DefaultRelayState;
+        public readonly string DefaultRelayState;
         /// <summary>
         /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
-        public readonly string? Destination;
+        public readonly string Destination;
         /// <summary>
         /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
         /// </summary>
-        public readonly string? DigestAlgorithm;
+        public readonly string DigestAlgorithm;
         /// <summary>
         /// features enabled.
         /// </summary>
@@ -676,15 +246,15 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
-        public readonly bool? HideIos;
+        public readonly bool HideIos;
         /// <summary>
         /// Do not display application icon to users
         /// </summary>
-        public readonly bool? HideWeb;
+        public readonly bool HideWeb;
         /// <summary>
         /// Prompt user to re-authenticate if SP asks for it.
         /// </summary>
-        public readonly bool? HonorForceAuthn;
+        public readonly bool HonorForceAuthn;
         /// <summary>
         /// id of application.
         /// </summary>
@@ -692,7 +262,7 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// SAML issuer ID.
         /// </summary>
-        public readonly string? IdpIssuer;
+        public readonly string IdpIssuer;
         /// <summary>
         /// Saml Inline Hook associated with the application.
         /// </summary>
@@ -717,7 +287,7 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// The location where the app may present the SAML assertion.
         /// </summary>
-        public readonly string? Recipient;
+        public readonly string Recipient;
         /// <summary>
         /// Denotes whether the request is compressed or not.
         /// </summary>
@@ -725,11 +295,11 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Determines whether the SAML auth response message is digitally signed.
         /// </summary>
-        public readonly bool? ResponseSigned;
+        public readonly bool ResponseSigned;
         /// <summary>
         /// Signature algorithm used ot digitally sign the assertion and response.
         /// </summary>
-        public readonly string? SignatureAlgorithm;
+        public readonly string SignatureAlgorithm;
         /// <summary>
         /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// </summary>
@@ -747,11 +317,11 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// SAML service provider issuer.
         /// </summary>
-        public readonly string? SpIssuer;
+        public readonly string SpIssuer;
         /// <summary>
         /// Single Sign-on Url.
         /// </summary>
-        public readonly string? SsoUrl;
+        public readonly string SsoUrl;
         /// <summary>
         /// status of application.
         /// </summary>
@@ -759,15 +329,15 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Identifies the SAML processing rules.
         /// </summary>
-        public readonly string? SubjectNameIdFormat;
+        public readonly string SubjectNameIdFormat;
         /// <summary>
         /// Template for app user's username when a user is assigned to the app.
         /// </summary>
-        public readonly string? SubjectNameIdTemplate;
+        public readonly string SubjectNameIdTemplate;
         /// <summary>
         /// Username template.
         /// </summary>
-        public readonly string? UserNameTemplate;
+        public readonly string UserNameTemplate;
         /// <summary>
         /// Push username on update.
         /// </summary>
@@ -775,11 +345,11 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Username template suffix.
         /// </summary>
-        public readonly string? UserNameTemplateSuffix;
+        public readonly string UserNameTemplateSuffix;
         /// <summary>
         /// Username template type.
         /// </summary>
-        public readonly string? UserNameTemplateType;
+        public readonly string UserNameTemplateType;
         /// <summary>
         /// List of users IDs assigned to the application.
         /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
@@ -788,47 +358,47 @@ namespace Pulumi.Okta.App
 
         [OutputConstructor]
         private GetSamlResult(
-            string? accessibilityErrorRedirectUrl,
+            string accessibilityErrorRedirectUrl,
 
-            string? accessibilityLoginRedirectUrl,
+            string accessibilityLoginRedirectUrl,
 
-            bool? accessibilitySelfService,
+            bool accessibilitySelfService,
 
             ImmutableArray<string> acsEndpoints,
 
             bool? activeOnly,
 
-            string? appSettingsJson,
+            string appSettingsJson,
 
-            bool? assertionSigned,
+            bool assertionSigned,
 
             ImmutableArray<Outputs.GetSamlAttributeStatementResult> attributeStatements,
 
-            string? audience,
+            string audience,
 
-            string? authnContextClassRef,
+            string authnContextClassRef,
 
-            bool? autoSubmitToolbar,
+            bool autoSubmitToolbar,
 
-            string? defaultRelayState,
+            string defaultRelayState,
 
-            string? destination,
+            string destination,
 
-            string? digestAlgorithm,
+            string digestAlgorithm,
 
             ImmutableArray<string> features,
 
             ImmutableArray<string> groups,
 
-            bool? hideIos,
+            bool hideIos,
 
-            bool? hideWeb,
+            bool hideWeb,
 
-            bool? honorForceAuthn,
+            bool honorForceAuthn,
 
             string? id,
 
-            string? idpIssuer,
+            string idpIssuer,
 
             string inlineHookId,
 
@@ -842,13 +412,13 @@ namespace Pulumi.Okta.App
 
             string name,
 
-            string? recipient,
+            string recipient,
 
             bool? requestCompressed,
 
-            bool? responseSigned,
+            bool responseSigned,
 
-            string? signatureAlgorithm,
+            string signatureAlgorithm,
 
             string singleLogoutCertificate,
 
@@ -860,23 +430,23 @@ namespace Pulumi.Okta.App
 
             bool? skipUsers,
 
-            string? spIssuer,
+            string spIssuer,
 
-            string? ssoUrl,
+            string ssoUrl,
 
             string status,
 
-            string? subjectNameIdFormat,
+            string subjectNameIdFormat,
 
-            string? subjectNameIdTemplate,
+            string subjectNameIdTemplate,
 
-            string? userNameTemplate,
+            string userNameTemplate,
 
             string userNameTemplatePushStatus,
 
-            string? userNameTemplateSuffix,
+            string userNameTemplateSuffix,
 
-            string? userNameTemplateType,
+            string userNameTemplateType,
 
             ImmutableArray<string> users)
         {

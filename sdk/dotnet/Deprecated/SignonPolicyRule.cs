@@ -94,6 +94,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
+        /// Primary factor.
+        /// </summary>
+        [Output("primaryFactor")]
+        public Output<string> PrimaryFactor { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
         /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
@@ -288,6 +294,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
+        /// Primary factor.
+        /// </summary>
+        [Input("primaryFactor")]
+        public Input<string>? PrimaryFactor { get; set; }
+
+        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
         /// invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
@@ -447,6 +459,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("policyid")]
         public Input<string>? Policyid { get; set; }
+
+        /// <summary>
+        /// Primary factor.
+        /// </summary>
+        [Input("primaryFactor")]
+        public Input<string>? PrimaryFactor { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an

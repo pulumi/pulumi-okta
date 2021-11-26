@@ -22,7 +22,6 @@ __all__ = [
     'ThreeFieldUserArgs',
     'UserSchemaArrayOneOfArgs',
     'UserSchemaOneOfArgs',
-    'GetSamlAttributeStatementArgs',
 ]
 
 @pulumi.input_type
@@ -766,102 +765,5 @@ class UserSchemaOneOfArgs:
     @title.setter
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
-
-
-@pulumi.input_type
-class GetSamlAttributeStatementArgs:
-    def __init__(__self__, *,
-                 filter_type: str,
-                 filter_value: str,
-                 name: str,
-                 namespace: str,
-                 type: str,
-                 values: Sequence[str]):
-        """
-        :param str filter_type: Type of group attribute filter.
-        :param str filter_value: Filter value to use.
-        :param str name: The name of the attribute statement.
-        :param str namespace: The attribute namespace.
-        :param str type: The type of attribute statement value.
-        :param Sequence[str] values: Array of values to use.
-        """
-        pulumi.set(__self__, "filter_type", filter_type)
-        pulumi.set(__self__, "filter_value", filter_value)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter(name="filterType")
-    def filter_type(self) -> str:
-        """
-        Type of group attribute filter.
-        """
-        return pulumi.get(self, "filter_type")
-
-    @filter_type.setter
-    def filter_type(self, value: str):
-        pulumi.set(self, "filter_type", value)
-
-    @property
-    @pulumi.getter(name="filterValue")
-    def filter_value(self) -> str:
-        """
-        Filter value to use.
-        """
-        return pulumi.get(self, "filter_value")
-
-    @filter_value.setter
-    def filter_value(self, value: str):
-        pulumi.set(self, "filter_value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the attribute statement.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> str:
-        """
-        The attribute namespace.
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: str):
-        pulumi.set(self, "namespace", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of attribute statement value.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: str):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Array of values to use.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
 
 

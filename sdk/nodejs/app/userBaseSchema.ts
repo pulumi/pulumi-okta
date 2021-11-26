@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Application User Base Schema property.
+ * > **DEPRECATED** use `okta.AppUserBaseSchemaProperty` instead.
  *
  * This resource allows you to configure a base app user schema property.
  *

@@ -20,6 +20,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "okta:index/adminRoleCustom:AdminRoleCustom":
+		r = &AdminRoleCustom{}
+	case "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments":
+		r = &AdminRoleCustomAssignments{}
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
 		r = &AdminRoleTargets{}
 	case "okta:index/appGroupAssignments:AppGroupAssignments":
@@ -44,6 +48,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Authenticator{}
 	case "okta:index/behaviour:Behaviour":
 		r = &Behaviour{}
+	case "okta:index/captcha:Captcha":
+		r = &Captcha{}
+	case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
+		r = &CaptchaOrgWideSettings{}
 	case "okta:index/domain:Domain":
 		r = &Domain{}
 	case "okta:index/domainCertificate:DomainCertificate":
@@ -64,6 +72,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupMemberships{}
 	case "okta:index/groupSchemaProperty:GroupSchemaProperty":
 		r = &GroupSchemaProperty{}
+	case "okta:index/linkDefinition:LinkDefinition":
+		r = &LinkDefinition{}
+	case "okta:index/linkValue:LinkValue":
+		r = &LinkValue{}
 	case "okta:index/orgConfiguration:OrgConfiguration":
 		r = &OrgConfiguration{}
 	case "okta:index/orgSupport:OrgSupport":
@@ -76,6 +88,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyProfileEnrollment{}
 	case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
 		r = &PolicyRuleProfileEnrollment{}
+	case "okta:index/rateLimiting:RateLimiting":
+		r = &RateLimiting{}
+	case "okta:index/resourceSet:ResourceSet":
+		r = &ResourceSet{}
 	case "okta:index/roleSubscription:RoleSubscription":
 		r = &RoleSubscription{}
 	case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
@@ -125,6 +141,16 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/adminRoleCustom",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/adminRoleCustomAssignments",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/adminRoleTargets",
@@ -187,6 +213,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/captcha",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/captchaOrgWideSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/domain",
 		&module{version},
 	)
@@ -237,6 +273,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/linkDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/linkValue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/orgConfiguration",
 		&module{version},
 	)
@@ -263,6 +309,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/policyRuleProfileEnrollment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/rateLimiting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/resourceSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
