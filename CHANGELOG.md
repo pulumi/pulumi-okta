@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.20.0 of the Okta Terraform Provider
-  **PLEASE NOTE:** There are a number of fields in functions that are not longer marked as inputs. These were not able to be used in the function for searching
+_(none)_
 
 ---
+
+## 3.5.0 (2021-11-30)
+* Upgrade to v3.20.0 of the Okta Terraform Provider
+  **PLEASE NOTE:** There are a number of fields in functions that are not longer marked as inputs. These were not able to be used in the function for searching
 
 ## 3.4.0 (2021-11-11)
 * Upgrade to terraform-bridge 3.11.0
