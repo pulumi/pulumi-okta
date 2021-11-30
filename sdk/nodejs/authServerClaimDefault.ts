@@ -66,7 +66,7 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
     /**
      * Specifies whether to include claims in token.
      */
-    public /*out*/ readonly alwaysIncludeInToken!: pulumi.Output<boolean>;
+    public readonly alwaysIncludeInToken!: pulumi.Output<boolean>;
     /**
      * ID of the authorization server.
      */
@@ -124,10 +124,10 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
             if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
+            inputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
             inputs["authServerId"] = args ? args.authServerId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["alwaysIncludeInToken"] = undefined /*out*/;
             inputs["claimType"] = undefined /*out*/;
             inputs["scopes"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -184,6 +184,10 @@ export interface AuthServerClaimDefaultState {
  * The set of arguments for constructing a AuthServerClaimDefault resource.
  */
 export interface AuthServerClaimDefaultArgs {
+    /**
+     * Specifies whether to include claims in token.
+     */
+    alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
      * ID of the authorization server.
      */

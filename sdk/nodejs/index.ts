@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export * from "./adminRoleCustom";
+export * from "./adminRoleCustomAssignments";
 export * from "./adminRoleTargets";
 export * from "./appGroupAssignments";
 export * from "./appOauthApiScope";
@@ -17,6 +19,8 @@ export * from "./authServerClaimDefault";
 export * from "./authServerDefault";
 export * from "./authenticator";
 export * from "./behaviour";
+export * from "./captcha";
+export * from "./captchaOrgWideSettings";
 export * from "./domain";
 export * from "./domainCertificate";
 export * from "./domainVerification";
@@ -40,6 +44,8 @@ export * from "./getTrustedOrigins";
 export * from "./getUserSecurityQuestions";
 export * from "./groupMemberships";
 export * from "./groupSchemaProperty";
+export * from "./linkDefinition";
+export * from "./linkValue";
 export * from "./orgConfiguration";
 export * from "./orgSupport";
 export * from "./policyMfaDefault";
@@ -47,6 +53,8 @@ export * from "./policyPasswordDefault";
 export * from "./policyProfileEnrollment";
 export * from "./policyRuleProfileEnrollment";
 export * from "./provider";
+export * from "./rateLimiting";
+export * from "./resourceSet";
 export * from "./roleSubscription";
 export * from "./securityNotificationEmails";
 export * from "./templateSms";
@@ -93,6 +101,8 @@ export {
 };
 
 // Import resources to register:
+import { AdminRoleCustom } from "./adminRoleCustom";
+import { AdminRoleCustomAssignments } from "./adminRoleCustomAssignments";
 import { AdminRoleTargets } from "./adminRoleTargets";
 import { AppGroupAssignments } from "./appGroupAssignments";
 import { AppOauthApiScope } from "./appOauthApiScope";
@@ -105,6 +115,8 @@ import { AuthServerClaimDefault } from "./authServerClaimDefault";
 import { AuthServerDefault } from "./authServerDefault";
 import { Authenticator } from "./authenticator";
 import { Behaviour } from "./behaviour";
+import { Captcha } from "./captcha";
+import { CaptchaOrgWideSettings } from "./captchaOrgWideSettings";
 import { Domain } from "./domain";
 import { DomainCertificate } from "./domainCertificate";
 import { DomainVerification } from "./domainVerification";
@@ -115,12 +127,16 @@ import { EventHookVerification } from "./eventHookVerification";
 import { FactorTotp } from "./factorTotp";
 import { GroupMemberships } from "./groupMemberships";
 import { GroupSchemaProperty } from "./groupSchemaProperty";
+import { LinkDefinition } from "./linkDefinition";
+import { LinkValue } from "./linkValue";
 import { OrgConfiguration } from "./orgConfiguration";
 import { OrgSupport } from "./orgSupport";
 import { PolicyMfaDefault } from "./policyMfaDefault";
 import { PolicyPasswordDefault } from "./policyPasswordDefault";
 import { PolicyProfileEnrollment } from "./policyProfileEnrollment";
 import { PolicyRuleProfileEnrollment } from "./policyRuleProfileEnrollment";
+import { RateLimiting } from "./rateLimiting";
+import { ResourceSet } from "./resourceSet";
 import { RoleSubscription } from "./roleSubscription";
 import { SecurityNotificationEmails } from "./securityNotificationEmails";
 import { TemplateSms } from "./templateSms";
@@ -135,6 +151,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "okta:index/adminRoleCustom:AdminRoleCustom":
+                return new AdminRoleCustom(name, <any>undefined, { urn })
+            case "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments":
+                return new AdminRoleCustomAssignments(name, <any>undefined, { urn })
             case "okta:index/adminRoleTargets:AdminRoleTargets":
                 return new AdminRoleTargets(name, <any>undefined, { urn })
             case "okta:index/appGroupAssignments:AppGroupAssignments":
@@ -159,6 +179,10 @@ const _module = {
                 return new Authenticator(name, <any>undefined, { urn })
             case "okta:index/behaviour:Behaviour":
                 return new Behaviour(name, <any>undefined, { urn })
+            case "okta:index/captcha:Captcha":
+                return new Captcha(name, <any>undefined, { urn })
+            case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
+                return new CaptchaOrgWideSettings(name, <any>undefined, { urn })
             case "okta:index/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "okta:index/domainCertificate:DomainCertificate":
@@ -179,6 +203,10 @@ const _module = {
                 return new GroupMemberships(name, <any>undefined, { urn })
             case "okta:index/groupSchemaProperty:GroupSchemaProperty":
                 return new GroupSchemaProperty(name, <any>undefined, { urn })
+            case "okta:index/linkDefinition:LinkDefinition":
+                return new LinkDefinition(name, <any>undefined, { urn })
+            case "okta:index/linkValue:LinkValue":
+                return new LinkValue(name, <any>undefined, { urn })
             case "okta:index/orgConfiguration:OrgConfiguration":
                 return new OrgConfiguration(name, <any>undefined, { urn })
             case "okta:index/orgSupport:OrgSupport":
@@ -191,6 +219,10 @@ const _module = {
                 return new PolicyProfileEnrollment(name, <any>undefined, { urn })
             case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
                 return new PolicyRuleProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/rateLimiting:RateLimiting":
+                return new RateLimiting(name, <any>undefined, { urn })
+            case "okta:index/resourceSet:ResourceSet":
+                return new ResourceSet(name, <any>undefined, { urn })
             case "okta:index/roleSubscription:RoleSubscription":
                 return new RoleSubscription(name, <any>undefined, { urn })
             case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
@@ -214,6 +246,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustom", _module)
+pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustomAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
@@ -226,6 +260,8 @@ pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _m
 pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authenticator", _module)
 pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
+pulumi.runtime.registerResourceModule("okta", "index/captcha", _module)
+pulumi.runtime.registerResourceModule("okta", "index/captchaOrgWideSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainCertificate", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainVerification", _module)
@@ -236,12 +272,16 @@ pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _mo
 pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
+pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
+pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgConfiguration", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
+pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)

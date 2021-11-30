@@ -14,17 +14,21 @@ __all__ = ['AuthServerClaimDefaultArgs', 'AuthServerClaimDefault']
 class AuthServerClaimDefaultArgs:
     def __init__(__self__, *,
                  auth_server_id: pulumi.Input[str],
+                 always_include_in_token: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AuthServerClaimDefault resource.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
+        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
                `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
                `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
         :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
+        if always_include_in_token is not None:
+            pulumi.set(__self__, "always_include_in_token", always_include_in_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -41,6 +45,18 @@ class AuthServerClaimDefaultArgs:
     @auth_server_id.setter
     def auth_server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_server_id", value)
+
+    @property
+    @pulumi.getter(name="alwaysIncludeInToken")
+    def always_include_in_token(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to include claims in token.
+        """
+        return pulumi.get(self, "always_include_in_token")
+
+    @always_include_in_token.setter
+    def always_include_in_token(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_include_in_token", value)
 
     @property
     @pulumi.getter
@@ -214,6 +230,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_include_in_token: Optional[pulumi.Input[bool]] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -250,6 +267,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
                `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
@@ -307,6 +325,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_include_in_token: Optional[pulumi.Input[bool]] = None,
                  auth_server_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -322,12 +341,12 @@ class AuthServerClaimDefault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthServerClaimDefaultArgs.__new__(AuthServerClaimDefaultArgs)
 
+            __props__.__dict__["always_include_in_token"] = always_include_in_token
             if auth_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_server_id'")
             __props__.__dict__["auth_server_id"] = auth_server_id
             __props__.__dict__["name"] = name
             __props__.__dict__["value"] = value
-            __props__.__dict__["always_include_in_token"] = None
             __props__.__dict__["claim_type"] = None
             __props__.__dict__["scopes"] = None
             __props__.__dict__["status"] = None

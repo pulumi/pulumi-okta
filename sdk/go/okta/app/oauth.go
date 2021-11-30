@@ -200,19 +200,19 @@ type OAuth struct {
 	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -351,19 +351,19 @@ type oauthState struct {
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type *string `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -468,19 +468,19 @@ type OAuthState struct {
 	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -581,19 +581,19 @@ type oauthArgs struct {
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type string `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -691,19 +691,19 @@ type OAuthArgs struct {
 	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.
+	// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
 	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.

@@ -148,6 +148,12 @@ namespace Pulumi.Okta
     public sealed class AuthServerClaimDefaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether to include claims in token.
+        /// </summary>
+        [Input("alwaysIncludeInToken")]
+        public Input<bool>? AlwaysIncludeInToken { get; set; }
+
+        /// <summary>
         /// ID of the authorization server.
         /// </summary>
         [Input("authServerId", required: true)]

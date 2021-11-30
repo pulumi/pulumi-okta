@@ -102,18 +102,6 @@ namespace Pulumi.Okta.User
             set => _searches = value;
         }
 
-        [Input("users")]
-        private List<Inputs.GetUsersUserArgs>? _users;
-
-        /// <summary>
-        /// collection of users retrieved from Okta with the following properties.
-        /// </summary>
-        public List<Inputs.GetUsersUserArgs> Users
-        {
-            get => _users ?? (_users = new List<Inputs.GetUsersUserArgs>());
-            set => _users = value;
-        }
-
         public GetUsersArgs()
         {
         }
@@ -131,18 +119,6 @@ namespace Pulumi.Okta.User
         {
             get => _searches ?? (_searches = new InputList<Inputs.GetUsersSearchInputArgs>());
             set => _searches = value;
-        }
-
-        [Input("users")]
-        private InputList<Inputs.GetUsersUserInputArgs>? _users;
-
-        /// <summary>
-        /// collection of users retrieved from Okta with the following properties.
-        /// </summary>
-        public InputList<Inputs.GetUsersUserInputArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.GetUsersUserInputArgs>());
-            set => _users = value;
         }
 
         public GetUsersInvokeArgs()

@@ -48,11 +48,6 @@ func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOpti
 type GetOauthArgs struct {
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-	//
-	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-	Groups []string `pulumi:"groups"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
@@ -66,11 +61,6 @@ type GetOauthArgs struct {
 	SkipGroups *bool `pulumi:"skipGroups"`
 	// Indicator that allows the app to skip `users` sync. Default is `false`.
 	SkipUsers *bool `pulumi:"skipUsers"`
-	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
-	//
-	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-	Users []string `pulumi:"users"`
 }
 
 // A collection of values returned by getOauth.
@@ -145,11 +135,6 @@ func GetOauthOutput(ctx *pulumi.Context, args GetOauthOutputArgs, opts ...pulumi
 type GetOauthOutputArgs struct {
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
-	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-	//
-	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
@@ -163,11 +148,6 @@ type GetOauthOutputArgs struct {
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
 	// Indicator that allows the app to skip `users` sync. Default is `false`.
 	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
-	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
-	//
-	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 func (GetOauthOutputArgs) ElementType() reflect.Type {

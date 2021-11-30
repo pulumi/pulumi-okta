@@ -29,6 +29,7 @@ class RuleSignonArgs:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -52,6 +53,8 @@ class RuleSignonArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
+        :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+               `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
@@ -59,7 +62,7 @@ class RuleSignonArgs:
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         if access is not None:
             pulumi.set(__self__, "access", access)
@@ -92,6 +95,8 @@ class RuleSignonArgs:
             pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
+        if primary_factor is not None:
+            pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
@@ -276,6 +281,19 @@ class RuleSignonArgs:
         pulumi.set(self, "policyid", value)
 
     @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        """
+        return pulumi.get(self, "primary_factor")
+
+    @primary_factor.setter
+    def primary_factor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_factor", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
@@ -352,7 +370,7 @@ class RuleSignonArgs:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs to Exclude
+        The list of user IDs that would be excluded when rules are processed.
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -378,6 +396,7 @@ class _RuleSignonState:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -401,6 +420,8 @@ class _RuleSignonState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
+        :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+               `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
@@ -408,7 +429,7 @@ class _RuleSignonState:
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         if access is not None:
             pulumi.set(__self__, "access", access)
@@ -441,6 +462,8 @@ class _RuleSignonState:
             pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
         if policyid is not None:
             pulumi.set(__self__, "policyid", policyid)
+        if primary_factor is not None:
+            pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
@@ -625,6 +648,19 @@ class _RuleSignonState:
         pulumi.set(self, "policyid", value)
 
     @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        """
+        return pulumi.get(self, "primary_factor")
+
+    @primary_factor.setter
+    def primary_factor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_factor", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
@@ -701,7 +737,7 @@ class _RuleSignonState:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs to Exclude
+        The list of user IDs that would be excluded when rules are processed.
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -729,6 +765,7 @@ class RuleSignon(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -738,7 +775,8 @@ class RuleSignon(pulumi.CustomResource):
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a Sign On Policy Rule.
+        Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`
+        to an empty string, since this feature is not enabled.
 
         ## Example Usage
 
@@ -840,6 +878,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
+        :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+               `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
@@ -847,7 +887,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         ...
     @overload
@@ -856,7 +896,8 @@ class RuleSignon(pulumi.CustomResource):
                  args: Optional[RuleSignonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Sign On Policy Rule.
+        Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`
+        to an empty string, since this feature is not enabled.
 
         ## Example Usage
 
@@ -971,6 +1012,7 @@ class RuleSignon(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policyid: Optional[pulumi.Input[str]] = None,
+                 primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
@@ -1007,6 +1049,7 @@ class RuleSignon(pulumi.CustomResource):
                 warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
                 pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
             __props__.__dict__["policyid"] = policyid
+            __props__.__dict__["primary_factor"] = primary_factor
             __props__.__dict__["priority"] = priority
             __props__.__dict__["risc_level"] = risc_level
             __props__.__dict__["session_idle"] = session_idle
@@ -1038,6 +1081,7 @@ class RuleSignon(pulumi.CustomResource):
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             policyid: Optional[pulumi.Input[str]] = None,
+            primary_factor: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             risc_level: Optional[pulumi.Input[str]] = None,
             session_idle: Optional[pulumi.Input[int]] = None,
@@ -1066,6 +1110,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[str] policyid: Policy ID.
+        :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+               `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
@@ -1073,7 +1119,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1093,6 +1139,7 @@ class RuleSignon(pulumi.CustomResource):
         __props__.__dict__["network_includes"] = network_includes
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["policyid"] = policyid
+        __props__.__dict__["primary_factor"] = primary_factor
         __props__.__dict__["priority"] = priority
         __props__.__dict__["risc_level"] = risc_level
         __props__.__dict__["session_idle"] = session_idle
@@ -1215,6 +1262,15 @@ class RuleSignon(pulumi.CustomResource):
         return pulumi.get(self, "policyid")
 
     @property
+    @pulumi.getter(name="primaryFactor")
+    def primary_factor(self) -> pulumi.Output[str]:
+        """
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        """
+        return pulumi.get(self, "primary_factor")
+
+    @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1267,7 +1323,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of User IDs to Exclude
+        The list of user IDs that would be excluded when rules are processed.
         """
         return pulumi.get(self, "users_excludeds")
 

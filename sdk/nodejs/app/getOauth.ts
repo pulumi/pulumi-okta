@@ -29,13 +29,11 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
     }
     return pulumi.runtime.invoke("okta:app/getOauth:getOauth", {
         "activeOnly": args.activeOnly,
-        "groups": args.groups,
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
         "skipGroups": args.skipGroups,
         "skipUsers": args.skipUsers,
-        "users": args.users,
     }, opts);
 }
 
@@ -47,13 +45,6 @@ export interface GetOauthArgs {
      * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: boolean;
-    /**
-     * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-     *
-     * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-     */
-    groups?: string[];
     /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
@@ -77,13 +68,6 @@ export interface GetOauthArgs {
      * Indicator that allows the app to skip `users` sync. Default is `false`.
      */
     skipUsers?: boolean;
-    /**
-     * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-     *
-     * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-     */
-    users?: string[];
 }
 
 /**
@@ -113,7 +97,7 @@ export interface GetOauthResult {
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
      */
-    readonly groups?: string[];
+    readonly groups: string[];
     /**
      * Do not display application icon on mobile app.
      */
@@ -187,7 +171,7 @@ export interface GetOauthResult {
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
      */
-    readonly users?: string[];
+    readonly users: string[];
     readonly wildcardRedirect: string;
 }
 
@@ -203,13 +187,6 @@ export interface GetOauthOutputArgs {
      * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: pulumi.Input<boolean>;
-    /**
-     * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-     *
-     * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
@@ -233,11 +210,4 @@ export interface GetOauthOutputArgs {
      * Indicator that allows the app to skip `users` sync. Default is `false`.
      */
     skipUsers?: pulumi.Input<boolean>;
-    /**
-     * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-     *
-     * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-     */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

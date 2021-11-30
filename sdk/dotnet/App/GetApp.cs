@@ -80,20 +80,6 @@ namespace Pulumi.Okta.App
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
-        [Input("groups")]
-        private List<string>? _groups;
-
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-        /// </summary>
-        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`")]
-        public List<string> Groups
-        {
-            get => _groups ?? (_groups = new List<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
@@ -127,20 +113,6 @@ namespace Pulumi.Okta.App
         [Input("skipUsers")]
         public bool? SkipUsers { get; set; }
 
-        [Input("users")]
-        private List<string>? _users;
-
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`")]
-        public List<string> Users
-        {
-            get => _users ?? (_users = new List<string>());
-            set => _users = value;
-        }
-
         public GetAppArgs()
         {
         }
@@ -153,20 +125,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("activeOnly")]
         public Input<bool>? ActiveOnly { get; set; }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-        /// </summary>
-        [Obsolete(@"The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
 
         /// <summary>
         /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
@@ -200,20 +158,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
-
-        [Input("users")]
-        private InputList<string>? _users;
-
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`")]
-        public InputList<string> Users
-        {
-            get => _users ?? (_users = new InputList<string>());
-            set => _users = value;
-        }
 
         public GetAppInvokeArgs()
         {

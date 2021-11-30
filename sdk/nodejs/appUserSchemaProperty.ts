@@ -6,9 +6,8 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Creates an Application User Schema property.
- *
  * This resource allows you to create and configure a custom user schema property and associate it with an application.
+ * Make sure that the app instance is `active` before creating the schema property, because in some cases API might return `404` error.
  *
  * ## Example Usage
  *

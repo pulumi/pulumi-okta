@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates a Sign On Policy Rule.
+    /// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`
+    /// to an empty string, since this feature is not enabled.
     /// 
     /// ## Example Usage
     /// 
@@ -216,6 +217,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// </summary>
+        [Output("primaryFactor")]
+        public Output<string> PrimaryFactor { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
@@ -253,7 +261,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The list of user IDs that would be excluded when rules are processed.
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
@@ -413,6 +421,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// </summary>
+        [Input("primaryFactor")]
+        public Input<string>? PrimaryFactor { get; set; }
+
+        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
@@ -453,7 +468,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The list of user IDs that would be excluded when rules are processed.
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -577,6 +592,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
+        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// </summary>
+        [Input("primaryFactor")]
+        public Input<string>? PrimaryFactor { get; set; }
+
+        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
@@ -617,7 +639,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The list of user IDs that would be excluded when rules are processed.
         /// </summary>
         public InputList<string> UsersExcludeds
         {

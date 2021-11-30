@@ -53,8 +53,6 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 type GetUsersArgs struct {
 	// Map of search criteria to find users. It supports the following properties.
 	Searches []GetUsersSearch `pulumi:"searches"`
-	// collection of users retrieved from Okta with the following properties.
-	Users []GetUsersUser `pulumi:"users"`
 }
 
 // A collection of values returned by getUsers.
@@ -79,8 +77,6 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 type GetUsersOutputArgs struct {
 	// Map of search criteria to find users. It supports the following properties.
 	Searches GetUsersSearchArrayInput `pulumi:"searches"`
-	// collection of users retrieved from Okta with the following properties.
-	Users GetUsersUserArrayInput `pulumi:"users"`
 }
 
 func (GetUsersOutputArgs) ElementType() reflect.Type {

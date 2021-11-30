@@ -75,18 +75,6 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// description of user type.
-        /// </summary>
-        [Input("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// display name of user type.
-        /// </summary>
-        [Input("displayName")]
-        public string? DisplayName { get; set; }
-
-        /// <summary>
         /// name of user type to retrieve.
         /// </summary>
         [Input("name", required: true)]
@@ -99,18 +87,6 @@ namespace Pulumi.Okta.User
 
     public sealed class GetUserTypeInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// description of user type.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// display name of user type.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
         /// <summary>
         /// name of user type to retrieve.
         /// </summary>
@@ -129,13 +105,13 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// description of user type.
         /// </summary>
-        public readonly string? Description;
+        public readonly string Description;
         /// <summary>
         /// display name of user type.
         /// </summary>
-        public readonly string? DisplayName;
+        public readonly string DisplayName;
         /// <summary>
-        /// id of user type.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -145,9 +121,9 @@ namespace Pulumi.Okta.User
 
         [OutputConstructor]
         private GetUserTypeResult(
-            string? description,
+            string description,
 
-            string? displayName,
+            string displayName,
 
             string id,
 

@@ -27,8 +27,6 @@ export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("okta:user/getUserType:getUserType", {
-        "description": args.description,
-        "displayName": args.displayName,
         "name": args.name,
     }, opts);
 }
@@ -37,14 +35,6 @@ export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getUserType.
  */
 export interface GetUserTypeArgs {
-    /**
-     * description of user type.
-     */
-    description?: string;
-    /**
-     * display name of user type.
-     */
-    displayName?: string;
     /**
      * name of user type to retrieve.
      */
@@ -58,13 +48,13 @@ export interface GetUserTypeResult {
     /**
      * description of user type.
      */
-    readonly description?: string;
+    readonly description: string;
     /**
      * display name of user type.
      */
-    readonly displayName?: string;
+    readonly displayName: string;
     /**
-     * id of user type.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
@@ -81,14 +71,6 @@ export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getUserType.
  */
 export interface GetUserTypeOutputArgs {
-    /**
-     * description of user type.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * display name of user type.
-     */
-    displayName?: pulumi.Input<string>;
     /**
      * name of user type to retrieve.
      */

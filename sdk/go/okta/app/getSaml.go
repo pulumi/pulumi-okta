@@ -46,52 +46,10 @@ func LookupSaml(ctx *pulumi.Context, args *LookupSamlArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSaml.
 type LookupSamlArgs struct {
-	// Custom error page URL.
-	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL.
-	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service.
-	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
-	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// Application settings in JSON format.
-	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// Determines whether the SAML assertion is digitally signed.
-	AssertionSigned *bool `pulumi:"assertionSigned"`
-	// List of SAML Attribute statements.
-	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
-	// Audience restriction.
-	Audience *string `pulumi:"audience"`
-	// Identifies the SAML authentication context class for the assertion’s authentication
-	// statement.
-	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
-	// Display auto submit toolbar.
-	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Identifies a specific application resource in an IDP initiated SSO scenario.
-	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-	Destination *string `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
-	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
-	// features enabled.
-	Features []string `pulumi:"features"`
-	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-	//
-	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
-	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app.
-	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
-	HideWeb *bool `pulumi:"hideWeb"`
-	// Prompt user to re-authenticate if SP asks for it.
-	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
-	// SAML issuer ID.
-	IdpIssuer *string `pulumi:"idpIssuer"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
 	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
 	// and `label`. This is used to avoid paginating through all applications.
@@ -99,69 +57,44 @@ type LookupSamlArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// The location where the app may present the SAML assertion.
-	Recipient *string `pulumi:"recipient"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed *bool `pulumi:"requestCompressed"`
-	// Determines whether the SAML auth response message is digitally signed.
-	ResponseSigned *bool `pulumi:"responseSigned"`
-	// Signature algorithm used ot digitally sign the assertion and response.
-	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// Indicator that allows the app to skip `groups` sync. Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
 	// Indicator that allows the app to skip `users` sync. Default is `false`.
 	SkipUsers *bool `pulumi:"skipUsers"`
-	// SAML service provider issuer.
-	SpIssuer *string `pulumi:"spIssuer"`
-	// Single Sign-on Url.
-	SsoUrl *string `pulumi:"ssoUrl"`
-	// Identifies the SAML processing rules.
-	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
-	// Template for app user's username when a user is assigned to the app.
-	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
-	// Username template.
-	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Username template suffix.
-	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type.
-	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
-	//
-	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
-	Users []string `pulumi:"users"`
 }
 
 // A collection of values returned by getSaml.
 type LookupSamlResult struct {
 	// Custom error page URL.
-	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
+	AccessibilityErrorRedirectUrl string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page URL.
-	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
+	AccessibilityLoginRedirectUrl string `pulumi:"accessibilityLoginRedirectUrl"`
 	// Enable self-service.
-	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
+	AccessibilitySelfService bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	ActiveOnly   *bool    `pulumi:"activeOnly"`
 	// Application settings in JSON format.
-	AppSettingsJson *string `pulumi:"appSettingsJson"`
+	AppSettingsJson string `pulumi:"appSettingsJson"`
 	// Determines whether the SAML assertion is digitally signed.
-	AssertionSigned *bool `pulumi:"assertionSigned"`
+	AssertionSigned bool `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
-	Audience *string `pulumi:"audience"`
+	Audience string `pulumi:"audience"`
 	// Identifies the SAML authentication context class for the assertion’s authentication
 	// statement.
-	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
+	AuthnContextClassRef string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar.
-	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	AutoSubmitToolbar bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
-	DefaultRelayState *string `pulumi:"defaultRelayState"`
+	DefaultRelayState string `pulumi:"defaultRelayState"`
 	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-	Destination *string `pulumi:"destination"`
+	Destination string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
-	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	DigestAlgorithm string `pulumi:"digestAlgorithm"`
 	// features enabled.
 	Features []string `pulumi:"features"`
 	// List of groups IDs assigned to the application.
@@ -170,15 +103,15 @@ type LookupSamlResult struct {
 	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
-	HideIos *bool `pulumi:"hideIos"`
+	HideIos bool `pulumi:"hideIos"`
 	// Do not display application icon to users
-	HideWeb *bool `pulumi:"hideWeb"`
+	HideWeb bool `pulumi:"hideWeb"`
 	// Prompt user to re-authenticate if SP asks for it.
-	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
+	HonorForceAuthn bool `pulumi:"honorForceAuthn"`
 	// id of application.
 	Id *string `pulumi:"id"`
 	// SAML issuer ID.
-	IdpIssuer *string `pulumi:"idpIssuer"`
+	IdpIssuer string `pulumi:"idpIssuer"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId string `pulumi:"inlineHookId"`
 	// Certificate key ID.
@@ -191,13 +124,13 @@ type LookupSamlResult struct {
 	// The name of the attribute statement.
 	Name string `pulumi:"name"`
 	// The location where the app may present the SAML assertion.
-	Recipient *string `pulumi:"recipient"`
+	Recipient string `pulumi:"recipient"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
-	ResponseSigned *bool `pulumi:"responseSigned"`
+	ResponseSigned bool `pulumi:"responseSigned"`
 	// Signature algorithm used ot digitally sign the assertion and response.
-	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	SignatureAlgorithm string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
 	SingleLogoutCertificate string `pulumi:"singleLogoutCertificate"`
 	// The issuer of the Service Provider that generates the Single Logout request.
@@ -207,23 +140,23 @@ type LookupSamlResult struct {
 	SkipGroups      *bool  `pulumi:"skipGroups"`
 	SkipUsers       *bool  `pulumi:"skipUsers"`
 	// SAML service provider issuer.
-	SpIssuer *string `pulumi:"spIssuer"`
+	SpIssuer string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
-	SsoUrl *string `pulumi:"ssoUrl"`
+	SsoUrl string `pulumi:"ssoUrl"`
 	// status of application.
 	Status string `pulumi:"status"`
 	// Identifies the SAML processing rules.
-	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
+	SubjectNameIdFormat string `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
-	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
+	SubjectNameIdTemplate string `pulumi:"subjectNameIdTemplate"`
 	// Username template.
-	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	UserNameTemplate string `pulumi:"userNameTemplate"`
 	// Push username on update.
 	UserNameTemplatePushStatus string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
-	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	UserNameTemplateSuffix string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
-	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
+	UserNameTemplateType string `pulumi:"userNameTemplateType"`
 	// List of users IDs assigned to the application.
 	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
@@ -242,52 +175,10 @@ func LookupSamlOutput(ctx *pulumi.Context, args LookupSamlOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSaml.
 type LookupSamlOutputArgs struct {
-	// Custom error page URL.
-	AccessibilityErrorRedirectUrl pulumi.StringPtrInput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL.
-	AccessibilityLoginRedirectUrl pulumi.StringPtrInput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service.
-	AccessibilitySelfService pulumi.BoolPtrInput `pulumi:"accessibilitySelfService"`
-	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-	AcsEndpoints pulumi.StringArrayInput `pulumi:"acsEndpoints"`
 	// tells the provider to query for only `ACTIVE` applications.
 	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
-	// Application settings in JSON format.
-	AppSettingsJson pulumi.StringPtrInput `pulumi:"appSettingsJson"`
-	// Determines whether the SAML assertion is digitally signed.
-	AssertionSigned pulumi.BoolPtrInput `pulumi:"assertionSigned"`
-	// List of SAML Attribute statements.
-	AttributeStatements GetSamlAttributeStatementArrayInput `pulumi:"attributeStatements"`
-	// Audience restriction.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// Identifies the SAML authentication context class for the assertion’s authentication
-	// statement.
-	AuthnContextClassRef pulumi.StringPtrInput `pulumi:"authnContextClassRef"`
-	// Display auto submit toolbar.
-	AutoSubmitToolbar pulumi.BoolPtrInput `pulumi:"autoSubmitToolbar"`
-	// Identifies a specific application resource in an IDP initiated SSO scenario.
-	DefaultRelayState pulumi.StringPtrInput `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
-	DigestAlgorithm pulumi.StringPtrInput `pulumi:"digestAlgorithm"`
-	// features enabled.
-	Features pulumi.StringArrayInput `pulumi:"features"`
-	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
-	//
-	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
-	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// Do not display application icon on mobile app.
-	HideIos pulumi.BoolPtrInput `pulumi:"hideIos"`
-	// Do not display application icon to users
-	HideWeb pulumi.BoolPtrInput `pulumi:"hideWeb"`
-	// Prompt user to re-authenticate if SP asks for it.
-	HonorForceAuthn pulumi.BoolPtrInput `pulumi:"honorForceAuthn"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// SAML issuer ID.
-	IdpIssuer pulumi.StringPtrInput `pulumi:"idpIssuer"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
 	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
 	// and `label`. This is used to avoid paginating through all applications.
@@ -295,37 +186,12 @@ type LookupSamlOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
-	// The location where the app may present the SAML assertion.
-	Recipient pulumi.StringPtrInput `pulumi:"recipient"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed pulumi.BoolPtrInput `pulumi:"requestCompressed"`
-	// Determines whether the SAML auth response message is digitally signed.
-	ResponseSigned pulumi.BoolPtrInput `pulumi:"responseSigned"`
-	// Signature algorithm used ot digitally sign the assertion and response.
-	SignatureAlgorithm pulumi.StringPtrInput `pulumi:"signatureAlgorithm"`
 	// Indicator that allows the app to skip `groups` sync. Default is `false`.
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
 	// Indicator that allows the app to skip `users` sync. Default is `false`.
 	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
-	// SAML service provider issuer.
-	SpIssuer pulumi.StringPtrInput `pulumi:"spIssuer"`
-	// Single Sign-on Url.
-	SsoUrl pulumi.StringPtrInput `pulumi:"ssoUrl"`
-	// Identifies the SAML processing rules.
-	SubjectNameIdFormat pulumi.StringPtrInput `pulumi:"subjectNameIdFormat"`
-	// Template for app user's username when a user is assigned to the app.
-	SubjectNameIdTemplate pulumi.StringPtrInput `pulumi:"subjectNameIdTemplate"`
-	// Username template.
-	UserNameTemplate pulumi.StringPtrInput `pulumi:"userNameTemplate"`
-	// Username template suffix.
-	UserNameTemplateSuffix pulumi.StringPtrInput `pulumi:"userNameTemplateSuffix"`
-	// Username template type.
-	UserNameTemplateType pulumi.StringPtrInput `pulumi:"userNameTemplateType"`
-	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
-	//
-	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
-	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 func (LookupSamlOutputArgs) ElementType() reflect.Type {
@@ -348,18 +214,18 @@ func (o LookupSamlResultOutput) ToLookupSamlResultOutputWithContext(ctx context.
 }
 
 // Custom error page URL.
-func (o LookupSamlResultOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) AccessibilityErrorRedirectUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringOutput)
 }
 
 // Custom login page URL.
-func (o LookupSamlResultOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) AccessibilityLoginRedirectUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringOutput)
 }
 
 // Enable self-service.
-func (o LookupSamlResultOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) AccessibilitySelfService() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.AccessibilitySelfService }).(pulumi.BoolOutput)
 }
 
 // An array of ACS endpoints. You can configure a maximum of 100 endpoints.
@@ -372,13 +238,13 @@ func (o LookupSamlResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 }
 
 // Application settings in JSON format.
-func (o LookupSamlResultOutput) AppSettingsJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) AppSettingsJson() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.AppSettingsJson }).(pulumi.StringOutput)
 }
 
 // Determines whether the SAML assertion is digitally signed.
-func (o LookupSamlResultOutput) AssertionSigned() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.AssertionSigned }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) AssertionSigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.AssertionSigned }).(pulumi.BoolOutput)
 }
 
 // List of SAML Attribute statements.
@@ -387,34 +253,34 @@ func (o LookupSamlResultOutput) AttributeStatements() GetSamlAttributeStatementA
 }
 
 // Audience restriction.
-func (o LookupSamlResultOutput) Audience() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.Audience }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.Audience }).(pulumi.StringOutput)
 }
 
 // Identifies the SAML authentication context class for the assertion’s authentication
 // statement.
-func (o LookupSamlResultOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) AuthnContextClassRef() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.AuthnContextClassRef }).(pulumi.StringOutput)
 }
 
 // Display auto submit toolbar.
-func (o LookupSamlResultOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) AutoSubmitToolbar() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.AutoSubmitToolbar }).(pulumi.BoolOutput)
 }
 
 // Identifies a specific application resource in an IDP initiated SSO scenario.
-func (o LookupSamlResultOutput) DefaultRelayState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.DefaultRelayState }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) DefaultRelayState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.DefaultRelayState }).(pulumi.StringOutput)
 }
 
 // Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-func (o LookupSamlResultOutput) Destination() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.Destination }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.Destination }).(pulumi.StringOutput)
 }
 
 // Determines the digest algorithm used to digitally sign the SAML assertion and response.
-func (o LookupSamlResultOutput) DigestAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) DigestAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.DigestAlgorithm }).(pulumi.StringOutput)
 }
 
 // features enabled.
@@ -431,18 +297,18 @@ func (o LookupSamlResultOutput) Groups() pulumi.StringArrayOutput {
 }
 
 // Do not display application icon on mobile app.
-func (o LookupSamlResultOutput) HideIos() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.HideIos }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) HideIos() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.HideIos }).(pulumi.BoolOutput)
 }
 
 // Do not display application icon to users
-func (o LookupSamlResultOutput) HideWeb() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.HideWeb }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) HideWeb() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.HideWeb }).(pulumi.BoolOutput)
 }
 
 // Prompt user to re-authenticate if SP asks for it.
-func (o LookupSamlResultOutput) HonorForceAuthn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.HonorForceAuthn }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) HonorForceAuthn() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.HonorForceAuthn }).(pulumi.BoolOutput)
 }
 
 // id of application.
@@ -451,8 +317,8 @@ func (o LookupSamlResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // SAML issuer ID.
-func (o LookupSamlResultOutput) IdpIssuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.IdpIssuer }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) IdpIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.IdpIssuer }).(pulumi.StringOutput)
 }
 
 // Saml Inline Hook associated with the application.
@@ -485,8 +351,8 @@ func (o LookupSamlResultOutput) Name() pulumi.StringOutput {
 }
 
 // The location where the app may present the SAML assertion.
-func (o LookupSamlResultOutput) Recipient() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.Recipient }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) Recipient() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.Recipient }).(pulumi.StringOutput)
 }
 
 // Denotes whether the request is compressed or not.
@@ -495,13 +361,13 @@ func (o LookupSamlResultOutput) RequestCompressed() pulumi.BoolPtrOutput {
 }
 
 // Determines whether the SAML auth response message is digitally signed.
-func (o LookupSamlResultOutput) ResponseSigned() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.ResponseSigned }).(pulumi.BoolPtrOutput)
+func (o LookupSamlResultOutput) ResponseSigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.ResponseSigned }).(pulumi.BoolOutput)
 }
 
 // Signature algorithm used ot digitally sign the assertion and response.
-func (o LookupSamlResultOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) SignatureAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.SignatureAlgorithm }).(pulumi.StringOutput)
 }
 
 // x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
@@ -528,13 +394,13 @@ func (o LookupSamlResultOutput) SkipUsers() pulumi.BoolPtrOutput {
 }
 
 // SAML service provider issuer.
-func (o LookupSamlResultOutput) SpIssuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.SpIssuer }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) SpIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.SpIssuer }).(pulumi.StringOutput)
 }
 
 // Single Sign-on Url.
-func (o LookupSamlResultOutput) SsoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.SsoUrl }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) SsoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.SsoUrl }).(pulumi.StringOutput)
 }
 
 // status of application.
@@ -543,18 +409,18 @@ func (o LookupSamlResultOutput) Status() pulumi.StringOutput {
 }
 
 // Identifies the SAML processing rules.
-func (o LookupSamlResultOutput) SubjectNameIdFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.SubjectNameIdFormat }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) SubjectNameIdFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.SubjectNameIdFormat }).(pulumi.StringOutput)
 }
 
 // Template for app user's username when a user is assigned to the app.
-func (o LookupSamlResultOutput) SubjectNameIdTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.SubjectNameIdTemplate }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) SubjectNameIdTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.SubjectNameIdTemplate }).(pulumi.StringOutput)
 }
 
 // Username template.
-func (o LookupSamlResultOutput) UserNameTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) UserNameTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplate }).(pulumi.StringOutput)
 }
 
 // Push username on update.
@@ -563,13 +429,13 @@ func (o LookupSamlResultOutput) UserNameTemplatePushStatus() pulumi.StringOutput
 }
 
 // Username template suffix.
-func (o LookupSamlResultOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) UserNameTemplateSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplateSuffix }).(pulumi.StringOutput)
 }
 
 // Username template type.
-func (o LookupSamlResultOutput) UserNameTemplateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *string { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+func (o LookupSamlResultOutput) UserNameTemplateType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplateType }).(pulumi.StringOutput)
 }
 
 // List of users IDs assigned to the application.

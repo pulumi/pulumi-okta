@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a User Base Schema property.
+// > **DEPRECATED** use `UserBaseSchemaProperty` instead.
 //
 // This resource allows you to configure a base user schema property.
 //

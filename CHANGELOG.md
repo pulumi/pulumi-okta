@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.20.0 of the Okta Terraform Provider
+  **PLEASE NOTE:** There are a number of fields in functions that are not longer marked as inputs. These were not able to be used in the function for searching
 
 ---
 

@@ -29,43 +29,13 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("okta:app/getSaml:getSaml", {
-        "accessibilityErrorRedirectUrl": args.accessibilityErrorRedirectUrl,
-        "accessibilityLoginRedirectUrl": args.accessibilityLoginRedirectUrl,
-        "accessibilitySelfService": args.accessibilitySelfService,
-        "acsEndpoints": args.acsEndpoints,
         "activeOnly": args.activeOnly,
-        "appSettingsJson": args.appSettingsJson,
-        "assertionSigned": args.assertionSigned,
-        "attributeStatements": args.attributeStatements,
-        "audience": args.audience,
-        "authnContextClassRef": args.authnContextClassRef,
-        "autoSubmitToolbar": args.autoSubmitToolbar,
-        "defaultRelayState": args.defaultRelayState,
-        "destination": args.destination,
-        "digestAlgorithm": args.digestAlgorithm,
-        "features": args.features,
-        "groups": args.groups,
-        "hideIos": args.hideIos,
-        "hideWeb": args.hideWeb,
-        "honorForceAuthn": args.honorForceAuthn,
         "id": args.id,
-        "idpIssuer": args.idpIssuer,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
-        "recipient": args.recipient,
         "requestCompressed": args.requestCompressed,
-        "responseSigned": args.responseSigned,
-        "signatureAlgorithm": args.signatureAlgorithm,
         "skipGroups": args.skipGroups,
         "skipUsers": args.skipUsers,
-        "spIssuer": args.spIssuer,
-        "ssoUrl": args.ssoUrl,
-        "subjectNameIdFormat": args.subjectNameIdFormat,
-        "subjectNameIdTemplate": args.subjectNameIdTemplate,
-        "userNameTemplate": args.userNameTemplate,
-        "userNameTemplateSuffix": args.userNameTemplateSuffix,
-        "userNameTemplateType": args.userNameTemplateType,
-        "users": args.users,
     }, opts);
 }
 
@@ -74,93 +44,13 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetSamlArgs {
     /**
-     * Custom error page URL.
-     */
-    accessibilityErrorRedirectUrl?: string;
-    /**
-     * Custom login page URL.
-     */
-    accessibilityLoginRedirectUrl?: string;
-    /**
-     * Enable self-service.
-     */
-    accessibilitySelfService?: boolean;
-    /**
-     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-     */
-    acsEndpoints?: string[];
-    /**
      * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: boolean;
     /**
-     * Application settings in JSON format.
-     */
-    appSettingsJson?: string;
-    /**
-     * Determines whether the SAML assertion is digitally signed.
-     */
-    assertionSigned?: boolean;
-    /**
-     * List of SAML Attribute statements.
-     */
-    attributeStatements?: inputs.app.GetSamlAttributeStatement[];
-    /**
-     * Audience restriction.
-     */
-    audience?: string;
-    /**
-     * Identifies the SAML authentication context class for the assertion’s authentication
-     * statement.
-     */
-    authnContextClassRef?: string;
-    /**
-     * Display auto submit toolbar.
-     */
-    autoSubmitToolbar?: boolean;
-    /**
-     * Identifies a specific application resource in an IDP initiated SSO scenario.
-     */
-    defaultRelayState?: string;
-    /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-     */
-    destination?: string;
-    /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
-     */
-    digestAlgorithm?: string;
-    /**
-     * features enabled.
-     */
-    features?: string[];
-    /**
-     * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-     *
-     * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
-     */
-    groups?: string[];
-    /**
-     * Do not display application icon on mobile app.
-     */
-    hideIos?: boolean;
-    /**
-     * Do not display application icon to users
-     */
-    hideWeb?: boolean;
-    /**
-     * Prompt user to re-authenticate if SP asks for it.
-     */
-    honorForceAuthn?: boolean;
-    /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     id?: string;
-    /**
-     * SAML issuer ID.
-     */
-    idpIssuer?: string;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
      * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -173,21 +63,9 @@ export interface GetSamlArgs {
      */
     labelPrefix?: string;
     /**
-     * The location where the app may present the SAML assertion.
-     */
-    recipient?: string;
-    /**
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: boolean;
-    /**
-     * Determines whether the SAML auth response message is digitally signed.
-     */
-    responseSigned?: boolean;
-    /**
-     * Signature algorithm used ot digitally sign the assertion and response.
-     */
-    signatureAlgorithm?: string;
     /**
      * Indicator that allows the app to skip `groups` sync. Default is `false`.
      */
@@ -196,41 +74,6 @@ export interface GetSamlArgs {
      * Indicator that allows the app to skip `users` sync. Default is `false`.
      */
     skipUsers?: boolean;
-    /**
-     * SAML service provider issuer.
-     */
-    spIssuer?: string;
-    /**
-     * Single Sign-on Url.
-     */
-    ssoUrl?: string;
-    /**
-     * Identifies the SAML processing rules.
-     */
-    subjectNameIdFormat?: string;
-    /**
-     * Template for app user's username when a user is assigned to the app.
-     */
-    subjectNameIdTemplate?: string;
-    /**
-     * Username template.
-     */
-    userNameTemplate?: string;
-    /**
-     * Username template suffix.
-     */
-    userNameTemplateSuffix?: string;
-    /**
-     * Username template type.
-     */
-    userNameTemplateType?: string;
-    /**
-     * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-     *
-     * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
-     */
-    users?: string[];
 }
 
 /**
@@ -240,80 +83,80 @@ export interface GetSamlResult {
     /**
      * Custom error page URL.
      */
-    readonly accessibilityErrorRedirectUrl?: string;
+    readonly accessibilityErrorRedirectUrl: string;
     /**
      * Custom login page URL.
      */
-    readonly accessibilityLoginRedirectUrl?: string;
+    readonly accessibilityLoginRedirectUrl: string;
     /**
      * Enable self-service.
      */
-    readonly accessibilitySelfService?: boolean;
+    readonly accessibilitySelfService: boolean;
     /**
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
-    readonly acsEndpoints?: string[];
+    readonly acsEndpoints: string[];
     readonly activeOnly?: boolean;
     /**
      * Application settings in JSON format.
      */
-    readonly appSettingsJson?: string;
+    readonly appSettingsJson: string;
     /**
      * Determines whether the SAML assertion is digitally signed.
      */
-    readonly assertionSigned?: boolean;
+    readonly assertionSigned: boolean;
     /**
      * List of SAML Attribute statements.
      */
-    readonly attributeStatements?: outputs.app.GetSamlAttributeStatement[];
+    readonly attributeStatements: outputs.app.GetSamlAttributeStatement[];
     /**
      * Audience restriction.
      */
-    readonly audience?: string;
+    readonly audience: string;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication
      * statement.
      */
-    readonly authnContextClassRef?: string;
+    readonly authnContextClassRef: string;
     /**
      * Display auto submit toolbar.
      */
-    readonly autoSubmitToolbar?: boolean;
+    readonly autoSubmitToolbar: boolean;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    readonly defaultRelayState?: string;
+    readonly defaultRelayState: string;
     /**
      * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
-    readonly destination?: string;
+    readonly destination: string;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
-    readonly digestAlgorithm?: string;
+    readonly digestAlgorithm: string;
     /**
      * features enabled.
      */
-    readonly features?: string[];
+    readonly features: string[];
     /**
      * List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
      */
-    readonly groups?: string[];
+    readonly groups: string[];
     /**
      * Do not display application icon on mobile app.
      */
-    readonly hideIos?: boolean;
+    readonly hideIos: boolean;
     /**
      * Do not display application icon to users
      */
-    readonly hideWeb?: boolean;
+    readonly hideWeb: boolean;
     /**
      * Prompt user to re-authenticate if SP asks for it.
      */
-    readonly honorForceAuthn?: boolean;
+    readonly honorForceAuthn: boolean;
     /**
      * id of application.
      */
@@ -321,7 +164,7 @@ export interface GetSamlResult {
     /**
      * SAML issuer ID.
      */
-    readonly idpIssuer?: string;
+    readonly idpIssuer: string;
     /**
      * Saml Inline Hook associated with the application.
      */
@@ -346,7 +189,7 @@ export interface GetSamlResult {
     /**
      * The location where the app may present the SAML assertion.
      */
-    readonly recipient?: string;
+    readonly recipient: string;
     /**
      * Denotes whether the request is compressed or not.
      */
@@ -354,11 +197,11 @@ export interface GetSamlResult {
     /**
      * Determines whether the SAML auth response message is digitally signed.
      */
-    readonly responseSigned?: boolean;
+    readonly responseSigned: boolean;
     /**
      * Signature algorithm used ot digitally sign the assertion and response.
      */
-    readonly signatureAlgorithm?: string;
+    readonly signatureAlgorithm: string;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      */
@@ -376,11 +219,11 @@ export interface GetSamlResult {
     /**
      * SAML service provider issuer.
      */
-    readonly spIssuer?: string;
+    readonly spIssuer: string;
     /**
      * Single Sign-on Url.
      */
-    readonly ssoUrl?: string;
+    readonly ssoUrl: string;
     /**
      * status of application.
      */
@@ -388,15 +231,15 @@ export interface GetSamlResult {
     /**
      * Identifies the SAML processing rules.
      */
-    readonly subjectNameIdFormat?: string;
+    readonly subjectNameIdFormat: string;
     /**
      * Template for app user's username when a user is assigned to the app.
      */
-    readonly subjectNameIdTemplate?: string;
+    readonly subjectNameIdTemplate: string;
     /**
      * Username template.
      */
-    readonly userNameTemplate?: string;
+    readonly userNameTemplate: string;
     /**
      * Push username on update.
      */
@@ -404,18 +247,18 @@ export interface GetSamlResult {
     /**
      * Username template suffix.
      */
-    readonly userNameTemplateSuffix?: string;
+    readonly userNameTemplateSuffix: string;
     /**
      * Username template type.
      */
-    readonly userNameTemplateType?: string;
+    readonly userNameTemplateType: string;
     /**
      * List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
-    readonly users?: string[];
+    readonly users: string[];
 }
 
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
@@ -427,93 +270,13 @@ export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetSamlOutputArgs {
     /**
-     * Custom error page URL.
-     */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
-    /**
-     * Custom login page URL.
-     */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
-    /**
-     * Enable self-service.
-     */
-    accessibilitySelfService?: pulumi.Input<boolean>;
-    /**
-     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-     */
-    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: pulumi.Input<boolean>;
     /**
-     * Application settings in JSON format.
-     */
-    appSettingsJson?: pulumi.Input<string>;
-    /**
-     * Determines whether the SAML assertion is digitally signed.
-     */
-    assertionSigned?: pulumi.Input<boolean>;
-    /**
-     * List of SAML Attribute statements.
-     */
-    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.GetSamlAttributeStatementArgs>[]>;
-    /**
-     * Audience restriction.
-     */
-    audience?: pulumi.Input<string>;
-    /**
-     * Identifies the SAML authentication context class for the assertion’s authentication
-     * statement.
-     */
-    authnContextClassRef?: pulumi.Input<string>;
-    /**
-     * Display auto submit toolbar.
-     */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
-    /**
-     * Identifies a specific application resource in an IDP initiated SSO scenario.
-     */
-    defaultRelayState?: pulumi.Input<string>;
-    /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-     */
-    destination?: pulumi.Input<string>;
-    /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
-     */
-    digestAlgorithm?: pulumi.Input<string>;
-    /**
-     * features enabled.
-     */
-    features?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
-     *
-     * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Do not display application icon on mobile app.
-     */
-    hideIos?: pulumi.Input<boolean>;
-    /**
-     * Do not display application icon to users
-     */
-    hideWeb?: pulumi.Input<boolean>;
-    /**
-     * Prompt user to re-authenticate if SP asks for it.
-     */
-    honorForceAuthn?: pulumi.Input<boolean>;
-    /**
      * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     id?: pulumi.Input<string>;
-    /**
-     * SAML issuer ID.
-     */
-    idpIssuer?: pulumi.Input<string>;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
      * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
@@ -526,21 +289,9 @@ export interface GetSamlOutputArgs {
      */
     labelPrefix?: pulumi.Input<string>;
     /**
-     * The location where the app may present the SAML assertion.
-     */
-    recipient?: pulumi.Input<string>;
-    /**
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: pulumi.Input<boolean>;
-    /**
-     * Determines whether the SAML auth response message is digitally signed.
-     */
-    responseSigned?: pulumi.Input<boolean>;
-    /**
-     * Signature algorithm used ot digitally sign the assertion and response.
-     */
-    signatureAlgorithm?: pulumi.Input<string>;
     /**
      * Indicator that allows the app to skip `groups` sync. Default is `false`.
      */
@@ -549,39 +300,4 @@ export interface GetSamlOutputArgs {
      * Indicator that allows the app to skip `users` sync. Default is `false`.
      */
     skipUsers?: pulumi.Input<boolean>;
-    /**
-     * SAML service provider issuer.
-     */
-    spIssuer?: pulumi.Input<string>;
-    /**
-     * Single Sign-on Url.
-     */
-    ssoUrl?: pulumi.Input<string>;
-    /**
-     * Identifies the SAML processing rules.
-     */
-    subjectNameIdFormat?: pulumi.Input<string>;
-    /**
-     * Template for app user's username when a user is assigned to the app.
-     */
-    subjectNameIdTemplate?: pulumi.Input<string>;
-    /**
-     * Username template.
-     */
-    userNameTemplate?: pulumi.Input<string>;
-    /**
-     * Username template suffix.
-     */
-    userNameTemplateSuffix?: pulumi.Input<string>;
-    /**
-     * Username template type.
-     */
-    userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
-     *
-     * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
-     */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

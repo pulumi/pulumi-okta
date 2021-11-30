@@ -323,6 +323,14 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_security_notification_emails":   {Tok: makeResource(mainMod, "SecurityNotificationEmails")},
 			"okta_threat_insight_settings":        {Tok: makeResource(mainMod, "ThreatInsightSettings")},
 			"okta_event_hook_verification":        {Tok: makeResource(mainMod, "EventHookVerification")},
+			"okta_admin_role_custom":              {Tok: makeResource(mainMod, "AdminRoleCustom")},
+			"okta_admin_role_custom_assignments":  {Tok: makeResource(mainMod, "AdminRoleCustomAssignments")},
+			"okta_captcha":                        {Tok: makeResource(mainMod, "Captcha")},
+			"okta_captcha_org_wide_settings":      {Tok: makeResource(mainMod, "CaptchaOrgWideSettings")},
+			"okta_link_definition":                {Tok: makeResource(mainMod, "LinkDefinition")},
+			"okta_link_value":                     {Tok: makeResource(mainMod, "LinkValue")},
+			"okta_rate_limiting":                  {Tok: makeResource(mainMod, "RateLimiting")},
+			"okta_resource_set":                   {Tok: makeResource(mainMod, "ResourceSet")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},
