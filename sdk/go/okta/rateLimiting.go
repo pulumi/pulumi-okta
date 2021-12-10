@@ -15,6 +15,31 @@ import (
 //
 // > **WARNING:** This resource is available only when using api token in the provider config.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+// 			Authorize:             pulumi.String("ENFORCE"),
+// 			CommunicationsEnabled: pulumi.Bool(true),
+// 			Login:                 pulumi.String("ENFORCE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Rate limit settings can be imported without any parameters.

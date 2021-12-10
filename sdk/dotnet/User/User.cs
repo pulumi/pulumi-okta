@@ -16,6 +16,8 @@ namespace Pulumi.Okta.User
     /// 
     /// ## Example Usage
     /// 
+    /// Full profile:
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
@@ -57,6 +59,29 @@ namespace Pulumi.Okta.User
     ///             Title = "Director",
     ///             UserType = "Employee",
     ///             ZipCode = "11111",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// With Password Inline Hook:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test2 = new Okta.User.User("test2", new Okta.User.UserArgs
+    ///         {
+    ///             Email = "example@example.com",
+    ///             FirstName = "John",
+    ///             LastName = "Smith",
+    ///             Login = "example@example.com",
+    ///             PasswordInlineHook = "default",
     ///         });
     ///     }
     /// 
@@ -232,6 +257,15 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("passwordHash")]
         public Output<Outputs.UserPasswordHash?> PasswordHash { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        /// field should not be specified when using Password Import Inline Hook.
+        /// </summary>
+        [Output("passwordInlineHook")]
+        public Output<string?> PasswordInlineHook { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -543,6 +577,15 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashArgs>? PasswordHash { get; set; }
 
         /// <summary>
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        /// field should not be specified when using Password Import Inline Hook.
+        /// </summary>
+        [Input("passwordInlineHook")]
+        public Input<string>? PasswordInlineHook { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("postalAddress")]
@@ -805,6 +848,15 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("passwordHash")]
         public Input<Inputs.UserPasswordHashGetArgs>? PasswordHash { get; set; }
+
+        /// <summary>
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        /// field should not be specified when using Password Import Inline Hook.
+        /// </summary>
+        [Input("passwordInlineHook")]
+        public Input<string>? PasswordInlineHook { get; set; }
 
         /// <summary>
         /// User profile property.

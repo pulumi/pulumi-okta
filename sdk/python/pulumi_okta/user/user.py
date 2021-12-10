@@ -41,6 +41,7 @@ class UserArgs:
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
+                 password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -86,6 +87,10 @@ class UserArgs:
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+               field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -155,6 +160,8 @@ class UserArgs:
             pulumi.set(__self__, "password", password)
         if password_hash is not None:
             pulumi.set(__self__, "password_hash", password_hash)
+        if password_inline_hook is not None:
+            pulumi.set(__self__, "password_inline_hook", password_inline_hook)
         if postal_address is not None:
             pulumi.set(__self__, "postal_address", postal_address)
         if preferred_language is not None:
@@ -500,6 +507,21 @@ class UserArgs:
         pulumi.set(self, "password_hash", value)
 
     @property
+    @pulumi.getter(name="passwordInlineHook")
+    def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        field should not be specified when using Password Import Inline Hook.
+        """
+        return pulumi.get(self, "password_inline_hook")
+
+    @password_inline_hook.setter
+    def password_inline_hook(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_inline_hook", value)
+
+    @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
@@ -697,6 +719,7 @@ class _UserState:
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
+                 password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -743,6 +766,10 @@ class _UserState:
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+               field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -817,6 +844,8 @@ class _UserState:
             pulumi.set(__self__, "password", password)
         if password_hash is not None:
             pulumi.set(__self__, "password_hash", password_hash)
+        if password_inline_hook is not None:
+            pulumi.set(__self__, "password_inline_hook", password_inline_hook)
         if postal_address is not None:
             pulumi.set(__self__, "postal_address", postal_address)
         if preferred_language is not None:
@@ -1164,6 +1193,21 @@ class _UserState:
         pulumi.set(self, "password_hash", value)
 
     @property
+    @pulumi.getter(name="passwordInlineHook")
+    def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        field should not be specified when using Password Import Inline Hook.
+        """
+        return pulumi.get(self, "password_inline_hook")
+
+    @password_inline_hook.setter
+    def password_inline_hook(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_inline_hook", value)
+
+    @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1375,6 +1419,7 @@ class User(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+                 password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1396,6 +1441,8 @@ class User(pulumi.CustomResource):
         This resource allows you to create and configure an Okta User.
 
         ## Example Usage
+
+        Full profile:
 
         ```python
         import pulumi
@@ -1433,6 +1480,20 @@ class User(pulumi.CustomResource):
             title="Director",
             user_type="Employee",
             zip_code="11111")
+        ```
+
+        With Password Inline Hook:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test2 = okta.user.User("test2",
+            email="example@example.com",
+            first_name="John",
+            last_name="Smith",
+            login="example@example.com",
+            password_inline_hook="default")
         ```
 
         ## Import
@@ -1474,6 +1535,10 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+               field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -1501,6 +1566,8 @@ class User(pulumi.CustomResource):
         This resource allows you to create and configure an Okta User.
 
         ## Example Usage
+
+        Full profile:
 
         ```python
         import pulumi
@@ -1538,6 +1605,20 @@ class User(pulumi.CustomResource):
             title="Director",
             user_type="Employee",
             zip_code="11111")
+        ```
+
+        With Password Inline Hook:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test2 = okta.user.User("test2",
+            email="example@example.com",
+            first_name="John",
+            last_name="Smith",
+            login="example@example.com",
+            password_inline_hook="default")
         ```
 
         ## Import
@@ -1589,6 +1670,7 @@ class User(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+                 password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1655,6 +1737,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["organization"] = organization
             __props__.__dict__["password"] = password
             __props__.__dict__["password_hash"] = password_hash
+            __props__.__dict__["password_inline_hook"] = password_inline_hook
             __props__.__dict__["postal_address"] = postal_address
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["primary_phone"] = primary_phone
@@ -1706,6 +1789,7 @@ class User(pulumi.CustomResource):
             organization: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+            password_inline_hook: Optional[pulumi.Input[str]] = None,
             postal_address: Optional[pulumi.Input[str]] = None,
             preferred_language: Optional[pulumi.Input[str]] = None,
             primary_phone: Optional[pulumi.Input[str]] = None,
@@ -1757,6 +1841,10 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+               field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User profile property.
         :param pulumi.Input[str] preferred_language: User profile property.
         :param pulumi.Input[str] primary_phone: User profile property.
@@ -1803,6 +1891,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["organization"] = organization
         __props__.__dict__["password"] = password
         __props__.__dict__["password_hash"] = password_hash
+        __props__.__dict__["password_inline_hook"] = password_inline_hook
         __props__.__dict__["postal_address"] = postal_address
         __props__.__dict__["preferred_language"] = preferred_language
         __props__.__dict__["primary_phone"] = primary_phone
@@ -2030,6 +2119,17 @@ class User(pulumi.CustomResource):
         Specifies a hashed password to import into Okta.
         """
         return pulumi.get(self, "password_hash")
+
+    @property
+    @pulumi.getter(name="passwordInlineHook")
+    def password_inline_hook(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+        field should not be specified when using Password Import Inline Hook.
+        """
+        return pulumi.get(self, "password_inline_hook")
 
     @property
     @pulumi.getter(name="postalAddress")

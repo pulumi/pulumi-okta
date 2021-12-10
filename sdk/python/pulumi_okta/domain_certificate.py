@@ -14,24 +14,23 @@ __all__ = ['DomainCertificateArgs', 'DomainCertificate']
 class DomainCertificateArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
+                 certificate_chain: pulumi.Input[str],
                  domain_id: pulumi.Input[str],
                  private_key: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 certificate_chain: Optional[pulumi.Input[str]] = None):
+                 type: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainCertificate resource.
         :param pulumi.Input[str] certificate: Certificate content.
+        :param pulumi.Input[str] certificate_chain: Certificate certificate chain.
         :param pulumi.Input[str] domain_id: Domain ID.
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
-        :param pulumi.Input[str] certificate_chain: Certificate chain.
         """
         pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "private_key", private_key)
         pulumi.set(__self__, "type", type)
-        if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter
@@ -44,6 +43,18 @@ class DomainCertificateArgs:
     @certificate.setter
     def certificate(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> pulumi.Input[str]:
+        """
+        Certificate certificate chain.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_chain", value)
 
     @property
     @pulumi.getter(name="domainId")
@@ -81,18 +92,6 @@ class DomainCertificateArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
-    @property
-    @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate chain.
-        """
-        return pulumi.get(self, "certificate_chain")
-
-    @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_chain", value)
-
 
 @pulumi.input_type
 class _DomainCertificateState:
@@ -105,7 +104,7 @@ class _DomainCertificateState:
         """
         Input properties used for looking up and filtering DomainCertificate resources.
         :param pulumi.Input[str] certificate: Certificate content.
-        :param pulumi.Input[str] certificate_chain: Certificate chain.
+        :param pulumi.Input[str] certificate_chain: Certificate certificate chain.
         :param pulumi.Input[str] domain_id: Domain ID.
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
@@ -137,7 +136,7 @@ class _DomainCertificateState:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate chain.
+        Certificate certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -263,7 +262,8 @@ class DomainCertificate(pulumi.CustomResource):
         6KDzikgwGM6j9lmOI2MH4XmCVym4Z40YGK5nxulDh2Ihn/n9zm13Z7ul2DJwgQSO
         0zBc7/CMOsMEBaNXuKL8Qj4enJXMtub4waQ/ywqHIdc50YaPI5Ax8dD/10h9M6Qc
         nUFLNE8pXSnsqb0eOL74f3uQ
-        -----END PRIVATE KEY-----\"\"\")
+        -----END PRIVATE KEY-----\"\"\",
+            certificate_chain=(lambda path: open(path).read())("www.example.com/fullchain.pem"))
         ```
 
         ## Import
@@ -273,7 +273,7 @@ class DomainCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Certificate content.
-        :param pulumi.Input[str] certificate_chain: Certificate chain.
+        :param pulumi.Input[str] certificate_chain: Certificate certificate chain.
         :param pulumi.Input[str] domain_id: Domain ID.
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
@@ -354,7 +354,8 @@ class DomainCertificate(pulumi.CustomResource):
         6KDzikgwGM6j9lmOI2MH4XmCVym4Z40YGK5nxulDh2Ihn/n9zm13Z7ul2DJwgQSO
         0zBc7/CMOsMEBaNXuKL8Qj4enJXMtub4waQ/ywqHIdc50YaPI5Ax8dD/10h9M6Qc
         nUFLNE8pXSnsqb0eOL74f3uQ
-        -----END PRIVATE KEY-----\"\"\")
+        -----END PRIVATE KEY-----\"\"\",
+            certificate_chain=(lambda path: open(path).read())("www.example.com/fullchain.pem"))
         ```
 
         ## Import
@@ -396,6 +397,8 @@ class DomainCertificate(pulumi.CustomResource):
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")
             __props__.__dict__["certificate"] = certificate
+            if certificate_chain is None and not opts.urn:
+                raise TypeError("Missing required property 'certificate_chain'")
             __props__.__dict__["certificate_chain"] = certificate_chain
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
@@ -429,7 +432,7 @@ class DomainCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Certificate content.
-        :param pulumi.Input[str] certificate_chain: Certificate chain.
+        :param pulumi.Input[str] certificate_chain: Certificate certificate chain.
         :param pulumi.Input[str] domain_id: Domain ID.
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
@@ -455,9 +458,9 @@ class DomainCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
+    def certificate_chain(self) -> pulumi.Output[str]:
         """
-        Certificate chain.
+        Certificate certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 

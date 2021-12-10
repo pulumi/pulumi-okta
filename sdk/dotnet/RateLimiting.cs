@@ -14,6 +14,27 @@ namespace Pulumi.Okta
     /// 
     /// &gt; **WARNING:** This resource is available only when using api token in the provider config.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.RateLimiting("example", new Okta.RateLimitingArgs
+    ///         {
+    ///             Authorize = "ENFORCE",
+    ///             CommunicationsEnabled = true,
+    ///             Login = "ENFORCE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Rate limit settings can be imported without any parameters.

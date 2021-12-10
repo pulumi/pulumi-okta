@@ -9,9 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
+    /// <summary>
+    /// This resource allows you to manage redirection URI for use in redirect-based flows.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testOAuth = new Okta.App.OAuth("testOAuth", new Okta.App.OAuthArgs
+    ///         {
+    ///             Label = "testAcc_replace_with_uuid",
+    ///             Type = "web",
+    ///             GrantTypes = 
+    ///             {
+    ///                 "authorization_code",
+    ///             },
+    ///             ResponseTypes = 
+    ///             {
+    ///                 "code",
+    ///             },
+    ///             RedirectUris = 
+    ///             {
+    ///                 "myapp://callback",
+    ///             },
+    ///         });
+    ///         var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("testOAuthRedirectUri", new Okta.App.OAuthRedirectUriArgs
+    ///         {
+    ///             AppId = testOAuth.Id,
+    ///             Uri = "http://google.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A redirect URI can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &lt;app id&gt;/&lt;uri&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]
     public partial class OAuthRedirectUri : Pulumi.CustomResource
     {
+        /// <summary>
+        /// OAuth application ID.
+        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
@@ -67,6 +118,9 @@ namespace Pulumi.Okta.App
 
     public sealed class OAuthRedirectUriArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// OAuth application ID.
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
@@ -83,6 +137,9 @@ namespace Pulumi.Okta.App
 
     public sealed class OAuthRedirectUriState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// OAuth application ID.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 

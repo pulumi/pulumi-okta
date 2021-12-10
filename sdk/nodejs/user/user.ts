@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * Full profile:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -48,6 +50,21 @@ import * as utilities from "../utilities";
  *     title: "Director",
  *     userType: "Employee",
  *     zipCode: "11111",
+ * });
+ * ```
+ *
+ * With Password Inline Hook:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test2 = new okta.user.User("test2", {
+ *     email: "example@example.com",
+ *     firstName: "John",
+ *     lastName: "Smith",
+ *     login: "example@example.com",
+ *     passwordInlineHook: "default",
  * });
  * ```
  *
@@ -199,6 +216,13 @@ export class User extends pulumi.CustomResource {
      */
     public readonly passwordHash!: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
     /**
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
+     */
+    public readonly passwordInlineHook!: pulumi.Output<string | undefined>;
+    /**
      * User profile property.
      */
     public readonly postalAddress!: pulumi.Output<string | undefined>;
@@ -298,6 +322,7 @@ export class User extends pulumi.CustomResource {
             inputs["organization"] = state ? state.organization : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["passwordHash"] = state ? state.passwordHash : undefined;
+            inputs["passwordInlineHook"] = state ? state.passwordInlineHook : undefined;
             inputs["postalAddress"] = state ? state.postalAddress : undefined;
             inputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
             inputs["primaryPhone"] = state ? state.primaryPhone : undefined;
@@ -353,6 +378,7 @@ export class User extends pulumi.CustomResource {
             inputs["organization"] = args ? args.organization : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["passwordHash"] = args ? args.passwordHash : undefined;
+            inputs["passwordInlineHook"] = args ? args.passwordInlineHook : undefined;
             inputs["postalAddress"] = args ? args.postalAddress : undefined;
             inputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
             inputs["primaryPhone"] = args ? args.primaryPhone : undefined;
@@ -491,6 +517,13 @@ export interface UserState {
      * Specifies a hashed password to import into Okta.
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
+    /**
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
+     */
+    passwordInlineHook?: pulumi.Input<string>;
     /**
      * User profile property.
      */
@@ -668,6 +701,13 @@ export interface UserArgs {
      * Specifies a hashed password to import into Okta.
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
+    /**
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
+     */
+    passwordInlineHook?: pulumi.Input<string>;
     /**
      * User profile property.
      */

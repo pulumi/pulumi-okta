@@ -669,10 +669,10 @@ github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQ
 github.com/oklog/run v1.1.0 h1:GEenZ1cK0+q0+wsJew9qUg/DyD8k3JzYsZAi5gYi2mA=
 github.com/oklog/run v1.1.0/go.mod h1:sVPdnTZT1zYwAJeCMu2Th4T21pA3FPOQRfWjQlk7DVU=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
-github.com/okta/okta-sdk-golang/v2 v2.9.2-0.20211106142544-afb81b42f538 h1:TSfBygYDE8cHkWk1mE5d5T/NC+nYxWU6h1yT1aN9Mpc=
-github.com/okta/okta-sdk-golang/v2 v2.9.2-0.20211106142544-afb81b42f538/go.mod h1:UhdEFuTLCIJirz6x4zGjsuwQl1xhCLKizNyj/h14tFA=
-github.com/okta/terraform-provider-okta v0.0.0-20211123182423-d84aab3d6226 h1:5yqQrgEWVBaDpzQf/7zyQ98lU5SvlEc5YvI6vj3Qt2k=
-github.com/okta/terraform-provider-okta v0.0.0-20211123182423-d84aab3d6226/go.mod h1:CxNiKdptx1eGoVm6P4Fupb79v8DW+6txxZlteOrXz8I=
+github.com/okta/okta-sdk-golang/v2 v2.9.2-0.20211203080930-e7b3952536dc h1:fGaQExYeLoYLPPa502FJQkNmo9F1aFS4O6slSmun+xk=
+github.com/okta/okta-sdk-golang/v2 v2.9.2-0.20211203080930-e7b3952536dc/go.mod h1:UhdEFuTLCIJirz6x4zGjsuwQl1xhCLKizNyj/h14tFA=
+github.com/okta/terraform-provider-okta v0.0.0-20211208174738-2872f56be2c8 h1:slj1aattAziZ4ix/Tu9+fRRLpWSUHH6QxaCYLW4UN54=
+github.com/okta/terraform-provider-okta v0.0.0-20211208174738-2872f56be2c8/go.mod h1:nrsZ/CGM9Uk5Siwu1ZEi6lzd4abqsUKkBbs/pFTK2Nk=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

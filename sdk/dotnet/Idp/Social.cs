@@ -68,6 +68,26 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
         /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// </summary>
+        [Output("appleKid")]
+        public Output<string?> AppleKid { get; private set; } = null!;
+
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private 
+        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// </summary>
+        [Output("applePrivateKey")]
+        public Output<string?> ApplePrivateKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account.
+        /// </summary>
+        [Output("appleTeamId")]
+        public Output<string?> AppleTeamId { get; private set; } = null!;
+
+        /// <summary>
         /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         /// </summary>
         [Output("authorizationBinding")]
@@ -306,6 +326,26 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// </summary>
+        [Input("appleKid")]
+        public Input<string>? AppleKid { get; set; }
+
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private 
+        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// </summary>
+        [Input("applePrivateKey")]
+        public Input<string>? ApplePrivateKey { get; set; }
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account.
+        /// </summary>
+        [Input("appleTeamId")]
+        public Input<string>? AppleTeamId { get; set; }
+
+        /// <summary>
         /// Unique identifier issued by AS for the Okta IdP instance.
         /// </summary>
         [Input("clientId")]
@@ -497,6 +537,26 @@ namespace Pulumi.Okta.Idp
             get => _accountLinkGroupIncludes ?? (_accountLinkGroupIncludes = new InputList<string>());
             set => _accountLinkGroupIncludes = value;
         }
+
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// </summary>
+        [Input("appleKid")]
+        public Input<string>? AppleKid { get; set; }
+
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private 
+        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// </summary>
+        [Input("applePrivateKey")]
+        public Input<string>? ApplePrivateKey { get; set; }
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account.
+        /// </summary>
+        [Input("appleTeamId")]
+        public Input<string>? AppleTeamId { get; set; }
 
         /// <summary>
         /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.

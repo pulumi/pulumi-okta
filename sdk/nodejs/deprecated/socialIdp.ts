@@ -34,6 +34,18 @@ export class SocialIdp extends pulumi.CustomResource {
 
     public readonly accountLinkAction!: pulumi.Output<string | undefined>;
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private key for the client
+     */
+    public readonly appleKid!: pulumi.Output<string | undefined>;
+    /**
+     * The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+     */
+    public readonly applePrivateKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Team ID associated with your Apple developer account
+     */
+    public readonly appleTeamId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly authorizationBinding!: pulumi.Output<string>;
     public /*out*/ readonly authorizationUrl!: pulumi.Output<string>;
     public readonly clientId!: pulumi.Output<string | undefined>;
@@ -104,6 +116,9 @@ export class SocialIdp extends pulumi.CustomResource {
             const state = argsOrState as SocialIdpState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
+            inputs["appleKid"] = state ? state.appleKid : undefined;
+            inputs["applePrivateKey"] = state ? state.applePrivateKey : undefined;
+            inputs["appleTeamId"] = state ? state.appleTeamId : undefined;
             inputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
             inputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -144,6 +159,9 @@ export class SocialIdp extends pulumi.CustomResource {
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
+            inputs["appleKid"] = args ? args.appleKid : undefined;
+            inputs["applePrivateKey"] = args ? args.applePrivateKey : undefined;
+            inputs["appleTeamId"] = args ? args.appleTeamId : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
@@ -188,6 +206,18 @@ export class SocialIdp extends pulumi.CustomResource {
 export interface SocialIdpState {
     accountLinkAction?: pulumi.Input<string>;
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private key for the client
+     */
+    appleKid?: pulumi.Input<string>;
+    /**
+     * The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+     */
+    applePrivateKey?: pulumi.Input<string>;
+    /**
+     * The Team ID associated with your Apple developer account
+     */
+    appleTeamId?: pulumi.Input<string>;
     authorizationBinding?: pulumi.Input<string>;
     authorizationUrl?: pulumi.Input<string>;
     clientId?: pulumi.Input<string>;
@@ -250,6 +280,18 @@ export interface SocialIdpState {
 export interface SocialIdpArgs {
     accountLinkAction?: pulumi.Input<string>;
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private key for the client
+     */
+    appleKid?: pulumi.Input<string>;
+    /**
+     * The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+     */
+    applePrivateKey?: pulumi.Input<string>;
+    /**
+     * The Team ID associated with your Apple developer account
+     */
+    appleTeamId?: pulumi.Input<string>;
     clientId?: pulumi.Input<string>;
     clientSecret?: pulumi.Input<string>;
     deprovisionedAction?: pulumi.Input<string>;
