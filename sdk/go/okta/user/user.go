@@ -17,6 +17,8 @@ import (
 //
 // ## Example Usage
 //
+// Full profile:
+//
 // ```go
 // package main
 //
@@ -59,6 +61,33 @@ import (
 // 			Title:             pulumi.String("Director"),
 // 			UserType:          pulumi.String("Employee"),
 // 			ZipCode:           pulumi.String("11111"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// With Password Inline Hook:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := user.NewUser(ctx, "test2", &user.UserArgs{
+// 			Email:              pulumi.String("example@example.com"),
+// 			FirstName:          pulumi.String("John"),
+// 			LastName:           pulumi.String("Smith"),
+// 			Login:              pulumi.String("example@example.com"),
+// 			PasswordInlineHook: pulumi.String("default"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -137,6 +166,11 @@ type User struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies a hashed password to import into Okta.
 	PasswordHash UserPasswordHashPtrOutput `pulumi:"passwordHash"`
+	// Specifies that a Password Import Inline Hook should be triggered to handle verification
+	// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+	// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+	// field should not be specified when using Password Import Inline Hook.
+	PasswordInlineHook pulumi.StringPtrOutput `pulumi:"passwordInlineHook"`
 	// User profile property.
 	PostalAddress pulumi.StringPtrOutput `pulumi:"postalAddress"`
 	// User profile property.
@@ -269,6 +303,11 @@ type userState struct {
 	Password *string `pulumi:"password"`
 	// Specifies a hashed password to import into Okta.
 	PasswordHash *UserPasswordHash `pulumi:"passwordHash"`
+	// Specifies that a Password Import Inline Hook should be triggered to handle verification
+	// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+	// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+	// field should not be specified when using Password Import Inline Hook.
+	PasswordInlineHook *string `pulumi:"passwordInlineHook"`
 	// User profile property.
 	PostalAddress *string `pulumi:"postalAddress"`
 	// User profile property.
@@ -361,6 +400,11 @@ type UserState struct {
 	Password pulumi.StringPtrInput
 	// Specifies a hashed password to import into Okta.
 	PasswordHash UserPasswordHashPtrInput
+	// Specifies that a Password Import Inline Hook should be triggered to handle verification
+	// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+	// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+	// field should not be specified when using Password Import Inline Hook.
+	PasswordInlineHook pulumi.StringPtrInput
 	// User profile property.
 	PostalAddress pulumi.StringPtrInput
 	// User profile property.
@@ -457,6 +501,11 @@ type userArgs struct {
 	Password *string `pulumi:"password"`
 	// Specifies a hashed password to import into Okta.
 	PasswordHash *UserPasswordHash `pulumi:"passwordHash"`
+	// Specifies that a Password Import Inline Hook should be triggered to handle verification
+	// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+	// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+	// field should not be specified when using Password Import Inline Hook.
+	PasswordInlineHook *string `pulumi:"passwordInlineHook"`
 	// User profile property.
 	PostalAddress *string `pulumi:"postalAddress"`
 	// User profile property.
@@ -548,6 +597,11 @@ type UserArgs struct {
 	Password pulumi.StringPtrInput
 	// Specifies a hashed password to import into Okta.
 	PasswordHash UserPasswordHashPtrInput
+	// Specifies that a Password Import Inline Hook should be triggered to handle verification
+	// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+	// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+	// field should not be specified when using Password Import Inline Hook.
+	PasswordInlineHook pulumi.StringPtrInput
 	// User profile property.
 	PostalAddress pulumi.StringPtrInput
 	// User profile property.

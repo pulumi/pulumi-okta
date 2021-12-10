@@ -17,6 +17,9 @@ class SocialIdpArgs:
                  type: pulumi.Input[str],
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 apple_kid: Optional[pulumi.Input[str]] = None,
+                 apple_private_key: Optional[pulumi.Input[str]] = None,
+                 apple_team_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
@@ -43,6 +46,9 @@ class SocialIdpArgs:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SocialIdp resource.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
+        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
@@ -56,6 +62,12 @@ class SocialIdpArgs:
             pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+        if apple_kid is not None:
+            pulumi.set(__self__, "apple_kid", apple_kid)
+        if apple_private_key is not None:
+            pulumi.set(__self__, "apple_private_key", apple_private_key)
+        if apple_team_id is not None:
+            pulumi.set(__self__, "apple_team_id", apple_team_id)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -146,6 +158,42 @@ class SocialIdpArgs:
     @account_link_group_includes.setter
     def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
+
+    @property
+    @pulumi.getter(name="appleKid")
+    def apple_kid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key ID that you obtained from Apple when you created the private key for the client
+        """
+        return pulumi.get(self, "apple_kid")
+
+    @apple_kid.setter
+    def apple_kid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_kid", value)
+
+    @property
+    @pulumi.getter(name="applePrivateKey")
+    def apple_private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        """
+        return pulumi.get(self, "apple_private_key")
+
+    @apple_private_key.setter
+    def apple_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_private_key", value)
+
+    @property
+    @pulumi.getter(name="appleTeamId")
+    def apple_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Team ID associated with your Apple developer account
+        """
+        return pulumi.get(self, "apple_team_id")
+
+    @apple_team_id.setter
+    def apple_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_team_id", value)
 
     @property
     @pulumi.getter(name="clientId")
@@ -387,6 +435,9 @@ class _SocialIdpState:
     def __init__(__self__, *,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 apple_kid: Optional[pulumi.Input[str]] = None,
+                 apple_private_key: Optional[pulumi.Input[str]] = None,
+                 apple_team_id: Optional[pulumi.Input[str]] = None,
                  authorization_binding: Optional[pulumi.Input[str]] = None,
                  authorization_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -419,6 +470,9 @@ class _SocialIdpState:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SocialIdp resources.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
+        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
@@ -430,6 +484,12 @@ class _SocialIdpState:
             pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+        if apple_kid is not None:
+            pulumi.set(__self__, "apple_kid", apple_kid)
+        if apple_private_key is not None:
+            pulumi.set(__self__, "apple_private_key", apple_private_key)
+        if apple_team_id is not None:
+            pulumi.set(__self__, "apple_team_id", apple_team_id)
         if authorization_binding is not None:
             pulumi.set(__self__, "authorization_binding", authorization_binding)
         if authorization_url is not None:
@@ -514,6 +574,42 @@ class _SocialIdpState:
     @account_link_group_includes.setter
     def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
+
+    @property
+    @pulumi.getter(name="appleKid")
+    def apple_kid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key ID that you obtained from Apple when you created the private key for the client
+        """
+        return pulumi.get(self, "apple_kid")
+
+    @apple_kid.setter
+    def apple_kid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_kid", value)
+
+    @property
+    @pulumi.getter(name="applePrivateKey")
+    def apple_private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        """
+        return pulumi.get(self, "apple_private_key")
+
+    @apple_private_key.setter
+    def apple_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_private_key", value)
+
+    @property
+    @pulumi.getter(name="appleTeamId")
+    def apple_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Team ID associated with your Apple developer account
+        """
+        return pulumi.get(self, "apple_team_id")
+
+    @apple_team_id.setter
+    def apple_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_team_id", value)
 
     @property
     @pulumi.getter(name="authorizationBinding")
@@ -811,6 +907,9 @@ class SocialIdp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 apple_kid: Optional[pulumi.Input[str]] = None,
+                 apple_private_key: Optional[pulumi.Input[str]] = None,
+                 apple_team_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
@@ -842,6 +941,9 @@ class SocialIdp(pulumi.CustomResource):
         Create a SocialIdp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
+        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
@@ -874,6 +976,9 @@ class SocialIdp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 apple_kid: Optional[pulumi.Input[str]] = None,
+                 apple_private_key: Optional[pulumi.Input[str]] = None,
+                 apple_team_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
@@ -914,6 +1019,9 @@ class SocialIdp(pulumi.CustomResource):
 
             __props__.__dict__["account_link_action"] = account_link_action
             __props__.__dict__["account_link_group_includes"] = account_link_group_includes
+            __props__.__dict__["apple_kid"] = apple_kid
+            __props__.__dict__["apple_private_key"] = apple_private_key
+            __props__.__dict__["apple_team_id"] = apple_team_id
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_secret"] = client_secret
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
@@ -966,6 +1074,9 @@ class SocialIdp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_link_action: Optional[pulumi.Input[str]] = None,
             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            apple_kid: Optional[pulumi.Input[str]] = None,
+            apple_private_key: Optional[pulumi.Input[str]] = None,
+            apple_team_id: Optional[pulumi.Input[str]] = None,
             authorization_binding: Optional[pulumi.Input[str]] = None,
             authorization_url: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
@@ -1003,6 +1114,9 @@ class SocialIdp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
+        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
@@ -1016,6 +1130,9 @@ class SocialIdp(pulumi.CustomResource):
 
         __props__.__dict__["account_link_action"] = account_link_action
         __props__.__dict__["account_link_group_includes"] = account_link_group_includes
+        __props__.__dict__["apple_kid"] = apple_kid
+        __props__.__dict__["apple_private_key"] = apple_private_key
+        __props__.__dict__["apple_team_id"] = apple_team_id
         __props__.__dict__["authorization_binding"] = authorization_binding
         __props__.__dict__["authorization_url"] = authorization_url
         __props__.__dict__["client_id"] = client_id
@@ -1057,6 +1174,30 @@ class SocialIdp(pulumi.CustomResource):
     @pulumi.getter(name="accountLinkGroupIncludes")
     def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "account_link_group_includes")
+
+    @property
+    @pulumi.getter(name="appleKid")
+    def apple_kid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Key ID that you obtained from Apple when you created the private key for the client
+        """
+        return pulumi.get(self, "apple_kid")
+
+    @property
+    @pulumi.getter(name="applePrivateKey")
+    def apple_private_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        """
+        return pulumi.get(self, "apple_private_key")
+
+    @property
+    @pulumi.getter(name="appleTeamId")
+    def apple_team_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Team ID associated with your Apple developer account
+        """
+        return pulumi.get(self, "apple_team_id")
 
     @property
     @pulumi.getter(name="authorizationBinding")

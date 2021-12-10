@@ -142,6 +142,18 @@ class RateLimiting(pulumi.CustomResource):
 
         > **WARNING:** This resource is available only when using api token in the provider config.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example",
+            authorize="ENFORCE",
+            communications_enabled=True,
+            login="ENFORCE")
+        ```
+
         ## Import
 
         Rate limit settings can be imported without any parameters.
@@ -168,6 +180,18 @@ class RateLimiting(pulumi.CustomResource):
         This resource allows you to configure the client-based rate limit and rate limiting communications settings.
 
         > **WARNING:** This resource is available only when using api token in the provider config.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example",
+            authorize="ENFORCE",
+            communications_enabled=True,
+            login="ENFORCE")
+        ```
 
         ## Import
 

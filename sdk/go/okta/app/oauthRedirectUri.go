@@ -11,9 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to manage redirection URI for use in redirect-based flows.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
+// 			Label: pulumi.String("testAcc_replace_with_uuid"),
+// 			Type:  pulumi.String("web"),
+// 			GrantTypes: pulumi.StringArray{
+// 				pulumi.String("authorization_code"),
+// 			},
+// 			ResponseTypes: pulumi.StringArray{
+// 				pulumi.String("code"),
+// 			},
+// 			RedirectUris: pulumi.StringArray{
+// 				pulumi.String("myapp://callback"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = app.NewOAuthRedirectUri(ctx, "testOAuthRedirectUri", &app.OAuthRedirectUriArgs{
+// 			AppId: testOAuth.ID(),
+// 			Uri:   pulumi.String("http://google.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// A redirect URI can be imported via the Okta ID.
+//
+// ```sh
+//  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app id>/<uri>
+// ```
 type OAuthRedirectUri struct {
 	pulumi.CustomResourceState
 
+	// OAuth application ID.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -54,12 +104,14 @@ func GetOAuthRedirectUri(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OAuthRedirectUri resources.
 type oauthRedirectUriState struct {
+	// OAuth application ID.
 	AppId *string `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri *string `pulumi:"uri"`
 }
 
 type OAuthRedirectUriState struct {
+	// OAuth application ID.
 	AppId pulumi.StringPtrInput
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringPtrInput
@@ -70,6 +122,7 @@ func (OAuthRedirectUriState) ElementType() reflect.Type {
 }
 
 type oauthRedirectUriArgs struct {
+	// OAuth application ID.
 	AppId string `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri string `pulumi:"uri"`
@@ -77,6 +130,7 @@ type oauthRedirectUriArgs struct {
 
 // The set of arguments for constructing a OAuthRedirectUri resource.
 type OAuthRedirectUriArgs struct {
+	// OAuth application ID.
 	AppId pulumi.StringInput
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringInput

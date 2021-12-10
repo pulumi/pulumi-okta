@@ -62,6 +62,14 @@ type Social struct {
 	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
+	// The Key ID that you obtained from Apple when you created the private key for the client.
+	AppleKid pulumi.StringPtrOutput `pulumi:"appleKid"`
+	// The Key ID that you obtained from Apple when you created the private
+	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	ApplePrivateKey pulumi.StringPtrOutput `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account.
+	AppleTeamId pulumi.StringPtrOutput `pulumi:"appleTeamId"`
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding pulumi.StringOutput `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -163,6 +171,14 @@ type socialState struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
+	// The Key ID that you obtained from Apple when you created the private key for the client.
+	AppleKid *string `pulumi:"appleKid"`
+	// The Key ID that you obtained from Apple when you created the private
+	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	ApplePrivateKey *string `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account.
+	AppleTeamId *string `pulumi:"appleTeamId"`
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding *string `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -230,6 +246,14 @@ type SocialState struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
+	// The Key ID that you obtained from Apple when you created the private key for the client.
+	AppleKid pulumi.StringPtrInput
+	// The Key ID that you obtained from Apple when you created the private
+	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	ApplePrivateKey pulumi.StringPtrInput
+	// The Team ID associated with your Apple developer account.
+	AppleTeamId pulumi.StringPtrInput
 	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 	AuthorizationBinding pulumi.StringPtrInput
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
@@ -301,6 +325,14 @@ type socialArgs struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
+	// The Key ID that you obtained from Apple when you created the private key for the client.
+	AppleKid *string `pulumi:"appleKid"`
+	// The Key ID that you obtained from Apple when you created the private
+	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	ApplePrivateKey *string `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account.
+	AppleTeamId *string `pulumi:"appleTeamId"`
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId *string `pulumi:"clientId"`
 	// Client secret issued by AS for the Okta IdP instance.
@@ -361,6 +393,14 @@ type SocialArgs struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
+	// The Key ID that you obtained from Apple when you created the private key for the client.
+	AppleKid pulumi.StringPtrInput
+	// The Key ID that you obtained from Apple when you created the private
+	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	ApplePrivateKey pulumi.StringPtrInput
+	// The Team ID associated with your Apple developer account.
+	AppleTeamId pulumi.StringPtrInput
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId pulumi.StringPtrInput
 	// Client secret issued by AS for the Okta IdP instance.

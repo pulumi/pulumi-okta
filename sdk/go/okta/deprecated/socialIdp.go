@@ -16,15 +16,21 @@ type SocialIdp struct {
 
 	AccountLinkAction        pulumi.StringPtrOutput   `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	AuthorizationBinding     pulumi.StringOutput      `pulumi:"authorizationBinding"`
-	AuthorizationUrl         pulumi.StringOutput      `pulumi:"authorizationUrl"`
-	ClientId                 pulumi.StringPtrOutput   `pulumi:"clientId"`
-	ClientSecret             pulumi.StringPtrOutput   `pulumi:"clientSecret"`
-	DeprovisionedAction      pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
-	GroupsAction             pulumi.StringPtrOutput   `pulumi:"groupsAction"`
-	GroupsAssignments        pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
-	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
-	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
+	// The Key ID that you obtained from Apple when you created the private key for the client
+	AppleKid pulumi.StringPtrOutput `pulumi:"appleKid"`
+	// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+	ApplePrivateKey pulumi.StringPtrOutput `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account
+	AppleTeamId          pulumi.StringPtrOutput   `pulumi:"appleTeamId"`
+	AuthorizationBinding pulumi.StringOutput      `pulumi:"authorizationBinding"`
+	AuthorizationUrl     pulumi.StringOutput      `pulumi:"authorizationUrl"`
+	ClientId             pulumi.StringPtrOutput   `pulumi:"clientId"`
+	ClientSecret         pulumi.StringPtrOutput   `pulumi:"clientSecret"`
+	DeprovisionedAction  pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
+	GroupsAction         pulumi.StringPtrOutput   `pulumi:"groupsAction"`
+	GroupsAssignments    pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
+	GroupsAttribute      pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
+	GroupsFilters        pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
@@ -93,15 +99,21 @@ func GetSocialIdp(ctx *pulumi.Context,
 type socialIdpState struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	AuthorizationBinding     *string  `pulumi:"authorizationBinding"`
-	AuthorizationUrl         *string  `pulumi:"authorizationUrl"`
-	ClientId                 *string  `pulumi:"clientId"`
-	ClientSecret             *string  `pulumi:"clientSecret"`
-	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
-	GroupsAction             *string  `pulumi:"groupsAction"`
-	GroupsAssignments        []string `pulumi:"groupsAssignments"`
-	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
-	GroupsFilters            []string `pulumi:"groupsFilters"`
+	// The Key ID that you obtained from Apple when you created the private key for the client
+	AppleKid *string `pulumi:"appleKid"`
+	// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+	ApplePrivateKey *string `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account
+	AppleTeamId          *string  `pulumi:"appleTeamId"`
+	AuthorizationBinding *string  `pulumi:"authorizationBinding"`
+	AuthorizationUrl     *string  `pulumi:"authorizationUrl"`
+	ClientId             *string  `pulumi:"clientId"`
+	ClientSecret         *string  `pulumi:"clientSecret"`
+	DeprovisionedAction  *string  `pulumi:"deprovisionedAction"`
+	GroupsAction         *string  `pulumi:"groupsAction"`
+	GroupsAssignments    []string `pulumi:"groupsAssignments"`
+	GroupsAttribute      *string  `pulumi:"groupsAttribute"`
+	GroupsFilters        []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
@@ -136,15 +148,21 @@ type socialIdpState struct {
 type SocialIdpState struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	AuthorizationBinding     pulumi.StringPtrInput
-	AuthorizationUrl         pulumi.StringPtrInput
-	ClientId                 pulumi.StringPtrInput
-	ClientSecret             pulumi.StringPtrInput
-	DeprovisionedAction      pulumi.StringPtrInput
-	GroupsAction             pulumi.StringPtrInput
-	GroupsAssignments        pulumi.StringArrayInput
-	GroupsAttribute          pulumi.StringPtrInput
-	GroupsFilters            pulumi.StringArrayInput
+	// The Key ID that you obtained from Apple when you created the private key for the client
+	AppleKid pulumi.StringPtrInput
+	// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+	ApplePrivateKey pulumi.StringPtrInput
+	// The Team ID associated with your Apple developer account
+	AppleTeamId          pulumi.StringPtrInput
+	AuthorizationBinding pulumi.StringPtrInput
+	AuthorizationUrl     pulumi.StringPtrInput
+	ClientId             pulumi.StringPtrInput
+	ClientSecret         pulumi.StringPtrInput
+	DeprovisionedAction  pulumi.StringPtrInput
+	GroupsAction         pulumi.StringPtrInput
+	GroupsAssignments    pulumi.StringArrayInput
+	GroupsAttribute      pulumi.StringPtrInput
+	GroupsFilters        pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode pulumi.StringPtrInput
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
@@ -183,13 +201,19 @@ func (SocialIdpState) ElementType() reflect.Type {
 type socialIdpArgs struct {
 	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	ClientId                 *string  `pulumi:"clientId"`
-	ClientSecret             *string  `pulumi:"clientSecret"`
-	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
-	GroupsAction             *string  `pulumi:"groupsAction"`
-	GroupsAssignments        []string `pulumi:"groupsAssignments"`
-	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
-	GroupsFilters            []string `pulumi:"groupsFilters"`
+	// The Key ID that you obtained from Apple when you created the private key for the client
+	AppleKid *string `pulumi:"appleKid"`
+	// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+	ApplePrivateKey *string `pulumi:"applePrivateKey"`
+	// The Team ID associated with your Apple developer account
+	AppleTeamId         *string  `pulumi:"appleTeamId"`
+	ClientId            *string  `pulumi:"clientId"`
+	ClientSecret        *string  `pulumi:"clientSecret"`
+	DeprovisionedAction *string  `pulumi:"deprovisionedAction"`
+	GroupsAction        *string  `pulumi:"groupsAction"`
+	GroupsAssignments   []string `pulumi:"groupsAssignments"`
+	GroupsAttribute     *string  `pulumi:"groupsAttribute"`
+	GroupsFilters       []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
@@ -223,13 +247,19 @@ type socialIdpArgs struct {
 type SocialIdpArgs struct {
 	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	ClientId                 pulumi.StringPtrInput
-	ClientSecret             pulumi.StringPtrInput
-	DeprovisionedAction      pulumi.StringPtrInput
-	GroupsAction             pulumi.StringPtrInput
-	GroupsAssignments        pulumi.StringArrayInput
-	GroupsAttribute          pulumi.StringPtrInput
-	GroupsFilters            pulumi.StringArrayInput
+	// The Key ID that you obtained from Apple when you created the private key for the client
+	AppleKid pulumi.StringPtrInput
+	// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+	ApplePrivateKey pulumi.StringPtrInput
+	// The Team ID associated with your Apple developer account
+	AppleTeamId         pulumi.StringPtrInput
+	ClientId            pulumi.StringPtrInput
+	ClientSecret        pulumi.StringPtrInput
+	DeprovisionedAction pulumi.StringPtrInput
+	GroupsAction        pulumi.StringPtrInput
+	GroupsAssignments   pulumi.StringArrayInput
+	GroupsAttribute     pulumi.StringPtrInput
+	GroupsFilters       pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
 	IssuerMode pulumi.StringPtrInput
 	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"

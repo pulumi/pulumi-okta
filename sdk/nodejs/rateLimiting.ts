@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.RateLimit("example", {
+ * const example = new okta.RateLimiting("example", {
  *     authorize: "ENFORCE",
  *     communicationsEnabled: true,
  *     login: "ENFORCE",

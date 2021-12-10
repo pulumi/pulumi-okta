@@ -75,6 +75,20 @@ export class Social extends pulumi.CustomResource {
      */
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
     /**
+     * The Key ID that you obtained from Apple when you created the private key for the client.
+     */
+    public readonly appleKid!: pulumi.Output<string | undefined>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private 
+     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+     * and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+     */
+    public readonly applePrivateKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Team ID associated with your Apple developer account.
+     */
+    public readonly appleTeamId!: pulumi.Output<string | undefined>;
+    /**
      * The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
      */
     public /*out*/ readonly authorizationBinding!: pulumi.Output<string>;
@@ -210,6 +224,9 @@ export class Social extends pulumi.CustomResource {
             const state = argsOrState as SocialState | undefined;
             inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
+            inputs["appleKid"] = state ? state.appleKid : undefined;
+            inputs["applePrivateKey"] = state ? state.applePrivateKey : undefined;
+            inputs["appleTeamId"] = state ? state.appleTeamId : undefined;
             inputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
             inputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -250,6 +267,9 @@ export class Social extends pulumi.CustomResource {
             }
             inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
+            inputs["appleKid"] = args ? args.appleKid : undefined;
+            inputs["applePrivateKey"] = args ? args.applePrivateKey : undefined;
+            inputs["appleTeamId"] = args ? args.appleTeamId : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
@@ -300,6 +320,20 @@ export interface SocialState {
      * Group memberships to determine link candidates.
      */
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private key for the client.
+     */
+    appleKid?: pulumi.Input<string>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private 
+     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+     * and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+     */
+    applePrivateKey?: pulumi.Input<string>;
+    /**
+     * The Team ID associated with your Apple developer account.
+     */
+    appleTeamId?: pulumi.Input<string>;
     /**
      * The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
      */
@@ -434,6 +468,20 @@ export interface SocialArgs {
      * Group memberships to determine link candidates.
      */
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private key for the client.
+     */
+    appleKid?: pulumi.Input<string>;
+    /**
+     * The Key ID that you obtained from Apple when you created the private 
+     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+     * and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+     */
+    applePrivateKey?: pulumi.Input<string>;
+    /**
+     * The Team ID associated with your Apple developer account.
+     */
+    appleTeamId?: pulumi.Input<string>;
     /**
      * Unique identifier issued by AS for the Okta IdP instance.
      */

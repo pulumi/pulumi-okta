@@ -18,6 +18,24 @@ namespace Pulumi.Okta.Deprecated
         [Output("accountLinkGroupIncludes")]
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client
+        /// </summary>
+        [Output("appleKid")]
+        public Output<string?> AppleKid { get; private set; } = null!;
+
+        /// <summary>
+        /// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        /// </summary>
+        [Output("applePrivateKey")]
+        public Output<string?> ApplePrivateKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account
+        /// </summary>
+        [Output("appleTeamId")]
+        public Output<string?> AppleTeamId { get; private set; } = null!;
+
         [Output("authorizationBinding")]
         public Output<string> AuthorizationBinding { get; private set; } = null!;
 
@@ -183,6 +201,24 @@ namespace Pulumi.Okta.Deprecated
             set => _accountLinkGroupIncludes = value;
         }
 
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client
+        /// </summary>
+        [Input("appleKid")]
+        public Input<string>? AppleKid { get; set; }
+
+        /// <summary>
+        /// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        /// </summary>
+        [Input("applePrivateKey")]
+        public Input<string>? ApplePrivateKey { get; set; }
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account
+        /// </summary>
+        [Input("appleTeamId")]
+        public Input<string>? AppleTeamId { get; set; }
+
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
@@ -311,6 +347,24 @@ namespace Pulumi.Okta.Deprecated
             get => _accountLinkGroupIncludes ?? (_accountLinkGroupIncludes = new InputList<string>());
             set => _accountLinkGroupIncludes = value;
         }
+
+        /// <summary>
+        /// The Key ID that you obtained from Apple when you created the private key for the client
+        /// </summary>
+        [Input("appleKid")]
+        public Input<string>? AppleKid { get; set; }
+
+        /// <summary>
+        /// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        /// </summary>
+        [Input("applePrivateKey")]
+        public Input<string>? ApplePrivateKey { get; set; }
+
+        /// <summary>
+        /// The Team ID associated with your Apple developer account
+        /// </summary>
+        [Input("appleTeamId")]
+        public Input<string>? AppleTeamId { get; set; }
 
         [Input("authorizationBinding")]
         public Input<string>? AuthorizationBinding { get; set; }

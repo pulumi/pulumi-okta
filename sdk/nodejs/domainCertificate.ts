@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
+ * import * from "fs";
  *
  * const example = new okta.Domain("example", {});
  * const test = new okta.DomainCertificate("test", {
@@ -75,6 +76,7 @@ import * as utilities from "./utilities";
  * 0zBc7/CMOsMEBaNXuKL8Qj4enJXMtub4waQ/ywqHIdc50YaPI5Ax8dD/10h9M6Qc
  * nUFLNE8pXSnsqb0eOL74f3uQ
  * -----END PRIVATE KEY-----`,
+ *     certificateChain: fs.readFileSync("www.example.com/fullchain.pem"),
  * });
  * ```
  *
@@ -115,9 +117,9 @@ export class DomainCertificate extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<string>;
     /**
-     * Certificate chain.
+     * Certificate certificate chain.
      */
-    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string>;
     /**
      * Domain ID.
      */
@@ -154,6 +156,9 @@ export class DomainCertificate extends pulumi.CustomResource {
             if ((!args || args.certificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
+            if ((!args || args.certificateChain === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'certificateChain'");
+            }
             if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
@@ -185,7 +190,7 @@ export interface DomainCertificateState {
      */
     certificate?: pulumi.Input<string>;
     /**
-     * Certificate chain.
+     * Certificate certificate chain.
      */
     certificateChain?: pulumi.Input<string>;
     /**
@@ -211,9 +216,9 @@ export interface DomainCertificateArgs {
      */
     certificate: pulumi.Input<string>;
     /**
-     * Certificate chain.
+     * Certificate certificate chain.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain: pulumi.Input<string>;
     /**
      * Domain ID.
      */

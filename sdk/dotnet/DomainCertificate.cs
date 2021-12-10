@@ -15,6 +15,7 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.IO;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
@@ -87,6 +88,7 @@ namespace Pulumi.Okta
     /// 0zBc7/CMOsMEBaNXuKL8Qj4enJXMtub4waQ/ywqHIdc50YaPI5Ax8dD/10h9M6Qc
     /// nUFLNE8pXSnsqb0eOL74f3uQ
     /// -----END PRIVATE KEY-----",
+    ///             CertificateChain = File.ReadAllText("www.example.com/fullchain.pem"),
     ///         });
     ///     }
     /// 
@@ -107,10 +109,10 @@ namespace Pulumi.Okta
         public Output<string> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate chain.
+        /// Certificate certificate chain.
         /// </summary>
         [Output("certificateChain")]
-        public Output<string?> CertificateChain { get; private set; } = null!;
+        public Output<string> CertificateChain { get; private set; } = null!;
 
         /// <summary>
         /// Domain ID.
@@ -183,10 +185,10 @@ namespace Pulumi.Okta
         public Input<string> Certificate { get; set; } = null!;
 
         /// <summary>
-        /// Certificate chain.
+        /// Certificate certificate chain.
         /// </summary>
-        [Input("certificateChain")]
-        public Input<string>? CertificateChain { get; set; }
+        [Input("certificateChain", required: true)]
+        public Input<string> CertificateChain { get; set; } = null!;
 
         /// <summary>
         /// Domain ID.
@@ -220,7 +222,7 @@ namespace Pulumi.Okta
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// Certificate chain.
+        /// Certificate certificate chain.
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }

@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * This resource allows you to manage redirection URI for use in redirect-based flows.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testOAuth = new okta.app.OAuth("testOAuth", {
+ *     label: "testAcc_replace_with_uuid",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
+ *     responseTypes: ["code"],
+ *     redirectUris: ["myapp://callback"],
+ * });
+ * const testOAuthRedirectUri = new okta.app.OAuthRedirectUri("testOAuthRedirectUri", {
+ *     appId: testOAuth.id,
+ *     uri: "http://google.com",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A redirect URI can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app id>/<uri>
+ * ```
+ */
 export class OAuthRedirectUri extends pulumi.CustomResource {
     /**
      * Get an existing OAuthRedirectUri resource's state with the given name, ID, and optional extra
@@ -32,6 +62,9 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
         return obj['__pulumiType'] === OAuthRedirectUri.__pulumiType;
     }
 
+    /**
+     * OAuth application ID.
+     */
     public readonly appId!: pulumi.Output<string>;
     /**
      * Redirect URI to append to Okta OIDC application.
@@ -75,6 +108,9 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OAuthRedirectUri resources.
  */
 export interface OAuthRedirectUriState {
+    /**
+     * OAuth application ID.
+     */
     appId?: pulumi.Input<string>;
     /**
      * Redirect URI to append to Okta OIDC application.
@@ -86,6 +122,9 @@ export interface OAuthRedirectUriState {
  * The set of arguments for constructing a OAuthRedirectUri resource.
  */
 export interface OAuthRedirectUriArgs {
+    /**
+     * OAuth application ID.
+     */
     appId: pulumi.Input<string>;
     /**
      * Redirect URI to append to Okta OIDC application.
