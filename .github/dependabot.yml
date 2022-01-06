@@ -11,3 +11,6 @@ updates:
     labels:
       - dependencies
       - dependabot
+    allow:
+      - dependency-name: github.com/pulumi/pulumi-terraform-bridge/v3
+      - dependency-name: github.com/pulumi/pulumi/sdk/v3
