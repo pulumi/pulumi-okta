@@ -126,7 +126,7 @@ type Social struct {
 	TokenBinding pulumi.StringOutput `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringOutput `pulumi:"tokenUrl"`
-	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
@@ -235,7 +235,7 @@ type socialState struct {
 	TokenBinding *string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl *string `pulumi:"tokenUrl"`
-	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
 	Type *string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
@@ -310,7 +310,7 @@ type SocialState struct {
 	TokenBinding pulumi.StringPtrInput
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringPtrInput
-	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
 	Type pulumi.StringPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrInput
@@ -381,7 +381,7 @@ type socialArgs struct {
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction *string `pulumi:"suspendedAction"`
-	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
 	Type string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
@@ -449,7 +449,7 @@ type SocialArgs struct {
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 	SuspendedAction pulumi.StringPtrInput
-	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+	// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
 	Type pulumi.StringInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrInput

@@ -43,6 +43,8 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	CertificateSourceType pulumi.StringPtrOutput `pulumi:"certificateSourceType"`
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords DomainDnsRecordArrayOutput `pulumi:"dnsRecords"`
 	// Custom Domain name.
@@ -85,6 +87,8 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	CertificateSourceType *string `pulumi:"certificateSourceType"`
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords []DomainDnsRecord `pulumi:"dnsRecords"`
 	// Custom Domain name.
@@ -99,6 +103,8 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	CertificateSourceType pulumi.StringPtrInput
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords DomainDnsRecordArrayInput
 	// Custom Domain name.
@@ -117,6 +123,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	CertificateSourceType *string `pulumi:"certificateSourceType"`
 	// Custom Domain name.
 	Name *string `pulumi:"name"`
 	// Indicates whether the domain should be verified.
@@ -128,6 +136,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	CertificateSourceType pulumi.StringPtrInput
 	// Custom Domain name.
 	Name pulumi.StringPtrInput
 	// Indicates whether the domain should be verified.

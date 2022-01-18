@@ -15149,8 +15149,12 @@
             }
         },
         "okta:group/group:Group": {
-            "description": "Creates an Okta Group.\n\nThis resource allows you to create and configure an Okta Group.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.group.Group(\"example\", {\n    description: \"My Example Group\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.group.Group(\"example\", description=\"My Example Group\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Group.Group(\"example\", new Okta.Group.GroupArgs\n        {\n            Description = \"My Example Group\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.NewGroup(ctx, \"example\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"My Example Group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nIgnore users sync\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleSkip = new okta.group.Group(\"example_skip\", {\n    description: \"My Example Group\",\n    skipUsers: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_skip = okta.group.Group(\"exampleSkip\",\n    description=\"My Example Group\",\n    skip_users=True)\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleSkip = new Okta.Group.Group(\"exampleSkip\", new Okta.Group.GroupArgs\n        {\n            Description = \"My Example Group\",\n            SkipUsers = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.NewGroup(ctx, \"exampleSkip\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"My Example Group\"),\n\t\t\tSkipUsers:   pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Group can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:group/group:Group example \u003cgroup id\u003e\n```\n\n It's also possible to import group without users. In this case ID will look like this\n\n```sh\n $ pulumi import okta:group/group:Group example \u003cgroup id\u003e/skip_users\n```\n\n ",
+            "description": "Creates an Okta Group.\n\nThis resource allows you to create and configure an Okta Group.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.group.Group(\"example\", {\n    description: \"My Example Group\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.group.Group(\"example\", description=\"My Example Group\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Group.Group(\"example\", new Okta.Group.GroupArgs\n        {\n            Description = \"My Example Group\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.NewGroup(ctx, \"example\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"My Example Group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nIgnore users sync\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleSkip = new okta.group.Group(\"example_skip\", {\n    description: \"My Example Group\",\n    skipUsers: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_skip = okta.group.Group(\"exampleSkip\",\n    description=\"My Example Group\",\n    skip_users=True)\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleSkip = new Okta.Group.Group(\"exampleSkip\", new Okta.Group.GroupArgs\n        {\n            Description = \"My Example Group\",\n            SkipUsers = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.NewGroup(ctx, \"exampleSkip\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"My Example Group\"),\n\t\t\tSkipUsers:   pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nCustom profile attributes\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.group.Group(\"example\", {\n    description: \"My Example Group\",\n    customProfileAttributes: JSON.stringify({\n        example1: \"testing1234\",\n        example2: true,\n        example3: 54321,\n    }),\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\nexample = okta.group.Group(\"example\",\n    description=\"My Example Group\",\n    custom_profile_attributes=json.dumps({\n        \"example1\": \"testing1234\",\n        \"example2\": True,\n        \"example3\": 54321,\n    }))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Group.Group(\"example\", new Okta.Group.GroupArgs\n        {\n            Description = \"My Example Group\",\n            CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n            {\n                { \"example1\", \"testing1234\" },\n                { \"example2\", true },\n                { \"example3\", 54321 },\n            }),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"example1\": \"testing1234\",\n\t\t\t\"example2\": true,\n\t\t\t\"example3\": 54321,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err := group.NewGroup(ctx, \"example\", \u0026group.GroupArgs{\n\t\t\tDescription:             pulumi.String(\"My Example Group\"),\n\t\t\tCustomProfileAttributes: pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Group can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:group/group:Group example \u003cgroup id\u003e\n```\n\n It's also possible to import group without users. In this case ID will look like this\n\n```sh\n $ pulumi import okta:group/group:Group example \u003cgroup id\u003e/skip_users\n```\n\n ",
             "properties": {
+                "customProfileAttributes": {
+                    "type": "string",
+                    "description": "raw JSON containing all custom profile attributes.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "The description of the Okta Group.\n"
@@ -15176,6 +15180,10 @@
                 "name"
             ],
             "inputProperties": {
+                "customProfileAttributes": {
+                    "type": "string",
+                    "description": "raw JSON containing all custom profile attributes.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "The description of the Okta Group.\n"
@@ -15200,6 +15208,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Group resources.\n",
                 "properties": {
+                    "customProfileAttributes": {
+                        "type": "string",
+                        "description": "raw JSON containing all custom profile attributes.\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "The description of the Okta Group.\n"
@@ -16724,7 +16736,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, or `\"GOOGLE\"`.\n"
+                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
                 },
                 "usernameTemplate": {
                     "type": "string",
@@ -16871,7 +16883,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, or `\"GOOGLE\"`.\n"
+                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
                 },
                 "usernameTemplate": {
                     "type": "string",
@@ -17031,7 +17043,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, or `\"GOOGLE\"`.\n"
+                        "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
                     },
                     "usernameTemplate": {
                         "type": "string",
@@ -19298,6 +19310,10 @@
         "okta:index/domain:Domain": {
             "description": "Manages custom domain for your organization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.Domain(\"example\", {});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Domain(\"example\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Domain(\"example\", new Okta.DomainArgs\n        {\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewDomain(ctx, \"example\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Admin Role Targets can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/domain:Domain example \u003cdomain_id\u003e\n```\n\n ",
             "properties": {
+                "certificateSourceType": {
+                    "type": "string",
+                    "description": "Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`\n"
+                },
                 "dnsRecords": {
                     "type": "array",
                     "items": {
@@ -19315,7 +19331,7 @@
                 },
                 "verify": {
                     "type": "boolean",
-                    "description": "Indicates whether the domain should be verified. \n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
+                    "description": "Indicates whether the domain should be verified.\n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
                     "deprecationMessage": "The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality."
                 }
             },
@@ -19325,19 +19341,27 @@
                 "validationStatus"
             ],
             "inputProperties": {
+                "certificateSourceType": {
+                    "type": "string",
+                    "description": "Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Custom Domain name.\n"
                 },
                 "verify": {
                     "type": "boolean",
-                    "description": "Indicates whether the domain should be verified. \n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
+                    "description": "Indicates whether the domain should be verified.\n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
                     "deprecationMessage": "The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality."
                 }
             },
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Domain resources.\n",
                 "properties": {
+                    "certificateSourceType": {
+                        "type": "string",
+                        "description": "Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`\n"
+                    },
                     "dnsRecords": {
                         "type": "array",
                         "items": {
@@ -19355,7 +19379,7 @@
                     },
                     "verify": {
                         "type": "boolean",
-                        "description": "Indicates whether the domain should be verified. \n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
+                        "description": "Indicates whether the domain should be verified.\n- `DEPRECATED`: Please use `okta.DomainVerification` resource instead.\n",
                         "deprecationMessage": "The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality."
                     }
                 },
@@ -21664,7 +21688,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
                 },
                 "status": {
                     "type": "string",
@@ -21682,7 +21706,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
                 },
                 "status": {
                     "type": "string",
@@ -21702,7 +21726,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                        "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
                     },
                     "status": {
                         "type": "string",

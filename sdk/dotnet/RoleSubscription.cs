@@ -54,7 +54,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`.
         /// </summary>
         [Output("roleType")]
@@ -122,7 +122,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`.
         /// </summary>
         [Input("roleType", required: true)]
@@ -151,7 +151,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`.
         /// </summary>
         [Input("roleType")]

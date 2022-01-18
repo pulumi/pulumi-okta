@@ -31,6 +31,21 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Custom profile attributes
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.group.Group("example", {
+ *     description: "My Example Group",
+ *     customProfileAttributes: JSON.stringify({
+ *         example1: "testing1234",
+ *         example2: true,
+ *         example3: 54321,
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * An Okta Group can be imported via the Okta ID.
@@ -74,6 +89,10 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
+     * raw JSON containing all custom profile attributes.
+     */
+    public readonly customProfileAttributes!: pulumi.Output<string | undefined>;
+    /**
      * The description of the Okta Group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -106,12 +125,14 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
+            inputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["skipUsers"] = state ? state.skipUsers : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
+            inputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["skipUsers"] = args ? args.skipUsers : undefined;
@@ -128,6 +149,10 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
+    /**
+     * raw JSON containing all custom profile attributes.
+     */
+    customProfileAttributes?: pulumi.Input<string>;
     /**
      * The description of the Okta Group.
      */
@@ -153,6 +178,10 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
+    /**
+     * raw JSON containing all custom profile attributes.
+     */
+    customProfileAttributes?: pulumi.Input<string>;
     /**
      * The description of the Okta Group.
      */

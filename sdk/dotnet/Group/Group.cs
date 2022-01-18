@@ -52,6 +52,32 @@ namespace Pulumi.Okta.Group
     /// }
     /// ```
     /// 
+    /// Custom profile attributes
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Group.Group("example", new Okta.Group.GroupArgs
+    ///         {
+    ///             Description = "My Example Group",
+    ///             CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "example1", "testing1234" },
+    ///                 { "example2", true },
+    ///                 { "example3", 54321 },
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An Okta Group can be imported via the Okta ID.
@@ -69,6 +95,12 @@ namespace Pulumi.Okta.Group
     [OktaResourceType("okta:group/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
+        /// <summary>
+        /// raw JSON containing all custom profile attributes.
+        /// </summary>
+        [Output("customProfileAttributes")]
+        public Output<string?> CustomProfileAttributes { get; private set; } = null!;
+
         /// <summary>
         /// The description of the Okta Group.
         /// </summary>
@@ -141,6 +173,12 @@ namespace Pulumi.Okta.Group
     public sealed class GroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// raw JSON containing all custom profile attributes.
+        /// </summary>
+        [Input("customProfileAttributes")]
+        public Input<string>? CustomProfileAttributes { get; set; }
+
+        /// <summary>
         /// The description of the Okta Group.
         /// </summary>
         [Input("description")]
@@ -179,6 +217,12 @@ namespace Pulumi.Okta.Group
 
     public sealed class GroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// raw JSON containing all custom profile attributes.
+        /// </summary>
+        [Input("customProfileAttributes")]
+        public Input<string>? CustomProfileAttributes { get; set; }
+
         /// <summary>
         /// The description of the Okta Group.
         /// </summary>

@@ -250,7 +250,7 @@ namespace Pulumi.Okta.Idp
         public Output<string> TokenUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -502,7 +502,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
-        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -739,7 +739,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? TokenUrl { get; set; }
 
         /// <summary>
-        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+        /// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

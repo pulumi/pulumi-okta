@@ -22,7 +22,7 @@ class RoleSubscriptionArgs:
                `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
                `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
         :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
                `"GROUP_MEMBERSHIP_ADMIN"`.
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
@@ -50,7 +50,7 @@ class RoleSubscriptionArgs:
     def role_type(self) -> pulumi.Input[str]:
         """
         Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         `"GROUP_MEMBERSHIP_ADMIN"`.
         """
         return pulumi.get(self, "role_type")
@@ -84,7 +84,7 @@ class _RoleSubscriptionState:
                `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
                `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
         :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
                `"GROUP_MEMBERSHIP_ADMIN"`.
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
@@ -114,7 +114,7 @@ class _RoleSubscriptionState:
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         `"GROUP_MEMBERSHIP_ADMIN"`.
         """
         return pulumi.get(self, "role_type")
@@ -174,7 +174,7 @@ class RoleSubscription(pulumi.CustomResource):
                `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
                `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
         :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
                `"GROUP_MEMBERSHIP_ADMIN"`.
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
@@ -268,7 +268,7 @@ class RoleSubscription(pulumi.CustomResource):
                `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
                `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
         :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
                `"GROUP_MEMBERSHIP_ADMIN"`.
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
@@ -296,7 +296,7 @@ class RoleSubscription(pulumi.CustomResource):
     def role_type(self) -> pulumi.Output[str]:
         """
         Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
         `"GROUP_MEMBERSHIP_ADMIN"`.
         """
         return pulumi.get(self, "role_type")

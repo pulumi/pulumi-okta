@@ -15,14 +15,18 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verify: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         :param pulumi.Input[str] name: Custom Domain name.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
                - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
+        if certificate_source_type is not None:
+            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if verify is not None:
@@ -30,6 +34,18 @@ class DomainArgs:
             pulumi.log.warn("""verify is deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""")
         if verify is not None:
             pulumi.set(__self__, "verify", verify)
+
+    @property
+    @pulumi.getter(name="certificateSourceType")
+    def certificate_source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        """
+        return pulumi.get(self, "certificate_source_type")
+
+    @certificate_source_type.setter
+    def certificate_source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_source_type", value)
 
     @property
     @pulumi.getter
@@ -47,7 +63,7 @@ class DomainArgs:
     @pulumi.getter
     def verify(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the domain should be verified. 
+        Indicates whether the domain should be verified.
         - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")
@@ -60,18 +76,22 @@ class DomainArgs:
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
+                 certificate_source_type: Optional[pulumi.Input[str]] = None,
                  dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  validation_status: Optional[pulumi.Input[str]] = None,
                  verify: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         :param pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]] dns_records: TXT and CNAME records to be registered for the Domain.
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
                - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
+        if certificate_source_type is not None:
+            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if dns_records is not None:
             pulumi.set(__self__, "dns_records", dns_records)
         if name is not None:
@@ -83,6 +103,18 @@ class _DomainState:
             pulumi.log.warn("""verify is deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""")
         if verify is not None:
             pulumi.set(__self__, "verify", verify)
+
+    @property
+    @pulumi.getter(name="certificateSourceType")
+    def certificate_source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        """
+        return pulumi.get(self, "certificate_source_type")
+
+    @certificate_source_type.setter
+    def certificate_source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_source_type", value)
 
     @property
     @pulumi.getter(name="dnsRecords")
@@ -124,7 +156,7 @@ class _DomainState:
     @pulumi.getter
     def verify(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the domain should be verified. 
+        Indicates whether the domain should be verified.
         - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")
@@ -139,6 +171,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verify: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -164,8 +197,9 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         :param pulumi.Input[str] name: Custom Domain name.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
                - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         ...
@@ -209,6 +243,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verify: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -223,6 +258,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["certificate_source_type"] = certificate_source_type
             __props__.__dict__["name"] = name
             if verify is not None and not opts.urn:
                 warnings.warn("""The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.""", DeprecationWarning)
@@ -240,6 +276,7 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_source_type: Optional[pulumi.Input[str]] = None,
             dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             validation_status: Optional[pulumi.Input[str]] = None,
@@ -251,21 +288,31 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the Domain.
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
-        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified. 
+        :param pulumi.Input[bool] verify: Indicates whether the domain should be verified.
                - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _DomainState.__new__(_DomainState)
 
+        __props__.__dict__["certificate_source_type"] = certificate_source_type
         __props__.__dict__["dns_records"] = dns_records
         __props__.__dict__["name"] = name
         __props__.__dict__["validation_status"] = validation_status
         __props__.__dict__["verify"] = verify
         return Domain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="certificateSourceType")
+    def certificate_source_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        """
+        return pulumi.get(self, "certificate_source_type")
 
     @property
     @pulumi.getter(name="dnsRecords")
@@ -295,7 +342,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def verify(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the domain should be verified. 
+        Indicates whether the domain should be verified.
         - `DEPRECATED`: Please use `DomainVerification` resource instead.
         """
         return pulumi.get(self, "verify")

@@ -42,6 +42,12 @@ namespace Pulumi.Okta
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// </summary>
+        [Output("certificateSourceType")]
+        public Output<string?> CertificateSourceType { get; private set; } = null!;
+
+        /// <summary>
         /// TXT and CNAME records to be registered for the Domain.
         /// </summary>
         [Output("dnsRecords")]
@@ -60,7 +66,7 @@ namespace Pulumi.Okta
         public Output<string> ValidationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the domain should be verified. 
+        /// Indicates whether the domain should be verified.
         /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Output("verify")]
@@ -113,13 +119,19 @@ namespace Pulumi.Okta
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// </summary>
+        [Input("certificateSourceType")]
+        public Input<string>? CertificateSourceType { get; set; }
+
+        /// <summary>
         /// Custom Domain name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates whether the domain should be verified. 
+        /// Indicates whether the domain should be verified.
         /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Input("verify")]
@@ -132,6 +144,12 @@ namespace Pulumi.Okta
 
     public sealed class DomainState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// </summary>
+        [Input("certificateSourceType")]
+        public Input<string>? CertificateSourceType { get; set; }
+
         [Input("dnsRecords")]
         private InputList<Inputs.DomainDnsRecordGetArgs>? _dnsRecords;
 
@@ -157,7 +175,7 @@ namespace Pulumi.Okta
         public Input<string>? ValidationStatus { get; set; }
 
         /// <summary>
-        /// Indicates whether the domain should be verified. 
+        /// Indicates whether the domain should be verified.
         /// - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
         /// </summary>
         [Input("verify")]
