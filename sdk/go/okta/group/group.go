@@ -60,6 +60,40 @@ import (
 // }
 // ```
 //
+// Custom profile attributes
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"example1": "testing1234",
+// 			"example2": true,
+// 			"example3": 54321,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err := group.NewGroup(ctx, "example", &group.GroupArgs{
+// 			Description:             pulumi.String("My Example Group"),
+// 			CustomProfileAttributes: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An Okta Group can be imported via the Okta ID.
@@ -76,6 +110,8 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
+	// raw JSON containing all custom profile attributes.
+	CustomProfileAttributes pulumi.StringPtrOutput `pulumi:"customProfileAttributes"`
 	// The description of the Okta Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Okta Group.
@@ -118,6 +154,8 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
+	// raw JSON containing all custom profile attributes.
+	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
 	// The description of the Okta Group.
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
@@ -132,6 +170,8 @@ type groupState struct {
 }
 
 type GroupState struct {
+	// raw JSON containing all custom profile attributes.
+	CustomProfileAttributes pulumi.StringPtrInput
 	// The description of the Okta Group.
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
@@ -150,6 +190,8 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// raw JSON containing all custom profile attributes.
+	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
 	// The description of the Okta Group.
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
@@ -165,6 +207,8 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// raw JSON containing all custom profile attributes.
+	CustomProfileAttributes pulumi.StringPtrInput
 	// The description of the Okta Group.
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.

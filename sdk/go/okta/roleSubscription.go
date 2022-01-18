@@ -53,7 +53,7 @@ type RoleSubscription struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
 	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
@@ -100,7 +100,7 @@ type roleSubscriptionState struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType *string `pulumi:"notificationType"`
 	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType *string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
@@ -113,7 +113,7 @@ type RoleSubscriptionState struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringPtrInput
 	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringPtrInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
@@ -130,7 +130,7 @@ type roleSubscriptionArgs struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType string `pulumi:"notificationType"`
 	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
@@ -144,7 +144,7 @@ type RoleSubscriptionArgs struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringInput
 	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`.
 	RoleType pulumi.StringInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.

@@ -201,7 +201,7 @@ export class Social extends pulumi.CustomResource {
      */
     public /*out*/ readonly tokenUrl!: pulumi.Output<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -447,7 +447,7 @@ export interface SocialState {
      */
     tokenUrl?: pulumi.Input<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -579,7 +579,7 @@ export interface SocialArgs {
      */
     suspendedAction?: pulumi.Input<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, or `"GOOGLE"`.
+     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
      */
     type: pulumi.Input<string>;
     /**

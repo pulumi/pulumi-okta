@@ -64,7 +64,7 @@ export class RoleSubscription extends pulumi.CustomResource {
     public readonly notificationType!: pulumi.Output<string>;
     /**
      * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     public readonly roleType!: pulumi.Output<string>;
@@ -120,7 +120,7 @@ export interface RoleSubscriptionState {
     notificationType?: pulumi.Input<string>;
     /**
      * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     roleType?: pulumi.Input<string>;
@@ -142,7 +142,7 @@ export interface RoleSubscriptionArgs {
     notificationType: pulumi.Input<string>;
     /**
      * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`.
      */
     roleType: pulumi.Input<string>;
