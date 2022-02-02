@@ -89,13 +89,13 @@ export class UserAdminRoles extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserAdminRolesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserAdminRolesArgs | UserAdminRolesState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAdminRolesState | undefined;
-            inputs["adminRoles"] = state ? state.adminRoles : undefined;
-            inputs["disableNotifications"] = state ? state.disableNotifications : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["adminRoles"] = state ? state.adminRoles : undefined;
+            resourceInputs["disableNotifications"] = state ? state.disableNotifications : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserAdminRolesArgs | undefined;
             if ((!args || args.adminRoles === undefined) && !opts.urn) {
@@ -104,14 +104,12 @@ export class UserAdminRoles extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["adminRoles"] = args ? args.adminRoles : undefined;
-            inputs["disableNotifications"] = args ? args.disableNotifications : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["adminRoles"] = args ? args.adminRoles : undefined;
+            resourceInputs["disableNotifications"] = args ? args.disableNotifications : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserAdminRoles.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserAdminRoles.__pulumiType, name, resourceInputs, opts);
     }
 }
 

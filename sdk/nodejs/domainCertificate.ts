@@ -142,15 +142,15 @@ export class DomainCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainCertificateArgs | DomainCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainCertificateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DomainCertificateArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -168,16 +168,14 @@ export class DomainCertificate extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

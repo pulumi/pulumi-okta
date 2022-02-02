@@ -21,9 +21,9 @@ import * as utilities from "./utilities";
  *     login: "john.smith@example.com",
  *     email: "john.smith@example.com",
  * });
- * const exampleUserSecurityQuestions = exampleUser.id.apply(id => okta.getUserSecurityQuestions({
- *     userId: id,
- * }));
+ * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
+ *     userId: exampleUser.id,
+ * });
  * const exampleFactor = new okta.factor.Factor("exampleFactor", {
  *     providerId: "okta_question",
  *     active: true,
@@ -103,15 +103,15 @@ export class UserFactorQuestion extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserFactorQuestionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserFactorQuestionArgs | UserFactorQuestionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserFactorQuestionState | undefined;
-            inputs["answer"] = state ? state.answer : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["text"] = state ? state.text : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["answer"] = state ? state.answer : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["text"] = state ? state.text : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserFactorQuestionArgs | undefined;
             if ((!args || args.answer === undefined) && !opts.urn) {
@@ -123,16 +123,14 @@ export class UserFactorQuestion extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["answer"] = args ? args.answer : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["status"] = undefined /*out*/;
-            inputs["text"] = undefined /*out*/;
+            resourceInputs["answer"] = args ? args.answer : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["text"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserFactorQuestion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserFactorQuestion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

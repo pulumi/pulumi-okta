@@ -270,7 +270,7 @@ type RuleMfaInput interface {
 }
 
 func (*RuleMfa) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMfa)(nil))
+	return reflect.TypeOf((**RuleMfa)(nil)).Elem()
 }
 
 func (i *RuleMfa) ToRuleMfaOutput() RuleMfaOutput {
@@ -279,35 +279,6 @@ func (i *RuleMfa) ToRuleMfaOutput() RuleMfaOutput {
 
 func (i *RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaOutput)
-}
-
-func (i *RuleMfa) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
-	return i.ToRuleMfaPtrOutputWithContext(context.Background())
-}
-
-func (i *RuleMfa) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaPtrOutput)
-}
-
-type RuleMfaPtrInput interface {
-	pulumi.Input
-
-	ToRuleMfaPtrOutput() RuleMfaPtrOutput
-	ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput
-}
-
-type ruleMfaPtrType RuleMfaArgs
-
-func (*ruleMfaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleMfa)(nil))
-}
-
-func (i *ruleMfaPtrType) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
-	return i.ToRuleMfaPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleMfaPtrType) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaPtrOutput)
 }
 
 // RuleMfaArrayInput is an input type that accepts RuleMfaArray and RuleMfaArrayOutput values.
@@ -363,7 +334,7 @@ func (i RuleMfaMap) ToRuleMfaMapOutputWithContext(ctx context.Context) RuleMfaMa
 type RuleMfaOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMfa)(nil))
+	return reflect.TypeOf((**RuleMfa)(nil)).Elem()
 }
 
 func (o RuleMfaOutput) ToRuleMfaOutput() RuleMfaOutput {
@@ -374,44 +345,10 @@ func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOu
 	return o
 }
 
-func (o RuleMfaOutput) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
-	return o.ToRuleMfaPtrOutputWithContext(context.Background())
-}
-
-func (o RuleMfaOutput) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleMfa) *RuleMfa {
-		return &v
-	}).(RuleMfaPtrOutput)
-}
-
-type RuleMfaPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleMfaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleMfa)(nil))
-}
-
-func (o RuleMfaPtrOutput) ToRuleMfaPtrOutput() RuleMfaPtrOutput {
-	return o
-}
-
-func (o RuleMfaPtrOutput) ToRuleMfaPtrOutputWithContext(ctx context.Context) RuleMfaPtrOutput {
-	return o
-}
-
-func (o RuleMfaPtrOutput) Elem() RuleMfaOutput {
-	return o.ApplyT(func(v *RuleMfa) RuleMfa {
-		if v != nil {
-			return *v
-		}
-		var ret RuleMfa
-		return ret
-	}).(RuleMfaOutput)
-}
-
 type RuleMfaArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleMfa)(nil))
+	return reflect.TypeOf((*[]*RuleMfa)(nil)).Elem()
 }
 
 func (o RuleMfaArrayOutput) ToRuleMfaArrayOutput() RuleMfaArrayOutput {
@@ -423,15 +360,15 @@ func (o RuleMfaArrayOutput) ToRuleMfaArrayOutputWithContext(ctx context.Context)
 }
 
 func (o RuleMfaArrayOutput) Index(i pulumi.IntInput) RuleMfaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleMfa {
-		return vs[0].([]RuleMfa)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleMfa {
+		return vs[0].([]*RuleMfa)[vs[1].(int)]
 	}).(RuleMfaOutput)
 }
 
 type RuleMfaMapOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleMfa)(nil))
+	return reflect.TypeOf((*map[string]*RuleMfa)(nil)).Elem()
 }
 
 func (o RuleMfaMapOutput) ToRuleMfaMapOutput() RuleMfaMapOutput {
@@ -443,18 +380,16 @@ func (o RuleMfaMapOutput) ToRuleMfaMapOutputWithContext(ctx context.Context) Rul
 }
 
 func (o RuleMfaMapOutput) MapIndex(k pulumi.StringInput) RuleMfaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleMfa {
-		return vs[0].(map[string]RuleMfa)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RuleMfa {
+		return vs[0].(map[string]*RuleMfa)[vs[1].(string)]
 	}).(RuleMfaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaInput)(nil)).Elem(), &RuleMfa{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaPtrInput)(nil)).Elem(), &RuleMfa{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaArrayInput)(nil)).Elem(), RuleMfaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaMapInput)(nil)).Elem(), RuleMfaMap{})
 	pulumi.RegisterOutputType(RuleMfaOutput{})
-	pulumi.RegisterOutputType(RuleMfaPtrOutput{})
 	pulumi.RegisterOutputType(RuleMfaArrayOutput{})
 	pulumi.RegisterOutputType(RuleMfaMapOutput{})
 }

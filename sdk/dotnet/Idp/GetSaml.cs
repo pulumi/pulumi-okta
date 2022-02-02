@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Idp
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a SAML IdP from Okta.
@@ -68,7 +67,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
     }
 
 

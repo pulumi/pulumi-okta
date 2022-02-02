@@ -84,14 +84,14 @@ export class Captcha extends pulumi.CustomResource {
      */
     constructor(name: string, args: CaptchaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CaptchaArgs | CaptchaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CaptchaState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["secretKey"] = state ? state.secretKey : undefined;
-            inputs["siteKey"] = state ? state.siteKey : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["secretKey"] = state ? state.secretKey : undefined;
+            resourceInputs["siteKey"] = state ? state.siteKey : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CaptchaArgs | undefined;
             if ((!args || args.secretKey === undefined) && !opts.urn) {
@@ -103,15 +103,13 @@ export class Captcha extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["secretKey"] = args ? args.secretKey : undefined;
-            inputs["siteKey"] = args ? args.siteKey : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["siteKey"] = args ? args.siteKey : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Captcha.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Captcha.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Deprecated
 {
     public static class GetDefaultPolicies
     {
         public static Task<GetDefaultPoliciesResult> InvokeAsync(GetDefaultPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesArgs(), options.WithDefaults());
 
         public static Output<GetDefaultPoliciesResult> Invoke(GetDefaultPoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultPoliciesResult>("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args ?? new GetDefaultPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

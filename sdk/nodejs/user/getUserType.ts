@@ -23,9 +23,7 @@ export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUserType:getUserType", {
         "name": args.name,
     }, opts);

@@ -31,10 +31,10 @@ namespace Pulumi.Okta
     ///             Login = "john.smith@example.com",
     ///             Email = "john.smith@example.com",
     ///         });
-    ///         var exampleUserSecurityQuestions = exampleUser.Id.Apply(id =&gt; Okta.GetUserSecurityQuestions.InvokeAsync(new Okta.GetUserSecurityQuestionsArgs
+    ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
     ///         {
-    ///             UserId = id,
-    ///         }));
+    ///             UserId = exampleUser.Id,
+    ///         });
     ///         var exampleFactor = new Okta.Factor.Factor("exampleFactor", new Okta.Factor.FactorArgs
     ///         {
     ///             ProviderId = "okta_question",

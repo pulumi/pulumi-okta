@@ -77,17 +77,17 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["hasSharedUsername"] = state ? state.hasSharedUsername : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["profile"] = state ? state.profile : undefined;
-            inputs["retainAssignment"] = state ? state.retainAssignment : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["hasSharedUsername"] = state ? state.hasSharedUsername : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["profile"] = state ? state.profile : undefined;
+            resourceInputs["retainAssignment"] = state ? state.retainAssignment : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -96,18 +96,16 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["profile"] = args ? args.profile : undefined;
-            inputs["retainAssignment"] = args ? args.retainAssignment : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["hasSharedUsername"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["profile"] = args ? args.profile : undefined;
+            resourceInputs["retainAssignment"] = args ? args.retainAssignment : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["hasSharedUsername"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

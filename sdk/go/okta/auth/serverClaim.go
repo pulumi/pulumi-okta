@@ -211,7 +211,7 @@ type ServerClaimInput interface {
 }
 
 func (*ServerClaim) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerClaim)(nil))
+	return reflect.TypeOf((**ServerClaim)(nil)).Elem()
 }
 
 func (i *ServerClaim) ToServerClaimOutput() ServerClaimOutput {
@@ -220,35 +220,6 @@ func (i *ServerClaim) ToServerClaimOutput() ServerClaimOutput {
 
 func (i *ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimOutput)
-}
-
-func (i *ServerClaim) ToServerClaimPtrOutput() ServerClaimPtrOutput {
-	return i.ToServerClaimPtrOutputWithContext(context.Background())
-}
-
-func (i *ServerClaim) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimPtrOutput)
-}
-
-type ServerClaimPtrInput interface {
-	pulumi.Input
-
-	ToServerClaimPtrOutput() ServerClaimPtrOutput
-	ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput
-}
-
-type serverClaimPtrType ServerClaimArgs
-
-func (*serverClaimPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerClaim)(nil))
-}
-
-func (i *serverClaimPtrType) ToServerClaimPtrOutput() ServerClaimPtrOutput {
-	return i.ToServerClaimPtrOutputWithContext(context.Background())
-}
-
-func (i *serverClaimPtrType) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimPtrOutput)
 }
 
 // ServerClaimArrayInput is an input type that accepts ServerClaimArray and ServerClaimArrayOutput values.
@@ -304,7 +275,7 @@ func (i ServerClaimMap) ToServerClaimMapOutputWithContext(ctx context.Context) S
 type ServerClaimOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerClaim)(nil))
+	return reflect.TypeOf((**ServerClaim)(nil)).Elem()
 }
 
 func (o ServerClaimOutput) ToServerClaimOutput() ServerClaimOutput {
@@ -315,44 +286,10 @@ func (o ServerClaimOutput) ToServerClaimOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o ServerClaimOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
-	return o.ToServerClaimPtrOutputWithContext(context.Background())
-}
-
-func (o ServerClaimOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerClaim) *ServerClaim {
-		return &v
-	}).(ServerClaimPtrOutput)
-}
-
-type ServerClaimPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerClaimPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerClaim)(nil))
-}
-
-func (o ServerClaimPtrOutput) ToServerClaimPtrOutput() ServerClaimPtrOutput {
-	return o
-}
-
-func (o ServerClaimPtrOutput) ToServerClaimPtrOutputWithContext(ctx context.Context) ServerClaimPtrOutput {
-	return o
-}
-
-func (o ServerClaimPtrOutput) Elem() ServerClaimOutput {
-	return o.ApplyT(func(v *ServerClaim) ServerClaim {
-		if v != nil {
-			return *v
-		}
-		var ret ServerClaim
-		return ret
-	}).(ServerClaimOutput)
-}
-
 type ServerClaimArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerClaim)(nil))
+	return reflect.TypeOf((*[]*ServerClaim)(nil)).Elem()
 }
 
 func (o ServerClaimArrayOutput) ToServerClaimArrayOutput() ServerClaimArrayOutput {
@@ -364,15 +301,15 @@ func (o ServerClaimArrayOutput) ToServerClaimArrayOutputWithContext(ctx context.
 }
 
 func (o ServerClaimArrayOutput) Index(i pulumi.IntInput) ServerClaimOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerClaim {
-		return vs[0].([]ServerClaim)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerClaim {
+		return vs[0].([]*ServerClaim)[vs[1].(int)]
 	}).(ServerClaimOutput)
 }
 
 type ServerClaimMapOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServerClaim)(nil))
+	return reflect.TypeOf((*map[string]*ServerClaim)(nil)).Elem()
 }
 
 func (o ServerClaimMapOutput) ToServerClaimMapOutput() ServerClaimMapOutput {
@@ -384,18 +321,16 @@ func (o ServerClaimMapOutput) ToServerClaimMapOutputWithContext(ctx context.Cont
 }
 
 func (o ServerClaimMapOutput) MapIndex(k pulumi.StringInput) ServerClaimOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerClaim {
-		return vs[0].(map[string]ServerClaim)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServerClaim {
+		return vs[0].(map[string]*ServerClaim)[vs[1].(string)]
 	}).(ServerClaimOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerClaimInput)(nil)).Elem(), &ServerClaim{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerClaimPtrInput)(nil)).Elem(), &ServerClaim{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerClaimArrayInput)(nil)).Elem(), ServerClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerClaimMapInput)(nil)).Elem(), ServerClaimMap{})
 	pulumi.RegisterOutputType(ServerClaimOutput{})
-	pulumi.RegisterOutputType(ServerClaimPtrOutput{})
 	pulumi.RegisterOutputType(ServerClaimArrayOutput{})
 	pulumi.RegisterOutputType(ServerClaimMapOutput{})
 }

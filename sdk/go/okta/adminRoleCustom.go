@@ -172,7 +172,7 @@ type AdminRoleCustomInput interface {
 }
 
 func (*AdminRoleCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleCustom)(nil))
+	return reflect.TypeOf((**AdminRoleCustom)(nil)).Elem()
 }
 
 func (i *AdminRoleCustom) ToAdminRoleCustomOutput() AdminRoleCustomOutput {
@@ -181,35 +181,6 @@ func (i *AdminRoleCustom) ToAdminRoleCustomOutput() AdminRoleCustomOutput {
 
 func (i *AdminRoleCustom) ToAdminRoleCustomOutputWithContext(ctx context.Context) AdminRoleCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomOutput)
-}
-
-func (i *AdminRoleCustom) ToAdminRoleCustomPtrOutput() AdminRoleCustomPtrOutput {
-	return i.ToAdminRoleCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *AdminRoleCustom) ToAdminRoleCustomPtrOutputWithContext(ctx context.Context) AdminRoleCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomPtrOutput)
-}
-
-type AdminRoleCustomPtrInput interface {
-	pulumi.Input
-
-	ToAdminRoleCustomPtrOutput() AdminRoleCustomPtrOutput
-	ToAdminRoleCustomPtrOutputWithContext(ctx context.Context) AdminRoleCustomPtrOutput
-}
-
-type adminRoleCustomPtrType AdminRoleCustomArgs
-
-func (*adminRoleCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleCustom)(nil))
-}
-
-func (i *adminRoleCustomPtrType) ToAdminRoleCustomPtrOutput() AdminRoleCustomPtrOutput {
-	return i.ToAdminRoleCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *adminRoleCustomPtrType) ToAdminRoleCustomPtrOutputWithContext(ctx context.Context) AdminRoleCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomPtrOutput)
 }
 
 // AdminRoleCustomArrayInput is an input type that accepts AdminRoleCustomArray and AdminRoleCustomArrayOutput values.
@@ -265,7 +236,7 @@ func (i AdminRoleCustomMap) ToAdminRoleCustomMapOutputWithContext(ctx context.Co
 type AdminRoleCustomOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleCustom)(nil))
+	return reflect.TypeOf((**AdminRoleCustom)(nil)).Elem()
 }
 
 func (o AdminRoleCustomOutput) ToAdminRoleCustomOutput() AdminRoleCustomOutput {
@@ -276,44 +247,10 @@ func (o AdminRoleCustomOutput) ToAdminRoleCustomOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AdminRoleCustomOutput) ToAdminRoleCustomPtrOutput() AdminRoleCustomPtrOutput {
-	return o.ToAdminRoleCustomPtrOutputWithContext(context.Background())
-}
-
-func (o AdminRoleCustomOutput) ToAdminRoleCustomPtrOutputWithContext(ctx context.Context) AdminRoleCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminRoleCustom) *AdminRoleCustom {
-		return &v
-	}).(AdminRoleCustomPtrOutput)
-}
-
-type AdminRoleCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (AdminRoleCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleCustom)(nil))
-}
-
-func (o AdminRoleCustomPtrOutput) ToAdminRoleCustomPtrOutput() AdminRoleCustomPtrOutput {
-	return o
-}
-
-func (o AdminRoleCustomPtrOutput) ToAdminRoleCustomPtrOutputWithContext(ctx context.Context) AdminRoleCustomPtrOutput {
-	return o
-}
-
-func (o AdminRoleCustomPtrOutput) Elem() AdminRoleCustomOutput {
-	return o.ApplyT(func(v *AdminRoleCustom) AdminRoleCustom {
-		if v != nil {
-			return *v
-		}
-		var ret AdminRoleCustom
-		return ret
-	}).(AdminRoleCustomOutput)
-}
-
 type AdminRoleCustomArrayOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdminRoleCustom)(nil))
+	return reflect.TypeOf((*[]*AdminRoleCustom)(nil)).Elem()
 }
 
 func (o AdminRoleCustomArrayOutput) ToAdminRoleCustomArrayOutput() AdminRoleCustomArrayOutput {
@@ -325,15 +262,15 @@ func (o AdminRoleCustomArrayOutput) ToAdminRoleCustomArrayOutputWithContext(ctx 
 }
 
 func (o AdminRoleCustomArrayOutput) Index(i pulumi.IntInput) AdminRoleCustomOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdminRoleCustom {
-		return vs[0].([]AdminRoleCustom)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminRoleCustom {
+		return vs[0].([]*AdminRoleCustom)[vs[1].(int)]
 	}).(AdminRoleCustomOutput)
 }
 
 type AdminRoleCustomMapOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AdminRoleCustom)(nil))
+	return reflect.TypeOf((*map[string]*AdminRoleCustom)(nil)).Elem()
 }
 
 func (o AdminRoleCustomMapOutput) ToAdminRoleCustomMapOutput() AdminRoleCustomMapOutput {
@@ -345,18 +282,16 @@ func (o AdminRoleCustomMapOutput) ToAdminRoleCustomMapOutputWithContext(ctx cont
 }
 
 func (o AdminRoleCustomMapOutput) MapIndex(k pulumi.StringInput) AdminRoleCustomOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdminRoleCustom {
-		return vs[0].(map[string]AdminRoleCustom)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AdminRoleCustom {
+		return vs[0].(map[string]*AdminRoleCustom)[vs[1].(string)]
 	}).(AdminRoleCustomOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomInput)(nil)).Elem(), &AdminRoleCustom{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomPtrInput)(nil)).Elem(), &AdminRoleCustom{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomArrayInput)(nil)).Elem(), AdminRoleCustomArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomMapInput)(nil)).Elem(), AdminRoleCustomMap{})
 	pulumi.RegisterOutputType(AdminRoleCustomOutput{})
-	pulumi.RegisterOutputType(AdminRoleCustomPtrOutput{})
 	pulumi.RegisterOutputType(AdminRoleCustomArrayOutput{})
 	pulumi.RegisterOutputType(AdminRoleCustomMapOutput{})
 }

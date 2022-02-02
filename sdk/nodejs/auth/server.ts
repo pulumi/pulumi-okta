@@ -109,40 +109,38 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["audiences"] = state ? state.audiences : undefined;
-            inputs["credentialsLastRotated"] = state ? state.credentialsLastRotated : undefined;
-            inputs["credentialsNextRotation"] = state ? state.credentialsNextRotation : undefined;
-            inputs["credentialsRotationMode"] = state ? state.credentialsRotationMode : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["issuer"] = state ? state.issuer : undefined;
-            inputs["issuerMode"] = state ? state.issuerMode : undefined;
-            inputs["kid"] = state ? state.kid : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["audiences"] = state ? state.audiences : undefined;
+            resourceInputs["credentialsLastRotated"] = state ? state.credentialsLastRotated : undefined;
+            resourceInputs["credentialsNextRotation"] = state ? state.credentialsNextRotation : undefined;
+            resourceInputs["credentialsRotationMode"] = state ? state.credentialsRotationMode : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
+            resourceInputs["kid"] = state ? state.kid : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             if ((!args || args.audiences === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'audiences'");
             }
-            inputs["audiences"] = args ? args.audiences : undefined;
-            inputs["credentialsRotationMode"] = args ? args.credentialsRotationMode : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["issuerMode"] = args ? args.issuerMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["credentialsLastRotated"] = undefined /*out*/;
-            inputs["credentialsNextRotation"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["kid"] = undefined /*out*/;
+            resourceInputs["audiences"] = args ? args.audiences : undefined;
+            resourceInputs["credentialsRotationMode"] = args ? args.credentialsRotationMode : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["credentialsLastRotated"] = undefined /*out*/;
+            resourceInputs["credentialsNextRotation"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["kid"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Server.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

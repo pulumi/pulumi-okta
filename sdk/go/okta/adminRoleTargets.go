@@ -165,7 +165,7 @@ type AdminRoleTargetsInput interface {
 }
 
 func (*AdminRoleTargets) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleTargets)(nil))
+	return reflect.TypeOf((**AdminRoleTargets)(nil)).Elem()
 }
 
 func (i *AdminRoleTargets) ToAdminRoleTargetsOutput() AdminRoleTargetsOutput {
@@ -174,35 +174,6 @@ func (i *AdminRoleTargets) ToAdminRoleTargetsOutput() AdminRoleTargetsOutput {
 
 func (i *AdminRoleTargets) ToAdminRoleTargetsOutputWithContext(ctx context.Context) AdminRoleTargetsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsOutput)
-}
-
-func (i *AdminRoleTargets) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
-	return i.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
-}
-
-func (i *AdminRoleTargets) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsPtrOutput)
-}
-
-type AdminRoleTargetsPtrInput interface {
-	pulumi.Input
-
-	ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput
-	ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput
-}
-
-type adminRoleTargetsPtrType AdminRoleTargetsArgs
-
-func (*adminRoleTargetsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleTargets)(nil))
-}
-
-func (i *adminRoleTargetsPtrType) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
-	return i.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
-}
-
-func (i *adminRoleTargetsPtrType) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsPtrOutput)
 }
 
 // AdminRoleTargetsArrayInput is an input type that accepts AdminRoleTargetsArray and AdminRoleTargetsArrayOutput values.
@@ -258,7 +229,7 @@ func (i AdminRoleTargetsMap) ToAdminRoleTargetsMapOutputWithContext(ctx context.
 type AdminRoleTargetsOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleTargetsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleTargets)(nil))
+	return reflect.TypeOf((**AdminRoleTargets)(nil)).Elem()
 }
 
 func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutput() AdminRoleTargetsOutput {
@@ -269,44 +240,10 @@ func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutputWithContext(ctx context.
 	return o
 }
 
-func (o AdminRoleTargetsOutput) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
-	return o.ToAdminRoleTargetsPtrOutputWithContext(context.Background())
-}
-
-func (o AdminRoleTargetsOutput) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminRoleTargets) *AdminRoleTargets {
-		return &v
-	}).(AdminRoleTargetsPtrOutput)
-}
-
-type AdminRoleTargetsPtrOutput struct{ *pulumi.OutputState }
-
-func (AdminRoleTargetsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleTargets)(nil))
-}
-
-func (o AdminRoleTargetsPtrOutput) ToAdminRoleTargetsPtrOutput() AdminRoleTargetsPtrOutput {
-	return o
-}
-
-func (o AdminRoleTargetsPtrOutput) ToAdminRoleTargetsPtrOutputWithContext(ctx context.Context) AdminRoleTargetsPtrOutput {
-	return o
-}
-
-func (o AdminRoleTargetsPtrOutput) Elem() AdminRoleTargetsOutput {
-	return o.ApplyT(func(v *AdminRoleTargets) AdminRoleTargets {
-		if v != nil {
-			return *v
-		}
-		var ret AdminRoleTargets
-		return ret
-	}).(AdminRoleTargetsOutput)
-}
-
 type AdminRoleTargetsArrayOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleTargetsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdminRoleTargets)(nil))
+	return reflect.TypeOf((*[]*AdminRoleTargets)(nil)).Elem()
 }
 
 func (o AdminRoleTargetsArrayOutput) ToAdminRoleTargetsArrayOutput() AdminRoleTargetsArrayOutput {
@@ -318,15 +255,15 @@ func (o AdminRoleTargetsArrayOutput) ToAdminRoleTargetsArrayOutputWithContext(ct
 }
 
 func (o AdminRoleTargetsArrayOutput) Index(i pulumi.IntInput) AdminRoleTargetsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdminRoleTargets {
-		return vs[0].([]AdminRoleTargets)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminRoleTargets {
+		return vs[0].([]*AdminRoleTargets)[vs[1].(int)]
 	}).(AdminRoleTargetsOutput)
 }
 
 type AdminRoleTargetsMapOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleTargetsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AdminRoleTargets)(nil))
+	return reflect.TypeOf((*map[string]*AdminRoleTargets)(nil)).Elem()
 }
 
 func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutput() AdminRoleTargetsMapOutput {
@@ -338,18 +275,16 @@ func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutputWithContext(ctx co
 }
 
 func (o AdminRoleTargetsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleTargetsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdminRoleTargets {
-		return vs[0].(map[string]AdminRoleTargets)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AdminRoleTargets {
+		return vs[0].(map[string]*AdminRoleTargets)[vs[1].(string)]
 	}).(AdminRoleTargetsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsInput)(nil)).Elem(), &AdminRoleTargets{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsPtrInput)(nil)).Elem(), &AdminRoleTargets{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsArrayInput)(nil)).Elem(), AdminRoleTargetsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleTargetsMapInput)(nil)).Elem(), AdminRoleTargetsMap{})
 	pulumi.RegisterOutputType(AdminRoleTargetsOutput{})
-	pulumi.RegisterOutputType(AdminRoleTargetsPtrOutput{})
 	pulumi.RegisterOutputType(AdminRoleTargetsArrayOutput{})
 	pulumi.RegisterOutputType(AdminRoleTargetsMapOutput{})
 }

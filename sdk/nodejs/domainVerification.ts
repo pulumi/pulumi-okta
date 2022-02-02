@@ -65,22 +65,20 @@ export class DomainVerification extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainVerificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainVerificationArgs | DomainVerificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainVerificationState | undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
         } else {
             const args = argsOrState as DomainVerificationArgs | undefined;
             if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            inputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainVerification.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainVerification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

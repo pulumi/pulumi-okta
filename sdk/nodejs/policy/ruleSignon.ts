@@ -227,61 +227,59 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RuleSignonArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleSignonArgs | RuleSignonState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleSignonState | undefined;
-            inputs["access"] = state ? state.access : undefined;
-            inputs["authtype"] = state ? state.authtype : undefined;
-            inputs["behaviors"] = state ? state.behaviors : undefined;
-            inputs["factorSequences"] = state ? state.factorSequences : undefined;
-            inputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
-            inputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
-            inputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
-            inputs["mfaRequired"] = state ? state.mfaRequired : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConnection"] = state ? state.networkConnection : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["policyid"] = state ? state.policyid : undefined;
-            inputs["primaryFactor"] = state ? state.primaryFactor : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["riscLevel"] = state ? state.riscLevel : undefined;
-            inputs["sessionIdle"] = state ? state.sessionIdle : undefined;
-            inputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
-            inputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["access"] = state ? state.access : undefined;
+            resourceInputs["authtype"] = state ? state.authtype : undefined;
+            resourceInputs["behaviors"] = state ? state.behaviors : undefined;
+            resourceInputs["factorSequences"] = state ? state.factorSequences : undefined;
+            resourceInputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
+            resourceInputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
+            resourceInputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
+            resourceInputs["mfaRequired"] = state ? state.mfaRequired : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["policyid"] = state ? state.policyid : undefined;
+            resourceInputs["primaryFactor"] = state ? state.primaryFactor : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["riscLevel"] = state ? state.riscLevel : undefined;
+            resourceInputs["sessionIdle"] = state ? state.sessionIdle : undefined;
+            resourceInputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
+            resourceInputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleSignonArgs | undefined;
-            inputs["access"] = args ? args.access : undefined;
-            inputs["authtype"] = args ? args.authtype : undefined;
-            inputs["behaviors"] = args ? args.behaviors : undefined;
-            inputs["factorSequences"] = args ? args.factorSequences : undefined;
-            inputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
-            inputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
-            inputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
-            inputs["mfaRequired"] = args ? args.mfaRequired : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConnection"] = args ? args.networkConnection : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["policyid"] = args ? args.policyid : undefined;
-            inputs["primaryFactor"] = args ? args.primaryFactor : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["riscLevel"] = args ? args.riscLevel : undefined;
-            inputs["sessionIdle"] = args ? args.sessionIdle : undefined;
-            inputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
-            inputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["authtype"] = args ? args.authtype : undefined;
+            resourceInputs["behaviors"] = args ? args.behaviors : undefined;
+            resourceInputs["factorSequences"] = args ? args.factorSequences : undefined;
+            resourceInputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
+            resourceInputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
+            resourceInputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
+            resourceInputs["mfaRequired"] = args ? args.mfaRequired : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["policyid"] = args ? args.policyid : undefined;
+            resourceInputs["primaryFactor"] = args ? args.primaryFactor : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["riscLevel"] = args ? args.riscLevel : undefined;
+            resourceInputs["sessionIdle"] = args ? args.sessionIdle : undefined;
+            resourceInputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
+            resourceInputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleSignon.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleSignon.__pulumiType, name, resourceInputs, opts);
     }
 }
 

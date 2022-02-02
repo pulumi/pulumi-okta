@@ -88,12 +88,12 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppSamlAppSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppSamlAppSettingsArgs | AppSamlAppSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSamlAppSettingsState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as AppSamlAppSettingsArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -102,13 +102,11 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
             if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppSamlAppSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppSamlAppSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

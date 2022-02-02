@@ -70,13 +70,13 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
      */
     constructor(name: string, args: AdminRoleCustomAssignmentsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdminRoleCustomAssignmentsArgs | AdminRoleCustomAssignmentsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleCustomAssignmentsState | undefined;
-            inputs["customRoleId"] = state ? state.customRoleId : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["resourceSetId"] = state ? state.resourceSetId : undefined;
+            resourceInputs["customRoleId"] = state ? state.customRoleId : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["resourceSetId"] = state ? state.resourceSetId : undefined;
         } else {
             const args = argsOrState as AdminRoleCustomAssignmentsArgs | undefined;
             if ((!args || args.customRoleId === undefined) && !opts.urn) {
@@ -85,14 +85,12 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
             if ((!args || args.resourceSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetId'");
             }
-            inputs["customRoleId"] = args ? args.customRoleId : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["resourceSetId"] = args ? args.resourceSetId : undefined;
+            resourceInputs["customRoleId"] = args ? args.customRoleId : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["resourceSetId"] = args ? args.resourceSetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AdminRoleCustomAssignments.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AdminRoleCustomAssignments.__pulumiType, name, resourceInputs, opts);
     }
 }
 

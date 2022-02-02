@@ -127,7 +127,7 @@ type AdminRoleCustomAssignmentsInput interface {
 }
 
 func (*AdminRoleCustomAssignments) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleCustomAssignments)(nil))
+	return reflect.TypeOf((**AdminRoleCustomAssignments)(nil)).Elem()
 }
 
 func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsOutput() AdminRoleCustomAssignmentsOutput {
@@ -136,35 +136,6 @@ func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsOutput() AdminR
 
 func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsOutput)
-}
-
-func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsPtrOutput() AdminRoleCustomAssignmentsPtrOutput {
-	return i.ToAdminRoleCustomAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsPtrOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsPtrOutput)
-}
-
-type AdminRoleCustomAssignmentsPtrInput interface {
-	pulumi.Input
-
-	ToAdminRoleCustomAssignmentsPtrOutput() AdminRoleCustomAssignmentsPtrOutput
-	ToAdminRoleCustomAssignmentsPtrOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsPtrOutput
-}
-
-type adminRoleCustomAssignmentsPtrType AdminRoleCustomAssignmentsArgs
-
-func (*adminRoleCustomAssignmentsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleCustomAssignments)(nil))
-}
-
-func (i *adminRoleCustomAssignmentsPtrType) ToAdminRoleCustomAssignmentsPtrOutput() AdminRoleCustomAssignmentsPtrOutput {
-	return i.ToAdminRoleCustomAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (i *adminRoleCustomAssignmentsPtrType) ToAdminRoleCustomAssignmentsPtrOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsPtrOutput)
 }
 
 // AdminRoleCustomAssignmentsArrayInput is an input type that accepts AdminRoleCustomAssignmentsArray and AdminRoleCustomAssignmentsArrayOutput values.
@@ -220,7 +191,7 @@ func (i AdminRoleCustomAssignmentsMap) ToAdminRoleCustomAssignmentsMapOutputWith
 type AdminRoleCustomAssignmentsOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomAssignmentsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRoleCustomAssignments)(nil))
+	return reflect.TypeOf((**AdminRoleCustomAssignments)(nil)).Elem()
 }
 
 func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutput() AdminRoleCustomAssignmentsOutput {
@@ -231,44 +202,10 @@ func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutputWith
 	return o
 }
 
-func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsPtrOutput() AdminRoleCustomAssignmentsPtrOutput {
-	return o.ToAdminRoleCustomAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsPtrOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminRoleCustomAssignments) *AdminRoleCustomAssignments {
-		return &v
-	}).(AdminRoleCustomAssignmentsPtrOutput)
-}
-
-type AdminRoleCustomAssignmentsPtrOutput struct{ *pulumi.OutputState }
-
-func (AdminRoleCustomAssignmentsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdminRoleCustomAssignments)(nil))
-}
-
-func (o AdminRoleCustomAssignmentsPtrOutput) ToAdminRoleCustomAssignmentsPtrOutput() AdminRoleCustomAssignmentsPtrOutput {
-	return o
-}
-
-func (o AdminRoleCustomAssignmentsPtrOutput) ToAdminRoleCustomAssignmentsPtrOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsPtrOutput {
-	return o
-}
-
-func (o AdminRoleCustomAssignmentsPtrOutput) Elem() AdminRoleCustomAssignmentsOutput {
-	return o.ApplyT(func(v *AdminRoleCustomAssignments) AdminRoleCustomAssignments {
-		if v != nil {
-			return *v
-		}
-		var ret AdminRoleCustomAssignments
-		return ret
-	}).(AdminRoleCustomAssignmentsOutput)
-}
-
 type AdminRoleCustomAssignmentsArrayOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomAssignmentsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdminRoleCustomAssignments)(nil))
+	return reflect.TypeOf((*[]*AdminRoleCustomAssignments)(nil)).Elem()
 }
 
 func (o AdminRoleCustomAssignmentsArrayOutput) ToAdminRoleCustomAssignmentsArrayOutput() AdminRoleCustomAssignmentsArrayOutput {
@@ -280,15 +217,15 @@ func (o AdminRoleCustomAssignmentsArrayOutput) ToAdminRoleCustomAssignmentsArray
 }
 
 func (o AdminRoleCustomAssignmentsArrayOutput) Index(i pulumi.IntInput) AdminRoleCustomAssignmentsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdminRoleCustomAssignments {
-		return vs[0].([]AdminRoleCustomAssignments)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminRoleCustomAssignments {
+		return vs[0].([]*AdminRoleCustomAssignments)[vs[1].(int)]
 	}).(AdminRoleCustomAssignmentsOutput)
 }
 
 type AdminRoleCustomAssignmentsMapOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomAssignmentsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AdminRoleCustomAssignments)(nil))
+	return reflect.TypeOf((*map[string]*AdminRoleCustomAssignments)(nil)).Elem()
 }
 
 func (o AdminRoleCustomAssignmentsMapOutput) ToAdminRoleCustomAssignmentsMapOutput() AdminRoleCustomAssignmentsMapOutput {
@@ -300,18 +237,16 @@ func (o AdminRoleCustomAssignmentsMapOutput) ToAdminRoleCustomAssignmentsMapOutp
 }
 
 func (o AdminRoleCustomAssignmentsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleCustomAssignmentsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdminRoleCustomAssignments {
-		return vs[0].(map[string]AdminRoleCustomAssignments)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AdminRoleCustomAssignments {
+		return vs[0].(map[string]*AdminRoleCustomAssignments)[vs[1].(string)]
 	}).(AdminRoleCustomAssignmentsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomAssignmentsInput)(nil)).Elem(), &AdminRoleCustomAssignments{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomAssignmentsPtrInput)(nil)).Elem(), &AdminRoleCustomAssignments{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomAssignmentsArrayInput)(nil)).Elem(), AdminRoleCustomAssignmentsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminRoleCustomAssignmentsMapInput)(nil)).Elem(), AdminRoleCustomAssignmentsMap{})
 	pulumi.RegisterOutputType(AdminRoleCustomAssignmentsOutput{})
-	pulumi.RegisterOutputType(AdminRoleCustomAssignmentsPtrOutput{})
 	pulumi.RegisterOutputType(AdminRoleCustomAssignmentsArrayOutput{})
 	pulumi.RegisterOutputType(AdminRoleCustomAssignmentsMapOutput{})
 }

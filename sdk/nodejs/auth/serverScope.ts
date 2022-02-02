@@ -96,34 +96,32 @@ export class ServerScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerScopeArgs | ServerScopeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerScopeState | undefined;
-            inputs["authServerId"] = state ? state.authServerId : undefined;
-            inputs["consent"] = state ? state.consent : undefined;
-            inputs["default"] = state ? state.default : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["metadataPublish"] = state ? state.metadataPublish : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
+            resourceInputs["consent"] = state ? state.consent : undefined;
+            resourceInputs["default"] = state ? state.default : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["metadataPublish"] = state ? state.metadataPublish : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ServerScopeArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            inputs["authServerId"] = args ? args.authServerId : undefined;
-            inputs["consent"] = args ? args.consent : undefined;
-            inputs["default"] = args ? args.default : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["metadataPublish"] = args ? args.metadataPublish : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
+            resourceInputs["consent"] = args ? args.consent : undefined;
+            resourceInputs["default"] = args ? args.default : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["metadataPublish"] = args ? args.metadataPublish : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerScope.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

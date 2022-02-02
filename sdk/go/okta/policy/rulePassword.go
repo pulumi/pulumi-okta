@@ -213,7 +213,7 @@ type RulePasswordInput interface {
 }
 
 func (*RulePassword) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulePassword)(nil))
+	return reflect.TypeOf((**RulePassword)(nil)).Elem()
 }
 
 func (i *RulePassword) ToRulePasswordOutput() RulePasswordOutput {
@@ -222,35 +222,6 @@ func (i *RulePassword) ToRulePasswordOutput() RulePasswordOutput {
 
 func (i *RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordOutput)
-}
-
-func (i *RulePassword) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
-	return i.ToRulePasswordPtrOutputWithContext(context.Background())
-}
-
-func (i *RulePassword) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPtrOutput)
-}
-
-type RulePasswordPtrInput interface {
-	pulumi.Input
-
-	ToRulePasswordPtrOutput() RulePasswordPtrOutput
-	ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput
-}
-
-type rulePasswordPtrType RulePasswordArgs
-
-func (*rulePasswordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RulePassword)(nil))
-}
-
-func (i *rulePasswordPtrType) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
-	return i.ToRulePasswordPtrOutputWithContext(context.Background())
-}
-
-func (i *rulePasswordPtrType) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPtrOutput)
 }
 
 // RulePasswordArrayInput is an input type that accepts RulePasswordArray and RulePasswordArrayOutput values.
@@ -306,7 +277,7 @@ func (i RulePasswordMap) ToRulePasswordMapOutputWithContext(ctx context.Context)
 type RulePasswordOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulePassword)(nil))
+	return reflect.TypeOf((**RulePassword)(nil)).Elem()
 }
 
 func (o RulePasswordOutput) ToRulePasswordOutput() RulePasswordOutput {
@@ -317,44 +288,10 @@ func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RulePasswordOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
-	return o.ToRulePasswordPtrOutputWithContext(context.Background())
-}
-
-func (o RulePasswordOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePassword) *RulePassword {
-		return &v
-	}).(RulePasswordPtrOutput)
-}
-
-type RulePasswordPtrOutput struct{ *pulumi.OutputState }
-
-func (RulePasswordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RulePassword)(nil))
-}
-
-func (o RulePasswordPtrOutput) ToRulePasswordPtrOutput() RulePasswordPtrOutput {
-	return o
-}
-
-func (o RulePasswordPtrOutput) ToRulePasswordPtrOutputWithContext(ctx context.Context) RulePasswordPtrOutput {
-	return o
-}
-
-func (o RulePasswordPtrOutput) Elem() RulePasswordOutput {
-	return o.ApplyT(func(v *RulePassword) RulePassword {
-		if v != nil {
-			return *v
-		}
-		var ret RulePassword
-		return ret
-	}).(RulePasswordOutput)
-}
-
 type RulePasswordArrayOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RulePassword)(nil))
+	return reflect.TypeOf((*[]*RulePassword)(nil)).Elem()
 }
 
 func (o RulePasswordArrayOutput) ToRulePasswordArrayOutput() RulePasswordArrayOutput {
@@ -366,15 +303,15 @@ func (o RulePasswordArrayOutput) ToRulePasswordArrayOutputWithContext(ctx contex
 }
 
 func (o RulePasswordArrayOutput) Index(i pulumi.IntInput) RulePasswordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulePassword {
-		return vs[0].([]RulePassword)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RulePassword {
+		return vs[0].([]*RulePassword)[vs[1].(int)]
 	}).(RulePasswordOutput)
 }
 
 type RulePasswordMapOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RulePassword)(nil))
+	return reflect.TypeOf((*map[string]*RulePassword)(nil)).Elem()
 }
 
 func (o RulePasswordMapOutput) ToRulePasswordMapOutput() RulePasswordMapOutput {
@@ -386,18 +323,16 @@ func (o RulePasswordMapOutput) ToRulePasswordMapOutputWithContext(ctx context.Co
 }
 
 func (o RulePasswordMapOutput) MapIndex(k pulumi.StringInput) RulePasswordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RulePassword {
-		return vs[0].(map[string]RulePassword)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RulePassword {
+		return vs[0].(map[string]*RulePassword)[vs[1].(string)]
 	}).(RulePasswordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordInput)(nil)).Elem(), &RulePassword{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordPtrInput)(nil)).Elem(), &RulePassword{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordArrayInput)(nil)).Elem(), RulePasswordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordMapInput)(nil)).Elem(), RulePasswordMap{})
 	pulumi.RegisterOutputType(RulePasswordOutput{})
-	pulumi.RegisterOutputType(RulePasswordPtrOutput{})
 	pulumi.RegisterOutputType(RulePasswordArrayOutput{})
 	pulumi.RegisterOutputType(RulePasswordMapOutput{})
 }

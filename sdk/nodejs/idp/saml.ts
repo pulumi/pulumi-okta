@@ -206,43 +206,43 @@ export class Saml extends pulumi.CustomResource {
      */
     constructor(name: string, args: SamlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlArgs | SamlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlState | undefined;
-            inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
-            inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = state ? state.acsBinding : undefined;
-            inputs["acsType"] = state ? state.acsType : undefined;
-            inputs["audience"] = state ? state.audience : undefined;
-            inputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
-            inputs["groupsAction"] = state ? state.groupsAction : undefined;
-            inputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
-            inputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
-            inputs["groupsFilters"] = state ? state.groupsFilters : undefined;
-            inputs["issuer"] = state ? state.issuer : undefined;
-            inputs["issuerMode"] = state ? state.issuerMode : undefined;
-            inputs["kid"] = state ? state.kid : undefined;
-            inputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nameFormat"] = state ? state.nameFormat : undefined;
-            inputs["profileMaster"] = state ? state.profileMaster : undefined;
-            inputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            inputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
-            inputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
-            inputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
-            inputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
-            inputs["ssoBinding"] = state ? state.ssoBinding : undefined;
-            inputs["ssoDestination"] = state ? state.ssoDestination : undefined;
-            inputs["ssoUrl"] = state ? state.ssoUrl : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            inputs["subjectFormats"] = state ? state.subjectFormats : undefined;
-            inputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
-            inputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
-            inputs["suspendedAction"] = state ? state.suspendedAction : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
+            resourceInputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
+            resourceInputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
+            resourceInputs["acsBinding"] = state ? state.acsBinding : undefined;
+            resourceInputs["acsType"] = state ? state.acsType : undefined;
+            resourceInputs["audience"] = state ? state.audience : undefined;
+            resourceInputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
+            resourceInputs["groupsAction"] = state ? state.groupsAction : undefined;
+            resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
+            resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
+            resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
+            resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
+            resourceInputs["kid"] = state ? state.kid : undefined;
+            resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nameFormat"] = state ? state.nameFormat : undefined;
+            resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
+            resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
+            resourceInputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
+            resourceInputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
+            resourceInputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
+            resourceInputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
+            resourceInputs["ssoBinding"] = state ? state.ssoBinding : undefined;
+            resourceInputs["ssoDestination"] = state ? state.ssoDestination : undefined;
+            resourceInputs["ssoUrl"] = state ? state.ssoUrl : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
+            resourceInputs["subjectFormats"] = state ? state.subjectFormats : undefined;
+            resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
+            resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
+            resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
             if ((!args || args.issuer === undefined) && !opts.urn) {
@@ -254,44 +254,42 @@ export class Saml extends pulumi.CustomResource {
             if ((!args || args.ssoUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ssoUrl'");
             }
-            inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
-            inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            inputs["acsBinding"] = args ? args.acsBinding : undefined;
-            inputs["acsType"] = args ? args.acsType : undefined;
-            inputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
-            inputs["groupsAction"] = args ? args.groupsAction : undefined;
-            inputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
-            inputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
-            inputs["groupsFilters"] = args ? args.groupsFilters : undefined;
-            inputs["issuer"] = args ? args.issuer : undefined;
-            inputs["issuerMode"] = args ? args.issuerMode : undefined;
-            inputs["kid"] = args ? args.kid : undefined;
-            inputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nameFormat"] = args ? args.nameFormat : undefined;
-            inputs["profileMaster"] = args ? args.profileMaster : undefined;
-            inputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            inputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
-            inputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
-            inputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
-            inputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
-            inputs["ssoBinding"] = args ? args.ssoBinding : undefined;
-            inputs["ssoDestination"] = args ? args.ssoDestination : undefined;
-            inputs["ssoUrl"] = args ? args.ssoUrl : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            inputs["subjectFormats"] = args ? args.subjectFormats : undefined;
-            inputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
-            inputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
-            inputs["suspendedAction"] = args ? args.suspendedAction : undefined;
-            inputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
-            inputs["audience"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
+            resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
+            resourceInputs["acsBinding"] = args ? args.acsBinding : undefined;
+            resourceInputs["acsType"] = args ? args.acsType : undefined;
+            resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
+            resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
+            resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
+            resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
+            resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
+            resourceInputs["issuer"] = args ? args.issuer : undefined;
+            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
+            resourceInputs["kid"] = args ? args.kid : undefined;
+            resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nameFormat"] = args ? args.nameFormat : undefined;
+            resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
+            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
+            resourceInputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
+            resourceInputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
+            resourceInputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
+            resourceInputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
+            resourceInputs["ssoBinding"] = args ? args.ssoBinding : undefined;
+            resourceInputs["ssoDestination"] = args ? args.ssoDestination : undefined;
+            resourceInputs["ssoUrl"] = args ? args.ssoUrl : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
+            resourceInputs["subjectFormats"] = args ? args.subjectFormats : undefined;
+            resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
+            resourceInputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
+            resourceInputs["suspendedAction"] = args ? args.suspendedAction : undefined;
+            resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
+            resourceInputs["audience"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Saml.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Saml.__pulumiType, name, resourceInputs, opts);
     }
 }
 

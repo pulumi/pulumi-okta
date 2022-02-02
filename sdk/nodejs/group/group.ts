@@ -121,27 +121,25 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["skipUsers"] = state ? state.skipUsers : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            inputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["skipUsers"] = args ? args.skipUsers : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

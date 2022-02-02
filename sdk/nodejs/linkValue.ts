@@ -107,13 +107,13 @@ export class LinkValue extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkValueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkValueArgs | LinkValueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkValueState | undefined;
-            inputs["associatedUserIds"] = state ? state.associatedUserIds : undefined;
-            inputs["primaryName"] = state ? state.primaryName : undefined;
-            inputs["primaryUserId"] = state ? state.primaryUserId : undefined;
+            resourceInputs["associatedUserIds"] = state ? state.associatedUserIds : undefined;
+            resourceInputs["primaryName"] = state ? state.primaryName : undefined;
+            resourceInputs["primaryUserId"] = state ? state.primaryUserId : undefined;
         } else {
             const args = argsOrState as LinkValueArgs | undefined;
             if ((!args || args.primaryName === undefined) && !opts.urn) {
@@ -122,14 +122,12 @@ export class LinkValue extends pulumi.CustomResource {
             if ((!args || args.primaryUserId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryUserId'");
             }
-            inputs["associatedUserIds"] = args ? args.associatedUserIds : undefined;
-            inputs["primaryName"] = args ? args.primaryName : undefined;
-            inputs["primaryUserId"] = args ? args.primaryUserId : undefined;
+            resourceInputs["associatedUserIds"] = args ? args.associatedUserIds : undefined;
+            resourceInputs["primaryName"] = args ? args.primaryName : undefined;
+            resourceInputs["primaryUserId"] = args ? args.primaryUserId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LinkValue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LinkValue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

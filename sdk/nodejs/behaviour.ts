@@ -118,34 +118,32 @@ export class Behaviour extends pulumi.CustomResource {
      */
     constructor(name: string, args: BehaviourArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BehaviourArgs | BehaviourState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BehaviourState | undefined;
-            inputs["locationGranularityType"] = state ? state.locationGranularityType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["numberOfAuthentications"] = state ? state.numberOfAuthentications : undefined;
-            inputs["radiusFromLocation"] = state ? state.radiusFromLocation : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["velocity"] = state ? state.velocity : undefined;
+            resourceInputs["locationGranularityType"] = state ? state.locationGranularityType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numberOfAuthentications"] = state ? state.numberOfAuthentications : undefined;
+            resourceInputs["radiusFromLocation"] = state ? state.radiusFromLocation : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["velocity"] = state ? state.velocity : undefined;
         } else {
             const args = argsOrState as BehaviourArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["locationGranularityType"] = args ? args.locationGranularityType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfAuthentications"] = args ? args.numberOfAuthentications : undefined;
-            inputs["radiusFromLocation"] = args ? args.radiusFromLocation : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["velocity"] = args ? args.velocity : undefined;
+            resourceInputs["locationGranularityType"] = args ? args.locationGranularityType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numberOfAuthentications"] = args ? args.numberOfAuthentications : undefined;
+            resourceInputs["radiusFromLocation"] = args ? args.radiusFromLocation : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["velocity"] = args ? args.velocity : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Behaviour.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Behaviour.__pulumiType, name, resourceInputs, opts);
     }
 }
 

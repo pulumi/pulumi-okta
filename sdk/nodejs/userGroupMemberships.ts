@@ -50,12 +50,12 @@ export class UserGroupMemberships extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserGroupMembershipsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserGroupMembershipsArgs | UserGroupMembershipsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupMembershipsState | undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserGroupMembershipsArgs | undefined;
             if ((!args || args.groups === undefined) && !opts.urn) {
@@ -64,13 +64,11 @@ export class UserGroupMemberships extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserGroupMemberships.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserGroupMemberships.__pulumiType, name, resourceInputs, opts);
     }
 }
 

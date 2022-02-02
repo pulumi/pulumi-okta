@@ -191,7 +191,7 @@ type LinkDefinitionInput interface {
 }
 
 func (*LinkDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkDefinition)(nil))
+	return reflect.TypeOf((**LinkDefinition)(nil)).Elem()
 }
 
 func (i *LinkDefinition) ToLinkDefinitionOutput() LinkDefinitionOutput {
@@ -200,35 +200,6 @@ func (i *LinkDefinition) ToLinkDefinitionOutput() LinkDefinitionOutput {
 
 func (i *LinkDefinition) ToLinkDefinitionOutputWithContext(ctx context.Context) LinkDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionOutput)
-}
-
-func (i *LinkDefinition) ToLinkDefinitionPtrOutput() LinkDefinitionPtrOutput {
-	return i.ToLinkDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkDefinition) ToLinkDefinitionPtrOutputWithContext(ctx context.Context) LinkDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionPtrOutput)
-}
-
-type LinkDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToLinkDefinitionPtrOutput() LinkDefinitionPtrOutput
-	ToLinkDefinitionPtrOutputWithContext(ctx context.Context) LinkDefinitionPtrOutput
-}
-
-type linkDefinitionPtrType LinkDefinitionArgs
-
-func (*linkDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkDefinition)(nil))
-}
-
-func (i *linkDefinitionPtrType) ToLinkDefinitionPtrOutput() LinkDefinitionPtrOutput {
-	return i.ToLinkDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *linkDefinitionPtrType) ToLinkDefinitionPtrOutputWithContext(ctx context.Context) LinkDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionPtrOutput)
 }
 
 // LinkDefinitionArrayInput is an input type that accepts LinkDefinitionArray and LinkDefinitionArrayOutput values.
@@ -284,7 +255,7 @@ func (i LinkDefinitionMap) ToLinkDefinitionMapOutputWithContext(ctx context.Cont
 type LinkDefinitionOutput struct{ *pulumi.OutputState }
 
 func (LinkDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkDefinition)(nil))
+	return reflect.TypeOf((**LinkDefinition)(nil)).Elem()
 }
 
 func (o LinkDefinitionOutput) ToLinkDefinitionOutput() LinkDefinitionOutput {
@@ -295,44 +266,10 @@ func (o LinkDefinitionOutput) ToLinkDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LinkDefinitionOutput) ToLinkDefinitionPtrOutput() LinkDefinitionPtrOutput {
-	return o.ToLinkDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o LinkDefinitionOutput) ToLinkDefinitionPtrOutputWithContext(ctx context.Context) LinkDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkDefinition) *LinkDefinition {
-		return &v
-	}).(LinkDefinitionPtrOutput)
-}
-
-type LinkDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkDefinition)(nil))
-}
-
-func (o LinkDefinitionPtrOutput) ToLinkDefinitionPtrOutput() LinkDefinitionPtrOutput {
-	return o
-}
-
-func (o LinkDefinitionPtrOutput) ToLinkDefinitionPtrOutputWithContext(ctx context.Context) LinkDefinitionPtrOutput {
-	return o
-}
-
-func (o LinkDefinitionPtrOutput) Elem() LinkDefinitionOutput {
-	return o.ApplyT(func(v *LinkDefinition) LinkDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret LinkDefinition
-		return ret
-	}).(LinkDefinitionOutput)
-}
-
 type LinkDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkDefinition)(nil))
+	return reflect.TypeOf((*[]*LinkDefinition)(nil)).Elem()
 }
 
 func (o LinkDefinitionArrayOutput) ToLinkDefinitionArrayOutput() LinkDefinitionArrayOutput {
@@ -344,15 +281,15 @@ func (o LinkDefinitionArrayOutput) ToLinkDefinitionArrayOutputWithContext(ctx co
 }
 
 func (o LinkDefinitionArrayOutput) Index(i pulumi.IntInput) LinkDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkDefinition {
-		return vs[0].([]LinkDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkDefinition {
+		return vs[0].([]*LinkDefinition)[vs[1].(int)]
 	}).(LinkDefinitionOutput)
 }
 
 type LinkDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (LinkDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkDefinition)(nil))
+	return reflect.TypeOf((*map[string]*LinkDefinition)(nil)).Elem()
 }
 
 func (o LinkDefinitionMapOutput) ToLinkDefinitionMapOutput() LinkDefinitionMapOutput {
@@ -364,18 +301,16 @@ func (o LinkDefinitionMapOutput) ToLinkDefinitionMapOutputWithContext(ctx contex
 }
 
 func (o LinkDefinitionMapOutput) MapIndex(k pulumi.StringInput) LinkDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkDefinition {
-		return vs[0].(map[string]LinkDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkDefinition {
+		return vs[0].(map[string]*LinkDefinition)[vs[1].(string)]
 	}).(LinkDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkDefinitionInput)(nil)).Elem(), &LinkDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkDefinitionPtrInput)(nil)).Elem(), &LinkDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkDefinitionArrayInput)(nil)).Elem(), LinkDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkDefinitionMapInput)(nil)).Elem(), LinkDefinitionMap{})
 	pulumi.RegisterOutputType(LinkDefinitionOutput{})
-	pulumi.RegisterOutputType(LinkDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionMapOutput{})
 }

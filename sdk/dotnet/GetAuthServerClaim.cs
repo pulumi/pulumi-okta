@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthServerClaimResult> InvokeAsync(GetAuthServerClaimArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve authorization server claim from Okta.
@@ -70,7 +69,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthServerClaimResult> Invoke(GetAuthServerClaimInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithDefaults());
     }
 
 

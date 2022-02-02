@@ -186,6 +186,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		testAppSignonPolicy := okta.GetAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
+// 			AppId: testSaml.ID(),
+// 		}, nil)
 // 		var testUser []*user.User
 // 		for key0, val0 := range 5 {
 // 			__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
@@ -643,7 +646,7 @@ type AppSignonPolicyRuleInput interface {
 }
 
 func (*AppSignonPolicyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSignonPolicyRule)(nil))
+	return reflect.TypeOf((**AppSignonPolicyRule)(nil)).Elem()
 }
 
 func (i *AppSignonPolicyRule) ToAppSignonPolicyRuleOutput() AppSignonPolicyRuleOutput {
@@ -652,35 +655,6 @@ func (i *AppSignonPolicyRule) ToAppSignonPolicyRuleOutput() AppSignonPolicyRuleO
 
 func (i *AppSignonPolicyRule) ToAppSignonPolicyRuleOutputWithContext(ctx context.Context) AppSignonPolicyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleOutput)
-}
-
-func (i *AppSignonPolicyRule) ToAppSignonPolicyRulePtrOutput() AppSignonPolicyRulePtrOutput {
-	return i.ToAppSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *AppSignonPolicyRule) ToAppSignonPolicyRulePtrOutputWithContext(ctx context.Context) AppSignonPolicyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRulePtrOutput)
-}
-
-type AppSignonPolicyRulePtrInput interface {
-	pulumi.Input
-
-	ToAppSignonPolicyRulePtrOutput() AppSignonPolicyRulePtrOutput
-	ToAppSignonPolicyRulePtrOutputWithContext(ctx context.Context) AppSignonPolicyRulePtrOutput
-}
-
-type appSignonPolicyRulePtrType AppSignonPolicyRuleArgs
-
-func (*appSignonPolicyRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSignonPolicyRule)(nil))
-}
-
-func (i *appSignonPolicyRulePtrType) ToAppSignonPolicyRulePtrOutput() AppSignonPolicyRulePtrOutput {
-	return i.ToAppSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *appSignonPolicyRulePtrType) ToAppSignonPolicyRulePtrOutputWithContext(ctx context.Context) AppSignonPolicyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRulePtrOutput)
 }
 
 // AppSignonPolicyRuleArrayInput is an input type that accepts AppSignonPolicyRuleArray and AppSignonPolicyRuleArrayOutput values.
@@ -736,7 +710,7 @@ func (i AppSignonPolicyRuleMap) ToAppSignonPolicyRuleMapOutputWithContext(ctx co
 type AppSignonPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (AppSignonPolicyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSignonPolicyRule)(nil))
+	return reflect.TypeOf((**AppSignonPolicyRule)(nil)).Elem()
 }
 
 func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutput() AppSignonPolicyRuleOutput {
@@ -747,44 +721,10 @@ func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutputWithContext(ctx co
 	return o
 }
 
-func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRulePtrOutput() AppSignonPolicyRulePtrOutput {
-	return o.ToAppSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRulePtrOutputWithContext(ctx context.Context) AppSignonPolicyRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSignonPolicyRule) *AppSignonPolicyRule {
-		return &v
-	}).(AppSignonPolicyRulePtrOutput)
-}
-
-type AppSignonPolicyRulePtrOutput struct{ *pulumi.OutputState }
-
-func (AppSignonPolicyRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSignonPolicyRule)(nil))
-}
-
-func (o AppSignonPolicyRulePtrOutput) ToAppSignonPolicyRulePtrOutput() AppSignonPolicyRulePtrOutput {
-	return o
-}
-
-func (o AppSignonPolicyRulePtrOutput) ToAppSignonPolicyRulePtrOutputWithContext(ctx context.Context) AppSignonPolicyRulePtrOutput {
-	return o
-}
-
-func (o AppSignonPolicyRulePtrOutput) Elem() AppSignonPolicyRuleOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) AppSignonPolicyRule {
-		if v != nil {
-			return *v
-		}
-		var ret AppSignonPolicyRule
-		return ret
-	}).(AppSignonPolicyRuleOutput)
-}
-
 type AppSignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AppSignonPolicyRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppSignonPolicyRule)(nil))
+	return reflect.TypeOf((*[]*AppSignonPolicyRule)(nil)).Elem()
 }
 
 func (o AppSignonPolicyRuleArrayOutput) ToAppSignonPolicyRuleArrayOutput() AppSignonPolicyRuleArrayOutput {
@@ -796,15 +736,15 @@ func (o AppSignonPolicyRuleArrayOutput) ToAppSignonPolicyRuleArrayOutputWithCont
 }
 
 func (o AppSignonPolicyRuleArrayOutput) Index(i pulumi.IntInput) AppSignonPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSignonPolicyRule {
-		return vs[0].([]AppSignonPolicyRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSignonPolicyRule {
+		return vs[0].([]*AppSignonPolicyRule)[vs[1].(int)]
 	}).(AppSignonPolicyRuleOutput)
 }
 
 type AppSignonPolicyRuleMapOutput struct{ *pulumi.OutputState }
 
 func (AppSignonPolicyRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppSignonPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*AppSignonPolicyRule)(nil)).Elem()
 }
 
 func (o AppSignonPolicyRuleMapOutput) ToAppSignonPolicyRuleMapOutput() AppSignonPolicyRuleMapOutput {
@@ -816,18 +756,16 @@ func (o AppSignonPolicyRuleMapOutput) ToAppSignonPolicyRuleMapOutputWithContext(
 }
 
 func (o AppSignonPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) AppSignonPolicyRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppSignonPolicyRule {
-		return vs[0].(map[string]AppSignonPolicyRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppSignonPolicyRule {
+		return vs[0].(map[string]*AppSignonPolicyRule)[vs[1].(string)]
 	}).(AppSignonPolicyRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRuleInput)(nil)).Elem(), &AppSignonPolicyRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePtrInput)(nil)).Elem(), &AppSignonPolicyRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRuleArrayInput)(nil)).Elem(), AppSignonPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRuleMapInput)(nil)).Elem(), AppSignonPolicyRuleMap{})
 	pulumi.RegisterOutputType(AppSignonPolicyRuleOutput{})
-	pulumi.RegisterOutputType(AppSignonPolicyRulePtrOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRuleMapOutput{})
 }

@@ -176,7 +176,7 @@ class UserFactorQuestion(pulumi.CustomResource):
             last_name="Smith",
             login="john.smith@example.com",
             email="john.smith@example.com")
-        example_user_security_questions = example_user.id.apply(lambda id: okta.get_user_security_questions(user_id=id))
+        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
         example_factor = okta.factor.Factor("exampleFactor",
             provider_id="okta_question",
             active=True)
@@ -223,7 +223,7 @@ class UserFactorQuestion(pulumi.CustomResource):
             last_name="Smith",
             login="john.smith@example.com",
             email="john.smith@example.com")
-        example_user_security_questions = example_user.id.apply(lambda id: okta.get_user_security_questions(user_id=id))
+        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
         example_factor = okta.factor.Factor("exampleFactor",
             provider_id="okta_question",
             active=True)

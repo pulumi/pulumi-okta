@@ -307,7 +307,7 @@ type SignonPolicyRuleInput interface {
 }
 
 func (*SignonPolicyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicyRule)(nil))
+	return reflect.TypeOf((**SignonPolicyRule)(nil)).Elem()
 }
 
 func (i *SignonPolicyRule) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
@@ -316,35 +316,6 @@ func (i *SignonPolicyRule) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
 
 func (i *SignonPolicyRule) ToSignonPolicyRuleOutputWithContext(ctx context.Context) SignonPolicyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRuleOutput)
-}
-
-func (i *SignonPolicyRule) ToSignonPolicyRulePtrOutput() SignonPolicyRulePtrOutput {
-	return i.ToSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *SignonPolicyRule) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulePtrOutput)
-}
-
-type SignonPolicyRulePtrInput interface {
-	pulumi.Input
-
-	ToSignonPolicyRulePtrOutput() SignonPolicyRulePtrOutput
-	ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput
-}
-
-type signonPolicyRulePtrType SignonPolicyRuleArgs
-
-func (*signonPolicyRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SignonPolicyRule)(nil))
-}
-
-func (i *signonPolicyRulePtrType) ToSignonPolicyRulePtrOutput() SignonPolicyRulePtrOutput {
-	return i.ToSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *signonPolicyRulePtrType) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulePtrOutput)
 }
 
 // SignonPolicyRuleArrayInput is an input type that accepts SignonPolicyRuleArray and SignonPolicyRuleArrayOutput values.
@@ -400,7 +371,7 @@ func (i SignonPolicyRuleMap) ToSignonPolicyRuleMapOutputWithContext(ctx context.
 type SignonPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignonPolicyRule)(nil))
+	return reflect.TypeOf((**SignonPolicyRule)(nil)).Elem()
 }
 
 func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutput() SignonPolicyRuleOutput {
@@ -411,44 +382,10 @@ func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
-func (o SignonPolicyRuleOutput) ToSignonPolicyRulePtrOutput() SignonPolicyRulePtrOutput {
-	return o.ToSignonPolicyRulePtrOutputWithContext(context.Background())
-}
-
-func (o SignonPolicyRuleOutput) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignonPolicyRule) *SignonPolicyRule {
-		return &v
-	}).(SignonPolicyRulePtrOutput)
-}
-
-type SignonPolicyRulePtrOutput struct{ *pulumi.OutputState }
-
-func (SignonPolicyRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SignonPolicyRule)(nil))
-}
-
-func (o SignonPolicyRulePtrOutput) ToSignonPolicyRulePtrOutput() SignonPolicyRulePtrOutput {
-	return o
-}
-
-func (o SignonPolicyRulePtrOutput) ToSignonPolicyRulePtrOutputWithContext(ctx context.Context) SignonPolicyRulePtrOutput {
-	return o
-}
-
-func (o SignonPolicyRulePtrOutput) Elem() SignonPolicyRuleOutput {
-	return o.ApplyT(func(v *SignonPolicyRule) SignonPolicyRule {
-		if v != nil {
-			return *v
-		}
-		var ret SignonPolicyRule
-		return ret
-	}).(SignonPolicyRuleOutput)
-}
-
 type SignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignonPolicyRule)(nil))
+	return reflect.TypeOf((*[]*SignonPolicyRule)(nil)).Elem()
 }
 
 func (o SignonPolicyRuleArrayOutput) ToSignonPolicyRuleArrayOutput() SignonPolicyRuleArrayOutput {
@@ -460,15 +397,15 @@ func (o SignonPolicyRuleArrayOutput) ToSignonPolicyRuleArrayOutputWithContext(ct
 }
 
 func (o SignonPolicyRuleArrayOutput) Index(i pulumi.IntInput) SignonPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRule {
-		return vs[0].([]SignonPolicyRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SignonPolicyRule {
+		return vs[0].([]*SignonPolicyRule)[vs[1].(int)]
 	}).(SignonPolicyRuleOutput)
 }
 
 type SignonPolicyRuleMapOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SignonPolicyRule)(nil))
+	return reflect.TypeOf((*map[string]*SignonPolicyRule)(nil)).Elem()
 }
 
 func (o SignonPolicyRuleMapOutput) ToSignonPolicyRuleMapOutput() SignonPolicyRuleMapOutput {
@@ -480,18 +417,16 @@ func (o SignonPolicyRuleMapOutput) ToSignonPolicyRuleMapOutputWithContext(ctx co
 }
 
 func (o SignonPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) SignonPolicyRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SignonPolicyRule {
-		return vs[0].(map[string]SignonPolicyRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SignonPolicyRule {
+		return vs[0].(map[string]*SignonPolicyRule)[vs[1].(string)]
 	}).(SignonPolicyRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleInput)(nil)).Elem(), &SignonPolicyRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulePtrInput)(nil)).Elem(), &SignonPolicyRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleArrayInput)(nil)).Elem(), SignonPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRuleMapInput)(nil)).Elem(), SignonPolicyRuleMap{})
 	pulumi.RegisterOutputType(SignonPolicyRuleOutput{})
-	pulumi.RegisterOutputType(SignonPolicyRulePtrOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRuleMapOutput{})
 }

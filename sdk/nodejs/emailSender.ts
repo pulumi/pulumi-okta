@@ -87,15 +87,15 @@ export class EmailSender extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailSenderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailSenderArgs | EmailSenderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailSenderState | undefined;
-            inputs["dnsRecords"] = state ? state.dnsRecords : undefined;
-            inputs["fromAddress"] = state ? state.fromAddress : undefined;
-            inputs["fromName"] = state ? state.fromName : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
+            resourceInputs["fromAddress"] = state ? state.fromAddress : undefined;
+            resourceInputs["fromName"] = state ? state.fromName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
         } else {
             const args = argsOrState as EmailSenderArgs | undefined;
             if ((!args || args.fromAddress === undefined) && !opts.urn) {
@@ -107,16 +107,14 @@ export class EmailSender extends pulumi.CustomResource {
             if ((!args || args.subdomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            inputs["fromAddress"] = args ? args.fromAddress : undefined;
-            inputs["fromName"] = args ? args.fromName : undefined;
-            inputs["subdomain"] = args ? args.subdomain : undefined;
-            inputs["dnsRecords"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
+            resourceInputs["fromName"] = args ? args.fromName : undefined;
+            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["dnsRecords"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailSender.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailSender.__pulumiType, name, resourceInputs, opts);
     }
 }
 

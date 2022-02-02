@@ -85,13 +85,13 @@ export class AdminRoleCustom extends pulumi.CustomResource {
      */
     constructor(name: string, args: AdminRoleCustomArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdminRoleCustomArgs | AdminRoleCustomState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleCustomState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
         } else {
             const args = argsOrState as AdminRoleCustomArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -100,14 +100,12 @@ export class AdminRoleCustom extends pulumi.CustomResource {
             if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AdminRoleCustom.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AdminRoleCustom.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -120,19 +120,19 @@ export class Mapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: MappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MappingArgs | MappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MappingState | undefined;
-            inputs["alwaysApply"] = state ? state.alwaysApply : undefined;
-            inputs["deleteWhenAbsent"] = state ? state.deleteWhenAbsent : undefined;
-            inputs["mappings"] = state ? state.mappings : undefined;
-            inputs["sourceId"] = state ? state.sourceId : undefined;
-            inputs["sourceName"] = state ? state.sourceName : undefined;
-            inputs["sourceType"] = state ? state.sourceType : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
-            inputs["targetName"] = state ? state.targetName : undefined;
-            inputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["alwaysApply"] = state ? state.alwaysApply : undefined;
+            resourceInputs["deleteWhenAbsent"] = state ? state.deleteWhenAbsent : undefined;
+            resourceInputs["mappings"] = state ? state.mappings : undefined;
+            resourceInputs["sourceId"] = state ? state.sourceId : undefined;
+            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
+            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["targetName"] = state ? state.targetName : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as MappingArgs | undefined;
             if ((!args || args.sourceId === undefined) && !opts.urn) {
@@ -141,20 +141,18 @@ export class Mapping extends pulumi.CustomResource {
             if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            inputs["alwaysApply"] = args ? args.alwaysApply : undefined;
-            inputs["deleteWhenAbsent"] = args ? args.deleteWhenAbsent : undefined;
-            inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["sourceId"] = args ? args.sourceId : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["sourceName"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["targetName"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
+            resourceInputs["alwaysApply"] = args ? args.alwaysApply : undefined;
+            resourceInputs["deleteWhenAbsent"] = args ? args.deleteWhenAbsent : undefined;
+            resourceInputs["mappings"] = args ? args.mappings : undefined;
+            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["sourceName"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["targetName"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Mapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Mapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

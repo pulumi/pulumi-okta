@@ -82,13 +82,13 @@ export class RoleSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleSubscriptionArgs | RoleSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleSubscriptionState | undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["roleType"] = state ? state.roleType : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["roleType"] = state ? state.roleType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as RoleSubscriptionArgs | undefined;
             if ((!args || args.notificationType === undefined) && !opts.urn) {
@@ -97,14 +97,12 @@ export class RoleSubscription extends pulumi.CustomResource {
             if ((!args || args.roleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["roleType"] = args ? args.roleType : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["roleType"] = args ? args.roleType : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RoleSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RoleSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

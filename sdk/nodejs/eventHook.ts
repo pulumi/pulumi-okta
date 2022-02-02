@@ -101,16 +101,16 @@ export class EventHook extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventHookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventHookArgs | EventHookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHookState | undefined;
-            inputs["auth"] = state ? state.auth : undefined;
-            inputs["channel"] = state ? state.channel : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["headers"] = state ? state.headers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["auth"] = state ? state.auth : undefined;
+            resourceInputs["channel"] = state ? state.channel : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["headers"] = state ? state.headers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHookArgs | undefined;
             if ((!args || args.channel === undefined) && !opts.urn) {
@@ -119,17 +119,15 @@ export class EventHook extends pulumi.CustomResource {
             if ((!args || args.events === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            inputs["auth"] = args ? args.auth : undefined;
-            inputs["channel"] = args ? args.channel : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["headers"] = args ? args.headers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["auth"] = args ? args.auth : undefined;
+            resourceInputs["channel"] = args ? args.channel : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["headers"] = args ? args.headers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventHook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventHook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

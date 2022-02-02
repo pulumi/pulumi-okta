@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta.App
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOauthResult> InvokeAsync(GetOauthArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve an OIDC application from Okta.
@@ -68,7 +67,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOauthResult> Invoke(GetOauthInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());
     }
 
 

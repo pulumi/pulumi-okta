@@ -475,7 +475,7 @@ type ThreeFieldInput interface {
 }
 
 func (*ThreeField) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeField)(nil))
+	return reflect.TypeOf((**ThreeField)(nil)).Elem()
 }
 
 func (i *ThreeField) ToThreeFieldOutput() ThreeFieldOutput {
@@ -484,35 +484,6 @@ func (i *ThreeField) ToThreeFieldOutput() ThreeFieldOutput {
 
 func (i *ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldOutput)
-}
-
-func (i *ThreeField) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
-	return i.ToThreeFieldPtrOutputWithContext(context.Background())
-}
-
-func (i *ThreeField) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldPtrOutput)
-}
-
-type ThreeFieldPtrInput interface {
-	pulumi.Input
-
-	ToThreeFieldPtrOutput() ThreeFieldPtrOutput
-	ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput
-}
-
-type threeFieldPtrType ThreeFieldArgs
-
-func (*threeFieldPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreeField)(nil))
-}
-
-func (i *threeFieldPtrType) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
-	return i.ToThreeFieldPtrOutputWithContext(context.Background())
-}
-
-func (i *threeFieldPtrType) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldPtrOutput)
 }
 
 // ThreeFieldArrayInput is an input type that accepts ThreeFieldArray and ThreeFieldArrayOutput values.
@@ -568,7 +539,7 @@ func (i ThreeFieldMap) ToThreeFieldMapOutputWithContext(ctx context.Context) Thr
 type ThreeFieldOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeField)(nil))
+	return reflect.TypeOf((**ThreeField)(nil)).Elem()
 }
 
 func (o ThreeFieldOutput) ToThreeFieldOutput() ThreeFieldOutput {
@@ -579,44 +550,10 @@ func (o ThreeFieldOutput) ToThreeFieldOutputWithContext(ctx context.Context) Thr
 	return o
 }
 
-func (o ThreeFieldOutput) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
-	return o.ToThreeFieldPtrOutputWithContext(context.Background())
-}
-
-func (o ThreeFieldOutput) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreeField) *ThreeField {
-		return &v
-	}).(ThreeFieldPtrOutput)
-}
-
-type ThreeFieldPtrOutput struct{ *pulumi.OutputState }
-
-func (ThreeFieldPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreeField)(nil))
-}
-
-func (o ThreeFieldPtrOutput) ToThreeFieldPtrOutput() ThreeFieldPtrOutput {
-	return o
-}
-
-func (o ThreeFieldPtrOutput) ToThreeFieldPtrOutputWithContext(ctx context.Context) ThreeFieldPtrOutput {
-	return o
-}
-
-func (o ThreeFieldPtrOutput) Elem() ThreeFieldOutput {
-	return o.ApplyT(func(v *ThreeField) ThreeField {
-		if v != nil {
-			return *v
-		}
-		var ret ThreeField
-		return ret
-	}).(ThreeFieldOutput)
-}
-
 type ThreeFieldArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThreeField)(nil))
+	return reflect.TypeOf((*[]*ThreeField)(nil)).Elem()
 }
 
 func (o ThreeFieldArrayOutput) ToThreeFieldArrayOutput() ThreeFieldArrayOutput {
@@ -628,15 +565,15 @@ func (o ThreeFieldArrayOutput) ToThreeFieldArrayOutputWithContext(ctx context.Co
 }
 
 func (o ThreeFieldArrayOutput) Index(i pulumi.IntInput) ThreeFieldOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreeField {
-		return vs[0].([]ThreeField)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreeField {
+		return vs[0].([]*ThreeField)[vs[1].(int)]
 	}).(ThreeFieldOutput)
 }
 
 type ThreeFieldMapOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThreeField)(nil))
+	return reflect.TypeOf((*map[string]*ThreeField)(nil)).Elem()
 }
 
 func (o ThreeFieldMapOutput) ToThreeFieldMapOutput() ThreeFieldMapOutput {
@@ -648,18 +585,16 @@ func (o ThreeFieldMapOutput) ToThreeFieldMapOutputWithContext(ctx context.Contex
 }
 
 func (o ThreeFieldMapOutput) MapIndex(k pulumi.StringInput) ThreeFieldOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThreeField {
-		return vs[0].(map[string]ThreeField)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThreeField {
+		return vs[0].(map[string]*ThreeField)[vs[1].(string)]
 	}).(ThreeFieldOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldInput)(nil)).Elem(), &ThreeField{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldPtrInput)(nil)).Elem(), &ThreeField{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldArrayInput)(nil)).Elem(), ThreeFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldMapInput)(nil)).Elem(), ThreeFieldMap{})
 	pulumi.RegisterOutputType(ThreeFieldOutput{})
-	pulumi.RegisterOutputType(ThreeFieldPtrOutput{})
 	pulumi.RegisterOutputType(ThreeFieldArrayOutput{})
 	pulumi.RegisterOutputType(ThreeFieldMapOutput{})
 }

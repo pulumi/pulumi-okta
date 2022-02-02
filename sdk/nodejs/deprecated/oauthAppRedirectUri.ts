@@ -47,12 +47,12 @@ export class OauthAppRedirectUri extends pulumi.CustomResource {
      */
     constructor(name: string, args: OauthAppRedirectUriArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OauthAppRedirectUriArgs | OauthAppRedirectUriState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthAppRedirectUriState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as OauthAppRedirectUriArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -61,13 +61,11 @@ export class OauthAppRedirectUri extends pulumi.CustomResource {
             if ((!args || args.uri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OauthAppRedirectUri.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OauthAppRedirectUri.__pulumiType, name, resourceInputs, opts);
     }
 }
 

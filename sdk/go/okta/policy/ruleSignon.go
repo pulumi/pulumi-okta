@@ -424,7 +424,7 @@ type RuleSignonInput interface {
 }
 
 func (*RuleSignon) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSignon)(nil))
+	return reflect.TypeOf((**RuleSignon)(nil)).Elem()
 }
 
 func (i *RuleSignon) ToRuleSignonOutput() RuleSignonOutput {
@@ -433,35 +433,6 @@ func (i *RuleSignon) ToRuleSignonOutput() RuleSignonOutput {
 
 func (i *RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonOutput)
-}
-
-func (i *RuleSignon) ToRuleSignonPtrOutput() RuleSignonPtrOutput {
-	return i.ToRuleSignonPtrOutputWithContext(context.Background())
-}
-
-func (i *RuleSignon) ToRuleSignonPtrOutputWithContext(ctx context.Context) RuleSignonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonPtrOutput)
-}
-
-type RuleSignonPtrInput interface {
-	pulumi.Input
-
-	ToRuleSignonPtrOutput() RuleSignonPtrOutput
-	ToRuleSignonPtrOutputWithContext(ctx context.Context) RuleSignonPtrOutput
-}
-
-type ruleSignonPtrType RuleSignonArgs
-
-func (*ruleSignonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleSignon)(nil))
-}
-
-func (i *ruleSignonPtrType) ToRuleSignonPtrOutput() RuleSignonPtrOutput {
-	return i.ToRuleSignonPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleSignonPtrType) ToRuleSignonPtrOutputWithContext(ctx context.Context) RuleSignonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonPtrOutput)
 }
 
 // RuleSignonArrayInput is an input type that accepts RuleSignonArray and RuleSignonArrayOutput values.
@@ -517,7 +488,7 @@ func (i RuleSignonMap) ToRuleSignonMapOutputWithContext(ctx context.Context) Rul
 type RuleSignonOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleSignon)(nil))
+	return reflect.TypeOf((**RuleSignon)(nil)).Elem()
 }
 
 func (o RuleSignonOutput) ToRuleSignonOutput() RuleSignonOutput {
@@ -528,44 +499,10 @@ func (o RuleSignonOutput) ToRuleSignonOutputWithContext(ctx context.Context) Rul
 	return o
 }
 
-func (o RuleSignonOutput) ToRuleSignonPtrOutput() RuleSignonPtrOutput {
-	return o.ToRuleSignonPtrOutputWithContext(context.Background())
-}
-
-func (o RuleSignonOutput) ToRuleSignonPtrOutputWithContext(ctx context.Context) RuleSignonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSignon) *RuleSignon {
-		return &v
-	}).(RuleSignonPtrOutput)
-}
-
-type RuleSignonPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleSignonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleSignon)(nil))
-}
-
-func (o RuleSignonPtrOutput) ToRuleSignonPtrOutput() RuleSignonPtrOutput {
-	return o
-}
-
-func (o RuleSignonPtrOutput) ToRuleSignonPtrOutputWithContext(ctx context.Context) RuleSignonPtrOutput {
-	return o
-}
-
-func (o RuleSignonPtrOutput) Elem() RuleSignonOutput {
-	return o.ApplyT(func(v *RuleSignon) RuleSignon {
-		if v != nil {
-			return *v
-		}
-		var ret RuleSignon
-		return ret
-	}).(RuleSignonOutput)
-}
-
 type RuleSignonArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleSignon)(nil))
+	return reflect.TypeOf((*[]*RuleSignon)(nil)).Elem()
 }
 
 func (o RuleSignonArrayOutput) ToRuleSignonArrayOutput() RuleSignonArrayOutput {
@@ -577,15 +514,15 @@ func (o RuleSignonArrayOutput) ToRuleSignonArrayOutputWithContext(ctx context.Co
 }
 
 func (o RuleSignonArrayOutput) Index(i pulumi.IntInput) RuleSignonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSignon {
-		return vs[0].([]RuleSignon)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleSignon {
+		return vs[0].([]*RuleSignon)[vs[1].(int)]
 	}).(RuleSignonOutput)
 }
 
 type RuleSignonMapOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleSignon)(nil))
+	return reflect.TypeOf((*map[string]*RuleSignon)(nil)).Elem()
 }
 
 func (o RuleSignonMapOutput) ToRuleSignonMapOutput() RuleSignonMapOutput {
@@ -597,18 +534,16 @@ func (o RuleSignonMapOutput) ToRuleSignonMapOutputWithContext(ctx context.Contex
 }
 
 func (o RuleSignonMapOutput) MapIndex(k pulumi.StringInput) RuleSignonOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleSignon {
-		return vs[0].(map[string]RuleSignon)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RuleSignon {
+		return vs[0].(map[string]*RuleSignon)[vs[1].(string)]
 	}).(RuleSignonOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonInput)(nil)).Elem(), &RuleSignon{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonPtrInput)(nil)).Elem(), &RuleSignon{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonArrayInput)(nil)).Elem(), RuleSignonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonMapInput)(nil)).Elem(), RuleSignonMap{})
 	pulumi.RegisterOutputType(RuleSignonOutput{})
-	pulumi.RegisterOutputType(RuleSignonPtrOutput{})
 	pulumi.RegisterOutputType(RuleSignonArrayOutput{})
 	pulumi.RegisterOutputType(RuleSignonMapOutput{})
 }

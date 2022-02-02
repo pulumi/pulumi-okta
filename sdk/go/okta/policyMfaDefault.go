@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewPolicyMfaDefault(ctx, "_default", nil)
+// 		_, err := okta.NewPolicyMfaDefault(ctx, "default", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -284,7 +284,7 @@ type PolicyMfaDefaultInput interface {
 }
 
 func (*PolicyMfaDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyMfaDefault)(nil))
+	return reflect.TypeOf((**PolicyMfaDefault)(nil)).Elem()
 }
 
 func (i *PolicyMfaDefault) ToPolicyMfaDefaultOutput() PolicyMfaDefaultOutput {
@@ -293,35 +293,6 @@ func (i *PolicyMfaDefault) ToPolicyMfaDefaultOutput() PolicyMfaDefaultOutput {
 
 func (i *PolicyMfaDefault) ToPolicyMfaDefaultOutputWithContext(ctx context.Context) PolicyMfaDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultOutput)
-}
-
-func (i *PolicyMfaDefault) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPtrOutput {
-	return i.ToPolicyMfaDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyMfaDefault) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultPtrOutput)
-}
-
-type PolicyMfaDefaultPtrInput interface {
-	pulumi.Input
-
-	ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPtrOutput
-	ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput
-}
-
-type policyMfaDefaultPtrType PolicyMfaDefaultArgs
-
-func (*policyMfaDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyMfaDefault)(nil))
-}
-
-func (i *policyMfaDefaultPtrType) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPtrOutput {
-	return i.ToPolicyMfaDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *policyMfaDefaultPtrType) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultPtrOutput)
 }
 
 // PolicyMfaDefaultArrayInput is an input type that accepts PolicyMfaDefaultArray and PolicyMfaDefaultArrayOutput values.
@@ -377,7 +348,7 @@ func (i PolicyMfaDefaultMap) ToPolicyMfaDefaultMapOutputWithContext(ctx context.
 type PolicyMfaDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyMfaDefault)(nil))
+	return reflect.TypeOf((**PolicyMfaDefault)(nil)).Elem()
 }
 
 func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutput() PolicyMfaDefaultOutput {
@@ -388,44 +359,10 @@ func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutputWithContext(ctx context.
 	return o
 }
 
-func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPtrOutput {
-	return o.ToPolicyMfaDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyMfaDefault) *PolicyMfaDefault {
-		return &v
-	}).(PolicyMfaDefaultPtrOutput)
-}
-
-type PolicyMfaDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyMfaDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyMfaDefault)(nil))
-}
-
-func (o PolicyMfaDefaultPtrOutput) ToPolicyMfaDefaultPtrOutput() PolicyMfaDefaultPtrOutput {
-	return o
-}
-
-func (o PolicyMfaDefaultPtrOutput) ToPolicyMfaDefaultPtrOutputWithContext(ctx context.Context) PolicyMfaDefaultPtrOutput {
-	return o
-}
-
-func (o PolicyMfaDefaultPtrOutput) Elem() PolicyMfaDefaultOutput {
-	return o.ApplyT(func(v *PolicyMfaDefault) PolicyMfaDefault {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyMfaDefault
-		return ret
-	}).(PolicyMfaDefaultOutput)
-}
-
 type PolicyMfaDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyMfaDefault)(nil))
+	return reflect.TypeOf((*[]*PolicyMfaDefault)(nil)).Elem()
 }
 
 func (o PolicyMfaDefaultArrayOutput) ToPolicyMfaDefaultArrayOutput() PolicyMfaDefaultArrayOutput {
@@ -437,15 +374,15 @@ func (o PolicyMfaDefaultArrayOutput) ToPolicyMfaDefaultArrayOutputWithContext(ct
 }
 
 func (o PolicyMfaDefaultArrayOutput) Index(i pulumi.IntInput) PolicyMfaDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyMfaDefault {
-		return vs[0].([]PolicyMfaDefault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyMfaDefault {
+		return vs[0].([]*PolicyMfaDefault)[vs[1].(int)]
 	}).(PolicyMfaDefaultOutput)
 }
 
 type PolicyMfaDefaultMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyMfaDefault)(nil))
+	return reflect.TypeOf((*map[string]*PolicyMfaDefault)(nil)).Elem()
 }
 
 func (o PolicyMfaDefaultMapOutput) ToPolicyMfaDefaultMapOutput() PolicyMfaDefaultMapOutput {
@@ -457,18 +394,16 @@ func (o PolicyMfaDefaultMapOutput) ToPolicyMfaDefaultMapOutputWithContext(ctx co
 }
 
 func (o PolicyMfaDefaultMapOutput) MapIndex(k pulumi.StringInput) PolicyMfaDefaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyMfaDefault {
-		return vs[0].(map[string]PolicyMfaDefault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyMfaDefault {
+		return vs[0].(map[string]*PolicyMfaDefault)[vs[1].(string)]
 	}).(PolicyMfaDefaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMfaDefaultInput)(nil)).Elem(), &PolicyMfaDefault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMfaDefaultPtrInput)(nil)).Elem(), &PolicyMfaDefault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMfaDefaultArrayInput)(nil)).Elem(), PolicyMfaDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMfaDefaultMapInput)(nil)).Elem(), PolicyMfaDefaultMap{})
 	pulumi.RegisterOutputType(PolicyMfaDefaultOutput{})
-	pulumi.RegisterOutputType(PolicyMfaDefaultPtrOutput{})
 	pulumi.RegisterOutputType(PolicyMfaDefaultArrayOutput{})
 	pulumi.RegisterOutputType(PolicyMfaDefaultMapOutput{})
 }

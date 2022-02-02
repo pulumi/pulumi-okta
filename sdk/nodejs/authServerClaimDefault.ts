@@ -107,36 +107,34 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthServerClaimDefaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthServerClaimDefaultArgs | AuthServerClaimDefaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthServerClaimDefaultState | undefined;
-            inputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
-            inputs["authServerId"] = state ? state.authServerId : undefined;
-            inputs["claimType"] = state ? state.claimType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["valueType"] = state ? state.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
+            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
+            resourceInputs["claimType"] = state ? state.claimType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["valueType"] = state ? state.valueType : undefined;
         } else {
             const args = argsOrState as AuthServerClaimDefaultArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            inputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
-            inputs["authServerId"] = args ? args.authServerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["claimType"] = undefined /*out*/;
-            inputs["scopes"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["valueType"] = undefined /*out*/;
+            resourceInputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
+            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["valueType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AuthServerClaimDefault.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AuthServerClaimDefault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

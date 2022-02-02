@@ -113,42 +113,40 @@ export class Authenticator extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthenticatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthenticatorArgs | AuthenticatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthenticatorState | undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerAuthPort"] = state ? state.providerAuthPort : undefined;
-            inputs["providerHostname"] = state ? state.providerHostname : undefined;
-            inputs["providerInstanceId"] = state ? state.providerInstanceId : undefined;
-            inputs["providerSharedSecret"] = state ? state.providerSharedSecret : undefined;
-            inputs["providerType"] = state ? state.providerType : undefined;
-            inputs["providerUserNameTemplate"] = state ? state.providerUserNameTemplate : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerAuthPort"] = state ? state.providerAuthPort : undefined;
+            resourceInputs["providerHostname"] = state ? state.providerHostname : undefined;
+            resourceInputs["providerInstanceId"] = state ? state.providerInstanceId : undefined;
+            resourceInputs["providerSharedSecret"] = state ? state.providerSharedSecret : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["providerUserNameTemplate"] = state ? state.providerUserNameTemplate : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AuthenticatorArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["key"] = args ? args.key : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerAuthPort"] = args ? args.providerAuthPort : undefined;
-            inputs["providerHostname"] = args ? args.providerHostname : undefined;
-            inputs["providerSharedSecret"] = args ? args.providerSharedSecret : undefined;
-            inputs["providerUserNameTemplate"] = args ? args.providerUserNameTemplate : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["providerInstanceId"] = undefined /*out*/;
-            inputs["providerType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerAuthPort"] = args ? args.providerAuthPort : undefined;
+            resourceInputs["providerHostname"] = args ? args.providerHostname : undefined;
+            resourceInputs["providerSharedSecret"] = args ? args.providerSharedSecret : undefined;
+            resourceInputs["providerUserNameTemplate"] = args ? args.providerUserNameTemplate : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["providerInstanceId"] = undefined /*out*/;
+            resourceInputs["providerType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Authenticator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Authenticator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

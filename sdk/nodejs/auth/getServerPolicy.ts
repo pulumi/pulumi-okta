@@ -24,9 +24,7 @@ export function getServerPolicy(args: GetServerPolicyArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:auth/getServerPolicy:getServerPolicy", {
         "authServerId": args.authServerId,
         "name": args.name,

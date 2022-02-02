@@ -77,13 +77,13 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceSetArgs | ResourceSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -92,14 +92,12 @@ export class ResourceSet extends pulumi.CustomResource {
             if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

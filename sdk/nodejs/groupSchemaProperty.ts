@@ -148,29 +148,29 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupSchemaPropertyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupSchemaPropertyArgs | GroupSchemaPropertyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupSchemaPropertyState | undefined;
-            inputs["arrayEnums"] = state ? state.arrayEnums : undefined;
-            inputs["arrayOneOfs"] = state ? state.arrayOneOfs : undefined;
-            inputs["arrayType"] = state ? state.arrayType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enums"] = state ? state.enums : undefined;
-            inputs["externalName"] = state ? state.externalName : undefined;
-            inputs["externalNamespace"] = state ? state.externalNamespace : undefined;
-            inputs["index"] = state ? state.index : undefined;
-            inputs["master"] = state ? state.master : undefined;
-            inputs["masterOverridePriorities"] = state ? state.masterOverridePriorities : undefined;
-            inputs["maxLength"] = state ? state.maxLength : undefined;
-            inputs["minLength"] = state ? state.minLength : undefined;
-            inputs["oneOfs"] = state ? state.oneOfs : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["required"] = state ? state.required : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["unique"] = state ? state.unique : undefined;
+            resourceInputs["arrayEnums"] = state ? state.arrayEnums : undefined;
+            resourceInputs["arrayOneOfs"] = state ? state.arrayOneOfs : undefined;
+            resourceInputs["arrayType"] = state ? state.arrayType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enums"] = state ? state.enums : undefined;
+            resourceInputs["externalName"] = state ? state.externalName : undefined;
+            resourceInputs["externalNamespace"] = state ? state.externalNamespace : undefined;
+            resourceInputs["index"] = state ? state.index : undefined;
+            resourceInputs["master"] = state ? state.master : undefined;
+            resourceInputs["masterOverridePriorities"] = state ? state.masterOverridePriorities : undefined;
+            resourceInputs["maxLength"] = state ? state.maxLength : undefined;
+            resourceInputs["minLength"] = state ? state.minLength : undefined;
+            resourceInputs["oneOfs"] = state ? state.oneOfs : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["required"] = state ? state.required : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["unique"] = state ? state.unique : undefined;
         } else {
             const args = argsOrState as GroupSchemaPropertyArgs | undefined;
             if ((!args || args.index === undefined) && !opts.urn) {
@@ -182,30 +182,28 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["arrayEnums"] = args ? args.arrayEnums : undefined;
-            inputs["arrayOneOfs"] = args ? args.arrayOneOfs : undefined;
-            inputs["arrayType"] = args ? args.arrayType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enums"] = args ? args.enums : undefined;
-            inputs["externalName"] = args ? args.externalName : undefined;
-            inputs["externalNamespace"] = args ? args.externalNamespace : undefined;
-            inputs["index"] = args ? args.index : undefined;
-            inputs["master"] = args ? args.master : undefined;
-            inputs["masterOverridePriorities"] = args ? args.masterOverridePriorities : undefined;
-            inputs["maxLength"] = args ? args.maxLength : undefined;
-            inputs["minLength"] = args ? args.minLength : undefined;
-            inputs["oneOfs"] = args ? args.oneOfs : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["required"] = args ? args.required : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["unique"] = args ? args.unique : undefined;
+            resourceInputs["arrayEnums"] = args ? args.arrayEnums : undefined;
+            resourceInputs["arrayOneOfs"] = args ? args.arrayOneOfs : undefined;
+            resourceInputs["arrayType"] = args ? args.arrayType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enums"] = args ? args.enums : undefined;
+            resourceInputs["externalName"] = args ? args.externalName : undefined;
+            resourceInputs["externalNamespace"] = args ? args.externalNamespace : undefined;
+            resourceInputs["index"] = args ? args.index : undefined;
+            resourceInputs["master"] = args ? args.master : undefined;
+            resourceInputs["masterOverridePriorities"] = args ? args.masterOverridePriorities : undefined;
+            resourceInputs["maxLength"] = args ? args.maxLength : undefined;
+            resourceInputs["minLength"] = args ? args.minLength : undefined;
+            resourceInputs["oneOfs"] = args ? args.oneOfs : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["required"] = args ? args.required : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["unique"] = args ? args.unique : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupSchemaProperty.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupSchemaProperty.__pulumiType, name, resourceInputs, opts);
     }
 }
 

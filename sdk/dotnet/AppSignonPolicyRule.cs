@@ -193,10 +193,10 @@ namespace Pulumi.Okta
     ///                 },
     ///             },
     ///         });
-    ///         var testAppSignonPolicy = testSaml.Id.Apply(id =&gt; Okta.GetAppSignonPolicy.InvokeAsync(new Okta.GetAppSignonPolicyArgs
+    ///         var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new Okta.GetAppSignonPolicyInvokeArgs
     ///         {
-    ///             AppId = id,
-    ///         }));
+    ///             AppId = testSaml.Id,
+    ///         });
     ///         var testUser = new List&lt;Okta.User.User&gt;();
     ///         for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
     ///         {

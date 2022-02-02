@@ -301,7 +301,7 @@ type SocialIdpInput interface {
 }
 
 func (*SocialIdp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SocialIdp)(nil))
+	return reflect.TypeOf((**SocialIdp)(nil)).Elem()
 }
 
 func (i *SocialIdp) ToSocialIdpOutput() SocialIdpOutput {
@@ -310,35 +310,6 @@ func (i *SocialIdp) ToSocialIdpOutput() SocialIdpOutput {
 
 func (i *SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpOutput)
-}
-
-func (i *SocialIdp) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
-	return i.ToSocialIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *SocialIdp) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpPtrOutput)
-}
-
-type SocialIdpPtrInput interface {
-	pulumi.Input
-
-	ToSocialIdpPtrOutput() SocialIdpPtrOutput
-	ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput
-}
-
-type socialIdpPtrType SocialIdpArgs
-
-func (*socialIdpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SocialIdp)(nil))
-}
-
-func (i *socialIdpPtrType) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
-	return i.ToSocialIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *socialIdpPtrType) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SocialIdpPtrOutput)
 }
 
 // SocialIdpArrayInput is an input type that accepts SocialIdpArray and SocialIdpArrayOutput values.
@@ -394,7 +365,7 @@ func (i SocialIdpMap) ToSocialIdpMapOutputWithContext(ctx context.Context) Socia
 type SocialIdpOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SocialIdp)(nil))
+	return reflect.TypeOf((**SocialIdp)(nil)).Elem()
 }
 
 func (o SocialIdpOutput) ToSocialIdpOutput() SocialIdpOutput {
@@ -405,44 +376,10 @@ func (o SocialIdpOutput) ToSocialIdpOutputWithContext(ctx context.Context) Socia
 	return o
 }
 
-func (o SocialIdpOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
-	return o.ToSocialIdpPtrOutputWithContext(context.Background())
-}
-
-func (o SocialIdpOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SocialIdp) *SocialIdp {
-		return &v
-	}).(SocialIdpPtrOutput)
-}
-
-type SocialIdpPtrOutput struct{ *pulumi.OutputState }
-
-func (SocialIdpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SocialIdp)(nil))
-}
-
-func (o SocialIdpPtrOutput) ToSocialIdpPtrOutput() SocialIdpPtrOutput {
-	return o
-}
-
-func (o SocialIdpPtrOutput) ToSocialIdpPtrOutputWithContext(ctx context.Context) SocialIdpPtrOutput {
-	return o
-}
-
-func (o SocialIdpPtrOutput) Elem() SocialIdpOutput {
-	return o.ApplyT(func(v *SocialIdp) SocialIdp {
-		if v != nil {
-			return *v
-		}
-		var ret SocialIdp
-		return ret
-	}).(SocialIdpOutput)
-}
-
 type SocialIdpArrayOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SocialIdp)(nil))
+	return reflect.TypeOf((*[]*SocialIdp)(nil)).Elem()
 }
 
 func (o SocialIdpArrayOutput) ToSocialIdpArrayOutput() SocialIdpArrayOutput {
@@ -454,15 +391,15 @@ func (o SocialIdpArrayOutput) ToSocialIdpArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SocialIdpArrayOutput) Index(i pulumi.IntInput) SocialIdpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SocialIdp {
-		return vs[0].([]SocialIdp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SocialIdp {
+		return vs[0].([]*SocialIdp)[vs[1].(int)]
 	}).(SocialIdpOutput)
 }
 
 type SocialIdpMapOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SocialIdp)(nil))
+	return reflect.TypeOf((*map[string]*SocialIdp)(nil)).Elem()
 }
 
 func (o SocialIdpMapOutput) ToSocialIdpMapOutput() SocialIdpMapOutput {
@@ -474,18 +411,16 @@ func (o SocialIdpMapOutput) ToSocialIdpMapOutputWithContext(ctx context.Context)
 }
 
 func (o SocialIdpMapOutput) MapIndex(k pulumi.StringInput) SocialIdpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SocialIdp {
-		return vs[0].(map[string]SocialIdp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SocialIdp {
+		return vs[0].(map[string]*SocialIdp)[vs[1].(string)]
 	}).(SocialIdpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpInput)(nil)).Elem(), &SocialIdp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpPtrInput)(nil)).Elem(), &SocialIdp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpArrayInput)(nil)).Elem(), SocialIdpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SocialIdpMapInput)(nil)).Elem(), SocialIdpMap{})
 	pulumi.RegisterOutputType(SocialIdpOutput{})
-	pulumi.RegisterOutputType(SocialIdpPtrOutput{})
 	pulumi.RegisterOutputType(SocialIdpArrayOutput{})
 	pulumi.RegisterOutputType(SocialIdpMapOutput{})
 }

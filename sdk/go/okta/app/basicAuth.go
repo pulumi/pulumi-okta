@@ -358,7 +358,7 @@ type BasicAuthInput interface {
 }
 
 func (*BasicAuth) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasicAuth)(nil))
+	return reflect.TypeOf((**BasicAuth)(nil)).Elem()
 }
 
 func (i *BasicAuth) ToBasicAuthOutput() BasicAuthOutput {
@@ -367,35 +367,6 @@ func (i *BasicAuth) ToBasicAuthOutput() BasicAuthOutput {
 
 func (i *BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthOutput)
-}
-
-func (i *BasicAuth) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
-	return i.ToBasicAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *BasicAuth) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthPtrOutput)
-}
-
-type BasicAuthPtrInput interface {
-	pulumi.Input
-
-	ToBasicAuthPtrOutput() BasicAuthPtrOutput
-	ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput
-}
-
-type basicAuthPtrType BasicAuthArgs
-
-func (*basicAuthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BasicAuth)(nil))
-}
-
-func (i *basicAuthPtrType) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
-	return i.ToBasicAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *basicAuthPtrType) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthPtrOutput)
 }
 
 // BasicAuthArrayInput is an input type that accepts BasicAuthArray and BasicAuthArrayOutput values.
@@ -451,7 +422,7 @@ func (i BasicAuthMap) ToBasicAuthMapOutputWithContext(ctx context.Context) Basic
 type BasicAuthOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasicAuth)(nil))
+	return reflect.TypeOf((**BasicAuth)(nil)).Elem()
 }
 
 func (o BasicAuthOutput) ToBasicAuthOutput() BasicAuthOutput {
@@ -462,44 +433,10 @@ func (o BasicAuthOutput) ToBasicAuthOutputWithContext(ctx context.Context) Basic
 	return o
 }
 
-func (o BasicAuthOutput) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
-	return o.ToBasicAuthPtrOutputWithContext(context.Background())
-}
-
-func (o BasicAuthOutput) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasicAuth) *BasicAuth {
-		return &v
-	}).(BasicAuthPtrOutput)
-}
-
-type BasicAuthPtrOutput struct{ *pulumi.OutputState }
-
-func (BasicAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BasicAuth)(nil))
-}
-
-func (o BasicAuthPtrOutput) ToBasicAuthPtrOutput() BasicAuthPtrOutput {
-	return o
-}
-
-func (o BasicAuthPtrOutput) ToBasicAuthPtrOutputWithContext(ctx context.Context) BasicAuthPtrOutput {
-	return o
-}
-
-func (o BasicAuthPtrOutput) Elem() BasicAuthOutput {
-	return o.ApplyT(func(v *BasicAuth) BasicAuth {
-		if v != nil {
-			return *v
-		}
-		var ret BasicAuth
-		return ret
-	}).(BasicAuthOutput)
-}
-
 type BasicAuthArrayOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BasicAuth)(nil))
+	return reflect.TypeOf((*[]*BasicAuth)(nil)).Elem()
 }
 
 func (o BasicAuthArrayOutput) ToBasicAuthArrayOutput() BasicAuthArrayOutput {
@@ -511,15 +448,15 @@ func (o BasicAuthArrayOutput) ToBasicAuthArrayOutputWithContext(ctx context.Cont
 }
 
 func (o BasicAuthArrayOutput) Index(i pulumi.IntInput) BasicAuthOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasicAuth {
-		return vs[0].([]BasicAuth)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BasicAuth {
+		return vs[0].([]*BasicAuth)[vs[1].(int)]
 	}).(BasicAuthOutput)
 }
 
 type BasicAuthMapOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BasicAuth)(nil))
+	return reflect.TypeOf((*map[string]*BasicAuth)(nil)).Elem()
 }
 
 func (o BasicAuthMapOutput) ToBasicAuthMapOutput() BasicAuthMapOutput {
@@ -531,18 +468,16 @@ func (o BasicAuthMapOutput) ToBasicAuthMapOutputWithContext(ctx context.Context)
 }
 
 func (o BasicAuthMapOutput) MapIndex(k pulumi.StringInput) BasicAuthOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BasicAuth {
-		return vs[0].(map[string]BasicAuth)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BasicAuth {
+		return vs[0].(map[string]*BasicAuth)[vs[1].(string)]
 	}).(BasicAuthOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthInput)(nil)).Elem(), &BasicAuth{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthPtrInput)(nil)).Elem(), &BasicAuth{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthArrayInput)(nil)).Elem(), BasicAuthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BasicAuthMapInput)(nil)).Elem(), BasicAuthMap{})
 	pulumi.RegisterOutputType(BasicAuthOutput{})
-	pulumi.RegisterOutputType(BasicAuthPtrOutput{})
 	pulumi.RegisterOutputType(BasicAuthArrayOutput{})
 	pulumi.RegisterOutputType(BasicAuthMapOutput{})
 }

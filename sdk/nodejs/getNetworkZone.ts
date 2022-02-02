@@ -24,9 +24,7 @@ export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:index/getNetworkZone:getNetworkZone", {
         "id": args.id,
         "name": args.name,

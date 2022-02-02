@@ -726,7 +726,7 @@ type OAuthInput interface {
 }
 
 func (*OAuth) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuth)(nil))
+	return reflect.TypeOf((**OAuth)(nil)).Elem()
 }
 
 func (i *OAuth) ToOAuthOutput() OAuthOutput {
@@ -735,35 +735,6 @@ func (i *OAuth) ToOAuthOutput() OAuthOutput {
 
 func (i *OAuth) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthOutput)
-}
-
-func (i *OAuth) ToOAuthPtrOutput() OAuthPtrOutput {
-	return i.ToOAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *OAuth) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OAuthPtrOutput)
-}
-
-type OAuthPtrInput interface {
-	pulumi.Input
-
-	ToOAuthPtrOutput() OAuthPtrOutput
-	ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput
-}
-
-type oauthPtrType OAuthArgs
-
-func (*oauthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OAuth)(nil))
-}
-
-func (i *oauthPtrType) ToOAuthPtrOutput() OAuthPtrOutput {
-	return i.ToOAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *oauthPtrType) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OAuthPtrOutput)
 }
 
 // OAuthArrayInput is an input type that accepts OAuthArray and OAuthArrayOutput values.
@@ -819,7 +790,7 @@ func (i OAuthMap) ToOAuthMapOutputWithContext(ctx context.Context) OAuthMapOutpu
 type OAuthOutput struct{ *pulumi.OutputState }
 
 func (OAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuth)(nil))
+	return reflect.TypeOf((**OAuth)(nil)).Elem()
 }
 
 func (o OAuthOutput) ToOAuthOutput() OAuthOutput {
@@ -830,44 +801,10 @@ func (o OAuthOutput) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return o
 }
 
-func (o OAuthOutput) ToOAuthPtrOutput() OAuthPtrOutput {
-	return o.ToOAuthPtrOutputWithContext(context.Background())
-}
-
-func (o OAuthOutput) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth) *OAuth {
-		return &v
-	}).(OAuthPtrOutput)
-}
-
-type OAuthPtrOutput struct{ *pulumi.OutputState }
-
-func (OAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OAuth)(nil))
-}
-
-func (o OAuthPtrOutput) ToOAuthPtrOutput() OAuthPtrOutput {
-	return o
-}
-
-func (o OAuthPtrOutput) ToOAuthPtrOutputWithContext(ctx context.Context) OAuthPtrOutput {
-	return o
-}
-
-func (o OAuthPtrOutput) Elem() OAuthOutput {
-	return o.ApplyT(func(v *OAuth) OAuth {
-		if v != nil {
-			return *v
-		}
-		var ret OAuth
-		return ret
-	}).(OAuthOutput)
-}
-
 type OAuthArrayOutput struct{ *pulumi.OutputState }
 
 func (OAuthArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OAuth)(nil))
+	return reflect.TypeOf((*[]*OAuth)(nil)).Elem()
 }
 
 func (o OAuthArrayOutput) ToOAuthArrayOutput() OAuthArrayOutput {
@@ -879,15 +816,15 @@ func (o OAuthArrayOutput) ToOAuthArrayOutputWithContext(ctx context.Context) OAu
 }
 
 func (o OAuthArrayOutput) Index(i pulumi.IntInput) OAuthOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OAuth {
-		return vs[0].([]OAuth)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OAuth {
+		return vs[0].([]*OAuth)[vs[1].(int)]
 	}).(OAuthOutput)
 }
 
 type OAuthMapOutput struct{ *pulumi.OutputState }
 
 func (OAuthMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OAuth)(nil))
+	return reflect.TypeOf((*map[string]*OAuth)(nil)).Elem()
 }
 
 func (o OAuthMapOutput) ToOAuthMapOutput() OAuthMapOutput {
@@ -899,18 +836,16 @@ func (o OAuthMapOutput) ToOAuthMapOutputWithContext(ctx context.Context) OAuthMa
 }
 
 func (o OAuthMapOutput) MapIndex(k pulumi.StringInput) OAuthOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OAuth {
-		return vs[0].(map[string]OAuth)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OAuth {
+		return vs[0].(map[string]*OAuth)[vs[1].(string)]
 	}).(OAuthOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthInput)(nil)).Elem(), &OAuth{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OAuthPtrInput)(nil)).Elem(), &OAuth{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthArrayInput)(nil)).Elem(), OAuthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthMapInput)(nil)).Elem(), OAuthMap{})
 	pulumi.RegisterOutputType(OAuthOutput{})
-	pulumi.RegisterOutputType(OAuthPtrOutput{})
 	pulumi.RegisterOutputType(OAuthArrayOutput{})
 	pulumi.RegisterOutputType(OAuthMapOutput{})
 }

@@ -24,9 +24,7 @@ export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:app/getMetadataSaml:getMetadataSaml", {
         "appId": args.appId,
         "keyId": args.keyId,

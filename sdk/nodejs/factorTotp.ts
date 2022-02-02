@@ -92,29 +92,27 @@ export class FactorTotp extends pulumi.CustomResource {
      */
     constructor(name: string, args?: FactorTotpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FactorTotpArgs | FactorTotpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FactorTotpState | undefined;
-            inputs["clockDriftInterval"] = state ? state.clockDriftInterval : undefined;
-            inputs["hmacAlgorithm"] = state ? state.hmacAlgorithm : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["otpLength"] = state ? state.otpLength : undefined;
-            inputs["sharedSecretEncoding"] = state ? state.sharedSecretEncoding : undefined;
-            inputs["timeStep"] = state ? state.timeStep : undefined;
+            resourceInputs["clockDriftInterval"] = state ? state.clockDriftInterval : undefined;
+            resourceInputs["hmacAlgorithm"] = state ? state.hmacAlgorithm : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["otpLength"] = state ? state.otpLength : undefined;
+            resourceInputs["sharedSecretEncoding"] = state ? state.sharedSecretEncoding : undefined;
+            resourceInputs["timeStep"] = state ? state.timeStep : undefined;
         } else {
             const args = argsOrState as FactorTotpArgs | undefined;
-            inputs["clockDriftInterval"] = args ? args.clockDriftInterval : undefined;
-            inputs["hmacAlgorithm"] = args ? args.hmacAlgorithm : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["otpLength"] = args ? args.otpLength : undefined;
-            inputs["sharedSecretEncoding"] = args ? args.sharedSecretEncoding : undefined;
-            inputs["timeStep"] = args ? args.timeStep : undefined;
+            resourceInputs["clockDriftInterval"] = args ? args.clockDriftInterval : undefined;
+            resourceInputs["hmacAlgorithm"] = args ? args.hmacAlgorithm : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["otpLength"] = args ? args.otpLength : undefined;
+            resourceInputs["sharedSecretEncoding"] = args ? args.sharedSecretEncoding : undefined;
+            resourceInputs["timeStep"] = args ? args.timeStep : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FactorTotp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FactorTotp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

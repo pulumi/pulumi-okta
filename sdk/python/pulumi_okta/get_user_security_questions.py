@@ -81,7 +81,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
         last_name="Smith",
         login="john.smith@example.com",
         email="john.smith@example.com")
-    example_user_security_questions = example_user.id.apply(lambda id: okta.get_user_security_questions(user_id=id))
+    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
 
 
@@ -118,7 +118,7 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
         last_name="Smith",
         login="john.smith@example.com",
         email="john.smith@example.com")
-    example_user_security_questions = example_user.id.apply(lambda id: okta.get_user_security_questions(user_id=id))
+    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
 
 

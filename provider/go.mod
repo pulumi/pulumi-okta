@@ -4,8 +4,8 @@ go 1.16
 
 require (
 	github.com/okta/terraform-provider-okta v0.0.0-20220114184547-1897d8d932e6
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
-	github.com/pulumi/pulumi/sdk/v3 v3.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )
 
 replace (

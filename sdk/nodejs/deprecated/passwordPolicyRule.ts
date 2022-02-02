@@ -93,41 +93,39 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
      */
     constructor(name: string, args?: PasswordPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PasswordPolicyRuleArgs | PasswordPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PasswordPolicyRuleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConnection"] = state ? state.networkConnection : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["passwordChange"] = state ? state.passwordChange : undefined;
-            inputs["passwordReset"] = state ? state.passwordReset : undefined;
-            inputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["policyid"] = state ? state.policyid : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            resourceInputs["passwordChange"] = state ? state.passwordChange : undefined;
+            resourceInputs["passwordReset"] = state ? state.passwordReset : undefined;
+            resourceInputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["policyid"] = state ? state.policyid : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as PasswordPolicyRuleArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConnection"] = args ? args.networkConnection : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["passwordChange"] = args ? args.passwordChange : undefined;
-            inputs["passwordReset"] = args ? args.passwordReset : undefined;
-            inputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["policyid"] = args ? args.policyid : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            resourceInputs["passwordChange"] = args ? args.passwordChange : undefined;
+            resourceInputs["passwordReset"] = args ? args.passwordReset : undefined;
+            resourceInputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["policyid"] = args ? args.policyid : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PasswordPolicyRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PasswordPolicyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

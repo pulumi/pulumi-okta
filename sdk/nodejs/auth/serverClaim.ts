@@ -105,19 +105,19 @@ export class ServerClaim extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerClaimArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerClaimArgs | ServerClaimState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerClaimState | undefined;
-            inputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
-            inputs["authServerId"] = state ? state.authServerId : undefined;
-            inputs["claimType"] = state ? state.claimType : undefined;
-            inputs["groupFilterType"] = state ? state.groupFilterType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["valueType"] = state ? state.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
+            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
+            resourceInputs["claimType"] = state ? state.claimType : undefined;
+            resourceInputs["groupFilterType"] = state ? state.groupFilterType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["valueType"] = state ? state.valueType : undefined;
         } else {
             const args = argsOrState as ServerClaimArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
@@ -129,20 +129,18 @@ export class ServerClaim extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
-            inputs["authServerId"] = args ? args.authServerId : undefined;
-            inputs["claimType"] = args ? args.claimType : undefined;
-            inputs["groupFilterType"] = args ? args.groupFilterType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["valueType"] = args ? args.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
+            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
+            resourceInputs["claimType"] = args ? args.claimType : undefined;
+            resourceInputs["groupFilterType"] = args ? args.groupFilterType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["valueType"] = args ? args.valueType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerClaim.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerClaim.__pulumiType, name, resourceInputs, opts);
     }
 }
 

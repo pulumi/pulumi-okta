@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewPolicyPasswordDefault(ctx, "_default", nil)
+// 		_, err := okta.NewPolicyPasswordDefault(ctx, "default", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -400,7 +400,7 @@ type PolicyPasswordDefaultInput interface {
 }
 
 func (*PolicyPasswordDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPasswordDefault)(nil))
+	return reflect.TypeOf((**PolicyPasswordDefault)(nil)).Elem()
 }
 
 func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultOutput() PolicyPasswordDefaultOutput {
@@ -409,35 +409,6 @@ func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultOutput() PolicyPasswordDe
 
 func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultOutputWithContext(ctx context.Context) PolicyPasswordDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultOutput)
-}
-
-func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultPtrOutput() PolicyPasswordDefaultPtrOutput {
-	return i.ToPolicyPasswordDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultPtrOutputWithContext(ctx context.Context) PolicyPasswordDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultPtrOutput)
-}
-
-type PolicyPasswordDefaultPtrInput interface {
-	pulumi.Input
-
-	ToPolicyPasswordDefaultPtrOutput() PolicyPasswordDefaultPtrOutput
-	ToPolicyPasswordDefaultPtrOutputWithContext(ctx context.Context) PolicyPasswordDefaultPtrOutput
-}
-
-type policyPasswordDefaultPtrType PolicyPasswordDefaultArgs
-
-func (*policyPasswordDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyPasswordDefault)(nil))
-}
-
-func (i *policyPasswordDefaultPtrType) ToPolicyPasswordDefaultPtrOutput() PolicyPasswordDefaultPtrOutput {
-	return i.ToPolicyPasswordDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *policyPasswordDefaultPtrType) ToPolicyPasswordDefaultPtrOutputWithContext(ctx context.Context) PolicyPasswordDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultPtrOutput)
 }
 
 // PolicyPasswordDefaultArrayInput is an input type that accepts PolicyPasswordDefaultArray and PolicyPasswordDefaultArrayOutput values.
@@ -493,7 +464,7 @@ func (i PolicyPasswordDefaultMap) ToPolicyPasswordDefaultMapOutputWithContext(ct
 type PolicyPasswordDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyPasswordDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPasswordDefault)(nil))
+	return reflect.TypeOf((**PolicyPasswordDefault)(nil)).Elem()
 }
 
 func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutput() PolicyPasswordDefaultOutput {
@@ -504,44 +475,10 @@ func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutputWithContext(ct
 	return o
 }
 
-func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultPtrOutput() PolicyPasswordDefaultPtrOutput {
-	return o.ToPolicyPasswordDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultPtrOutputWithContext(ctx context.Context) PolicyPasswordDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPasswordDefault) *PolicyPasswordDefault {
-		return &v
-	}).(PolicyPasswordDefaultPtrOutput)
-}
-
-type PolicyPasswordDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyPasswordDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyPasswordDefault)(nil))
-}
-
-func (o PolicyPasswordDefaultPtrOutput) ToPolicyPasswordDefaultPtrOutput() PolicyPasswordDefaultPtrOutput {
-	return o
-}
-
-func (o PolicyPasswordDefaultPtrOutput) ToPolicyPasswordDefaultPtrOutputWithContext(ctx context.Context) PolicyPasswordDefaultPtrOutput {
-	return o
-}
-
-func (o PolicyPasswordDefaultPtrOutput) Elem() PolicyPasswordDefaultOutput {
-	return o.ApplyT(func(v *PolicyPasswordDefault) PolicyPasswordDefault {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyPasswordDefault
-		return ret
-	}).(PolicyPasswordDefaultOutput)
-}
-
 type PolicyPasswordDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyPasswordDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyPasswordDefault)(nil))
+	return reflect.TypeOf((*[]*PolicyPasswordDefault)(nil)).Elem()
 }
 
 func (o PolicyPasswordDefaultArrayOutput) ToPolicyPasswordDefaultArrayOutput() PolicyPasswordDefaultArrayOutput {
@@ -553,15 +490,15 @@ func (o PolicyPasswordDefaultArrayOutput) ToPolicyPasswordDefaultArrayOutputWith
 }
 
 func (o PolicyPasswordDefaultArrayOutput) Index(i pulumi.IntInput) PolicyPasswordDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPasswordDefault {
-		return vs[0].([]PolicyPasswordDefault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyPasswordDefault {
+		return vs[0].([]*PolicyPasswordDefault)[vs[1].(int)]
 	}).(PolicyPasswordDefaultOutput)
 }
 
 type PolicyPasswordDefaultMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyPasswordDefaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyPasswordDefault)(nil))
+	return reflect.TypeOf((*map[string]*PolicyPasswordDefault)(nil)).Elem()
 }
 
 func (o PolicyPasswordDefaultMapOutput) ToPolicyPasswordDefaultMapOutput() PolicyPasswordDefaultMapOutput {
@@ -573,18 +510,16 @@ func (o PolicyPasswordDefaultMapOutput) ToPolicyPasswordDefaultMapOutputWithCont
 }
 
 func (o PolicyPasswordDefaultMapOutput) MapIndex(k pulumi.StringInput) PolicyPasswordDefaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyPasswordDefault {
-		return vs[0].(map[string]PolicyPasswordDefault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyPasswordDefault {
+		return vs[0].(map[string]*PolicyPasswordDefault)[vs[1].(string)]
 	}).(PolicyPasswordDefaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPasswordDefaultInput)(nil)).Elem(), &PolicyPasswordDefault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPasswordDefaultPtrInput)(nil)).Elem(), &PolicyPasswordDefault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPasswordDefaultArrayInput)(nil)).Elem(), PolicyPasswordDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPasswordDefaultMapInput)(nil)).Elem(), PolicyPasswordDefaultMap{})
 	pulumi.RegisterOutputType(PolicyPasswordDefaultOutput{})
-	pulumi.RegisterOutputType(PolicyPasswordDefaultPtrOutput{})
 	pulumi.RegisterOutputType(PolicyPasswordDefaultArrayOutput{})
 	pulumi.RegisterOutputType(PolicyPasswordDefaultMapOutput{})
 }

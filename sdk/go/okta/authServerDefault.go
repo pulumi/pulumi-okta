@@ -188,7 +188,7 @@ type AuthServerDefaultInput interface {
 }
 
 func (*AuthServerDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthServerDefault)(nil))
+	return reflect.TypeOf((**AuthServerDefault)(nil)).Elem()
 }
 
 func (i *AuthServerDefault) ToAuthServerDefaultOutput() AuthServerDefaultOutput {
@@ -197,35 +197,6 @@ func (i *AuthServerDefault) ToAuthServerDefaultOutput() AuthServerDefaultOutput 
 
 func (i *AuthServerDefault) ToAuthServerDefaultOutputWithContext(ctx context.Context) AuthServerDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultOutput)
-}
-
-func (i *AuthServerDefault) ToAuthServerDefaultPtrOutput() AuthServerDefaultPtrOutput {
-	return i.ToAuthServerDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *AuthServerDefault) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultPtrOutput)
-}
-
-type AuthServerDefaultPtrInput interface {
-	pulumi.Input
-
-	ToAuthServerDefaultPtrOutput() AuthServerDefaultPtrOutput
-	ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput
-}
-
-type authServerDefaultPtrType AuthServerDefaultArgs
-
-func (*authServerDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthServerDefault)(nil))
-}
-
-func (i *authServerDefaultPtrType) ToAuthServerDefaultPtrOutput() AuthServerDefaultPtrOutput {
-	return i.ToAuthServerDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *authServerDefaultPtrType) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultPtrOutput)
 }
 
 // AuthServerDefaultArrayInput is an input type that accepts AuthServerDefaultArray and AuthServerDefaultArrayOutput values.
@@ -281,7 +252,7 @@ func (i AuthServerDefaultMap) ToAuthServerDefaultMapOutputWithContext(ctx contex
 type AuthServerDefaultOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthServerDefault)(nil))
+	return reflect.TypeOf((**AuthServerDefault)(nil)).Elem()
 }
 
 func (o AuthServerDefaultOutput) ToAuthServerDefaultOutput() AuthServerDefaultOutput {
@@ -292,44 +263,10 @@ func (o AuthServerDefaultOutput) ToAuthServerDefaultOutputWithContext(ctx contex
 	return o
 }
 
-func (o AuthServerDefaultOutput) ToAuthServerDefaultPtrOutput() AuthServerDefaultPtrOutput {
-	return o.ToAuthServerDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o AuthServerDefaultOutput) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthServerDefault) *AuthServerDefault {
-		return &v
-	}).(AuthServerDefaultPtrOutput)
-}
-
-type AuthServerDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthServerDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthServerDefault)(nil))
-}
-
-func (o AuthServerDefaultPtrOutput) ToAuthServerDefaultPtrOutput() AuthServerDefaultPtrOutput {
-	return o
-}
-
-func (o AuthServerDefaultPtrOutput) ToAuthServerDefaultPtrOutputWithContext(ctx context.Context) AuthServerDefaultPtrOutput {
-	return o
-}
-
-func (o AuthServerDefaultPtrOutput) Elem() AuthServerDefaultOutput {
-	return o.ApplyT(func(v *AuthServerDefault) AuthServerDefault {
-		if v != nil {
-			return *v
-		}
-		var ret AuthServerDefault
-		return ret
-	}).(AuthServerDefaultOutput)
-}
-
 type AuthServerDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AuthServerDefault)(nil))
+	return reflect.TypeOf((*[]*AuthServerDefault)(nil)).Elem()
 }
 
 func (o AuthServerDefaultArrayOutput) ToAuthServerDefaultArrayOutput() AuthServerDefaultArrayOutput {
@@ -341,15 +278,15 @@ func (o AuthServerDefaultArrayOutput) ToAuthServerDefaultArrayOutputWithContext(
 }
 
 func (o AuthServerDefaultArrayOutput) Index(i pulumi.IntInput) AuthServerDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthServerDefault {
-		return vs[0].([]AuthServerDefault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthServerDefault {
+		return vs[0].([]*AuthServerDefault)[vs[1].(int)]
 	}).(AuthServerDefaultOutput)
 }
 
 type AuthServerDefaultMapOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AuthServerDefault)(nil))
+	return reflect.TypeOf((*map[string]*AuthServerDefault)(nil)).Elem()
 }
 
 func (o AuthServerDefaultMapOutput) ToAuthServerDefaultMapOutput() AuthServerDefaultMapOutput {
@@ -361,18 +298,16 @@ func (o AuthServerDefaultMapOutput) ToAuthServerDefaultMapOutputWithContext(ctx 
 }
 
 func (o AuthServerDefaultMapOutput) MapIndex(k pulumi.StringInput) AuthServerDefaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AuthServerDefault {
-		return vs[0].(map[string]AuthServerDefault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AuthServerDefault {
+		return vs[0].(map[string]*AuthServerDefault)[vs[1].(string)]
 	}).(AuthServerDefaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerDefaultInput)(nil)).Elem(), &AuthServerDefault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerDefaultPtrInput)(nil)).Elem(), &AuthServerDefault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerDefaultArrayInput)(nil)).Elem(), AuthServerDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthServerDefaultMapInput)(nil)).Elem(), AuthServerDefaultMap{})
 	pulumi.RegisterOutputType(AuthServerDefaultOutput{})
-	pulumi.RegisterOutputType(AuthServerDefaultPtrOutput{})
 	pulumi.RegisterOutputType(AuthServerDefaultArrayOutput{})
 	pulumi.RegisterOutputType(AuthServerDefaultMapOutput{})
 }

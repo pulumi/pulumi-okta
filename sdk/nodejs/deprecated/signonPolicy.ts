@@ -63,27 +63,25 @@ export class SignonPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SignonPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SignonPolicyArgs | SignonPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SignonPolicyState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as SignonPolicyArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SignonPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SignonPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

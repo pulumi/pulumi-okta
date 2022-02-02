@@ -155,7 +155,7 @@ type RateLimitingInput interface {
 }
 
 func (*RateLimiting) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateLimiting)(nil))
+	return reflect.TypeOf((**RateLimiting)(nil)).Elem()
 }
 
 func (i *RateLimiting) ToRateLimitingOutput() RateLimitingOutput {
@@ -164,35 +164,6 @@ func (i *RateLimiting) ToRateLimitingOutput() RateLimitingOutput {
 
 func (i *RateLimiting) ToRateLimitingOutputWithContext(ctx context.Context) RateLimitingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingOutput)
-}
-
-func (i *RateLimiting) ToRateLimitingPtrOutput() RateLimitingPtrOutput {
-	return i.ToRateLimitingPtrOutputWithContext(context.Background())
-}
-
-func (i *RateLimiting) ToRateLimitingPtrOutputWithContext(ctx context.Context) RateLimitingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingPtrOutput)
-}
-
-type RateLimitingPtrInput interface {
-	pulumi.Input
-
-	ToRateLimitingPtrOutput() RateLimitingPtrOutput
-	ToRateLimitingPtrOutputWithContext(ctx context.Context) RateLimitingPtrOutput
-}
-
-type rateLimitingPtrType RateLimitingArgs
-
-func (*rateLimitingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RateLimiting)(nil))
-}
-
-func (i *rateLimitingPtrType) ToRateLimitingPtrOutput() RateLimitingPtrOutput {
-	return i.ToRateLimitingPtrOutputWithContext(context.Background())
-}
-
-func (i *rateLimitingPtrType) ToRateLimitingPtrOutputWithContext(ctx context.Context) RateLimitingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingPtrOutput)
 }
 
 // RateLimitingArrayInput is an input type that accepts RateLimitingArray and RateLimitingArrayOutput values.
@@ -248,7 +219,7 @@ func (i RateLimitingMap) ToRateLimitingMapOutputWithContext(ctx context.Context)
 type RateLimitingOutput struct{ *pulumi.OutputState }
 
 func (RateLimitingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateLimiting)(nil))
+	return reflect.TypeOf((**RateLimiting)(nil)).Elem()
 }
 
 func (o RateLimitingOutput) ToRateLimitingOutput() RateLimitingOutput {
@@ -259,44 +230,10 @@ func (o RateLimitingOutput) ToRateLimitingOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RateLimitingOutput) ToRateLimitingPtrOutput() RateLimitingPtrOutput {
-	return o.ToRateLimitingPtrOutputWithContext(context.Background())
-}
-
-func (o RateLimitingOutput) ToRateLimitingPtrOutputWithContext(ctx context.Context) RateLimitingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateLimiting) *RateLimiting {
-		return &v
-	}).(RateLimitingPtrOutput)
-}
-
-type RateLimitingPtrOutput struct{ *pulumi.OutputState }
-
-func (RateLimitingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RateLimiting)(nil))
-}
-
-func (o RateLimitingPtrOutput) ToRateLimitingPtrOutput() RateLimitingPtrOutput {
-	return o
-}
-
-func (o RateLimitingPtrOutput) ToRateLimitingPtrOutputWithContext(ctx context.Context) RateLimitingPtrOutput {
-	return o
-}
-
-func (o RateLimitingPtrOutput) Elem() RateLimitingOutput {
-	return o.ApplyT(func(v *RateLimiting) RateLimiting {
-		if v != nil {
-			return *v
-		}
-		var ret RateLimiting
-		return ret
-	}).(RateLimitingOutput)
-}
-
 type RateLimitingArrayOutput struct{ *pulumi.OutputState }
 
 func (RateLimitingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RateLimiting)(nil))
+	return reflect.TypeOf((*[]*RateLimiting)(nil)).Elem()
 }
 
 func (o RateLimitingArrayOutput) ToRateLimitingArrayOutput() RateLimitingArrayOutput {
@@ -308,15 +245,15 @@ func (o RateLimitingArrayOutput) ToRateLimitingArrayOutputWithContext(ctx contex
 }
 
 func (o RateLimitingArrayOutput) Index(i pulumi.IntInput) RateLimitingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RateLimiting {
-		return vs[0].([]RateLimiting)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RateLimiting {
+		return vs[0].([]*RateLimiting)[vs[1].(int)]
 	}).(RateLimitingOutput)
 }
 
 type RateLimitingMapOutput struct{ *pulumi.OutputState }
 
 func (RateLimitingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RateLimiting)(nil))
+	return reflect.TypeOf((*map[string]*RateLimiting)(nil)).Elem()
 }
 
 func (o RateLimitingMapOutput) ToRateLimitingMapOutput() RateLimitingMapOutput {
@@ -328,18 +265,16 @@ func (o RateLimitingMapOutput) ToRateLimitingMapOutputWithContext(ctx context.Co
 }
 
 func (o RateLimitingMapOutput) MapIndex(k pulumi.StringInput) RateLimitingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RateLimiting {
-		return vs[0].(map[string]RateLimiting)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RateLimiting {
+		return vs[0].(map[string]*RateLimiting)[vs[1].(string)]
 	}).(RateLimitingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingInput)(nil)).Elem(), &RateLimiting{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingPtrInput)(nil)).Elem(), &RateLimiting{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingArrayInput)(nil)).Elem(), RateLimitingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingMapInput)(nil)).Elem(), RateLimitingMap{})
 	pulumi.RegisterOutputType(RateLimitingOutput{})
-	pulumi.RegisterOutputType(RateLimitingPtrOutput{})
 	pulumi.RegisterOutputType(RateLimitingArrayOutput{})
 	pulumi.RegisterOutputType(RateLimitingMapOutput{})
 }

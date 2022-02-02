@@ -78,57 +78,55 @@ export class MfaPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args?: MfaPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MfaPolicyArgs | MfaPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MfaPolicyState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["duo"] = state ? state.duo : undefined;
-            inputs["fidoU2f"] = state ? state.fidoU2f : undefined;
-            inputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
-            inputs["googleOtp"] = state ? state.googleOtp : undefined;
-            inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
-            inputs["hotp"] = state ? state.hotp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["oktaCall"] = state ? state.oktaCall : undefined;
-            inputs["oktaEmail"] = state ? state.oktaEmail : undefined;
-            inputs["oktaOtp"] = state ? state.oktaOtp : undefined;
-            inputs["oktaPassword"] = state ? state.oktaPassword : undefined;
-            inputs["oktaPush"] = state ? state.oktaPush : undefined;
-            inputs["oktaQuestion"] = state ? state.oktaQuestion : undefined;
-            inputs["oktaSms"] = state ? state.oktaSms : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["rsaToken"] = state ? state.rsaToken : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["symantecVip"] = state ? state.symantecVip : undefined;
-            inputs["yubikeyToken"] = state ? state.yubikeyToken : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["duo"] = state ? state.duo : undefined;
+            resourceInputs["fidoU2f"] = state ? state.fidoU2f : undefined;
+            resourceInputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
+            resourceInputs["googleOtp"] = state ? state.googleOtp : undefined;
+            resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            resourceInputs["hotp"] = state ? state.hotp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["oktaCall"] = state ? state.oktaCall : undefined;
+            resourceInputs["oktaEmail"] = state ? state.oktaEmail : undefined;
+            resourceInputs["oktaOtp"] = state ? state.oktaOtp : undefined;
+            resourceInputs["oktaPassword"] = state ? state.oktaPassword : undefined;
+            resourceInputs["oktaPush"] = state ? state.oktaPush : undefined;
+            resourceInputs["oktaQuestion"] = state ? state.oktaQuestion : undefined;
+            resourceInputs["oktaSms"] = state ? state.oktaSms : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["rsaToken"] = state ? state.rsaToken : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["symantecVip"] = state ? state.symantecVip : undefined;
+            resourceInputs["yubikeyToken"] = state ? state.yubikeyToken : undefined;
         } else {
             const args = argsOrState as MfaPolicyArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["duo"] = args ? args.duo : undefined;
-            inputs["fidoU2f"] = args ? args.fidoU2f : undefined;
-            inputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
-            inputs["googleOtp"] = args ? args.googleOtp : undefined;
-            inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
-            inputs["hotp"] = args ? args.hotp : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["oktaCall"] = args ? args.oktaCall : undefined;
-            inputs["oktaEmail"] = args ? args.oktaEmail : undefined;
-            inputs["oktaOtp"] = args ? args.oktaOtp : undefined;
-            inputs["oktaPassword"] = args ? args.oktaPassword : undefined;
-            inputs["oktaPush"] = args ? args.oktaPush : undefined;
-            inputs["oktaQuestion"] = args ? args.oktaQuestion : undefined;
-            inputs["oktaSms"] = args ? args.oktaSms : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["rsaToken"] = args ? args.rsaToken : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["symantecVip"] = args ? args.symantecVip : undefined;
-            inputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["duo"] = args ? args.duo : undefined;
+            resourceInputs["fidoU2f"] = args ? args.fidoU2f : undefined;
+            resourceInputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
+            resourceInputs["googleOtp"] = args ? args.googleOtp : undefined;
+            resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            resourceInputs["hotp"] = args ? args.hotp : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["oktaCall"] = args ? args.oktaCall : undefined;
+            resourceInputs["oktaEmail"] = args ? args.oktaEmail : undefined;
+            resourceInputs["oktaOtp"] = args ? args.oktaOtp : undefined;
+            resourceInputs["oktaPassword"] = args ? args.oktaPassword : undefined;
+            resourceInputs["oktaPush"] = args ? args.oktaPush : undefined;
+            resourceInputs["oktaQuestion"] = args ? args.oktaQuestion : undefined;
+            resourceInputs["oktaSms"] = args ? args.oktaSms : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["rsaToken"] = args ? args.rsaToken : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["symantecVip"] = args ? args.symantecVip : undefined;
+            resourceInputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MfaPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MfaPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

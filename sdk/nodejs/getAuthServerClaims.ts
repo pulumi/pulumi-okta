@@ -24,9 +24,7 @@ export function getAuthServerClaims(args: GetAuthServerClaimsArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:index/getAuthServerClaims:getAuthServerClaims", {
         "authServerId": args.authServerId,
     }, opts);

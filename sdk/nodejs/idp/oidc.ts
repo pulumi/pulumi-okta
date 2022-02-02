@@ -215,45 +215,45 @@ export class Oidc extends pulumi.CustomResource {
      */
     constructor(name: string, args: OidcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OidcArgs | OidcState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OidcState | undefined;
-            inputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
-            inputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            inputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
-            inputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
-            inputs["groupsAction"] = state ? state.groupsAction : undefined;
-            inputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
-            inputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
-            inputs["groupsFilters"] = state ? state.groupsFilters : undefined;
-            inputs["issuerMode"] = state ? state.issuerMode : undefined;
-            inputs["issuerUrl"] = state ? state.issuerUrl : undefined;
-            inputs["jwksBinding"] = state ? state.jwksBinding : undefined;
-            inputs["jwksUrl"] = state ? state.jwksUrl : undefined;
-            inputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["profileMaster"] = state ? state.profileMaster : undefined;
-            inputs["protocolType"] = state ? state.protocolType : undefined;
-            inputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            inputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
-            inputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
-            inputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
-            inputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
-            inputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
-            inputs["suspendedAction"] = state ? state.suspendedAction : undefined;
-            inputs["tokenBinding"] = state ? state.tokenBinding : undefined;
-            inputs["tokenUrl"] = state ? state.tokenUrl : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userInfoBinding"] = state ? state.userInfoBinding : undefined;
-            inputs["userInfoUrl"] = state ? state.userInfoUrl : undefined;
-            inputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
+            resourceInputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
+            resourceInputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
+            resourceInputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
+            resourceInputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
+            resourceInputs["groupsAction"] = state ? state.groupsAction : undefined;
+            resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
+            resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
+            resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
+            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
+            resourceInputs["issuerUrl"] = state ? state.issuerUrl : undefined;
+            resourceInputs["jwksBinding"] = state ? state.jwksBinding : undefined;
+            resourceInputs["jwksUrl"] = state ? state.jwksUrl : undefined;
+            resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
+            resourceInputs["protocolType"] = state ? state.protocolType : undefined;
+            resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
+            resourceInputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
+            resourceInputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
+            resourceInputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
+            resourceInputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
+            resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
+            resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
+            resourceInputs["tokenBinding"] = state ? state.tokenBinding : undefined;
+            resourceInputs["tokenUrl"] = state ? state.tokenUrl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userInfoBinding"] = state ? state.userInfoBinding : undefined;
+            resourceInputs["userInfoUrl"] = state ? state.userInfoUrl : undefined;
+            resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as OidcArgs | undefined;
             if ((!args || args.authorizationBinding === undefined) && !opts.urn) {
@@ -286,46 +286,44 @@ export class Oidc extends pulumi.CustomResource {
             if ((!args || args.tokenUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenUrl'");
             }
-            inputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
-            inputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            inputs["authorizationBinding"] = args ? args.authorizationBinding : undefined;
-            inputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
-            inputs["groupsAction"] = args ? args.groupsAction : undefined;
-            inputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
-            inputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
-            inputs["groupsFilters"] = args ? args.groupsFilters : undefined;
-            inputs["issuerMode"] = args ? args.issuerMode : undefined;
-            inputs["issuerUrl"] = args ? args.issuerUrl : undefined;
-            inputs["jwksBinding"] = args ? args.jwksBinding : undefined;
-            inputs["jwksUrl"] = args ? args.jwksUrl : undefined;
-            inputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["profileMaster"] = args ? args.profileMaster : undefined;
-            inputs["protocolType"] = args ? args.protocolType : undefined;
-            inputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            inputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
-            inputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
-            inputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
-            inputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
-            inputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
-            inputs["suspendedAction"] = args ? args.suspendedAction : undefined;
-            inputs["tokenBinding"] = args ? args.tokenBinding : undefined;
-            inputs["tokenUrl"] = args ? args.tokenUrl : undefined;
-            inputs["userInfoBinding"] = args ? args.userInfoBinding : undefined;
-            inputs["userInfoUrl"] = args ? args.userInfoUrl : undefined;
-            inputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
+            resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
+            resourceInputs["authorizationBinding"] = args ? args.authorizationBinding : undefined;
+            resourceInputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
+            resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
+            resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
+            resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
+            resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
+            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
+            resourceInputs["issuerUrl"] = args ? args.issuerUrl : undefined;
+            resourceInputs["jwksBinding"] = args ? args.jwksBinding : undefined;
+            resourceInputs["jwksUrl"] = args ? args.jwksUrl : undefined;
+            resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
+            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
+            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
+            resourceInputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
+            resourceInputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
+            resourceInputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
+            resourceInputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
+            resourceInputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
+            resourceInputs["suspendedAction"] = args ? args.suspendedAction : undefined;
+            resourceInputs["tokenBinding"] = args ? args.tokenBinding : undefined;
+            resourceInputs["tokenUrl"] = args ? args.tokenUrl : undefined;
+            resourceInputs["userInfoBinding"] = args ? args.userInfoBinding : undefined;
+            resourceInputs["userInfoUrl"] = args ? args.userInfoUrl : undefined;
+            resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Oidc.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Oidc.__pulumiType, name, resourceInputs, opts);
     }
 }
 

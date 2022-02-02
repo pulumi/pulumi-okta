@@ -160,7 +160,7 @@ type SecurityNotificationEmailsInput interface {
 }
 
 func (*SecurityNotificationEmails) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityNotificationEmails)(nil))
+	return reflect.TypeOf((**SecurityNotificationEmails)(nil)).Elem()
 }
 
 func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsOutput() SecurityNotificationEmailsOutput {
@@ -169,35 +169,6 @@ func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsOutput() Securi
 
 func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsOutputWithContext(ctx context.Context) SecurityNotificationEmailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsOutput)
-}
-
-func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsPtrOutput() SecurityNotificationEmailsPtrOutput {
-	return i.ToSecurityNotificationEmailsPtrOutputWithContext(context.Background())
-}
-
-func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsPtrOutputWithContext(ctx context.Context) SecurityNotificationEmailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsPtrOutput)
-}
-
-type SecurityNotificationEmailsPtrInput interface {
-	pulumi.Input
-
-	ToSecurityNotificationEmailsPtrOutput() SecurityNotificationEmailsPtrOutput
-	ToSecurityNotificationEmailsPtrOutputWithContext(ctx context.Context) SecurityNotificationEmailsPtrOutput
-}
-
-type securityNotificationEmailsPtrType SecurityNotificationEmailsArgs
-
-func (*securityNotificationEmailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityNotificationEmails)(nil))
-}
-
-func (i *securityNotificationEmailsPtrType) ToSecurityNotificationEmailsPtrOutput() SecurityNotificationEmailsPtrOutput {
-	return i.ToSecurityNotificationEmailsPtrOutputWithContext(context.Background())
-}
-
-func (i *securityNotificationEmailsPtrType) ToSecurityNotificationEmailsPtrOutputWithContext(ctx context.Context) SecurityNotificationEmailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsPtrOutput)
 }
 
 // SecurityNotificationEmailsArrayInput is an input type that accepts SecurityNotificationEmailsArray and SecurityNotificationEmailsArrayOutput values.
@@ -253,7 +224,7 @@ func (i SecurityNotificationEmailsMap) ToSecurityNotificationEmailsMapOutputWith
 type SecurityNotificationEmailsOutput struct{ *pulumi.OutputState }
 
 func (SecurityNotificationEmailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityNotificationEmails)(nil))
+	return reflect.TypeOf((**SecurityNotificationEmails)(nil)).Elem()
 }
 
 func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsOutput() SecurityNotificationEmailsOutput {
@@ -264,44 +235,10 @@ func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsOutputWith
 	return o
 }
 
-func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsPtrOutput() SecurityNotificationEmailsPtrOutput {
-	return o.ToSecurityNotificationEmailsPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsPtrOutputWithContext(ctx context.Context) SecurityNotificationEmailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityNotificationEmails) *SecurityNotificationEmails {
-		return &v
-	}).(SecurityNotificationEmailsPtrOutput)
-}
-
-type SecurityNotificationEmailsPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityNotificationEmailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityNotificationEmails)(nil))
-}
-
-func (o SecurityNotificationEmailsPtrOutput) ToSecurityNotificationEmailsPtrOutput() SecurityNotificationEmailsPtrOutput {
-	return o
-}
-
-func (o SecurityNotificationEmailsPtrOutput) ToSecurityNotificationEmailsPtrOutputWithContext(ctx context.Context) SecurityNotificationEmailsPtrOutput {
-	return o
-}
-
-func (o SecurityNotificationEmailsPtrOutput) Elem() SecurityNotificationEmailsOutput {
-	return o.ApplyT(func(v *SecurityNotificationEmails) SecurityNotificationEmails {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityNotificationEmails
-		return ret
-	}).(SecurityNotificationEmailsOutput)
-}
-
 type SecurityNotificationEmailsArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityNotificationEmailsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityNotificationEmails)(nil))
+	return reflect.TypeOf((*[]*SecurityNotificationEmails)(nil)).Elem()
 }
 
 func (o SecurityNotificationEmailsArrayOutput) ToSecurityNotificationEmailsArrayOutput() SecurityNotificationEmailsArrayOutput {
@@ -313,15 +250,15 @@ func (o SecurityNotificationEmailsArrayOutput) ToSecurityNotificationEmailsArray
 }
 
 func (o SecurityNotificationEmailsArrayOutput) Index(i pulumi.IntInput) SecurityNotificationEmailsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityNotificationEmails {
-		return vs[0].([]SecurityNotificationEmails)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityNotificationEmails {
+		return vs[0].([]*SecurityNotificationEmails)[vs[1].(int)]
 	}).(SecurityNotificationEmailsOutput)
 }
 
 type SecurityNotificationEmailsMapOutput struct{ *pulumi.OutputState }
 
 func (SecurityNotificationEmailsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityNotificationEmails)(nil))
+	return reflect.TypeOf((*map[string]*SecurityNotificationEmails)(nil)).Elem()
 }
 
 func (o SecurityNotificationEmailsMapOutput) ToSecurityNotificationEmailsMapOutput() SecurityNotificationEmailsMapOutput {
@@ -333,18 +270,16 @@ func (o SecurityNotificationEmailsMapOutput) ToSecurityNotificationEmailsMapOutp
 }
 
 func (o SecurityNotificationEmailsMapOutput) MapIndex(k pulumi.StringInput) SecurityNotificationEmailsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityNotificationEmails {
-		return vs[0].(map[string]SecurityNotificationEmails)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecurityNotificationEmails {
+		return vs[0].(map[string]*SecurityNotificationEmails)[vs[1].(string)]
 	}).(SecurityNotificationEmailsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationEmailsInput)(nil)).Elem(), &SecurityNotificationEmails{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationEmailsPtrInput)(nil)).Elem(), &SecurityNotificationEmails{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationEmailsArrayInput)(nil)).Elem(), SecurityNotificationEmailsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityNotificationEmailsMapInput)(nil)).Elem(), SecurityNotificationEmailsMap{})
 	pulumi.RegisterOutputType(SecurityNotificationEmailsOutput{})
-	pulumi.RegisterOutputType(SecurityNotificationEmailsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityNotificationEmailsArrayOutput{})
 	pulumi.RegisterOutputType(SecurityNotificationEmailsMapOutput{})
 }

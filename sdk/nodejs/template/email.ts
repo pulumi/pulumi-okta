@@ -91,13 +91,13 @@ export class Email extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailArgs | EmailState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailState | undefined;
-            inputs["defaultLanguage"] = state ? state.defaultLanguage : undefined;
-            inputs["translations"] = state ? state.translations : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["defaultLanguage"] = state ? state.defaultLanguage : undefined;
+            resourceInputs["translations"] = state ? state.translations : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EmailArgs | undefined;
             if ((!args || args.translations === undefined) && !opts.urn) {
@@ -106,14 +106,12 @@ export class Email extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["defaultLanguage"] = args ? args.defaultLanguage : undefined;
-            inputs["translations"] = args ? args.translations : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["defaultLanguage"] = args ? args.defaultLanguage : undefined;
+            resourceInputs["translations"] = args ? args.translations : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Email.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Email.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -477,7 +477,7 @@ type AppSharedCredentialsInput interface {
 }
 
 func (*AppSharedCredentials) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSharedCredentials)(nil))
+	return reflect.TypeOf((**AppSharedCredentials)(nil)).Elem()
 }
 
 func (i *AppSharedCredentials) ToAppSharedCredentialsOutput() AppSharedCredentialsOutput {
@@ -486,35 +486,6 @@ func (i *AppSharedCredentials) ToAppSharedCredentialsOutput() AppSharedCredentia
 
 func (i *AppSharedCredentials) ToAppSharedCredentialsOutputWithContext(ctx context.Context) AppSharedCredentialsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsOutput)
-}
-
-func (i *AppSharedCredentials) ToAppSharedCredentialsPtrOutput() AppSharedCredentialsPtrOutput {
-	return i.ToAppSharedCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *AppSharedCredentials) ToAppSharedCredentialsPtrOutputWithContext(ctx context.Context) AppSharedCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsPtrOutput)
-}
-
-type AppSharedCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToAppSharedCredentialsPtrOutput() AppSharedCredentialsPtrOutput
-	ToAppSharedCredentialsPtrOutputWithContext(ctx context.Context) AppSharedCredentialsPtrOutput
-}
-
-type appSharedCredentialsPtrType AppSharedCredentialsArgs
-
-func (*appSharedCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSharedCredentials)(nil))
-}
-
-func (i *appSharedCredentialsPtrType) ToAppSharedCredentialsPtrOutput() AppSharedCredentialsPtrOutput {
-	return i.ToAppSharedCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *appSharedCredentialsPtrType) ToAppSharedCredentialsPtrOutputWithContext(ctx context.Context) AppSharedCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsPtrOutput)
 }
 
 // AppSharedCredentialsArrayInput is an input type that accepts AppSharedCredentialsArray and AppSharedCredentialsArrayOutput values.
@@ -570,7 +541,7 @@ func (i AppSharedCredentialsMap) ToAppSharedCredentialsMapOutputWithContext(ctx 
 type AppSharedCredentialsOutput struct{ *pulumi.OutputState }
 
 func (AppSharedCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSharedCredentials)(nil))
+	return reflect.TypeOf((**AppSharedCredentials)(nil)).Elem()
 }
 
 func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutput() AppSharedCredentialsOutput {
@@ -581,44 +552,10 @@ func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutputWithContext(ctx 
 	return o
 }
 
-func (o AppSharedCredentialsOutput) ToAppSharedCredentialsPtrOutput() AppSharedCredentialsPtrOutput {
-	return o.ToAppSharedCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o AppSharedCredentialsOutput) ToAppSharedCredentialsPtrOutputWithContext(ctx context.Context) AppSharedCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSharedCredentials) *AppSharedCredentials {
-		return &v
-	}).(AppSharedCredentialsPtrOutput)
-}
-
-type AppSharedCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (AppSharedCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSharedCredentials)(nil))
-}
-
-func (o AppSharedCredentialsPtrOutput) ToAppSharedCredentialsPtrOutput() AppSharedCredentialsPtrOutput {
-	return o
-}
-
-func (o AppSharedCredentialsPtrOutput) ToAppSharedCredentialsPtrOutputWithContext(ctx context.Context) AppSharedCredentialsPtrOutput {
-	return o
-}
-
-func (o AppSharedCredentialsPtrOutput) Elem() AppSharedCredentialsOutput {
-	return o.ApplyT(func(v *AppSharedCredentials) AppSharedCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret AppSharedCredentials
-		return ret
-	}).(AppSharedCredentialsOutput)
-}
-
 type AppSharedCredentialsArrayOutput struct{ *pulumi.OutputState }
 
 func (AppSharedCredentialsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppSharedCredentials)(nil))
+	return reflect.TypeOf((*[]*AppSharedCredentials)(nil)).Elem()
 }
 
 func (o AppSharedCredentialsArrayOutput) ToAppSharedCredentialsArrayOutput() AppSharedCredentialsArrayOutput {
@@ -630,15 +567,15 @@ func (o AppSharedCredentialsArrayOutput) ToAppSharedCredentialsArrayOutputWithCo
 }
 
 func (o AppSharedCredentialsArrayOutput) Index(i pulumi.IntInput) AppSharedCredentialsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSharedCredentials {
-		return vs[0].([]AppSharedCredentials)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSharedCredentials {
+		return vs[0].([]*AppSharedCredentials)[vs[1].(int)]
 	}).(AppSharedCredentialsOutput)
 }
 
 type AppSharedCredentialsMapOutput struct{ *pulumi.OutputState }
 
 func (AppSharedCredentialsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppSharedCredentials)(nil))
+	return reflect.TypeOf((*map[string]*AppSharedCredentials)(nil)).Elem()
 }
 
 func (o AppSharedCredentialsMapOutput) ToAppSharedCredentialsMapOutput() AppSharedCredentialsMapOutput {
@@ -650,18 +587,16 @@ func (o AppSharedCredentialsMapOutput) ToAppSharedCredentialsMapOutputWithContex
 }
 
 func (o AppSharedCredentialsMapOutput) MapIndex(k pulumi.StringInput) AppSharedCredentialsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppSharedCredentials {
-		return vs[0].(map[string]AppSharedCredentials)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppSharedCredentials {
+		return vs[0].(map[string]*AppSharedCredentials)[vs[1].(string)]
 	}).(AppSharedCredentialsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsInput)(nil)).Elem(), &AppSharedCredentials{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsPtrInput)(nil)).Elem(), &AppSharedCredentials{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsArrayInput)(nil)).Elem(), AppSharedCredentialsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsMapInput)(nil)).Elem(), AppSharedCredentialsMap{})
 	pulumi.RegisterOutputType(AppSharedCredentialsOutput{})
-	pulumi.RegisterOutputType(AppSharedCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsArrayOutput{})
 	pulumi.RegisterOutputType(AppSharedCredentialsMapOutput{})
 }

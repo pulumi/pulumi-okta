@@ -89,24 +89,22 @@ export class ThreatInsightSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: ThreatInsightSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThreatInsightSettingsArgs | ThreatInsightSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThreatInsightSettingsState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
         } else {
             const args = argsOrState as ThreatInsightSettingsArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ThreatInsightSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ThreatInsightSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

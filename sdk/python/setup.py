@@ -55,6 +55,7 @@ setup(name='pulumi_okta',
       package_data={
           'pulumi_okta': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

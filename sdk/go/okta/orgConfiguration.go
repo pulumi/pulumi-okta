@@ -273,7 +273,7 @@ type OrgConfigurationInput interface {
 }
 
 func (*OrgConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrgConfiguration)(nil))
+	return reflect.TypeOf((**OrgConfiguration)(nil)).Elem()
 }
 
 func (i *OrgConfiguration) ToOrgConfigurationOutput() OrgConfigurationOutput {
@@ -282,35 +282,6 @@ func (i *OrgConfiguration) ToOrgConfigurationOutput() OrgConfigurationOutput {
 
 func (i *OrgConfiguration) ToOrgConfigurationOutputWithContext(ctx context.Context) OrgConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationOutput)
-}
-
-func (i *OrgConfiguration) ToOrgConfigurationPtrOutput() OrgConfigurationPtrOutput {
-	return i.ToOrgConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *OrgConfiguration) ToOrgConfigurationPtrOutputWithContext(ctx context.Context) OrgConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationPtrOutput)
-}
-
-type OrgConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToOrgConfigurationPtrOutput() OrgConfigurationPtrOutput
-	ToOrgConfigurationPtrOutputWithContext(ctx context.Context) OrgConfigurationPtrOutput
-}
-
-type orgConfigurationPtrType OrgConfigurationArgs
-
-func (*orgConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrgConfiguration)(nil))
-}
-
-func (i *orgConfigurationPtrType) ToOrgConfigurationPtrOutput() OrgConfigurationPtrOutput {
-	return i.ToOrgConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *orgConfigurationPtrType) ToOrgConfigurationPtrOutputWithContext(ctx context.Context) OrgConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationPtrOutput)
 }
 
 // OrgConfigurationArrayInput is an input type that accepts OrgConfigurationArray and OrgConfigurationArrayOutput values.
@@ -366,7 +337,7 @@ func (i OrgConfigurationMap) ToOrgConfigurationMapOutputWithContext(ctx context.
 type OrgConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrgConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrgConfiguration)(nil))
+	return reflect.TypeOf((**OrgConfiguration)(nil)).Elem()
 }
 
 func (o OrgConfigurationOutput) ToOrgConfigurationOutput() OrgConfigurationOutput {
@@ -377,44 +348,10 @@ func (o OrgConfigurationOutput) ToOrgConfigurationOutputWithContext(ctx context.
 	return o
 }
 
-func (o OrgConfigurationOutput) ToOrgConfigurationPtrOutput() OrgConfigurationPtrOutput {
-	return o.ToOrgConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o OrgConfigurationOutput) ToOrgConfigurationPtrOutputWithContext(ctx context.Context) OrgConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrgConfiguration) *OrgConfiguration {
-		return &v
-	}).(OrgConfigurationPtrOutput)
-}
-
-type OrgConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (OrgConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrgConfiguration)(nil))
-}
-
-func (o OrgConfigurationPtrOutput) ToOrgConfigurationPtrOutput() OrgConfigurationPtrOutput {
-	return o
-}
-
-func (o OrgConfigurationPtrOutput) ToOrgConfigurationPtrOutputWithContext(ctx context.Context) OrgConfigurationPtrOutput {
-	return o
-}
-
-func (o OrgConfigurationPtrOutput) Elem() OrgConfigurationOutput {
-	return o.ApplyT(func(v *OrgConfiguration) OrgConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret OrgConfiguration
-		return ret
-	}).(OrgConfigurationOutput)
-}
-
 type OrgConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (OrgConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrgConfiguration)(nil))
+	return reflect.TypeOf((*[]*OrgConfiguration)(nil)).Elem()
 }
 
 func (o OrgConfigurationArrayOutput) ToOrgConfigurationArrayOutput() OrgConfigurationArrayOutput {
@@ -426,15 +363,15 @@ func (o OrgConfigurationArrayOutput) ToOrgConfigurationArrayOutputWithContext(ct
 }
 
 func (o OrgConfigurationArrayOutput) Index(i pulumi.IntInput) OrgConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrgConfiguration {
-		return vs[0].([]OrgConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrgConfiguration {
+		return vs[0].([]*OrgConfiguration)[vs[1].(int)]
 	}).(OrgConfigurationOutput)
 }
 
 type OrgConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (OrgConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrgConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*OrgConfiguration)(nil)).Elem()
 }
 
 func (o OrgConfigurationMapOutput) ToOrgConfigurationMapOutput() OrgConfigurationMapOutput {
@@ -446,18 +383,16 @@ func (o OrgConfigurationMapOutput) ToOrgConfigurationMapOutputWithContext(ctx co
 }
 
 func (o OrgConfigurationMapOutput) MapIndex(k pulumi.StringInput) OrgConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrgConfiguration {
-		return vs[0].(map[string]OrgConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrgConfiguration {
+		return vs[0].(map[string]*OrgConfiguration)[vs[1].(string)]
 	}).(OrgConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgConfigurationInput)(nil)).Elem(), &OrgConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrgConfigurationPtrInput)(nil)).Elem(), &OrgConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgConfigurationArrayInput)(nil)).Elem(), OrgConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgConfigurationMapInput)(nil)).Elem(), OrgConfigurationMap{})
 	pulumi.RegisterOutputType(OrgConfigurationOutput{})
-	pulumi.RegisterOutputType(OrgConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OrgConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OrgConfigurationMapOutput{})
 }

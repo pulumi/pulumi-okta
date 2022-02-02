@@ -119,36 +119,34 @@ export class Zone extends pulumi.CustomResource {
      */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            inputs["asns"] = state ? state.asns : undefined;
-            inputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
-            inputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
-            inputs["gateways"] = state ? state.gateways : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["proxies"] = state ? state.proxies : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["usage"] = state ? state.usage : undefined;
+            resourceInputs["asns"] = state ? state.asns : undefined;
+            resourceInputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
+            resourceInputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
+            resourceInputs["gateways"] = state ? state.gateways : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["proxies"] = state ? state.proxies : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["usage"] = state ? state.usage : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["asns"] = args ? args.asns : undefined;
-            inputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
-            inputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
-            inputs["gateways"] = args ? args.gateways : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["proxies"] = args ? args.proxies : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["usage"] = args ? args.usage : undefined;
+            resourceInputs["asns"] = args ? args.asns : undefined;
+            resourceInputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
+            resourceInputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
+            resourceInputs["gateways"] = args ? args.gateways : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["proxies"] = args ? args.proxies : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usage"] = args ? args.usage : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Zone.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

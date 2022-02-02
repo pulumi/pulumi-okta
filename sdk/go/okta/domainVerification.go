@@ -120,7 +120,7 @@ type DomainVerificationInput interface {
 }
 
 func (*DomainVerification) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainVerification)(nil))
+	return reflect.TypeOf((**DomainVerification)(nil)).Elem()
 }
 
 func (i *DomainVerification) ToDomainVerificationOutput() DomainVerificationOutput {
@@ -129,35 +129,6 @@ func (i *DomainVerification) ToDomainVerificationOutput() DomainVerificationOutp
 
 func (i *DomainVerification) ToDomainVerificationOutputWithContext(ctx context.Context) DomainVerificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationOutput)
-}
-
-func (i *DomainVerification) ToDomainVerificationPtrOutput() DomainVerificationPtrOutput {
-	return i.ToDomainVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainVerification) ToDomainVerificationPtrOutputWithContext(ctx context.Context) DomainVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationPtrOutput)
-}
-
-type DomainVerificationPtrInput interface {
-	pulumi.Input
-
-	ToDomainVerificationPtrOutput() DomainVerificationPtrOutput
-	ToDomainVerificationPtrOutputWithContext(ctx context.Context) DomainVerificationPtrOutput
-}
-
-type domainVerificationPtrType DomainVerificationArgs
-
-func (*domainVerificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainVerification)(nil))
-}
-
-func (i *domainVerificationPtrType) ToDomainVerificationPtrOutput() DomainVerificationPtrOutput {
-	return i.ToDomainVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *domainVerificationPtrType) ToDomainVerificationPtrOutputWithContext(ctx context.Context) DomainVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationPtrOutput)
 }
 
 // DomainVerificationArrayInput is an input type that accepts DomainVerificationArray and DomainVerificationArrayOutput values.
@@ -213,7 +184,7 @@ func (i DomainVerificationMap) ToDomainVerificationMapOutputWithContext(ctx cont
 type DomainVerificationOutput struct{ *pulumi.OutputState }
 
 func (DomainVerificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainVerification)(nil))
+	return reflect.TypeOf((**DomainVerification)(nil)).Elem()
 }
 
 func (o DomainVerificationOutput) ToDomainVerificationOutput() DomainVerificationOutput {
@@ -224,44 +195,10 @@ func (o DomainVerificationOutput) ToDomainVerificationOutputWithContext(ctx cont
 	return o
 }
 
-func (o DomainVerificationOutput) ToDomainVerificationPtrOutput() DomainVerificationPtrOutput {
-	return o.ToDomainVerificationPtrOutputWithContext(context.Background())
-}
-
-func (o DomainVerificationOutput) ToDomainVerificationPtrOutputWithContext(ctx context.Context) DomainVerificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVerification) *DomainVerification {
-		return &v
-	}).(DomainVerificationPtrOutput)
-}
-
-type DomainVerificationPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainVerificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainVerification)(nil))
-}
-
-func (o DomainVerificationPtrOutput) ToDomainVerificationPtrOutput() DomainVerificationPtrOutput {
-	return o
-}
-
-func (o DomainVerificationPtrOutput) ToDomainVerificationPtrOutputWithContext(ctx context.Context) DomainVerificationPtrOutput {
-	return o
-}
-
-func (o DomainVerificationPtrOutput) Elem() DomainVerificationOutput {
-	return o.ApplyT(func(v *DomainVerification) DomainVerification {
-		if v != nil {
-			return *v
-		}
-		var ret DomainVerification
-		return ret
-	}).(DomainVerificationOutput)
-}
-
 type DomainVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainVerificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainVerification)(nil))
+	return reflect.TypeOf((*[]*DomainVerification)(nil)).Elem()
 }
 
 func (o DomainVerificationArrayOutput) ToDomainVerificationArrayOutput() DomainVerificationArrayOutput {
@@ -273,15 +210,15 @@ func (o DomainVerificationArrayOutput) ToDomainVerificationArrayOutputWithContex
 }
 
 func (o DomainVerificationArrayOutput) Index(i pulumi.IntInput) DomainVerificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainVerification {
-		return vs[0].([]DomainVerification)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainVerification {
+		return vs[0].([]*DomainVerification)[vs[1].(int)]
 	}).(DomainVerificationOutput)
 }
 
 type DomainVerificationMapOutput struct{ *pulumi.OutputState }
 
 func (DomainVerificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainVerification)(nil))
+	return reflect.TypeOf((*map[string]*DomainVerification)(nil)).Elem()
 }
 
 func (o DomainVerificationMapOutput) ToDomainVerificationMapOutput() DomainVerificationMapOutput {
@@ -293,18 +230,16 @@ func (o DomainVerificationMapOutput) ToDomainVerificationMapOutputWithContext(ct
 }
 
 func (o DomainVerificationMapOutput) MapIndex(k pulumi.StringInput) DomainVerificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainVerification {
-		return vs[0].(map[string]DomainVerification)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainVerification {
+		return vs[0].(map[string]*DomainVerification)[vs[1].(string)]
 	}).(DomainVerificationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVerificationInput)(nil)).Elem(), &DomainVerification{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainVerificationPtrInput)(nil)).Elem(), &DomainVerification{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVerificationArrayInput)(nil)).Elem(), DomainVerificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVerificationMapInput)(nil)).Elem(), DomainVerificationMap{})
 	pulumi.RegisterOutputType(DomainVerificationOutput{})
-	pulumi.RegisterOutputType(DomainVerificationPtrOutput{})
 	pulumi.RegisterOutputType(DomainVerificationArrayOutput{})
 	pulumi.RegisterOutputType(DomainVerificationMapOutput{})
 }

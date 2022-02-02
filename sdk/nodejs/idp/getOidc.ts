@@ -24,9 +24,7 @@ export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promis
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:idp/getOidc:getOidc", {
         "id": args.id,
         "name": args.name,

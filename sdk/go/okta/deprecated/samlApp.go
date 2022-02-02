@@ -647,7 +647,7 @@ type SamlAppInput interface {
 }
 
 func (*SamlApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlApp)(nil))
+	return reflect.TypeOf((**SamlApp)(nil)).Elem()
 }
 
 func (i *SamlApp) ToSamlAppOutput() SamlAppOutput {
@@ -656,35 +656,6 @@ func (i *SamlApp) ToSamlAppOutput() SamlAppOutput {
 
 func (i *SamlApp) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAppOutput)
-}
-
-func (i *SamlApp) ToSamlAppPtrOutput() SamlAppPtrOutput {
-	return i.ToSamlAppPtrOutputWithContext(context.Background())
-}
-
-func (i *SamlApp) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlAppPtrOutput)
-}
-
-type SamlAppPtrInput interface {
-	pulumi.Input
-
-	ToSamlAppPtrOutput() SamlAppPtrOutput
-	ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput
-}
-
-type samlAppPtrType SamlAppArgs
-
-func (*samlAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlApp)(nil))
-}
-
-func (i *samlAppPtrType) ToSamlAppPtrOutput() SamlAppPtrOutput {
-	return i.ToSamlAppPtrOutputWithContext(context.Background())
-}
-
-func (i *samlAppPtrType) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlAppPtrOutput)
 }
 
 // SamlAppArrayInput is an input type that accepts SamlAppArray and SamlAppArrayOutput values.
@@ -740,7 +711,7 @@ func (i SamlAppMap) ToSamlAppMapOutputWithContext(ctx context.Context) SamlAppMa
 type SamlAppOutput struct{ *pulumi.OutputState }
 
 func (SamlAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlApp)(nil))
+	return reflect.TypeOf((**SamlApp)(nil)).Elem()
 }
 
 func (o SamlAppOutput) ToSamlAppOutput() SamlAppOutput {
@@ -751,44 +722,10 @@ func (o SamlAppOutput) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOu
 	return o
 }
 
-func (o SamlAppOutput) ToSamlAppPtrOutput() SamlAppPtrOutput {
-	return o.ToSamlAppPtrOutputWithContext(context.Background())
-}
-
-func (o SamlAppOutput) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlApp) *SamlApp {
-		return &v
-	}).(SamlAppPtrOutput)
-}
-
-type SamlAppPtrOutput struct{ *pulumi.OutputState }
-
-func (SamlAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlApp)(nil))
-}
-
-func (o SamlAppPtrOutput) ToSamlAppPtrOutput() SamlAppPtrOutput {
-	return o
-}
-
-func (o SamlAppPtrOutput) ToSamlAppPtrOutputWithContext(ctx context.Context) SamlAppPtrOutput {
-	return o
-}
-
-func (o SamlAppPtrOutput) Elem() SamlAppOutput {
-	return o.ApplyT(func(v *SamlApp) SamlApp {
-		if v != nil {
-			return *v
-		}
-		var ret SamlApp
-		return ret
-	}).(SamlAppOutput)
-}
-
 type SamlAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SamlApp)(nil))
+	return reflect.TypeOf((*[]*SamlApp)(nil)).Elem()
 }
 
 func (o SamlAppArrayOutput) ToSamlAppArrayOutput() SamlAppArrayOutput {
@@ -800,15 +737,15 @@ func (o SamlAppArrayOutput) ToSamlAppArrayOutputWithContext(ctx context.Context)
 }
 
 func (o SamlAppArrayOutput) Index(i pulumi.IntInput) SamlAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlApp {
-		return vs[0].([]SamlApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlApp {
+		return vs[0].([]*SamlApp)[vs[1].(int)]
 	}).(SamlAppOutput)
 }
 
 type SamlAppMapOutput struct{ *pulumi.OutputState }
 
 func (SamlAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SamlApp)(nil))
+	return reflect.TypeOf((*map[string]*SamlApp)(nil)).Elem()
 }
 
 func (o SamlAppMapOutput) ToSamlAppMapOutput() SamlAppMapOutput {
@@ -820,18 +757,16 @@ func (o SamlAppMapOutput) ToSamlAppMapOutputWithContext(ctx context.Context) Sam
 }
 
 func (o SamlAppMapOutput) MapIndex(k pulumi.StringInput) SamlAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlApp {
-		return vs[0].(map[string]SamlApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SamlApp {
+		return vs[0].(map[string]*SamlApp)[vs[1].(string)]
 	}).(SamlAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppInput)(nil)).Elem(), &SamlApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppPtrInput)(nil)).Elem(), &SamlApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppArrayInput)(nil)).Elem(), SamlAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppMapInput)(nil)).Elem(), SamlAppMap{})
 	pulumi.RegisterOutputType(SamlAppOutput{})
-	pulumi.RegisterOutputType(SamlAppPtrOutput{})
 	pulumi.RegisterOutputType(SamlAppArrayOutput{})
 	pulumi.RegisterOutputType(SamlAppMapOutput{})
 }

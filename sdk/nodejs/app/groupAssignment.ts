@@ -71,15 +71,15 @@ export class GroupAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupAssignmentArgs | GroupAssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupAssignmentState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["groupId"] = state ? state.groupId : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["profile"] = state ? state.profile : undefined;
-            inputs["retainAssignment"] = state ? state.retainAssignment : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["profile"] = state ? state.profile : undefined;
+            resourceInputs["retainAssignment"] = state ? state.retainAssignment : undefined;
         } else {
             const args = argsOrState as GroupAssignmentArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -88,16 +88,14 @@ export class GroupAssignment extends pulumi.CustomResource {
             if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["profile"] = args ? args.profile : undefined;
-            inputs["retainAssignment"] = args ? args.retainAssignment : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["profile"] = args ? args.profile : undefined;
+            resourceInputs["retainAssignment"] = args ? args.retainAssignment : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupAssignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

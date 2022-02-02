@@ -38,6 +38,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
+// 			UserId: exampleUser.ID(),
+// 		}, nil)
 // 		exampleFactor, err := factor.NewFactor(ctx, "exampleFactor", &factor.FactorArgs{
 // 			ProviderId: pulumi.String("okta_question"),
 // 			Active:     pulumi.Bool(true),
@@ -182,7 +185,7 @@ type UserFactorQuestionInput interface {
 }
 
 func (*UserFactorQuestion) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserFactorQuestion)(nil))
+	return reflect.TypeOf((**UserFactorQuestion)(nil)).Elem()
 }
 
 func (i *UserFactorQuestion) ToUserFactorQuestionOutput() UserFactorQuestionOutput {
@@ -191,35 +194,6 @@ func (i *UserFactorQuestion) ToUserFactorQuestionOutput() UserFactorQuestionOutp
 
 func (i *UserFactorQuestion) ToUserFactorQuestionOutputWithContext(ctx context.Context) UserFactorQuestionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionOutput)
-}
-
-func (i *UserFactorQuestion) ToUserFactorQuestionPtrOutput() UserFactorQuestionPtrOutput {
-	return i.ToUserFactorQuestionPtrOutputWithContext(context.Background())
-}
-
-func (i *UserFactorQuestion) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionPtrOutput)
-}
-
-type UserFactorQuestionPtrInput interface {
-	pulumi.Input
-
-	ToUserFactorQuestionPtrOutput() UserFactorQuestionPtrOutput
-	ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput
-}
-
-type userFactorQuestionPtrType UserFactorQuestionArgs
-
-func (*userFactorQuestionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserFactorQuestion)(nil))
-}
-
-func (i *userFactorQuestionPtrType) ToUserFactorQuestionPtrOutput() UserFactorQuestionPtrOutput {
-	return i.ToUserFactorQuestionPtrOutputWithContext(context.Background())
-}
-
-func (i *userFactorQuestionPtrType) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionPtrOutput)
 }
 
 // UserFactorQuestionArrayInput is an input type that accepts UserFactorQuestionArray and UserFactorQuestionArrayOutput values.
@@ -275,7 +249,7 @@ func (i UserFactorQuestionMap) ToUserFactorQuestionMapOutputWithContext(ctx cont
 type UserFactorQuestionOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserFactorQuestion)(nil))
+	return reflect.TypeOf((**UserFactorQuestion)(nil)).Elem()
 }
 
 func (o UserFactorQuestionOutput) ToUserFactorQuestionOutput() UserFactorQuestionOutput {
@@ -286,44 +260,10 @@ func (o UserFactorQuestionOutput) ToUserFactorQuestionOutputWithContext(ctx cont
 	return o
 }
 
-func (o UserFactorQuestionOutput) ToUserFactorQuestionPtrOutput() UserFactorQuestionPtrOutput {
-	return o.ToUserFactorQuestionPtrOutputWithContext(context.Background())
-}
-
-func (o UserFactorQuestionOutput) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserFactorQuestion) *UserFactorQuestion {
-		return &v
-	}).(UserFactorQuestionPtrOutput)
-}
-
-type UserFactorQuestionPtrOutput struct{ *pulumi.OutputState }
-
-func (UserFactorQuestionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserFactorQuestion)(nil))
-}
-
-func (o UserFactorQuestionPtrOutput) ToUserFactorQuestionPtrOutput() UserFactorQuestionPtrOutput {
-	return o
-}
-
-func (o UserFactorQuestionPtrOutput) ToUserFactorQuestionPtrOutputWithContext(ctx context.Context) UserFactorQuestionPtrOutput {
-	return o
-}
-
-func (o UserFactorQuestionPtrOutput) Elem() UserFactorQuestionOutput {
-	return o.ApplyT(func(v *UserFactorQuestion) UserFactorQuestion {
-		if v != nil {
-			return *v
-		}
-		var ret UserFactorQuestion
-		return ret
-	}).(UserFactorQuestionOutput)
-}
-
 type UserFactorQuestionArrayOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserFactorQuestion)(nil))
+	return reflect.TypeOf((*[]*UserFactorQuestion)(nil)).Elem()
 }
 
 func (o UserFactorQuestionArrayOutput) ToUserFactorQuestionArrayOutput() UserFactorQuestionArrayOutput {
@@ -335,15 +275,15 @@ func (o UserFactorQuestionArrayOutput) ToUserFactorQuestionArrayOutputWithContex
 }
 
 func (o UserFactorQuestionArrayOutput) Index(i pulumi.IntInput) UserFactorQuestionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserFactorQuestion {
-		return vs[0].([]UserFactorQuestion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserFactorQuestion {
+		return vs[0].([]*UserFactorQuestion)[vs[1].(int)]
 	}).(UserFactorQuestionOutput)
 }
 
 type UserFactorQuestionMapOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserFactorQuestion)(nil))
+	return reflect.TypeOf((*map[string]*UserFactorQuestion)(nil)).Elem()
 }
 
 func (o UserFactorQuestionMapOutput) ToUserFactorQuestionMapOutput() UserFactorQuestionMapOutput {
@@ -355,18 +295,16 @@ func (o UserFactorQuestionMapOutput) ToUserFactorQuestionMapOutputWithContext(ct
 }
 
 func (o UserFactorQuestionMapOutput) MapIndex(k pulumi.StringInput) UserFactorQuestionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserFactorQuestion {
-		return vs[0].(map[string]UserFactorQuestion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserFactorQuestion {
+		return vs[0].(map[string]*UserFactorQuestion)[vs[1].(string)]
 	}).(UserFactorQuestionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionInput)(nil)).Elem(), &UserFactorQuestion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionPtrInput)(nil)).Elem(), &UserFactorQuestion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionArrayInput)(nil)).Elem(), UserFactorQuestionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserFactorQuestionMapInput)(nil)).Elem(), UserFactorQuestionMap{})
 	pulumi.RegisterOutputType(UserFactorQuestionOutput{})
-	pulumi.RegisterOutputType(UserFactorQuestionPtrOutput{})
 	pulumi.RegisterOutputType(UserFactorQuestionArrayOutput{})
 	pulumi.RegisterOutputType(UserFactorQuestionMapOutput{})
 }

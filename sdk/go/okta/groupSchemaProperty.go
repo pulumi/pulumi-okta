@@ -311,7 +311,7 @@ type GroupSchemaPropertyInput interface {
 }
 
 func (*GroupSchemaProperty) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupSchemaProperty)(nil))
+	return reflect.TypeOf((**GroupSchemaProperty)(nil)).Elem()
 }
 
 func (i *GroupSchemaProperty) ToGroupSchemaPropertyOutput() GroupSchemaPropertyOutput {
@@ -320,35 +320,6 @@ func (i *GroupSchemaProperty) ToGroupSchemaPropertyOutput() GroupSchemaPropertyO
 
 func (i *GroupSchemaProperty) ToGroupSchemaPropertyOutputWithContext(ctx context.Context) GroupSchemaPropertyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyOutput)
-}
-
-func (i *GroupSchemaProperty) ToGroupSchemaPropertyPtrOutput() GroupSchemaPropertyPtrOutput {
-	return i.ToGroupSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *GroupSchemaProperty) ToGroupSchemaPropertyPtrOutputWithContext(ctx context.Context) GroupSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyPtrOutput)
-}
-
-type GroupSchemaPropertyPtrInput interface {
-	pulumi.Input
-
-	ToGroupSchemaPropertyPtrOutput() GroupSchemaPropertyPtrOutput
-	ToGroupSchemaPropertyPtrOutputWithContext(ctx context.Context) GroupSchemaPropertyPtrOutput
-}
-
-type groupSchemaPropertyPtrType GroupSchemaPropertyArgs
-
-func (*groupSchemaPropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupSchemaProperty)(nil))
-}
-
-func (i *groupSchemaPropertyPtrType) ToGroupSchemaPropertyPtrOutput() GroupSchemaPropertyPtrOutput {
-	return i.ToGroupSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *groupSchemaPropertyPtrType) ToGroupSchemaPropertyPtrOutputWithContext(ctx context.Context) GroupSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyPtrOutput)
 }
 
 // GroupSchemaPropertyArrayInput is an input type that accepts GroupSchemaPropertyArray and GroupSchemaPropertyArrayOutput values.
@@ -404,7 +375,7 @@ func (i GroupSchemaPropertyMap) ToGroupSchemaPropertyMapOutputWithContext(ctx co
 type GroupSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (GroupSchemaPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupSchemaProperty)(nil))
+	return reflect.TypeOf((**GroupSchemaProperty)(nil)).Elem()
 }
 
 func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyOutput() GroupSchemaPropertyOutput {
@@ -415,44 +386,10 @@ func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyOutputWithContext(ctx co
 	return o
 }
 
-func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyPtrOutput() GroupSchemaPropertyPtrOutput {
-	return o.ToGroupSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyPtrOutputWithContext(ctx context.Context) GroupSchemaPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupSchemaProperty) *GroupSchemaProperty {
-		return &v
-	}).(GroupSchemaPropertyPtrOutput)
-}
-
-type GroupSchemaPropertyPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupSchemaPropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupSchemaProperty)(nil))
-}
-
-func (o GroupSchemaPropertyPtrOutput) ToGroupSchemaPropertyPtrOutput() GroupSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o GroupSchemaPropertyPtrOutput) ToGroupSchemaPropertyPtrOutputWithContext(ctx context.Context) GroupSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o GroupSchemaPropertyPtrOutput) Elem() GroupSchemaPropertyOutput {
-	return o.ApplyT(func(v *GroupSchemaProperty) GroupSchemaProperty {
-		if v != nil {
-			return *v
-		}
-		var ret GroupSchemaProperty
-		return ret
-	}).(GroupSchemaPropertyOutput)
-}
-
 type GroupSchemaPropertyArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupSchemaPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupSchemaProperty)(nil))
+	return reflect.TypeOf((*[]*GroupSchemaProperty)(nil)).Elem()
 }
 
 func (o GroupSchemaPropertyArrayOutput) ToGroupSchemaPropertyArrayOutput() GroupSchemaPropertyArrayOutput {
@@ -464,15 +401,15 @@ func (o GroupSchemaPropertyArrayOutput) ToGroupSchemaPropertyArrayOutputWithCont
 }
 
 func (o GroupSchemaPropertyArrayOutput) Index(i pulumi.IntInput) GroupSchemaPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupSchemaProperty {
-		return vs[0].([]GroupSchemaProperty)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupSchemaProperty {
+		return vs[0].([]*GroupSchemaProperty)[vs[1].(int)]
 	}).(GroupSchemaPropertyOutput)
 }
 
 type GroupSchemaPropertyMapOutput struct{ *pulumi.OutputState }
 
 func (GroupSchemaPropertyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GroupSchemaProperty)(nil))
+	return reflect.TypeOf((*map[string]*GroupSchemaProperty)(nil)).Elem()
 }
 
 func (o GroupSchemaPropertyMapOutput) ToGroupSchemaPropertyMapOutput() GroupSchemaPropertyMapOutput {
@@ -484,18 +421,16 @@ func (o GroupSchemaPropertyMapOutput) ToGroupSchemaPropertyMapOutputWithContext(
 }
 
 func (o GroupSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) GroupSchemaPropertyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupSchemaProperty {
-		return vs[0].(map[string]GroupSchemaProperty)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GroupSchemaProperty {
+		return vs[0].(map[string]*GroupSchemaProperty)[vs[1].(string)]
 	}).(GroupSchemaPropertyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyInput)(nil)).Elem(), &GroupSchemaProperty{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyPtrInput)(nil)).Elem(), &GroupSchemaProperty{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyArrayInput)(nil)).Elem(), GroupSchemaPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMapInput)(nil)).Elem(), GroupSchemaPropertyMap{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyOutput{})
-	pulumi.RegisterOutputType(GroupSchemaPropertyPtrOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyMapOutput{})
 }

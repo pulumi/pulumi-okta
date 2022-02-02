@@ -92,15 +92,15 @@ export class AdminRoleTargets extends pulumi.CustomResource {
      */
     constructor(name: string, args: AdminRoleTargetsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdminRoleTargetsArgs | AdminRoleTargetsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleTargetsState | undefined;
-            inputs["apps"] = state ? state.apps : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["roleId"] = state ? state.roleId : undefined;
-            inputs["roleType"] = state ? state.roleType : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apps"] = state ? state.apps : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["roleId"] = state ? state.roleId : undefined;
+            resourceInputs["roleType"] = state ? state.roleType : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as AdminRoleTargetsArgs | undefined;
             if ((!args || args.roleType === undefined) && !opts.urn) {
@@ -109,16 +109,14 @@ export class AdminRoleTargets extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["apps"] = args ? args.apps : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["roleType"] = args ? args.roleType : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["roleId"] = undefined /*out*/;
+            resourceInputs["apps"] = args ? args.apps : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["roleType"] = args ? args.roleType : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["roleId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AdminRoleTargets.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AdminRoleTargets.__pulumiType, name, resourceInputs, opts);
     }
 }
 

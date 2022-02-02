@@ -87,13 +87,13 @@ export class AppOauthApiScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppOauthApiScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppOauthApiScopeArgs | AppOauthApiScopeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppOauthApiScopeState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["issuer"] = state ? state.issuer : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
         } else {
             const args = argsOrState as AppOauthApiScopeArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -105,14 +105,12 @@ export class AppOauthApiScope extends pulumi.CustomResource {
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["issuer"] = args ? args.issuer : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["issuer"] = args ? args.issuer : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppOauthApiScope.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppOauthApiScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 
