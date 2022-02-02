@@ -73,23 +73,21 @@ export class OrgSupport extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OrgSupportArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrgSupportArgs | OrgSupportState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrgSupportState | undefined;
-            inputs["expiration"] = state ? state.expiration : undefined;
-            inputs["extendBy"] = state ? state.extendBy : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["extendBy"] = state ? state.extendBy : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as OrgSupportArgs | undefined;
-            inputs["extendBy"] = args ? args.extendBy : undefined;
-            inputs["expiration"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["extendBy"] = args ? args.extendBy : undefined;
+            resourceInputs["expiration"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OrgSupport.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OrgSupport.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -126,7 +126,7 @@ type PolicyProfileEnrollmentInput interface {
 }
 
 func (*PolicyProfileEnrollment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyProfileEnrollment)(nil))
+	return reflect.TypeOf((**PolicyProfileEnrollment)(nil)).Elem()
 }
 
 func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentOutput() PolicyProfileEnrollmentOutput {
@@ -135,35 +135,6 @@ func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentOutput() PolicyProfil
 
 func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentOutputWithContext(ctx context.Context) PolicyProfileEnrollmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentOutput)
-}
-
-func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentPtrOutput() PolicyProfileEnrollmentPtrOutput {
-	return i.ToPolicyProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyProfileEnrollmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentPtrOutput)
-}
-
-type PolicyProfileEnrollmentPtrInput interface {
-	pulumi.Input
-
-	ToPolicyProfileEnrollmentPtrOutput() PolicyProfileEnrollmentPtrOutput
-	ToPolicyProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyProfileEnrollmentPtrOutput
-}
-
-type policyProfileEnrollmentPtrType PolicyProfileEnrollmentArgs
-
-func (*policyProfileEnrollmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyProfileEnrollment)(nil))
-}
-
-func (i *policyProfileEnrollmentPtrType) ToPolicyProfileEnrollmentPtrOutput() PolicyProfileEnrollmentPtrOutput {
-	return i.ToPolicyProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (i *policyProfileEnrollmentPtrType) ToPolicyProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyProfileEnrollmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentPtrOutput)
 }
 
 // PolicyProfileEnrollmentArrayInput is an input type that accepts PolicyProfileEnrollmentArray and PolicyProfileEnrollmentArrayOutput values.
@@ -219,7 +190,7 @@ func (i PolicyProfileEnrollmentMap) ToPolicyProfileEnrollmentMapOutputWithContex
 type PolicyProfileEnrollmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyProfileEnrollmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyProfileEnrollment)(nil))
+	return reflect.TypeOf((**PolicyProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutput() PolicyProfileEnrollmentOutput {
@@ -230,44 +201,10 @@ func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutputWithContex
 	return o
 }
 
-func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentPtrOutput() PolicyProfileEnrollmentPtrOutput {
-	return o.ToPolicyProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyProfileEnrollmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyProfileEnrollment) *PolicyProfileEnrollment {
-		return &v
-	}).(PolicyProfileEnrollmentPtrOutput)
-}
-
-type PolicyProfileEnrollmentPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyProfileEnrollmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyProfileEnrollment)(nil))
-}
-
-func (o PolicyProfileEnrollmentPtrOutput) ToPolicyProfileEnrollmentPtrOutput() PolicyProfileEnrollmentPtrOutput {
-	return o
-}
-
-func (o PolicyProfileEnrollmentPtrOutput) ToPolicyProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyProfileEnrollmentPtrOutput {
-	return o
-}
-
-func (o PolicyProfileEnrollmentPtrOutput) Elem() PolicyProfileEnrollmentOutput {
-	return o.ApplyT(func(v *PolicyProfileEnrollment) PolicyProfileEnrollment {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyProfileEnrollment
-		return ret
-	}).(PolicyProfileEnrollmentOutput)
-}
-
 type PolicyProfileEnrollmentArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyProfileEnrollmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyProfileEnrollment)(nil))
+	return reflect.TypeOf((*[]*PolicyProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyProfileEnrollmentArrayOutput) ToPolicyProfileEnrollmentArrayOutput() PolicyProfileEnrollmentArrayOutput {
@@ -279,15 +216,15 @@ func (o PolicyProfileEnrollmentArrayOutput) ToPolicyProfileEnrollmentArrayOutput
 }
 
 func (o PolicyProfileEnrollmentArrayOutput) Index(i pulumi.IntInput) PolicyProfileEnrollmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyProfileEnrollment {
-		return vs[0].([]PolicyProfileEnrollment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyProfileEnrollment {
+		return vs[0].([]*PolicyProfileEnrollment)[vs[1].(int)]
 	}).(PolicyProfileEnrollmentOutput)
 }
 
 type PolicyProfileEnrollmentMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyProfileEnrollmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyProfileEnrollment)(nil))
+	return reflect.TypeOf((*map[string]*PolicyProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyProfileEnrollmentMapOutput) ToPolicyProfileEnrollmentMapOutput() PolicyProfileEnrollmentMapOutput {
@@ -299,18 +236,16 @@ func (o PolicyProfileEnrollmentMapOutput) ToPolicyProfileEnrollmentMapOutputWith
 }
 
 func (o PolicyProfileEnrollmentMapOutput) MapIndex(k pulumi.StringInput) PolicyProfileEnrollmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyProfileEnrollment {
-		return vs[0].(map[string]PolicyProfileEnrollment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyProfileEnrollment {
+		return vs[0].(map[string]*PolicyProfileEnrollment)[vs[1].(string)]
 	}).(PolicyProfileEnrollmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyProfileEnrollmentInput)(nil)).Elem(), &PolicyProfileEnrollment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyProfileEnrollmentPtrInput)(nil)).Elem(), &PolicyProfileEnrollment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyProfileEnrollmentArrayInput)(nil)).Elem(), PolicyProfileEnrollmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyProfileEnrollmentMapInput)(nil)).Elem(), PolicyProfileEnrollmentMap{})
 	pulumi.RegisterOutputType(PolicyProfileEnrollmentOutput{})
-	pulumi.RegisterOutputType(PolicyProfileEnrollmentPtrOutput{})
 	pulumi.RegisterOutputType(PolicyProfileEnrollmentArrayOutput{})
 	pulumi.RegisterOutputType(PolicyProfileEnrollmentMapOutput{})
 }

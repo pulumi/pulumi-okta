@@ -158,7 +158,7 @@ type CaptchaInput interface {
 }
 
 func (*Captcha) ElementType() reflect.Type {
-	return reflect.TypeOf((*Captcha)(nil))
+	return reflect.TypeOf((**Captcha)(nil)).Elem()
 }
 
 func (i *Captcha) ToCaptchaOutput() CaptchaOutput {
@@ -167,35 +167,6 @@ func (i *Captcha) ToCaptchaOutput() CaptchaOutput {
 
 func (i *Captcha) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOutput)
-}
-
-func (i *Captcha) ToCaptchaPtrOutput() CaptchaPtrOutput {
-	return i.ToCaptchaPtrOutputWithContext(context.Background())
-}
-
-func (i *Captcha) ToCaptchaPtrOutputWithContext(ctx context.Context) CaptchaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaptchaPtrOutput)
-}
-
-type CaptchaPtrInput interface {
-	pulumi.Input
-
-	ToCaptchaPtrOutput() CaptchaPtrOutput
-	ToCaptchaPtrOutputWithContext(ctx context.Context) CaptchaPtrOutput
-}
-
-type captchaPtrType CaptchaArgs
-
-func (*captchaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Captcha)(nil))
-}
-
-func (i *captchaPtrType) ToCaptchaPtrOutput() CaptchaPtrOutput {
-	return i.ToCaptchaPtrOutputWithContext(context.Background())
-}
-
-func (i *captchaPtrType) ToCaptchaPtrOutputWithContext(ctx context.Context) CaptchaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaptchaPtrOutput)
 }
 
 // CaptchaArrayInput is an input type that accepts CaptchaArray and CaptchaArrayOutput values.
@@ -251,7 +222,7 @@ func (i CaptchaMap) ToCaptchaMapOutputWithContext(ctx context.Context) CaptchaMa
 type CaptchaOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Captcha)(nil))
+	return reflect.TypeOf((**Captcha)(nil)).Elem()
 }
 
 func (o CaptchaOutput) ToCaptchaOutput() CaptchaOutput {
@@ -262,44 +233,10 @@ func (o CaptchaOutput) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOu
 	return o
 }
 
-func (o CaptchaOutput) ToCaptchaPtrOutput() CaptchaPtrOutput {
-	return o.ToCaptchaPtrOutputWithContext(context.Background())
-}
-
-func (o CaptchaOutput) ToCaptchaPtrOutputWithContext(ctx context.Context) CaptchaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Captcha) *Captcha {
-		return &v
-	}).(CaptchaPtrOutput)
-}
-
-type CaptchaPtrOutput struct{ *pulumi.OutputState }
-
-func (CaptchaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Captcha)(nil))
-}
-
-func (o CaptchaPtrOutput) ToCaptchaPtrOutput() CaptchaPtrOutput {
-	return o
-}
-
-func (o CaptchaPtrOutput) ToCaptchaPtrOutputWithContext(ctx context.Context) CaptchaPtrOutput {
-	return o
-}
-
-func (o CaptchaPtrOutput) Elem() CaptchaOutput {
-	return o.ApplyT(func(v *Captcha) Captcha {
-		if v != nil {
-			return *v
-		}
-		var ret Captcha
-		return ret
-	}).(CaptchaOutput)
-}
-
 type CaptchaArrayOutput struct{ *pulumi.OutputState }
 
 func (CaptchaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Captcha)(nil))
+	return reflect.TypeOf((*[]*Captcha)(nil)).Elem()
 }
 
 func (o CaptchaArrayOutput) ToCaptchaArrayOutput() CaptchaArrayOutput {
@@ -311,15 +248,15 @@ func (o CaptchaArrayOutput) ToCaptchaArrayOutputWithContext(ctx context.Context)
 }
 
 func (o CaptchaArrayOutput) Index(i pulumi.IntInput) CaptchaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Captcha {
-		return vs[0].([]Captcha)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Captcha {
+		return vs[0].([]*Captcha)[vs[1].(int)]
 	}).(CaptchaOutput)
 }
 
 type CaptchaMapOutput struct{ *pulumi.OutputState }
 
 func (CaptchaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Captcha)(nil))
+	return reflect.TypeOf((*map[string]*Captcha)(nil)).Elem()
 }
 
 func (o CaptchaMapOutput) ToCaptchaMapOutput() CaptchaMapOutput {
@@ -331,18 +268,16 @@ func (o CaptchaMapOutput) ToCaptchaMapOutputWithContext(ctx context.Context) Cap
 }
 
 func (o CaptchaMapOutput) MapIndex(k pulumi.StringInput) CaptchaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Captcha {
-		return vs[0].(map[string]Captcha)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Captcha {
+		return vs[0].(map[string]*Captcha)[vs[1].(string)]
 	}).(CaptchaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaInput)(nil)).Elem(), &Captcha{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaPtrInput)(nil)).Elem(), &Captcha{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaArrayInput)(nil)).Elem(), CaptchaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaMapInput)(nil)).Elem(), CaptchaMap{})
 	pulumi.RegisterOutputType(CaptchaOutput{})
-	pulumi.RegisterOutputType(CaptchaPtrOutput{})
 	pulumi.RegisterOutputType(CaptchaArrayOutput{})
 	pulumi.RegisterOutputType(CaptchaMapOutput{})
 }

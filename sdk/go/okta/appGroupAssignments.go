@@ -176,7 +176,7 @@ type AppGroupAssignmentsInput interface {
 }
 
 func (*AppGroupAssignments) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppGroupAssignments)(nil))
+	return reflect.TypeOf((**AppGroupAssignments)(nil)).Elem()
 }
 
 func (i *AppGroupAssignments) ToAppGroupAssignmentsOutput() AppGroupAssignmentsOutput {
@@ -185,35 +185,6 @@ func (i *AppGroupAssignments) ToAppGroupAssignmentsOutput() AppGroupAssignmentsO
 
 func (i *AppGroupAssignments) ToAppGroupAssignmentsOutputWithContext(ctx context.Context) AppGroupAssignmentsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsOutput)
-}
-
-func (i *AppGroupAssignments) ToAppGroupAssignmentsPtrOutput() AppGroupAssignmentsPtrOutput {
-	return i.ToAppGroupAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (i *AppGroupAssignments) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsPtrOutput)
-}
-
-type AppGroupAssignmentsPtrInput interface {
-	pulumi.Input
-
-	ToAppGroupAssignmentsPtrOutput() AppGroupAssignmentsPtrOutput
-	ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput
-}
-
-type appGroupAssignmentsPtrType AppGroupAssignmentsArgs
-
-func (*appGroupAssignmentsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppGroupAssignments)(nil))
-}
-
-func (i *appGroupAssignmentsPtrType) ToAppGroupAssignmentsPtrOutput() AppGroupAssignmentsPtrOutput {
-	return i.ToAppGroupAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (i *appGroupAssignmentsPtrType) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsPtrOutput)
 }
 
 // AppGroupAssignmentsArrayInput is an input type that accepts AppGroupAssignmentsArray and AppGroupAssignmentsArrayOutput values.
@@ -269,7 +240,7 @@ func (i AppGroupAssignmentsMap) ToAppGroupAssignmentsMapOutputWithContext(ctx co
 type AppGroupAssignmentsOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppGroupAssignments)(nil))
+	return reflect.TypeOf((**AppGroupAssignments)(nil)).Elem()
 }
 
 func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutput() AppGroupAssignmentsOutput {
@@ -280,44 +251,10 @@ func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutputWithContext(ctx co
 	return o
 }
 
-func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsPtrOutput() AppGroupAssignmentsPtrOutput {
-	return o.ToAppGroupAssignmentsPtrOutputWithContext(context.Background())
-}
-
-func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppGroupAssignments) *AppGroupAssignments {
-		return &v
-	}).(AppGroupAssignmentsPtrOutput)
-}
-
-type AppGroupAssignmentsPtrOutput struct{ *pulumi.OutputState }
-
-func (AppGroupAssignmentsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppGroupAssignments)(nil))
-}
-
-func (o AppGroupAssignmentsPtrOutput) ToAppGroupAssignmentsPtrOutput() AppGroupAssignmentsPtrOutput {
-	return o
-}
-
-func (o AppGroupAssignmentsPtrOutput) ToAppGroupAssignmentsPtrOutputWithContext(ctx context.Context) AppGroupAssignmentsPtrOutput {
-	return o
-}
-
-func (o AppGroupAssignmentsPtrOutput) Elem() AppGroupAssignmentsOutput {
-	return o.ApplyT(func(v *AppGroupAssignments) AppGroupAssignments {
-		if v != nil {
-			return *v
-		}
-		var ret AppGroupAssignments
-		return ret
-	}).(AppGroupAssignmentsOutput)
-}
-
 type AppGroupAssignmentsArrayOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppGroupAssignments)(nil))
+	return reflect.TypeOf((*[]*AppGroupAssignments)(nil)).Elem()
 }
 
 func (o AppGroupAssignmentsArrayOutput) ToAppGroupAssignmentsArrayOutput() AppGroupAssignmentsArrayOutput {
@@ -329,15 +266,15 @@ func (o AppGroupAssignmentsArrayOutput) ToAppGroupAssignmentsArrayOutputWithCont
 }
 
 func (o AppGroupAssignmentsArrayOutput) Index(i pulumi.IntInput) AppGroupAssignmentsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppGroupAssignments {
-		return vs[0].([]AppGroupAssignments)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppGroupAssignments {
+		return vs[0].([]*AppGroupAssignments)[vs[1].(int)]
 	}).(AppGroupAssignmentsOutput)
 }
 
 type AppGroupAssignmentsMapOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppGroupAssignments)(nil))
+	return reflect.TypeOf((*map[string]*AppGroupAssignments)(nil)).Elem()
 }
 
 func (o AppGroupAssignmentsMapOutput) ToAppGroupAssignmentsMapOutput() AppGroupAssignmentsMapOutput {
@@ -349,18 +286,16 @@ func (o AppGroupAssignmentsMapOutput) ToAppGroupAssignmentsMapOutputWithContext(
 }
 
 func (o AppGroupAssignmentsMapOutput) MapIndex(k pulumi.StringInput) AppGroupAssignmentsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppGroupAssignments {
-		return vs[0].(map[string]AppGroupAssignments)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppGroupAssignments {
+		return vs[0].(map[string]*AppGroupAssignments)[vs[1].(string)]
 	}).(AppGroupAssignmentsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsInput)(nil)).Elem(), &AppGroupAssignments{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsPtrInput)(nil)).Elem(), &AppGroupAssignments{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsArrayInput)(nil)).Elem(), AppGroupAssignmentsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsMapInput)(nil)).Elem(), AppGroupAssignmentsMap{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsOutput{})
-	pulumi.RegisterOutputType(AppGroupAssignmentsPtrOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsArrayOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsMapOutput{})
 }

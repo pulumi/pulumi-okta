@@ -135,54 +135,52 @@ export class OrgConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrgConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrgConfigurationArgs | OrgConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrgConfigurationState | undefined;
-            inputs["address1"] = state ? state.address1 : undefined;
-            inputs["address2"] = state ? state.address2 : undefined;
-            inputs["billingContactUser"] = state ? state.billingContactUser : undefined;
-            inputs["city"] = state ? state.city : undefined;
-            inputs["companyName"] = state ? state.companyName : undefined;
-            inputs["country"] = state ? state.country : undefined;
-            inputs["endUserSupportHelpUrl"] = state ? state.endUserSupportHelpUrl : undefined;
-            inputs["expiresAt"] = state ? state.expiresAt : undefined;
-            inputs["logo"] = state ? state.logo : undefined;
-            inputs["optOutCommunicationEmails"] = state ? state.optOutCommunicationEmails : undefined;
-            inputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            inputs["postalCode"] = state ? state.postalCode : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["subdomain"] = state ? state.subdomain : undefined;
-            inputs["supportPhoneNumber"] = state ? state.supportPhoneNumber : undefined;
-            inputs["technicalContactUser"] = state ? state.technicalContactUser : undefined;
-            inputs["website"] = state ? state.website : undefined;
+            resourceInputs["address1"] = state ? state.address1 : undefined;
+            resourceInputs["address2"] = state ? state.address2 : undefined;
+            resourceInputs["billingContactUser"] = state ? state.billingContactUser : undefined;
+            resourceInputs["city"] = state ? state.city : undefined;
+            resourceInputs["companyName"] = state ? state.companyName : undefined;
+            resourceInputs["country"] = state ? state.country : undefined;
+            resourceInputs["endUserSupportHelpUrl"] = state ? state.endUserSupportHelpUrl : undefined;
+            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
+            resourceInputs["logo"] = state ? state.logo : undefined;
+            resourceInputs["optOutCommunicationEmails"] = state ? state.optOutCommunicationEmails : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["postalCode"] = state ? state.postalCode : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["supportPhoneNumber"] = state ? state.supportPhoneNumber : undefined;
+            resourceInputs["technicalContactUser"] = state ? state.technicalContactUser : undefined;
+            resourceInputs["website"] = state ? state.website : undefined;
         } else {
             const args = argsOrState as OrgConfigurationArgs | undefined;
             if ((!args || args.companyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'companyName'");
             }
-            inputs["address1"] = args ? args.address1 : undefined;
-            inputs["address2"] = args ? args.address2 : undefined;
-            inputs["billingContactUser"] = args ? args.billingContactUser : undefined;
-            inputs["city"] = args ? args.city : undefined;
-            inputs["companyName"] = args ? args.companyName : undefined;
-            inputs["country"] = args ? args.country : undefined;
-            inputs["endUserSupportHelpUrl"] = args ? args.endUserSupportHelpUrl : undefined;
-            inputs["logo"] = args ? args.logo : undefined;
-            inputs["optOutCommunicationEmails"] = args ? args.optOutCommunicationEmails : undefined;
-            inputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            inputs["postalCode"] = args ? args.postalCode : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["supportPhoneNumber"] = args ? args.supportPhoneNumber : undefined;
-            inputs["technicalContactUser"] = args ? args.technicalContactUser : undefined;
-            inputs["website"] = args ? args.website : undefined;
-            inputs["expiresAt"] = undefined /*out*/;
-            inputs["subdomain"] = undefined /*out*/;
+            resourceInputs["address1"] = args ? args.address1 : undefined;
+            resourceInputs["address2"] = args ? args.address2 : undefined;
+            resourceInputs["billingContactUser"] = args ? args.billingContactUser : undefined;
+            resourceInputs["city"] = args ? args.city : undefined;
+            resourceInputs["companyName"] = args ? args.companyName : undefined;
+            resourceInputs["country"] = args ? args.country : undefined;
+            resourceInputs["endUserSupportHelpUrl"] = args ? args.endUserSupportHelpUrl : undefined;
+            resourceInputs["logo"] = args ? args.logo : undefined;
+            resourceInputs["optOutCommunicationEmails"] = args ? args.optOutCommunicationEmails : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["postalCode"] = args ? args.postalCode : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["supportPhoneNumber"] = args ? args.supportPhoneNumber : undefined;
+            resourceInputs["technicalContactUser"] = args ? args.technicalContactUser : undefined;
+            resourceInputs["website"] = args ? args.website : undefined;
+            resourceInputs["expiresAt"] = undefined /*out*/;
+            resourceInputs["subdomain"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OrgConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OrgConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -24,9 +24,7 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:app/getOauth:getOauth", {
         "activeOnly": args.activeOnly,
         "id": args.id,

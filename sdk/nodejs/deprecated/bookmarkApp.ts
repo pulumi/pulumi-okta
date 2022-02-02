@@ -125,31 +125,31 @@ export class BookmarkApp extends pulumi.CustomResource {
      */
     constructor(name: string, args: BookmarkAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BookmarkAppArgs | BookmarkAppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BookmarkAppState | undefined;
-            inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            inputs["adminNote"] = state ? state.adminNote : undefined;
-            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            inputs["enduserNote"] = state ? state.enduserNote : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["hideIos"] = state ? state.hideIos : undefined;
-            inputs["hideWeb"] = state ? state.hideWeb : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["logo"] = state ? state.logo : undefined;
-            inputs["logoUrl"] = state ? state.logoUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["requestIntegration"] = state ? state.requestIntegration : undefined;
-            inputs["signOnMode"] = state ? state.signOnMode : undefined;
-            inputs["skipGroups"] = state ? state.skipGroups : undefined;
-            inputs["skipUsers"] = state ? state.skipUsers : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
+            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
+            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
+            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
+            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
+            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["logo"] = state ? state.logo : undefined;
+            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["requestIntegration"] = state ? state.requestIntegration : undefined;
+            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
+            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
+            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BookmarkAppArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -158,32 +158,30 @@ export class BookmarkApp extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            inputs["adminNote"] = args ? args.adminNote : undefined;
-            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            inputs["enduserNote"] = args ? args.enduserNote : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["hideIos"] = args ? args.hideIos : undefined;
-            inputs["hideWeb"] = args ? args.hideWeb : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["logo"] = args ? args.logo : undefined;
-            inputs["requestIntegration"] = args ? args.requestIntegration : undefined;
-            inputs["skipGroups"] = args ? args.skipGroups : undefined;
-            inputs["skipUsers"] = args ? args.skipUsers : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["logoUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["signOnMode"] = undefined /*out*/;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
+            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
+            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
+            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
+            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["logo"] = args ? args.logo : undefined;
+            resourceInputs["requestIntegration"] = args ? args.requestIntegration : undefined;
+            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
+            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["logoUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BookmarkApp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BookmarkApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -123,7 +123,7 @@ type OrgSupportInput interface {
 }
 
 func (*OrgSupport) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrgSupport)(nil))
+	return reflect.TypeOf((**OrgSupport)(nil)).Elem()
 }
 
 func (i *OrgSupport) ToOrgSupportOutput() OrgSupportOutput {
@@ -132,35 +132,6 @@ func (i *OrgSupport) ToOrgSupportOutput() OrgSupportOutput {
 
 func (i *OrgSupport) ToOrgSupportOutputWithContext(ctx context.Context) OrgSupportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportOutput)
-}
-
-func (i *OrgSupport) ToOrgSupportPtrOutput() OrgSupportPtrOutput {
-	return i.ToOrgSupportPtrOutputWithContext(context.Background())
-}
-
-func (i *OrgSupport) ToOrgSupportPtrOutputWithContext(ctx context.Context) OrgSupportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportPtrOutput)
-}
-
-type OrgSupportPtrInput interface {
-	pulumi.Input
-
-	ToOrgSupportPtrOutput() OrgSupportPtrOutput
-	ToOrgSupportPtrOutputWithContext(ctx context.Context) OrgSupportPtrOutput
-}
-
-type orgSupportPtrType OrgSupportArgs
-
-func (*orgSupportPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrgSupport)(nil))
-}
-
-func (i *orgSupportPtrType) ToOrgSupportPtrOutput() OrgSupportPtrOutput {
-	return i.ToOrgSupportPtrOutputWithContext(context.Background())
-}
-
-func (i *orgSupportPtrType) ToOrgSupportPtrOutputWithContext(ctx context.Context) OrgSupportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportPtrOutput)
 }
 
 // OrgSupportArrayInput is an input type that accepts OrgSupportArray and OrgSupportArrayOutput values.
@@ -216,7 +187,7 @@ func (i OrgSupportMap) ToOrgSupportMapOutputWithContext(ctx context.Context) Org
 type OrgSupportOutput struct{ *pulumi.OutputState }
 
 func (OrgSupportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrgSupport)(nil))
+	return reflect.TypeOf((**OrgSupport)(nil)).Elem()
 }
 
 func (o OrgSupportOutput) ToOrgSupportOutput() OrgSupportOutput {
@@ -227,44 +198,10 @@ func (o OrgSupportOutput) ToOrgSupportOutputWithContext(ctx context.Context) Org
 	return o
 }
 
-func (o OrgSupportOutput) ToOrgSupportPtrOutput() OrgSupportPtrOutput {
-	return o.ToOrgSupportPtrOutputWithContext(context.Background())
-}
-
-func (o OrgSupportOutput) ToOrgSupportPtrOutputWithContext(ctx context.Context) OrgSupportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrgSupport) *OrgSupport {
-		return &v
-	}).(OrgSupportPtrOutput)
-}
-
-type OrgSupportPtrOutput struct{ *pulumi.OutputState }
-
-func (OrgSupportPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrgSupport)(nil))
-}
-
-func (o OrgSupportPtrOutput) ToOrgSupportPtrOutput() OrgSupportPtrOutput {
-	return o
-}
-
-func (o OrgSupportPtrOutput) ToOrgSupportPtrOutputWithContext(ctx context.Context) OrgSupportPtrOutput {
-	return o
-}
-
-func (o OrgSupportPtrOutput) Elem() OrgSupportOutput {
-	return o.ApplyT(func(v *OrgSupport) OrgSupport {
-		if v != nil {
-			return *v
-		}
-		var ret OrgSupport
-		return ret
-	}).(OrgSupportOutput)
-}
-
 type OrgSupportArrayOutput struct{ *pulumi.OutputState }
 
 func (OrgSupportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrgSupport)(nil))
+	return reflect.TypeOf((*[]*OrgSupport)(nil)).Elem()
 }
 
 func (o OrgSupportArrayOutput) ToOrgSupportArrayOutput() OrgSupportArrayOutput {
@@ -276,15 +213,15 @@ func (o OrgSupportArrayOutput) ToOrgSupportArrayOutputWithContext(ctx context.Co
 }
 
 func (o OrgSupportArrayOutput) Index(i pulumi.IntInput) OrgSupportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrgSupport {
-		return vs[0].([]OrgSupport)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrgSupport {
+		return vs[0].([]*OrgSupport)[vs[1].(int)]
 	}).(OrgSupportOutput)
 }
 
 type OrgSupportMapOutput struct{ *pulumi.OutputState }
 
 func (OrgSupportMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrgSupport)(nil))
+	return reflect.TypeOf((*map[string]*OrgSupport)(nil)).Elem()
 }
 
 func (o OrgSupportMapOutput) ToOrgSupportMapOutput() OrgSupportMapOutput {
@@ -296,18 +233,16 @@ func (o OrgSupportMapOutput) ToOrgSupportMapOutputWithContext(ctx context.Contex
 }
 
 func (o OrgSupportMapOutput) MapIndex(k pulumi.StringInput) OrgSupportOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrgSupport {
-		return vs[0].(map[string]OrgSupport)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrgSupport {
+		return vs[0].(map[string]*OrgSupport)[vs[1].(string)]
 	}).(OrgSupportOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgSupportInput)(nil)).Elem(), &OrgSupport{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrgSupportPtrInput)(nil)).Elem(), &OrgSupport{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgSupportArrayInput)(nil)).Elem(), OrgSupportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrgSupportMapInput)(nil)).Elem(), OrgSupportMap{})
 	pulumi.RegisterOutputType(OrgSupportOutput{})
-	pulumi.RegisterOutputType(OrgSupportPtrOutput{})
 	pulumi.RegisterOutputType(OrgSupportArrayOutput{})
 	pulumi.RegisterOutputType(OrgSupportMapOutput{})
 }

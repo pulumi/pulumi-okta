@@ -24,9 +24,7 @@ export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:app/getApp:getApp", {
         "activeOnly": args.activeOnly,
         "id": args.id,

@@ -167,7 +167,7 @@ type CaptchaOrgWideSettingsInput interface {
 }
 
 func (*CaptchaOrgWideSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaptchaOrgWideSettings)(nil))
+	return reflect.TypeOf((**CaptchaOrgWideSettings)(nil)).Elem()
 }
 
 func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsOutput() CaptchaOrgWideSettingsOutput {
@@ -176,35 +176,6 @@ func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsOutput() CaptchaOrgWide
 
 func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsOutput)
-}
-
-func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsPtrOutput() CaptchaOrgWideSettingsPtrOutput {
-	return i.ToCaptchaOrgWideSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsPtrOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsPtrOutput)
-}
-
-type CaptchaOrgWideSettingsPtrInput interface {
-	pulumi.Input
-
-	ToCaptchaOrgWideSettingsPtrOutput() CaptchaOrgWideSettingsPtrOutput
-	ToCaptchaOrgWideSettingsPtrOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsPtrOutput
-}
-
-type captchaOrgWideSettingsPtrType CaptchaOrgWideSettingsArgs
-
-func (*captchaOrgWideSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CaptchaOrgWideSettings)(nil))
-}
-
-func (i *captchaOrgWideSettingsPtrType) ToCaptchaOrgWideSettingsPtrOutput() CaptchaOrgWideSettingsPtrOutput {
-	return i.ToCaptchaOrgWideSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *captchaOrgWideSettingsPtrType) ToCaptchaOrgWideSettingsPtrOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsPtrOutput)
 }
 
 // CaptchaOrgWideSettingsArrayInput is an input type that accepts CaptchaOrgWideSettingsArray and CaptchaOrgWideSettingsArrayOutput values.
@@ -260,7 +231,7 @@ func (i CaptchaOrgWideSettingsMap) ToCaptchaOrgWideSettingsMapOutputWithContext(
 type CaptchaOrgWideSettingsOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOrgWideSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaptchaOrgWideSettings)(nil))
+	return reflect.TypeOf((**CaptchaOrgWideSettings)(nil)).Elem()
 }
 
 func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutput() CaptchaOrgWideSettingsOutput {
@@ -271,44 +242,10 @@ func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutputWithContext(
 	return o
 }
 
-func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsPtrOutput() CaptchaOrgWideSettingsPtrOutput {
-	return o.ToCaptchaOrgWideSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsPtrOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptchaOrgWideSettings) *CaptchaOrgWideSettings {
-		return &v
-	}).(CaptchaOrgWideSettingsPtrOutput)
-}
-
-type CaptchaOrgWideSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (CaptchaOrgWideSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CaptchaOrgWideSettings)(nil))
-}
-
-func (o CaptchaOrgWideSettingsPtrOutput) ToCaptchaOrgWideSettingsPtrOutput() CaptchaOrgWideSettingsPtrOutput {
-	return o
-}
-
-func (o CaptchaOrgWideSettingsPtrOutput) ToCaptchaOrgWideSettingsPtrOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsPtrOutput {
-	return o
-}
-
-func (o CaptchaOrgWideSettingsPtrOutput) Elem() CaptchaOrgWideSettingsOutput {
-	return o.ApplyT(func(v *CaptchaOrgWideSettings) CaptchaOrgWideSettings {
-		if v != nil {
-			return *v
-		}
-		var ret CaptchaOrgWideSettings
-		return ret
-	}).(CaptchaOrgWideSettingsOutput)
-}
-
 type CaptchaOrgWideSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOrgWideSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CaptchaOrgWideSettings)(nil))
+	return reflect.TypeOf((*[]*CaptchaOrgWideSettings)(nil)).Elem()
 }
 
 func (o CaptchaOrgWideSettingsArrayOutput) ToCaptchaOrgWideSettingsArrayOutput() CaptchaOrgWideSettingsArrayOutput {
@@ -320,15 +257,15 @@ func (o CaptchaOrgWideSettingsArrayOutput) ToCaptchaOrgWideSettingsArrayOutputWi
 }
 
 func (o CaptchaOrgWideSettingsArrayOutput) Index(i pulumi.IntInput) CaptchaOrgWideSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CaptchaOrgWideSettings {
-		return vs[0].([]CaptchaOrgWideSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CaptchaOrgWideSettings {
+		return vs[0].([]*CaptchaOrgWideSettings)[vs[1].(int)]
 	}).(CaptchaOrgWideSettingsOutput)
 }
 
 type CaptchaOrgWideSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOrgWideSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CaptchaOrgWideSettings)(nil))
+	return reflect.TypeOf((*map[string]*CaptchaOrgWideSettings)(nil)).Elem()
 }
 
 func (o CaptchaOrgWideSettingsMapOutput) ToCaptchaOrgWideSettingsMapOutput() CaptchaOrgWideSettingsMapOutput {
@@ -340,18 +277,16 @@ func (o CaptchaOrgWideSettingsMapOutput) ToCaptchaOrgWideSettingsMapOutputWithCo
 }
 
 func (o CaptchaOrgWideSettingsMapOutput) MapIndex(k pulumi.StringInput) CaptchaOrgWideSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CaptchaOrgWideSettings {
-		return vs[0].(map[string]CaptchaOrgWideSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CaptchaOrgWideSettings {
+		return vs[0].(map[string]*CaptchaOrgWideSettings)[vs[1].(string)]
 	}).(CaptchaOrgWideSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaOrgWideSettingsInput)(nil)).Elem(), &CaptchaOrgWideSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaOrgWideSettingsPtrInput)(nil)).Elem(), &CaptchaOrgWideSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaOrgWideSettingsArrayInput)(nil)).Elem(), CaptchaOrgWideSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaptchaOrgWideSettingsMapInput)(nil)).Elem(), CaptchaOrgWideSettingsMap{})
 	pulumi.RegisterOutputType(CaptchaOrgWideSettingsOutput{})
-	pulumi.RegisterOutputType(CaptchaOrgWideSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CaptchaOrgWideSettingsArrayOutput{})
 	pulumi.RegisterOutputType(CaptchaOrgWideSettingsMapOutput{})
 }

@@ -215,7 +215,7 @@ type UserBaseSchemaPropertyInput interface {
 }
 
 func (*UserBaseSchemaProperty) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((**UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyOutput() UserBaseSchemaPropertyOutput {
@@ -224,35 +224,6 @@ func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyOutput() UserBaseSchema
 
 func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyOutputWithContext(ctx context.Context) UserBaseSchemaPropertyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyOutput)
-}
-
-func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyPtrOutput() UserBaseSchemaPropertyPtrOutput {
-	return i.ToUserBaseSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyPtrOutput)
-}
-
-type UserBaseSchemaPropertyPtrInput interface {
-	pulumi.Input
-
-	ToUserBaseSchemaPropertyPtrOutput() UserBaseSchemaPropertyPtrOutput
-	ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput
-}
-
-type userBaseSchemaPropertyPtrType UserBaseSchemaPropertyArgs
-
-func (*userBaseSchemaPropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserBaseSchemaProperty)(nil))
-}
-
-func (i *userBaseSchemaPropertyPtrType) ToUserBaseSchemaPropertyPtrOutput() UserBaseSchemaPropertyPtrOutput {
-	return i.ToUserBaseSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *userBaseSchemaPropertyPtrType) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyPtrOutput)
 }
 
 // UserBaseSchemaPropertyArrayInput is an input type that accepts UserBaseSchemaPropertyArray and UserBaseSchemaPropertyArrayOutput values.
@@ -308,7 +279,7 @@ func (i UserBaseSchemaPropertyMap) ToUserBaseSchemaPropertyMapOutputWithContext(
 type UserBaseSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((**UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutput() UserBaseSchemaPropertyOutput {
@@ -319,44 +290,10 @@ func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutputWithContext(
 	return o
 }
 
-func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyPtrOutput() UserBaseSchemaPropertyPtrOutput {
-	return o.ToUserBaseSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserBaseSchemaProperty) *UserBaseSchemaProperty {
-		return &v
-	}).(UserBaseSchemaPropertyPtrOutput)
-}
-
-type UserBaseSchemaPropertyPtrOutput struct{ *pulumi.OutputState }
-
-func (UserBaseSchemaPropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserBaseSchemaProperty)(nil))
-}
-
-func (o UserBaseSchemaPropertyPtrOutput) ToUserBaseSchemaPropertyPtrOutput() UserBaseSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o UserBaseSchemaPropertyPtrOutput) ToUserBaseSchemaPropertyPtrOutputWithContext(ctx context.Context) UserBaseSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o UserBaseSchemaPropertyPtrOutput) Elem() UserBaseSchemaPropertyOutput {
-	return o.ApplyT(func(v *UserBaseSchemaProperty) UserBaseSchemaProperty {
-		if v != nil {
-			return *v
-		}
-		var ret UserBaseSchemaProperty
-		return ret
-	}).(UserBaseSchemaPropertyOutput)
-}
-
 type UserBaseSchemaPropertyArrayOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((*[]*UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (o UserBaseSchemaPropertyArrayOutput) ToUserBaseSchemaPropertyArrayOutput() UserBaseSchemaPropertyArrayOutput {
@@ -368,15 +305,15 @@ func (o UserBaseSchemaPropertyArrayOutput) ToUserBaseSchemaPropertyArrayOutputWi
 }
 
 func (o UserBaseSchemaPropertyArrayOutput) Index(i pulumi.IntInput) UserBaseSchemaPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserBaseSchemaProperty {
-		return vs[0].([]UserBaseSchemaProperty)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserBaseSchemaProperty {
+		return vs[0].([]*UserBaseSchemaProperty)[vs[1].(int)]
 	}).(UserBaseSchemaPropertyOutput)
 }
 
 type UserBaseSchemaPropertyMapOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserBaseSchemaProperty)(nil))
+	return reflect.TypeOf((*map[string]*UserBaseSchemaProperty)(nil)).Elem()
 }
 
 func (o UserBaseSchemaPropertyMapOutput) ToUserBaseSchemaPropertyMapOutput() UserBaseSchemaPropertyMapOutput {
@@ -388,18 +325,16 @@ func (o UserBaseSchemaPropertyMapOutput) ToUserBaseSchemaPropertyMapOutputWithCo
 }
 
 func (o UserBaseSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) UserBaseSchemaPropertyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserBaseSchemaProperty {
-		return vs[0].(map[string]UserBaseSchemaProperty)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserBaseSchemaProperty {
+		return vs[0].(map[string]*UserBaseSchemaProperty)[vs[1].(string)]
 	}).(UserBaseSchemaPropertyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyInput)(nil)).Elem(), &UserBaseSchemaProperty{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyPtrInput)(nil)).Elem(), &UserBaseSchemaProperty{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyArrayInput)(nil)).Elem(), UserBaseSchemaPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserBaseSchemaPropertyMapInput)(nil)).Elem(), UserBaseSchemaPropertyMap{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyOutput{})
-	pulumi.RegisterOutputType(UserBaseSchemaPropertyPtrOutput{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyArrayOutput{})
 	pulumi.RegisterOutputType(UserBaseSchemaPropertyMapOutput{})
 }

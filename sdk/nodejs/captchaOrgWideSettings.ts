@@ -95,21 +95,19 @@ export class CaptchaOrgWideSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args?: CaptchaOrgWideSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CaptchaOrgWideSettingsArgs | CaptchaOrgWideSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CaptchaOrgWideSettingsState | undefined;
-            inputs["captchaId"] = state ? state.captchaId : undefined;
-            inputs["enabledFors"] = state ? state.enabledFors : undefined;
+            resourceInputs["captchaId"] = state ? state.captchaId : undefined;
+            resourceInputs["enabledFors"] = state ? state.enabledFors : undefined;
         } else {
             const args = argsOrState as CaptchaOrgWideSettingsArgs | undefined;
-            inputs["captchaId"] = args ? args.captchaId : undefined;
-            inputs["enabledFors"] = args ? args.enabledFors : undefined;
+            resourceInputs["captchaId"] = args ? args.captchaId : undefined;
+            resourceInputs["enabledFors"] = args ? args.enabledFors : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CaptchaOrgWideSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CaptchaOrgWideSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

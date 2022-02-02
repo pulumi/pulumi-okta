@@ -159,7 +159,7 @@ type AppSamlAppSettingsInput interface {
 }
 
 func (*AppSamlAppSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSamlAppSettings)(nil))
+	return reflect.TypeOf((**AppSamlAppSettings)(nil)).Elem()
 }
 
 func (i *AppSamlAppSettings) ToAppSamlAppSettingsOutput() AppSamlAppSettingsOutput {
@@ -168,35 +168,6 @@ func (i *AppSamlAppSettings) ToAppSamlAppSettingsOutput() AppSamlAppSettingsOutp
 
 func (i *AppSamlAppSettings) ToAppSamlAppSettingsOutputWithContext(ctx context.Context) AppSamlAppSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsOutput)
-}
-
-func (i *AppSamlAppSettings) ToAppSamlAppSettingsPtrOutput() AppSamlAppSettingsPtrOutput {
-	return i.ToAppSamlAppSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *AppSamlAppSettings) ToAppSamlAppSettingsPtrOutputWithContext(ctx context.Context) AppSamlAppSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsPtrOutput)
-}
-
-type AppSamlAppSettingsPtrInput interface {
-	pulumi.Input
-
-	ToAppSamlAppSettingsPtrOutput() AppSamlAppSettingsPtrOutput
-	ToAppSamlAppSettingsPtrOutputWithContext(ctx context.Context) AppSamlAppSettingsPtrOutput
-}
-
-type appSamlAppSettingsPtrType AppSamlAppSettingsArgs
-
-func (*appSamlAppSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSamlAppSettings)(nil))
-}
-
-func (i *appSamlAppSettingsPtrType) ToAppSamlAppSettingsPtrOutput() AppSamlAppSettingsPtrOutput {
-	return i.ToAppSamlAppSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *appSamlAppSettingsPtrType) ToAppSamlAppSettingsPtrOutputWithContext(ctx context.Context) AppSamlAppSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsPtrOutput)
 }
 
 // AppSamlAppSettingsArrayInput is an input type that accepts AppSamlAppSettingsArray and AppSamlAppSettingsArrayOutput values.
@@ -252,7 +223,7 @@ func (i AppSamlAppSettingsMap) ToAppSamlAppSettingsMapOutputWithContext(ctx cont
 type AppSamlAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (AppSamlAppSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSamlAppSettings)(nil))
+	return reflect.TypeOf((**AppSamlAppSettings)(nil)).Elem()
 }
 
 func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutput() AppSamlAppSettingsOutput {
@@ -263,44 +234,10 @@ func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutputWithContext(ctx cont
 	return o
 }
 
-func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsPtrOutput() AppSamlAppSettingsPtrOutput {
-	return o.ToAppSamlAppSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsPtrOutputWithContext(ctx context.Context) AppSamlAppSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSamlAppSettings) *AppSamlAppSettings {
-		return &v
-	}).(AppSamlAppSettingsPtrOutput)
-}
-
-type AppSamlAppSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (AppSamlAppSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSamlAppSettings)(nil))
-}
-
-func (o AppSamlAppSettingsPtrOutput) ToAppSamlAppSettingsPtrOutput() AppSamlAppSettingsPtrOutput {
-	return o
-}
-
-func (o AppSamlAppSettingsPtrOutput) ToAppSamlAppSettingsPtrOutputWithContext(ctx context.Context) AppSamlAppSettingsPtrOutput {
-	return o
-}
-
-func (o AppSamlAppSettingsPtrOutput) Elem() AppSamlAppSettingsOutput {
-	return o.ApplyT(func(v *AppSamlAppSettings) AppSamlAppSettings {
-		if v != nil {
-			return *v
-		}
-		var ret AppSamlAppSettings
-		return ret
-	}).(AppSamlAppSettingsOutput)
-}
-
 type AppSamlAppSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (AppSamlAppSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppSamlAppSettings)(nil))
+	return reflect.TypeOf((*[]*AppSamlAppSettings)(nil)).Elem()
 }
 
 func (o AppSamlAppSettingsArrayOutput) ToAppSamlAppSettingsArrayOutput() AppSamlAppSettingsArrayOutput {
@@ -312,15 +249,15 @@ func (o AppSamlAppSettingsArrayOutput) ToAppSamlAppSettingsArrayOutputWithContex
 }
 
 func (o AppSamlAppSettingsArrayOutput) Index(i pulumi.IntInput) AppSamlAppSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSamlAppSettings {
-		return vs[0].([]AppSamlAppSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSamlAppSettings {
+		return vs[0].([]*AppSamlAppSettings)[vs[1].(int)]
 	}).(AppSamlAppSettingsOutput)
 }
 
 type AppSamlAppSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (AppSamlAppSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppSamlAppSettings)(nil))
+	return reflect.TypeOf((*map[string]*AppSamlAppSettings)(nil)).Elem()
 }
 
 func (o AppSamlAppSettingsMapOutput) ToAppSamlAppSettingsMapOutput() AppSamlAppSettingsMapOutput {
@@ -332,18 +269,16 @@ func (o AppSamlAppSettingsMapOutput) ToAppSamlAppSettingsMapOutputWithContext(ct
 }
 
 func (o AppSamlAppSettingsMapOutput) MapIndex(k pulumi.StringInput) AppSamlAppSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppSamlAppSettings {
-		return vs[0].(map[string]AppSamlAppSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppSamlAppSettings {
+		return vs[0].(map[string]*AppSamlAppSettings)[vs[1].(string)]
 	}).(AppSamlAppSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSamlAppSettingsInput)(nil)).Elem(), &AppSamlAppSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSamlAppSettingsPtrInput)(nil)).Elem(), &AppSamlAppSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSamlAppSettingsArrayInput)(nil)).Elem(), AppSamlAppSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSamlAppSettingsMapInput)(nil)).Elem(), AppSamlAppSettingsMap{})
 	pulumi.RegisterOutputType(AppSamlAppSettingsOutput{})
-	pulumi.RegisterOutputType(AppSamlAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(AppSamlAppSettingsArrayOutput{})
 	pulumi.RegisterOutputType(AppSamlAppSettingsMapOutput{})
 }

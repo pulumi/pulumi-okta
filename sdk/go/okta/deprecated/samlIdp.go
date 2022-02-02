@@ -278,7 +278,7 @@ type SamlIdpInput interface {
 }
 
 func (*SamlIdp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdp)(nil))
+	return reflect.TypeOf((**SamlIdp)(nil)).Elem()
 }
 
 func (i *SamlIdp) ToSamlIdpOutput() SamlIdpOutput {
@@ -287,35 +287,6 @@ func (i *SamlIdp) ToSamlIdpOutput() SamlIdpOutput {
 
 func (i *SamlIdp) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpOutput)
-}
-
-func (i *SamlIdp) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
-	return i.ToSamlIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *SamlIdp) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpPtrOutput)
-}
-
-type SamlIdpPtrInput interface {
-	pulumi.Input
-
-	ToSamlIdpPtrOutput() SamlIdpPtrOutput
-	ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput
-}
-
-type samlIdpPtrType SamlIdpArgs
-
-func (*samlIdpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlIdp)(nil))
-}
-
-func (i *samlIdpPtrType) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
-	return i.ToSamlIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *samlIdpPtrType) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlIdpPtrOutput)
 }
 
 // SamlIdpArrayInput is an input type that accepts SamlIdpArray and SamlIdpArrayOutput values.
@@ -371,7 +342,7 @@ func (i SamlIdpMap) ToSamlIdpMapOutputWithContext(ctx context.Context) SamlIdpMa
 type SamlIdpOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlIdp)(nil))
+	return reflect.TypeOf((**SamlIdp)(nil)).Elem()
 }
 
 func (o SamlIdpOutput) ToSamlIdpOutput() SamlIdpOutput {
@@ -382,44 +353,10 @@ func (o SamlIdpOutput) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOu
 	return o
 }
 
-func (o SamlIdpOutput) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
-	return o.ToSamlIdpPtrOutputWithContext(context.Background())
-}
-
-func (o SamlIdpOutput) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlIdp) *SamlIdp {
-		return &v
-	}).(SamlIdpPtrOutput)
-}
-
-type SamlIdpPtrOutput struct{ *pulumi.OutputState }
-
-func (SamlIdpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlIdp)(nil))
-}
-
-func (o SamlIdpPtrOutput) ToSamlIdpPtrOutput() SamlIdpPtrOutput {
-	return o
-}
-
-func (o SamlIdpPtrOutput) ToSamlIdpPtrOutputWithContext(ctx context.Context) SamlIdpPtrOutput {
-	return o
-}
-
-func (o SamlIdpPtrOutput) Elem() SamlIdpOutput {
-	return o.ApplyT(func(v *SamlIdp) SamlIdp {
-		if v != nil {
-			return *v
-		}
-		var ret SamlIdp
-		return ret
-	}).(SamlIdpOutput)
-}
-
 type SamlIdpArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SamlIdp)(nil))
+	return reflect.TypeOf((*[]*SamlIdp)(nil)).Elem()
 }
 
 func (o SamlIdpArrayOutput) ToSamlIdpArrayOutput() SamlIdpArrayOutput {
@@ -431,15 +368,15 @@ func (o SamlIdpArrayOutput) ToSamlIdpArrayOutputWithContext(ctx context.Context)
 }
 
 func (o SamlIdpArrayOutput) Index(i pulumi.IntInput) SamlIdpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlIdp {
-		return vs[0].([]SamlIdp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlIdp {
+		return vs[0].([]*SamlIdp)[vs[1].(int)]
 	}).(SamlIdpOutput)
 }
 
 type SamlIdpMapOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SamlIdp)(nil))
+	return reflect.TypeOf((*map[string]*SamlIdp)(nil)).Elem()
 }
 
 func (o SamlIdpMapOutput) ToSamlIdpMapOutput() SamlIdpMapOutput {
@@ -451,18 +388,16 @@ func (o SamlIdpMapOutput) ToSamlIdpMapOutputWithContext(ctx context.Context) Sam
 }
 
 func (o SamlIdpMapOutput) MapIndex(k pulumi.StringInput) SamlIdpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlIdp {
-		return vs[0].(map[string]SamlIdp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SamlIdp {
+		return vs[0].(map[string]*SamlIdp)[vs[1].(string)]
 	}).(SamlIdpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpInput)(nil)).Elem(), &SamlIdp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpPtrInput)(nil)).Elem(), &SamlIdp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpArrayInput)(nil)).Elem(), SamlIdpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlIdpMapInput)(nil)).Elem(), SamlIdpMap{})
 	pulumi.RegisterOutputType(SamlIdpOutput{})
-	pulumi.RegisterOutputType(SamlIdpPtrOutput{})
 	pulumi.RegisterOutputType(SamlIdpArrayOutput{})
 	pulumi.RegisterOutputType(SamlIdpMapOutput{})
 }

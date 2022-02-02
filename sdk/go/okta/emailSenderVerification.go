@@ -122,7 +122,7 @@ type EmailSenderVerificationInput interface {
 }
 
 func (*EmailSenderVerification) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailSenderVerification)(nil))
+	return reflect.TypeOf((**EmailSenderVerification)(nil)).Elem()
 }
 
 func (i *EmailSenderVerification) ToEmailSenderVerificationOutput() EmailSenderVerificationOutput {
@@ -131,35 +131,6 @@ func (i *EmailSenderVerification) ToEmailSenderVerificationOutput() EmailSenderV
 
 func (i *EmailSenderVerification) ToEmailSenderVerificationOutputWithContext(ctx context.Context) EmailSenderVerificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationOutput)
-}
-
-func (i *EmailSenderVerification) ToEmailSenderVerificationPtrOutput() EmailSenderVerificationPtrOutput {
-	return i.ToEmailSenderVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *EmailSenderVerification) ToEmailSenderVerificationPtrOutputWithContext(ctx context.Context) EmailSenderVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationPtrOutput)
-}
-
-type EmailSenderVerificationPtrInput interface {
-	pulumi.Input
-
-	ToEmailSenderVerificationPtrOutput() EmailSenderVerificationPtrOutput
-	ToEmailSenderVerificationPtrOutputWithContext(ctx context.Context) EmailSenderVerificationPtrOutput
-}
-
-type emailSenderVerificationPtrType EmailSenderVerificationArgs
-
-func (*emailSenderVerificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailSenderVerification)(nil))
-}
-
-func (i *emailSenderVerificationPtrType) ToEmailSenderVerificationPtrOutput() EmailSenderVerificationPtrOutput {
-	return i.ToEmailSenderVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *emailSenderVerificationPtrType) ToEmailSenderVerificationPtrOutputWithContext(ctx context.Context) EmailSenderVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationPtrOutput)
 }
 
 // EmailSenderVerificationArrayInput is an input type that accepts EmailSenderVerificationArray and EmailSenderVerificationArrayOutput values.
@@ -215,7 +186,7 @@ func (i EmailSenderVerificationMap) ToEmailSenderVerificationMapOutputWithContex
 type EmailSenderVerificationOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderVerificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailSenderVerification)(nil))
+	return reflect.TypeOf((**EmailSenderVerification)(nil)).Elem()
 }
 
 func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutput() EmailSenderVerificationOutput {
@@ -226,44 +197,10 @@ func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutputWithContex
 	return o
 }
 
-func (o EmailSenderVerificationOutput) ToEmailSenderVerificationPtrOutput() EmailSenderVerificationPtrOutput {
-	return o.ToEmailSenderVerificationPtrOutputWithContext(context.Background())
-}
-
-func (o EmailSenderVerificationOutput) ToEmailSenderVerificationPtrOutputWithContext(ctx context.Context) EmailSenderVerificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailSenderVerification) *EmailSenderVerification {
-		return &v
-	}).(EmailSenderVerificationPtrOutput)
-}
-
-type EmailSenderVerificationPtrOutput struct{ *pulumi.OutputState }
-
-func (EmailSenderVerificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailSenderVerification)(nil))
-}
-
-func (o EmailSenderVerificationPtrOutput) ToEmailSenderVerificationPtrOutput() EmailSenderVerificationPtrOutput {
-	return o
-}
-
-func (o EmailSenderVerificationPtrOutput) ToEmailSenderVerificationPtrOutputWithContext(ctx context.Context) EmailSenderVerificationPtrOutput {
-	return o
-}
-
-func (o EmailSenderVerificationPtrOutput) Elem() EmailSenderVerificationOutput {
-	return o.ApplyT(func(v *EmailSenderVerification) EmailSenderVerification {
-		if v != nil {
-			return *v
-		}
-		var ret EmailSenderVerification
-		return ret
-	}).(EmailSenderVerificationOutput)
-}
-
 type EmailSenderVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderVerificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailSenderVerification)(nil))
+	return reflect.TypeOf((*[]*EmailSenderVerification)(nil)).Elem()
 }
 
 func (o EmailSenderVerificationArrayOutput) ToEmailSenderVerificationArrayOutput() EmailSenderVerificationArrayOutput {
@@ -275,15 +212,15 @@ func (o EmailSenderVerificationArrayOutput) ToEmailSenderVerificationArrayOutput
 }
 
 func (o EmailSenderVerificationArrayOutput) Index(i pulumi.IntInput) EmailSenderVerificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailSenderVerification {
-		return vs[0].([]EmailSenderVerification)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailSenderVerification {
+		return vs[0].([]*EmailSenderVerification)[vs[1].(int)]
 	}).(EmailSenderVerificationOutput)
 }
 
 type EmailSenderVerificationMapOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderVerificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EmailSenderVerification)(nil))
+	return reflect.TypeOf((*map[string]*EmailSenderVerification)(nil)).Elem()
 }
 
 func (o EmailSenderVerificationMapOutput) ToEmailSenderVerificationMapOutput() EmailSenderVerificationMapOutput {
@@ -295,18 +232,16 @@ func (o EmailSenderVerificationMapOutput) ToEmailSenderVerificationMapOutputWith
 }
 
 func (o EmailSenderVerificationMapOutput) MapIndex(k pulumi.StringInput) EmailSenderVerificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EmailSenderVerification {
-		return vs[0].(map[string]EmailSenderVerification)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EmailSenderVerification {
+		return vs[0].(map[string]*EmailSenderVerification)[vs[1].(string)]
 	}).(EmailSenderVerificationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderVerificationInput)(nil)).Elem(), &EmailSenderVerification{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderVerificationPtrInput)(nil)).Elem(), &EmailSenderVerification{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderVerificationArrayInput)(nil)).Elem(), EmailSenderVerificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderVerificationMapInput)(nil)).Elem(), EmailSenderVerificationMap{})
 	pulumi.RegisterOutputType(EmailSenderVerificationOutput{})
-	pulumi.RegisterOutputType(EmailSenderVerificationPtrOutput{})
 	pulumi.RegisterOutputType(EmailSenderVerificationArrayOutput{})
 	pulumi.RegisterOutputType(EmailSenderVerificationMapOutput{})
 }

@@ -184,7 +184,7 @@ type DomainCertificateInput interface {
 }
 
 func (*DomainCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainCertificate)(nil))
+	return reflect.TypeOf((**DomainCertificate)(nil)).Elem()
 }
 
 func (i *DomainCertificate) ToDomainCertificateOutput() DomainCertificateOutput {
@@ -193,35 +193,6 @@ func (i *DomainCertificate) ToDomainCertificateOutput() DomainCertificateOutput 
 
 func (i *DomainCertificate) ToDomainCertificateOutputWithContext(ctx context.Context) DomainCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateOutput)
-}
-
-func (i *DomainCertificate) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return i.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *DomainCertificate) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificatePtrOutput)
-}
-
-type DomainCertificatePtrInput interface {
-	pulumi.Input
-
-	ToDomainCertificatePtrOutput() DomainCertificatePtrOutput
-	ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput
-}
-
-type domainCertificatePtrType DomainCertificateArgs
-
-func (*domainCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainCertificate)(nil))
-}
-
-func (i *domainCertificatePtrType) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return i.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *domainCertificatePtrType) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificatePtrOutput)
 }
 
 // DomainCertificateArrayInput is an input type that accepts DomainCertificateArray and DomainCertificateArrayOutput values.
@@ -277,7 +248,7 @@ func (i DomainCertificateMap) ToDomainCertificateMapOutputWithContext(ctx contex
 type DomainCertificateOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainCertificate)(nil))
+	return reflect.TypeOf((**DomainCertificate)(nil)).Elem()
 }
 
 func (o DomainCertificateOutput) ToDomainCertificateOutput() DomainCertificateOutput {
@@ -288,44 +259,10 @@ func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx contex
 	return o
 }
 
-func (o DomainCertificateOutput) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return o.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o DomainCertificateOutput) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCertificate) *DomainCertificate {
-		return &v
-	}).(DomainCertificatePtrOutput)
-}
-
-type DomainCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (DomainCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainCertificate)(nil))
-}
-
-func (o DomainCertificatePtrOutput) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return o
-}
-
-func (o DomainCertificatePtrOutput) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return o
-}
-
-func (o DomainCertificatePtrOutput) Elem() DomainCertificateOutput {
-	return o.ApplyT(func(v *DomainCertificate) DomainCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret DomainCertificate
-		return ret
-	}).(DomainCertificateOutput)
-}
-
 type DomainCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainCertificate)(nil))
+	return reflect.TypeOf((*[]*DomainCertificate)(nil)).Elem()
 }
 
 func (o DomainCertificateArrayOutput) ToDomainCertificateArrayOutput() DomainCertificateArrayOutput {
@@ -337,15 +274,15 @@ func (o DomainCertificateArrayOutput) ToDomainCertificateArrayOutputWithContext(
 }
 
 func (o DomainCertificateArrayOutput) Index(i pulumi.IntInput) DomainCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainCertificate {
-		return vs[0].([]DomainCertificate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainCertificate {
+		return vs[0].([]*DomainCertificate)[vs[1].(int)]
 	}).(DomainCertificateOutput)
 }
 
 type DomainCertificateMapOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainCertificate)(nil))
+	return reflect.TypeOf((*map[string]*DomainCertificate)(nil)).Elem()
 }
 
 func (o DomainCertificateMapOutput) ToDomainCertificateMapOutput() DomainCertificateMapOutput {
@@ -357,18 +294,16 @@ func (o DomainCertificateMapOutput) ToDomainCertificateMapOutputWithContext(ctx 
 }
 
 func (o DomainCertificateMapOutput) MapIndex(k pulumi.StringInput) DomainCertificateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainCertificate {
-		return vs[0].(map[string]DomainCertificate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainCertificate {
+		return vs[0].(map[string]*DomainCertificate)[vs[1].(string)]
 	}).(DomainCertificateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateInput)(nil)).Elem(), &DomainCertificate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificatePtrInput)(nil)).Elem(), &DomainCertificate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateArrayInput)(nil)).Elem(), DomainCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateMapInput)(nil)).Elem(), DomainCertificateMap{})
 	pulumi.RegisterOutputType(DomainCertificateOutput{})
-	pulumi.RegisterOutputType(DomainCertificatePtrOutput{})
 	pulumi.RegisterOutputType(DomainCertificateArrayOutput{})
 	pulumi.RegisterOutputType(DomainCertificateMapOutput{})
 }

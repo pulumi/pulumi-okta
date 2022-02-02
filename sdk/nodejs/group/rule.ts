@@ -99,17 +99,17 @@ export class Rule extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            inputs["expressionType"] = state ? state.expressionType : undefined;
-            inputs["expressionValue"] = state ? state.expressionValue : undefined;
-            inputs["groupAssignments"] = state ? state.groupAssignments : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["removeAssignedUsers"] = state ? state.removeAssignedUsers : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["expressionType"] = state ? state.expressionType : undefined;
+            resourceInputs["expressionValue"] = state ? state.expressionValue : undefined;
+            resourceInputs["groupAssignments"] = state ? state.groupAssignments : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["removeAssignedUsers"] = state ? state.removeAssignedUsers : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if ((!args || args.expressionValue === undefined) && !opts.urn) {
@@ -118,18 +118,16 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.groupAssignments === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupAssignments'");
             }
-            inputs["expressionType"] = args ? args.expressionType : undefined;
-            inputs["expressionValue"] = args ? args.expressionValue : undefined;
-            inputs["groupAssignments"] = args ? args.groupAssignments : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["removeAssignedUsers"] = args ? args.removeAssignedUsers : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["expressionType"] = args ? args.expressionType : undefined;
+            resourceInputs["expressionValue"] = args ? args.expressionValue : undefined;
+            resourceInputs["groupAssignments"] = args ? args.groupAssignments : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["removeAssignedUsers"] = args ? args.removeAssignedUsers : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Rule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

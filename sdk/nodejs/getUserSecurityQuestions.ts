@@ -20,9 +20,9 @@ import * as utilities from "./utilities";
  *     login: "john.smith@example.com",
  *     email: "john.smith@example.com",
  * });
- * const exampleUserSecurityQuestions = exampleUser.id.apply(id => okta.getUserSecurityQuestions({
- *     userId: id,
- * }));
+ * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
+ *     userId: exampleUser.id,
+ * });
  * ```
  */
 export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSecurityQuestionsResult> {
@@ -30,9 +30,7 @@ export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", {
         "userId": args.userId,
     }, opts);

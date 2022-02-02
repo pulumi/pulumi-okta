@@ -171,7 +171,7 @@ type ThreatInsightSettingsInput interface {
 }
 
 func (*ThreatInsightSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatInsightSettings)(nil))
+	return reflect.TypeOf((**ThreatInsightSettings)(nil)).Elem()
 }
 
 func (i *ThreatInsightSettings) ToThreatInsightSettingsOutput() ThreatInsightSettingsOutput {
@@ -180,35 +180,6 @@ func (i *ThreatInsightSettings) ToThreatInsightSettingsOutput() ThreatInsightSet
 
 func (i *ThreatInsightSettings) ToThreatInsightSettingsOutputWithContext(ctx context.Context) ThreatInsightSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsOutput)
-}
-
-func (i *ThreatInsightSettings) ToThreatInsightSettingsPtrOutput() ThreatInsightSettingsPtrOutput {
-	return i.ToThreatInsightSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *ThreatInsightSettings) ToThreatInsightSettingsPtrOutputWithContext(ctx context.Context) ThreatInsightSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsPtrOutput)
-}
-
-type ThreatInsightSettingsPtrInput interface {
-	pulumi.Input
-
-	ToThreatInsightSettingsPtrOutput() ThreatInsightSettingsPtrOutput
-	ToThreatInsightSettingsPtrOutputWithContext(ctx context.Context) ThreatInsightSettingsPtrOutput
-}
-
-type threatInsightSettingsPtrType ThreatInsightSettingsArgs
-
-func (*threatInsightSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreatInsightSettings)(nil))
-}
-
-func (i *threatInsightSettingsPtrType) ToThreatInsightSettingsPtrOutput() ThreatInsightSettingsPtrOutput {
-	return i.ToThreatInsightSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *threatInsightSettingsPtrType) ToThreatInsightSettingsPtrOutputWithContext(ctx context.Context) ThreatInsightSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsPtrOutput)
 }
 
 // ThreatInsightSettingsArrayInput is an input type that accepts ThreatInsightSettingsArray and ThreatInsightSettingsArrayOutput values.
@@ -264,7 +235,7 @@ func (i ThreatInsightSettingsMap) ToThreatInsightSettingsMapOutputWithContext(ct
 type ThreatInsightSettingsOutput struct{ *pulumi.OutputState }
 
 func (ThreatInsightSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatInsightSettings)(nil))
+	return reflect.TypeOf((**ThreatInsightSettings)(nil)).Elem()
 }
 
 func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutput() ThreatInsightSettingsOutput {
@@ -275,44 +246,10 @@ func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutputWithContext(ct
 	return o
 }
 
-func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsPtrOutput() ThreatInsightSettingsPtrOutput {
-	return o.ToThreatInsightSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsPtrOutputWithContext(ctx context.Context) ThreatInsightSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreatInsightSettings) *ThreatInsightSettings {
-		return &v
-	}).(ThreatInsightSettingsPtrOutput)
-}
-
-type ThreatInsightSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (ThreatInsightSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreatInsightSettings)(nil))
-}
-
-func (o ThreatInsightSettingsPtrOutput) ToThreatInsightSettingsPtrOutput() ThreatInsightSettingsPtrOutput {
-	return o
-}
-
-func (o ThreatInsightSettingsPtrOutput) ToThreatInsightSettingsPtrOutputWithContext(ctx context.Context) ThreatInsightSettingsPtrOutput {
-	return o
-}
-
-func (o ThreatInsightSettingsPtrOutput) Elem() ThreatInsightSettingsOutput {
-	return o.ApplyT(func(v *ThreatInsightSettings) ThreatInsightSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ThreatInsightSettings
-		return ret
-	}).(ThreatInsightSettingsOutput)
-}
-
 type ThreatInsightSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreatInsightSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThreatInsightSettings)(nil))
+	return reflect.TypeOf((*[]*ThreatInsightSettings)(nil)).Elem()
 }
 
 func (o ThreatInsightSettingsArrayOutput) ToThreatInsightSettingsArrayOutput() ThreatInsightSettingsArrayOutput {
@@ -324,15 +261,15 @@ func (o ThreatInsightSettingsArrayOutput) ToThreatInsightSettingsArrayOutputWith
 }
 
 func (o ThreatInsightSettingsArrayOutput) Index(i pulumi.IntInput) ThreatInsightSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatInsightSettings {
-		return vs[0].([]ThreatInsightSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreatInsightSettings {
+		return vs[0].([]*ThreatInsightSettings)[vs[1].(int)]
 	}).(ThreatInsightSettingsOutput)
 }
 
 type ThreatInsightSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (ThreatInsightSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThreatInsightSettings)(nil))
+	return reflect.TypeOf((*map[string]*ThreatInsightSettings)(nil)).Elem()
 }
 
 func (o ThreatInsightSettingsMapOutput) ToThreatInsightSettingsMapOutput() ThreatInsightSettingsMapOutput {
@@ -344,18 +281,16 @@ func (o ThreatInsightSettingsMapOutput) ToThreatInsightSettingsMapOutputWithCont
 }
 
 func (o ThreatInsightSettingsMapOutput) MapIndex(k pulumi.StringInput) ThreatInsightSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThreatInsightSettings {
-		return vs[0].(map[string]ThreatInsightSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThreatInsightSettings {
+		return vs[0].(map[string]*ThreatInsightSettings)[vs[1].(string)]
 	}).(ThreatInsightSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatInsightSettingsInput)(nil)).Elem(), &ThreatInsightSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreatInsightSettingsPtrInput)(nil)).Elem(), &ThreatInsightSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatInsightSettingsArrayInput)(nil)).Elem(), ThreatInsightSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatInsightSettingsMapInput)(nil)).Elem(), ThreatInsightSettingsMap{})
 	pulumi.RegisterOutputType(ThreatInsightSettingsOutput{})
-	pulumi.RegisterOutputType(ThreatInsightSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ThreatInsightSettingsArrayOutput{})
 	pulumi.RegisterOutputType(ThreatInsightSettingsMapOutput{})
 }

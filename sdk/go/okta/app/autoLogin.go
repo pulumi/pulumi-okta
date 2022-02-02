@@ -480,7 +480,7 @@ type AutoLoginInput interface {
 }
 
 func (*AutoLogin) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoLogin)(nil))
+	return reflect.TypeOf((**AutoLogin)(nil)).Elem()
 }
 
 func (i *AutoLogin) ToAutoLoginOutput() AutoLoginOutput {
@@ -489,35 +489,6 @@ func (i *AutoLogin) ToAutoLoginOutput() AutoLoginOutput {
 
 func (i *AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginOutput)
-}
-
-func (i *AutoLogin) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
-	return i.ToAutoLoginPtrOutputWithContext(context.Background())
-}
-
-func (i *AutoLogin) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginPtrOutput)
-}
-
-type AutoLoginPtrInput interface {
-	pulumi.Input
-
-	ToAutoLoginPtrOutput() AutoLoginPtrOutput
-	ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput
-}
-
-type autoLoginPtrType AutoLoginArgs
-
-func (*autoLoginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoLogin)(nil))
-}
-
-func (i *autoLoginPtrType) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
-	return i.ToAutoLoginPtrOutputWithContext(context.Background())
-}
-
-func (i *autoLoginPtrType) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginPtrOutput)
 }
 
 // AutoLoginArrayInput is an input type that accepts AutoLoginArray and AutoLoginArrayOutput values.
@@ -573,7 +544,7 @@ func (i AutoLoginMap) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoL
 type AutoLoginOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoLogin)(nil))
+	return reflect.TypeOf((**AutoLogin)(nil)).Elem()
 }
 
 func (o AutoLoginOutput) ToAutoLoginOutput() AutoLoginOutput {
@@ -584,44 +555,10 @@ func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoL
 	return o
 }
 
-func (o AutoLoginOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
-	return o.ToAutoLoginPtrOutputWithContext(context.Background())
-}
-
-func (o AutoLoginOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoLogin) *AutoLogin {
-		return &v
-	}).(AutoLoginPtrOutput)
-}
-
-type AutoLoginPtrOutput struct{ *pulumi.OutputState }
-
-func (AutoLoginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoLogin)(nil))
-}
-
-func (o AutoLoginPtrOutput) ToAutoLoginPtrOutput() AutoLoginPtrOutput {
-	return o
-}
-
-func (o AutoLoginPtrOutput) ToAutoLoginPtrOutputWithContext(ctx context.Context) AutoLoginPtrOutput {
-	return o
-}
-
-func (o AutoLoginPtrOutput) Elem() AutoLoginOutput {
-	return o.ApplyT(func(v *AutoLogin) AutoLogin {
-		if v != nil {
-			return *v
-		}
-		var ret AutoLogin
-		return ret
-	}).(AutoLoginOutput)
-}
-
 type AutoLoginArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoLogin)(nil))
+	return reflect.TypeOf((*[]*AutoLogin)(nil)).Elem()
 }
 
 func (o AutoLoginArrayOutput) ToAutoLoginArrayOutput() AutoLoginArrayOutput {
@@ -633,15 +570,15 @@ func (o AutoLoginArrayOutput) ToAutoLoginArrayOutputWithContext(ctx context.Cont
 }
 
 func (o AutoLoginArrayOutput) Index(i pulumi.IntInput) AutoLoginOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoLogin {
-		return vs[0].([]AutoLogin)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoLogin {
+		return vs[0].([]*AutoLogin)[vs[1].(int)]
 	}).(AutoLoginOutput)
 }
 
 type AutoLoginMapOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AutoLogin)(nil))
+	return reflect.TypeOf((*map[string]*AutoLogin)(nil)).Elem()
 }
 
 func (o AutoLoginMapOutput) ToAutoLoginMapOutput() AutoLoginMapOutput {
@@ -653,18 +590,16 @@ func (o AutoLoginMapOutput) ToAutoLoginMapOutputWithContext(ctx context.Context)
 }
 
 func (o AutoLoginMapOutput) MapIndex(k pulumi.StringInput) AutoLoginOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AutoLogin {
-		return vs[0].(map[string]AutoLogin)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AutoLogin {
+		return vs[0].(map[string]*AutoLogin)[vs[1].(string)]
 	}).(AutoLoginOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginInput)(nil)).Elem(), &AutoLogin{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginPtrInput)(nil)).Elem(), &AutoLogin{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginArrayInput)(nil)).Elem(), AutoLoginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoLoginMapInput)(nil)).Elem(), AutoLoginMap{})
 	pulumi.RegisterOutputType(AutoLoginOutput{})
-	pulumi.RegisterOutputType(AutoLoginPtrOutput{})
 	pulumi.RegisterOutputType(AutoLoginArrayOutput{})
 	pulumi.RegisterOutputType(AutoLoginMapOutput{})
 }

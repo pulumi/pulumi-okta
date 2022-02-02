@@ -302,7 +302,7 @@ type UserSchemaInput interface {
 }
 
 func (*UserSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSchema)(nil))
+	return reflect.TypeOf((**UserSchema)(nil)).Elem()
 }
 
 func (i *UserSchema) ToUserSchemaOutput() UserSchemaOutput {
@@ -311,35 +311,6 @@ func (i *UserSchema) ToUserSchemaOutput() UserSchemaOutput {
 
 func (i *UserSchema) ToUserSchemaOutputWithContext(ctx context.Context) UserSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaOutput)
-}
-
-func (i *UserSchema) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
-	return i.ToUserSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *UserSchema) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPtrOutput)
-}
-
-type UserSchemaPtrInput interface {
-	pulumi.Input
-
-	ToUserSchemaPtrOutput() UserSchemaPtrOutput
-	ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput
-}
-
-type userSchemaPtrType UserSchemaArgs
-
-func (*userSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSchema)(nil))
-}
-
-func (i *userSchemaPtrType) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
-	return i.ToUserSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *userSchemaPtrType) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPtrOutput)
 }
 
 // UserSchemaArrayInput is an input type that accepts UserSchemaArray and UserSchemaArrayOutput values.
@@ -395,7 +366,7 @@ func (i UserSchemaMap) ToUserSchemaMapOutputWithContext(ctx context.Context) Use
 type UserSchemaOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSchema)(nil))
+	return reflect.TypeOf((**UserSchema)(nil)).Elem()
 }
 
 func (o UserSchemaOutput) ToUserSchemaOutput() UserSchemaOutput {
@@ -406,44 +377,10 @@ func (o UserSchemaOutput) ToUserSchemaOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-func (o UserSchemaOutput) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
-	return o.ToUserSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o UserSchemaOutput) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSchema) *UserSchema {
-		return &v
-	}).(UserSchemaPtrOutput)
-}
-
-type UserSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (UserSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserSchema)(nil))
-}
-
-func (o UserSchemaPtrOutput) ToUserSchemaPtrOutput() UserSchemaPtrOutput {
-	return o
-}
-
-func (o UserSchemaPtrOutput) ToUserSchemaPtrOutputWithContext(ctx context.Context) UserSchemaPtrOutput {
-	return o
-}
-
-func (o UserSchemaPtrOutput) Elem() UserSchemaOutput {
-	return o.ApplyT(func(v *UserSchema) UserSchema {
-		if v != nil {
-			return *v
-		}
-		var ret UserSchema
-		return ret
-	}).(UserSchemaOutput)
-}
-
 type UserSchemaArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserSchema)(nil))
+	return reflect.TypeOf((*[]*UserSchema)(nil)).Elem()
 }
 
 func (o UserSchemaArrayOutput) ToUserSchemaArrayOutput() UserSchemaArrayOutput {
@@ -455,15 +392,15 @@ func (o UserSchemaArrayOutput) ToUserSchemaArrayOutputWithContext(ctx context.Co
 }
 
 func (o UserSchemaArrayOutput) Index(i pulumi.IntInput) UserSchemaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchema {
-		return vs[0].([]UserSchema)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserSchema {
+		return vs[0].([]*UserSchema)[vs[1].(int)]
 	}).(UserSchemaOutput)
 }
 
 type UserSchemaMapOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserSchema)(nil))
+	return reflect.TypeOf((*map[string]*UserSchema)(nil)).Elem()
 }
 
 func (o UserSchemaMapOutput) ToUserSchemaMapOutput() UserSchemaMapOutput {
@@ -475,18 +412,16 @@ func (o UserSchemaMapOutput) ToUserSchemaMapOutputWithContext(ctx context.Contex
 }
 
 func (o UserSchemaMapOutput) MapIndex(k pulumi.StringInput) UserSchemaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserSchema {
-		return vs[0].(map[string]UserSchema)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserSchema {
+		return vs[0].(map[string]*UserSchema)[vs[1].(string)]
 	}).(UserSchemaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaInput)(nil)).Elem(), &UserSchema{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPtrInput)(nil)).Elem(), &UserSchema{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaArrayInput)(nil)).Elem(), UserSchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaMapInput)(nil)).Elem(), UserSchemaMap{})
 	pulumi.RegisterOutputType(UserSchemaOutput{})
-	pulumi.RegisterOutputType(UserSchemaPtrOutput{})
 	pulumi.RegisterOutputType(UserSchemaArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaMapOutput{})
 }

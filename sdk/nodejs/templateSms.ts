@@ -90,13 +90,13 @@ export class TemplateSms extends pulumi.CustomResource {
      */
     constructor(name: string, args: TemplateSmsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateSmsArgs | TemplateSmsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateSmsState | undefined;
-            inputs["template"] = state ? state.template : undefined;
-            inputs["translations"] = state ? state.translations : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["translations"] = state ? state.translations : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as TemplateSmsArgs | undefined;
             if ((!args || args.template === undefined) && !opts.urn) {
@@ -105,14 +105,12 @@ export class TemplateSms extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["template"] = args ? args.template : undefined;
-            inputs["translations"] = args ? args.translations : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["translations"] = args ? args.translations : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TemplateSms.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TemplateSms.__pulumiType, name, resourceInputs, opts);
     }
 }
 

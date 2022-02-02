@@ -80,22 +80,20 @@ export class EventHookVerification extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventHookVerificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventHookVerificationArgs | EventHookVerificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHookVerificationState | undefined;
-            inputs["eventHookId"] = state ? state.eventHookId : undefined;
+            resourceInputs["eventHookId"] = state ? state.eventHookId : undefined;
         } else {
             const args = argsOrState as EventHookVerificationArgs | undefined;
             if ((!args || args.eventHookId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventHookId'");
             }
-            inputs["eventHookId"] = args ? args.eventHookId : undefined;
+            resourceInputs["eventHookId"] = args ? args.eventHookId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventHookVerification.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventHookVerification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

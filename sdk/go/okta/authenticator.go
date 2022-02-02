@@ -218,7 +218,7 @@ type AuthenticatorInput interface {
 }
 
 func (*Authenticator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authenticator)(nil))
+	return reflect.TypeOf((**Authenticator)(nil)).Elem()
 }
 
 func (i *Authenticator) ToAuthenticatorOutput() AuthenticatorOutput {
@@ -227,35 +227,6 @@ func (i *Authenticator) ToAuthenticatorOutput() AuthenticatorOutput {
 
 func (i *Authenticator) ToAuthenticatorOutputWithContext(ctx context.Context) AuthenticatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorOutput)
-}
-
-func (i *Authenticator) ToAuthenticatorPtrOutput() AuthenticatorPtrOutput {
-	return i.ToAuthenticatorPtrOutputWithContext(context.Background())
-}
-
-func (i *Authenticator) ToAuthenticatorPtrOutputWithContext(ctx context.Context) AuthenticatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorPtrOutput)
-}
-
-type AuthenticatorPtrInput interface {
-	pulumi.Input
-
-	ToAuthenticatorPtrOutput() AuthenticatorPtrOutput
-	ToAuthenticatorPtrOutputWithContext(ctx context.Context) AuthenticatorPtrOutput
-}
-
-type authenticatorPtrType AuthenticatorArgs
-
-func (*authenticatorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authenticator)(nil))
-}
-
-func (i *authenticatorPtrType) ToAuthenticatorPtrOutput() AuthenticatorPtrOutput {
-	return i.ToAuthenticatorPtrOutputWithContext(context.Background())
-}
-
-func (i *authenticatorPtrType) ToAuthenticatorPtrOutputWithContext(ctx context.Context) AuthenticatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorPtrOutput)
 }
 
 // AuthenticatorArrayInput is an input type that accepts AuthenticatorArray and AuthenticatorArrayOutput values.
@@ -311,7 +282,7 @@ func (i AuthenticatorMap) ToAuthenticatorMapOutputWithContext(ctx context.Contex
 type AuthenticatorOutput struct{ *pulumi.OutputState }
 
 func (AuthenticatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authenticator)(nil))
+	return reflect.TypeOf((**Authenticator)(nil)).Elem()
 }
 
 func (o AuthenticatorOutput) ToAuthenticatorOutput() AuthenticatorOutput {
@@ -322,44 +293,10 @@ func (o AuthenticatorOutput) ToAuthenticatorOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o AuthenticatorOutput) ToAuthenticatorPtrOutput() AuthenticatorPtrOutput {
-	return o.ToAuthenticatorPtrOutputWithContext(context.Background())
-}
-
-func (o AuthenticatorOutput) ToAuthenticatorPtrOutputWithContext(ctx context.Context) AuthenticatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authenticator) *Authenticator {
-		return &v
-	}).(AuthenticatorPtrOutput)
-}
-
-type AuthenticatorPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authenticator)(nil))
-}
-
-func (o AuthenticatorPtrOutput) ToAuthenticatorPtrOutput() AuthenticatorPtrOutput {
-	return o
-}
-
-func (o AuthenticatorPtrOutput) ToAuthenticatorPtrOutputWithContext(ctx context.Context) AuthenticatorPtrOutput {
-	return o
-}
-
-func (o AuthenticatorPtrOutput) Elem() AuthenticatorOutput {
-	return o.ApplyT(func(v *Authenticator) Authenticator {
-		if v != nil {
-			return *v
-		}
-		var ret Authenticator
-		return ret
-	}).(AuthenticatorOutput)
-}
-
 type AuthenticatorArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthenticatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Authenticator)(nil))
+	return reflect.TypeOf((*[]*Authenticator)(nil)).Elem()
 }
 
 func (o AuthenticatorArrayOutput) ToAuthenticatorArrayOutput() AuthenticatorArrayOutput {
@@ -371,15 +308,15 @@ func (o AuthenticatorArrayOutput) ToAuthenticatorArrayOutputWithContext(ctx cont
 }
 
 func (o AuthenticatorArrayOutput) Index(i pulumi.IntInput) AuthenticatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Authenticator {
-		return vs[0].([]Authenticator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Authenticator {
+		return vs[0].([]*Authenticator)[vs[1].(int)]
 	}).(AuthenticatorOutput)
 }
 
 type AuthenticatorMapOutput struct{ *pulumi.OutputState }
 
 func (AuthenticatorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Authenticator)(nil))
+	return reflect.TypeOf((*map[string]*Authenticator)(nil)).Elem()
 }
 
 func (o AuthenticatorMapOutput) ToAuthenticatorMapOutput() AuthenticatorMapOutput {
@@ -391,18 +328,16 @@ func (o AuthenticatorMapOutput) ToAuthenticatorMapOutputWithContext(ctx context.
 }
 
 func (o AuthenticatorMapOutput) MapIndex(k pulumi.StringInput) AuthenticatorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Authenticator {
-		return vs[0].(map[string]Authenticator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Authenticator {
+		return vs[0].(map[string]*Authenticator)[vs[1].(string)]
 	}).(AuthenticatorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorInput)(nil)).Elem(), &Authenticator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorPtrInput)(nil)).Elem(), &Authenticator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorArrayInput)(nil)).Elem(), AuthenticatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMapInput)(nil)).Elem(), AuthenticatorMap{})
 	pulumi.RegisterOutputType(AuthenticatorOutput{})
-	pulumi.RegisterOutputType(AuthenticatorPtrOutput{})
 	pulumi.RegisterOutputType(AuthenticatorArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticatorMapOutput{})
 }

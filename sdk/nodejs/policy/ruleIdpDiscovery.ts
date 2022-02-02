@@ -165,49 +165,47 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RuleIdpDiscoveryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleIdpDiscoveryArgs | RuleIdpDiscoveryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleIdpDiscoveryState | undefined;
-            inputs["appExcludes"] = state ? state.appExcludes : undefined;
-            inputs["appIncludes"] = state ? state.appIncludes : undefined;
-            inputs["idpId"] = state ? state.idpId : undefined;
-            inputs["idpType"] = state ? state.idpType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConnection"] = state ? state.networkConnection : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["platformIncludes"] = state ? state.platformIncludes : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["policyid"] = state ? state.policyid : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["userIdentifierAttribute"] = state ? state.userIdentifierAttribute : undefined;
-            inputs["userIdentifierPatterns"] = state ? state.userIdentifierPatterns : undefined;
-            inputs["userIdentifierType"] = state ? state.userIdentifierType : undefined;
+            resourceInputs["appExcludes"] = state ? state.appExcludes : undefined;
+            resourceInputs["appIncludes"] = state ? state.appIncludes : undefined;
+            resourceInputs["idpId"] = state ? state.idpId : undefined;
+            resourceInputs["idpType"] = state ? state.idpType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            resourceInputs["platformIncludes"] = state ? state.platformIncludes : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["policyid"] = state ? state.policyid : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["userIdentifierAttribute"] = state ? state.userIdentifierAttribute : undefined;
+            resourceInputs["userIdentifierPatterns"] = state ? state.userIdentifierPatterns : undefined;
+            resourceInputs["userIdentifierType"] = state ? state.userIdentifierType : undefined;
         } else {
             const args = argsOrState as RuleIdpDiscoveryArgs | undefined;
-            inputs["appExcludes"] = args ? args.appExcludes : undefined;
-            inputs["appIncludes"] = args ? args.appIncludes : undefined;
-            inputs["idpId"] = args ? args.idpId : undefined;
-            inputs["idpType"] = args ? args.idpType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConnection"] = args ? args.networkConnection : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["platformIncludes"] = args ? args.platformIncludes : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["policyid"] = args ? args.policyid : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["userIdentifierAttribute"] = args ? args.userIdentifierAttribute : undefined;
-            inputs["userIdentifierPatterns"] = args ? args.userIdentifierPatterns : undefined;
-            inputs["userIdentifierType"] = args ? args.userIdentifierType : undefined;
+            resourceInputs["appExcludes"] = args ? args.appExcludes : undefined;
+            resourceInputs["appIncludes"] = args ? args.appIncludes : undefined;
+            resourceInputs["idpId"] = args ? args.idpId : undefined;
+            resourceInputs["idpType"] = args ? args.idpType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            resourceInputs["platformIncludes"] = args ? args.platformIncludes : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["policyid"] = args ? args.policyid : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["userIdentifierAttribute"] = args ? args.userIdentifierAttribute : undefined;
+            resourceInputs["userIdentifierPatterns"] = args ? args.userIdentifierPatterns : undefined;
+            resourceInputs["userIdentifierType"] = args ? args.userIdentifierType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleIdpDiscovery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleIdpDiscovery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

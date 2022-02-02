@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -34,10 +33,10 @@ namespace Pulumi.Okta
         ///             Login = "john.smith@example.com",
         ///             Email = "john.smith@example.com",
         ///         });
-        ///         var exampleUserSecurityQuestions = exampleUser.Id.Apply(id =&gt; Okta.GetUserSecurityQuestions.InvokeAsync(new Okta.GetUserSecurityQuestionsArgs
+        ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
         ///         {
-        ///             UserId = id,
-        ///         }));
+        ///             UserId = exampleUser.Id,
+        ///         });
         ///     }
         /// 
         /// }
@@ -46,7 +45,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserSecurityQuestionsResult> InvokeAsync(GetUserSecurityQuestionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of user's security questions.
@@ -70,10 +69,10 @@ namespace Pulumi.Okta
         ///             Login = "john.smith@example.com",
         ///             Email = "john.smith@example.com",
         ///         });
-        ///         var exampleUserSecurityQuestions = exampleUser.Id.Apply(id =&gt; Okta.GetUserSecurityQuestions.InvokeAsync(new Okta.GetUserSecurityQuestionsArgs
+        ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
         ///         {
-        ///             UserId = id,
-        ///         }));
+        ///             UserId = exampleUser.Id,
+        ///         });
         ///     }
         /// 
         /// }
@@ -82,7 +81,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserSecurityQuestionsResult> Invoke(GetUserSecurityQuestionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsInvokeArgs(), options.WithDefaults());
     }
 
 

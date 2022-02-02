@@ -24,9 +24,7 @@ export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Pr
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:idp/getSocial:getSocial", {
         "id": args.id,
         "name": args.name,

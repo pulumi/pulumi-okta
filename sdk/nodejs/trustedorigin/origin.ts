@@ -83,14 +83,14 @@ export class Origin extends pulumi.CustomResource {
      */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OriginArgs | OriginState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["origin"] = state ? state.origin : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
         } else {
             const args = argsOrState as OriginArgs | undefined;
             if ((!args || args.origin === undefined) && !opts.urn) {
@@ -99,15 +99,13 @@ export class Origin extends pulumi.CustomResource {
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["origin"] = args ? args.origin : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Origin.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Origin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

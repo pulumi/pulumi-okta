@@ -182,7 +182,7 @@ type ServerScopeInput interface {
 }
 
 func (*ServerScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerScope)(nil))
+	return reflect.TypeOf((**ServerScope)(nil)).Elem()
 }
 
 func (i *ServerScope) ToServerScopeOutput() ServerScopeOutput {
@@ -191,35 +191,6 @@ func (i *ServerScope) ToServerScopeOutput() ServerScopeOutput {
 
 func (i *ServerScope) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeOutput)
-}
-
-func (i *ServerScope) ToServerScopePtrOutput() ServerScopePtrOutput {
-	return i.ToServerScopePtrOutputWithContext(context.Background())
-}
-
-func (i *ServerScope) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerScopePtrOutput)
-}
-
-type ServerScopePtrInput interface {
-	pulumi.Input
-
-	ToServerScopePtrOutput() ServerScopePtrOutput
-	ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput
-}
-
-type serverScopePtrType ServerScopeArgs
-
-func (*serverScopePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerScope)(nil))
-}
-
-func (i *serverScopePtrType) ToServerScopePtrOutput() ServerScopePtrOutput {
-	return i.ToServerScopePtrOutputWithContext(context.Background())
-}
-
-func (i *serverScopePtrType) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerScopePtrOutput)
 }
 
 // ServerScopeArrayInput is an input type that accepts ServerScopeArray and ServerScopeArrayOutput values.
@@ -275,7 +246,7 @@ func (i ServerScopeMap) ToServerScopeMapOutputWithContext(ctx context.Context) S
 type ServerScopeOutput struct{ *pulumi.OutputState }
 
 func (ServerScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerScope)(nil))
+	return reflect.TypeOf((**ServerScope)(nil)).Elem()
 }
 
 func (o ServerScopeOutput) ToServerScopeOutput() ServerScopeOutput {
@@ -286,44 +257,10 @@ func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o ServerScopeOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
-	return o.ToServerScopePtrOutputWithContext(context.Background())
-}
-
-func (o ServerScopeOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerScope) *ServerScope {
-		return &v
-	}).(ServerScopePtrOutput)
-}
-
-type ServerScopePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerScope)(nil))
-}
-
-func (o ServerScopePtrOutput) ToServerScopePtrOutput() ServerScopePtrOutput {
-	return o
-}
-
-func (o ServerScopePtrOutput) ToServerScopePtrOutputWithContext(ctx context.Context) ServerScopePtrOutput {
-	return o
-}
-
-func (o ServerScopePtrOutput) Elem() ServerScopeOutput {
-	return o.ApplyT(func(v *ServerScope) ServerScope {
-		if v != nil {
-			return *v
-		}
-		var ret ServerScope
-		return ret
-	}).(ServerScopeOutput)
-}
-
 type ServerScopeArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerScope)(nil))
+	return reflect.TypeOf((*[]*ServerScope)(nil)).Elem()
 }
 
 func (o ServerScopeArrayOutput) ToServerScopeArrayOutput() ServerScopeArrayOutput {
@@ -335,15 +272,15 @@ func (o ServerScopeArrayOutput) ToServerScopeArrayOutputWithContext(ctx context.
 }
 
 func (o ServerScopeArrayOutput) Index(i pulumi.IntInput) ServerScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerScope {
-		return vs[0].([]ServerScope)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerScope {
+		return vs[0].([]*ServerScope)[vs[1].(int)]
 	}).(ServerScopeOutput)
 }
 
 type ServerScopeMapOutput struct{ *pulumi.OutputState }
 
 func (ServerScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServerScope)(nil))
+	return reflect.TypeOf((*map[string]*ServerScope)(nil)).Elem()
 }
 
 func (o ServerScopeMapOutput) ToServerScopeMapOutput() ServerScopeMapOutput {
@@ -355,18 +292,16 @@ func (o ServerScopeMapOutput) ToServerScopeMapOutputWithContext(ctx context.Cont
 }
 
 func (o ServerScopeMapOutput) MapIndex(k pulumi.StringInput) ServerScopeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerScope {
-		return vs[0].(map[string]ServerScope)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServerScope {
+		return vs[0].(map[string]*ServerScope)[vs[1].(string)]
 	}).(ServerScopeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeInput)(nil)).Elem(), &ServerScope{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopePtrInput)(nil)).Elem(), &ServerScope{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeArrayInput)(nil)).Elem(), ServerScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerScopeMapInput)(nil)).Elem(), ServerScopeMap{})
 	pulumi.RegisterOutputType(ServerScopeOutput{})
-	pulumi.RegisterOutputType(ServerScopePtrOutput{})
 	pulumi.RegisterOutputType(ServerScopeArrayOutput{})
 	pulumi.RegisterOutputType(ServerScopeMapOutput{})
 }

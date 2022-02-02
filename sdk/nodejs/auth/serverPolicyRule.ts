@@ -138,26 +138,26 @@ export class ServerPolicyRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerPolicyRuleArgs | ServerPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerPolicyRuleState | undefined;
-            inputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
-            inputs["authServerId"] = state ? state.authServerId : undefined;
-            inputs["grantTypeWhitelists"] = state ? state.grantTypeWhitelists : undefined;
-            inputs["groupBlacklists"] = state ? state.groupBlacklists : undefined;
-            inputs["groupWhitelists"] = state ? state.groupWhitelists : undefined;
-            inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["refreshTokenLifetimeMinutes"] = state ? state.refreshTokenLifetimeMinutes : undefined;
-            inputs["refreshTokenWindowMinutes"] = state ? state.refreshTokenWindowMinutes : undefined;
-            inputs["scopeWhitelists"] = state ? state.scopeWhitelists : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userBlacklists"] = state ? state.userBlacklists : undefined;
-            inputs["userWhitelists"] = state ? state.userWhitelists : undefined;
+            resourceInputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
+            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
+            resourceInputs["grantTypeWhitelists"] = state ? state.grantTypeWhitelists : undefined;
+            resourceInputs["groupBlacklists"] = state ? state.groupBlacklists : undefined;
+            resourceInputs["groupWhitelists"] = state ? state.groupWhitelists : undefined;
+            resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["refreshTokenLifetimeMinutes"] = state ? state.refreshTokenLifetimeMinutes : undefined;
+            resourceInputs["refreshTokenWindowMinutes"] = state ? state.refreshTokenWindowMinutes : undefined;
+            resourceInputs["scopeWhitelists"] = state ? state.scopeWhitelists : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userBlacklists"] = state ? state.userBlacklists : undefined;
+            resourceInputs["userWhitelists"] = state ? state.userWhitelists : undefined;
         } else {
             const args = argsOrState as ServerPolicyRuleArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
@@ -172,29 +172,27 @@ export class ServerPolicyRule extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
-            inputs["authServerId"] = args ? args.authServerId : undefined;
-            inputs["grantTypeWhitelists"] = args ? args.grantTypeWhitelists : undefined;
-            inputs["groupBlacklists"] = args ? args.groupBlacklists : undefined;
-            inputs["groupWhitelists"] = args ? args.groupWhitelists : undefined;
-            inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["refreshTokenLifetimeMinutes"] = args ? args.refreshTokenLifetimeMinutes : undefined;
-            inputs["refreshTokenWindowMinutes"] = args ? args.refreshTokenWindowMinutes : undefined;
-            inputs["scopeWhitelists"] = args ? args.scopeWhitelists : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userBlacklists"] = args ? args.userBlacklists : undefined;
-            inputs["userWhitelists"] = args ? args.userWhitelists : undefined;
+            resourceInputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
+            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
+            resourceInputs["grantTypeWhitelists"] = args ? args.grantTypeWhitelists : undefined;
+            resourceInputs["groupBlacklists"] = args ? args.groupBlacklists : undefined;
+            resourceInputs["groupWhitelists"] = args ? args.groupWhitelists : undefined;
+            resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["refreshTokenLifetimeMinutes"] = args ? args.refreshTokenLifetimeMinutes : undefined;
+            resourceInputs["refreshTokenWindowMinutes"] = args ? args.refreshTokenWindowMinutes : undefined;
+            resourceInputs["scopeWhitelists"] = args ? args.scopeWhitelists : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userBlacklists"] = args ? args.userBlacklists : undefined;
+            resourceInputs["userWhitelists"] = args ? args.userWhitelists : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "okta:auth/serverPolicyClaim:ServerPolicyClaim" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerPolicyRule.__pulumiType, name, inputs, opts);
+        super(ServerPolicyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -160,7 +160,7 @@ type SignonInput interface {
 }
 
 func (*Signon) ElementType() reflect.Type {
-	return reflect.TypeOf((*Signon)(nil))
+	return reflect.TypeOf((**Signon)(nil)).Elem()
 }
 
 func (i *Signon) ToSignonOutput() SignonOutput {
@@ -169,35 +169,6 @@ func (i *Signon) ToSignonOutput() SignonOutput {
 
 func (i *Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonOutput)
-}
-
-func (i *Signon) ToSignonPtrOutput() SignonPtrOutput {
-	return i.ToSignonPtrOutputWithContext(context.Background())
-}
-
-func (i *Signon) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignonPtrOutput)
-}
-
-type SignonPtrInput interface {
-	pulumi.Input
-
-	ToSignonPtrOutput() SignonPtrOutput
-	ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput
-}
-
-type signonPtrType SignonArgs
-
-func (*signonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Signon)(nil))
-}
-
-func (i *signonPtrType) ToSignonPtrOutput() SignonPtrOutput {
-	return i.ToSignonPtrOutputWithContext(context.Background())
-}
-
-func (i *signonPtrType) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignonPtrOutput)
 }
 
 // SignonArrayInput is an input type that accepts SignonArray and SignonArrayOutput values.
@@ -253,7 +224,7 @@ func (i SignonMap) ToSignonMapOutputWithContext(ctx context.Context) SignonMapOu
 type SignonOutput struct{ *pulumi.OutputState }
 
 func (SignonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Signon)(nil))
+	return reflect.TypeOf((**Signon)(nil)).Elem()
 }
 
 func (o SignonOutput) ToSignonOutput() SignonOutput {
@@ -264,44 +235,10 @@ func (o SignonOutput) ToSignonOutputWithContext(ctx context.Context) SignonOutpu
 	return o
 }
 
-func (o SignonOutput) ToSignonPtrOutput() SignonPtrOutput {
-	return o.ToSignonPtrOutputWithContext(context.Background())
-}
-
-func (o SignonOutput) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Signon) *Signon {
-		return &v
-	}).(SignonPtrOutput)
-}
-
-type SignonPtrOutput struct{ *pulumi.OutputState }
-
-func (SignonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Signon)(nil))
-}
-
-func (o SignonPtrOutput) ToSignonPtrOutput() SignonPtrOutput {
-	return o
-}
-
-func (o SignonPtrOutput) ToSignonPtrOutputWithContext(ctx context.Context) SignonPtrOutput {
-	return o
-}
-
-func (o SignonPtrOutput) Elem() SignonOutput {
-	return o.ApplyT(func(v *Signon) Signon {
-		if v != nil {
-			return *v
-		}
-		var ret Signon
-		return ret
-	}).(SignonOutput)
-}
-
 type SignonArrayOutput struct{ *pulumi.OutputState }
 
 func (SignonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Signon)(nil))
+	return reflect.TypeOf((*[]*Signon)(nil)).Elem()
 }
 
 func (o SignonArrayOutput) ToSignonArrayOutput() SignonArrayOutput {
@@ -313,15 +250,15 @@ func (o SignonArrayOutput) ToSignonArrayOutputWithContext(ctx context.Context) S
 }
 
 func (o SignonArrayOutput) Index(i pulumi.IntInput) SignonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Signon {
-		return vs[0].([]Signon)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Signon {
+		return vs[0].([]*Signon)[vs[1].(int)]
 	}).(SignonOutput)
 }
 
 type SignonMapOutput struct{ *pulumi.OutputState }
 
 func (SignonMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Signon)(nil))
+	return reflect.TypeOf((*map[string]*Signon)(nil)).Elem()
 }
 
 func (o SignonMapOutput) ToSignonMapOutput() SignonMapOutput {
@@ -333,18 +270,16 @@ func (o SignonMapOutput) ToSignonMapOutputWithContext(ctx context.Context) Signo
 }
 
 func (o SignonMapOutput) MapIndex(k pulumi.StringInput) SignonOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Signon {
-		return vs[0].(map[string]Signon)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Signon {
+		return vs[0].(map[string]*Signon)[vs[1].(string)]
 	}).(SignonOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonInput)(nil)).Elem(), &Signon{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignonPtrInput)(nil)).Elem(), &Signon{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonArrayInput)(nil)).Elem(), SignonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonMapInput)(nil)).Elem(), SignonMap{})
 	pulumi.RegisterOutputType(SignonOutput{})
-	pulumi.RegisterOutputType(SignonPtrOutput{})
 	pulumi.RegisterOutputType(SignonArrayOutput{})
 	pulumi.RegisterOutputType(SignonMapOutput{})
 }

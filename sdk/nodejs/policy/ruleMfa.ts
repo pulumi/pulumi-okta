@@ -138,41 +138,39 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RuleMfaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleMfaArgs | RuleMfaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleMfaState | undefined;
-            inputs["appExcludes"] = state ? state.appExcludes : undefined;
-            inputs["appIncludes"] = state ? state.appIncludes : undefined;
-            inputs["enroll"] = state ? state.enroll : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConnection"] = state ? state.networkConnection : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["policyid"] = state ? state.policyid : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["appExcludes"] = state ? state.appExcludes : undefined;
+            resourceInputs["appIncludes"] = state ? state.appIncludes : undefined;
+            resourceInputs["enroll"] = state ? state.enroll : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["policyid"] = state ? state.policyid : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
-            inputs["appExcludes"] = args ? args.appExcludes : undefined;
-            inputs["appIncludes"] = args ? args.appIncludes : undefined;
-            inputs["enroll"] = args ? args.enroll : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConnection"] = args ? args.networkConnection : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["policyid"] = args ? args.policyid : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["appExcludes"] = args ? args.appExcludes : undefined;
+            resourceInputs["appIncludes"] = args ? args.appIncludes : undefined;
+            resourceInputs["enroll"] = args ? args.enroll : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["policyid"] = args ? args.policyid : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleMfa.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleMfa.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -82,13 +82,13 @@ export class RateLimiting extends pulumi.CustomResource {
      */
     constructor(name: string, args: RateLimitingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RateLimitingArgs | RateLimitingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RateLimitingState | undefined;
-            inputs["authorize"] = state ? state.authorize : undefined;
-            inputs["communicationsEnabled"] = state ? state.communicationsEnabled : undefined;
-            inputs["login"] = state ? state.login : undefined;
+            resourceInputs["authorize"] = state ? state.authorize : undefined;
+            resourceInputs["communicationsEnabled"] = state ? state.communicationsEnabled : undefined;
+            resourceInputs["login"] = state ? state.login : undefined;
         } else {
             const args = argsOrState as RateLimitingArgs | undefined;
             if ((!args || args.authorize === undefined) && !opts.urn) {
@@ -97,14 +97,12 @@ export class RateLimiting extends pulumi.CustomResource {
             if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            inputs["authorize"] = args ? args.authorize : undefined;
-            inputs["communicationsEnabled"] = args ? args.communicationsEnabled : undefined;
-            inputs["login"] = args ? args.login : undefined;
+            resourceInputs["authorize"] = args ? args.authorize : undefined;
+            resourceInputs["communicationsEnabled"] = args ? args.communicationsEnabled : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RateLimiting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RateLimiting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

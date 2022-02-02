@@ -163,7 +163,7 @@ type RoleSubscriptionInput interface {
 }
 
 func (*RoleSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleSubscription)(nil))
+	return reflect.TypeOf((**RoleSubscription)(nil)).Elem()
 }
 
 func (i *RoleSubscription) ToRoleSubscriptionOutput() RoleSubscriptionOutput {
@@ -172,35 +172,6 @@ func (i *RoleSubscription) ToRoleSubscriptionOutput() RoleSubscriptionOutput {
 
 func (i *RoleSubscription) ToRoleSubscriptionOutputWithContext(ctx context.Context) RoleSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionOutput)
-}
-
-func (i *RoleSubscription) ToRoleSubscriptionPtrOutput() RoleSubscriptionPtrOutput {
-	return i.ToRoleSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *RoleSubscription) ToRoleSubscriptionPtrOutputWithContext(ctx context.Context) RoleSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionPtrOutput)
-}
-
-type RoleSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToRoleSubscriptionPtrOutput() RoleSubscriptionPtrOutput
-	ToRoleSubscriptionPtrOutputWithContext(ctx context.Context) RoleSubscriptionPtrOutput
-}
-
-type roleSubscriptionPtrType RoleSubscriptionArgs
-
-func (*roleSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleSubscription)(nil))
-}
-
-func (i *roleSubscriptionPtrType) ToRoleSubscriptionPtrOutput() RoleSubscriptionPtrOutput {
-	return i.ToRoleSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *roleSubscriptionPtrType) ToRoleSubscriptionPtrOutputWithContext(ctx context.Context) RoleSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionPtrOutput)
 }
 
 // RoleSubscriptionArrayInput is an input type that accepts RoleSubscriptionArray and RoleSubscriptionArrayOutput values.
@@ -256,7 +227,7 @@ func (i RoleSubscriptionMap) ToRoleSubscriptionMapOutputWithContext(ctx context.
 type RoleSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RoleSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleSubscription)(nil))
+	return reflect.TypeOf((**RoleSubscription)(nil)).Elem()
 }
 
 func (o RoleSubscriptionOutput) ToRoleSubscriptionOutput() RoleSubscriptionOutput {
@@ -267,44 +238,10 @@ func (o RoleSubscriptionOutput) ToRoleSubscriptionOutputWithContext(ctx context.
 	return o
 }
 
-func (o RoleSubscriptionOutput) ToRoleSubscriptionPtrOutput() RoleSubscriptionPtrOutput {
-	return o.ToRoleSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o RoleSubscriptionOutput) ToRoleSubscriptionPtrOutputWithContext(ctx context.Context) RoleSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleSubscription) *RoleSubscription {
-		return &v
-	}).(RoleSubscriptionPtrOutput)
-}
-
-type RoleSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleSubscription)(nil))
-}
-
-func (o RoleSubscriptionPtrOutput) ToRoleSubscriptionPtrOutput() RoleSubscriptionPtrOutput {
-	return o
-}
-
-func (o RoleSubscriptionPtrOutput) ToRoleSubscriptionPtrOutputWithContext(ctx context.Context) RoleSubscriptionPtrOutput {
-	return o
-}
-
-func (o RoleSubscriptionPtrOutput) Elem() RoleSubscriptionOutput {
-	return o.ApplyT(func(v *RoleSubscription) RoleSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret RoleSubscription
-		return ret
-	}).(RoleSubscriptionOutput)
-}
-
 type RoleSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoleSubscription)(nil))
+	return reflect.TypeOf((*[]*RoleSubscription)(nil)).Elem()
 }
 
 func (o RoleSubscriptionArrayOutput) ToRoleSubscriptionArrayOutput() RoleSubscriptionArrayOutput {
@@ -316,15 +253,15 @@ func (o RoleSubscriptionArrayOutput) ToRoleSubscriptionArrayOutputWithContext(ct
 }
 
 func (o RoleSubscriptionArrayOutput) Index(i pulumi.IntInput) RoleSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleSubscription {
-		return vs[0].([]RoleSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleSubscription {
+		return vs[0].([]*RoleSubscription)[vs[1].(int)]
 	}).(RoleSubscriptionOutput)
 }
 
 type RoleSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (RoleSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RoleSubscription)(nil))
+	return reflect.TypeOf((*map[string]*RoleSubscription)(nil)).Elem()
 }
 
 func (o RoleSubscriptionMapOutput) ToRoleSubscriptionMapOutput() RoleSubscriptionMapOutput {
@@ -336,18 +273,16 @@ func (o RoleSubscriptionMapOutput) ToRoleSubscriptionMapOutputWithContext(ctx co
 }
 
 func (o RoleSubscriptionMapOutput) MapIndex(k pulumi.StringInput) RoleSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleSubscription {
-		return vs[0].(map[string]RoleSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RoleSubscription {
+		return vs[0].(map[string]*RoleSubscription)[vs[1].(string)]
 	}).(RoleSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleSubscriptionInput)(nil)).Elem(), &RoleSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoleSubscriptionPtrInput)(nil)).Elem(), &RoleSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleSubscriptionArrayInput)(nil)).Elem(), RoleSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleSubscriptionMapInput)(nil)).Elem(), RoleSubscriptionMap{})
 	pulumi.RegisterOutputType(RoleSubscriptionOutput{})
-	pulumi.RegisterOutputType(RoleSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(RoleSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(RoleSubscriptionMapOutput{})
 }

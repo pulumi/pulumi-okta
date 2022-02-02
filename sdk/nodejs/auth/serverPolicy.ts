@@ -100,17 +100,17 @@ export class ServerPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerPolicyArgs | ServerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerPolicyState | undefined;
-            inputs["authServerId"] = state ? state.authServerId : undefined;
-            inputs["clientWhitelists"] = state ? state.clientWhitelists : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
+            resourceInputs["clientWhitelists"] = state ? state.clientWhitelists : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerPolicyArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class ServerPolicy extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["authServerId"] = args ? args.authServerId : undefined;
-            inputs["clientWhitelists"] = args ? args.clientWhitelists : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
+            resourceInputs["clientWhitelists"] = args ? args.clientWhitelists : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

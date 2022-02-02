@@ -394,7 +394,7 @@ type SwaAppInput interface {
 }
 
 func (*SwaApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SwaApp)(nil))
+	return reflect.TypeOf((**SwaApp)(nil)).Elem()
 }
 
 func (i *SwaApp) ToSwaAppOutput() SwaAppOutput {
@@ -403,35 +403,6 @@ func (i *SwaApp) ToSwaAppOutput() SwaAppOutput {
 
 func (i *SwaApp) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaAppOutput)
-}
-
-func (i *SwaApp) ToSwaAppPtrOutput() SwaAppPtrOutput {
-	return i.ToSwaAppPtrOutputWithContext(context.Background())
-}
-
-func (i *SwaApp) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SwaAppPtrOutput)
-}
-
-type SwaAppPtrInput interface {
-	pulumi.Input
-
-	ToSwaAppPtrOutput() SwaAppPtrOutput
-	ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput
-}
-
-type swaAppPtrType SwaAppArgs
-
-func (*swaAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SwaApp)(nil))
-}
-
-func (i *swaAppPtrType) ToSwaAppPtrOutput() SwaAppPtrOutput {
-	return i.ToSwaAppPtrOutputWithContext(context.Background())
-}
-
-func (i *swaAppPtrType) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SwaAppPtrOutput)
 }
 
 // SwaAppArrayInput is an input type that accepts SwaAppArray and SwaAppArrayOutput values.
@@ -487,7 +458,7 @@ func (i SwaAppMap) ToSwaAppMapOutputWithContext(ctx context.Context) SwaAppMapOu
 type SwaAppOutput struct{ *pulumi.OutputState }
 
 func (SwaAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SwaApp)(nil))
+	return reflect.TypeOf((**SwaApp)(nil)).Elem()
 }
 
 func (o SwaAppOutput) ToSwaAppOutput() SwaAppOutput {
@@ -498,44 +469,10 @@ func (o SwaAppOutput) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutpu
 	return o
 }
 
-func (o SwaAppOutput) ToSwaAppPtrOutput() SwaAppPtrOutput {
-	return o.ToSwaAppPtrOutputWithContext(context.Background())
-}
-
-func (o SwaAppOutput) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SwaApp) *SwaApp {
-		return &v
-	}).(SwaAppPtrOutput)
-}
-
-type SwaAppPtrOutput struct{ *pulumi.OutputState }
-
-func (SwaAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SwaApp)(nil))
-}
-
-func (o SwaAppPtrOutput) ToSwaAppPtrOutput() SwaAppPtrOutput {
-	return o
-}
-
-func (o SwaAppPtrOutput) ToSwaAppPtrOutputWithContext(ctx context.Context) SwaAppPtrOutput {
-	return o
-}
-
-func (o SwaAppPtrOutput) Elem() SwaAppOutput {
-	return o.ApplyT(func(v *SwaApp) SwaApp {
-		if v != nil {
-			return *v
-		}
-		var ret SwaApp
-		return ret
-	}).(SwaAppOutput)
-}
-
 type SwaAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SwaAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SwaApp)(nil))
+	return reflect.TypeOf((*[]*SwaApp)(nil)).Elem()
 }
 
 func (o SwaAppArrayOutput) ToSwaAppArrayOutput() SwaAppArrayOutput {
@@ -547,15 +484,15 @@ func (o SwaAppArrayOutput) ToSwaAppArrayOutputWithContext(ctx context.Context) S
 }
 
 func (o SwaAppArrayOutput) Index(i pulumi.IntInput) SwaAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SwaApp {
-		return vs[0].([]SwaApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SwaApp {
+		return vs[0].([]*SwaApp)[vs[1].(int)]
 	}).(SwaAppOutput)
 }
 
 type SwaAppMapOutput struct{ *pulumi.OutputState }
 
 func (SwaAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SwaApp)(nil))
+	return reflect.TypeOf((*map[string]*SwaApp)(nil)).Elem()
 }
 
 func (o SwaAppMapOutput) ToSwaAppMapOutput() SwaAppMapOutput {
@@ -567,18 +504,16 @@ func (o SwaAppMapOutput) ToSwaAppMapOutputWithContext(ctx context.Context) SwaAp
 }
 
 func (o SwaAppMapOutput) MapIndex(k pulumi.StringInput) SwaAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SwaApp {
-		return vs[0].(map[string]SwaApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SwaApp {
+		return vs[0].(map[string]*SwaApp)[vs[1].(string)]
 	}).(SwaAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppInput)(nil)).Elem(), &SwaApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppPtrInput)(nil)).Elem(), &SwaApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppArrayInput)(nil)).Elem(), SwaAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SwaAppMapInput)(nil)).Elem(), SwaAppMap{})
 	pulumi.RegisterOutputType(SwaAppOutput{})
-	pulumi.RegisterOutputType(SwaAppPtrOutput{})
 	pulumi.RegisterOutputType(SwaAppArrayOutput{})
 	pulumi.RegisterOutputType(SwaAppMapOutput{})
 }

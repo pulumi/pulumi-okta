@@ -885,7 +885,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 filter_type="REGEX",
                 filter_value=".*",
             )])
-        test_app_signon_policy = test_saml.id.apply(lambda id: okta.get_app_signon_policy(app_id=id))
+        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
         test_user = []
         for range in [{"value": i} for i in range(0, 5)]:
             test_user.append(okta.user.User(f"testUser-{range['value']}",
@@ -1147,7 +1147,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 filter_type="REGEX",
                 filter_value=".*",
             )])
-        test_app_signon_policy = test_saml.id.apply(lambda id: okta.get_app_signon_policy(app_id=id))
+        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
         test_user = []
         for range in [{"value": i} for i in range(0, 5)]:
             test_user.append(okta.user.User(f"testUser-{range['value']}",

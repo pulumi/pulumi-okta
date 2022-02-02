@@ -185,7 +185,7 @@ type LinkValueInput interface {
 }
 
 func (*LinkValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkValue)(nil))
+	return reflect.TypeOf((**LinkValue)(nil)).Elem()
 }
 
 func (i *LinkValue) ToLinkValueOutput() LinkValueOutput {
@@ -194,35 +194,6 @@ func (i *LinkValue) ToLinkValueOutput() LinkValueOutput {
 
 func (i *LinkValue) ToLinkValueOutputWithContext(ctx context.Context) LinkValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkValueOutput)
-}
-
-func (i *LinkValue) ToLinkValuePtrOutput() LinkValuePtrOutput {
-	return i.ToLinkValuePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkValue) ToLinkValuePtrOutputWithContext(ctx context.Context) LinkValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkValuePtrOutput)
-}
-
-type LinkValuePtrInput interface {
-	pulumi.Input
-
-	ToLinkValuePtrOutput() LinkValuePtrOutput
-	ToLinkValuePtrOutputWithContext(ctx context.Context) LinkValuePtrOutput
-}
-
-type linkValuePtrType LinkValueArgs
-
-func (*linkValuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkValue)(nil))
-}
-
-func (i *linkValuePtrType) ToLinkValuePtrOutput() LinkValuePtrOutput {
-	return i.ToLinkValuePtrOutputWithContext(context.Background())
-}
-
-func (i *linkValuePtrType) ToLinkValuePtrOutputWithContext(ctx context.Context) LinkValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkValuePtrOutput)
 }
 
 // LinkValueArrayInput is an input type that accepts LinkValueArray and LinkValueArrayOutput values.
@@ -278,7 +249,7 @@ func (i LinkValueMap) ToLinkValueMapOutputWithContext(ctx context.Context) LinkV
 type LinkValueOutput struct{ *pulumi.OutputState }
 
 func (LinkValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkValue)(nil))
+	return reflect.TypeOf((**LinkValue)(nil)).Elem()
 }
 
 func (o LinkValueOutput) ToLinkValueOutput() LinkValueOutput {
@@ -289,44 +260,10 @@ func (o LinkValueOutput) ToLinkValueOutputWithContext(ctx context.Context) LinkV
 	return o
 }
 
-func (o LinkValueOutput) ToLinkValuePtrOutput() LinkValuePtrOutput {
-	return o.ToLinkValuePtrOutputWithContext(context.Background())
-}
-
-func (o LinkValueOutput) ToLinkValuePtrOutputWithContext(ctx context.Context) LinkValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkValue) *LinkValue {
-		return &v
-	}).(LinkValuePtrOutput)
-}
-
-type LinkValuePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkValue)(nil))
-}
-
-func (o LinkValuePtrOutput) ToLinkValuePtrOutput() LinkValuePtrOutput {
-	return o
-}
-
-func (o LinkValuePtrOutput) ToLinkValuePtrOutputWithContext(ctx context.Context) LinkValuePtrOutput {
-	return o
-}
-
-func (o LinkValuePtrOutput) Elem() LinkValueOutput {
-	return o.ApplyT(func(v *LinkValue) LinkValue {
-		if v != nil {
-			return *v
-		}
-		var ret LinkValue
-		return ret
-	}).(LinkValueOutput)
-}
-
 type LinkValueArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkValue)(nil))
+	return reflect.TypeOf((*[]*LinkValue)(nil)).Elem()
 }
 
 func (o LinkValueArrayOutput) ToLinkValueArrayOutput() LinkValueArrayOutput {
@@ -338,15 +275,15 @@ func (o LinkValueArrayOutput) ToLinkValueArrayOutputWithContext(ctx context.Cont
 }
 
 func (o LinkValueArrayOutput) Index(i pulumi.IntInput) LinkValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkValue {
-		return vs[0].([]LinkValue)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkValue {
+		return vs[0].([]*LinkValue)[vs[1].(int)]
 	}).(LinkValueOutput)
 }
 
 type LinkValueMapOutput struct{ *pulumi.OutputState }
 
 func (LinkValueMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkValue)(nil))
+	return reflect.TypeOf((*map[string]*LinkValue)(nil)).Elem()
 }
 
 func (o LinkValueMapOutput) ToLinkValueMapOutput() LinkValueMapOutput {
@@ -358,18 +295,16 @@ func (o LinkValueMapOutput) ToLinkValueMapOutputWithContext(ctx context.Context)
 }
 
 func (o LinkValueMapOutput) MapIndex(k pulumi.StringInput) LinkValueOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkValue {
-		return vs[0].(map[string]LinkValue)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkValue {
+		return vs[0].(map[string]*LinkValue)[vs[1].(string)]
 	}).(LinkValueOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkValueInput)(nil)).Elem(), &LinkValue{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkValuePtrInput)(nil)).Elem(), &LinkValue{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkValueArrayInput)(nil)).Elem(), LinkValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkValueMapInput)(nil)).Elem(), LinkValueMap{})
 	pulumi.RegisterOutputType(LinkValueOutput{})
-	pulumi.RegisterOutputType(LinkValuePtrOutput{})
 	pulumi.RegisterOutputType(LinkValueArrayOutput{})
 	pulumi.RegisterOutputType(LinkValueMapOutput{})
 }

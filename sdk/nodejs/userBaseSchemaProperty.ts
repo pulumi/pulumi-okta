@@ -117,18 +117,18 @@ export class UserBaseSchemaProperty extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserBaseSchemaPropertyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserBaseSchemaPropertyArgs | UserBaseSchemaPropertyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserBaseSchemaPropertyState | undefined;
-            inputs["index"] = state ? state.index : undefined;
-            inputs["master"] = state ? state.master : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["required"] = state ? state.required : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userType"] = state ? state.userType : undefined;
+            resourceInputs["index"] = state ? state.index : undefined;
+            resourceInputs["master"] = state ? state.master : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["required"] = state ? state.required : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as UserBaseSchemaPropertyArgs | undefined;
             if ((!args || args.index === undefined) && !opts.urn) {
@@ -140,19 +140,17 @@ export class UserBaseSchemaProperty extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["index"] = args ? args.index : undefined;
-            inputs["master"] = args ? args.master : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["required"] = args ? args.required : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["index"] = args ? args.index : undefined;
+            resourceInputs["master"] = args ? args.master : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["required"] = args ? args.required : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userType"] = args ? args.userType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserBaseSchemaProperty.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserBaseSchemaProperty.__pulumiType, name, resourceInputs, opts);
     }
 }
 

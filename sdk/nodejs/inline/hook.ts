@@ -103,17 +103,17 @@ export class Hook extends pulumi.CustomResource {
      */
     constructor(name: string, args: HookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HookArgs | HookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HookState | undefined;
-            inputs["auth"] = state ? state.auth : undefined;
-            inputs["channel"] = state ? state.channel : undefined;
-            inputs["headers"] = state ? state.headers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["auth"] = state ? state.auth : undefined;
+            resourceInputs["channel"] = state ? state.channel : undefined;
+            resourceInputs["headers"] = state ? state.headers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as HookArgs | undefined;
             if ((!args || args.channel === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class Hook extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["auth"] = args ? args.auth : undefined;
-            inputs["channel"] = args ? args.channel : undefined;
-            inputs["headers"] = args ? args.headers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            resourceInputs["auth"] = args ? args.auth : undefined;
+            resourceInputs["channel"] = args ? args.channel : undefined;
+            resourceInputs["headers"] = args ? args.headers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Hook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Hook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

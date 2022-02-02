@@ -54,28 +54,26 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["apiToken"] = args ? args.apiToken : undefined;
-            inputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
-            inputs["baseUrl"] = args ? args.baseUrl : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
-            inputs["maxApiCapacity"] = pulumi.output(args ? args.maxApiCapacity : undefined).apply(JSON.stringify);
-            inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            inputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
-            inputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
-            inputs["orgName"] = args ? args.orgName : undefined;
-            inputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
-            inputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
+            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
+            resourceInputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
+            resourceInputs["baseUrl"] = args ? args.baseUrl : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
+            resourceInputs["maxApiCapacity"] = pulumi.output(args ? args.maxApiCapacity : undefined).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
+            resourceInputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
+            resourceInputs["orgName"] = args ? args.orgName : undefined;
+            resourceInputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
+            resourceInputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -74,21 +74,19 @@ export class PolicyProfileEnrollment extends pulumi.CustomResource {
      */
     constructor(name: string, args?: PolicyProfileEnrollmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyProfileEnrollmentArgs | PolicyProfileEnrollmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyProfileEnrollmentState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as PolicyProfileEnrollmentArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PolicyProfileEnrollment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PolicyProfileEnrollment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

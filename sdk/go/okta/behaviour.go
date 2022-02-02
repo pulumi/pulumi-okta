@@ -240,7 +240,7 @@ type BehaviourInput interface {
 }
 
 func (*Behaviour) ElementType() reflect.Type {
-	return reflect.TypeOf((*Behaviour)(nil))
+	return reflect.TypeOf((**Behaviour)(nil)).Elem()
 }
 
 func (i *Behaviour) ToBehaviourOutput() BehaviourOutput {
@@ -249,35 +249,6 @@ func (i *Behaviour) ToBehaviourOutput() BehaviourOutput {
 
 func (i *Behaviour) ToBehaviourOutputWithContext(ctx context.Context) BehaviourOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BehaviourOutput)
-}
-
-func (i *Behaviour) ToBehaviourPtrOutput() BehaviourPtrOutput {
-	return i.ToBehaviourPtrOutputWithContext(context.Background())
-}
-
-func (i *Behaviour) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BehaviourPtrOutput)
-}
-
-type BehaviourPtrInput interface {
-	pulumi.Input
-
-	ToBehaviourPtrOutput() BehaviourPtrOutput
-	ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput
-}
-
-type behaviourPtrType BehaviourArgs
-
-func (*behaviourPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Behaviour)(nil))
-}
-
-func (i *behaviourPtrType) ToBehaviourPtrOutput() BehaviourPtrOutput {
-	return i.ToBehaviourPtrOutputWithContext(context.Background())
-}
-
-func (i *behaviourPtrType) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BehaviourPtrOutput)
 }
 
 // BehaviourArrayInput is an input type that accepts BehaviourArray and BehaviourArrayOutput values.
@@ -333,7 +304,7 @@ func (i BehaviourMap) ToBehaviourMapOutputWithContext(ctx context.Context) Behav
 type BehaviourOutput struct{ *pulumi.OutputState }
 
 func (BehaviourOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Behaviour)(nil))
+	return reflect.TypeOf((**Behaviour)(nil)).Elem()
 }
 
 func (o BehaviourOutput) ToBehaviourOutput() BehaviourOutput {
@@ -344,44 +315,10 @@ func (o BehaviourOutput) ToBehaviourOutputWithContext(ctx context.Context) Behav
 	return o
 }
 
-func (o BehaviourOutput) ToBehaviourPtrOutput() BehaviourPtrOutput {
-	return o.ToBehaviourPtrOutputWithContext(context.Background())
-}
-
-func (o BehaviourOutput) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Behaviour) *Behaviour {
-		return &v
-	}).(BehaviourPtrOutput)
-}
-
-type BehaviourPtrOutput struct{ *pulumi.OutputState }
-
-func (BehaviourPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Behaviour)(nil))
-}
-
-func (o BehaviourPtrOutput) ToBehaviourPtrOutput() BehaviourPtrOutput {
-	return o
-}
-
-func (o BehaviourPtrOutput) ToBehaviourPtrOutputWithContext(ctx context.Context) BehaviourPtrOutput {
-	return o
-}
-
-func (o BehaviourPtrOutput) Elem() BehaviourOutput {
-	return o.ApplyT(func(v *Behaviour) Behaviour {
-		if v != nil {
-			return *v
-		}
-		var ret Behaviour
-		return ret
-	}).(BehaviourOutput)
-}
-
 type BehaviourArrayOutput struct{ *pulumi.OutputState }
 
 func (BehaviourArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Behaviour)(nil))
+	return reflect.TypeOf((*[]*Behaviour)(nil)).Elem()
 }
 
 func (o BehaviourArrayOutput) ToBehaviourArrayOutput() BehaviourArrayOutput {
@@ -393,15 +330,15 @@ func (o BehaviourArrayOutput) ToBehaviourArrayOutputWithContext(ctx context.Cont
 }
 
 func (o BehaviourArrayOutput) Index(i pulumi.IntInput) BehaviourOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Behaviour {
-		return vs[0].([]Behaviour)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Behaviour {
+		return vs[0].([]*Behaviour)[vs[1].(int)]
 	}).(BehaviourOutput)
 }
 
 type BehaviourMapOutput struct{ *pulumi.OutputState }
 
 func (BehaviourMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Behaviour)(nil))
+	return reflect.TypeOf((*map[string]*Behaviour)(nil)).Elem()
 }
 
 func (o BehaviourMapOutput) ToBehaviourMapOutput() BehaviourMapOutput {
@@ -413,18 +350,16 @@ func (o BehaviourMapOutput) ToBehaviourMapOutputWithContext(ctx context.Context)
 }
 
 func (o BehaviourMapOutput) MapIndex(k pulumi.StringInput) BehaviourOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Behaviour {
-		return vs[0].(map[string]Behaviour)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Behaviour {
+		return vs[0].(map[string]*Behaviour)[vs[1].(string)]
 	}).(BehaviourOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourInput)(nil)).Elem(), &Behaviour{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourPtrInput)(nil)).Elem(), &Behaviour{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourArrayInput)(nil)).Elem(), BehaviourArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BehaviourMapInput)(nil)).Elem(), BehaviourMap{})
 	pulumi.RegisterOutputType(BehaviourOutput{})
-	pulumi.RegisterOutputType(BehaviourPtrOutput{})
 	pulumi.RegisterOutputType(BehaviourArrayOutput{})
 	pulumi.RegisterOutputType(BehaviourMapOutput{})
 }

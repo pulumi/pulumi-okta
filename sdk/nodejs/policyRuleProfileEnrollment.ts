@@ -138,19 +138,19 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyRuleProfileEnrollmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyRuleProfileEnrollmentArgs | PolicyRuleProfileEnrollmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyRuleProfileEnrollmentState | undefined;
-            inputs["access"] = state ? state.access : undefined;
-            inputs["emailVerification"] = state ? state.emailVerification : undefined;
-            inputs["inlineHookId"] = state ? state.inlineHookId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["profileAttributes"] = state ? state.profileAttributes : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["targetGroupId"] = state ? state.targetGroupId : undefined;
-            inputs["unknownUserAction"] = state ? state.unknownUserAction : undefined;
+            resourceInputs["access"] = state ? state.access : undefined;
+            resourceInputs["emailVerification"] = state ? state.emailVerification : undefined;
+            resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["profileAttributes"] = state ? state.profileAttributes : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["targetGroupId"] = state ? state.targetGroupId : undefined;
+            resourceInputs["unknownUserAction"] = state ? state.unknownUserAction : undefined;
         } else {
             const args = argsOrState as PolicyRuleProfileEnrollmentArgs | undefined;
             if ((!args || args.policyId === undefined) && !opts.urn) {
@@ -159,20 +159,18 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             if ((!args || args.unknownUserAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'unknownUserAction'");
             }
-            inputs["access"] = args ? args.access : undefined;
-            inputs["emailVerification"] = args ? args.emailVerification : undefined;
-            inputs["inlineHookId"] = args ? args.inlineHookId : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["profileAttributes"] = args ? args.profileAttributes : undefined;
-            inputs["targetGroupId"] = args ? args.targetGroupId : undefined;
-            inputs["unknownUserAction"] = args ? args.unknownUserAction : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["emailVerification"] = args ? args.emailVerification : undefined;
+            resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["profileAttributes"] = args ? args.profileAttributes : undefined;
+            resourceInputs["targetGroupId"] = args ? args.targetGroupId : undefined;
+            resourceInputs["unknownUserAction"] = args ? args.unknownUserAction : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PolicyRuleProfileEnrollment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PolicyRuleProfileEnrollment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

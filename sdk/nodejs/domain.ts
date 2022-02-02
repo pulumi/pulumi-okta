@@ -86,27 +86,25 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            inputs["certificateSourceType"] = state ? state.certificateSourceType : undefined;
-            inputs["dnsRecords"] = state ? state.dnsRecords : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["validationStatus"] = state ? state.validationStatus : undefined;
-            inputs["verify"] = state ? state.verify : undefined;
+            resourceInputs["certificateSourceType"] = state ? state.certificateSourceType : undefined;
+            resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
+            resourceInputs["verify"] = state ? state.verify : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            inputs["certificateSourceType"] = args ? args.certificateSourceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["verify"] = args ? args.verify : undefined;
-            inputs["dnsRecords"] = undefined /*out*/;
-            inputs["validationStatus"] = undefined /*out*/;
+            resourceInputs["certificateSourceType"] = args ? args.certificateSourceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["verify"] = args ? args.verify : undefined;
+            resourceInputs["dnsRecords"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

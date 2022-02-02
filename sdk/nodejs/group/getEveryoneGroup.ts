@@ -23,9 +23,7 @@ export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.Invo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:group/getEveryoneGroup:getEveryoneGroup", {
         "includeUsers": args.includeUsers,
     }, opts);

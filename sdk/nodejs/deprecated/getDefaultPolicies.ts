@@ -9,9 +9,7 @@ export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:deprecated/getDefaultPolicies:getDefaultPolicies", {
         "type": args.type,
     }, opts);

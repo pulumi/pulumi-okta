@@ -95,15 +95,15 @@ export class Role extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
-            inputs["disableNotifications"] = state ? state.disableNotifications : undefined;
-            inputs["groupId"] = state ? state.groupId : undefined;
-            inputs["roleType"] = state ? state.roleType : undefined;
-            inputs["targetAppLists"] = state ? state.targetAppLists : undefined;
-            inputs["targetGroupLists"] = state ? state.targetGroupLists : undefined;
+            resourceInputs["disableNotifications"] = state ? state.disableNotifications : undefined;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["roleType"] = state ? state.roleType : undefined;
+            resourceInputs["targetAppLists"] = state ? state.targetAppLists : undefined;
+            resourceInputs["targetGroupLists"] = state ? state.targetGroupLists : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -112,16 +112,14 @@ export class Role extends pulumi.CustomResource {
             if ((!args || args.roleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
-            inputs["disableNotifications"] = args ? args.disableNotifications : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["roleType"] = args ? args.roleType : undefined;
-            inputs["targetAppLists"] = args ? args.targetAppLists : undefined;
-            inputs["targetGroupLists"] = args ? args.targetGroupLists : undefined;
+            resourceInputs["disableNotifications"] = args ? args.disableNotifications : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["roleType"] = args ? args.roleType : undefined;
+            resourceInputs["targetAppLists"] = args ? args.targetAppLists : undefined;
+            resourceInputs["targetGroupLists"] = args ? args.targetGroupLists : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Role.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Role.__pulumiType, name, resourceInputs, opts);
     }
 }
 

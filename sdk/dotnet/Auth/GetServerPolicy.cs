@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta.Auth
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Okta.Auth
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerPolicyResult> InvokeAsync(GetServerPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve an authorization server policy from Okta.
@@ -70,7 +69,7 @@ namespace Pulumi.Okta.Auth
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerPolicyResult> Invoke(GetServerPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -442,7 +442,7 @@ type ThreeFieldAppInput interface {
 }
 
 func (*ThreeFieldApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeFieldApp)(nil))
+	return reflect.TypeOf((**ThreeFieldApp)(nil)).Elem()
 }
 
 func (i *ThreeFieldApp) ToThreeFieldAppOutput() ThreeFieldAppOutput {
@@ -451,35 +451,6 @@ func (i *ThreeFieldApp) ToThreeFieldAppOutput() ThreeFieldAppOutput {
 
 func (i *ThreeFieldApp) ToThreeFieldAppOutputWithContext(ctx context.Context) ThreeFieldAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppOutput)
-}
-
-func (i *ThreeFieldApp) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput {
-	return i.ToThreeFieldAppPtrOutputWithContext(context.Background())
-}
-
-func (i *ThreeFieldApp) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppPtrOutput)
-}
-
-type ThreeFieldAppPtrInput interface {
-	pulumi.Input
-
-	ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput
-	ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput
-}
-
-type threeFieldAppPtrType ThreeFieldAppArgs
-
-func (*threeFieldAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreeFieldApp)(nil))
-}
-
-func (i *threeFieldAppPtrType) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput {
-	return i.ToThreeFieldAppPtrOutputWithContext(context.Background())
-}
-
-func (i *threeFieldAppPtrType) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldAppPtrOutput)
 }
 
 // ThreeFieldAppArrayInput is an input type that accepts ThreeFieldAppArray and ThreeFieldAppArrayOutput values.
@@ -535,7 +506,7 @@ func (i ThreeFieldAppMap) ToThreeFieldAppMapOutputWithContext(ctx context.Contex
 type ThreeFieldAppOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreeFieldApp)(nil))
+	return reflect.TypeOf((**ThreeFieldApp)(nil)).Elem()
 }
 
 func (o ThreeFieldAppOutput) ToThreeFieldAppOutput() ThreeFieldAppOutput {
@@ -546,44 +517,10 @@ func (o ThreeFieldAppOutput) ToThreeFieldAppOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ThreeFieldAppOutput) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput {
-	return o.ToThreeFieldAppPtrOutputWithContext(context.Background())
-}
-
-func (o ThreeFieldAppOutput) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreeFieldApp) *ThreeFieldApp {
-		return &v
-	}).(ThreeFieldAppPtrOutput)
-}
-
-type ThreeFieldAppPtrOutput struct{ *pulumi.OutputState }
-
-func (ThreeFieldAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThreeFieldApp)(nil))
-}
-
-func (o ThreeFieldAppPtrOutput) ToThreeFieldAppPtrOutput() ThreeFieldAppPtrOutput {
-	return o
-}
-
-func (o ThreeFieldAppPtrOutput) ToThreeFieldAppPtrOutputWithContext(ctx context.Context) ThreeFieldAppPtrOutput {
-	return o
-}
-
-func (o ThreeFieldAppPtrOutput) Elem() ThreeFieldAppOutput {
-	return o.ApplyT(func(v *ThreeFieldApp) ThreeFieldApp {
-		if v != nil {
-			return *v
-		}
-		var ret ThreeFieldApp
-		return ret
-	}).(ThreeFieldAppOutput)
-}
-
 type ThreeFieldAppArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThreeFieldApp)(nil))
+	return reflect.TypeOf((*[]*ThreeFieldApp)(nil)).Elem()
 }
 
 func (o ThreeFieldAppArrayOutput) ToThreeFieldAppArrayOutput() ThreeFieldAppArrayOutput {
@@ -595,15 +532,15 @@ func (o ThreeFieldAppArrayOutput) ToThreeFieldAppArrayOutputWithContext(ctx cont
 }
 
 func (o ThreeFieldAppArrayOutput) Index(i pulumi.IntInput) ThreeFieldAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreeFieldApp {
-		return vs[0].([]ThreeFieldApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreeFieldApp {
+		return vs[0].([]*ThreeFieldApp)[vs[1].(int)]
 	}).(ThreeFieldAppOutput)
 }
 
 type ThreeFieldAppMapOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThreeFieldApp)(nil))
+	return reflect.TypeOf((*map[string]*ThreeFieldApp)(nil)).Elem()
 }
 
 func (o ThreeFieldAppMapOutput) ToThreeFieldAppMapOutput() ThreeFieldAppMapOutput {
@@ -615,18 +552,16 @@ func (o ThreeFieldAppMapOutput) ToThreeFieldAppMapOutputWithContext(ctx context.
 }
 
 func (o ThreeFieldAppMapOutput) MapIndex(k pulumi.StringInput) ThreeFieldAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThreeFieldApp {
-		return vs[0].(map[string]ThreeFieldApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThreeFieldApp {
+		return vs[0].(map[string]*ThreeFieldApp)[vs[1].(string)]
 	}).(ThreeFieldAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldAppInput)(nil)).Elem(), &ThreeFieldApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldAppPtrInput)(nil)).Elem(), &ThreeFieldApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldAppArrayInput)(nil)).Elem(), ThreeFieldAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeFieldAppMapInput)(nil)).Elem(), ThreeFieldAppMap{})
 	pulumi.RegisterOutputType(ThreeFieldAppOutput{})
-	pulumi.RegisterOutputType(ThreeFieldAppPtrOutput{})
 	pulumi.RegisterOutputType(ThreeFieldAppArrayOutput{})
 	pulumi.RegisterOutputType(ThreeFieldAppMapOutput{})
 }

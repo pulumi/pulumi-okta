@@ -394,7 +394,7 @@ type AuthLoginAppInput interface {
 }
 
 func (*AuthLoginApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthLoginApp)(nil))
+	return reflect.TypeOf((**AuthLoginApp)(nil)).Elem()
 }
 
 func (i *AuthLoginApp) ToAuthLoginAppOutput() AuthLoginAppOutput {
@@ -403,35 +403,6 @@ func (i *AuthLoginApp) ToAuthLoginAppOutput() AuthLoginAppOutput {
 
 func (i *AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) AuthLoginAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppOutput)
-}
-
-func (i *AuthLoginApp) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
-	return i.ToAuthLoginAppPtrOutputWithContext(context.Background())
-}
-
-func (i *AuthLoginApp) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppPtrOutput)
-}
-
-type AuthLoginAppPtrInput interface {
-	pulumi.Input
-
-	ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput
-	ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput
-}
-
-type authLoginAppPtrType AuthLoginAppArgs
-
-func (*authLoginAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthLoginApp)(nil))
-}
-
-func (i *authLoginAppPtrType) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
-	return i.ToAuthLoginAppPtrOutputWithContext(context.Background())
-}
-
-func (i *authLoginAppPtrType) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthLoginAppPtrOutput)
 }
 
 // AuthLoginAppArrayInput is an input type that accepts AuthLoginAppArray and AuthLoginAppArrayOutput values.
@@ -487,7 +458,7 @@ func (i AuthLoginAppMap) ToAuthLoginAppMapOutputWithContext(ctx context.Context)
 type AuthLoginAppOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthLoginApp)(nil))
+	return reflect.TypeOf((**AuthLoginApp)(nil)).Elem()
 }
 
 func (o AuthLoginAppOutput) ToAuthLoginAppOutput() AuthLoginAppOutput {
@@ -498,44 +469,10 @@ func (o AuthLoginAppOutput) ToAuthLoginAppOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
-	return o.ToAuthLoginAppPtrOutputWithContext(context.Background())
-}
-
-func (o AuthLoginAppOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthLoginApp) *AuthLoginApp {
-		return &v
-	}).(AuthLoginAppPtrOutput)
-}
-
-type AuthLoginAppPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthLoginAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthLoginApp)(nil))
-}
-
-func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutput() AuthLoginAppPtrOutput {
-	return o
-}
-
-func (o AuthLoginAppPtrOutput) ToAuthLoginAppPtrOutputWithContext(ctx context.Context) AuthLoginAppPtrOutput {
-	return o
-}
-
-func (o AuthLoginAppPtrOutput) Elem() AuthLoginAppOutput {
-	return o.ApplyT(func(v *AuthLoginApp) AuthLoginApp {
-		if v != nil {
-			return *v
-		}
-		var ret AuthLoginApp
-		return ret
-	}).(AuthLoginAppOutput)
-}
-
 type AuthLoginAppArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AuthLoginApp)(nil))
+	return reflect.TypeOf((*[]*AuthLoginApp)(nil)).Elem()
 }
 
 func (o AuthLoginAppArrayOutput) ToAuthLoginAppArrayOutput() AuthLoginAppArrayOutput {
@@ -547,15 +484,15 @@ func (o AuthLoginAppArrayOutput) ToAuthLoginAppArrayOutputWithContext(ctx contex
 }
 
 func (o AuthLoginAppArrayOutput) Index(i pulumi.IntInput) AuthLoginAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthLoginApp {
-		return vs[0].([]AuthLoginApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthLoginApp {
+		return vs[0].([]*AuthLoginApp)[vs[1].(int)]
 	}).(AuthLoginAppOutput)
 }
 
 type AuthLoginAppMapOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AuthLoginApp)(nil))
+	return reflect.TypeOf((*map[string]*AuthLoginApp)(nil)).Elem()
 }
 
 func (o AuthLoginAppMapOutput) ToAuthLoginAppMapOutput() AuthLoginAppMapOutput {
@@ -567,18 +504,16 @@ func (o AuthLoginAppMapOutput) ToAuthLoginAppMapOutputWithContext(ctx context.Co
 }
 
 func (o AuthLoginAppMapOutput) MapIndex(k pulumi.StringInput) AuthLoginAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AuthLoginApp {
-		return vs[0].(map[string]AuthLoginApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AuthLoginApp {
+		return vs[0].(map[string]*AuthLoginApp)[vs[1].(string)]
 	}).(AuthLoginAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppInput)(nil)).Elem(), &AuthLoginApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppPtrInput)(nil)).Elem(), &AuthLoginApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppArrayInput)(nil)).Elem(), AuthLoginAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthLoginAppMapInput)(nil)).Elem(), AuthLoginAppMap{})
 	pulumi.RegisterOutputType(AuthLoginAppOutput{})
-	pulumi.RegisterOutputType(AuthLoginAppPtrOutput{})
 	pulumi.RegisterOutputType(AuthLoginAppArrayOutput{})
 	pulumi.RegisterOutputType(AuthLoginAppMapOutput{})
 }

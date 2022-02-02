@@ -306,7 +306,7 @@ type IdpInput interface {
 }
 
 func (*Idp) ElementType() reflect.Type {
-	return reflect.TypeOf((*Idp)(nil))
+	return reflect.TypeOf((**Idp)(nil)).Elem()
 }
 
 func (i *Idp) ToIdpOutput() IdpOutput {
@@ -315,35 +315,6 @@ func (i *Idp) ToIdpOutput() IdpOutput {
 
 func (i *Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdpOutput)
-}
-
-func (i *Idp) ToIdpPtrOutput() IdpPtrOutput {
-	return i.ToIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *Idp) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdpPtrOutput)
-}
-
-type IdpPtrInput interface {
-	pulumi.Input
-
-	ToIdpPtrOutput() IdpPtrOutput
-	ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput
-}
-
-type idpPtrType IdpArgs
-
-func (*idpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Idp)(nil))
-}
-
-func (i *idpPtrType) ToIdpPtrOutput() IdpPtrOutput {
-	return i.ToIdpPtrOutputWithContext(context.Background())
-}
-
-func (i *idpPtrType) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdpPtrOutput)
 }
 
 // IdpArrayInput is an input type that accepts IdpArray and IdpArrayOutput values.
@@ -399,7 +370,7 @@ func (i IdpMap) ToIdpMapOutputWithContext(ctx context.Context) IdpMapOutput {
 type IdpOutput struct{ *pulumi.OutputState }
 
 func (IdpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Idp)(nil))
+	return reflect.TypeOf((**Idp)(nil)).Elem()
 }
 
 func (o IdpOutput) ToIdpOutput() IdpOutput {
@@ -410,44 +381,10 @@ func (o IdpOutput) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return o
 }
 
-func (o IdpOutput) ToIdpPtrOutput() IdpPtrOutput {
-	return o.ToIdpPtrOutputWithContext(context.Background())
-}
-
-func (o IdpOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Idp) *Idp {
-		return &v
-	}).(IdpPtrOutput)
-}
-
-type IdpPtrOutput struct{ *pulumi.OutputState }
-
-func (IdpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Idp)(nil))
-}
-
-func (o IdpPtrOutput) ToIdpPtrOutput() IdpPtrOutput {
-	return o
-}
-
-func (o IdpPtrOutput) ToIdpPtrOutputWithContext(ctx context.Context) IdpPtrOutput {
-	return o
-}
-
-func (o IdpPtrOutput) Elem() IdpOutput {
-	return o.ApplyT(func(v *Idp) Idp {
-		if v != nil {
-			return *v
-		}
-		var ret Idp
-		return ret
-	}).(IdpOutput)
-}
-
 type IdpArrayOutput struct{ *pulumi.OutputState }
 
 func (IdpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Idp)(nil))
+	return reflect.TypeOf((*[]*Idp)(nil)).Elem()
 }
 
 func (o IdpArrayOutput) ToIdpArrayOutput() IdpArrayOutput {
@@ -459,15 +396,15 @@ func (o IdpArrayOutput) ToIdpArrayOutputWithContext(ctx context.Context) IdpArra
 }
 
 func (o IdpArrayOutput) Index(i pulumi.IntInput) IdpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Idp {
-		return vs[0].([]Idp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Idp {
+		return vs[0].([]*Idp)[vs[1].(int)]
 	}).(IdpOutput)
 }
 
 type IdpMapOutput struct{ *pulumi.OutputState }
 
 func (IdpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Idp)(nil))
+	return reflect.TypeOf((*map[string]*Idp)(nil)).Elem()
 }
 
 func (o IdpMapOutput) ToIdpMapOutput() IdpMapOutput {
@@ -479,18 +416,16 @@ func (o IdpMapOutput) ToIdpMapOutputWithContext(ctx context.Context) IdpMapOutpu
 }
 
 func (o IdpMapOutput) MapIndex(k pulumi.StringInput) IdpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Idp {
-		return vs[0].(map[string]Idp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Idp {
+		return vs[0].(map[string]*Idp)[vs[1].(string)]
 	}).(IdpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdpInput)(nil)).Elem(), &Idp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdpPtrInput)(nil)).Elem(), &Idp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdpArrayInput)(nil)).Elem(), IdpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdpMapInput)(nil)).Elem(), IdpMap{})
 	pulumi.RegisterOutputType(IdpOutput{})
-	pulumi.RegisterOutputType(IdpPtrOutput{})
 	pulumi.RegisterOutputType(IdpArrayOutput{})
 	pulumi.RegisterOutputType(IdpMapOutput{})
 }

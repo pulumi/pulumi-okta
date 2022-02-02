@@ -123,9 +123,9 @@ import * as utilities from "./utilities";
  *         filterValue: ".*",
  *     }],
  * });
- * const testAppSignonPolicy = testSaml.id.apply(id => okta.getAppSignonPolicy({
- *     appId: id,
- * }));
+ * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
+ *     appId: testSaml.id,
+ * });
  * const testUser: okta.user.User[];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
  *     testUser.push(new okta.user.User(`testUser-${range.value}`, {
@@ -372,64 +372,62 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppSignonPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppSignonPolicyRuleArgs | AppSignonPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSignonPolicyRuleState | undefined;
-            inputs["access"] = state ? state.access : undefined;
-            inputs["constraints"] = state ? state.constraints : undefined;
-            inputs["customExpression"] = state ? state.customExpression : undefined;
-            inputs["deviceIsManaged"] = state ? state.deviceIsManaged : undefined;
-            inputs["deviceIsRegistered"] = state ? state.deviceIsRegistered : undefined;
-            inputs["factorMode"] = state ? state.factorMode : undefined;
-            inputs["groupsExcludeds"] = state ? state.groupsExcludeds : undefined;
-            inputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConnection"] = state ? state.networkConnection : undefined;
-            inputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            inputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            inputs["platformIncludes"] = state ? state.platformIncludes : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["reAuthenticationFrequency"] = state ? state.reAuthenticationFrequency : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userTypesExcludeds"] = state ? state.userTypesExcludeds : undefined;
-            inputs["userTypesIncludeds"] = state ? state.userTypesIncludeds : undefined;
-            inputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
-            inputs["usersIncludeds"] = state ? state.usersIncludeds : undefined;
+            resourceInputs["access"] = state ? state.access : undefined;
+            resourceInputs["constraints"] = state ? state.constraints : undefined;
+            resourceInputs["customExpression"] = state ? state.customExpression : undefined;
+            resourceInputs["deviceIsManaged"] = state ? state.deviceIsManaged : undefined;
+            resourceInputs["deviceIsRegistered"] = state ? state.deviceIsRegistered : undefined;
+            resourceInputs["factorMode"] = state ? state.factorMode : undefined;
+            resourceInputs["groupsExcludeds"] = state ? state.groupsExcludeds : undefined;
+            resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
+            resourceInputs["platformIncludes"] = state ? state.platformIncludes : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["reAuthenticationFrequency"] = state ? state.reAuthenticationFrequency : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userTypesExcludeds"] = state ? state.userTypesExcludeds : undefined;
+            resourceInputs["userTypesIncludeds"] = state ? state.userTypesIncludeds : undefined;
+            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["usersIncludeds"] = state ? state.usersIncludeds : undefined;
         } else {
             const args = argsOrState as AppSignonPolicyRuleArgs | undefined;
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            inputs["access"] = args ? args.access : undefined;
-            inputs["constraints"] = args ? args.constraints : undefined;
-            inputs["customExpression"] = args ? args.customExpression : undefined;
-            inputs["deviceIsManaged"] = args ? args.deviceIsManaged : undefined;
-            inputs["deviceIsRegistered"] = args ? args.deviceIsRegistered : undefined;
-            inputs["factorMode"] = args ? args.factorMode : undefined;
-            inputs["groupsExcludeds"] = args ? args.groupsExcludeds : undefined;
-            inputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConnection"] = args ? args.networkConnection : undefined;
-            inputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            inputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            inputs["platformIncludes"] = args ? args.platformIncludes : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["reAuthenticationFrequency"] = args ? args.reAuthenticationFrequency : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userTypesExcludeds"] = args ? args.userTypesExcludeds : undefined;
-            inputs["userTypesIncludeds"] = args ? args.userTypesIncludeds : undefined;
-            inputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
-            inputs["usersIncludeds"] = args ? args.usersIncludeds : undefined;
+            resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["constraints"] = args ? args.constraints : undefined;
+            resourceInputs["customExpression"] = args ? args.customExpression : undefined;
+            resourceInputs["deviceIsManaged"] = args ? args.deviceIsManaged : undefined;
+            resourceInputs["deviceIsRegistered"] = args ? args.deviceIsRegistered : undefined;
+            resourceInputs["factorMode"] = args ? args.factorMode : undefined;
+            resourceInputs["groupsExcludeds"] = args ? args.groupsExcludeds : undefined;
+            resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
+            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
+            resourceInputs["platformIncludes"] = args ? args.platformIncludes : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["reAuthenticationFrequency"] = args ? args.reAuthenticationFrequency : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userTypesExcludeds"] = args ? args.userTypesExcludeds : undefined;
+            resourceInputs["userTypesIncludeds"] = args ? args.userTypesIncludeds : undefined;
+            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["usersIncludeds"] = args ? args.usersIncludeds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppSignonPolicyRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppSignonPolicyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

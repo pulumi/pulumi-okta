@@ -79,34 +79,32 @@ export class SamlKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: SamlKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlKeyArgs | SamlKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlKeyState | undefined;
-            inputs["created"] = state ? state.created : undefined;
-            inputs["expiresAt"] = state ? state.expiresAt : undefined;
-            inputs["kid"] = state ? state.kid : undefined;
-            inputs["kty"] = state ? state.kty : undefined;
-            inputs["use"] = state ? state.use : undefined;
-            inputs["x5cs"] = state ? state.x5cs : undefined;
-            inputs["x5tS256"] = state ? state.x5tS256 : undefined;
+            resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
+            resourceInputs["kid"] = state ? state.kid : undefined;
+            resourceInputs["kty"] = state ? state.kty : undefined;
+            resourceInputs["use"] = state ? state.use : undefined;
+            resourceInputs["x5cs"] = state ? state.x5cs : undefined;
+            resourceInputs["x5tS256"] = state ? state.x5tS256 : undefined;
         } else {
             const args = argsOrState as SamlKeyArgs | undefined;
             if ((!args || args.x5cs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'x5cs'");
             }
-            inputs["x5cs"] = args ? args.x5cs : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["expiresAt"] = undefined /*out*/;
-            inputs["kid"] = undefined /*out*/;
-            inputs["kty"] = undefined /*out*/;
-            inputs["use"] = undefined /*out*/;
-            inputs["x5tS256"] = undefined /*out*/;
+            resourceInputs["x5cs"] = args ? args.x5cs : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["expiresAt"] = undefined /*out*/;
+            resourceInputs["kid"] = undefined /*out*/;
+            resourceInputs["kty"] = undefined /*out*/;
+            resourceInputs["use"] = undefined /*out*/;
+            resourceInputs["x5tS256"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SamlKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SamlKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

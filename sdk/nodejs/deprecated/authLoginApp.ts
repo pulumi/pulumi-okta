@@ -171,82 +171,80 @@ export class AuthLoginApp extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthLoginAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthLoginAppArgs | AuthLoginAppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthLoginAppState | undefined;
-            inputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            inputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            inputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            inputs["adminNote"] = state ? state.adminNote : undefined;
-            inputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            inputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
-            inputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            inputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
-            inputs["enduserNote"] = state ? state.enduserNote : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["hideIos"] = state ? state.hideIos : undefined;
-            inputs["hideWeb"] = state ? state.hideWeb : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["logo"] = state ? state.logo : undefined;
-            inputs["logoUrl"] = state ? state.logoUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
-            inputs["revealPassword"] = state ? state.revealPassword : undefined;
-            inputs["sharedPassword"] = state ? state.sharedPassword : undefined;
-            inputs["sharedUsername"] = state ? state.sharedUsername : undefined;
-            inputs["signOnMode"] = state ? state.signOnMode : undefined;
-            inputs["signOnRedirectUrl"] = state ? state.signOnRedirectUrl : undefined;
-            inputs["signOnUrl"] = state ? state.signOnUrl : undefined;
-            inputs["skipGroups"] = state ? state.skipGroups : undefined;
-            inputs["skipUsers"] = state ? state.skipUsers : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
-            inputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
-            inputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
-            inputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
+            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
+            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
+            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
+            resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
+            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
+            resourceInputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
+            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
+            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["logo"] = state ? state.logo : undefined;
+            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
+            resourceInputs["revealPassword"] = state ? state.revealPassword : undefined;
+            resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
+            resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
+            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
+            resourceInputs["signOnRedirectUrl"] = state ? state.signOnRedirectUrl : undefined;
+            resourceInputs["signOnUrl"] = state ? state.signOnUrl : undefined;
+            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
+            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
+            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
+            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as AuthLoginAppArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            inputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            inputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            inputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            inputs["adminNote"] = args ? args.adminNote : undefined;
-            inputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            inputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
-            inputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            inputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
-            inputs["enduserNote"] = args ? args.enduserNote : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["hideIos"] = args ? args.hideIos : undefined;
-            inputs["hideWeb"] = args ? args.hideWeb : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["logo"] = args ? args.logo : undefined;
-            inputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
-            inputs["revealPassword"] = args ? args.revealPassword : undefined;
-            inputs["sharedPassword"] = args ? args.sharedPassword : undefined;
-            inputs["sharedUsername"] = args ? args.sharedUsername : undefined;
-            inputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
-            inputs["signOnUrl"] = args ? args.signOnUrl : undefined;
-            inputs["skipGroups"] = args ? args.skipGroups : undefined;
-            inputs["skipUsers"] = args ? args.skipUsers : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
-            inputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
-            inputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
-            inputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["logoUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["signOnMode"] = undefined /*out*/;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
+            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
+            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
+            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
+            resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
+            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            resourceInputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
+            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
+            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["logo"] = args ? args.logo : undefined;
+            resourceInputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
+            resourceInputs["revealPassword"] = args ? args.revealPassword : undefined;
+            resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
+            resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
+            resourceInputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
+            resourceInputs["signOnUrl"] = args ? args.signOnUrl : undefined;
+            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
+            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
+            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["logoUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["signOnMode"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AuthLoginApp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AuthLoginApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

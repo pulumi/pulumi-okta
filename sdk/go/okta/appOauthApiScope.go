@@ -165,7 +165,7 @@ type AppOauthApiScopeInput interface {
 }
 
 func (*AppOauthApiScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppOauthApiScope)(nil))
+	return reflect.TypeOf((**AppOauthApiScope)(nil)).Elem()
 }
 
 func (i *AppOauthApiScope) ToAppOauthApiScopeOutput() AppOauthApiScopeOutput {
@@ -174,35 +174,6 @@ func (i *AppOauthApiScope) ToAppOauthApiScopeOutput() AppOauthApiScopeOutput {
 
 func (i *AppOauthApiScope) ToAppOauthApiScopeOutputWithContext(ctx context.Context) AppOauthApiScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopeOutput)
-}
-
-func (i *AppOauthApiScope) ToAppOauthApiScopePtrOutput() AppOauthApiScopePtrOutput {
-	return i.ToAppOauthApiScopePtrOutputWithContext(context.Background())
-}
-
-func (i *AppOauthApiScope) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopePtrOutput)
-}
-
-type AppOauthApiScopePtrInput interface {
-	pulumi.Input
-
-	ToAppOauthApiScopePtrOutput() AppOauthApiScopePtrOutput
-	ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput
-}
-
-type appOauthApiScopePtrType AppOauthApiScopeArgs
-
-func (*appOauthApiScopePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppOauthApiScope)(nil))
-}
-
-func (i *appOauthApiScopePtrType) ToAppOauthApiScopePtrOutput() AppOauthApiScopePtrOutput {
-	return i.ToAppOauthApiScopePtrOutputWithContext(context.Background())
-}
-
-func (i *appOauthApiScopePtrType) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopePtrOutput)
 }
 
 // AppOauthApiScopeArrayInput is an input type that accepts AppOauthApiScopeArray and AppOauthApiScopeArrayOutput values.
@@ -258,7 +229,7 @@ func (i AppOauthApiScopeMap) ToAppOauthApiScopeMapOutputWithContext(ctx context.
 type AppOauthApiScopeOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppOauthApiScope)(nil))
+	return reflect.TypeOf((**AppOauthApiScope)(nil)).Elem()
 }
 
 func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutput() AppOauthApiScopeOutput {
@@ -269,44 +240,10 @@ func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutputWithContext(ctx context.
 	return o
 }
 
-func (o AppOauthApiScopeOutput) ToAppOauthApiScopePtrOutput() AppOauthApiScopePtrOutput {
-	return o.ToAppOauthApiScopePtrOutputWithContext(context.Background())
-}
-
-func (o AppOauthApiScopeOutput) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppOauthApiScope) *AppOauthApiScope {
-		return &v
-	}).(AppOauthApiScopePtrOutput)
-}
-
-type AppOauthApiScopePtrOutput struct{ *pulumi.OutputState }
-
-func (AppOauthApiScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppOauthApiScope)(nil))
-}
-
-func (o AppOauthApiScopePtrOutput) ToAppOauthApiScopePtrOutput() AppOauthApiScopePtrOutput {
-	return o
-}
-
-func (o AppOauthApiScopePtrOutput) ToAppOauthApiScopePtrOutputWithContext(ctx context.Context) AppOauthApiScopePtrOutput {
-	return o
-}
-
-func (o AppOauthApiScopePtrOutput) Elem() AppOauthApiScopeOutput {
-	return o.ApplyT(func(v *AppOauthApiScope) AppOauthApiScope {
-		if v != nil {
-			return *v
-		}
-		var ret AppOauthApiScope
-		return ret
-	}).(AppOauthApiScopeOutput)
-}
-
 type AppOauthApiScopeArrayOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppOauthApiScope)(nil))
+	return reflect.TypeOf((*[]*AppOauthApiScope)(nil)).Elem()
 }
 
 func (o AppOauthApiScopeArrayOutput) ToAppOauthApiScopeArrayOutput() AppOauthApiScopeArrayOutput {
@@ -318,15 +255,15 @@ func (o AppOauthApiScopeArrayOutput) ToAppOauthApiScopeArrayOutputWithContext(ct
 }
 
 func (o AppOauthApiScopeArrayOutput) Index(i pulumi.IntInput) AppOauthApiScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppOauthApiScope {
-		return vs[0].([]AppOauthApiScope)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppOauthApiScope {
+		return vs[0].([]*AppOauthApiScope)[vs[1].(int)]
 	}).(AppOauthApiScopeOutput)
 }
 
 type AppOauthApiScopeMapOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppOauthApiScope)(nil))
+	return reflect.TypeOf((*map[string]*AppOauthApiScope)(nil)).Elem()
 }
 
 func (o AppOauthApiScopeMapOutput) ToAppOauthApiScopeMapOutput() AppOauthApiScopeMapOutput {
@@ -338,18 +275,16 @@ func (o AppOauthApiScopeMapOutput) ToAppOauthApiScopeMapOutputWithContext(ctx co
 }
 
 func (o AppOauthApiScopeMapOutput) MapIndex(k pulumi.StringInput) AppOauthApiScopeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppOauthApiScope {
-		return vs[0].(map[string]AppOauthApiScope)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppOauthApiScope {
+		return vs[0].(map[string]*AppOauthApiScope)[vs[1].(string)]
 	}).(AppOauthApiScopeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeInput)(nil)).Elem(), &AppOauthApiScope{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopePtrInput)(nil)).Elem(), &AppOauthApiScope{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeArrayInput)(nil)).Elem(), AppOauthApiScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppOauthApiScopeMapInput)(nil)).Elem(), AppOauthApiScopeMap{})
 	pulumi.RegisterOutputType(AppOauthApiScopeOutput{})
-	pulumi.RegisterOutputType(AppOauthApiScopePtrOutput{})
 	pulumi.RegisterOutputType(AppOauthApiScopeArrayOutput{})
 	pulumi.RegisterOutputType(AppOauthApiScopeMapOutput{})
 }

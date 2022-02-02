@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Okta
 {
@@ -58,7 +57,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthenticatorResult> InvokeAsync(GetAuthenticatorArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -106,7 +105,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -148,7 +148,7 @@ type OAuthRedirectUriInput interface {
 }
 
 func (*OAuthRedirectUri) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuthRedirectUri)(nil))
+	return reflect.TypeOf((**OAuthRedirectUri)(nil)).Elem()
 }
 
 func (i *OAuthRedirectUri) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
@@ -157,35 +157,6 @@ func (i *OAuthRedirectUri) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
 
 func (i *OAuthRedirectUri) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriOutput)
-}
-
-func (i *OAuthRedirectUri) ToOAuthRedirectUriPtrOutput() OAuthRedirectUriPtrOutput {
-	return i.ToOAuthRedirectUriPtrOutputWithContext(context.Background())
-}
-
-func (i *OAuthRedirectUri) ToOAuthRedirectUriPtrOutputWithContext(ctx context.Context) OAuthRedirectUriPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriPtrOutput)
-}
-
-type OAuthRedirectUriPtrInput interface {
-	pulumi.Input
-
-	ToOAuthRedirectUriPtrOutput() OAuthRedirectUriPtrOutput
-	ToOAuthRedirectUriPtrOutputWithContext(ctx context.Context) OAuthRedirectUriPtrOutput
-}
-
-type oauthRedirectUriPtrType OAuthRedirectUriArgs
-
-func (*oauthRedirectUriPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OAuthRedirectUri)(nil))
-}
-
-func (i *oauthRedirectUriPtrType) ToOAuthRedirectUriPtrOutput() OAuthRedirectUriPtrOutput {
-	return i.ToOAuthRedirectUriPtrOutputWithContext(context.Background())
-}
-
-func (i *oauthRedirectUriPtrType) ToOAuthRedirectUriPtrOutputWithContext(ctx context.Context) OAuthRedirectUriPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriPtrOutput)
 }
 
 // OAuthRedirectUriArrayInput is an input type that accepts OAuthRedirectUriArray and OAuthRedirectUriArrayOutput values.
@@ -241,7 +212,7 @@ func (i OAuthRedirectUriMap) ToOAuthRedirectUriMapOutputWithContext(ctx context.
 type OAuthRedirectUriOutput struct{ *pulumi.OutputState }
 
 func (OAuthRedirectUriOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OAuthRedirectUri)(nil))
+	return reflect.TypeOf((**OAuthRedirectUri)(nil)).Elem()
 }
 
 func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutput() OAuthRedirectUriOutput {
@@ -252,44 +223,10 @@ func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutputWithContext(ctx context.
 	return o
 }
 
-func (o OAuthRedirectUriOutput) ToOAuthRedirectUriPtrOutput() OAuthRedirectUriPtrOutput {
-	return o.ToOAuthRedirectUriPtrOutputWithContext(context.Background())
-}
-
-func (o OAuthRedirectUriOutput) ToOAuthRedirectUriPtrOutputWithContext(ctx context.Context) OAuthRedirectUriPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthRedirectUri) *OAuthRedirectUri {
-		return &v
-	}).(OAuthRedirectUriPtrOutput)
-}
-
-type OAuthRedirectUriPtrOutput struct{ *pulumi.OutputState }
-
-func (OAuthRedirectUriPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OAuthRedirectUri)(nil))
-}
-
-func (o OAuthRedirectUriPtrOutput) ToOAuthRedirectUriPtrOutput() OAuthRedirectUriPtrOutput {
-	return o
-}
-
-func (o OAuthRedirectUriPtrOutput) ToOAuthRedirectUriPtrOutputWithContext(ctx context.Context) OAuthRedirectUriPtrOutput {
-	return o
-}
-
-func (o OAuthRedirectUriPtrOutput) Elem() OAuthRedirectUriOutput {
-	return o.ApplyT(func(v *OAuthRedirectUri) OAuthRedirectUri {
-		if v != nil {
-			return *v
-		}
-		var ret OAuthRedirectUri
-		return ret
-	}).(OAuthRedirectUriOutput)
-}
-
 type OAuthRedirectUriArrayOutput struct{ *pulumi.OutputState }
 
 func (OAuthRedirectUriArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OAuthRedirectUri)(nil))
+	return reflect.TypeOf((*[]*OAuthRedirectUri)(nil)).Elem()
 }
 
 func (o OAuthRedirectUriArrayOutput) ToOAuthRedirectUriArrayOutput() OAuthRedirectUriArrayOutput {
@@ -301,15 +238,15 @@ func (o OAuthRedirectUriArrayOutput) ToOAuthRedirectUriArrayOutputWithContext(ct
 }
 
 func (o OAuthRedirectUriArrayOutput) Index(i pulumi.IntInput) OAuthRedirectUriOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OAuthRedirectUri {
-		return vs[0].([]OAuthRedirectUri)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OAuthRedirectUri {
+		return vs[0].([]*OAuthRedirectUri)[vs[1].(int)]
 	}).(OAuthRedirectUriOutput)
 }
 
 type OAuthRedirectUriMapOutput struct{ *pulumi.OutputState }
 
 func (OAuthRedirectUriMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OAuthRedirectUri)(nil))
+	return reflect.TypeOf((*map[string]*OAuthRedirectUri)(nil)).Elem()
 }
 
 func (o OAuthRedirectUriMapOutput) ToOAuthRedirectUriMapOutput() OAuthRedirectUriMapOutput {
@@ -321,18 +258,16 @@ func (o OAuthRedirectUriMapOutput) ToOAuthRedirectUriMapOutputWithContext(ctx co
 }
 
 func (o OAuthRedirectUriMapOutput) MapIndex(k pulumi.StringInput) OAuthRedirectUriOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OAuthRedirectUri {
-		return vs[0].(map[string]OAuthRedirectUri)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OAuthRedirectUri {
+		return vs[0].(map[string]*OAuthRedirectUri)[vs[1].(string)]
 	}).(OAuthRedirectUriOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriInput)(nil)).Elem(), &OAuthRedirectUri{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriPtrInput)(nil)).Elem(), &OAuthRedirectUri{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriArrayInput)(nil)).Elem(), OAuthRedirectUriArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthRedirectUriMapInput)(nil)).Elem(), OAuthRedirectUriMap{})
 	pulumi.RegisterOutputType(OAuthRedirectUriOutput{})
-	pulumi.RegisterOutputType(OAuthRedirectUriPtrOutput{})
 	pulumi.RegisterOutputType(OAuthRedirectUriArrayOutput{})
 	pulumi.RegisterOutputType(OAuthRedirectUriMapOutput{})
 }

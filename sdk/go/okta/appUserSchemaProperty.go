@@ -334,7 +334,7 @@ type AppUserSchemaPropertyInput interface {
 }
 
 func (*AppUserSchemaProperty) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((**AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyOutput() AppUserSchemaPropertyOutput {
@@ -343,35 +343,6 @@ func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyOutput() AppUserSchemaPro
 
 func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyOutputWithContext(ctx context.Context) AppUserSchemaPropertyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyOutput)
-}
-
-func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyPtrOutput() AppUserSchemaPropertyPtrOutput {
-	return i.ToAppUserSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyPtrOutput)
-}
-
-type AppUserSchemaPropertyPtrInput interface {
-	pulumi.Input
-
-	ToAppUserSchemaPropertyPtrOutput() AppUserSchemaPropertyPtrOutput
-	ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput
-}
-
-type appUserSchemaPropertyPtrType AppUserSchemaPropertyArgs
-
-func (*appUserSchemaPropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppUserSchemaProperty)(nil))
-}
-
-func (i *appUserSchemaPropertyPtrType) ToAppUserSchemaPropertyPtrOutput() AppUserSchemaPropertyPtrOutput {
-	return i.ToAppUserSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *appUserSchemaPropertyPtrType) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppUserSchemaPropertyPtrOutput)
 }
 
 // AppUserSchemaPropertyArrayInput is an input type that accepts AppUserSchemaPropertyArray and AppUserSchemaPropertyArrayOutput values.
@@ -427,7 +398,7 @@ func (i AppUserSchemaPropertyMap) ToAppUserSchemaPropertyMapOutputWithContext(ct
 type AppUserSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (AppUserSchemaPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((**AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyOutput() AppUserSchemaPropertyOutput {
@@ -438,44 +409,10 @@ func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyOutputWithContext(ct
 	return o
 }
 
-func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyPtrOutput() AppUserSchemaPropertyPtrOutput {
-	return o.ToAppUserSchemaPropertyPtrOutputWithContext(context.Background())
-}
-
-func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppUserSchemaProperty) *AppUserSchemaProperty {
-		return &v
-	}).(AppUserSchemaPropertyPtrOutput)
-}
-
-type AppUserSchemaPropertyPtrOutput struct{ *pulumi.OutputState }
-
-func (AppUserSchemaPropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppUserSchemaProperty)(nil))
-}
-
-func (o AppUserSchemaPropertyPtrOutput) ToAppUserSchemaPropertyPtrOutput() AppUserSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o AppUserSchemaPropertyPtrOutput) ToAppUserSchemaPropertyPtrOutputWithContext(ctx context.Context) AppUserSchemaPropertyPtrOutput {
-	return o
-}
-
-func (o AppUserSchemaPropertyPtrOutput) Elem() AppUserSchemaPropertyOutput {
-	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaProperty {
-		if v != nil {
-			return *v
-		}
-		var ret AppUserSchemaProperty
-		return ret
-	}).(AppUserSchemaPropertyOutput)
-}
-
 type AppUserSchemaPropertyArrayOutput struct{ *pulumi.OutputState }
 
 func (AppUserSchemaPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((*[]*AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (o AppUserSchemaPropertyArrayOutput) ToAppUserSchemaPropertyArrayOutput() AppUserSchemaPropertyArrayOutput {
@@ -487,15 +424,15 @@ func (o AppUserSchemaPropertyArrayOutput) ToAppUserSchemaPropertyArrayOutputWith
 }
 
 func (o AppUserSchemaPropertyArrayOutput) Index(i pulumi.IntInput) AppUserSchemaPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppUserSchemaProperty {
-		return vs[0].([]AppUserSchemaProperty)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppUserSchemaProperty {
+		return vs[0].([]*AppUserSchemaProperty)[vs[1].(int)]
 	}).(AppUserSchemaPropertyOutput)
 }
 
 type AppUserSchemaPropertyMapOutput struct{ *pulumi.OutputState }
 
 func (AppUserSchemaPropertyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppUserSchemaProperty)(nil))
+	return reflect.TypeOf((*map[string]*AppUserSchemaProperty)(nil)).Elem()
 }
 
 func (o AppUserSchemaPropertyMapOutput) ToAppUserSchemaPropertyMapOutput() AppUserSchemaPropertyMapOutput {
@@ -507,18 +444,16 @@ func (o AppUserSchemaPropertyMapOutput) ToAppUserSchemaPropertyMapOutputWithCont
 }
 
 func (o AppUserSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) AppUserSchemaPropertyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppUserSchemaProperty {
-		return vs[0].(map[string]AppUserSchemaProperty)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppUserSchemaProperty {
+		return vs[0].(map[string]*AppUserSchemaProperty)[vs[1].(string)]
 	}).(AppUserSchemaPropertyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyInput)(nil)).Elem(), &AppUserSchemaProperty{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyPtrInput)(nil)).Elem(), &AppUserSchemaProperty{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayInput)(nil)).Elem(), AppUserSchemaPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyMapInput)(nil)).Elem(), AppUserSchemaPropertyMap{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOutput{})
-	pulumi.RegisterOutputType(AppUserSchemaPropertyPtrOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyMapOutput{})
 }

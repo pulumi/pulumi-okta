@@ -135,7 +135,7 @@ type EventHookVerificationInput interface {
 }
 
 func (*EventHookVerification) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHookVerification)(nil))
+	return reflect.TypeOf((**EventHookVerification)(nil)).Elem()
 }
 
 func (i *EventHookVerification) ToEventHookVerificationOutput() EventHookVerificationOutput {
@@ -144,35 +144,6 @@ func (i *EventHookVerification) ToEventHookVerificationOutput() EventHookVerific
 
 func (i *EventHookVerification) ToEventHookVerificationOutputWithContext(ctx context.Context) EventHookVerificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationOutput)
-}
-
-func (i *EventHookVerification) ToEventHookVerificationPtrOutput() EventHookVerificationPtrOutput {
-	return i.ToEventHookVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *EventHookVerification) ToEventHookVerificationPtrOutputWithContext(ctx context.Context) EventHookVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationPtrOutput)
-}
-
-type EventHookVerificationPtrInput interface {
-	pulumi.Input
-
-	ToEventHookVerificationPtrOutput() EventHookVerificationPtrOutput
-	ToEventHookVerificationPtrOutputWithContext(ctx context.Context) EventHookVerificationPtrOutput
-}
-
-type eventHookVerificationPtrType EventHookVerificationArgs
-
-func (*eventHookVerificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHookVerification)(nil))
-}
-
-func (i *eventHookVerificationPtrType) ToEventHookVerificationPtrOutput() EventHookVerificationPtrOutput {
-	return i.ToEventHookVerificationPtrOutputWithContext(context.Background())
-}
-
-func (i *eventHookVerificationPtrType) ToEventHookVerificationPtrOutputWithContext(ctx context.Context) EventHookVerificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationPtrOutput)
 }
 
 // EventHookVerificationArrayInput is an input type that accepts EventHookVerificationArray and EventHookVerificationArrayOutput values.
@@ -228,7 +199,7 @@ func (i EventHookVerificationMap) ToEventHookVerificationMapOutputWithContext(ct
 type EventHookVerificationOutput struct{ *pulumi.OutputState }
 
 func (EventHookVerificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHookVerification)(nil))
+	return reflect.TypeOf((**EventHookVerification)(nil)).Elem()
 }
 
 func (o EventHookVerificationOutput) ToEventHookVerificationOutput() EventHookVerificationOutput {
@@ -239,44 +210,10 @@ func (o EventHookVerificationOutput) ToEventHookVerificationOutputWithContext(ct
 	return o
 }
 
-func (o EventHookVerificationOutput) ToEventHookVerificationPtrOutput() EventHookVerificationPtrOutput {
-	return o.ToEventHookVerificationPtrOutputWithContext(context.Background())
-}
-
-func (o EventHookVerificationOutput) ToEventHookVerificationPtrOutputWithContext(ctx context.Context) EventHookVerificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHookVerification) *EventHookVerification {
-		return &v
-	}).(EventHookVerificationPtrOutput)
-}
-
-type EventHookVerificationPtrOutput struct{ *pulumi.OutputState }
-
-func (EventHookVerificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHookVerification)(nil))
-}
-
-func (o EventHookVerificationPtrOutput) ToEventHookVerificationPtrOutput() EventHookVerificationPtrOutput {
-	return o
-}
-
-func (o EventHookVerificationPtrOutput) ToEventHookVerificationPtrOutputWithContext(ctx context.Context) EventHookVerificationPtrOutput {
-	return o
-}
-
-func (o EventHookVerificationPtrOutput) Elem() EventHookVerificationOutput {
-	return o.ApplyT(func(v *EventHookVerification) EventHookVerification {
-		if v != nil {
-			return *v
-		}
-		var ret EventHookVerification
-		return ret
-	}).(EventHookVerificationOutput)
-}
-
 type EventHookVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (EventHookVerificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHookVerification)(nil))
+	return reflect.TypeOf((*[]*EventHookVerification)(nil)).Elem()
 }
 
 func (o EventHookVerificationArrayOutput) ToEventHookVerificationArrayOutput() EventHookVerificationArrayOutput {
@@ -288,15 +225,15 @@ func (o EventHookVerificationArrayOutput) ToEventHookVerificationArrayOutputWith
 }
 
 func (o EventHookVerificationArrayOutput) Index(i pulumi.IntInput) EventHookVerificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHookVerification {
-		return vs[0].([]EventHookVerification)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHookVerification {
+		return vs[0].([]*EventHookVerification)[vs[1].(int)]
 	}).(EventHookVerificationOutput)
 }
 
 type EventHookVerificationMapOutput struct{ *pulumi.OutputState }
 
 func (EventHookVerificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventHookVerification)(nil))
+	return reflect.TypeOf((*map[string]*EventHookVerification)(nil)).Elem()
 }
 
 func (o EventHookVerificationMapOutput) ToEventHookVerificationMapOutput() EventHookVerificationMapOutput {
@@ -308,18 +245,16 @@ func (o EventHookVerificationMapOutput) ToEventHookVerificationMapOutputWithCont
 }
 
 func (o EventHookVerificationMapOutput) MapIndex(k pulumi.StringInput) EventHookVerificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHookVerification {
-		return vs[0].(map[string]EventHookVerification)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventHookVerification {
+		return vs[0].(map[string]*EventHookVerification)[vs[1].(string)]
 	}).(EventHookVerificationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookVerificationInput)(nil)).Elem(), &EventHookVerification{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventHookVerificationPtrInput)(nil)).Elem(), &EventHookVerification{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookVerificationArrayInput)(nil)).Elem(), EventHookVerificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookVerificationMapInput)(nil)).Elem(), EventHookVerificationMap{})
 	pulumi.RegisterOutputType(EventHookVerificationOutput{})
-	pulumi.RegisterOutputType(EventHookVerificationPtrOutput{})
 	pulumi.RegisterOutputType(EventHookVerificationArrayOutput{})
 	pulumi.RegisterOutputType(EventHookVerificationMapOutput{})
 }

@@ -67,22 +67,20 @@ export class EmailSenderVerification extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailSenderVerificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailSenderVerificationArgs | EmailSenderVerificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailSenderVerificationState | undefined;
-            inputs["senderId"] = state ? state.senderId : undefined;
+            resourceInputs["senderId"] = state ? state.senderId : undefined;
         } else {
             const args = argsOrState as EmailSenderVerificationArgs | undefined;
             if ((!args || args.senderId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'senderId'");
             }
-            inputs["senderId"] = args ? args.senderId : undefined;
+            resourceInputs["senderId"] = args ? args.senderId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailSenderVerification.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailSenderVerification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

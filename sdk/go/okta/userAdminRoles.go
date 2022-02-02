@@ -164,7 +164,7 @@ type UserAdminRolesInput interface {
 }
 
 func (*UserAdminRoles) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAdminRoles)(nil))
+	return reflect.TypeOf((**UserAdminRoles)(nil)).Elem()
 }
 
 func (i *UserAdminRoles) ToUserAdminRolesOutput() UserAdminRolesOutput {
@@ -173,35 +173,6 @@ func (i *UserAdminRoles) ToUserAdminRolesOutput() UserAdminRolesOutput {
 
 func (i *UserAdminRoles) ToUserAdminRolesOutputWithContext(ctx context.Context) UserAdminRolesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesOutput)
-}
-
-func (i *UserAdminRoles) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutput {
-	return i.ToUserAdminRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *UserAdminRoles) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesPtrOutput)
-}
-
-type UserAdminRolesPtrInput interface {
-	pulumi.Input
-
-	ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutput
-	ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput
-}
-
-type userAdminRolesPtrType UserAdminRolesArgs
-
-func (*userAdminRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAdminRoles)(nil))
-}
-
-func (i *userAdminRolesPtrType) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutput {
-	return i.ToUserAdminRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *userAdminRolesPtrType) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesPtrOutput)
 }
 
 // UserAdminRolesArrayInput is an input type that accepts UserAdminRolesArray and UserAdminRolesArrayOutput values.
@@ -257,7 +228,7 @@ func (i UserAdminRolesMap) ToUserAdminRolesMapOutputWithContext(ctx context.Cont
 type UserAdminRolesOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAdminRoles)(nil))
+	return reflect.TypeOf((**UserAdminRoles)(nil)).Elem()
 }
 
 func (o UserAdminRolesOutput) ToUserAdminRolesOutput() UserAdminRolesOutput {
@@ -268,44 +239,10 @@ func (o UserAdminRolesOutput) ToUserAdminRolesOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UserAdminRolesOutput) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutput {
-	return o.ToUserAdminRolesPtrOutputWithContext(context.Background())
-}
-
-func (o UserAdminRolesOutput) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAdminRoles) *UserAdminRoles {
-		return &v
-	}).(UserAdminRolesPtrOutput)
-}
-
-type UserAdminRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (UserAdminRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAdminRoles)(nil))
-}
-
-func (o UserAdminRolesPtrOutput) ToUserAdminRolesPtrOutput() UserAdminRolesPtrOutput {
-	return o
-}
-
-func (o UserAdminRolesPtrOutput) ToUserAdminRolesPtrOutputWithContext(ctx context.Context) UserAdminRolesPtrOutput {
-	return o
-}
-
-func (o UserAdminRolesPtrOutput) Elem() UserAdminRolesOutput {
-	return o.ApplyT(func(v *UserAdminRoles) UserAdminRoles {
-		if v != nil {
-			return *v
-		}
-		var ret UserAdminRoles
-		return ret
-	}).(UserAdminRolesOutput)
-}
-
 type UserAdminRolesArrayOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserAdminRoles)(nil))
+	return reflect.TypeOf((*[]*UserAdminRoles)(nil)).Elem()
 }
 
 func (o UserAdminRolesArrayOutput) ToUserAdminRolesArrayOutput() UserAdminRolesArrayOutput {
@@ -317,15 +254,15 @@ func (o UserAdminRolesArrayOutput) ToUserAdminRolesArrayOutputWithContext(ctx co
 }
 
 func (o UserAdminRolesArrayOutput) Index(i pulumi.IntInput) UserAdminRolesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAdminRoles {
-		return vs[0].([]UserAdminRoles)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserAdminRoles {
+		return vs[0].([]*UserAdminRoles)[vs[1].(int)]
 	}).(UserAdminRolesOutput)
 }
 
 type UserAdminRolesMapOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAdminRoles)(nil))
+	return reflect.TypeOf((*map[string]*UserAdminRoles)(nil)).Elem()
 }
 
 func (o UserAdminRolesMapOutput) ToUserAdminRolesMapOutput() UserAdminRolesMapOutput {
@@ -337,18 +274,16 @@ func (o UserAdminRolesMapOutput) ToUserAdminRolesMapOutputWithContext(ctx contex
 }
 
 func (o UserAdminRolesMapOutput) MapIndex(k pulumi.StringInput) UserAdminRolesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAdminRoles {
-		return vs[0].(map[string]UserAdminRoles)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserAdminRoles {
+		return vs[0].(map[string]*UserAdminRoles)[vs[1].(string)]
 	}).(UserAdminRolesOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesInput)(nil)).Elem(), &UserAdminRoles{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesPtrInput)(nil)).Elem(), &UserAdminRoles{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesArrayInput)(nil)).Elem(), UserAdminRolesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAdminRolesMapInput)(nil)).Elem(), UserAdminRolesMap{})
 	pulumi.RegisterOutputType(UserAdminRolesOutput{})
-	pulumi.RegisterOutputType(UserAdminRolesPtrOutput{})
 	pulumi.RegisterOutputType(UserAdminRolesArrayOutput{})
 	pulumi.RegisterOutputType(UserAdminRolesMapOutput{})
 }

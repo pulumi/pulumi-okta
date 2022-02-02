@@ -243,7 +243,7 @@ type PolicyRuleProfileEnrollmentInput interface {
 }
 
 func (*PolicyRuleProfileEnrollment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyRuleProfileEnrollment)(nil))
+	return reflect.TypeOf((**PolicyRuleProfileEnrollment)(nil)).Elem()
 }
 
 func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentOutput() PolicyRuleProfileEnrollmentOutput {
@@ -252,35 +252,6 @@ func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentOutput() Poli
 
 func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentOutput)
-}
-
-func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentPtrOutput() PolicyRuleProfileEnrollmentPtrOutput {
-	return i.ToPolicyRuleProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentPtrOutput)
-}
-
-type PolicyRuleProfileEnrollmentPtrInput interface {
-	pulumi.Input
-
-	ToPolicyRuleProfileEnrollmentPtrOutput() PolicyRuleProfileEnrollmentPtrOutput
-	ToPolicyRuleProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentPtrOutput
-}
-
-type policyRuleProfileEnrollmentPtrType PolicyRuleProfileEnrollmentArgs
-
-func (*policyRuleProfileEnrollmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyRuleProfileEnrollment)(nil))
-}
-
-func (i *policyRuleProfileEnrollmentPtrType) ToPolicyRuleProfileEnrollmentPtrOutput() PolicyRuleProfileEnrollmentPtrOutput {
-	return i.ToPolicyRuleProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (i *policyRuleProfileEnrollmentPtrType) ToPolicyRuleProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentPtrOutput)
 }
 
 // PolicyRuleProfileEnrollmentArrayInput is an input type that accepts PolicyRuleProfileEnrollmentArray and PolicyRuleProfileEnrollmentArrayOutput values.
@@ -336,7 +307,7 @@ func (i PolicyRuleProfileEnrollmentMap) ToPolicyRuleProfileEnrollmentMapOutputWi
 type PolicyRuleProfileEnrollmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleProfileEnrollmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyRuleProfileEnrollment)(nil))
+	return reflect.TypeOf((**PolicyRuleProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutput() PolicyRuleProfileEnrollmentOutput {
@@ -347,44 +318,10 @@ func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutputWi
 	return o
 }
 
-func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentPtrOutput() PolicyRuleProfileEnrollmentPtrOutput {
-	return o.ToPolicyRuleProfileEnrollmentPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyRuleProfileEnrollment) *PolicyRuleProfileEnrollment {
-		return &v
-	}).(PolicyRuleProfileEnrollmentPtrOutput)
-}
-
-type PolicyRuleProfileEnrollmentPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyRuleProfileEnrollmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyRuleProfileEnrollment)(nil))
-}
-
-func (o PolicyRuleProfileEnrollmentPtrOutput) ToPolicyRuleProfileEnrollmentPtrOutput() PolicyRuleProfileEnrollmentPtrOutput {
-	return o
-}
-
-func (o PolicyRuleProfileEnrollmentPtrOutput) ToPolicyRuleProfileEnrollmentPtrOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentPtrOutput {
-	return o
-}
-
-func (o PolicyRuleProfileEnrollmentPtrOutput) Elem() PolicyRuleProfileEnrollmentOutput {
-	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollment {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyRuleProfileEnrollment
-		return ret
-	}).(PolicyRuleProfileEnrollmentOutput)
-}
-
 type PolicyRuleProfileEnrollmentArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleProfileEnrollmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyRuleProfileEnrollment)(nil))
+	return reflect.TypeOf((*[]*PolicyRuleProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyRuleProfileEnrollmentArrayOutput) ToPolicyRuleProfileEnrollmentArrayOutput() PolicyRuleProfileEnrollmentArrayOutput {
@@ -396,15 +333,15 @@ func (o PolicyRuleProfileEnrollmentArrayOutput) ToPolicyRuleProfileEnrollmentArr
 }
 
 func (o PolicyRuleProfileEnrollmentArrayOutput) Index(i pulumi.IntInput) PolicyRuleProfileEnrollmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRuleProfileEnrollment {
-		return vs[0].([]PolicyRuleProfileEnrollment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyRuleProfileEnrollment {
+		return vs[0].([]*PolicyRuleProfileEnrollment)[vs[1].(int)]
 	}).(PolicyRuleProfileEnrollmentOutput)
 }
 
 type PolicyRuleProfileEnrollmentMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleProfileEnrollmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyRuleProfileEnrollment)(nil))
+	return reflect.TypeOf((*map[string]*PolicyRuleProfileEnrollment)(nil)).Elem()
 }
 
 func (o PolicyRuleProfileEnrollmentMapOutput) ToPolicyRuleProfileEnrollmentMapOutput() PolicyRuleProfileEnrollmentMapOutput {
@@ -416,18 +353,16 @@ func (o PolicyRuleProfileEnrollmentMapOutput) ToPolicyRuleProfileEnrollmentMapOu
 }
 
 func (o PolicyRuleProfileEnrollmentMapOutput) MapIndex(k pulumi.StringInput) PolicyRuleProfileEnrollmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyRuleProfileEnrollment {
-		return vs[0].(map[string]PolicyRuleProfileEnrollment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyRuleProfileEnrollment {
+		return vs[0].(map[string]*PolicyRuleProfileEnrollment)[vs[1].(string)]
 	}).(PolicyRuleProfileEnrollmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentInput)(nil)).Elem(), &PolicyRuleProfileEnrollment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentPtrInput)(nil)).Elem(), &PolicyRuleProfileEnrollment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentArrayInput)(nil)).Elem(), PolicyRuleProfileEnrollmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentMapInput)(nil)).Elem(), PolicyRuleProfileEnrollmentMap{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentOutput{})
-	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentPtrOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentArrayOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentMapOutput{})
 }
