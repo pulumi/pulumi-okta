@@ -431,8 +431,8 @@ github.com/hashicorp/go-hclog v0.12.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39
 github.com/hashicorp/go-hclog v0.14.1/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v0.15.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v0.16.1/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
-github.com/hashicorp/go-hclog v1.0.0 h1:bkKf0BeBXcSYa7f5Fyi9gMuQ8gNsxeiNpZjR6VxNZeo=
-github.com/hashicorp/go-hclog v1.0.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
+github.com/hashicorp/go-hclog v1.1.0 h1:QsGcniKx5/LuX2eYoeL+Np3UKYPNaN7YKpTh29h8rbw=
+github.com/hashicorp/go-hclog v1.1.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-immutable-radix v1.0.0/go.mod h1:0y9vanUI8NX6FsYoO3zeMjhV/C5i9g4Q3DwcSNZ4P60=
 github.com/hashicorp/go-immutable-radix v1.1.0/go.mod h1:0y9vanUI8NX6FsYoO3zeMjhV/C5i9g4Q3DwcSNZ4P60=
 github.com/hashicorp/go-kms-wrapping/entropy v0.1.0/go.mod h1:d1g9WGtAunDNpek8jUIEJnBlbgKS1N2Q61QkHiZyR1g=
@@ -675,8 +675,8 @@ github.com/oklog/run v1.1.0/go.mod h1:sVPdnTZT1zYwAJeCMu2Th4T21pA3FPOQRfWjQlk7DV
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/okta/okta-sdk-golang/v2 v2.9.3-0.20211209083930-a123a8c6e20d h1:eXkHa6fD88r12g1xQskQ7pDxBx4dW6jU8FMWlMuutCw=
 github.com/okta/okta-sdk-golang/v2 v2.9.3-0.20211209083930-a123a8c6e20d/go.mod h1:UhdEFuTLCIJirz6x4zGjsuwQl1xhCLKizNyj/h14tFA=
-github.com/okta/terraform-provider-okta v0.0.0-20220114184547-1897d8d932e6 h1:TG5v/SnBLhGB0g9IgiBJwERv8U3EHO4R6fIGuDLLEaY=
-github.com/okta/terraform-provider-okta v0.0.0-20220114184547-1897d8d932e6/go.mod h1:dJBwms2CtnUqzCaqFHkWLS1Qq6NWW5D/bRks7XneANk=
+github.com/okta/terraform-provider-okta v0.0.0-20220203000248-419680b14c3a h1:r3mD5wQl7USaXKMFkZ6dqhpzSfLTORCKhxX4ml5Hbf0=
+github.com/okta/terraform-provider-okta v0.0.0-20220203000248-419680b14c3a/go.mod h1:ptmsuZu3aHnMxer0wbX0d4mkh0CYXYYfEo+ENy09xD8=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

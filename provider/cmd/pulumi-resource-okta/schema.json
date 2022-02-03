@@ -9878,6 +9878,12 @@
                         "type": "string"
                     }
                 },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
@@ -9908,6 +9914,10 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?\n"
                 },
                 "name": {
                     "type": "string",
@@ -9955,6 +9965,24 @@
                         "type": "string"
                     }
                 },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -9965,11 +9993,23 @@
                         "type": "string"
                     }
                 },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: ACTIVE or INACTIVE.\n"
                 },
                 "symantecVip": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "webauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
@@ -9996,6 +10036,12 @@
                         "type": "string"
                     }
                 },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
@@ -10026,6 +10072,10 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?\n"
                 },
                 "name": {
                     "type": "string",
@@ -10073,6 +10123,24 @@
                         "type": "string"
                     }
                 },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "priority": {
                     "type": "integer",
                     "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -10083,11 +10151,23 @@
                         "type": "string"
                     }
                 },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: ACTIVE or INACTIVE.\n"
                 },
                 "symantecVip": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "webauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
@@ -10108,6 +10188,12 @@
                         "description": "Policy Description\n"
                     },
                     "duo": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "externalIdp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
@@ -10143,6 +10229,10 @@
                         "additionalProperties": {
                             "type": "string"
                         }
+                    },
+                    "isOie": {
+                        "type": "boolean",
+                        "description": "Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?\n"
                     },
                     "name": {
                         "type": "string",
@@ -10190,6 +10280,24 @@
                             "type": "string"
                         }
                     },
+                    "oktaVerify": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "onpremMfa": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "phoneNumber": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
                     "priority": {
                         "type": "integer",
                         "description": "Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid\npriority is provided. API defaults it to the last (lowest) if not there.\n"
@@ -10200,11 +10308,23 @@
                             "type": "string"
                         }
                     },
+                    "securityQuestion": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
                     "status": {
                         "type": "string",
                         "description": "Policy Status: ACTIVE or INACTIVE.\n"
                     },
                     "symantecVip": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "webauthn": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
@@ -18943,11 +19063,11 @@
             }
         },
         "okta:index/authenticator:Authenticator": {
-            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to configure different authenticators.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.Authenticator(\"test\", {\n    key: \"security_question\",\n    settings: JSON.stringify({\n        allowedFor: \"recovery\",\n    }),\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\ntest = okta.Authenticator(\"test\",\n    key=\"security_question\",\n    settings=json.dumps({\n        \"allowedFor\": \"recovery\",\n    }))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.Authenticator(\"test\", new Okta.AuthenticatorArgs\n        {\n            Key = \"security_question\",\n            Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n            {\n                { \"allowedFor\", \"recovery\" },\n            }),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"allowedFor\": \"recovery\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err := okta.NewAuthenticator(ctx, \"test\", \u0026okta.AuthenticatorArgs{\n\t\t\tKey:      pulumi.String(\"security_question\"),\n\t\t\tSettings: pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta authenticator can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/authenticator:Authenticator example \u003cauthenticator_id\u003e\n```\n\n ",
+            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to configure different authenticators.\n\n\u003e **NOTE:** An authenticator can only be deleted if it's not in use by any policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.Authenticator(\"test\", {\n    key: \"security_question\",\n    settings: JSON.stringify({\n        allowedFor: \"recovery\",\n    }),\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\ntest = okta.Authenticator(\"test\",\n    key=\"security_question\",\n    settings=json.dumps({\n        \"allowedFor\": \"recovery\",\n    }))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.Authenticator(\"test\", new Okta.AuthenticatorArgs\n        {\n            Key = \"security_question\",\n            Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n            {\n                { \"allowedFor\", \"recovery\" },\n            }),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"allowedFor\": \"recovery\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err := okta.NewAuthenticator(ctx, \"test\", \u0026okta.AuthenticatorArgs{\n\t\t\tKey:      pulumi.String(\"security_question\"),\n\t\t\tSettings: pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta authenticator can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/authenticator:Authenticator example \u003cauthenticator_id\u003e\n```\n\n ",
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "A human-readable string that identifies the authenticator.\n"
+                    "description": "A human-readable string that identifies the authenticator. Possible values inclue: `\"duo\"`, `\"external_idp\"`, `\"google_otp\"`, `\"okta_email\"`, `\"okta_password\"`, `\"okta_verify\"`, `\"onprem_mfa\"`, `\"phone_number\"`, `\"rsa_token\"`, `\"security_question\"`, `\"webauthn\"`, and `\"yubikey_token\"`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -19000,7 +19120,7 @@
             "inputProperties": {
                 "key": {
                     "type": "string",
-                    "description": "A human-readable string that identifies the authenticator.\n"
+                    "description": "A human-readable string that identifies the authenticator. Possible values inclue: `\"duo\"`, `\"external_idp\"`, `\"google_otp\"`, `\"okta_email\"`, `\"okta_password\"`, `\"okta_verify\"`, `\"onprem_mfa\"`, `\"phone_number\"`, `\"rsa_token\"`, `\"security_question\"`, `\"webauthn\"`, and `\"yubikey_token\"`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -19039,7 +19159,7 @@
                 "properties": {
                     "key": {
                         "type": "string",
-                        "description": "A human-readable string that identifies the authenticator.\n"
+                        "description": "A human-readable string that identifies the authenticator. Possible values inclue: `\"duo\"`, `\"external_idp\"`, `\"google_otp\"`, `\"okta_email\"`, `\"okta_password\"`, `\"okta_verify\"`, `\"onprem_mfa\"`, `\"phone_number\"`, `\"rsa_token\"`, `\"security_question\"`, `\"webauthn\"`, and `\"yubikey_token\"`.\n"
                     },
                     "name": {
                         "type": "string",
@@ -20644,7 +20764,7 @@
             }
         },
         "okta:index/policyMfaDefault:PolicyMfaDefault": {
-            "description": "Configures default MFA Policy.\n\nThis resource allows you to configure default MFA Policy. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst defaultPolicyMfaDefault = new okta.PolicyMfaDefault(\"default\", {});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ndefault = okta.PolicyMfaDefault(\"default\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @default = new Okta.PolicyMfaDefault(\"default\", new Okta.PolicyMfaDefaultArgs\n        {\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewPolicyMfaDefault(ctx, \"default\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nDefault MFA Policy can be imported without providing Okta ID.\n\n```sh\n $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .\n```\n\n ",
+            "description": "Configures default MFA Policy.\n\nThis resource allows you to configure default MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst classicExample = new okta.PolicyMfaDefault(\"classic_example\", {\n    isOie: false,\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n});\nconst oieExample = new okta.PolicyMfaDefault(\"oie_example\", {\n    isOie: true,\n    // The following authenticator can only be used when `is_oie` is set to true\n    oktaVerify: {\n        enroll: \"REQUIRED\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nclassic_example = okta.PolicyMfaDefault(\"classicExample\",\n    is_oie=False,\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    })\noie_example = okta.PolicyMfaDefault(\"oieExample\",\n    is_oie=True,\n    okta_verify={\n        \"enroll\": \"REQUIRED\",\n    })\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var classicExample = new Okta.PolicyMfaDefault(\"classicExample\", new Okta.PolicyMfaDefaultArgs\n        {\n            IsOie = false,\n            OktaOtp = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n        });\n        var oieExample = new Okta.PolicyMfaDefault(\"oieExample\", new Okta.PolicyMfaDefaultArgs\n        {\n            IsOie = true,\n            OktaVerify = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewPolicyMfaDefault(ctx, \"classicExample\", \u0026okta.PolicyMfaDefaultArgs{\n\t\t\tIsOie: pulumi.Bool(false),\n\t\t\tOktaOtp: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPolicyMfaDefault(ctx, \"oieExample\", \u0026okta.PolicyMfaDefaultArgs{\n\t\t\tIsOie: pulumi.Bool(true),\n\t\t\tOktaVerify: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n\u003e If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nDefault MFA Policy can be imported without providing Okta ID.\n\n```sh\n $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .\n```\n\n ",
             "properties": {
                 "defaultIncludedGroupId": {
                     "type": "string",
@@ -20659,35 +20779,46 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "DUO MFA policy settings.\n"
+                    "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "External IDP MFA policy settings (✓ OIE).\n"
                 },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido U2F MFA policy settings.\n"
+                    "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                 },
                 "fidoWebauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido Web Authn MFA policy settings.\n"
+                    "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                 },
                 "googleOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Google OTP MFA policy settings.\n"
+                    "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "hotp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                    "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                 },
                 "name": {
                     "type": "string",
@@ -20698,49 +20829,70 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Call MFA policy settings.\n"
+                    "description": "Okta Call MFA policy settings (✓ Classic).\n"
                 },
                 "oktaEmail": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Email MFA policy settings.\n"
+                    "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta OTP MFA policy settings.\n"
+                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                 },
                 "oktaPassword": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Password MFA policy settings.\n"
+                    "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaPush": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Push MFA policy settings.\n"
+                    "description": "Okta Push MFA policy settings (✓ Classic).\n"
                 },
                 "oktaQuestion": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Question MFA policy settings.\n"
+                    "description": "Okta Question MFA policy settings (✓ Classic).\n"
                 },
                 "oktaSms": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta SMS MFA policy settings.\n"
+                    "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Phone Number MFA policy settings (✓ OIE).\n"
                 },
                 "priority": {
                     "type": "integer",
@@ -20751,7 +20903,14 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "RSA Token MFA policy settings.\n"
+                    "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Security Question MFA policy settings (✓ OIE).\n"
                 },
                 "status": {
                     "type": "string",
@@ -20762,14 +20921,21 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Symantec VIP MFA policy settings.\n"
+                    "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                },
+                "webauthn": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                 },
                 "yubikeyToken": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Yubikey Token MFA policy settings.\n"
+                    "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                 }
             },
             "required": [
@@ -20785,105 +20951,151 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "DUO MFA policy settings.\n"
+                    "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "External IDP MFA policy settings (✓ OIE).\n"
                 },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido U2F MFA policy settings.\n"
+                    "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                 },
                 "fidoWebauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido Web Authn MFA policy settings.\n"
+                    "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                 },
                 "googleOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Google OTP MFA policy settings.\n"
+                    "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "hotp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                    "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                 },
                 "oktaCall": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Call MFA policy settings.\n"
+                    "description": "Okta Call MFA policy settings (✓ Classic).\n"
                 },
                 "oktaEmail": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Email MFA policy settings.\n"
+                    "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta OTP MFA policy settings.\n"
+                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                 },
                 "oktaPassword": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Password MFA policy settings.\n"
+                    "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaPush": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Push MFA policy settings.\n"
+                    "description": "Okta Push MFA policy settings (✓ Classic).\n"
                 },
                 "oktaQuestion": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Question MFA policy settings.\n"
+                    "description": "Okta Question MFA policy settings (✓ Classic).\n"
                 },
                 "oktaSms": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta SMS MFA policy settings.\n"
+                    "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Phone Number MFA policy settings (✓ OIE).\n"
                 },
                 "rsaToken": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "RSA Token MFA policy settings.\n"
+                    "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Security Question MFA policy settings (✓ OIE).\n"
                 },
                 "symantecVip": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Symantec VIP MFA policy settings.\n"
+                    "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                },
+                "webauthn": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                 },
                 "yubikeyToken": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Yubikey Token MFA policy settings.\n"
+                    "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                 }
             },
             "stateInputs": {
@@ -20902,35 +21114,46 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "DUO MFA policy settings.\n"
+                        "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                    },
+                    "externalIdp": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "External IDP MFA policy settings (✓ OIE).\n"
                     },
                     "fidoU2f": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Fido U2F MFA policy settings.\n"
+                        "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                     },
                     "fidoWebauthn": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Fido Web Authn MFA policy settings.\n"
+                        "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                     },
                     "googleOtp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Google OTP MFA policy settings.\n"
+                        "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "hotp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                        "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                    },
+                    "isOie": {
+                        "type": "boolean",
+                        "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                     },
                     "name": {
                         "type": "string",
@@ -20941,49 +21164,70 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Call MFA policy settings.\n"
+                        "description": "Okta Call MFA policy settings (✓ Classic).\n"
                     },
                     "oktaEmail": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Email MFA policy settings.\n"
+                        "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "oktaOtp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta OTP MFA policy settings.\n"
+                        "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                     },
                     "oktaPassword": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Password MFA policy settings.\n"
+                        "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "oktaPush": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Push MFA policy settings.\n"
+                        "description": "Okta Push MFA policy settings (✓ Classic).\n"
                     },
                     "oktaQuestion": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Question MFA policy settings.\n"
+                        "description": "Okta Question MFA policy settings (✓ Classic).\n"
                     },
                     "oktaSms": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta SMS MFA policy settings.\n"
+                        "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                    },
+                    "oktaVerify": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                    },
+                    "onpremMfa": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                    },
+                    "phoneNumber": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Phone Number MFA policy settings (✓ OIE).\n"
                     },
                     "priority": {
                         "type": "integer",
@@ -20994,7 +21238,14 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "RSA Token MFA policy settings.\n"
+                        "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                    },
+                    "securityQuestion": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Security Question MFA policy settings (✓ OIE).\n"
                     },
                     "status": {
                         "type": "string",
@@ -21005,14 +21256,21 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Symantec VIP MFA policy settings.\n"
+                        "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                    },
+                    "webauthn": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                     },
                     "yubikeyToken": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Yubikey Token MFA policy settings.\n"
+                        "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                     }
                 },
                 "type": "object"
@@ -22847,7 +23105,7 @@
             }
         },
         "okta:policy/mfa:Mfa": {
-            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Mfa(\"example\", {\n    description: \"Example\",\n    groupsIncludeds: [okta_group_everyone.id],\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Mfa(\"example\",\n    description=\"Example\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    },\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Policy.Mfa(\"example\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            OktaOtp = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewMfa(ctx, \"example\", \u0026policy.MfaArgs{\n\t\t\tDescription: pulumi.String(\"Example\"),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\tpulumi.Any(data.Okta_group.Everyone.Id),\n\t\t\t},\n\t\t\tOktaOtp: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn MFA Policy can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:policy/mfa:Mfa example \u003cpolicy id\u003e\n```\n\n ",
+            "description": "Creates an MFA Policy.\n\nThis resource allows you to create and configure an MFA Policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst classicExample = new okta.policy.Mfa(\"classic_example\", {\n    description: \"Example MFA policy using Okta Classic engine with factors.\",\n    groupsIncludeds: [okta_group_everyone.id],\n    isOie: false,\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\nconst oieExample = new okta.policy.Mfa(\"oie_example\", {\n    description: \"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n    groupsIncludeds: [okta_group_everyone.id],\n    isOie: true,\n    // The following authenticator can only be used when `is_oie` is set to true\n    oktaVerify: {\n        enroll: \"REQUIRED\",\n    },\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nclassic_example = okta.policy.Mfa(\"classicExample\",\n    description=\"Example MFA policy using Okta Classic engine with factors.\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    is_oie=False,\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    },\n    status=\"ACTIVE\")\noie_example = okta.policy.Mfa(\"oieExample\",\n    description=\"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n    groups_includeds=[data[\"okta_group\"][\"everyone\"][\"id\"]],\n    is_oie=True,\n    okta_verify={\n        \"enroll\": \"REQUIRED\",\n    },\n    status=\"ACTIVE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var classicExample = new Okta.Policy.Mfa(\"classicExample\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example MFA policy using Okta Classic engine with factors.\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            IsOie = false,\n            OktaOtp = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n            Status = \"ACTIVE\",\n        });\n        var oieExample = new Okta.Policy.Mfa(\"oieExample\", new Okta.Policy.MfaArgs\n        {\n            Description = \"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n            GroupsIncludeds = \n            {\n                data.Okta_group.Everyone.Id,\n            },\n            IsOie = true,\n            OktaVerify = \n            {\n                { \"enroll\", \"REQUIRED\" },\n            },\n            Status = \"ACTIVE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewMfa(ctx, \"classicExample\", \u0026policy.MfaArgs{\n\t\t\tDescription: pulumi.String(\"Example MFA policy using Okta Classic engine with factors.\"),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\tpulumi.Any(data.Okta_group.Everyone.Id),\n\t\t\t},\n\t\t\tIsOie: pulumi.Bool(false),\n\t\t\tOktaOtp: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewMfa(ctx, \"oieExample\", \u0026policy.MfaArgs{\n\t\t\tDescription: pulumi.String(\"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\"),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\tpulumi.Any(data.Okta_group.Everyone.Id),\n\t\t\t},\n\t\t\tIsOie: pulumi.Bool(true),\n\t\t\tOktaVerify: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn MFA Policy can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:policy/mfa:Mfa example \u003cpolicy id\u003e\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -22858,28 +23116,35 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "DUO MFA policy settings.\n"
+                    "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "External IDP MFA policy settings (✓ OIE).\n"
                 },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido U2F MFA policy settings.\n"
+                    "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                 },
                 "fidoWebauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido Web Authn MFA policy settings.\n"
+                    "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                 },
                 "googleOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Google OTP MFA policy settings.\n"
+                    "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "groupsIncludeds": {
                     "type": "array",
@@ -22893,7 +23158,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                    "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                 },
                 "name": {
                     "type": "string",
@@ -22904,49 +23173,70 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Call MFA policy settings.\n"
+                    "description": "Okta Call MFA policy settings (✓ Classic).\n"
                 },
                 "oktaEmail": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Email MFA policy settings.\n"
+                    "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings.\n"
+                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                 },
                 "oktaPassword": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Password MFA policy settings.\n"
+                    "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaPush": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Push MFA policy settings.\n"
+                    "description": "Okta Push MFA policy settings (✓ Classic).\n"
                 },
                 "oktaQuestion": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Question MFA policy settings.\n"
+                    "description": "Okta Question MFA policy settings (✓ Classic).\n"
                 },
                 "oktaSms": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta SMS MFA policy settings.\n"
+                    "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Phone Number MFA policy settings (✓ OIE).\n"
                 },
                 "priority": {
                     "type": "integer",
@@ -22957,7 +23247,14 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "RSA Token MFA policy settings.\n"
+                    "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Security Question MFA policy settings (✓ OIE).\n"
                 },
                 "status": {
                     "type": "string",
@@ -22968,14 +23265,21 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Symantec VIP MFA policy settings.\n"
+                    "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                },
+                "webauthn": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                 },
                 "yubikeyToken": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Yubikey Token MFA policy settings.\n"
+                    "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                 }
             },
             "required": [
@@ -22991,28 +23295,35 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "DUO MFA policy settings.\n"
+                    "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "externalIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "External IDP MFA policy settings (✓ OIE).\n"
                 },
                 "fidoU2f": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido U2F MFA policy settings.\n"
+                    "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                 },
                 "fidoWebauthn": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Fido Web Authn MFA policy settings.\n"
+                    "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                 },
                 "googleOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Google OTP MFA policy settings.\n"
+                    "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "groupsIncludeds": {
                     "type": "array",
@@ -23026,7 +23337,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                    "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                },
+                "isOie": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                 },
                 "name": {
                     "type": "string",
@@ -23037,49 +23352,70 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Call MFA policy settings.\n"
+                    "description": "Okta Call MFA policy settings (✓ Classic).\n"
                 },
                 "oktaEmail": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Email MFA policy settings.\n"
+                    "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaOtp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings.\n"
+                    "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                 },
                 "oktaPassword": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Password MFA policy settings.\n"
+                    "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                 },
                 "oktaPush": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Push MFA policy settings.\n"
+                    "description": "Okta Push MFA policy settings (✓ Classic).\n"
                 },
                 "oktaQuestion": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta Question MFA policy settings.\n"
+                    "description": "Okta Question MFA policy settings (✓ Classic).\n"
                 },
                 "oktaSms": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Okta SMS MFA policy settings.\n"
+                    "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                },
+                "oktaVerify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                },
+                "onpremMfa": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                },
+                "phoneNumber": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Phone Number MFA policy settings (✓ OIE).\n"
                 },
                 "priority": {
                     "type": "integer",
@@ -23090,7 +23426,14 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "RSA Token MFA policy settings.\n"
+                    "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                },
+                "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Security Question MFA policy settings (✓ OIE).\n"
                 },
                 "status": {
                     "type": "string",
@@ -23101,14 +23444,21 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Symantec VIP MFA policy settings.\n"
+                    "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                },
+                "webauthn": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                 },
                 "yubikeyToken": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Yubikey Token MFA policy settings.\n"
+                    "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                 }
             },
             "stateInputs": {
@@ -23123,28 +23473,35 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "DUO MFA policy settings.\n"
+                        "description": "DUO MFA policy settings (✓ Classic, ✓ OIE).\n"
+                    },
+                    "externalIdp": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "External IDP MFA policy settings (✓ OIE).\n"
                     },
                     "fidoU2f": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Fido U2F MFA policy settings.\n"
+                        "description": "Fido U2F MFA policy settings (✓ Classic).\n"
                     },
                     "fidoWebauthn": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Fido Web Authn MFA policy settings.\n"
+                        "description": "Fido Web Authn MFA policy settings (✓ Classic).\n"
                     },
                     "googleOtp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Google OTP MFA policy settings.\n"
+                        "description": "Google OTP MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "groupsIncludeds": {
                         "type": "array",
@@ -23158,7 +23515,11 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "HMAC-based One-Time Password MFA policy settings.\n"
+                        "description": "HMAC-based One-Time Password MFA policy settings (✓ Classic).\n"
+                    },
+                    "isOie": {
+                        "type": "boolean",
+                        "description": "Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)\n\u003e **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.\n"
                     },
                     "name": {
                         "type": "string",
@@ -23169,49 +23530,70 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Call MFA policy settings.\n"
+                        "description": "Okta Call MFA policy settings (✓ Classic).\n"
                     },
                     "oktaEmail": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Email MFA policy settings.\n"
+                        "description": "Okta Email MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "oktaOtp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta OTP (via the Okta Verify app) MFA policy settings.\n"
+                        "description": "Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).\n"
                     },
                     "oktaPassword": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Password MFA policy settings.\n"
+                        "description": "Okta Password MFA policy settings (✓ Classic, ✓ OIE).\n"
                     },
                     "oktaPush": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Push MFA policy settings.\n"
+                        "description": "Okta Push MFA policy settings (✓ Classic).\n"
                     },
                     "oktaQuestion": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta Question MFA policy settings.\n"
+                        "description": "Okta Question MFA policy settings (✓ Classic).\n"
                     },
                     "oktaSms": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Okta SMS MFA policy settings.\n"
+                        "description": "Okta SMS MFA policy settings (✓ Classic).\n"
+                    },
+                    "oktaVerify": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Okta Verify MFA policy settings (✓ OIE).\n"
+                    },
+                    "onpremMfa": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "On-Prem MFA MFA policy settings (✓ OIE).\n"
+                    },
+                    "phoneNumber": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Phone Number MFA policy settings (✓ OIE).\n"
                     },
                     "priority": {
                         "type": "integer",
@@ -23222,7 +23604,14 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "RSA Token MFA policy settings.\n"
+                        "description": "RSA Token MFA policy settings (✓ Classic, ✓ OIE).\n"
+                    },
+                    "securityQuestion": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Security Question MFA policy settings (✓ OIE).\n"
                     },
                     "status": {
                         "type": "string",
@@ -23233,14 +23622,21 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Symantec VIP MFA policy settings.\n"
+                        "description": "Symantec VIP MFA policy settings (✓ Classic).\n"
+                    },
+                    "webauthn": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "FIDO2 (WebAuthn) MFA policy settings (✓ OIE).\n"
                     },
                     "yubikeyToken": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Yubikey Token MFA policy settings.\n"
+                        "description": "Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).\n"
                     }
                 },
                 "type": "object"
@@ -24715,7 +25111,7 @@
             }
         },
         "okta:profile/mapping:Mapping": {
-            "description": "This resource allows you to manage a profile mapping by source and target IDs. \n\n\u003e **WARNING:** This feature available only when using api token in the provider config.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst user = pulumi.output(okta.user.getUserProfileMappingSource());\nconst example = new okta.profile.Mapping(\"example\", {\n    deleteWhenAbsent: true,\n    mappings: [\n        {\n            expression: \"appuser.firstName\",\n            id: \"firstName\",\n        },\n        {\n            expression: \"appuser.lastName\",\n            id: \"lastName\",\n        },\n        {\n            expression: \"appuser.email\",\n            id: \"email\",\n        },\n        {\n            expression: \"appuser.email\",\n            id: \"login\",\n        },\n    ],\n    sourceId: \"\u003csource id\u003e\",\n    targetId: user.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nuser = okta.user.get_user_profile_mapping_source()\nexample = okta.profile.Mapping(\"example\",\n    delete_when_absent=True,\n    mappings=[\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.firstName\",\n            id=\"firstName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.lastName\",\n            id=\"lastName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.email\",\n            id=\"email\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.email\",\n            id=\"login\",\n        ),\n    ],\n    source_id=\"\u003csource id\u003e\",\n    target_id=user.id)\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var user = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());\n        var example = new Okta.Profile.Mapping(\"example\", new Okta.Profile.MappingArgs\n        {\n            DeleteWhenAbsent = true,\n            Mappings = \n            {\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.firstName\",\n                    Id = \"firstName\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.lastName\",\n                    Id = \"lastName\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.email\",\n                    Id = \"email\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.email\",\n                    Id = \"login\",\n                },\n            },\n            SourceId = \"\u003csource id\u003e\",\n            TargetId = user.Apply(user =\u003e user.Id),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/profile\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tuser, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = profile.NewMapping(ctx, \"example\", \u0026profile.MappingArgs{\n\t\t\tDeleteWhenAbsent: pulumi.Bool(true),\n\t\t\tMappings: profile.MappingMappingArray{\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.firstName\"),\n\t\t\t\t\tId:         pulumi.String(\"firstName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.lastName\"),\n\t\t\t\t\tId:         pulumi.String(\"lastName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t\tId:         pulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t\tId:         pulumi.String(\"login\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSourceId: pulumi.String(\"\u003csource id\u003e\"),\n\t\t\tTargetId: pulumi.String(user.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThere is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist. ",
+            "description": "This resource allows you to manage a profile mapping by source and target IDs.\n\n\u003e **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst user = pulumi.output(okta.user.getUserProfileMappingSource());\nconst example = new okta.profile.Mapping(\"example\", {\n    deleteWhenAbsent: true,\n    mappings: [\n        {\n            expression: \"appuser.firstName\",\n            id: \"firstName\",\n        },\n        {\n            expression: \"appuser.lastName\",\n            id: \"lastName\",\n        },\n        {\n            expression: \"appuser.email\",\n            id: \"email\",\n        },\n        {\n            expression: \"appuser.email\",\n            id: \"login\",\n        },\n    ],\n    sourceId: \"\u003csource id\u003e\",\n    targetId: user.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nuser = okta.user.get_user_profile_mapping_source()\nexample = okta.profile.Mapping(\"example\",\n    delete_when_absent=True,\n    mappings=[\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.firstName\",\n            id=\"firstName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.lastName\",\n            id=\"lastName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.email\",\n            id=\"email\",\n        ),\n        okta.profile.MappingMappingArgs(\n            expression=\"appuser.email\",\n            id=\"login\",\n        ),\n    ],\n    source_id=\"\u003csource id\u003e\",\n    target_id=user.id)\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var user = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());\n        var example = new Okta.Profile.Mapping(\"example\", new Okta.Profile.MappingArgs\n        {\n            DeleteWhenAbsent = true,\n            Mappings = \n            {\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.firstName\",\n                    Id = \"firstName\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.lastName\",\n                    Id = \"lastName\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.email\",\n                    Id = \"email\",\n                },\n                new Okta.Profile.Inputs.MappingMappingArgs\n                {\n                    Expression = \"appuser.email\",\n                    Id = \"login\",\n                },\n            },\n            SourceId = \"\u003csource id\u003e\",\n            TargetId = user.Apply(user =\u003e user.Id),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/profile\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tuser, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = profile.NewMapping(ctx, \"example\", \u0026profile.MappingArgs{\n\t\t\tDeleteWhenAbsent: pulumi.Bool(true),\n\t\t\tMappings: profile.MappingMappingArray{\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.firstName\"),\n\t\t\t\t\tId:         pulumi.String(\"firstName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.lastName\"),\n\t\t\t\t\tId:         pulumi.String(\"lastName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t\tId:         pulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t\tId:         pulumi.String(\"login\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSourceId: pulumi.String(\"\u003csource id\u003e\"),\n\t\t\tTargetId: pulumi.String(user.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThere is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist. ",
             "properties": {
                 "alwaysApply": {
                     "type": "boolean",
@@ -28388,7 +28784,7 @@
             }
         },
         "okta:user/getUserProfileMappingSource:getUserProfileMappingSource": {
-            "description": "Use this data source to retrieve the base user Profile Mapping source or target from Okta.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.user.getUserProfileMappingSource());\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_user_profile_mapping_source()\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve the base user Profile Mapping source or target from Okta.\n\n\u003e **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.user.getUserProfileMappingSource());\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_user_profile_mapping_source()\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getUserProfileMappingSource.\n",
                 "properties": {

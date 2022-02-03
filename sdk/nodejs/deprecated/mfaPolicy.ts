@@ -37,6 +37,7 @@ export class MfaPolicy extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly externalIdp!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -45,6 +46,10 @@ export class MfaPolicy extends pulumi.CustomResource {
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     public readonly hotp!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+     */
+    public readonly isOie!: pulumi.Output<boolean | undefined>;
     /**
      * Policy Name
      */
@@ -56,17 +61,22 @@ export class MfaPolicy extends pulumi.CustomResource {
     public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly oktaQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly oktaVerify!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly onpremMfa!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly phoneNumber!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly securityQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     public readonly symantecVip!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly webauthn!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly yubikeyToken!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -84,11 +94,13 @@ export class MfaPolicy extends pulumi.CustomResource {
             const state = argsOrState as MfaPolicyState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["duo"] = state ? state.duo : undefined;
+            resourceInputs["externalIdp"] = state ? state.externalIdp : undefined;
             resourceInputs["fidoU2f"] = state ? state.fidoU2f : undefined;
             resourceInputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
             resourceInputs["googleOtp"] = state ? state.googleOtp : undefined;
             resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
             resourceInputs["hotp"] = state ? state.hotp : undefined;
+            resourceInputs["isOie"] = state ? state.isOie : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oktaCall"] = state ? state.oktaCall : undefined;
             resourceInputs["oktaEmail"] = state ? state.oktaEmail : undefined;
@@ -97,20 +109,27 @@ export class MfaPolicy extends pulumi.CustomResource {
             resourceInputs["oktaPush"] = state ? state.oktaPush : undefined;
             resourceInputs["oktaQuestion"] = state ? state.oktaQuestion : undefined;
             resourceInputs["oktaSms"] = state ? state.oktaSms : undefined;
+            resourceInputs["oktaVerify"] = state ? state.oktaVerify : undefined;
+            resourceInputs["onpremMfa"] = state ? state.onpremMfa : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["rsaToken"] = state ? state.rsaToken : undefined;
+            resourceInputs["securityQuestion"] = state ? state.securityQuestion : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["symantecVip"] = state ? state.symantecVip : undefined;
+            resourceInputs["webauthn"] = state ? state.webauthn : undefined;
             resourceInputs["yubikeyToken"] = state ? state.yubikeyToken : undefined;
         } else {
             const args = argsOrState as MfaPolicyArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["duo"] = args ? args.duo : undefined;
+            resourceInputs["externalIdp"] = args ? args.externalIdp : undefined;
             resourceInputs["fidoU2f"] = args ? args.fidoU2f : undefined;
             resourceInputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
             resourceInputs["googleOtp"] = args ? args.googleOtp : undefined;
             resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
             resourceInputs["hotp"] = args ? args.hotp : undefined;
+            resourceInputs["isOie"] = args ? args.isOie : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oktaCall"] = args ? args.oktaCall : undefined;
             resourceInputs["oktaEmail"] = args ? args.oktaEmail : undefined;
@@ -119,10 +138,15 @@ export class MfaPolicy extends pulumi.CustomResource {
             resourceInputs["oktaPush"] = args ? args.oktaPush : undefined;
             resourceInputs["oktaQuestion"] = args ? args.oktaQuestion : undefined;
             resourceInputs["oktaSms"] = args ? args.oktaSms : undefined;
+            resourceInputs["oktaVerify"] = args ? args.oktaVerify : undefined;
+            resourceInputs["onpremMfa"] = args ? args.onpremMfa : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["rsaToken"] = args ? args.rsaToken : undefined;
+            resourceInputs["securityQuestion"] = args ? args.securityQuestion : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["symantecVip"] = args ? args.symantecVip : undefined;
+            resourceInputs["webauthn"] = args ? args.webauthn : undefined;
             resourceInputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +163,7 @@ export interface MfaPolicyState {
      */
     description?: pulumi.Input<string>;
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -147,6 +172,10 @@ export interface MfaPolicyState {
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+     */
+    isOie?: pulumi.Input<boolean>;
     /**
      * Policy Name
      */
@@ -158,17 +187,22 @@ export interface MfaPolicyState {
     oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     status?: pulumi.Input<string>;
     symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -181,6 +215,7 @@ export interface MfaPolicyArgs {
      */
     description?: pulumi.Input<string>;
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -189,6 +224,10 @@ export interface MfaPolicyArgs {
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+     */
+    isOie?: pulumi.Input<boolean>;
     /**
      * Policy Name
      */
@@ -200,16 +239,21 @@ export interface MfaPolicyArgs {
     oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
      * priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: ACTIVE or INACTIVE.
      */
     status?: pulumi.Input<string>;
     symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

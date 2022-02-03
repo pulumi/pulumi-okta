@@ -21,6 +21,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("duo")]
         public Output<ImmutableDictionary<string, string>?> Duo { get; private set; } = null!;
 
+        [Output("externalIdp")]
+        public Output<ImmutableDictionary<string, string>?> ExternalIdp { get; private set; } = null!;
+
         [Output("fidoU2f")]
         public Output<ImmutableDictionary<string, string>?> FidoU2f { get; private set; } = null!;
 
@@ -38,6 +41,12 @@ namespace Pulumi.Okta.Deprecated
 
         [Output("hotp")]
         public Output<ImmutableDictionary<string, string>?> Hotp { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// </summary>
+        [Output("isOie")]
+        public Output<bool?> IsOie { get; private set; } = null!;
 
         /// <summary>
         /// Policy Name
@@ -66,6 +75,15 @@ namespace Pulumi.Okta.Deprecated
         [Output("oktaSms")]
         public Output<ImmutableDictionary<string, string>?> OktaSms { get; private set; } = null!;
 
+        [Output("oktaVerify")]
+        public Output<ImmutableDictionary<string, string>?> OktaVerify { get; private set; } = null!;
+
+        [Output("onpremMfa")]
+        public Output<ImmutableDictionary<string, string>?> OnpremMfa { get; private set; } = null!;
+
+        [Output("phoneNumber")]
+        public Output<ImmutableDictionary<string, string>?> PhoneNumber { get; private set; } = null!;
+
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         /// priority is provided. API defaults it to the last (lowest) if not there.
@@ -76,6 +94,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("rsaToken")]
         public Output<ImmutableDictionary<string, string>?> RsaToken { get; private set; } = null!;
 
+        [Output("securityQuestion")]
+        public Output<ImmutableDictionary<string, string>?> SecurityQuestion { get; private set; } = null!;
+
         /// <summary>
         /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
@@ -84,6 +105,9 @@ namespace Pulumi.Okta.Deprecated
 
         [Output("symantecVip")]
         public Output<ImmutableDictionary<string, string>?> SymantecVip { get; private set; } = null!;
+
+        [Output("webauthn")]
+        public Output<ImmutableDictionary<string, string>?> Webauthn { get; private set; } = null!;
 
         [Output("yubikeyToken")]
         public Output<ImmutableDictionary<string, string>?> YubikeyToken { get; private set; } = null!;
@@ -148,6 +172,14 @@ namespace Pulumi.Okta.Deprecated
             set => _duo = value;
         }
 
+        [Input("externalIdp")]
+        private InputMap<string>? _externalIdp;
+        public InputMap<string> ExternalIdp
+        {
+            get => _externalIdp ?? (_externalIdp = new InputMap<string>());
+            set => _externalIdp = value;
+        }
+
         [Input("fidoU2f")]
         private InputMap<string>? _fidoU2f;
         public InputMap<string> FidoU2f
@@ -191,6 +223,12 @@ namespace Pulumi.Okta.Deprecated
             get => _hotp ?? (_hotp = new InputMap<string>());
             set => _hotp = value;
         }
+
+        /// <summary>
+        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// </summary>
+        [Input("isOie")]
+        public Input<bool>? IsOie { get; set; }
 
         /// <summary>
         /// Policy Name
@@ -254,6 +292,30 @@ namespace Pulumi.Okta.Deprecated
             set => _oktaSms = value;
         }
 
+        [Input("oktaVerify")]
+        private InputMap<string>? _oktaVerify;
+        public InputMap<string> OktaVerify
+        {
+            get => _oktaVerify ?? (_oktaVerify = new InputMap<string>());
+            set => _oktaVerify = value;
+        }
+
+        [Input("onpremMfa")]
+        private InputMap<string>? _onpremMfa;
+        public InputMap<string> OnpremMfa
+        {
+            get => _onpremMfa ?? (_onpremMfa = new InputMap<string>());
+            set => _onpremMfa = value;
+        }
+
+        [Input("phoneNumber")]
+        private InputMap<string>? _phoneNumber;
+        public InputMap<string> PhoneNumber
+        {
+            get => _phoneNumber ?? (_phoneNumber = new InputMap<string>());
+            set => _phoneNumber = value;
+        }
+
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         /// priority is provided. API defaults it to the last (lowest) if not there.
@@ -269,6 +331,14 @@ namespace Pulumi.Okta.Deprecated
             set => _rsaToken = value;
         }
 
+        [Input("securityQuestion")]
+        private InputMap<string>? _securityQuestion;
+        public InputMap<string> SecurityQuestion
+        {
+            get => _securityQuestion ?? (_securityQuestion = new InputMap<string>());
+            set => _securityQuestion = value;
+        }
+
         /// <summary>
         /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
@@ -281,6 +351,14 @@ namespace Pulumi.Okta.Deprecated
         {
             get => _symantecVip ?? (_symantecVip = new InputMap<string>());
             set => _symantecVip = value;
+        }
+
+        [Input("webauthn")]
+        private InputMap<string>? _webauthn;
+        public InputMap<string> Webauthn
+        {
+            get => _webauthn ?? (_webauthn = new InputMap<string>());
+            set => _webauthn = value;
         }
 
         [Input("yubikeyToken")]
@@ -312,6 +390,14 @@ namespace Pulumi.Okta.Deprecated
             set => _duo = value;
         }
 
+        [Input("externalIdp")]
+        private InputMap<string>? _externalIdp;
+        public InputMap<string> ExternalIdp
+        {
+            get => _externalIdp ?? (_externalIdp = new InputMap<string>());
+            set => _externalIdp = value;
+        }
+
         [Input("fidoU2f")]
         private InputMap<string>? _fidoU2f;
         public InputMap<string> FidoU2f
@@ -355,6 +441,12 @@ namespace Pulumi.Okta.Deprecated
             get => _hotp ?? (_hotp = new InputMap<string>());
             set => _hotp = value;
         }
+
+        /// <summary>
+        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// </summary>
+        [Input("isOie")]
+        public Input<bool>? IsOie { get; set; }
 
         /// <summary>
         /// Policy Name
@@ -418,6 +510,30 @@ namespace Pulumi.Okta.Deprecated
             set => _oktaSms = value;
         }
 
+        [Input("oktaVerify")]
+        private InputMap<string>? _oktaVerify;
+        public InputMap<string> OktaVerify
+        {
+            get => _oktaVerify ?? (_oktaVerify = new InputMap<string>());
+            set => _oktaVerify = value;
+        }
+
+        [Input("onpremMfa")]
+        private InputMap<string>? _onpremMfa;
+        public InputMap<string> OnpremMfa
+        {
+            get => _onpremMfa ?? (_onpremMfa = new InputMap<string>());
+            set => _onpremMfa = value;
+        }
+
+        [Input("phoneNumber")]
+        private InputMap<string>? _phoneNumber;
+        public InputMap<string> PhoneNumber
+        {
+            get => _phoneNumber ?? (_phoneNumber = new InputMap<string>());
+            set => _phoneNumber = value;
+        }
+
         /// <summary>
         /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
         /// priority is provided. API defaults it to the last (lowest) if not there.
@@ -433,6 +549,14 @@ namespace Pulumi.Okta.Deprecated
             set => _rsaToken = value;
         }
 
+        [Input("securityQuestion")]
+        private InputMap<string>? _securityQuestion;
+        public InputMap<string> SecurityQuestion
+        {
+            get => _securityQuestion ?? (_securityQuestion = new InputMap<string>());
+            set => _securityQuestion = value;
+        }
+
         /// <summary>
         /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
@@ -445,6 +569,14 @@ namespace Pulumi.Okta.Deprecated
         {
             get => _symantecVip ?? (_symantecVip = new InputMap<string>());
             set => _symantecVip = value;
+        }
+
+        [Input("webauthn")]
+        private InputMap<string>? _webauthn;
+        public InputMap<string> Webauthn
+        {
+            get => _webauthn ?? (_webauthn = new InputMap<string>());
+            set => _webauthn = value;
         }
 
         [Input("yubikeyToken")]
