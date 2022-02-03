@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Profile
     /// <summary>
     /// This resource allows you to manage a profile mapping by source and target IDs.
     /// 
-    /// &gt; **WARNING:** This feature available only when using api token in the provider config.
+    /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
     /// 
     /// ## Example Usage
     /// 

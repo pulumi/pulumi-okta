@@ -70,6 +70,8 @@ def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None)
     """
     Use this data source to retrieve the base user Profile Mapping source or target from Okta.
 
+    > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+
     ## Example Usage
 
     ```python

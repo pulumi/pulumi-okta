@@ -14,6 +14,8 @@ namespace Pulumi.Okta.User
         /// <summary>
         /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
         /// 
+        /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

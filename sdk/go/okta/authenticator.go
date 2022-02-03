@@ -15,6 +15,8 @@ import (
 //
 // This resource allows you to configure different authenticators.
 //
+// > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+//
 // ## Example Usage
 //
 // ```go
@@ -58,7 +60,7 @@ import (
 type Authenticator struct {
 	pulumi.CustomResourceState
 
-	// A human-readable string that identifies the authenticator.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Name of the authenticator.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -114,7 +116,7 @@ func GetAuthenticator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authenticator resources.
 type authenticatorState struct {
-	// A human-readable string that identifies the authenticator.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
 	Key *string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -139,7 +141,7 @@ type authenticatorState struct {
 }
 
 type AuthenticatorState struct {
-	// A human-readable string that identifies the authenticator.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
 	Key pulumi.StringPtrInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput
@@ -168,7 +170,7 @@ func (AuthenticatorState) ElementType() reflect.Type {
 }
 
 type authenticatorArgs struct {
-	// A human-readable string that identifies the authenticator.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
 	Key string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -188,7 +190,7 @@ type authenticatorArgs struct {
 
 // The set of arguments for constructing a Authenticator resource.
 type AuthenticatorArgs struct {
-	// A human-readable string that identifies the authenticator.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
 	Key pulumi.StringInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput

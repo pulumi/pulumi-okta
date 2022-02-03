@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
  *
+ * > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+ *
  * ## Example Usage
  *
  * ```typescript
