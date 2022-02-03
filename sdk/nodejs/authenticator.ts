@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to configure different authenticators.
  *
+ * > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -60,7 +62,7 @@ export class Authenticator extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable string that identifies the authenticator.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -155,7 +157,7 @@ export class Authenticator extends pulumi.CustomResource {
  */
 export interface AuthenticatorState {
     /**
-     * A human-readable string that identifies the authenticator.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
      */
     key?: pulumi.Input<string>;
     /**
@@ -205,7 +207,7 @@ export interface AuthenticatorState {
  */
 export interface AuthenticatorArgs {
     /**
-     * A human-readable string that identifies the authenticator.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
      */
     key: pulumi.Input<string>;
     /**

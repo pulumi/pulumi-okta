@@ -20,6 +20,10 @@ type SignonPolicyRule struct {
 	// List of behavior IDs
 	Behaviors       pulumi.StringArrayOutput                  `pulumi:"behaviors"`
 	FactorSequences SignonPolicyRuleFactorSequenceArrayOutput `pulumi:"factorSequences"`
+	// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+	IdentityProvider pulumi.StringPtrOutput `pulumi:"identityProvider"`
+	// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+	IdentityProviderIds pulumi.StringArrayOutput `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrOutput `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
@@ -98,6 +102,10 @@ type signonPolicyRuleState struct {
 	// List of behavior IDs
 	Behaviors       []string                         `pulumi:"behaviors"`
 	FactorSequences []SignonPolicyRuleFactorSequence `pulumi:"factorSequences"`
+	// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+	IdentityProviderIds []string `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
@@ -148,6 +156,10 @@ type SignonPolicyRuleState struct {
 	// List of behavior IDs
 	Behaviors       pulumi.StringArrayInput
 	FactorSequences SignonPolicyRuleFactorSequenceArrayInput
+	// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+	IdentityProvider pulumi.StringPtrInput
+	// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+	IdentityProviderIds pulumi.StringArrayInput
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
@@ -202,6 +214,10 @@ type signonPolicyRuleArgs struct {
 	// List of behavior IDs
 	Behaviors       []string                         `pulumi:"behaviors"`
 	FactorSequences []SignonPolicyRuleFactorSequence `pulumi:"factorSequences"`
+	// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+	IdentityProviderIds []string `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
@@ -253,6 +269,10 @@ type SignonPolicyRuleArgs struct {
 	// List of behavior IDs
 	Behaviors       pulumi.StringArrayInput
 	FactorSequences SignonPolicyRuleFactorSequenceArrayInput
+	// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+	IdentityProvider pulumi.StringPtrInput
+	// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+	IdentityProviderIds pulumi.StringArrayInput
 	// Elapsed time before the next MFA challenge
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS

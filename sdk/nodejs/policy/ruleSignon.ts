@@ -142,6 +142,14 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly factorSequences!: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
     /**
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     */
+    public readonly identityProvider!: pulumi.Output<string | undefined>;
+    /**
+     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     */
+    public readonly identityProviderIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Elapsed time before the next MFA challenge.
      */
     public readonly mfaLifetime!: pulumi.Output<number | undefined>;
@@ -235,6 +243,8 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["authtype"] = state ? state.authtype : undefined;
             resourceInputs["behaviors"] = state ? state.behaviors : undefined;
             resourceInputs["factorSequences"] = state ? state.factorSequences : undefined;
+            resourceInputs["identityProvider"] = state ? state.identityProvider : undefined;
+            resourceInputs["identityProviderIds"] = state ? state.identityProviderIds : undefined;
             resourceInputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
             resourceInputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
             resourceInputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
@@ -259,6 +269,8 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["authtype"] = args ? args.authtype : undefined;
             resourceInputs["behaviors"] = args ? args.behaviors : undefined;
             resourceInputs["factorSequences"] = args ? args.factorSequences : undefined;
+            resourceInputs["identityProvider"] = args ? args.identityProvider : undefined;
+            resourceInputs["identityProviderIds"] = args ? args.identityProviderIds : undefined;
             resourceInputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
             resourceInputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
             resourceInputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
@@ -303,6 +315,14 @@ export interface RuleSignonState {
      * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
+    /**
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     */
+    identityProvider?: pulumi.Input<string>;
+    /**
+     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     */
+    identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Elapsed time before the next MFA challenge.
      */
@@ -401,6 +421,14 @@ export interface RuleSignonArgs {
      * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
+    /**
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     */
+    identityProvider?: pulumi.Input<string>;
+    /**
+     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     */
+    identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Elapsed time before the next MFA challenge.
      */

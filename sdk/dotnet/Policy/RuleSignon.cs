@@ -157,6 +157,18 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// </summary>
+        [Output("identityProvider")]
+        public Output<string?> IdentityProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// </summary>
+        [Output("identityProviderIds")]
+        public Output<ImmutableArray<string>> IdentityProviderIds { get; private set; } = null!;
+
+        /// <summary>
         /// Elapsed time before the next MFA challenge.
         /// </summary>
         [Output("mfaLifetime")]
@@ -349,6 +361,24 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// </summary>
+        [Input("identityProvider")]
+        public Input<string>? IdentityProvider { get; set; }
+
+        [Input("identityProviderIds")]
+        private InputList<string>? _identityProviderIds;
+
+        /// <summary>
+        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// </summary>
+        public InputList<string> IdentityProviderIds
+        {
+            get => _identityProviderIds ?? (_identityProviderIds = new InputList<string>());
+            set => _identityProviderIds = value;
+        }
+
+        /// <summary>
         /// Elapsed time before the next MFA challenge.
         /// </summary>
         [Input("mfaLifetime")]
@@ -517,6 +547,24 @@ namespace Pulumi.Okta.Policy
         {
             get => _factorSequences ?? (_factorSequences = new InputList<Inputs.RuleSignonFactorSequenceGetArgs>());
             set => _factorSequences = value;
+        }
+
+        /// <summary>
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// </summary>
+        [Input("identityProvider")]
+        public Input<string>? IdentityProvider { get; set; }
+
+        [Input("identityProviderIds")]
+        private InputList<string>? _identityProviderIds;
+
+        /// <summary>
+        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// </summary>
+        public InputList<string> IdentityProviderIds
+        {
+            get => _identityProviderIds ?? (_identityProviderIds = new InputList<string>());
+            set => _identityProviderIds = value;
         }
 
         /// <summary>
