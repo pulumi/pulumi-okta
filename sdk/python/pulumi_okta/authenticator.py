@@ -23,7 +23,7 @@ class AuthenticatorArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authenticator resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator.
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
         :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
@@ -52,7 +52,7 @@ class AuthenticatorArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A human-readable string that identifies the authenticator.
+        A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         """
         return pulumi.get(self, "key")
 
@@ -161,7 +161,7 @@ class _AuthenticatorState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Authenticator resources.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator.
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
         :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
@@ -200,7 +200,7 @@ class _AuthenticatorState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A human-readable string that identifies the authenticator.
+        A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         """
         return pulumi.get(self, "key")
 
@@ -348,6 +348,8 @@ class Authenticator(pulumi.CustomResource):
 
         This resource allows you to configure different authenticators.
 
+        > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+
         ## Example Usage
 
         ```python
@@ -372,7 +374,7 @@ class Authenticator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator.
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
         :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
@@ -391,6 +393,8 @@ class Authenticator(pulumi.CustomResource):
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
         This resource allows you to configure different authenticators.
+
+        > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
 
         ## Example Usage
 
@@ -490,7 +494,7 @@ class Authenticator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator.
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
         :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
@@ -523,7 +527,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A human-readable string that identifies the authenticator.
+        A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         """
         return pulumi.get(self, "key")
 

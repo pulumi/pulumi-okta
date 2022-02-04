@@ -34,6 +34,18 @@ namespace Pulumi.Okta.Deprecated
         public Output<ImmutableArray<Outputs.SignonPolicyRuleFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        /// </summary>
+        [Output("identityProvider")]
+        public Output<string?> IdentityProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        /// </summary>
+        [Output("identityProviderIds")]
+        public Output<ImmutableArray<string>> IdentityProviderIds { get; private set; } = null!;
+
+        /// <summary>
         /// Elapsed time before the next MFA challenge
         /// </summary>
         [Output("mfaLifetime")]
@@ -222,6 +234,24 @@ namespace Pulumi.Okta.Deprecated
         }
 
         /// <summary>
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        /// </summary>
+        [Input("identityProvider")]
+        public Input<string>? IdentityProvider { get; set; }
+
+        [Input("identityProviderIds")]
+        private InputList<string>? _identityProviderIds;
+
+        /// <summary>
+        /// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        /// </summary>
+        public InputList<string> IdentityProviderIds
+        {
+            get => _identityProviderIds ?? (_identityProviderIds = new InputList<string>());
+            set => _identityProviderIds = value;
+        }
+
+        /// <summary>
         /// Elapsed time before the next MFA challenge
         /// </summary>
         [Input("mfaLifetime")]
@@ -386,6 +416,24 @@ namespace Pulumi.Okta.Deprecated
         {
             get => _factorSequences ?? (_factorSequences = new InputList<Inputs.SignonPolicyRuleFactorSequenceGetArgs>());
             set => _factorSequences = value;
+        }
+
+        /// <summary>
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        /// </summary>
+        [Input("identityProvider")]
+        public Input<string>? IdentityProvider { get; set; }
+
+        [Input("identityProviderIds")]
+        private InputList<string>? _identityProviderIds;
+
+        /// <summary>
+        /// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        /// </summary>
+        public InputList<string> IdentityProviderIds
+        {
+            get => _identityProviderIds ?? (_identityProviderIds = new InputList<string>());
+            set => _identityProviderIds = value;
         }
 
         /// <summary>

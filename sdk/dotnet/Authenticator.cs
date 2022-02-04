@@ -14,6 +14,8 @@ namespace Pulumi.Okta
     /// 
     /// This resource allows you to configure different authenticators.
     /// 
+    /// &gt; **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -51,7 +53,7 @@ namespace Pulumi.Okta
     public partial class Authenticator : Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -163,7 +165,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -218,7 +220,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

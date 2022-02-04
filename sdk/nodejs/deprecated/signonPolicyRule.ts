@@ -47,6 +47,14 @@ export class SignonPolicyRule extends pulumi.CustomResource {
     public readonly behaviors!: pulumi.Output<string[] | undefined>;
     public readonly factorSequences!: pulumi.Output<outputs.deprecated.SignonPolicyRuleFactorSequence[] | undefined>;
     /**
+     * Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+     */
+    public readonly identityProvider!: pulumi.Output<string | undefined>;
+    /**
+     * When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+     */
+    public readonly identityProviderIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Elapsed time before the next MFA challenge
      */
     public readonly mfaLifetime!: pulumi.Output<number | undefined>;
@@ -140,6 +148,8 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["authtype"] = state ? state.authtype : undefined;
             resourceInputs["behaviors"] = state ? state.behaviors : undefined;
             resourceInputs["factorSequences"] = state ? state.factorSequences : undefined;
+            resourceInputs["identityProvider"] = state ? state.identityProvider : undefined;
+            resourceInputs["identityProviderIds"] = state ? state.identityProviderIds : undefined;
             resourceInputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
             resourceInputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
             resourceInputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
@@ -164,6 +174,8 @@ export class SignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["authtype"] = args ? args.authtype : undefined;
             resourceInputs["behaviors"] = args ? args.behaviors : undefined;
             resourceInputs["factorSequences"] = args ? args.factorSequences : undefined;
+            resourceInputs["identityProvider"] = args ? args.identityProvider : undefined;
+            resourceInputs["identityProviderIds"] = args ? args.identityProviderIds : undefined;
             resourceInputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
             resourceInputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
             resourceInputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
@@ -205,6 +217,14 @@ export interface SignonPolicyRuleState {
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     factorSequences?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequence>[]>;
+    /**
+     * Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+     */
+    identityProvider?: pulumi.Input<string>;
+    /**
+     * When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+     */
+    identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Elapsed time before the next MFA challenge
      */
@@ -300,6 +320,14 @@ export interface SignonPolicyRuleArgs {
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     factorSequences?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequence>[]>;
+    /**
+     * Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+     */
+    identityProvider?: pulumi.Input<string>;
+    /**
+     * When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+     */
+    identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Elapsed time before the next MFA challenge
      */

@@ -133,6 +133,10 @@ type RuleSignon struct {
 	Behaviors pulumi.StringArrayOutput `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayOutput `pulumi:"factorSequences"`
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	IdentityProvider pulumi.StringPtrOutput `pulumi:"identityProvider"`
+	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+	IdentityProviderIds pulumi.StringArrayOutput `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrOutput `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -212,6 +216,10 @@ type ruleSignonState struct {
 	Behaviors []string `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+	IdentityProviderIds []string `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -263,6 +271,10 @@ type RuleSignonState struct {
 	Behaviors pulumi.StringArrayInput
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	IdentityProvider pulumi.StringPtrInput
+	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+	IdentityProviderIds pulumi.StringArrayInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -318,6 +330,10 @@ type ruleSignonArgs struct {
 	Behaviors []string `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+	IdentityProviderIds []string `pulumi:"identityProviderIds"`
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime *int `pulumi:"mfaLifetime"`
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -370,6 +386,10 @@ type RuleSignonArgs struct {
 	Behaviors pulumi.StringArrayInput
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	IdentityProvider pulumi.StringPtrInput
+	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+	IdentityProviderIds pulumi.StringArrayInput
 	// Elapsed time before the next MFA challenge.
 	MfaLifetime pulumi.IntPtrInput
 	// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.

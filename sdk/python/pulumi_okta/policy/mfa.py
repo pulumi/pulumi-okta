@@ -15,11 +15,13 @@ class MfaArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_oie: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -28,38 +30,53 @@ class MfaArgs:
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Mfa resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] external_idp: External IDP MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        :param pulumi.Input[bool] is_oie: Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+               > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_verify: Okta Verify MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] onprem_mfa: On-Prem MFA MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] phone_number: Phone Number MFA policy settings (✓ OIE).
         :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] security_question: Security Question MFA policy settings (✓ OIE).
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webauthn: FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if duo is not None:
             pulumi.set(__self__, "duo", duo)
+        if external_idp is not None:
+            pulumi.set(__self__, "external_idp", external_idp)
         if fido_u2f is not None:
             pulumi.set(__self__, "fido_u2f", fido_u2f)
         if fido_webauthn is not None:
@@ -70,6 +87,8 @@ class MfaArgs:
             pulumi.set(__self__, "groups_includeds", groups_includeds)
         if hotp is not None:
             pulumi.set(__self__, "hotp", hotp)
+        if is_oie is not None:
+            pulumi.set(__self__, "is_oie", is_oie)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if okta_call is not None:
@@ -86,14 +105,24 @@ class MfaArgs:
             pulumi.set(__self__, "okta_question", okta_question)
         if okta_sms is not None:
             pulumi.set(__self__, "okta_sms", okta_sms)
+        if okta_verify is not None:
+            pulumi.set(__self__, "okta_verify", okta_verify)
+        if onprem_mfa is not None:
+            pulumi.set(__self__, "onprem_mfa", onprem_mfa)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if rsa_token is not None:
             pulumi.set(__self__, "rsa_token", rsa_token)
+        if security_question is not None:
+            pulumi.set(__self__, "security_question", security_question)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if symantec_vip is not None:
             pulumi.set(__self__, "symantec_vip", symantec_vip)
+        if webauthn is not None:
+            pulumi.set(__self__, "webauthn", webauthn)
         if yubikey_token is not None:
             pulumi.set(__self__, "yubikey_token", yubikey_token)
 
@@ -113,7 +142,7 @@ class MfaArgs:
     @pulumi.getter
     def duo(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        DUO MFA policy settings.
+        DUO MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "duo")
 
@@ -122,10 +151,22 @@ class MfaArgs:
         pulumi.set(self, "duo", value)
 
     @property
+    @pulumi.getter(name="externalIdp")
+    def external_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        External IDP MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "external_idp")
+
+    @external_idp.setter
+    def external_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "external_idp", value)
+
+    @property
     @pulumi.getter(name="fidoU2f")
     def fido_u2f(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Fido U2F MFA policy settings.
+        Fido U2F MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_u2f")
 
@@ -137,7 +178,7 @@ class MfaArgs:
     @pulumi.getter(name="fidoWebauthn")
     def fido_webauthn(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Fido Web Authn MFA policy settings.
+        Fido Web Authn MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_webauthn")
 
@@ -149,7 +190,7 @@ class MfaArgs:
     @pulumi.getter(name="googleOtp")
     def google_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Google OTP MFA policy settings.
+        Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "google_otp")
 
@@ -173,13 +214,26 @@ class MfaArgs:
     @pulumi.getter
     def hotp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        HMAC-based One-Time Password MFA policy settings.
+        HMAC-based One-Time Password MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "hotp")
 
     @hotp.setter
     def hotp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "hotp", value)
+
+    @property
+    @pulumi.getter(name="isOie")
+    def is_oie(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+        """
+        return pulumi.get(self, "is_oie")
+
+    @is_oie.setter
+    def is_oie(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_oie", value)
 
     @property
     @pulumi.getter
@@ -197,7 +251,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaCall")
     def okta_call(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Call MFA policy settings.
+        Okta Call MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_call")
 
@@ -209,7 +263,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaEmail")
     def okta_email(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Email MFA policy settings.
+        Okta Email MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_email")
 
@@ -221,7 +275,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta OTP (via the Okta Verify app) MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_otp")
 
@@ -233,7 +287,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaPassword")
     def okta_password(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Password MFA policy settings.
+        Okta Password MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_password")
 
@@ -245,7 +299,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaPush")
     def okta_push(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Push MFA policy settings.
+        Okta Push MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_push")
 
@@ -257,7 +311,7 @@ class MfaArgs:
     @pulumi.getter(name="oktaQuestion")
     def okta_question(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Question MFA policy settings.
+        Okta Question MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_question")
 
@@ -269,13 +323,49 @@ class MfaArgs:
     @pulumi.getter(name="oktaSms")
     def okta_sms(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta SMS MFA policy settings.
+        Okta SMS MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_sms")
 
     @okta_sms.setter
     def okta_sms(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "okta_sms", value)
+
+    @property
+    @pulumi.getter(name="oktaVerify")
+    def okta_verify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Okta Verify MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "okta_verify")
+
+    @okta_verify.setter
+    def okta_verify(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "okta_verify", value)
+
+    @property
+    @pulumi.getter(name="onpremMfa")
+    def onprem_mfa(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        On-Prem MFA MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "onprem_mfa")
+
+    @onprem_mfa.setter
+    def onprem_mfa(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "onprem_mfa", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Phone Number MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "phone_number", value)
 
     @property
     @pulumi.getter
@@ -293,13 +383,25 @@ class MfaArgs:
     @pulumi.getter(name="rsaToken")
     def rsa_token(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        RSA Token MFA policy settings.
+        RSA Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "rsa_token")
 
     @rsa_token.setter
     def rsa_token(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "rsa_token", value)
+
+    @property
+    @pulumi.getter(name="securityQuestion")
+    def security_question(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Security Question MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "security_question")
+
+    @security_question.setter
+    def security_question(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "security_question", value)
 
     @property
     @pulumi.getter
@@ -317,7 +419,7 @@ class MfaArgs:
     @pulumi.getter(name="symantecVip")
     def symantec_vip(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Symantec VIP MFA policy settings.
+        Symantec VIP MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "symantec_vip")
 
@@ -326,10 +428,22 @@ class MfaArgs:
         pulumi.set(self, "symantec_vip", value)
 
     @property
+    @pulumi.getter
+    def webauthn(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "webauthn")
+
+    @webauthn.setter
+    def webauthn(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "webauthn", value)
+
+    @property
     @pulumi.getter(name="yubikeyToken")
     def yubikey_token(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Yubikey Token MFA policy settings.
+        Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "yubikey_token")
 
@@ -343,11 +457,13 @@ class _MfaState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_oie: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,38 +472,53 @@ class _MfaState:
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Mfa resources.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] external_idp: External IDP MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        :param pulumi.Input[bool] is_oie: Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+               > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_verify: Okta Verify MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] onprem_mfa: On-Prem MFA MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] phone_number: Phone Number MFA policy settings (✓ OIE).
         :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] security_question: Security Question MFA policy settings (✓ OIE).
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webauthn: FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if duo is not None:
             pulumi.set(__self__, "duo", duo)
+        if external_idp is not None:
+            pulumi.set(__self__, "external_idp", external_idp)
         if fido_u2f is not None:
             pulumi.set(__self__, "fido_u2f", fido_u2f)
         if fido_webauthn is not None:
@@ -398,6 +529,8 @@ class _MfaState:
             pulumi.set(__self__, "groups_includeds", groups_includeds)
         if hotp is not None:
             pulumi.set(__self__, "hotp", hotp)
+        if is_oie is not None:
+            pulumi.set(__self__, "is_oie", is_oie)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if okta_call is not None:
@@ -414,14 +547,24 @@ class _MfaState:
             pulumi.set(__self__, "okta_question", okta_question)
         if okta_sms is not None:
             pulumi.set(__self__, "okta_sms", okta_sms)
+        if okta_verify is not None:
+            pulumi.set(__self__, "okta_verify", okta_verify)
+        if onprem_mfa is not None:
+            pulumi.set(__self__, "onprem_mfa", onprem_mfa)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if rsa_token is not None:
             pulumi.set(__self__, "rsa_token", rsa_token)
+        if security_question is not None:
+            pulumi.set(__self__, "security_question", security_question)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if symantec_vip is not None:
             pulumi.set(__self__, "symantec_vip", symantec_vip)
+        if webauthn is not None:
+            pulumi.set(__self__, "webauthn", webauthn)
         if yubikey_token is not None:
             pulumi.set(__self__, "yubikey_token", yubikey_token)
 
@@ -441,7 +584,7 @@ class _MfaState:
     @pulumi.getter
     def duo(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        DUO MFA policy settings.
+        DUO MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "duo")
 
@@ -450,10 +593,22 @@ class _MfaState:
         pulumi.set(self, "duo", value)
 
     @property
+    @pulumi.getter(name="externalIdp")
+    def external_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        External IDP MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "external_idp")
+
+    @external_idp.setter
+    def external_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "external_idp", value)
+
+    @property
     @pulumi.getter(name="fidoU2f")
     def fido_u2f(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Fido U2F MFA policy settings.
+        Fido U2F MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_u2f")
 
@@ -465,7 +620,7 @@ class _MfaState:
     @pulumi.getter(name="fidoWebauthn")
     def fido_webauthn(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Fido Web Authn MFA policy settings.
+        Fido Web Authn MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_webauthn")
 
@@ -477,7 +632,7 @@ class _MfaState:
     @pulumi.getter(name="googleOtp")
     def google_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Google OTP MFA policy settings.
+        Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "google_otp")
 
@@ -501,13 +656,26 @@ class _MfaState:
     @pulumi.getter
     def hotp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        HMAC-based One-Time Password MFA policy settings.
+        HMAC-based One-Time Password MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "hotp")
 
     @hotp.setter
     def hotp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "hotp", value)
+
+    @property
+    @pulumi.getter(name="isOie")
+    def is_oie(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+        """
+        return pulumi.get(self, "is_oie")
+
+    @is_oie.setter
+    def is_oie(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_oie", value)
 
     @property
     @pulumi.getter
@@ -525,7 +693,7 @@ class _MfaState:
     @pulumi.getter(name="oktaCall")
     def okta_call(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Call MFA policy settings.
+        Okta Call MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_call")
 
@@ -537,7 +705,7 @@ class _MfaState:
     @pulumi.getter(name="oktaEmail")
     def okta_email(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Email MFA policy settings.
+        Okta Email MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_email")
 
@@ -549,7 +717,7 @@ class _MfaState:
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta OTP (via the Okta Verify app) MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_otp")
 
@@ -561,7 +729,7 @@ class _MfaState:
     @pulumi.getter(name="oktaPassword")
     def okta_password(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Password MFA policy settings.
+        Okta Password MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_password")
 
@@ -573,7 +741,7 @@ class _MfaState:
     @pulumi.getter(name="oktaPush")
     def okta_push(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Push MFA policy settings.
+        Okta Push MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_push")
 
@@ -585,7 +753,7 @@ class _MfaState:
     @pulumi.getter(name="oktaQuestion")
     def okta_question(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta Question MFA policy settings.
+        Okta Question MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_question")
 
@@ -597,13 +765,49 @@ class _MfaState:
     @pulumi.getter(name="oktaSms")
     def okta_sms(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Okta SMS MFA policy settings.
+        Okta SMS MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_sms")
 
     @okta_sms.setter
     def okta_sms(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "okta_sms", value)
+
+    @property
+    @pulumi.getter(name="oktaVerify")
+    def okta_verify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Okta Verify MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "okta_verify")
+
+    @okta_verify.setter
+    def okta_verify(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "okta_verify", value)
+
+    @property
+    @pulumi.getter(name="onpremMfa")
+    def onprem_mfa(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        On-Prem MFA MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "onprem_mfa")
+
+    @onprem_mfa.setter
+    def onprem_mfa(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "onprem_mfa", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Phone Number MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "phone_number", value)
 
     @property
     @pulumi.getter
@@ -621,13 +825,25 @@ class _MfaState:
     @pulumi.getter(name="rsaToken")
     def rsa_token(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        RSA Token MFA policy settings.
+        RSA Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "rsa_token")
 
     @rsa_token.setter
     def rsa_token(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "rsa_token", value)
+
+    @property
+    @pulumi.getter(name="securityQuestion")
+    def security_question(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Security Question MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "security_question")
+
+    @security_question.setter
+    def security_question(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "security_question", value)
 
     @property
     @pulumi.getter
@@ -645,7 +861,7 @@ class _MfaState:
     @pulumi.getter(name="symantecVip")
     def symantec_vip(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Symantec VIP MFA policy settings.
+        Symantec VIP MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "symantec_vip")
 
@@ -654,10 +870,22 @@ class _MfaState:
         pulumi.set(self, "symantec_vip", value)
 
     @property
+    @pulumi.getter
+    def webauthn(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "webauthn")
+
+    @webauthn.setter
+    def webauthn(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "webauthn", value)
+
+    @property
     @pulumi.getter(name="yubikeyToken")
     def yubikey_token(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Yubikey Token MFA policy settings.
+        Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "yubikey_token")
 
@@ -673,11 +901,13 @@ class Mfa(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_oie: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -686,10 +916,15 @@ class Mfa(pulumi.CustomResource):
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -703,10 +938,19 @@ class Mfa(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.policy.Mfa("example",
-            description="Example",
+        classic_example = okta.policy.Mfa("classicExample",
+            description="Example MFA policy using Okta Classic engine with factors.",
             groups_includeds=[data["okta_group"]["everyone"]["id"]],
+            is_oie=False,
             okta_otp={
+                "enroll": "REQUIRED",
+            },
+            status="ACTIVE")
+        oie_example = okta.policy.Mfa("oieExample",
+            description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
+            groups_includeds=[data["okta_group"]["everyone"]["id"]],
+            is_oie=True,
+            okta_verify={
                 "enroll": "REQUIRED",
             },
             status="ACTIVE")
@@ -723,25 +967,33 @@ class Mfa(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] external_idp: External IDP MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        :param pulumi.Input[bool] is_oie: Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+               > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_verify: Okta Verify MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] onprem_mfa: On-Prem MFA MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] phone_number: Phone Number MFA policy settings (✓ OIE).
         :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] security_question: Security Question MFA policy settings (✓ OIE).
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webauthn: FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         ...
     @overload
@@ -760,10 +1012,19 @@ class Mfa(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.policy.Mfa("example",
-            description="Example",
+        classic_example = okta.policy.Mfa("classicExample",
+            description="Example MFA policy using Okta Classic engine with factors.",
             groups_includeds=[data["okta_group"]["everyone"]["id"]],
+            is_oie=False,
             okta_otp={
+                "enroll": "REQUIRED",
+            },
+            status="ACTIVE")
+        oie_example = okta.policy.Mfa("oieExample",
+            description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
+            groups_includeds=[data["okta_group"]["everyone"]["id"]],
+            is_oie=True,
+            okta_verify={
                 "enroll": "REQUIRED",
             },
             status="ACTIVE")
@@ -794,11 +1055,13 @@ class Mfa(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_oie: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -807,10 +1070,15 @@ class Mfa(pulumi.CustomResource):
                  okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -826,11 +1094,13 @@ class Mfa(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["duo"] = duo
+            __props__.__dict__["external_idp"] = external_idp
             __props__.__dict__["fido_u2f"] = fido_u2f
             __props__.__dict__["fido_webauthn"] = fido_webauthn
             __props__.__dict__["google_otp"] = google_otp
             __props__.__dict__["groups_includeds"] = groups_includeds
             __props__.__dict__["hotp"] = hotp
+            __props__.__dict__["is_oie"] = is_oie
             __props__.__dict__["name"] = name
             __props__.__dict__["okta_call"] = okta_call
             __props__.__dict__["okta_email"] = okta_email
@@ -839,10 +1109,15 @@ class Mfa(pulumi.CustomResource):
             __props__.__dict__["okta_push"] = okta_push
             __props__.__dict__["okta_question"] = okta_question
             __props__.__dict__["okta_sms"] = okta_sms
+            __props__.__dict__["okta_verify"] = okta_verify
+            __props__.__dict__["onprem_mfa"] = onprem_mfa
+            __props__.__dict__["phone_number"] = phone_number
             __props__.__dict__["priority"] = priority
             __props__.__dict__["rsa_token"] = rsa_token
+            __props__.__dict__["security_question"] = security_question
             __props__.__dict__["status"] = status
             __props__.__dict__["symantec_vip"] = symantec_vip
+            __props__.__dict__["webauthn"] = webauthn
             __props__.__dict__["yubikey_token"] = yubikey_token
         super(Mfa, __self__).__init__(
             'okta:policy/mfa:Mfa',
@@ -856,11 +1131,13 @@ class Mfa(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            is_oie: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -869,10 +1146,15 @@ class Mfa(pulumi.CustomResource):
             okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Mfa':
         """
         Get an existing Mfa resource's state with the given name, id, and optional extra
@@ -882,25 +1164,33 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] duo: DUO MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] external_idp: External IDP MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_u2f: Fido U2F MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] fido_webauthn: Fido Web Authn MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] google_otp: Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hotp: HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        :param pulumi.Input[bool] is_oie: Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+               > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_call: Okta Call MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_email: Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_otp: Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_password: Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_push: Okta Push MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_question: Okta Question MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_sms: Okta SMS MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] okta_verify: Okta Verify MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] onprem_mfa: On-Prem MFA MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] phone_number: Phone Number MFA policy settings (✓ OIE).
         :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] rsa_token: RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] security_question: Security Question MFA policy settings (✓ OIE).
         :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] symantec_vip: Symantec VIP MFA policy settings (✓ Classic).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webauthn: FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] yubikey_token: Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -908,11 +1198,13 @@ class Mfa(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["duo"] = duo
+        __props__.__dict__["external_idp"] = external_idp
         __props__.__dict__["fido_u2f"] = fido_u2f
         __props__.__dict__["fido_webauthn"] = fido_webauthn
         __props__.__dict__["google_otp"] = google_otp
         __props__.__dict__["groups_includeds"] = groups_includeds
         __props__.__dict__["hotp"] = hotp
+        __props__.__dict__["is_oie"] = is_oie
         __props__.__dict__["name"] = name
         __props__.__dict__["okta_call"] = okta_call
         __props__.__dict__["okta_email"] = okta_email
@@ -921,10 +1213,15 @@ class Mfa(pulumi.CustomResource):
         __props__.__dict__["okta_push"] = okta_push
         __props__.__dict__["okta_question"] = okta_question
         __props__.__dict__["okta_sms"] = okta_sms
+        __props__.__dict__["okta_verify"] = okta_verify
+        __props__.__dict__["onprem_mfa"] = onprem_mfa
+        __props__.__dict__["phone_number"] = phone_number
         __props__.__dict__["priority"] = priority
         __props__.__dict__["rsa_token"] = rsa_token
+        __props__.__dict__["security_question"] = security_question
         __props__.__dict__["status"] = status
         __props__.__dict__["symantec_vip"] = symantec_vip
+        __props__.__dict__["webauthn"] = webauthn
         __props__.__dict__["yubikey_token"] = yubikey_token
         return Mfa(resource_name, opts=opts, __props__=__props__)
 
@@ -940,15 +1237,23 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter
     def duo(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        DUO MFA policy settings.
+        DUO MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "duo")
+
+    @property
+    @pulumi.getter(name="externalIdp")
+    def external_idp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        External IDP MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "external_idp")
 
     @property
     @pulumi.getter(name="fidoU2f")
     def fido_u2f(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Fido U2F MFA policy settings.
+        Fido U2F MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_u2f")
 
@@ -956,7 +1261,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="fidoWebauthn")
     def fido_webauthn(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Fido Web Authn MFA policy settings.
+        Fido Web Authn MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "fido_webauthn")
 
@@ -964,7 +1269,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="googleOtp")
     def google_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Google OTP MFA policy settings.
+        Google OTP MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "google_otp")
 
@@ -980,9 +1285,18 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter
     def hotp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        HMAC-based One-Time Password MFA policy settings.
+        HMAC-based One-Time Password MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "hotp")
+
+    @property
+    @pulumi.getter(name="isOie")
+    def is_oie(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+        """
+        return pulumi.get(self, "is_oie")
 
     @property
     @pulumi.getter
@@ -996,7 +1310,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaCall")
     def okta_call(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta Call MFA policy settings.
+        Okta Call MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_call")
 
@@ -1004,7 +1318,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaEmail")
     def okta_email(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta Email MFA policy settings.
+        Okta Email MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_email")
 
@@ -1012,7 +1326,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaOtp")
     def okta_otp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta OTP (via the Okta Verify app) MFA policy settings.
+        Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_otp")
 
@@ -1020,7 +1334,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaPassword")
     def okta_password(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta Password MFA policy settings.
+        Okta Password MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "okta_password")
 
@@ -1028,7 +1342,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaPush")
     def okta_push(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta Push MFA policy settings.
+        Okta Push MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_push")
 
@@ -1036,7 +1350,7 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaQuestion")
     def okta_question(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta Question MFA policy settings.
+        Okta Question MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_question")
 
@@ -1044,9 +1358,33 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="oktaSms")
     def okta_sms(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Okta SMS MFA policy settings.
+        Okta SMS MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "okta_sms")
+
+    @property
+    @pulumi.getter(name="oktaVerify")
+    def okta_verify(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Okta Verify MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "okta_verify")
+
+    @property
+    @pulumi.getter(name="onpremMfa")
+    def onprem_mfa(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        On-Prem MFA MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "onprem_mfa")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Phone Number MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "phone_number")
 
     @property
     @pulumi.getter
@@ -1060,9 +1398,17 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="rsaToken")
     def rsa_token(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        RSA Token MFA policy settings.
+        RSA Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "rsa_token")
+
+    @property
+    @pulumi.getter(name="securityQuestion")
+    def security_question(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Security Question MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "security_question")
 
     @property
     @pulumi.getter
@@ -1076,15 +1422,23 @@ class Mfa(pulumi.CustomResource):
     @pulumi.getter(name="symantecVip")
     def symantec_vip(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Symantec VIP MFA policy settings.
+        Symantec VIP MFA policy settings (✓ Classic).
         """
         return pulumi.get(self, "symantec_vip")
+
+    @property
+    @pulumi.getter
+    def webauthn(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        """
+        return pulumi.get(self, "webauthn")
 
     @property
     @pulumi.getter(name="yubikeyToken")
     def yubikey_token(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Yubikey Token MFA policy settings.
+        Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
         """
         return pulumi.get(self, "yubikey_token")
 

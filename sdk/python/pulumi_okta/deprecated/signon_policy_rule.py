@@ -19,6 +19,8 @@ class SignonPolicyRuleArgs:
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceArgs']]]] = None,
+                 identity_provider: Optional[pulumi.Input[str]] = None,
+                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +44,8 @@ class SignonPolicyRuleArgs:
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         :param pulumi.Input[str] authtype: Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
+        :param pulumi.Input[str] identity_provider: Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
@@ -71,6 +75,10 @@ class SignonPolicyRuleArgs:
             pulumi.set(__self__, "behaviors", behaviors)
         if factor_sequences is not None:
             pulumi.set(__self__, "factor_sequences", factor_sequences)
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if identity_provider_ids is not None:
+            pulumi.set(__self__, "identity_provider_ids", identity_provider_ids)
         if mfa_lifetime is not None:
             pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
@@ -155,6 +163,30 @@ class SignonPolicyRuleArgs:
     @factor_sequences.setter
     def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceArgs']]]]):
         pulumi.set(self, "factor_sequences", value)
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        """
+        return pulumi.get(self, "identity_provider")
+
+    @identity_provider.setter
+    def identity_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_provider", value)
+
+    @property
+    @pulumi.getter(name="identityProviderIds")
+    def identity_provider_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        """
+        return pulumi.get(self, "identity_provider_ids")
+
+    @identity_provider_ids.setter
+    def identity_provider_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_provider_ids", value)
 
     @property
     @pulumi.getter(name="mfaLifetime")
@@ -382,6 +414,8 @@ class _SignonPolicyRuleState:
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceArgs']]]] = None,
+                 identity_provider: Optional[pulumi.Input[str]] = None,
+                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -405,6 +439,8 @@ class _SignonPolicyRuleState:
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         :param pulumi.Input[str] authtype: Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
+        :param pulumi.Input[str] identity_provider: Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
@@ -434,6 +470,10 @@ class _SignonPolicyRuleState:
             pulumi.set(__self__, "behaviors", behaviors)
         if factor_sequences is not None:
             pulumi.set(__self__, "factor_sequences", factor_sequences)
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if identity_provider_ids is not None:
+            pulumi.set(__self__, "identity_provider_ids", identity_provider_ids)
         if mfa_lifetime is not None:
             pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
@@ -518,6 +558,30 @@ class _SignonPolicyRuleState:
     @factor_sequences.setter
     def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRuleFactorSequenceArgs']]]]):
         pulumi.set(self, "factor_sequences", value)
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        """
+        return pulumi.get(self, "identity_provider")
+
+    @identity_provider.setter
+    def identity_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_provider", value)
+
+    @property
+    @pulumi.getter(name="identityProviderIds")
+    def identity_provider_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        """
+        return pulumi.get(self, "identity_provider_ids")
+
+    @identity_provider_ids.setter
+    def identity_provider_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_provider_ids", value)
 
     @property
     @pulumi.getter(name="mfaLifetime")
@@ -747,6 +811,8 @@ class SignonPolicyRule(pulumi.CustomResource):
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignonPolicyRuleFactorSequenceArgs']]]]] = None,
+                 identity_provider: Optional[pulumi.Input[str]] = None,
+                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -773,6 +839,8 @@ class SignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         :param pulumi.Input[str] authtype: Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
+        :param pulumi.Input[str] identity_provider: Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
@@ -821,6 +889,8 @@ class SignonPolicyRule(pulumi.CustomResource):
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignonPolicyRuleFactorSequenceArgs']]]]] = None,
+                 identity_provider: Optional[pulumi.Input[str]] = None,
+                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
                  mfa_prompt: Optional[pulumi.Input[str]] = None,
                  mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -855,6 +925,8 @@ class SignonPolicyRule(pulumi.CustomResource):
             __props__.__dict__["authtype"] = authtype
             __props__.__dict__["behaviors"] = behaviors
             __props__.__dict__["factor_sequences"] = factor_sequences
+            __props__.__dict__["identity_provider"] = identity_provider
+            __props__.__dict__["identity_provider_ids"] = identity_provider_ids
             __props__.__dict__["mfa_lifetime"] = mfa_lifetime
             __props__.__dict__["mfa_prompt"] = mfa_prompt
             __props__.__dict__["mfa_remember_device"] = mfa_remember_device
@@ -890,6 +962,8 @@ class SignonPolicyRule(pulumi.CustomResource):
             authtype: Optional[pulumi.Input[str]] = None,
             behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignonPolicyRuleFactorSequenceArgs']]]]] = None,
+            identity_provider: Optional[pulumi.Input[str]] = None,
+            identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mfa_lifetime: Optional[pulumi.Input[int]] = None,
             mfa_prompt: Optional[pulumi.Input[str]] = None,
             mfa_remember_device: Optional[pulumi.Input[bool]] = None,
@@ -918,6 +992,8 @@ class SignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         :param pulumi.Input[str] authtype: Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
+        :param pulumi.Input[str] identity_provider: Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         :param pulumi.Input[bool] mfa_remember_device: Remember MFA device.
@@ -947,6 +1023,8 @@ class SignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["authtype"] = authtype
         __props__.__dict__["behaviors"] = behaviors
         __props__.__dict__["factor_sequences"] = factor_sequences
+        __props__.__dict__["identity_provider"] = identity_provider
+        __props__.__dict__["identity_provider_ids"] = identity_provider_ids
         __props__.__dict__["mfa_lifetime"] = mfa_lifetime
         __props__.__dict__["mfa_prompt"] = mfa_prompt
         __props__.__dict__["mfa_remember_device"] = mfa_remember_device
@@ -995,6 +1073,22 @@ class SignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="factorSequences")
     def factor_sequences(self) -> pulumi.Output[Optional[Sequence['outputs.SignonPolicyRuleFactorSequence']]]:
         return pulumi.get(self, "factor_sequences")
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> pulumi.Output[Optional[str]]:
+        """
+        Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+        """
+        return pulumi.get(self, "identity_provider")
+
+    @property
+    @pulumi.getter(name="identityProviderIds")
+    def identity_provider_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+        """
+        return pulumi.get(self, "identity_provider_ids")
 
     @property
     @pulumi.getter(name="mfaLifetime")
