@@ -18,12 +18,9 @@ class RoleSubscriptionArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoleSubscription resource.
-        :param pulumi.Input[str] notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-               `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-               `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-               `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] notification_type: Type of the notification. Valid values:
+        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+               "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         pulumi.set(__self__, "notification_type", notification_type)
@@ -35,9 +32,7 @@ class RoleSubscriptionArgs:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[str]:
         """
-        Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-        `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-        `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+        Type of the notification. Valid values:
         """
         return pulumi.get(self, "notification_type")
 
@@ -49,9 +44,8 @@ class RoleSubscriptionArgs:
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
         """
-        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-        `"GROUP_MEMBERSHIP_ADMIN"`.
+        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+        "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         """
         return pulumi.get(self, "role_type")
 
@@ -80,12 +74,9 @@ class _RoleSubscriptionState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RoleSubscription resources.
-        :param pulumi.Input[str] notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-               `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-               `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-               `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] notification_type: Type of the notification. Valid values:
+        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+               "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         if notification_type is not None:
@@ -99,9 +90,7 @@ class _RoleSubscriptionState:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-        `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-        `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+        Type of the notification. Valid values:
         """
         return pulumi.get(self, "notification_type")
 
@@ -113,9 +102,8 @@ class _RoleSubscriptionState:
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-        `"GROUP_MEMBERSHIP_ADMIN"`.
+        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+        "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         """
         return pulumi.get(self, "role_type")
 
@@ -147,6 +135,8 @@ class RoleSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         This resource allows you to configure subscriptions of a Role with a specific type.
+        Check [configure email notifications](https://help.okta.com/oie/en-us/Content/Topics/Security/custom-admin-role/administrator-email-settings.htm)
+        page regarding what notifications are available for specific admin roles.
 
         ## Example Usage
 
@@ -170,12 +160,9 @@ class RoleSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-               `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-               `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-               `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] notification_type: Type of the notification. Valid values:
+        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+               "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         ...
@@ -186,6 +173,8 @@ class RoleSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to configure subscriptions of a Role with a specific type.
+        Check [configure email notifications](https://help.okta.com/oie/en-us/Content/Topics/Security/custom-admin-role/administrator-email-settings.htm)
+        page regarding what notifications are available for specific admin roles.
 
         ## Example Usage
 
@@ -264,12 +253,9 @@ class RoleSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-               `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-               `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-               `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-               `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] notification_type: Type of the notification. Valid values:
+        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+               "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -285,9 +271,7 @@ class RoleSubscription(pulumi.CustomResource):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output[str]:
         """
-        Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
-        `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-        `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+        Type of the notification. Valid values:
         """
         return pulumi.get(self, "notification_type")
 
@@ -295,9 +279,8 @@ class RoleSubscription(pulumi.CustomResource):
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[str]:
         """
-        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-        `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ADMIN"`, `"REPORT_ADMIN"`,
-        `"GROUP_MEMBERSHIP_ADMIN"`.
+        Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
+        "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
         """
         return pulumi.get(self, "role_type")
 

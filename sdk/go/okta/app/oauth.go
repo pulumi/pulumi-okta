@@ -142,7 +142,8 @@ type OAuth struct {
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
-	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -293,7 +294,8 @@ type oauthState struct {
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
-	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -410,7 +412,8 @@ type OAuthState struct {
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
-	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -529,7 +532,8 @@ type oauthArgs struct {
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
-	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
@@ -639,7 +643,8 @@ type OAuthArgs struct {
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
 	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
-	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*)
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
 	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.

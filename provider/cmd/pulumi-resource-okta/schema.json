@@ -4397,7 +4397,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*)\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -4640,7 +4640,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*)\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -4870,7 +4870,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*)\n"
+                        "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                     },
                     "groups": {
                         "type": "array",
@@ -8138,7 +8138,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -8229,7 +8229,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -8321,7 +8321,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
@@ -8411,7 +8411,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -8502,7 +8502,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -8594,7 +8594,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
@@ -21971,15 +21971,15 @@
             }
         },
         "okta:index/roleSubscription:RoleSubscription": {
-            "description": "This resource allows you to configure subscriptions of a Role with a specific type.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.RoleSubscription(\"test\", {\n    notificationType: \"APP_IMPORT\",\n    roleType: \"SUPER_ADMIN\",\n    status: \"unsubscribed\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.RoleSubscription(\"test\",\n    notification_type=\"APP_IMPORT\",\n    role_type=\"SUPER_ADMIN\",\n    status=\"unsubscribed\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.RoleSubscription(\"test\", new Okta.RoleSubscriptionArgs\n        {\n            NotificationType = \"APP_IMPORT\",\n            RoleType = \"SUPER_ADMIN\",\n            Status = \"unsubscribed\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRoleSubscription(ctx, \"test\", \u0026okta.RoleSubscriptionArgs{\n\t\t\tNotificationType: pulumi.String(\"APP_IMPORT\"),\n\t\t\tRoleType:         pulumi.String(\"SUPER_ADMIN\"),\n\t\t\tStatus:           pulumi.String(\"unsubscribed\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA role subscription can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/roleSubscription:RoleSubscription example \u003crole_type\u003e/\u003cnotification_type\u003e\n```\n\n ",
+            "description": "This resource allows you to configure subscriptions of a Role with a specific type. \nCheck [configure email notifications](https://help.okta.com/oie/en-us/Content/Topics/Security/custom-admin-role/administrator-email-settings.htm) \npage regarding what notifications are available for specific admin roles.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.RoleSubscription(\"test\", {\n    notificationType: \"APP_IMPORT\",\n    roleType: \"SUPER_ADMIN\",\n    status: \"unsubscribed\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.RoleSubscription(\"test\",\n    notification_type=\"APP_IMPORT\",\n    role_type=\"SUPER_ADMIN\",\n    status=\"unsubscribed\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Okta.RoleSubscription(\"test\", new Okta.RoleSubscriptionArgs\n        {\n            NotificationType = \"APP_IMPORT\",\n            RoleType = \"SUPER_ADMIN\",\n            Status = \"unsubscribed\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRoleSubscription(ctx, \"test\", \u0026okta.RoleSubscriptionArgs{\n\t\t\tNotificationType: pulumi.String(\"APP_IMPORT\"),\n\t\t\tRoleType:         pulumi.String(\"SUPER_ADMIN\"),\n\t\t\tStatus:           pulumi.String(\"unsubscribed\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA role subscription can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/roleSubscription:RoleSubscription example \u003crole_type\u003e/\u003cnotification_type\u003e\n```\n\n ",
             "properties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values: `\"CONNECTOR_AGENT\"`, `\"USER_LOCKED_OUT\"`,\n`\"APP_IMPORT\"`, `\"LDAP_AGENT\"`, `\"AD_AGENT\"`, `\"OKTA_ANNOUNCEMENT\"`, `\"OKTA_ISSUE\"`, `\"OKTA_UPDATE\"`, `\"IWA_AGENT\"`,\n`\"USER_DEPROVISION\"`, `\"REPORT_SUSPICIOUS_ACTIVITY\"`, `\"RATELIMIT_NOTIFICATION\"`.\n"
+                    "description": "Type of the notification. Valid values:\n"
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\",\n\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\".\n"
                 },
                 "status": {
                     "type": "string",
@@ -21993,11 +21993,11 @@
             "inputProperties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values: `\"CONNECTOR_AGENT\"`, `\"USER_LOCKED_OUT\"`,\n`\"APP_IMPORT\"`, `\"LDAP_AGENT\"`, `\"AD_AGENT\"`, `\"OKTA_ANNOUNCEMENT\"`, `\"OKTA_ISSUE\"`, `\"OKTA_UPDATE\"`, `\"IWA_AGENT\"`,\n`\"USER_DEPROVISION\"`, `\"REPORT_SUSPICIOUS_ACTIVITY\"`, `\"RATELIMIT_NOTIFICATION\"`.\n"
+                    "description": "Type of the notification. Valid values:\n"
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\",\n\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\".\n"
                 },
                 "status": {
                     "type": "string",
@@ -22013,11 +22013,11 @@
                 "properties": {
                     "notificationType": {
                         "type": "string",
-                        "description": "Type of the notification. Valid values: `\"CONNECTOR_AGENT\"`, `\"USER_LOCKED_OUT\"`,\n`\"APP_IMPORT\"`, `\"LDAP_AGENT\"`, `\"AD_AGENT\"`, `\"OKTA_ANNOUNCEMENT\"`, `\"OKTA_ISSUE\"`, `\"OKTA_UPDATE\"`, `\"IWA_AGENT\"`,\n`\"USER_DEPROVISION\"`, `\"REPORT_SUSPICIOUS_ACTIVITY\"`, `\"RATELIMIT_NOTIFICATION\"`.\n"
+                        "description": "Type of the notification. Valid values:\n"
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"APP_ADMIN\"`, `\"USER_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"API_ADMIN\"`, `\"REPORT_ADMIN\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`.\n"
+                        "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\",\n\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\".\n"
                     },
                     "status": {
                         "type": "string",
