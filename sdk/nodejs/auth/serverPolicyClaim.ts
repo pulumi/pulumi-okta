@@ -75,7 +75,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
     /**
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`, 
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     public readonly grantTypeWhitelists!: pulumi.Output<string[]>;
     /**
@@ -215,7 +215,7 @@ export interface ServerPolicyClaimState {
     /**
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`, 
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -288,7 +288,7 @@ export interface ServerPolicyClaimArgs {
     /**
      * Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`, 
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+     * `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
