@@ -28,6 +28,7 @@ class UserArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  division: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
+                 expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,8 @@ class UserArgs:
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
+               when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
@@ -131,6 +134,8 @@ class UserArgs:
             pulumi.set(__self__, "division", division)
         if employee_number is not None:
             pulumi.set(__self__, "employee_number", employee_number)
+        if expire_password_on_create is not None:
+            pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
         if group_memberships is not None:
             warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
             pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
@@ -347,6 +352,19 @@ class UserArgs:
     @employee_number.setter
     def employee_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "employee_number", value)
+
+    @property
+    @pulumi.getter(name="expirePasswordOnCreate")
+    def expire_password_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true`, the user will have to change the password at the next login. This property will be used
+        when user is being created and works only when `password` field is set. Default is `false`.
+        """
+        return pulumi.get(self, "expire_password_on_create")
+
+    @expire_password_on_create.setter
+    def expire_password_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expire_password_on_create", value)
 
     @property
     @pulumi.getter(name="groupMemberships")
@@ -703,6 +721,7 @@ class _UserState:
                  division: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
+                 expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
                  group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
@@ -748,6 +767,8 @@ class _UserState:
         :param pulumi.Input[str] division: User profile property.
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
+               when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
@@ -809,6 +830,8 @@ class _UserState:
             pulumi.set(__self__, "email", email)
         if employee_number is not None:
             pulumi.set(__self__, "employee_number", employee_number)
+        if expire_password_on_create is not None:
+            pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if group_memberships is not None:
@@ -997,6 +1020,19 @@ class _UserState:
     @employee_number.setter
     def employee_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "employee_number", value)
+
+    @property
+    @pulumi.getter(name="expirePasswordOnCreate")
+    def expire_password_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true`, the user will have to change the password at the next login. This property will be used
+        when user is being created and works only when `password` field is set. Default is `false`.
+        """
+        return pulumi.get(self, "expire_password_on_create")
+
+    @expire_password_on_create.setter
+    def expire_password_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expire_password_on_create", value)
 
     @property
     @pulumi.getter(name="firstName")
@@ -1403,6 +1439,7 @@ class User(pulumi.CustomResource):
                  division: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
+                 expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
                  group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
@@ -1517,6 +1554,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] division: User profile property.
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
+               when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
@@ -1654,6 +1693,7 @@ class User(pulumi.CustomResource):
                  division: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
+                 expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
                  group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
@@ -1712,6 +1752,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
             __props__.__dict__["employee_number"] = employee_number
+            __props__.__dict__["expire_password_on_create"] = expire_password_on_create
             if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__.__dict__["first_name"] = first_name
@@ -1773,6 +1814,7 @@ class User(pulumi.CustomResource):
             division: Optional[pulumi.Input[str]] = None,
             email: Optional[pulumi.Input[str]] = None,
             employee_number: Optional[pulumi.Input[str]] = None,
+            expire_password_on_create: Optional[pulumi.Input[bool]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
             group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             honorific_prefix: Optional[pulumi.Input[str]] = None,
@@ -1823,6 +1865,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] division: User profile property.
         :param pulumi.Input[str] email: User profile property.
         :param pulumi.Input[str] employee_number: User profile property.
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
+               when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
@@ -1875,6 +1919,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["division"] = division
         __props__.__dict__["email"] = email
         __props__.__dict__["employee_number"] = employee_number
+        __props__.__dict__["expire_password_on_create"] = expire_password_on_create
         __props__.__dict__["first_name"] = first_name
         __props__.__dict__["group_memberships"] = group_memberships
         __props__.__dict__["honorific_prefix"] = honorific_prefix
@@ -1989,6 +2034,15 @@ class User(pulumi.CustomResource):
         User profile property.
         """
         return pulumi.get(self, "employee_number")
+
+    @property
+    @pulumi.getter(name="expirePasswordOnCreate")
+    def expire_password_on_create(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to `true`, the user will have to change the password at the next login. This property will be used
+        when user is being created and works only when `password` field is set. Default is `false`.
+        """
+        return pulumi.get(self, "expire_password_on_create")
 
     @property
     @pulumi.getter(name="firstName")

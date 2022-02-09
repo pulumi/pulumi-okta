@@ -53,6 +53,7 @@ type SamlIdp struct {
 	SubjectMatchType       pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
 	SuspendedAction        pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
 	Type                   pulumi.StringOutput      `pulumi:"type"`
+	UserTypeId             pulumi.StringOutput      `pulumi:"userTypeId"`
 	UsernameTemplate       pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
 }
 
@@ -133,6 +134,7 @@ type samlIdpState struct {
 	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
 	SuspendedAction        *string  `pulumi:"suspendedAction"`
 	Type                   *string  `pulumi:"type"`
+	UserTypeId             *string  `pulumi:"userTypeId"`
 	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
 }
 
@@ -176,6 +178,7 @@ type SamlIdpState struct {
 	SubjectMatchType       pulumi.StringPtrInput
 	SuspendedAction        pulumi.StringPtrInput
 	Type                   pulumi.StringPtrInput
+	UserTypeId             pulumi.StringPtrInput
 	UsernameTemplate       pulumi.StringPtrInput
 }
 

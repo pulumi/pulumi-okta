@@ -132,6 +132,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("userInfoUrl")]
         public Output<string?> UserInfoUrl { get; private set; } = null!;
 
+        [Output("userTypeId")]
+        public Output<string> UserTypeId { get; private set; } = null!;
+
         [Output("usernameTemplate")]
         public Output<string?> UsernameTemplate { get; private set; } = null!;
 
@@ -467,6 +470,9 @@ namespace Pulumi.Okta.Deprecated
 
         [Input("userInfoUrl")]
         public Input<string>? UserInfoUrl { get; set; }
+
+        [Input("userTypeId")]
+        public Input<string>? UserTypeId { get; set; }
 
         [Input("usernameTemplate")]
         public Input<string>? UsernameTemplate { get; set; }

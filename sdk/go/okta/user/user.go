@@ -130,6 +130,9 @@ type User struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// User profile property.
 	EmployeeNumber pulumi.StringPtrOutput `pulumi:"employeeNumber"`
+	// If set to `true`, the user will have to change the password at the next login. This property will be used
+	// when user is being created and works only when `password` field is set. Default is `false`.
+	ExpirePasswordOnCreate pulumi.BoolPtrOutput `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName pulumi.StringOutput `pulumi:"firstName"`
 	// User profile property.
@@ -267,6 +270,9 @@ type userState struct {
 	Email *string `pulumi:"email"`
 	// User profile property.
 	EmployeeNumber *string `pulumi:"employeeNumber"`
+	// If set to `true`, the user will have to change the password at the next login. This property will be used
+	// when user is being created and works only when `password` field is set. Default is `false`.
+	ExpirePasswordOnCreate *bool `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName *string `pulumi:"firstName"`
 	// User profile property.
@@ -364,6 +370,9 @@ type UserState struct {
 	Email pulumi.StringPtrInput
 	// User profile property.
 	EmployeeNumber pulumi.StringPtrInput
+	// If set to `true`, the user will have to change the password at the next login. This property will be used
+	// when user is being created and works only when `password` field is set. Default is `false`.
+	ExpirePasswordOnCreate pulumi.BoolPtrInput
 	// User's First Name, required by default.
 	FirstName pulumi.StringPtrInput
 	// User profile property.
@@ -465,6 +474,9 @@ type userArgs struct {
 	Email string `pulumi:"email"`
 	// User profile property.
 	EmployeeNumber *string `pulumi:"employeeNumber"`
+	// If set to `true`, the user will have to change the password at the next login. This property will be used
+	// when user is being created and works only when `password` field is set. Default is `false`.
+	ExpirePasswordOnCreate *bool `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName string `pulumi:"firstName"`
 	// User profile property.
@@ -561,6 +573,9 @@ type UserArgs struct {
 	Email pulumi.StringInput
 	// User profile property.
 	EmployeeNumber pulumi.StringPtrInput
+	// If set to `true`, the user will have to change the password at the next login. This property will be used
+	// when user is being created and works only when `password` field is set. Default is `false`.
+	ExpirePasswordOnCreate pulumi.BoolPtrInput
 	// User's First Name, required by default.
 	FirstName pulumi.StringInput
 	// User profile property.

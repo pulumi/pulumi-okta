@@ -54,6 +54,7 @@ type Idp struct {
 	Type                   pulumi.StringOutput      `pulumi:"type"`
 	UserInfoBinding        pulumi.StringPtrOutput   `pulumi:"userInfoBinding"`
 	UserInfoUrl            pulumi.StringPtrOutput   `pulumi:"userInfoUrl"`
+	UserTypeId             pulumi.StringOutput      `pulumi:"userTypeId"`
 	UsernameTemplate       pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
 }
 
@@ -156,6 +157,7 @@ type idpState struct {
 	Type                   *string  `pulumi:"type"`
 	UserInfoBinding        *string  `pulumi:"userInfoBinding"`
 	UserInfoUrl            *string  `pulumi:"userInfoUrl"`
+	UserTypeId             *string  `pulumi:"userTypeId"`
 	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
 }
 
@@ -200,6 +202,7 @@ type IdpState struct {
 	Type                   pulumi.StringPtrInput
 	UserInfoBinding        pulumi.StringPtrInput
 	UserInfoUrl            pulumi.StringPtrInput
+	UserTypeId             pulumi.StringPtrInput
 	UsernameTemplate       pulumi.StringPtrInput
 }
 

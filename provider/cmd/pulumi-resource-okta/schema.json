@@ -9584,6 +9584,9 @@
                 "userInfoUrl": {
                     "type": "string"
                 },
+                "userTypeId": {
+                    "type": "string"
+                },
                 "usernameTemplate": {
                     "type": "string"
                 }
@@ -9600,7 +9603,8 @@
                 "scopes",
                 "tokenBinding",
                 "tokenUrl",
-                "type"
+                "type",
+                "userTypeId"
             ],
             "inputProperties": {
                 "accountLinkAction": {
@@ -9857,6 +9861,9 @@
                         "type": "string"
                     },
                     "userInfoUrl": {
+                        "type": "string"
+                    },
+                    "userTypeId": {
                         "type": "string"
                     },
                     "usernameTemplate": {
@@ -12753,6 +12760,9 @@
                 "type": {
                     "type": "string"
                 },
+                "userTypeId": {
+                    "type": "string"
+                },
                 "usernameTemplate": {
                     "type": "string"
                 }
@@ -12763,7 +12773,8 @@
                 "kid",
                 "name",
                 "ssoUrl",
-                "type"
+                "type",
+                "userTypeId"
             ],
             "inputProperties": {
                 "accountLinkAction": {
@@ -13000,6 +13011,9 @@
                         "type": "string"
                     },
                     "type": {
+                        "type": "string"
+                    },
+                    "userTypeId": {
                         "type": "string"
                     },
                     "usernameTemplate": {
@@ -15858,6 +15872,10 @@
                     "type": "string",
                     "description": "Protected resource endpoint that returns claims about the authenticated user.\n"
                 },
+                "userTypeId": {
+                    "type": "string",
+                    "description": "User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.\n"
+                },
                 "usernameTemplate": {
                     "type": "string",
                     "description": "Okta EL Expression to generate or transform a unique username for the IdP user.\n"
@@ -15875,7 +15893,8 @@
                 "scopes",
                 "tokenBinding",
                 "tokenUrl",
-                "type"
+                "type",
+                "userTypeId"
             ],
             "inputProperties": {
                 "accountLinkAction": {
@@ -16188,6 +16207,10 @@
                         "type": "string",
                         "description": "Protected resource endpoint that returns claims about the authenticated user.\n"
                     },
+                    "userTypeId": {
+                        "type": "string",
+                        "description": "User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.\n"
+                    },
                     "usernameTemplate": {
                         "type": "string",
                         "description": "Okta EL Expression to generate or transform a unique username for the IdP user.\n"
@@ -16339,6 +16362,10 @@
                     "type": "string",
                     "description": "Type of the IdP.\n"
                 },
+                "userTypeId": {
+                    "type": "string",
+                    "description": "User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.\n"
+                },
                 "usernameTemplate": {
                     "type": "string",
                     "description": "Okta EL Expression to generate or transform a unique username for the IdP user.\n"
@@ -16350,7 +16377,8 @@
                 "kid",
                 "name",
                 "ssoUrl",
-                "type"
+                "type",
+                "userTypeId"
             ],
             "inputProperties": {
                 "accountLinkAction": {
@@ -16637,6 +16665,10 @@
                     "type": {
                         "type": "string",
                         "description": "Type of the IdP.\n"
+                    },
+                    "userTypeId": {
+                        "type": "string",
+                        "description": "User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.\n"
                     },
                     "usernameTemplate": {
                         "type": "string",
@@ -24756,7 +24788,7 @@
                 },
                 "identityProvider": {
                     "type": "string",
-                    "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`. Default is `\"ANY\"`.\n"
+                    "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`.\n"
                 },
                 "identityProviderIds": {
                     "type": "array",
@@ -24877,7 +24909,7 @@
                 },
                 "identityProvider": {
                     "type": "string",
-                    "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`. Default is `\"ANY\"`.\n"
+                    "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`.\n"
                 },
                 "identityProviderIds": {
                     "type": "array",
@@ -24996,7 +25028,7 @@
                     },
                     "identityProvider": {
                         "type": "string",
-                        "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`. Default is `\"ANY\"`.\n"
+                        "description": "Defines the identity provider for this rule. Valid values are `\"ANY\"`, `\"OKTA\"`, and `\"SPECIFIC_IDP\"`.\n"
                     },
                     "identityProviderIds": {
                         "type": "array",
@@ -25948,6 +25980,10 @@
                     "type": "string",
                     "description": "User profile property.\n"
                 },
+                "expirePasswordOnCreate": {
+                    "type": "boolean",
+                    "description": "If set to `true`, the user will have to change the password at the next login. This property will be used\nwhen user is being created and works only when `password` field is set. Default is `false`.\n"
+                },
                 "firstName": {
                     "type": "string",
                     "description": "User's First Name, required by default.\n"
@@ -26133,6 +26169,10 @@
                     "type": "string",
                     "description": "User profile property.\n"
                 },
+                "expirePasswordOnCreate": {
+                    "type": "boolean",
+                    "description": "If set to `true`, the user will have to change the password at the next login. This property will be used\nwhen user is being created and works only when `password` field is set. Default is `false`.\n"
+                },
                 "firstName": {
                     "type": "string",
                     "description": "User's First Name, required by default.\n"
@@ -26314,6 +26354,10 @@
                     "employeeNumber": {
                         "type": "string",
                         "description": "User profile property.\n"
+                    },
+                    "expirePasswordOnCreate": {
+                        "type": "boolean",
+                        "description": "If set to `true`, the user will have to change the password at the next login. This property will be used\nwhen user is being created and works only when `password` field is set. Default is `false`.\n"
                     },
                     "firstName": {
                         "type": "string",

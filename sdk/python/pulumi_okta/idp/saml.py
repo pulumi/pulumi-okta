@@ -545,6 +545,7 @@ class _SamlState:
                  subject_match_type: Optional[pulumi.Input[str]] = None,
                  suspended_action: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_type_id: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
@@ -579,6 +580,7 @@ class _SamlState:
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] type: Type of the IdP.
+        :param pulumi.Input[str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         if account_link_action is not None:
@@ -648,6 +650,8 @@ class _SamlState:
             pulumi.set(__self__, "suspended_action", suspended_action)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_type_id is not None:
+            pulumi.set(__self__, "user_type_id", user_type_id)
         if username_template is not None:
             pulumi.set(__self__, "username_template", username_template)
 
@@ -1033,6 +1037,18 @@ class _SamlState:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
+        """
+        return pulumi.get(self, "user_type_id")
+
+    @user_type_id.setter
+    def user_type_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_type_id", value)
+
+    @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1283,6 +1299,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["username_template"] = username_template
             __props__.__dict__["audience"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["user_type_id"] = None
         super(Saml, __self__).__init__(
             'okta:idp/saml:Saml',
             resource_name,
@@ -1325,6 +1342,7 @@ class Saml(pulumi.CustomResource):
             subject_match_type: Optional[pulumi.Input[str]] = None,
             suspended_action: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
+            user_type_id: Optional[pulumi.Input[str]] = None,
             username_template: Optional[pulumi.Input[str]] = None) -> 'Saml':
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
@@ -1364,6 +1382,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] type: Type of the IdP.
+        :param pulumi.Input[str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1402,6 +1421,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["subject_match_type"] = subject_match_type
         __props__.__dict__["suspended_action"] = suspended_action
         __props__.__dict__["type"] = type
+        __props__.__dict__["user_type_id"] = user_type_id
         __props__.__dict__["username_template"] = username_template
         return Saml(resource_name, opts=opts, __props__=__props__)
 
@@ -1657,6 +1677,14 @@ class Saml(pulumi.CustomResource):
         Type of the IdP.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> pulumi.Output[str]:
+        """
+        User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
+        """
+        return pulumi.get(self, "user_type_id")
 
     @property
     @pulumi.getter(name="usernameTemplate")

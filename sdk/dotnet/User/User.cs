@@ -161,6 +161,13 @@ namespace Pulumi.Okta.User
         public Output<string?> EmployeeNumber { get; private set; } = null!;
 
         /// <summary>
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used
+        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// </summary>
+        [Output("expirePasswordOnCreate")]
+        public Output<bool?> ExpirePasswordOnCreate { get; private set; } = null!;
+
+        /// <summary>
         /// User's First Name, required by default.
         /// </summary>
         [Output("firstName")]
@@ -472,6 +479,13 @@ namespace Pulumi.Okta.User
         public Input<string>? EmployeeNumber { get; set; }
 
         /// <summary>
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used
+        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// </summary>
+        [Input("expirePasswordOnCreate")]
+        public Input<bool>? ExpirePasswordOnCreate { get; set; }
+
+        /// <summary>
         /// User's First Name, required by default.
         /// </summary>
         [Input("firstName", required: true)]
@@ -743,6 +757,13 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("employeeNumber")]
         public Input<string>? EmployeeNumber { get; set; }
+
+        /// <summary>
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used
+        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// </summary>
+        [Input("expirePasswordOnCreate")]
+        public Input<bool>? ExpirePasswordOnCreate { get; set; }
 
         /// <summary>
         /// User's First Name, required by default.

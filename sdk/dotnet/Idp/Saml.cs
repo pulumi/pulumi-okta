@@ -242,6 +242,12 @@ namespace Pulumi.Okta.Idp
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
+        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+        /// </summary>
+        [Output("userTypeId")]
+        public Output<string> UserTypeId { get; private set; } = null!;
+
+        /// <summary>
         /// Okta EL Expression to generate or transform a unique username for the IdP user.
         /// </summary>
         [Output("usernameTemplate")]
@@ -719,6 +725,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+        /// </summary>
+        [Input("userTypeId")]
+        public Input<string>? UserTypeId { get; set; }
 
         /// <summary>
         /// Okta EL Expression to generate or transform a unique username for the IdP user.
