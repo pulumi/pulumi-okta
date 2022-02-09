@@ -477,6 +477,7 @@ class _IdpState:
                  type: Optional[pulumi.Input[str]] = None,
                  user_info_binding: Optional[pulumi.Input[str]] = None,
                  user_info_url: Optional[pulumi.Input[str]] = None,
+                 user_type_id: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Idp resources.
@@ -555,6 +556,8 @@ class _IdpState:
             pulumi.set(__self__, "user_info_binding", user_info_binding)
         if user_info_url is not None:
             pulumi.set(__self__, "user_info_url", user_info_url)
+        if user_type_id is not None:
+            pulumi.set(__self__, "user_type_id", user_type_id)
         if username_template is not None:
             pulumi.set(__self__, "username_template", username_template)
 
@@ -883,6 +886,15 @@ class _IdpState:
         pulumi.set(self, "user_info_url", value)
 
     @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_type_id")
+
+    @user_type_id.setter
+    def user_type_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_type_id", value)
+
+    @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "username_template")
@@ -1067,6 +1079,7 @@ class Idp(pulumi.CustomResource):
             __props__.__dict__["user_info_url"] = user_info_url
             __props__.__dict__["username_template"] = username_template
             __props__.__dict__["type"] = None
+            __props__.__dict__["user_type_id"] = None
         super(Idp, __self__).__init__(
             'okta:deprecated/idp:Idp',
             resource_name,
@@ -1111,6 +1124,7 @@ class Idp(pulumi.CustomResource):
             type: Optional[pulumi.Input[str]] = None,
             user_info_binding: Optional[pulumi.Input[str]] = None,
             user_info_url: Optional[pulumi.Input[str]] = None,
+            user_type_id: Optional[pulumi.Input[str]] = None,
             username_template: Optional[pulumi.Input[str]] = None) -> 'Idp':
         """
         Get an existing Idp resource's state with the given name, id, and optional extra
@@ -1164,6 +1178,7 @@ class Idp(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         __props__.__dict__["user_info_binding"] = user_info_binding
         __props__.__dict__["user_info_url"] = user_info_url
+        __props__.__dict__["user_type_id"] = user_type_id
         __props__.__dict__["username_template"] = username_template
         return Idp(resource_name, opts=opts, __props__=__props__)
 
@@ -1354,6 +1369,11 @@ class Idp(pulumi.CustomResource):
     @pulumi.getter(name="userInfoUrl")
     def user_info_url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "user_info_url")
+
+    @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "user_type_id")
 
     @property
     @pulumi.getter(name="usernameTemplate")

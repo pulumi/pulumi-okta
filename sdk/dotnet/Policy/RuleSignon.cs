@@ -157,7 +157,7 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
         /// </summary>
         [Output("identityProvider")]
         public Output<string?> IdentityProvider { get; private set; } = null!;
@@ -361,7 +361,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }

@@ -202,6 +202,10 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly userInfoUrl!: pulumi.Output<string | undefined>;
     /**
+     * User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
+     */
+    public /*out*/ readonly userTypeId!: pulumi.Output<string>;
+    /**
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      */
     public readonly usernameTemplate!: pulumi.Output<string | undefined>;
@@ -253,6 +257,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userInfoBinding"] = state ? state.userInfoBinding : undefined;
             resourceInputs["userInfoUrl"] = state ? state.userInfoUrl : undefined;
+            resourceInputs["userTypeId"] = state ? state.userTypeId : undefined;
             resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as OidcArgs | undefined;
@@ -321,6 +326,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["userInfoUrl"] = args ? args.userInfoUrl : undefined;
             resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Oidc.__pulumiType, name, resourceInputs, opts);
@@ -464,6 +470,10 @@ export interface OidcState {
      * Protected resource endpoint that returns claims about the authenticated user.
      */
     userInfoUrl?: pulumi.Input<string>;
+    /**
+     * User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
+     */
+    userTypeId?: pulumi.Input<string>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      */

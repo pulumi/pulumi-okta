@@ -449,6 +449,7 @@ class _SamlIdpState:
                  subject_match_type: Optional[pulumi.Input[str]] = None,
                  suspended_action: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 user_type_id: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SamlIdp resources.
@@ -526,6 +527,8 @@ class _SamlIdpState:
             pulumi.set(__self__, "suspended_action", suspended_action)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_type_id is not None:
+            pulumi.set(__self__, "user_type_id", user_type_id)
         if username_template is not None:
             pulumi.set(__self__, "username_template", username_template)
 
@@ -836,6 +839,15 @@ class _SamlIdpState:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_type_id")
+
+    @user_type_id.setter
+    def user_type_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_type_id", value)
+
+    @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "username_template")
@@ -1001,6 +1013,7 @@ class SamlIdp(pulumi.CustomResource):
             __props__.__dict__["username_template"] = username_template
             __props__.__dict__["audience"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["user_type_id"] = None
         super(SamlIdp, __self__).__init__(
             'okta:deprecated/samlIdp:SamlIdp',
             resource_name,
@@ -1043,6 +1056,7 @@ class SamlIdp(pulumi.CustomResource):
             subject_match_type: Optional[pulumi.Input[str]] = None,
             suspended_action: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
+            user_type_id: Optional[pulumi.Input[str]] = None,
             username_template: Optional[pulumi.Input[str]] = None) -> 'SamlIdp':
         """
         Get an existing SamlIdp resource's state with the given name, id, and optional extra
@@ -1094,6 +1108,7 @@ class SamlIdp(pulumi.CustomResource):
         __props__.__dict__["subject_match_type"] = subject_match_type
         __props__.__dict__["suspended_action"] = suspended_action
         __props__.__dict__["type"] = type
+        __props__.__dict__["user_type_id"] = user_type_id
         __props__.__dict__["username_template"] = username_template
         return SamlIdp(resource_name, opts=opts, __props__=__props__)
 
@@ -1274,6 +1289,11 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userTypeId")
+    def user_type_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "user_type_id")
 
     @property
     @pulumi.getter(name="usernameTemplate")

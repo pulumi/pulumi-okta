@@ -133,7 +133,7 @@ type RuleSignon struct {
 	Behaviors pulumi.StringArrayOutput `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayOutput `pulumi:"factorSequences"`
-	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
 	IdentityProvider pulumi.StringPtrOutput `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayOutput `pulumi:"identityProviderIds"`
@@ -216,7 +216,7 @@ type ruleSignonState struct {
 	Behaviors []string `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
-	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds []string `pulumi:"identityProviderIds"`
@@ -271,7 +271,7 @@ type RuleSignonState struct {
 	Behaviors pulumi.StringArrayInput
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
-	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
 	IdentityProvider pulumi.StringPtrInput
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayInput
@@ -330,7 +330,7 @@ type ruleSignonArgs struct {
 	Behaviors []string `pulumi:"behaviors"`
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
-	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds []string `pulumi:"identityProviderIds"`
@@ -386,7 +386,7 @@ type RuleSignonArgs struct {
 	Behaviors pulumi.StringArrayInput
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
-	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
 	IdentityProvider pulumi.StringPtrInput
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayInput

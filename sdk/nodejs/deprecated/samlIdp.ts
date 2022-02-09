@@ -85,6 +85,7 @@ export class SamlIdp extends pulumi.CustomResource {
     public readonly subjectMatchType!: pulumi.Output<string | undefined>;
     public readonly suspendedAction!: pulumi.Output<string | undefined>;
     public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly userTypeId!: pulumi.Output<string>;
     public readonly usernameTemplate!: pulumi.Output<string | undefined>;
 
     /**
@@ -132,6 +133,7 @@ export class SamlIdp extends pulumi.CustomResource {
             resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
             resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userTypeId"] = state ? state.userTypeId : undefined;
             resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlIdpArgs | undefined;
@@ -177,6 +179,7 @@ export class SamlIdp extends pulumi.CustomResource {
             resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
             resourceInputs["audience"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SamlIdp.__pulumiType, name, resourceInputs, opts);
@@ -240,6 +243,7 @@ export interface SamlIdpState {
     subjectMatchType?: pulumi.Input<string>;
     suspendedAction?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
+    userTypeId?: pulumi.Input<string>;
     usernameTemplate?: pulumi.Input<string>;
 }
 

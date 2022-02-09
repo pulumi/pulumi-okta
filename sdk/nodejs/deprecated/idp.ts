@@ -84,6 +84,7 @@ export class Idp extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
     public readonly userInfoBinding!: pulumi.Output<string | undefined>;
     public readonly userInfoUrl!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly userTypeId!: pulumi.Output<string>;
     public readonly usernameTemplate!: pulumi.Output<string | undefined>;
 
     /**
@@ -133,6 +134,7 @@ export class Idp extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userInfoBinding"] = state ? state.userInfoBinding : undefined;
             resourceInputs["userInfoUrl"] = state ? state.userInfoUrl : undefined;
+            resourceInputs["userTypeId"] = state ? state.userTypeId : undefined;
             resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as IdpArgs | undefined;
@@ -201,6 +203,7 @@ export class Idp extends pulumi.CustomResource {
             resourceInputs["userInfoUrl"] = args ? args.userInfoUrl : undefined;
             resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Idp.__pulumiType, name, resourceInputs, opts);
@@ -263,6 +266,7 @@ export interface IdpState {
     type?: pulumi.Input<string>;
     userInfoBinding?: pulumi.Input<string>;
     userInfoUrl?: pulumi.Input<string>;
+    userTypeId?: pulumi.Input<string>;
     usernameTemplate?: pulumi.Input<string>;
 }
 

@@ -120,6 +120,8 @@ type Saml struct {
 	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
 	// Type of the IdP.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId pulumi.StringOutput `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
@@ -226,6 +228,8 @@ type samlState struct {
 	SuspendedAction *string `pulumi:"suspendedAction"`
 	// Type of the IdP.
 	Type *string `pulumi:"type"`
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId *string `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
@@ -295,6 +299,8 @@ type SamlState struct {
 	SuspendedAction pulumi.StringPtrInput
 	// Type of the IdP.
 	Type pulumi.StringPtrInput
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId pulumi.StringPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrInput
 }
