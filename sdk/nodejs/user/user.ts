@@ -148,6 +148,11 @@ export class User extends pulumi.CustomResource {
      */
     public readonly employeeNumber!: pulumi.Output<string | undefined>;
     /**
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
+     */
+    public readonly expirePasswordOnCreate!: pulumi.Output<boolean | undefined>;
+    /**
      * User's First Name, required by default.
      */
     public readonly firstName!: pulumi.Output<string>;
@@ -306,6 +311,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["division"] = state ? state.division : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["employeeNumber"] = state ? state.employeeNumber : undefined;
+            resourceInputs["expirePasswordOnCreate"] = state ? state.expirePasswordOnCreate : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
             resourceInputs["groupMemberships"] = state ? state.groupMemberships : undefined;
             resourceInputs["honorificPrefix"] = state ? state.honorificPrefix : undefined;
@@ -362,6 +368,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["division"] = args ? args.division : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["employeeNumber"] = args ? args.employeeNumber : undefined;
+            resourceInputs["expirePasswordOnCreate"] = args ? args.expirePasswordOnCreate : undefined;
             resourceInputs["firstName"] = args ? args.firstName : undefined;
             resourceInputs["groupMemberships"] = args ? args.groupMemberships : undefined;
             resourceInputs["honorificPrefix"] = args ? args.honorificPrefix : undefined;
@@ -447,6 +454,11 @@ export interface UserState {
      * User profile property.
      */
     employeeNumber?: pulumi.Input<string>;
+    /**
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
+     */
+    expirePasswordOnCreate?: pulumi.Input<boolean>;
     /**
      * User's First Name, required by default.
      */
@@ -631,6 +643,11 @@ export interface UserArgs {
      * User profile property.
      */
     employeeNumber?: pulumi.Input<string>;
+    /**
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
+     */
+    expirePasswordOnCreate?: pulumi.Input<boolean>;
     /**
      * User's First Name, required by default.
      */

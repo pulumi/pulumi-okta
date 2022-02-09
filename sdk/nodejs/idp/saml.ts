@@ -193,6 +193,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
+     * User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
+     */
+    public /*out*/ readonly userTypeId!: pulumi.Output<string>;
+    /**
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      */
     public readonly usernameTemplate!: pulumi.Output<string | undefined>;
@@ -242,6 +246,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
             resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userTypeId"] = state ? state.userTypeId : undefined;
             resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
@@ -287,6 +292,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
             resourceInputs["audience"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Saml.__pulumiType, name, resourceInputs, opts);
@@ -425,6 +431,10 @@ export interface SamlState {
      * Type of the IdP.
      */
     type?: pulumi.Input<string>;
+    /**
+     * User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
+     */
+    userTypeId?: pulumi.Input<string>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      */

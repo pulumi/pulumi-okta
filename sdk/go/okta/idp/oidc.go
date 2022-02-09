@@ -129,6 +129,8 @@ type Oidc struct {
 	UserInfoBinding pulumi.StringPtrOutput `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl pulumi.StringPtrOutput `pulumi:"userInfoUrl"`
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId pulumi.StringOutput `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
@@ -259,6 +261,8 @@ type oidcState struct {
 	UserInfoBinding *string `pulumi:"userInfoBinding"`
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl *string `pulumi:"userInfoUrl"`
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId *string `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
@@ -331,6 +335,8 @@ type OidcState struct {
 	UserInfoBinding pulumi.StringPtrInput
 	// Protected resource endpoint that returns claims about the authenticated user.
 	UserInfoUrl pulumi.StringPtrInput
+	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+	UserTypeId pulumi.StringPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate pulumi.StringPtrInput
 }

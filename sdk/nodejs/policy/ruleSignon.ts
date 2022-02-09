@@ -142,7 +142,7 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly factorSequences!: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
      */
     public readonly identityProvider!: pulumi.Output<string | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface RuleSignonState {
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
      */
     identityProvider?: pulumi.Input<string>;
     /**
@@ -422,7 +422,7 @@ export interface RuleSignonArgs {
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`. Default is `"ANY"`.
+     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
      */
     identityProvider?: pulumi.Input<string>;
     /**
