@@ -110,6 +110,7 @@ jobs:
       uses: jungwinter/comment@v1
       with:
         type: create
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
         body: |
           Failed to automatically update upstream provider (probably beacuse of new resources or data sources, which must be mapped manually).
           
