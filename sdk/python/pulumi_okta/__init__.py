@@ -158,6 +158,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "app/oAuthPostLogoutRedirectUri",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": "OAuthPostLogoutRedirectUri"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/oAuthRedirectUri",
   "fqn": "pulumi_okta.app",
   "classes": {

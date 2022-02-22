@@ -5042,6 +5042,51 @@
                 "type": "object"
             }
         },
+        "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": {
+            "description": "This resource allows you to manage post logout redirection URI for use in redirect-based flows.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testOAuth = new okta.app.OAuth(\"testOAuth\", {\n    label: \"testAcc_replace_with_uuid\",\n    type: \"web\",\n    grantTypes: [\"authorization_code\"],\n    responseTypes: [\"code\"],\n    redirectUris: [\"myapp://callback\"],\n    postLogoutRedirectUris: [\"https://www.example.com\"],\n});\nconst testOAuthPostLogoutRedirectUri = new okta.app.OAuthPostLogoutRedirectUri(\"testOAuthPostLogoutRedirectUri\", {\n    appId: testOAuth.id,\n    uri: \"https://www.example.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_o_auth = okta.app.OAuth(\"testOAuth\",\n    label=\"testAcc_replace_with_uuid\",\n    type=\"web\",\n    grant_types=[\"authorization_code\"],\n    response_types=[\"code\"],\n    redirect_uris=[\"myapp://callback\"],\n    post_logout_redirect_uris=[\"https://www.example.com\"])\ntest_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri(\"testOAuthPostLogoutRedirectUri\",\n    app_id=test_o_auth.id,\n    uri=\"https://www.example.com\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testOAuth = new Okta.App.OAuth(\"testOAuth\", new Okta.App.OAuthArgs\n        {\n            Label = \"testAcc_replace_with_uuid\",\n            Type = \"web\",\n            GrantTypes = \n            {\n                \"authorization_code\",\n            },\n            ResponseTypes = \n            {\n                \"code\",\n            },\n            RedirectUris = \n            {\n                \"myapp://callback\",\n            },\n            PostLogoutRedirectUris = \n            {\n                \"https://www.example.com\",\n            },\n        });\n        var testOAuthPostLogoutRedirectUri = new Okta.App.OAuthPostLogoutRedirectUri(\"testOAuthPostLogoutRedirectUri\", new Okta.App.OAuthPostLogoutRedirectUriArgs\n        {\n            AppId = testOAuth.Id,\n            Uri = \"https://www.example.com\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestOAuth, err := app.NewOAuth(ctx, \"testOAuth\", \u0026app.OAuthArgs{\n\t\t\tLabel: pulumi.String(\"testAcc_replace_with_uuid\"),\n\t\t\tType:  pulumi.String(\"web\"),\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"authorization_code\"),\n\t\t\t},\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"code\"),\n\t\t\t},\n\t\t\tRedirectUris: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myapp://callback\"),\n\t\t\t},\n\t\t\tPostLogoutRedirectUris: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://www.example.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewOAuthPostLogoutRedirectUri(ctx, \"testOAuthPostLogoutRedirectUri\", \u0026app.OAuthPostLogoutRedirectUriArgs{\n\t\t\tAppId: testOAuth.ID(),\n\t\t\tUri:   pulumi.String(\"https://www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA post logout redirect URI can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example \u003capp id\u003e/\u003curi\u003e\n```\n\n ",
+            "properties": {
+                "appId": {
+                    "type": "string",
+                    "description": "OAuth application ID.\n"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "Post Logout Redirect URI to append to Okta OIDC application.\n"
+                }
+            },
+            "required": [
+                "appId",
+                "uri"
+            ],
+            "inputProperties": {
+                "appId": {
+                    "type": "string",
+                    "description": "OAuth application ID.\n"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "Post Logout Redirect URI to append to Okta OIDC application.\n"
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "uri"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OAuthPostLogoutRedirectUri resources.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "OAuth application ID.\n"
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "Post Logout Redirect URI to append to Okta OIDC application.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:app/oAuthRedirectUri:OAuthRedirectUri": {
             "description": "This resource allows you to manage redirection URI for use in redirect-based flows.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testOAuth = new okta.app.OAuth(\"testOAuth\", {\n    label: \"testAcc_replace_with_uuid\",\n    type: \"web\",\n    grantTypes: [\"authorization_code\"],\n    responseTypes: [\"code\"],\n    redirectUris: [\"myapp://callback\"],\n});\nconst testOAuthRedirectUri = new okta.app.OAuthRedirectUri(\"testOAuthRedirectUri\", {\n    appId: testOAuth.id,\n    uri: \"http://google.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_o_auth = okta.app.OAuth(\"testOAuth\",\n    label=\"testAcc_replace_with_uuid\",\n    type=\"web\",\n    grant_types=[\"authorization_code\"],\n    response_types=[\"code\"],\n    redirect_uris=[\"myapp://callback\"])\ntest_o_auth_redirect_uri = okta.app.OAuthRedirectUri(\"testOAuthRedirectUri\",\n    app_id=test_o_auth.id,\n    uri=\"http://google.com\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testOAuth = new Okta.App.OAuth(\"testOAuth\", new Okta.App.OAuthArgs\n        {\n            Label = \"testAcc_replace_with_uuid\",\n            Type = \"web\",\n            GrantTypes = \n            {\n                \"authorization_code\",\n            },\n            ResponseTypes = \n            {\n                \"code\",\n            },\n            RedirectUris = \n            {\n                \"myapp://callback\",\n            },\n        });\n        var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri(\"testOAuthRedirectUri\", new Okta.App.OAuthRedirectUriArgs\n        {\n            AppId = testOAuth.Id,\n            Uri = \"http://google.com\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestOAuth, err := app.NewOAuth(ctx, \"testOAuth\", \u0026app.OAuthArgs{\n\t\t\tLabel: pulumi.String(\"testAcc_replace_with_uuid\"),\n\t\t\tType:  pulumi.String(\"web\"),\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"authorization_code\"),\n\t\t\t},\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"code\"),\n\t\t\t},\n\t\t\tRedirectUris: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myapp://callback\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewOAuthRedirectUri(ctx, \"testOAuthRedirectUri\", \u0026app.OAuthRedirectUriArgs{\n\t\t\tAppId: testOAuth.ID(),\n\t\t\tUri:   pulumi.String(\"http://google.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA redirect URI can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example \u003capp id\u003e/\u003curi\u003e\n```\n\n ",
             "properties": {

@@ -14,6 +14,7 @@ export * from "./getOauth";
 export * from "./getSaml";
 export * from "./groupAssignment";
 export * from "./oauth";
+export * from "./oauthPostLogoutRedirectUri";
 export * from "./oauthRedirectUri";
 export * from "./saml";
 export * from "./securePasswordStore";
@@ -29,6 +30,7 @@ import { BasicAuth } from "./basicAuth";
 import { Bookmark } from "./bookmark";
 import { GroupAssignment } from "./groupAssignment";
 import { OAuth } from "./oauth";
+import { OAuthPostLogoutRedirectUri } from "./oauthPostLogoutRedirectUri";
 import { OAuthRedirectUri } from "./oauthRedirectUri";
 import { Saml } from "./saml";
 import { SecurePasswordStore } from "./securePasswordStore";
@@ -52,6 +54,8 @@ const _module = {
                 return new GroupAssignment(name, <any>undefined, { urn })
             case "okta:app/oAuth:OAuth":
                 return new OAuth(name, <any>undefined, { urn })
+            case "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri":
+                return new OAuthPostLogoutRedirectUri(name, <any>undefined, { urn })
             case "okta:app/oAuthRedirectUri:OAuthRedirectUri":
                 return new OAuthRedirectUri(name, <any>undefined, { urn })
             case "okta:app/saml:Saml":
@@ -78,6 +82,7 @@ pulumi.runtime.registerResourceModule("okta", "app/basicAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/bookmark", _module)
 pulumi.runtime.registerResourceModule("okta", "app/groupAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuth", _module)
+pulumi.runtime.registerResourceModule("okta", "app/oAuthPostLogoutRedirectUri", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuthRedirectUri", _module)
 pulumi.runtime.registerResourceModule("okta", "app/saml", _module)
 pulumi.runtime.registerResourceModule("okta", "app/securePasswordStore", _module)
