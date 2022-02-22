@@ -113,7 +113,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(appMod, "OAuth"),
 				Docs: &tfbridge.DocInfo{Source: "app_oauth.html.markdown"},
 			},
-			"okta_app_oauth_redirect_uri": {Tok: makeResource(appMod, "OAuthRedirectUri")},
+			"okta_app_oauth_redirect_uri":             {Tok: makeResource(appMod, "OAuthRedirectUri")},
+			"okta_app_oauth_post_logout_redirect_uri": {Tok: makeResource(appMod, "OAuthPostLogoutRedirectUri")},
 			"okta_app_saml": {
 				Tok:  makeResource(appMod, "Saml"),
 				Docs: &tfbridge.DocInfo{Source: "app_saml.html.markdown"},

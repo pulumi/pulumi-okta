@@ -26,6 +26,7 @@
         "app/groupAssignment.ts",
         "app/index.ts",
         "app/oauth.ts",
+        "app/oauthPostLogoutRedirectUri.ts",
         "app/oauthRedirectUri.ts",
         "app/saml.ts",
         "app/securePasswordStore.ts",

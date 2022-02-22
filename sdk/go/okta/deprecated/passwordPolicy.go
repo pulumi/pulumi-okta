@@ -13,7 +13,7 @@ import (
 type PasswordPolicy struct {
 	pulumi.CustomResourceState
 
-	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+	// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
 	AuthProvider pulumi.StringPtrOutput `pulumi:"authProvider"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrOutput `pulumi:"callRecovery"`
@@ -106,7 +106,7 @@ func GetPasswordPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PasswordPolicy resources.
 type passwordPolicyState struct {
-	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+	// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
 	AuthProvider *string `pulumi:"authProvider"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
 	CallRecovery *string `pulumi:"callRecovery"`
@@ -171,7 +171,7 @@ type passwordPolicyState struct {
 }
 
 type PasswordPolicyState struct {
-	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+	// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
 	AuthProvider pulumi.StringPtrInput
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrInput
@@ -240,7 +240,7 @@ func (PasswordPolicyState) ElementType() reflect.Type {
 }
 
 type passwordPolicyArgs struct {
-	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+	// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
 	AuthProvider *string `pulumi:"authProvider"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
 	CallRecovery *string `pulumi:"callRecovery"`
@@ -306,7 +306,7 @@ type passwordPolicyArgs struct {
 
 // The set of arguments for constructing a PasswordPolicy resource.
 type PasswordPolicyArgs struct {
-	// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+	// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
 	AuthProvider pulumi.StringPtrInput
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrInput

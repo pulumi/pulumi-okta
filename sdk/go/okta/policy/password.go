@@ -52,7 +52,7 @@ import (
 type Password struct {
 	pulumi.CustomResourceState
 
-	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+	// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrOutput `pulumi:"authProvider"`
 	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrOutput `pulumi:"callRecovery"`
@@ -143,7 +143,7 @@ func GetPassword(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Password resources.
 type passwordState struct {
-	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+	// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
 	AuthProvider *string `pulumi:"authProvider"`
 	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
 	CallRecovery *string `pulumi:"callRecovery"`
@@ -206,7 +206,7 @@ type passwordState struct {
 }
 
 type PasswordState struct {
-	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+	// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrInput
 	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrInput
@@ -273,7 +273,7 @@ func (PasswordState) ElementType() reflect.Type {
 }
 
 type passwordArgs struct {
-	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+	// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
 	AuthProvider *string `pulumi:"authProvider"`
 	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
 	CallRecovery *string `pulumi:"callRecovery"`
@@ -337,7 +337,7 @@ type passwordArgs struct {
 
 // The set of arguments for constructing a Password resource.
 type PasswordArgs struct {
-	// Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+	// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
 	AuthProvider pulumi.StringPtrInput
 	// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
 	CallRecovery pulumi.StringPtrInput

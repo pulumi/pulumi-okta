@@ -60,7 +60,7 @@ export class Password extends pulumi.CustomResource {
     }
 
     /**
-     * Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
      */
     public readonly authProvider!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export class Password extends pulumi.CustomResource {
  */
 export interface PasswordState {
     /**
-     * Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
      */
     authProvider?: pulumi.Input<string>;
     /**
@@ -392,7 +392,7 @@ export interface PasswordState {
  */
 export interface PasswordArgs {
     /**
-     * Authentication Provider: `"OKTA"` or `"ACTIVE_DIRECTORY"`. Default is `"OKTA"`.
+     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
      */
     authProvider?: pulumi.Input<string>;
     /**

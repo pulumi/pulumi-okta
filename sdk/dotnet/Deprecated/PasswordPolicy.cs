@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Deprecated
     public partial class PasswordPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Output("authProvider")]
         public Output<string?> AuthProvider { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Okta.Deprecated
     public sealed class PasswordPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.Okta.Deprecated
     public sealed class PasswordPolicyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }

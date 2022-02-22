@@ -469,6 +469,86 @@ class RuleMfa(pulumi.CustomResource):
             ])
         ```
 
+        Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )])
+        ```
+
+        Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )],
+            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
+                id="some_app_id",
+                type="APP",
+            )])
+        ```
+
+        Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )])
+        ```
+
+        Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa", policy_id=example_default_policy.id)
+        ```
+
+        Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_includes=[
+                okta.policy.RuleMfaAppIncludeArgs(
+                    name="okta",
+                    type="APP_TYPE",
+                ),
+                okta.policy.RuleMfaAppIncludeArgs(
+                    id="some_app_id",
+                    type="APP",
+                ),
+            ])
+        ```
+
         ## Import
 
         A Policy Rule can be imported via the Policy and Rule ID.
@@ -527,6 +607,86 @@ class RuleMfa(pulumi.CustomResource):
                 okta.policy.RuleMfaAppIncludeArgs(
                     type="APP_TYPE",
                     name="yahoo_mail",
+                ),
+            ])
+        ```
+
+        Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )])
+        ```
+
+        Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )],
+            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
+                id="some_app_id",
+                type="APP",
+            )])
+        ```
+
+        Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
+                name="okta",
+                type="APP_TYPE",
+            )])
+        ```
+
+        Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa", policy_id=example_default_policy.id)
+        ```
+
+        Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
+        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
+            policy_id=example_default_policy.id,
+            app_includes=[
+                okta.policy.RuleMfaAppIncludeArgs(
+                    name="okta",
+                    type="APP_TYPE",
+                ),
+                okta.policy.RuleMfaAppIncludeArgs(
+                    id="some_app_id",
+                    type="APP",
                 ),
             ])
         ```

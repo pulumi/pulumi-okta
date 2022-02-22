@@ -14,6 +14,7 @@ from .get_oauth import *
 from .get_saml import *
 from .group_assignment import *
 from .o_auth import *
+from .o_auth_post_logout_redirect_uri import *
 from .o_auth_redirect_uri import *
 from .saml import *
 from .secure_password_store import *

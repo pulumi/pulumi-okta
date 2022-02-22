@@ -62,6 +62,8 @@ type LookupServerPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+	// the priority of the Auth Server Policy.
+	Priority int `pulumi:"priority"`
 }
 
 func LookupServerPolicyOutput(ctx *pulumi.Context, args LookupServerPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerPolicyResultOutput {
@@ -121,6 +123,11 @@ func (o LookupServerPolicyResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupServerPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the priority of the Auth Server Policy.
+func (o LookupServerPolicyResultOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServerPolicyResult) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 func init() {

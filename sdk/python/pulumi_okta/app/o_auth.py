@@ -93,6 +93,7 @@ class OAuthArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
@@ -497,6 +498,7 @@ class OAuthArgs:
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -887,6 +889,7 @@ class _OAuthState:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -1294,6 +1297,7 @@ class _OAuthState:
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -1799,6 +1803,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -2126,6 +2131,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -2393,6 +2399,7 @@ class OAuth(pulumi.CustomResource):
     def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 

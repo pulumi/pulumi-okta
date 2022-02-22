@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates an IdP Discovery Policy Rule.
-    /// 
     /// This resource allows you to create and configure an IdP Discovery Policy Rule.
     /// 
     /// ## Example Usage
@@ -24,8 +22,21 @@ namespace Pulumi.Okta.Policy
     /// {
     ///     public MyStack()
     ///     {
+    ///         var idpDiscoveryPolicy = Output.Create(Okta.Policy.GetPolicy.InvokeAsync(new Okta.Policy.GetPolicyArgs
+    ///         {
+    ///             Name = "Idp Discovery Policy",
+    ///             Type = "IDP_DISCOVERY",
+    ///         }));
     ///         var example = new Okta.Policy.RuleIdpDiscovery("example", new Okta.Policy.RuleIdpDiscoveryArgs
     ///         {
+    ///             PolicyId = idpDiscoveryPolicy.Apply(idpDiscoveryPolicy =&gt; idpDiscoveryPolicy.Id),
+    ///             IdpId = "&lt;idp id&gt;",
+    ///             IdpType = "OIDC",
+    ///             NetworkConnection = "ANYWHERE",
+    ///             Priority = 1,
+    ///             Status = "ACTIVE",
+    ///             UserIdentifierType = "ATTRIBUTE",
+    ///             UserIdentifierAttribute = "company",
     ///             AppExcludes = 
     ///             {
     ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
@@ -52,21 +63,14 @@ namespace Pulumi.Okta.Policy
     ///                     Type = "APP_TYPE",
     ///                 },
     ///             },
-    ///             IdpId = "&lt;idp id&gt;",
-    ///             IdpType = "OIDC",
-    ///             NetworkConnection = "ANYWHERE",
     ///             PlatformIncludes = 
     ///             {
     ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs
     ///                 {
-    ///                     OsType = "OSX",
     ///                     Type = "MOBILE",
+    ///                     OsType = "OSX",
     ///                 },
     ///             },
-    ///             PolicyId = "&lt;policy id&gt;",
-    ///             Priority = 1,
-    ///             Status = "ACTIVE",
-    ///             UserIdentifierAttribute = "company",
     ///             UserIdentifierPatterns = 
     ///             {
     ///                 new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs
@@ -75,7 +79,6 @@ namespace Pulumi.Okta.Policy
     ///                     Value = "Articulate",
     ///                 },
     ///             },
-    ///             UserIdentifierType = "ATTRIBUTE",
     ///         });
     ///     }
     /// 

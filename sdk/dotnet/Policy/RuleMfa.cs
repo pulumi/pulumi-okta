@@ -68,6 +68,166 @@ namespace Pulumi.Okta.Policy
     /// }
     /// ```
     /// 
+    /// Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///             AppExcludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
+    ///                 {
+    ///                     Name = "okta",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///             AppExcludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
+    ///                 {
+    ///                     Name = "okta",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///             },
+    ///             AppIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Id = "some_app_id",
+    ///                     Type = "APP",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///             AppIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Name = "okta",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
+    ///         {
+    ///             Type = "MFA_ENROLL",
+    ///         }));
+    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
+    ///         {
+    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
+    ///             AppIncludes = 
+    ///             {
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Name = "okta",
+    ///                     Type = "APP_TYPE",
+    ///                 },
+    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///                 {
+    ///                     Id = "some_app_id",
+    ///                     Type = "APP",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Policy Rule can be imported via the Policy and Rule ID.

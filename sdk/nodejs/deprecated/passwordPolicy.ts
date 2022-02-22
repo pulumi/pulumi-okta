@@ -33,7 +33,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+     * Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
      */
     public readonly authProvider!: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
  */
 export interface PasswordPolicyState {
     /**
-     * Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+     * Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
      */
     authProvider?: pulumi.Input<string>;
     /**
@@ -369,7 +369,7 @@ export interface PasswordPolicyState {
  */
 export interface PasswordPolicyArgs {
     /**
-     * Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+     * Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
      */
     authProvider?: pulumi.Input<string>;
     /**

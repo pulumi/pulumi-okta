@@ -20,7 +20,7 @@ class GetServerPolicyResult:
     """
     A collection of values returned by getServerPolicy.
     """
-    def __init__(__self__, assigned_clients=None, auth_server_id=None, description=None, id=None, name=None):
+    def __init__(__self__, assigned_clients=None, auth_server_id=None, description=None, id=None, name=None, priority=None):
         if assigned_clients and not isinstance(assigned_clients, list):
             raise TypeError("Expected argument 'assigned_clients' to be a list")
         pulumi.set(__self__, "assigned_clients", assigned_clients)
@@ -36,6 +36,9 @@ class GetServerPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
+        pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="assignedClients")
@@ -71,6 +74,14 @@ class GetServerPolicyResult:
     def name(self) -> str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        the priority of the Auth Server Policy.
+        """
+        return pulumi.get(self, "priority")
+
 
 class AwaitableGetServerPolicyResult(GetServerPolicyResult):
     # pylint: disable=using-constant-test
@@ -82,7 +93,8 @@ class AwaitableGetServerPolicyResult(GetServerPolicyResult):
             auth_server_id=self.auth_server_id,
             description=self.description,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            priority=self.priority)
 
 
 def get_server_policy(auth_server_id: Optional[str] = None,
@@ -119,7 +131,8 @@ def get_server_policy(auth_server_id: Optional[str] = None,
         auth_server_id=__ret__.auth_server_id,
         description=__ret__.description,
         id=__ret__.id,
-        name=__ret__.name)
+        name=__ret__.name,
+        priority=__ret__.priority)
 
 
 @_utilities.lift_output_func(get_server_policy)

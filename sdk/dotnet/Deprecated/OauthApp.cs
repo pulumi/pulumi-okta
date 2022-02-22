@@ -214,7 +214,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> PolicyUri { get; private set; } = null!;
 
         /// <summary>
-        /// List of URIs for redirection after logout
+        /// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        /// in a decentralized way.
         /// </summary>
         [Output("postLogoutRedirectUris")]
         public Output<ImmutableArray<string>> PostLogoutRedirectUris { get; private set; } = null!;
@@ -585,7 +586,8 @@ namespace Pulumi.Okta.Deprecated
         private InputList<string>? _postLogoutRedirectUris;
 
         /// <summary>
-        /// List of URIs for redirection after logout
+        /// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        /// in a decentralized way.
         /// </summary>
         public InputList<string> PostLogoutRedirectUris
         {
@@ -951,7 +953,8 @@ namespace Pulumi.Okta.Deprecated
         private InputList<string>? _postLogoutRedirectUris;
 
         /// <summary>
-        /// List of URIs for redirection after logout
+        /// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        /// in a decentralized way.
         /// </summary>
         public InputList<string> PostLogoutRedirectUris
         {

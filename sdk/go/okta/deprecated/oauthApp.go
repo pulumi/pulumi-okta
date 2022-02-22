@@ -89,7 +89,8 @@ type OauthApp struct {
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
-	// List of URIs for redirection after logout
+	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+	// in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayOutput `pulumi:"postLogoutRedirectUris"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
@@ -242,7 +243,8 @@ type oauthAppState struct {
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
-	// List of URIs for redirection after logout
+	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+	// in a decentralized way.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile *string `pulumi:"profile"`
@@ -361,7 +363,8 @@ type OauthAppState struct {
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
-	// List of URIs for redirection after logout
+	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+	// in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayInput
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrInput
@@ -478,7 +481,8 @@ type oauthAppArgs struct {
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
-	// List of URIs for redirection after logout
+	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+	// in a decentralized way.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile *string `pulumi:"profile"`
@@ -590,7 +594,8 @@ type OauthAppArgs struct {
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
-	// List of URIs for redirection after logout
+	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+	// in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayInput
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrInput
