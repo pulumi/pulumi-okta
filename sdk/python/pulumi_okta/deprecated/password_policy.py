@@ -45,7 +45,7 @@ class PasswordPolicyArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PasswordPolicy resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         :param pulumi.Input[str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -143,7 +143,7 @@ class PasswordPolicyArgs:
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         """
         return pulumi.get(self, "auth_provider")
 
@@ -537,7 +537,7 @@ class _PasswordPolicyState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PasswordPolicy resources.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         :param pulumi.Input[str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -635,7 +635,7 @@ class _PasswordPolicyState:
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         """
         return pulumi.get(self, "auth_provider")
 
@@ -1034,7 +1034,7 @@ class PasswordPolicy(pulumi.CustomResource):
         Create a PasswordPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         :param pulumi.Input[str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -1209,7 +1209,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         :param pulumi.Input[str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] description: Policy Description
         :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
@@ -1282,7 +1282,7 @@ class PasswordPolicy(pulumi.CustomResource):
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Authentication Provider: OKTA or ACTIVE_DIRECTORY.
+        Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         """
         return pulumi.get(self, "auth_provider")
 

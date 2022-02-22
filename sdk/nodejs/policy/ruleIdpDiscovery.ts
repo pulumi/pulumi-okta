@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an IdP Discovery Policy Rule.
- *
  * This resource allows you to create and configure an IdP Discovery Policy Rule.
  *
  * ## Example Usage
@@ -16,7 +14,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
+ * const idpDiscoveryPolicy = okta.policy.getPolicy({
+ *     name: "Idp Discovery Policy",
+ *     type: "IDP_DISCOVERY",
+ * });
  * const example = new okta.policy.RuleIdpDiscovery("example", {
+ *     policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy => idpDiscoveryPolicy.id),
+ *     idpId: "<idp id>",
+ *     idpType: "OIDC",
+ *     networkConnection: "ANYWHERE",
+ *     priority: 1,
+ *     status: "ACTIVE",
+ *     userIdentifierType: "ATTRIBUTE",
+ *     userIdentifierAttribute: "company",
  *     appExcludes: [
  *         {
  *             id: "<app id>",
@@ -37,22 +47,14 @@ import * as utilities from "../utilities";
  *             type: "APP_TYPE",
  *         },
  *     ],
- *     idpId: "<idp id>",
- *     idpType: "OIDC",
- *     networkConnection: "ANYWHERE",
  *     platformIncludes: [{
- *         osType: "OSX",
  *         type: "MOBILE",
+ *         osType: "OSX",
  *     }],
- *     policyId: "<policy id>",
- *     priority: 1,
- *     status: "ACTIVE",
- *     userIdentifierAttribute: "company",
  *     userIdentifierPatterns: [{
  *         matchType: "EQUALS",
  *         value: "Articulate",
  *     }],
- *     userIdentifierType: "ATTRIBUTE",
  * });
  * ```
  *

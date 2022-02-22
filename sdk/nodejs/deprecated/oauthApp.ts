@@ -173,7 +173,8 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly policyUri!: pulumi.Output<string | undefined>;
     /**
-     * List of URIs for redirection after logout
+     * List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+     * in a decentralized way.
      */
     public readonly postLogoutRedirectUris!: pulumi.Output<string[] | undefined>;
     /**
@@ -527,7 +528,8 @@ export interface OauthAppState {
      */
     policyUri?: pulumi.Input<string>;
     /**
-     * List of URIs for redirection after logout
+     * List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+     * in a decentralized way.
      */
     postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -739,7 +741,8 @@ export interface OauthAppArgs {
      */
     policyUri?: pulumi.Input<string>;
     /**
-     * List of URIs for redirection after logout
+     * List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+     * in a decentralized way.
      */
     postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**

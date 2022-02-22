@@ -129,6 +129,10 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// the priority of the Auth Server Policy.
+        /// </summary>
+        public readonly int Priority;
 
         [OutputConstructor]
         private GetServerPolicyResult(
@@ -140,13 +144,16 @@ namespace Pulumi.Okta.Auth
 
             string id,
 
-            string name)
+            string name,
+
+            int priority)
         {
             AssignedClients = assignedClients;
             AuthServerId = authServerId;
             Description = description;
             Id = id;
             Name = name;
+            Priority = priority;
         }
     }
 }

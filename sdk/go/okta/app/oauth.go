@@ -159,6 +159,7 @@ type OAuth struct {
 	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	Jwks       OAuthJwkArrayOutput    `pulumi:"jwks"`
 	// The Application's display name.
@@ -311,6 +312,7 @@ type oauthState struct {
 	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode *string    `pulumi:"issuerMode"`
 	Jwks       []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
@@ -429,6 +431,7 @@ type OAuthState struct {
 	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OAuthJwkArrayInput
 	// The Application's display name.
@@ -549,6 +552,7 @@ type oauthArgs struct {
 	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode *string    `pulumi:"issuerMode"`
 	Jwks       []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
@@ -660,6 +664,7 @@ type OAuthArgs struct {
 	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
 	Jwks       OAuthJwkArrayInput
 	// The Application's display name.

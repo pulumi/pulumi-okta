@@ -561,8 +561,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  user_identifier_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an IdP Discovery Policy Rule.
-
         This resource allows you to create and configure an IdP Discovery Policy Rule.
 
         ## Example Usage
@@ -571,7 +569,17 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
+        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
+            type="IDP_DISCOVERY")
         example = okta.policy.RuleIdpDiscovery("example",
+            policy_id=idp_discovery_policy.id,
+            idp_id="<idp id>",
+            idp_type="OIDC",
+            network_connection="ANYWHERE",
+            priority=1,
+            status="ACTIVE",
+            user_identifier_type="ATTRIBUTE",
+            user_identifier_attribute="company",
             app_excludes=[
                 okta.policy.RuleIdpDiscoveryAppExcludeArgs(
                     id="<app id>",
@@ -592,22 +600,14 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                     type="APP_TYPE",
                 ),
             ],
-            idp_id="<idp id>",
-            idp_type="OIDC",
-            network_connection="ANYWHERE",
             platform_includes=[okta.policy.RuleIdpDiscoveryPlatformIncludeArgs(
-                os_type="OSX",
                 type="MOBILE",
+                os_type="OSX",
             )],
-            policy_id="<policy id>",
-            priority=1,
-            status="ACTIVE",
-            user_identifier_attribute="company",
             user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(
                 match_type="EQUALS",
                 value="Articulate",
-            )],
-            user_identifier_type="ATTRIBUTE")
+            )])
         ```
 
         ## Import
@@ -643,8 +643,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  args: Optional[RuleIdpDiscoveryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an IdP Discovery Policy Rule.
-
         This resource allows you to create and configure an IdP Discovery Policy Rule.
 
         ## Example Usage
@@ -653,7 +651,17 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
+        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
+            type="IDP_DISCOVERY")
         example = okta.policy.RuleIdpDiscovery("example",
+            policy_id=idp_discovery_policy.id,
+            idp_id="<idp id>",
+            idp_type="OIDC",
+            network_connection="ANYWHERE",
+            priority=1,
+            status="ACTIVE",
+            user_identifier_type="ATTRIBUTE",
+            user_identifier_attribute="company",
             app_excludes=[
                 okta.policy.RuleIdpDiscoveryAppExcludeArgs(
                     id="<app id>",
@@ -674,22 +682,14 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                     type="APP_TYPE",
                 ),
             ],
-            idp_id="<idp id>",
-            idp_type="OIDC",
-            network_connection="ANYWHERE",
             platform_includes=[okta.policy.RuleIdpDiscoveryPlatformIncludeArgs(
-                os_type="OSX",
                 type="MOBILE",
+                os_type="OSX",
             )],
-            policy_id="<policy id>",
-            priority=1,
-            status="ACTIVE",
-            user_identifier_attribute="company",
             user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(
                 match_type="EQUALS",
                 value="Articulate",
-            )],
-            user_identifier_type="ATTRIBUTE")
+            )])
         ```
 
         ## Import

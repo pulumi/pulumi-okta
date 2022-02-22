@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an IdP Discovery Policy Rule.
-//
 // This resource allows you to create and configure an IdP Discovery Policy Rule.
 //
 // ## Example Usage
@@ -26,7 +24,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
+// 		idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+// 			Name: "Idp Discovery Policy",
+// 			Type: "IDP_DISCOVERY",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
+// 			PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
+// 			IdpId:                   pulumi.String("<idp id>"),
+// 			IdpType:                 pulumi.String("OIDC"),
+// 			NetworkConnection:       pulumi.String("ANYWHERE"),
+// 			Priority:                pulumi.Int(1),
+// 			Status:                  pulumi.String("ACTIVE"),
+// 			UserIdentifierType:      pulumi.String("ATTRIBUTE"),
+// 			UserIdentifierAttribute: pulumi.String("company"),
 // 			AppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{
 // 				&policy.RuleIdpDiscoveryAppExcludeArgs{
 // 					Id:   pulumi.String("<app id>"),
@@ -47,26 +60,18 @@ import (
 // 					Type: pulumi.String("APP_TYPE"),
 // 				},
 // 			},
-// 			IdpId:             pulumi.String("<idp id>"),
-// 			IdpType:           pulumi.String("OIDC"),
-// 			NetworkConnection: pulumi.String("ANYWHERE"),
 // 			PlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{
 // 				&policy.RuleIdpDiscoveryPlatformIncludeArgs{
-// 					OsType: pulumi.String("OSX"),
 // 					Type:   pulumi.String("MOBILE"),
+// 					OsType: pulumi.String("OSX"),
 // 				},
 // 			},
-// 			PolicyId:                pulumi.String("<policy id>"),
-// 			Priority:                pulumi.Int(1),
-// 			Status:                  pulumi.String("ACTIVE"),
-// 			UserIdentifierAttribute: pulumi.String("company"),
 // 			UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
 // 				&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
 // 					MatchType: pulumi.String("EQUALS"),
 // 					Value:     pulumi.String("Articulate"),
 // 				},
 // 			},
-// 			UserIdentifierType: pulumi.String("ATTRIBUTE"),
 // 		})
 // 		if err != nil {
 // 			return err

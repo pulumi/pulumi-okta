@@ -42,6 +42,100 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
+ *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
+ *     appExcludes: [{
+ *         name: "okta",
+ *         type: "APP_TYPE",
+ *     }],
+ * });
+ * ```
+ *
+ * Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
+ *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
+ *     appExcludes: [{
+ *         name: "okta",
+ *         type: "APP_TYPE",
+ *     }],
+ *     appIncludes: [{
+ *         id: "some_app_id",
+ *         type: "APP",
+ *     }],
+ * });
+ * ```
+ *
+ * Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
+ *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
+ *     appIncludes: [{
+ *         name: "okta",
+ *         type: "APP_TYPE",
+ *     }],
+ * });
+ * ```
+ *
+ * Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id)});
+ * ```
+ *
+ * Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
+ *     type: "MFA_ENROLL",
+ * });
+ * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
+ *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
+ *     appIncludes: [
+ *         {
+ *             name: "okta",
+ *             type: "APP_TYPE",
+ *         },
+ *         {
+ *             id: "some_app_id",
+ *             type: "APP",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * A Policy Rule can be imported via the Policy and Rule ID.

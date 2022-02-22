@@ -101,7 +101,8 @@ class OauthAppArgs:
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+               in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
                okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
@@ -603,7 +604,8 @@ class OauthAppArgs:
     @pulumi.getter(name="postLogoutRedirectUris")
     def post_logout_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of URIs for redirection after logout
+        List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 
@@ -900,7 +902,8 @@ class _OauthAppState:
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+               in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
                okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
@@ -1438,7 +1441,8 @@ class _OauthAppState:
     @pulumi.getter(name="postLogoutRedirectUris")
     def post_logout_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of URIs for redirection after logout
+        List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 
@@ -1757,7 +1761,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+               in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
                okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
@@ -2032,7 +2037,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+               in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see
                okta_app_oauth_redirect_uri for appending to this list in a decentralized way.
@@ -2382,7 +2388,8 @@ class OauthApp(pulumi.CustomResource):
     @pulumi.getter(name="postLogoutRedirectUris")
     def post_logout_redirect_uris(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of URIs for redirection after logout
+        List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
+        in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 

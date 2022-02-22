@@ -63,6 +63,10 @@ export interface GetServerPolicyResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * the priority of the Auth Server Policy.
+     */
+    readonly priority: number;
 }
 
 export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerPolicyResult> {

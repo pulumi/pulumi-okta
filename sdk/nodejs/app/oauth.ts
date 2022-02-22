@@ -187,6 +187,7 @@ export class OAuth extends pulumi.CustomResource {
     public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
@@ -540,6 +541,7 @@ export interface OAuthState {
     implicitAssignment?: pulumi.Input<boolean>;
     /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
@@ -759,6 +761,7 @@ export interface OAuthArgs {
     implicitAssignment?: pulumi.Input<boolean>;
     /**
      * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
