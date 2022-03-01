@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Example App"
 // 		_, err := group.LookupGroup(ctx, &group.LookupGroupArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("Example App"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

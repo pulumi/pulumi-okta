@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Block Antarctica"
 // 		_, err := okta.GetNetworkZone(ctx, &GetNetworkZoneArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("Block Antarctica"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

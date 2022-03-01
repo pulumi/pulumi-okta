@@ -724,6 +724,22 @@ class UserSchema(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.UserSchema("example",
+            app_id="<app id>",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string")
+        ```
+
         ## Import
 
         App user schema property can be imported via the property index and app id.
@@ -763,6 +779,22 @@ class UserSchema(pulumi.CustomResource):
                  args: UserSchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.UserSchema("example",
+            app_id="<app id>",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string")
+        ```
+
         ## Import
 
         App user schema property can be imported via the property index and app id.

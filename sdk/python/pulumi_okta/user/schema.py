@@ -725,6 +725,22 @@ class Schema(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.Schema("example",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string",
+            user_type=data["okta_user_type"]["example"]["id"])
+        ```
+
         ## Import
 
         User schema property of default user type can be imported via the property index.
@@ -770,6 +786,22 @@ class Schema(pulumi.CustomResource):
                  args: SchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.user.Schema("example",
+            description="My custom property name",
+            index="customPropertyName",
+            master="OKTA",
+            scope="SELF",
+            title="customPropertyName",
+            type="string",
+            user_type=data["okta_user_type"]["example"]["id"])
+        ```
+
         ## Import
 
         User schema property of default user type can be imported via the property index.

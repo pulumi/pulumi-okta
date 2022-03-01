@@ -10,6 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.UserSchema("example", new Okta.App.UserSchemaArgs
+    ///         {
+    ///             AppId = "&lt;app id&gt;",
+    ///             Description = "My custom property name",
+    ///             Index = "customPropertyName",
+    ///             Master = "OKTA",
+    ///             Scope = "SELF",
+    ///             Title = "customPropertyName",
+    ///             Type = "string",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App user schema property can be imported via the property index and app id.

@@ -27,7 +27,7 @@ import (
 // 		_, err := user.GetUsers(ctx, &user.GetUsersArgs{
 // 			Searches: []user.GetUsersSearch{
 // 				user.GetUsersSearch{
-// 					Comparison: "sw",
+// 					Comparison: pulumi.StringRef("sw"),
 // 					Name:       "profile.company",
 // 					Value:      "Articulate",
 // 				},

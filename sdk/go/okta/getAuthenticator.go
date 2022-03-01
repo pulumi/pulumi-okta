@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Security Question"
 // 		_, err := okta.LookupAuthenticator(ctx, &GetAuthenticatorArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("Security Question"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -48,9 +47,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "okta_email"
 // 		_, err := okta.LookupAuthenticator(ctx, &GetAuthenticatorArgs{
-// 			Key: &opt0,
+// 			Key: pulumi.StringRef("okta_email"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

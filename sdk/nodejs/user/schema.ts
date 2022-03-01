@@ -6,6 +6,23 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.user.Schema("example", {
+ *     description: "My custom property name",
+ *     index: "customPropertyName",
+ *     master: "OKTA",
+ *     scope: "SELF",
+ *     title: "customPropertyName",
+ *     type: "string",
+ *     userType: okta_user_type_example.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * User schema property of default user type can be imported via the property index.

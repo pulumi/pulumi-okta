@@ -11,6 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := app.NewUserSchema(ctx, "example", &app.UserSchemaArgs{
+// 			AppId:       pulumi.String("<app id>"),
+// 			Description: pulumi.String("My custom property name"),
+// 			Index:       pulumi.String("customPropertyName"),
+// 			Master:      pulumi.String("OKTA"),
+// 			Scope:       pulumi.String("SELF"),
+// 			Title:       pulumi.String("customPropertyName"),
+// 			Type:        pulumi.String("string"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // App user schema property can be imported via the property index and app id.

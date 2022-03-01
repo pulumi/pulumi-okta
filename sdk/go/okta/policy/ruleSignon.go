@@ -33,9 +33,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "New City"
 // 		newCity, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("New City"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "My Facebook IdP"
 // 		_, err := idp.LookupSocial(ctx, &idp.LookupSocialArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("My Facebook IdP"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -97,7 +97,25 @@ class UserGroupMemberships(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a UserGroupMemberships resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_user = okta.user.User("testUser",
+            first_name="TestAcc",
+            last_name="Smith",
+            login="testAcc-replace_with_uuid@example.com",
+            email="testAcc-replace_with_uuid@example.com")
+        test_user_group_memberships = okta.UserGroupMemberships("testUserGroupMemberships",
+            user_id=test_user.id,
+            groups=[
+                okta_group["test_1"]["id"],
+                okta_group["test_2"]["id"],
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
@@ -110,7 +128,25 @@ class UserGroupMemberships(pulumi.CustomResource):
                  args: UserGroupMembershipsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserGroupMemberships resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_user = okta.user.User("testUser",
+            first_name="TestAcc",
+            last_name="Smith",
+            login="testAcc-replace_with_uuid@example.com",
+            email="testAcc-replace_with_uuid@example.com")
+        test_user_group_memberships = okta.UserGroupMemberships("testUserGroupMemberships",
+            user_id=test_user.id,
+            groups=[
+                okta_group["test_1"]["id"],
+                okta_group["test_2"]["id"],
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserGroupMembershipsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Engineering - "
 // 		_, err := okta.GetGroups(ctx, &GetGroupsArgs{
-// 			Q: &opt0,
+// 			Q: pulumi.StringRef("Engineering - "),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
