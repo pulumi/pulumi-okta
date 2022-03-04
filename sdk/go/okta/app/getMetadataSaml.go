@@ -24,10 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "<cert key id>"
 // 		_, err := app.GetMetadataSaml(ctx, &app.GetMetadataSamlArgs{
 // 			AppId: "<app id>",
-// 			KeyId: &opt0,
+// 			KeyId: pulumi.StringRef("<cert key id>"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

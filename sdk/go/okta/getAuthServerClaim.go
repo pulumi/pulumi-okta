@@ -24,10 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "birthdate"
 // 		_, err := okta.GetAuthServerClaim(ctx, &GetAuthServerClaimArgs{
 // 			AuthServerId: "default",
-// 			Name:         &opt0,
+// 			Name:         pulumi.StringRef("birthdate"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

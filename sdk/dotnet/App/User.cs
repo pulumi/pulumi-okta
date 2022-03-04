@@ -10,6 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.App.User("example", new Okta.App.UserArgs
+    ///         {
+    ///             AppId = "&lt;app_id&gt;",
+    ///             UserId = "&lt;user id&gt;",
+    ///             Username = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An Application User can be imported via the Okta ID.

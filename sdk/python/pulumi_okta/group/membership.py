@@ -97,7 +97,17 @@ class Membership(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Membership resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Membership("example",
+            group_id="00g1mana0vCrxzQY84x7",
+            user_id="00u1manxvp7QBAGgk4x7")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The ID of the Okta Group.
@@ -110,7 +120,17 @@ class Membership(pulumi.CustomResource):
                  args: MembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Membership resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Membership("example",
+            group_id="00g1mana0vCrxzQY84x7",
+            user_id="00u1manxvp7QBAGgk4x7")
+        ```
+
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

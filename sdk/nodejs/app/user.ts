@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.User("example", {
+ *     appId: "<app_id>",
+ *     userId: "<user id>",
+ *     username: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * An Application User can be imported via the Okta ID.

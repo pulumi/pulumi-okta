@@ -9,6 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Group
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Okta.Group.Membership("example", new Okta.Group.MembershipArgs
+    ///         {
+    ///             GroupId = "00g1mana0vCrxzQY84x7",
+    ///             UserId = "00u1manxvp7QBAGgk4x7",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:group/membership:Membership")]
     public partial class Membership : Pulumi.CustomResource
     {

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Example App"
 // 		_, err := app.LookupSaml(ctx, &app.LookupSamlArgs{
-// 			Label: &opt0,
+// 			Label: pulumi.StringRef("Example App"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

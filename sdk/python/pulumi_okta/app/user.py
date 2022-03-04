@@ -245,6 +245,18 @@ class User(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.User("example",
+            app_id="<app_id>",
+            user_id="<user id>",
+            username="example")
+        ```
+
         ## Import
 
         An Application User can be imported via the Okta ID.
@@ -270,6 +282,18 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.User("example",
+            app_id="<app_id>",
+            user_id="<user id>",
+            username="example")
+        ```
+
         ## Import
 
         An Application User can be imported via the Okta ID.

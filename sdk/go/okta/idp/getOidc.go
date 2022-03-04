@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Example Provider"
 // 		_, err := idp.LookupOidc(ctx, &idp.LookupOidcArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("Example Provider"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

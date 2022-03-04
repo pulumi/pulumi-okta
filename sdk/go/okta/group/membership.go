@@ -11,6 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := group.NewMembership(ctx, "example", &group.MembershipArgs{
+// 			GroupId: pulumi.String("00g1mana0vCrxzQY84x7"),
+// 			UserId:  pulumi.String("00u1manxvp7QBAGgk4x7"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Membership struct {
 	pulumi.CustomResourceState
 
