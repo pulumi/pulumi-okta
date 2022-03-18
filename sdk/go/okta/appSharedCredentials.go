@@ -85,7 +85,7 @@ type AppSharedCredentials struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -95,7 +95,8 @@ type AppSharedCredentials struct {
 	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -113,9 +114,9 @@ type AppSharedCredentials struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
-	// Preconfigured app name
+	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
-	// Redirect URL.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
@@ -143,7 +144,8 @@ type AppSharedCredentials struct {
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayOutput `pulumi:"users"`
@@ -189,7 +191,7 @@ type appSharedCredentialsState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -199,7 +201,8 @@ type appSharedCredentialsState struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -217,9 +220,9 @@ type appSharedCredentialsState struct {
 	Name *string `pulumi:"name"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField *string `pulumi:"passwordField"`
-	// Preconfigured app name
+	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Redirect URL.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -247,7 +250,8 @@ type appSharedCredentialsState struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AppSharedCredentialsUser `pulumi:"users"`
@@ -262,7 +266,7 @@ type AppSharedCredentialsState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -272,7 +276,8 @@ type AppSharedCredentialsState struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -290,9 +295,9 @@ type AppSharedCredentialsState struct {
 	Name pulumi.StringPtrInput
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrInput
-	// Preconfigured app name
+	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Redirect URL.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -320,7 +325,8 @@ type AppSharedCredentialsState struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayInput
@@ -339,7 +345,7 @@ type appSharedCredentialsArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -349,7 +355,8 @@ type appSharedCredentialsArgs struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -363,9 +370,9 @@ type appSharedCredentialsArgs struct {
 	Logo *string `pulumi:"logo"`
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField *string `pulumi:"passwordField"`
-	// Preconfigured app name
+	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Redirect URL.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -391,7 +398,8 @@ type appSharedCredentialsArgs struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AppSharedCredentialsUser `pulumi:"users"`
@@ -407,7 +415,7 @@ type AppSharedCredentialsArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -417,7 +425,8 @@ type AppSharedCredentialsArgs struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application
+	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -431,9 +440,9 @@ type AppSharedCredentialsArgs struct {
 	Logo pulumi.StringPtrInput
 	// CSS selector for the Password field in the sign-in form.
 	PasswordField pulumi.StringPtrInput
-	// Preconfigured app name
+	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Redirect URL.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -459,7 +468,8 @@ type AppSharedCredentialsArgs struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
-	// Users associated with the application
+	// The users assigned to the application. See `app.User` for a more flexible approach.
+	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayInput

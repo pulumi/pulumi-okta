@@ -51,6 +51,7 @@ from .org_support import *
 from .policy_mfa_default import *
 from .policy_password_default import *
 from .policy_profile_enrollment import *
+from .policy_profile_enrollment_apps import *
 from .policy_rule_profile_enrollment import *
 from .provider import *
 from .rate_limiting import *
@@ -762,6 +763,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/policyProfileEnrollment:PolicyProfileEnrollment": "PolicyProfileEnrollment"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/policyProfileEnrollmentApps",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps": "PolicyProfileEnrollmentApps"
   }
  },
  {

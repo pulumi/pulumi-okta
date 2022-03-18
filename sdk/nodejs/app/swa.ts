@@ -90,7 +90,7 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * If going to the login page URL redirects to another page, then enter that URL here.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
     /**
@@ -169,11 +169,11 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Login URL.
+     * The URL of the sign-in page for this app.
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regular expression that further restricts url to the specified regular expression.
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface SwaState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -370,7 +370,7 @@ export interface SwaState {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * If going to the login page URL redirects to another page, then enter that URL here.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -390,11 +390,11 @@ export interface SwaState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * The URL of the sign-in page for this app.
      */
     url?: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regular expression that further restricts url to the specified regular expression.
      */
     urlRegex?: pulumi.Input<string>;
     /**
@@ -447,7 +447,7 @@ export interface SwaArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -498,7 +498,7 @@ export interface SwaArgs {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * If going to the login page URL redirects to another page, then enter that URL here.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -514,11 +514,11 @@ export interface SwaArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * The URL of the sign-in page for this app.
      */
     url?: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regular expression that further restricts url to the specified regular expression.
      */
     urlRegex?: pulumi.Input<string>;
     /**

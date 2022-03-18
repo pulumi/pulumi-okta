@@ -332,6 +332,7 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_link_value":                     {Tok: makeResource(mainMod, "LinkValue")},
 			"okta_rate_limiting":                  {Tok: makeResource(mainMod, "RateLimiting")},
 			"okta_resource_set":                   {Tok: makeResource(mainMod, "ResourceSet")},
+			"okta_policy_profile_enrollment_apps": {Tok: makeResource(mainMod, "PolicyProfileEnrollmentApps")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},

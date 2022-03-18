@@ -85,7 +85,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Okta.App
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Output("redirectUrl")]
         public Output<string?> RedirectUrl { get; private set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Okta.App
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Login URL.
+        /// The URL of the sign-in page for this app.
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// A regex that further restricts URL to the specified regex.
+        /// A regular expression that further restricts url to the specified regular expression.
         /// </summary>
         [Output("urlRegex")]
         public Output<string?> UrlRegex { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
@@ -423,13 +423,13 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Login URL.
+        /// The URL of the sign-in page for this app.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// A regex that further restricts URL to the specified regex.
+        /// A regular expression that further restricts url to the specified regular expression.
         /// </summary>
         [Input("urlRegex")]
         public Input<string>? UrlRegex { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -602,7 +602,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// If going to the login page URL redirects to another page, then enter that URL here.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
@@ -632,13 +632,13 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Login URL.
+        /// The URL of the sign-in page for this app.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// A regex that further restricts URL to the specified regex.
+        /// A regular expression that further restricts url to the specified regular expression.
         /// </summary>
         [Input("urlRegex")]
         public Input<string>? UrlRegex { get; set; }

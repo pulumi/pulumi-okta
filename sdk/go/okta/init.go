@@ -86,6 +86,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyPasswordDefault{}
 	case "okta:index/policyProfileEnrollment:PolicyProfileEnrollment":
 		r = &PolicyProfileEnrollment{}
+	case "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps":
+		r = &PolicyProfileEnrollmentApps{}
 	case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
 		r = &PolicyRuleProfileEnrollment{}
 	case "okta:index/rateLimiting:RateLimiting":
@@ -304,6 +306,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/policyProfileEnrollment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/policyProfileEnrollmentApps",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

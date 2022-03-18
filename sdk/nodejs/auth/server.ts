@@ -84,7 +84,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
-     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface ServerState {
      */
     issuer?: pulumi.Input<string>;
     /**
-     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface ServerArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**

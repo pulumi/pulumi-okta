@@ -22,7 +22,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         public readonly string Type;
         /// <summary>

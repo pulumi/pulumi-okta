@@ -357,7 +357,7 @@ type OAuthGroupsClaim struct {
 	FilterType *string `pulumi:"filterType"`
 	// Name of the claim that will be used in the token.
 	Name string `pulumi:"name"`
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type string `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value string `pulumi:"value"`
@@ -379,7 +379,7 @@ type OAuthGroupsClaimArgs struct {
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -472,7 +472,7 @@ func (o OAuthGroupsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 func (o OAuthGroupsClaimOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -526,7 +526,7 @@ func (o OAuthGroupsClaimPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 func (o OAuthGroupsClaimPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {

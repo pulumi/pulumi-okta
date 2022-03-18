@@ -110,7 +110,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Okta.App
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Output("revealPassword")]
         public Output<bool?> RevealPassword { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Okta.App
         public Output<string?> SignOnRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Output("signOnUrl")]
         public Output<string?> SignOnUrl { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnRedirectUrl { get; set; }
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -621,7 +621,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
@@ -651,7 +651,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnRedirectUrl { get; set; }
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }

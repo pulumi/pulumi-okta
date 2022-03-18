@@ -131,7 +131,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
@@ -185,8 +185,8 @@ namespace Pulumi.Okta.App
         public Output<string?> ConsentMethod { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        /// no-op, use client_id for that behavior instead.
+        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Output("customClientId")]
         public Output<string?> CustomClientId { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         /// `"interaction_code"` (*OIE only*).
@@ -232,7 +232,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Output("implicitAssignment")]
         public Output<bool?> ImplicitAssignment { get; private set; } = null!;
@@ -244,6 +244,9 @@ namespace Pulumi.Okta.App
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// </summary>
         [Output("jwks")]
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
@@ -380,7 +383,7 @@ namespace Pulumi.Okta.App
         public Output<string?> TosUri { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -493,7 +496,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -541,8 +544,8 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        /// no-op, use client_id for that behavior instead.
+        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -557,7 +560,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         /// `"interaction_code"` (*OIE only*).
@@ -601,7 +604,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -615,6 +618,10 @@ namespace Pulumi.Okta.App
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkArgs>? _jwks;
+
+        /// <summary>
+        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// </summary>
         public InputList<Inputs.OAuthJwkArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkArgs>());
@@ -760,7 +767,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -841,7 +848,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -895,8 +902,8 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        /// no-op, use client_id for that behavior instead.
+        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -911,7 +918,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         /// `"interaction_code"` (*OIE only*).
@@ -955,7 +962,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -969,6 +976,10 @@ namespace Pulumi.Okta.App
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkGetArgs>? _jwks;
+
+        /// <summary>
+        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// </summary>
         public InputList<Inputs.OAuthJwkGetArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkGetArgs>());
@@ -1132,7 +1143,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

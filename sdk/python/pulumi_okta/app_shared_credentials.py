@@ -52,18 +52,19 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
-        :param pulumi.Input[str] redirect_url: Redirect URL.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
@@ -76,7 +77,8 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -208,7 +210,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -268,7 +270,8 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Groups associated with the application
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -328,7 +331,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        Preconfigured app name
+        name of application from the Okta Integration Network, if not included a custom app will be created.
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -340,7 +343,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Redirect URL.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -496,7 +499,8 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]]]:
         """
-        Users associated with the application
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -547,12 +551,13 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -560,8 +565,8 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
-        :param pulumi.Input[str] redirect_url: Redirect URL.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
@@ -575,7 +580,8 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -702,7 +708,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -762,7 +768,8 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Groups associated with the application
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -858,7 +865,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        Preconfigured app name
+        name of application from the Okta Integration Network, if not included a custom app will be created.
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -870,7 +877,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Redirect URL.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -1038,7 +1045,8 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]]]:
         """
-        Users associated with the application
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1141,19 +1149,20 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
-        :param pulumi.Input[str] redirect_url: Redirect URL.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
@@ -1166,7 +1175,8 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -1378,12 +1388,13 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1391,8 +1402,8 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
-        :param pulumi.Input[str] redirect_url: Redirect URL.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
@@ -1406,7 +1417,8 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: Users associated with the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
+               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1483,7 +1495,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1523,7 +1535,8 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Groups associated with the application
+        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1587,7 +1600,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
-        Preconfigured app name
+        name of application from the Okta Integration Network, if not included a custom app will be created.
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -1595,7 +1608,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Redirect URL.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -1707,7 +1720,8 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.AppSharedCredentialsUser']]]:
         """
-        Users associated with the application
+        The users assigned to the application. See `app.User` for a more flexible approach.
+        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

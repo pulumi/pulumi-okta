@@ -98,7 +98,7 @@ type AutoLogin struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
@@ -127,7 +127,7 @@ type AutoLogin struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
@@ -137,7 +137,7 @@ type AutoLogin struct {
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
@@ -200,7 +200,7 @@ type autoLoginState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -229,7 +229,7 @@ type autoLoginState struct {
 	Name *string `pulumi:"name"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -239,7 +239,7 @@ type autoLoginState struct {
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
@@ -271,7 +271,7 @@ type AutoLoginState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
@@ -300,7 +300,7 @@ type AutoLoginState struct {
 	Name pulumi.StringPtrInput
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
@@ -310,7 +310,7 @@ type AutoLoginState struct {
 	SignOnMode pulumi.StringPtrInput
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput
@@ -346,7 +346,7 @@ type autoLoginArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -371,7 +371,7 @@ type autoLoginArgs struct {
 	Logo *string `pulumi:"logo"`
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -379,7 +379,7 @@ type autoLoginArgs struct {
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
@@ -412,7 +412,7 @@ type AutoLoginArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
@@ -437,7 +437,7 @@ type AutoLoginArgs struct {
 	Logo pulumi.StringPtrInput
 	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
@@ -445,7 +445,7 @@ type AutoLoginArgs struct {
 	SharedUsername pulumi.StringPtrInput
 	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput

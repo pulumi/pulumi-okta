@@ -232,7 +232,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Groups claim type. Valid values: `\"FILTER\"`, `\"EXPRESSION\"`.\n",
+                    "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3284,7 +3284,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -3340,7 +3340,7 @@
                 },
                 "revealPassword": {
                     "type": "boolean",
-                    "description": "Allow user to reveal password\n"
+                    "description": "Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `\"ADMIN_SETS_CREDENTIALS\"`, `\"SHARED_USERNAME_AND_PASSWORD\"` or `\"EXTERNAL_PASSWORD_SYNC\"`.\n"
                 },
                 "sharedPassword": {
                     "type": "string",
@@ -3360,7 +3360,7 @@
                 },
                 "signOnUrl": {
                     "type": "string",
-                    "description": "Login URL\n"
+                    "description": "App login page URL\n"
                 },
                 "skipGroups": {
                     "type": "boolean",
@@ -3424,7 +3424,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -3472,7 +3472,7 @@
                 },
                 "revealPassword": {
                     "type": "boolean",
-                    "description": "Allow user to reveal password\n"
+                    "description": "Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `\"ADMIN_SETS_CREDENTIALS\"`, `\"SHARED_USERNAME_AND_PASSWORD\"` or `\"EXTERNAL_PASSWORD_SYNC\"`.\n"
                 },
                 "sharedPassword": {
                     "type": "string",
@@ -3488,7 +3488,7 @@
                 },
                 "signOnUrl": {
                     "type": "string",
-                    "description": "Login URL\n"
+                    "description": "App login page URL\n"
                 },
                 "skipGroups": {
                     "type": "boolean",
@@ -3551,7 +3551,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "appSettingsJson": {
                         "type": "string",
@@ -3607,7 +3607,7 @@
                     },
                     "revealPassword": {
                         "type": "boolean",
-                        "description": "Allow user to reveal password\n"
+                        "description": "Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `\"ADMIN_SETS_CREDENTIALS\"`, `\"SHARED_USERNAME_AND_PASSWORD\"` or `\"EXTERNAL_PASSWORD_SYNC\"`.\n"
                     },
                     "sharedPassword": {
                         "type": "string",
@@ -3627,7 +3627,7 @@
                     },
                     "signOnUrl": {
                         "type": "string",
-                        "description": "Login URL\n"
+                        "description": "App login page URL\n"
                     },
                     "skipGroups": {
                         "type": "boolean",
@@ -3690,7 +3690,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "authUrl": {
                     "type": "string",
@@ -3792,7 +3792,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "authUrl": {
                     "type": "string",
@@ -3881,7 +3881,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "authUrl": {
                         "type": "string",
@@ -3980,7 +3980,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -4081,7 +4081,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -4169,7 +4169,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -4349,7 +4349,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -4385,7 +4385,7 @@
                 },
                 "customClientId": {
                     "type": "string",
-                    "description": "**Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a\nno-op, use client_id for that behavior instead.\n",
+                    "description": "This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.\n- `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.\",\n",
                     "deprecationMessage": "This field is being replaced by client_id. Please set that field instead."
                 },
                 "enduserNote": {
@@ -4397,7 +4397,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).\nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -4421,7 +4421,7 @@
                 },
                 "implicitAssignment": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.\n"
+                    "description": "*Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.\n"
                 },
                 "issuerMode": {
                     "type": "string",
@@ -4431,7 +4431,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:app/OAuthJwk:OAuthJwk"
-                    }
+                    },
+                    "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
                 },
                 "label": {
                     "type": "string",
@@ -4535,7 +4536,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Groups claim type. Valid values: `\"FILTER\"`, `\"EXPRESSION\"`.\n"
+                    "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`.\n"
                 },
                 "userNameTemplate": {
                     "type": "string",
@@ -4596,7 +4597,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -4628,7 +4629,7 @@
                 },
                 "customClientId": {
                     "type": "string",
-                    "description": "**Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a\nno-op, use client_id for that behavior instead.\n",
+                    "description": "This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.\n- `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.\",\n",
                     "deprecationMessage": "This field is being replaced by client_id. Please set that field instead."
                 },
                 "enduserNote": {
@@ -4640,7 +4641,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
+                    "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).\nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -4664,7 +4665,7 @@
                 },
                 "implicitAssignment": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.\n"
+                    "description": "*Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.\n"
                 },
                 "issuerMode": {
                     "type": "string",
@@ -4674,7 +4675,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:app/OAuthJwk:OAuthJwk"
-                    }
+                    },
+                    "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
                 },
                 "label": {
                     "type": "string",
@@ -4766,7 +4768,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Groups claim type. Valid values: `\"FILTER\"`, `\"EXPRESSION\"`.\n"
+                    "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`.\n"
                 },
                 "userNameTemplate": {
                     "type": "string",
@@ -4822,7 +4824,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "appSettingsJson": {
                         "type": "string",
@@ -4858,7 +4860,7 @@
                     },
                     "customClientId": {
                         "type": "string",
-                        "description": "**Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a\nno-op, use client_id for that behavior instead.\n",
+                        "description": "This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.\n- `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.\",\n",
                         "deprecationMessage": "This field is being replaced by client_id. Please set that field instead."
                     },
                     "enduserNote": {
@@ -4870,7 +4872,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). \nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
+                        "description": "List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).\nDefaults to minimum requirements per app type. Valid values: `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"refresh_token\"`, `\"client_credentials\"`,\n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"interaction_code\"` (*OIE only*).\n"
                     },
                     "groups": {
                         "type": "array",
@@ -4894,7 +4896,7 @@
                     },
                     "implicitAssignment": {
                         "type": "boolean",
-                        "description": "*Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.\n"
+                        "description": "*Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.\n"
                     },
                     "issuerMode": {
                         "type": "string",
@@ -4904,7 +4906,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/okta:app/OAuthJwk:OAuthJwk"
-                        }
+                        },
+                        "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
                     },
                     "label": {
                         "type": "string",
@@ -5008,7 +5011,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Groups claim type. Valid values: `\"FILTER\"`, `\"EXPRESSION\"`.\n"
+                        "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`.\n"
                     },
                     "userNameTemplate": {
                         "type": "string",
@@ -5160,7 +5163,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app. The value for the link should be boolean.\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -5433,7 +5436,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app. The value for the link should be boolean.\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "appSettingsJson": {
                     "type": "string",
@@ -5653,7 +5656,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app. The value for the link should be boolean.\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "appSettingsJson": {
                         "type": "string",
@@ -5910,7 +5913,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -5946,7 +5949,7 @@
                 },
                 "logo": {
                     "type": "string",
-                    "description": "Local path to logo of the application.\n"
+                    "description": "Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.\n"
                 },
                 "logoUrl": {
                     "type": "string",
@@ -6073,7 +6076,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -6109,7 +6112,7 @@
                 },
                 "logo": {
                     "type": "string",
-                    "description": "Local path to logo of the application.\n"
+                    "description": "Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.\n"
                 },
                 "optionalField1": {
                     "type": "string",
@@ -6223,7 +6226,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -6259,7 +6262,7 @@
                     },
                     "logo": {
                         "type": "string",
-                        "description": "Local path to logo of the application.\n"
+                        "description": "Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.\n"
                     },
                     "logoUrl": {
                         "type": "string",
@@ -6382,7 +6385,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -6442,7 +6445,7 @@
                 },
                 "redirectUrl": {
                     "type": "string",
-                    "description": "If going to the login page URL redirects to another page, then enter that URL here.\n"
+                    "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                 },
                 "signOnMode": {
                     "type": "string",
@@ -6462,11 +6465,11 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "Login URL.\n"
+                    "description": "The URL of the sign-in page for this app.\n"
                 },
                 "urlRegex": {
                     "type": "string",
-                    "description": "A regex that further restricts URL to the specified regex.\n"
+                    "description": "A regular expression that further restricts url to the specified regular expression.\n"
                 },
                 "userNameTemplate": {
                     "type": "string",
@@ -6522,7 +6525,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -6574,7 +6577,7 @@
                 },
                 "redirectUrl": {
                     "type": "string",
-                    "description": "If going to the login page URL redirects to another page, then enter that URL here.\n"
+                    "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                 },
                 "skipGroups": {
                     "type": "boolean",
@@ -6590,11 +6593,11 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "Login URL.\n"
+                    "description": "The URL of the sign-in page for this app.\n"
                 },
                 "urlRegex": {
                     "type": "string",
-                    "description": "A regex that further restricts URL to the specified regex.\n"
+                    "description": "A regular expression that further restricts url to the specified regular expression.\n"
                 },
                 "userNameTemplate": {
                     "type": "string",
@@ -6649,7 +6652,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -6709,7 +6712,7 @@
                     },
                     "redirectUrl": {
                         "type": "string",
-                        "description": "If going to the login page URL redirects to another page, then enter that URL here.\n"
+                        "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                     },
                     "signOnMode": {
                         "type": "string",
@@ -6729,11 +6732,11 @@
                     },
                     "url": {
                         "type": "string",
-                        "description": "Login URL.\n"
+                        "description": "The URL of the sign-in page for this app.\n"
                     },
                     "urlRegex": {
                         "type": "string",
-                        "description": "A regex that further restricts URL to the specified regex.\n"
+                        "description": "A regular expression that further restricts url to the specified regular expression.\n"
                     },
                     "userNameTemplate": {
                         "type": "string",
@@ -7799,7 +7802,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"` or `\"ORG_URL\"`\n"
+                    "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"`,`\"ORG_URL\"` or `\"DYNAMIC\"`.\n"
                 },
                 "kid": {
                     "type": "string",
@@ -7840,7 +7843,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"` or `\"ORG_URL\"`\n"
+                    "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"`,`\"ORG_URL\"` or `\"DYNAMIC\"`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7886,7 +7889,7 @@
                     },
                     "issuerMode": {
                         "type": "string",
-                        "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"` or `\"ORG_URL\"`\n"
+                        "description": "Allows you to use a custom issuer URL. It can be set to `\"CUSTOM_URL\"`,`\"ORG_URL\"` or `\"DYNAMIC\"`.\n"
                     },
                     "kid": {
                         "type": "string",
@@ -17700,7 +17703,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -17723,7 +17726,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n",
+                    "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.\n",
                     "deprecationMessage": "The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality."
                 },
                 "hideIos": {
@@ -17756,11 +17759,11 @@
                 },
                 "preconfiguredApp": {
                     "type": "string",
-                    "description": "Preconfigured app name\n"
+                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.\n"
                 },
                 "redirectUrl": {
                     "type": "string",
-                    "description": "Redirect URL.\n"
+                    "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                 },
                 "sharedPassword": {
                     "type": "string",
@@ -17819,7 +17822,7 @@
                     "items": {
                         "$ref": "#/types/okta:index/AppSharedCredentialsUser:AppSharedCredentialsUser"
                     },
-                    "description": "Users associated with the application\n",
+                    "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.app.User` resource.\n",
                     "deprecationMessage": "The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality."
                 }
             },
@@ -17848,7 +17851,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -17871,7 +17874,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups associated with the application\n",
+                    "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.\n",
                     "deprecationMessage": "The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality."
                 },
                 "hideIos": {
@@ -17896,11 +17899,11 @@
                 },
                 "preconfiguredApp": {
                     "type": "string",
-                    "description": "Preconfigured app name\n"
+                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.\n"
                 },
                 "redirectUrl": {
                     "type": "string",
-                    "description": "Redirect URL.\n"
+                    "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                 },
                 "sharedPassword": {
                     "type": "string",
@@ -17955,7 +17958,7 @@
                     "items": {
                         "$ref": "#/types/okta:index/AppSharedCredentialsUser:AppSharedCredentialsUser"
                     },
-                    "description": "Users associated with the application\n",
+                    "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.app.User` resource.\n",
                     "deprecationMessage": "The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality."
                 }
             },
@@ -17983,7 +17986,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -18006,7 +18009,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Groups associated with the application\n",
+                        "description": "Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.\n",
                         "deprecationMessage": "The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality."
                     },
                     "hideIos": {
@@ -18039,11 +18042,11 @@
                     },
                     "preconfiguredApp": {
                         "type": "string",
-                        "description": "Preconfigured app name\n"
+                        "description": "name of application from the Okta Integration Network, if not included a custom app will be created.\n"
                     },
                     "redirectUrl": {
                         "type": "string",
-                        "description": "Redirect URL.\n"
+                        "description": "Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.\n"
                     },
                     "sharedPassword": {
                         "type": "string",
@@ -18102,7 +18105,7 @@
                         "items": {
                             "$ref": "#/types/okta:index/AppSharedCredentialsUser:AppSharedCredentialsUser"
                         },
-                        "description": "Users associated with the application\n",
+                        "description": "The users assigned to the application. See `okta.app.User` for a more flexible approach.\n- `DEPRECATED`: Please replace usage with the `okta.app.User` resource.\n",
                         "deprecationMessage": "The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality."
                     }
                 },
@@ -21788,6 +21791,67 @@
                     "status": {
                         "type": "string",
                         "description": "Status of the policy.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps": {
+            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to manage the apps in the Profile Enrollment Policy. \n\n**Important Notes:** \n - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.\n - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid \n  unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst examplePolicy = okta.policy.getPolicy({\n    name: \"My Policy\",\n    type: \"PROFILE_ENROLLMENT\",\n});\nconst test = okta.app.getApp({\n    label: \"My App\",\n});\nconst examplePolicyProfileEnrollmentApps = new okta.PolicyProfileEnrollmentApps(\"examplePolicyProfileEnrollmentApps\", {\n    policyId: okta_policy.example.id,\n    apps: [data.okta_app.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_policy = okta.policy.get_policy(name=\"My Policy\",\n    type=\"PROFILE_ENROLLMENT\")\ntest = okta.app.get_app(label=\"My App\")\nexample_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps(\"examplePolicyProfileEnrollmentApps\",\n    policy_id=okta_policy[\"example\"][\"id\"],\n    apps=[data[\"okta_app\"][\"id\"]])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var examplePolicy = Output.Create(Okta.Policy.GetPolicy.InvokeAsync(new Okta.Policy.GetPolicyArgs\n        {\n            Name = \"My Policy\",\n            Type = \"PROFILE_ENROLLMENT\",\n        }));\n        var test = Output.Create(Okta.App.GetApp.InvokeAsync(new Okta.App.GetAppArgs\n        {\n            Label = \"My App\",\n        }));\n        var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps(\"examplePolicyProfileEnrollmentApps\", new Okta.PolicyProfileEnrollmentAppsArgs\n        {\n            PolicyId = okta_policy.Example.Id,\n            Apps = \n            {\n                data.Okta_app.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.GetPolicy(ctx, \u0026policy.GetPolicyArgs{\n\t\t\tName: \"My Policy\",\n\t\t\tType: \"PROFILE_ENROLLMENT\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.GetApp(ctx, \u0026app.GetAppArgs{\n\t\t\tLabel: pulumi.StringRef(\"My App\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPolicyProfileEnrollmentApps(ctx, \"examplePolicyProfileEnrollmentApps\", \u0026okta.PolicyProfileEnrollmentAppsArgs{\n\t\t\tPolicyId: pulumi.Any(okta_policy.Example.Id),\n\t\t\tApps: pulumi.StringArray{\n\t\t\t\tpulumi.Any(data.Okta_app.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Profile Enrollment Policy Apps can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example \u003cpolicy id\u003e\n```\n\n ",
+            "properties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of app IDs to be added to this policy.\n"
+                },
+                "defaultPolicyId": {
+                    "type": "string",
+                    "description": "ID of the default enrollment policy.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the enrollment policy.\n"
+                }
+            },
+            "required": [
+                "defaultPolicyId",
+                "policyId"
+            ],
+            "inputProperties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of app IDs to be added to this policy.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the enrollment policy.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PolicyProfileEnrollmentApps resources.\n",
+                "properties": {
+                    "apps": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of app IDs to be added to this policy.\n"
+                    },
+                    "defaultPolicyId": {
+                        "type": "string",
+                        "description": "ID of the default enrollment policy.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the enrollment policy.\n"
                     }
                 },
                 "type": "object"

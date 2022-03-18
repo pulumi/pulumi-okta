@@ -212,7 +212,7 @@ type Saml struct {
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for the link should be boolean.
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
@@ -373,7 +373,7 @@ type samlState struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for the link should be boolean.
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -503,7 +503,7 @@ type SamlState struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app. The value for the link should be boolean.
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
@@ -637,7 +637,7 @@ type samlArgs struct {
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for the link should be boolean.
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -746,7 +746,7 @@ type SamlArgs struct {
 	AcsEndpoints pulumi.StringArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app. The value for the link should be boolean.
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput

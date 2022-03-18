@@ -50,7 +50,7 @@ class SwaArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -62,12 +62,12 @@ class SwaArgs:
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -202,7 +202,7 @@ class SwaArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -335,7 +335,7 @@ class SwaArgs:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        If going to the login page URL redirects to another page, then enter that URL here.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -383,7 +383,7 @@ class SwaArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        Login URL.
+        The URL of the sign-in page for this app.
         """
         return pulumi.get(self, "url")
 
@@ -395,7 +395,7 @@ class SwaArgs:
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A regex that further restricts URL to the specified regex.
+        A regular expression that further restricts url to the specified regular expression.
         """
         return pulumi.get(self, "url_regex")
 
@@ -517,7 +517,7 @@ class _SwaState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -532,13 +532,13 @@ class _SwaState:
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -668,7 +668,7 @@ class _SwaState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -837,7 +837,7 @@ class _SwaState:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        If going to the login page URL redirects to another page, then enter that URL here.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -897,7 +897,7 @@ class _SwaState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        Login URL.
+        The URL of the sign-in page for this app.
         """
         return pulumi.get(self, "url")
 
@@ -909,7 +909,7 @@ class _SwaState:
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A regex that further restricts URL to the specified regex.
+        A regular expression that further restricts url to the specified regular expression.
         """
         return pulumi.get(self, "url_regex")
 
@@ -1070,7 +1070,7 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -1083,12 +1083,12 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -1288,7 +1288,7 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
@@ -1303,13 +1303,13 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
+        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -1391,7 +1391,7 @@ class Swa(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1504,7 +1504,7 @@ class Swa(pulumi.CustomResource):
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        If going to the login page URL redirects to another page, then enter that URL here.
+        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         """
         return pulumi.get(self, "redirect_url")
 
@@ -1544,7 +1544,7 @@ class Swa(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
-        Login URL.
+        The URL of the sign-in page for this app.
         """
         return pulumi.get(self, "url")
 
@@ -1552,7 +1552,7 @@ class Swa(pulumi.CustomResource):
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> pulumi.Output[Optional[str]]:
         """
-        A regex that further restricts URL to the specified regex.
+        A regular expression that further restricts url to the specified regular expression.
         """
         return pulumi.get(self, "url_regex")
 
