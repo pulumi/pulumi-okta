@@ -25,7 +25,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

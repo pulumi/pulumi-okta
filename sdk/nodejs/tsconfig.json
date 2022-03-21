@@ -144,6 +144,7 @@
         "policyMfaDefault.ts",
         "policyPasswordDefault.ts",
         "policyProfileEnrollment.ts",
+        "policyProfileEnrollmentApps.ts",
         "policyRuleProfileEnrollment.ts",
         "profile/index.ts",
         "profile/mapping.ts",

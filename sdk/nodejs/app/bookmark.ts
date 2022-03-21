@@ -87,7 +87,7 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface BookmarkState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -347,7 +347,7 @@ export interface BookmarkArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**

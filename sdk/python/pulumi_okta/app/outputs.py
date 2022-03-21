@@ -174,7 +174,7 @@ class OAuthGroupsClaim(dict):
                  filter_type: Optional[str] = None):
         """
         :param str name: Name of the claim that will be used in the token.
-        :param str type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param str type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         :param str value: Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
         :param str filter_type: Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
         """
@@ -196,7 +196,7 @@ class OAuthGroupsClaim(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         """
         return pulumi.get(self, "type")
 

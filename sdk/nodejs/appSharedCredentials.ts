@@ -103,7 +103,7 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -123,7 +123,8 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -157,11 +158,11 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly passwordField!: pulumi.Output<string | undefined>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * Redirect URL.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +218,8 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly usernameField!: pulumi.Output<string | undefined>;
     /**
-     * Users associated with the application
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -334,7 +336,7 @@ export interface AppSharedCredentialsState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -354,7 +356,8 @@ export interface AppSharedCredentialsState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -388,11 +391,11 @@ export interface AppSharedCredentialsState {
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Redirect URL.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -448,7 +451,8 @@ export interface AppSharedCredentialsState {
      */
     usernameField?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -476,7 +480,7 @@ export interface AppSharedCredentialsArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -496,7 +500,8 @@ export interface AppSharedCredentialsArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application
+     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -522,11 +527,11 @@ export interface AppSharedCredentialsArgs {
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Redirect URL.
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -578,7 +583,8 @@ export interface AppSharedCredentialsArgs {
      */
     usernameField?: pulumi.Input<string>;
     /**
-     * Users associated with the application
+     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
+     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */

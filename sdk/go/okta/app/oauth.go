@@ -115,7 +115,7 @@ type OAuth struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
@@ -133,8 +133,8 @@ type OAuth struct {
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
-	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-	// no-op, use client_id for that behavior instead.
+	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
@@ -156,12 +156,13 @@ type OAuth struct {
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	Jwks       OAuthJwkArrayOutput    `pulumi:"jwks"`
+	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	Jwks OAuthJwkArrayOutput `pulumi:"jwks"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -206,7 +207,7 @@ type OAuth struct {
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
@@ -268,7 +269,7 @@ type oauthState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -286,8 +287,8 @@ type oauthState struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-	// no-op, use client_id for that behavior instead.
+	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
@@ -309,12 +310,13 @@ type oauthState struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	Jwks []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -359,7 +361,7 @@ type oauthState struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type *string `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -387,7 +389,7 @@ type OAuthState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
@@ -405,8 +407,8 @@ type OAuthState struct {
 	ClientUri pulumi.StringPtrInput
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
-	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-	// no-op, use client_id for that behavior instead.
+	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
@@ -428,12 +430,13 @@ type OAuthState struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
+	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	Jwks OAuthJwkArrayInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -478,7 +481,7 @@ type OAuthState struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
@@ -510,7 +513,7 @@ type oauthArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
@@ -526,8 +529,8 @@ type oauthArgs struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-	// no-op, use client_id for that behavior instead.
+	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
@@ -549,12 +552,13 @@ type oauthArgs struct {
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	Jwks []OAuthJwk `pulumi:"jwks"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -593,7 +597,7 @@ type oauthArgs struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type string `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -622,7 +626,7 @@ type OAuthArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
@@ -638,8 +642,8 @@ type OAuthArgs struct {
 	ClientUri pulumi.StringPtrInput
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
-	// **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-	// no-op, use client_id for that behavior instead.
+	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
@@ -661,12 +665,13 @@ type OAuthArgs struct {
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
+	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	Jwks OAuthJwkArrayInput
 	// The Application's display name.
 	Label pulumi.StringInput
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -705,7 +710,7 @@ type OAuthArgs struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
 	Type pulumi.StringInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput

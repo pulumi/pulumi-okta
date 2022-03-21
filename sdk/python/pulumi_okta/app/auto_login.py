@@ -50,7 +50,7 @@ class AutoLoginArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -61,11 +61,11 @@ class AutoLoginArgs:
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
-        :param pulumi.Input[str] sign_on_url: Login URL
+        :param pulumi.Input[str] sign_on_url: App login page URL
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
@@ -202,7 +202,7 @@ class AutoLoginArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -323,7 +323,7 @@ class AutoLoginArgs:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 
@@ -371,7 +371,7 @@ class AutoLoginArgs:
     @pulumi.getter(name="signOnUrl")
     def sign_on_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Login URL
+        App login page URL
         """
         return pulumi.get(self, "sign_on_url")
 
@@ -517,7 +517,7 @@ class _AutoLoginState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -531,12 +531,12 @@ class _AutoLoginState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of the application.
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
-        :param pulumi.Input[str] sign_on_url: Login URL
+        :param pulumi.Input[str] sign_on_url: App login page URL
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
@@ -668,7 +668,7 @@ class _AutoLoginState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -825,7 +825,7 @@ class _AutoLoginState:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 
@@ -885,7 +885,7 @@ class _AutoLoginState:
     @pulumi.getter(name="signOnUrl")
     def sign_on_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Login URL
+        App login page URL
         """
         return pulumi.get(self, "sign_on_url")
 
@@ -1086,7 +1086,7 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -1098,11 +1098,11 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
-        :param pulumi.Input[str] sign_on_url: Login URL
+        :param pulumi.Input[str] sign_on_url: App login page URL
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
@@ -1320,7 +1320,7 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -1334,12 +1334,12 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of the application.
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
-        :param pulumi.Input[str] sign_on_url: Login URL
+        :param pulumi.Input[str] sign_on_url: App login page URL
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
@@ -1423,7 +1423,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1528,7 +1528,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow user to reveal password
+        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         """
         return pulumi.get(self, "reveal_password")
 
@@ -1568,7 +1568,7 @@ class AutoLogin(pulumi.CustomResource):
     @pulumi.getter(name="signOnUrl")
     def sign_on_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Login URL
+        App login page URL
         """
         return pulumi.get(self, "sign_on_url")
 

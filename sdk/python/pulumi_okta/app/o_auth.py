@@ -66,12 +66,12 @@ class OAuthArgs:
         """
         The set of arguments for constructing a OAuth resource.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
@@ -79,10 +79,10 @@ class OAuthArgs:
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-               no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
@@ -91,9 +91,10 @@ class OAuthArgs:
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
@@ -240,7 +241,7 @@ class OAuthArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         """
         return pulumi.get(self, "type")
 
@@ -300,7 +301,7 @@ class OAuthArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -396,8 +397,8 @@ class OAuthArgs:
     @pulumi.getter(name="customClientId")
     def custom_client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        no-op, use client_id for that behavior instead.
+        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -421,7 +422,7 @@ class OAuthArgs:
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         `"interaction_code"` (*OIE only*).
@@ -485,7 +486,7 @@ class OAuthArgs:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -509,6 +510,9 @@ class OAuthArgs:
     @property
     @pulumi.getter
     def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
+        """
+        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        """
         return pulumi.get(self, "jwks")
 
     @jwks.setter
@@ -866,7 +870,7 @@ class _OAuthState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
@@ -875,10 +879,10 @@ class _OAuthState:
         :param pulumi.Input[str] client_secret: The client secret of the application.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-               no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
@@ -887,9 +891,10 @@ class _OAuthState:
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -912,7 +917,7 @@ class _OAuthState:
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -1087,7 +1092,7 @@ class _OAuthState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1195,8 +1200,8 @@ class _OAuthState:
     @pulumi.getter(name="customClientId")
     def custom_client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        no-op, use client_id for that behavior instead.
+        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -1220,7 +1225,7 @@ class _OAuthState:
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         `"interaction_code"` (*OIE only*).
@@ -1284,7 +1289,7 @@ class _OAuthState:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -1308,6 +1313,9 @@ class _OAuthState:
     @property
     @pulumi.getter
     def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
+        """
+        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        """
         return pulumi.get(self, "jwks")
 
     @jwks.setter
@@ -1582,7 +1590,7 @@ class _OAuthState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         """
         return pulumi.get(self, "type")
 
@@ -1781,7 +1789,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
@@ -1789,10 +1797,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-               no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
@@ -1801,9 +1809,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -1823,7 +1832,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -2108,7 +2117,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
@@ -2117,10 +2126,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: The client secret of the application.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-               no-op, use client_id for that behavior instead.
+        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
@@ -2129,9 +2138,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -2154,7 +2164,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -2257,7 +2267,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -2329,8 +2339,8 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="customClientId")
     def custom_client_id(self) -> pulumi.Output[Optional[str]]:
         """
-        **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-        no-op, use client_id for that behavior instead.
+        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
+        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -2346,7 +2356,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+        List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
         Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
         `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
         `"interaction_code"` (*OIE only*).
@@ -2390,7 +2400,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> pulumi.Output[Optional[bool]]:
         """
-        *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -2406,6 +2416,9 @@ class OAuth(pulumi.CustomResource):
     @property
     @pulumi.getter
     def jwks(self) -> pulumi.Output[Optional[Sequence['outputs.OAuthJwk']]]:
+        """
+        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        """
         return pulumi.get(self, "jwks")
 
     @property
@@ -2588,7 +2601,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
         """
         return pulumi.get(self, "type")
 

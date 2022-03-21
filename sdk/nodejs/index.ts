@@ -51,6 +51,7 @@ export * from "./orgSupport";
 export * from "./policyMfaDefault";
 export * from "./policyPasswordDefault";
 export * from "./policyProfileEnrollment";
+export * from "./policyProfileEnrollmentApps";
 export * from "./policyRuleProfileEnrollment";
 export * from "./provider";
 export * from "./rateLimiting";
@@ -134,6 +135,7 @@ import { OrgSupport } from "./orgSupport";
 import { PolicyMfaDefault } from "./policyMfaDefault";
 import { PolicyPasswordDefault } from "./policyPasswordDefault";
 import { PolicyProfileEnrollment } from "./policyProfileEnrollment";
+import { PolicyProfileEnrollmentApps } from "./policyProfileEnrollmentApps";
 import { PolicyRuleProfileEnrollment } from "./policyRuleProfileEnrollment";
 import { RateLimiting } from "./rateLimiting";
 import { ResourceSet } from "./resourceSet";
@@ -217,6 +219,8 @@ const _module = {
                 return new PolicyPasswordDefault(name, <any>undefined, { urn })
             case "okta:index/policyProfileEnrollment:PolicyProfileEnrollment":
                 return new PolicyProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps":
+                return new PolicyProfileEnrollmentApps(name, <any>undefined, { urn })
             case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
                 return new PolicyRuleProfileEnrollment(name, <any>undefined, { urn })
             case "okta:index/rateLimiting:RateLimiting":
@@ -279,6 +283,7 @@ pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
 pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)

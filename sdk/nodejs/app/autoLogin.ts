@@ -106,7 +106,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
      */
     public readonly revealPassword!: pulumi.Output<boolean | undefined>;
     /**
@@ -181,7 +181,7 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly signOnRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Login URL
+     * App login page URL
      */
     public readonly signOnUrl!: pulumi.Output<string | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface AutoLoginState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -382,7 +382,7 @@ export interface AutoLoginState {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -402,7 +402,7 @@ export interface AutoLoginState {
      */
     signOnRedirectUrl?: pulumi.Input<string>;
     /**
-     * Login URL
+     * App login page URL
      */
     signOnUrl?: pulumi.Input<string>;
     /**
@@ -463,7 +463,7 @@ export interface AutoLoginArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -510,7 +510,7 @@ export interface AutoLoginArgs {
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -526,7 +526,7 @@ export interface AutoLoginArgs {
      */
     signOnRedirectUrl?: pulumi.Input<string>;
     /**
-     * Login URL
+     * App login page URL
      */
     signOnUrl?: pulumi.Input<string>;
     /**

@@ -98,7 +98,7 @@ namespace Pulumi.Okta
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
@@ -128,7 +128,8 @@ namespace Pulumi.Okta
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -176,13 +177,13 @@ namespace Pulumi.Okta
         public Output<string?> PasswordField { get; private set; } = null!;
 
         /// <summary>
-        /// Preconfigured app name
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// Redirect URL.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Output("redirectUrl")]
         public Output<string?> RedirectUrl { get; private set; } = null!;
@@ -266,7 +267,8 @@ namespace Pulumi.Okta
         public Output<string?> UsernameField { get; private set; } = null!;
 
         /// <summary>
-        /// Users associated with the application
+        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.AppSharedCredentialsUser>> Users { get; private set; } = null!;
@@ -342,7 +344,7 @@ namespace Pulumi.Okta
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -375,7 +377,8 @@ namespace Pulumi.Okta
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -415,13 +418,13 @@ namespace Pulumi.Okta
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
-        /// Preconfigured app name
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Redirect URL.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
@@ -502,7 +505,8 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppSharedCredentialsUserArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AppSharedCredentialsUserArgs> Users
@@ -543,7 +547,7 @@ namespace Pulumi.Okta
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -576,7 +580,8 @@ namespace Pulumi.Okta
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Groups associated with the application
+        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -628,13 +633,13 @@ namespace Pulumi.Okta
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
-        /// Preconfigured app name
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Redirect URL.
+        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
@@ -721,7 +726,8 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppSharedCredentialsUserGetArgs>? _users;
 
         /// <summary>
-        /// Users associated with the application
+        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
+        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AppSharedCredentialsUserGetArgs> Users

@@ -109,7 +109,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
@@ -145,8 +145,8 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly consentMethod!: pulumi.Output<string | undefined>;
     /**
-     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-     * no-op, use client_id for that behavior instead.
+     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -156,7 +156,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
      * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
      * `"interactionCode"` (*OIE only*).
@@ -182,7 +182,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
     /**
@@ -190,6 +190,9 @@ export class OAuth extends pulumi.CustomResource {
      * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
+    /**
+     * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     */
     public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
     /**
      * The Application's display name.
@@ -280,7 +283,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly tosUri!: pulumi.Output<string | undefined>;
     /**
-     * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -463,7 +466,7 @@ export interface OAuthState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -499,8 +502,8 @@ export interface OAuthState {
      */
     consentMethod?: pulumi.Input<string>;
     /**
-     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-     * no-op, use client_id for that behavior instead.
+     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -510,7 +513,7 @@ export interface OAuthState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
      * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
      * `"interactionCode"` (*OIE only*).
@@ -536,7 +539,7 @@ export interface OAuthState {
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -544,6 +547,9 @@ export interface OAuthState {
      * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
+    /**
+     * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
      * The Application's display name.
@@ -634,7 +640,7 @@ export interface OAuthState {
      */
     tosUri?: pulumi.Input<string>;
     /**
-     * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -687,7 +693,7 @@ export interface OAuthArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
@@ -719,8 +725,8 @@ export interface OAuthArgs {
      */
     consentMethod?: pulumi.Input<string>;
     /**
-     * **Deprecated** This property allows you to set your client_id during creation. NOTE: updating after creation will be a
-     * no-op, use client_id for that behavior instead.
+     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -730,7 +736,7 @@ export interface OAuthArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). 
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
      * Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
      * `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
      * `"interactionCode"` (*OIE only*).
@@ -756,7 +762,7 @@ export interface OAuthArgs {
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -764,6 +770,9 @@ export interface OAuthArgs {
      * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
+    /**
+     * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
      * The Application's display name.
@@ -842,7 +851,7 @@ export interface OAuthArgs {
      */
     tosUri?: pulumi.Input<string>;
     /**
-     * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
      */
     type: pulumi.Input<string>;
     /**

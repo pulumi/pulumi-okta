@@ -72,7 +72,7 @@ class SamlArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
@@ -299,7 +299,7 @@ class SamlArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for the link should be boolean.
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -885,7 +885,7 @@ class _SamlState:
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
@@ -1135,7 +1135,7 @@ class _SamlState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for the link should be boolean.
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -2018,7 +2018,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
@@ -2459,7 +2459,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for the link should be boolean.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
@@ -2628,7 +2628,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app. The value for the link should be boolean.
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 

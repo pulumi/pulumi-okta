@@ -72,7 +72,7 @@ type SecurePasswordStore struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -91,7 +91,7 @@ type SecurePasswordStore struct {
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
@@ -193,7 +193,7 @@ type securePasswordStoreState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -212,7 +212,7 @@ type securePasswordStoreState struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label *string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
@@ -274,7 +274,7 @@ type SecurePasswordStoreState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -293,7 +293,7 @@ type SecurePasswordStoreState struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
@@ -359,7 +359,7 @@ type securePasswordStoreArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -378,7 +378,7 @@ type securePasswordStoreArgs struct {
 	HideWeb *bool `pulumi:"hideWeb"`
 	// The display name of the Application.
 	Label string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// Name of optional param in the login form.
 	OptionalField1 *string `pulumi:"optionalField1"`
@@ -435,7 +435,7 @@ type SecurePasswordStoreArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -454,7 +454,7 @@ type SecurePasswordStoreArgs struct {
 	HideWeb pulumi.BoolPtrInput
 	// The display name of the Application.
 	Label pulumi.StringInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// Name of optional param in the login form.
 	OptionalField1 pulumi.StringPtrInput

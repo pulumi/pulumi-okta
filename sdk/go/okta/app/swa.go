@@ -72,7 +72,7 @@ type Swa struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -103,7 +103,7 @@ type Swa struct {
 	PasswordField pulumi.StringPtrOutput `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
-	// If going to the login page URL redirects to another page, then enter that URL here.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
@@ -113,9 +113,9 @@ type Swa struct {
 	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Login URL.
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
-	// A regex that further restricts URL to the specified regex.
+	// A regular expression that further restricts url to the specified regular expression.
 	UrlRegex pulumi.StringPtrOutput `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
@@ -174,7 +174,7 @@ type swaState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -205,7 +205,7 @@ type swaState struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// If going to the login page URL redirects to another page, then enter that URL here.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
@@ -215,9 +215,9 @@ type swaState struct {
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Login URL.
+	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
-	// A regex that further restricts URL to the specified regex.
+	// A regular expression that further restricts url to the specified regular expression.
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -245,7 +245,7 @@ type SwaState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -276,7 +276,7 @@ type SwaState struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// If going to the login page URL redirects to another page, then enter that URL here.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
@@ -286,9 +286,9 @@ type SwaState struct {
 	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Login URL.
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
-	// A regex that further restricts URL to the specified regex.
+	// A regular expression that further restricts url to the specified regular expression.
 	UrlRegex pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
@@ -320,7 +320,7 @@ type swaArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -347,7 +347,7 @@ type swaArgs struct {
 	PasswordField *string `pulumi:"passwordField"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// If going to the login page URL redirects to another page, then enter that URL here.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
@@ -355,9 +355,9 @@ type swaArgs struct {
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Login URL.
+	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
-	// A regex that further restricts URL to the specified regex.
+	// A regular expression that further restricts url to the specified regular expression.
 	UrlRegex *string `pulumi:"urlRegex"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -386,7 +386,7 @@ type SwaArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -413,7 +413,7 @@ type SwaArgs struct {
 	PasswordField pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.
 	PreconfiguredApp pulumi.StringPtrInput
-	// If going to the login page URL redirects to another page, then enter that URL here.
+	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrInput
 	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput
@@ -421,9 +421,9 @@ type SwaArgs struct {
 	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Login URL.
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
-	// A regex that further restricts URL to the specified regex.
+	// A regular expression that further restricts url to the specified regular expression.
 	UrlRegex pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput

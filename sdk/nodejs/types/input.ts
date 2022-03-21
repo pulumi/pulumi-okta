@@ -241,7 +241,7 @@ export namespace app {
          */
         name: pulumi.Input<string>;
         /**
-         * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
          */
         type: pulumi.Input<string>;
         /**
