@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class OauthAppRedirectUri extends pulumi.CustomResource {
     /**
      * Get an existing OauthAppRedirectUri resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class OauthAppRedirectUri extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OauthAppRedirectUriState, opts?: pulumi.CustomResourceOptions): OauthAppRedirectUri {
+        pulumi.log.warn("OauthAppRedirectUri is deprecated: Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider.")
         return new OauthAppRedirectUri(name, <any>state, { ...opts, id: id });
     }
 
@@ -45,8 +49,11 @@ export class OauthAppRedirectUri extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: OauthAppRedirectUriArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: OauthAppRedirectUriArgs | OauthAppRedirectUriState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OauthAppRedirectUri is deprecated: Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

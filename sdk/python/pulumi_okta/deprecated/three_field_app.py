@@ -1073,7 +1073,12 @@ class _ThreeFieldAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.ThreeField instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class ThreeFieldApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.ThreeField instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1201,6 +1206,7 @@ class ThreeFieldApp(pulumi.CustomResource):
                  username_selector: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ThreeFieldApp is deprecated: Deprecated. Use app.ThreeField instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

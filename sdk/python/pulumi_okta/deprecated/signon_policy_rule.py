@@ -802,7 +802,12 @@ class _SignonPolicyRuleState:
         pulumi.set(self, "users_excludeds", value)
 
 
+warnings.warn("""Deprecated. Use policy.RuleSignon instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SignonPolicyRule(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use policy.RuleSignon instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -910,6 +915,7 @@ class SignonPolicyRule(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SignonPolicyRule is deprecated: Deprecated. Use policy.RuleSignon instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

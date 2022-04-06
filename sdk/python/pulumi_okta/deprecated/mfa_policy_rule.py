@@ -422,7 +422,12 @@ class _MfaPolicyRuleState:
         pulumi.set(self, "users_excludeds", value)
 
 
+warnings.warn("""Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class MfaPolicyRule(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -494,6 +499,7 @@ class MfaPolicyRule(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""MfaPolicyRule is deprecated: Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

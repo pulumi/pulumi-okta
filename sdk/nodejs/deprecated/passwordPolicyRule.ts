@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class PasswordPolicyRule extends pulumi.CustomResource {
     /**
      * Get an existing PasswordPolicyRule resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PasswordPolicyRuleState, opts?: pulumi.CustomResourceOptions): PasswordPolicyRule {
+        pulumi.log.warn("PasswordPolicyRule is deprecated: Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider.")
         return new PasswordPolicyRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -91,8 +95,11 @@ export class PasswordPolicyRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args?: PasswordPolicyRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: PasswordPolicyRuleArgs | PasswordPolicyRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PasswordPolicyRule is deprecated: Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

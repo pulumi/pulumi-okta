@@ -15,6 +15,8 @@ __all__ = [
     'get_default_policies_output',
 ]
 
+warnings.warn("""Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDefaultPoliciesResult:
     """
@@ -57,6 +59,7 @@ def get_default_policies(type: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
     """
+    pulumi.log.warn("""get_default_policies is deprecated: Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.""")
     __args__ = dict()
     __args__['type'] = type
     if opts is None:
@@ -76,4 +79,5 @@ def get_default_policies_output(type: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing resource.
     """
+    pulumi.log.warn("""get_default_policies is deprecated: Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.""")
     ...

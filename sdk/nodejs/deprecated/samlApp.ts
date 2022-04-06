@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class SamlApp extends pulumi.CustomResource {
     /**
      * Get an existing SamlApp resource's state with the given name, ID, and optional extra
@@ -16,6 +19,7 @@ export class SamlApp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SamlAppState, opts?: pulumi.CustomResourceOptions): SamlApp {
+        pulumi.log.warn("SamlApp is deprecated: Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.")
         return new SamlApp(name, <any>state, { ...opts, id: id });
     }
 
@@ -282,8 +286,11 @@ export class SamlApp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: SamlAppArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: SamlAppArgs | SamlAppState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SamlApp is deprecated: Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

@@ -678,8 +678,8 @@ github.com/oklog/run v1.1.0/go.mod h1:sVPdnTZT1zYwAJeCMu2Th4T21pA3FPOQRfWjQlk7DV
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/okta/okta-sdk-golang/v2 v2.9.3-0.20211209083930-a123a8c6e20d h1:eXkHa6fD88r12g1xQskQ7pDxBx4dW6jU8FMWlMuutCw=
 github.com/okta/okta-sdk-golang/v2 v2.9.3-0.20211209083930-a123a8c6e20d/go.mod h1:UhdEFuTLCIJirz6x4zGjsuwQl1xhCLKizNyj/h14tFA=
-github.com/okta/terraform-provider-okta v0.0.0-20220303210329-d40aa071ca83 h1:GmYe43/ZP6ILuU51kfT5vdAVL7C7h3GfcTAsXgraVZw=
-github.com/okta/terraform-provider-okta v0.0.0-20220303210329-d40aa071ca83/go.mod h1:qmnc0mFRaj1wYirItEkPOxx9QGvPDGD2h7u+uESWo+s=
+github.com/okta/terraform-provider-okta v0.0.0-20220311181230-23f7f59e9b66 h1:jMA2MtEE1b/SNlYN1UjDDahCE7CdSnITilfapvGuktU=
+github.com/okta/terraform-provider-okta v0.0.0-20220311181230-23f7f59e9b66/go.mod h1:qmnc0mFRaj1wYirItEkPOxx9QGvPDGD2h7u+uESWo+s=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

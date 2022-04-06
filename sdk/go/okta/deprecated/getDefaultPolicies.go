@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.
 func GetDefaultPolicies(ctx *pulumi.Context, args *GetDefaultPoliciesArgs, opts ...pulumi.InvokeOption) (*GetDefaultPoliciesResult, error) {
 	var rv GetDefaultPoliciesResult
 	err := ctx.Invoke("okta:deprecated/getDefaultPolicies:getDefaultPolicies", args, &rv, opts...)

@@ -983,7 +983,12 @@ class _SwaAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.Swa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SwaApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.Swa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1102,6 +1107,7 @@ class SwaApp(pulumi.CustomResource):
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SwaApp is deprecated: Deprecated. Use app.Swa instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

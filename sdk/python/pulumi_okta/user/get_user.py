@@ -22,7 +22,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -113,6 +113,12 @@ class GetUserResult:
         if second_email and not isinstance(second_email, str):
             raise TypeError("Expected argument 'second_email' to be a str")
         pulumi.set(__self__, "second_email", second_email)
+        if skip_groups and not isinstance(skip_groups, bool):
+            raise TypeError("Expected argument 'skip_groups' to be a bool")
+        pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_roles and not isinstance(skip_roles, bool):
+            raise TypeError("Expected argument 'skip_roles' to be a bool")
+        pulumi.set(__self__, "skip_roles", skip_roles)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -376,6 +382,16 @@ class GetUserResult:
         return pulumi.get(self, "second_email")
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_roles")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -473,6 +489,8 @@ class AwaitableGetUserResult(GetUserResult):
             profile_url=self.profile_url,
             searches=self.searches,
             second_email=self.second_email,
+            skip_groups=self.skip_groups,
+            skip_roles=self.skip_roles,
             state=self.state,
             status=self.status,
             street_address=self.street_address,
@@ -484,6 +502,8 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]] = None,
+             skip_groups: Optional[bool] = None,
+             skip_roles: Optional[bool] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -509,10 +529,14 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
 
 
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param bool skip_groups: Additional API call to collect user's groups will not be made.
+    :param bool skip_roles: Additional API call to collect user's roles will not be made.
     :param str user_id: String representing a specific user's id value
     """
     __args__ = dict()
     __args__['searches'] = searches
+    __args__['skipGroups'] = skip_groups
+    __args__['skipRoles'] = skip_roles
     __args__['userId'] = user_id
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -551,6 +575,8 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
         profile_url=__ret__.profile_url,
         searches=__ret__.searches,
         second_email=__ret__.second_email,
+        skip_groups=__ret__.skip_groups,
+        skip_roles=__ret__.skip_roles,
         state=__ret__.state,
         status=__ret__.status,
         street_address=__ret__.street_address,
@@ -563,6 +589,8 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
 
 @_utilities.lift_output_func(get_user)
 def get_user_output(searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]]] = None,
+                    skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                    skip_roles: Optional[pulumi.Input[Optional[bool]]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -588,6 +616,8 @@ def get_user_output(searches: Optional[pulumi.Input[Optional[Sequence[pulumi.Inp
 
 
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param bool skip_groups: Additional API call to collect user's groups will not be made.
+    :param bool skip_roles: Additional API call to collect user's roles will not be made.
     :param str user_id: String representing a specific user's id value
     """
     ...

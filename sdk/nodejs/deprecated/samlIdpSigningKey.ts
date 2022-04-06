@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class SamlIdpSigningKey extends pulumi.CustomResource {
     /**
      * Get an existing SamlIdpSigningKey resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SamlIdpSigningKeyState, opts?: pulumi.CustomResourceOptions): SamlIdpSigningKey {
+        pulumi.log.warn("SamlIdpSigningKey is deprecated: Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.")
         return new SamlIdpSigningKey(name, <any>state, { ...opts, id: id });
     }
 
@@ -50,8 +54,11 @@ export class SamlIdpSigningKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: SamlIdpSigningKeyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: SamlIdpSigningKeyArgs | SamlIdpSigningKeyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SamlIdpSigningKey is deprecated: Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

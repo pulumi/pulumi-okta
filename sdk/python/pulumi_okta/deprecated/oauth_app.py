@@ -1668,7 +1668,12 @@ class _OauthAppState:
         pulumi.set(self, "wildcard_redirect", value)
 
 
+warnings.warn("""Deprecated. Use app.OAuth instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class OauthApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.OAuth instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1854,6 +1859,7 @@ class OauthApp(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthAppUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""OauthApp is deprecated: Deprecated. Use app.OAuth instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -1140,7 +1140,12 @@ class _SecurePasswordStoreAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.SecurePasswordStore instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SecurePasswordStoreApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.SecurePasswordStore instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1274,6 +1279,7 @@ class SecurePasswordStoreApp(pulumi.CustomResource):
                  username_field: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SecurePasswordStoreApp is deprecated: Deprecated. Use app.SecurePasswordStore instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
