@@ -900,7 +900,12 @@ class _SocialIdpState:
         pulumi.set(self, "username_template", value)
 
 
+warnings.warn("""Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SocialIdp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1006,6 +1011,7 @@ class SocialIdp(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SocialIdp is deprecated: Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

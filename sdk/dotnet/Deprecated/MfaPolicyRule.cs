@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [Obsolete(@"Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/mfaPolicyRule:MfaPolicyRule")]
     public partial class MfaPolicyRule : Pulumi.CustomResource
     {

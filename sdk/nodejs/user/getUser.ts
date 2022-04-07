@@ -38,6 +38,8 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUser:getUser", {
         "searches": args.searches,
+        "skipGroups": args.skipGroups,
+        "skipRoles": args.skipRoles,
         "userId": args.userId,
     }, opts);
 }
@@ -50,6 +52,14 @@ export interface GetUserArgs {
      * Map of search criteria. It supports the following properties.
      */
     searches?: inputs.user.GetUserSearch[];
+    /**
+     * Additional API call to collect user's groups will not be made.
+     */
+    skipGroups?: boolean;
+    /**
+     * Additional API call to collect user's roles will not be made.
+     */
+    skipRoles?: boolean;
     /**
      * String representing a specific user's id value
      */
@@ -177,6 +187,8 @@ export interface GetUserResult {
      * user profile property.
      */
     readonly secondEmail: string;
+    readonly skipGroups?: boolean;
+    readonly skipRoles?: boolean;
     /**
      * user profile property.
      */
@@ -220,6 +232,14 @@ export interface GetUserOutputArgs {
      * Map of search criteria. It supports the following properties.
      */
     searches?: pulumi.Input<pulumi.Input<inputs.user.GetUserSearchArgs>[]>;
+    /**
+     * Additional API call to collect user's groups will not be made.
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * Additional API call to collect user's roles will not be made.
+     */
+    skipRoles?: pulumi.Input<boolean>;
     /**
      * String representing a specific user's id value
      */

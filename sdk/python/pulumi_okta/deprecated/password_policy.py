@@ -994,7 +994,12 @@ class _PasswordPolicyState:
         pulumi.set(self, "status", value)
 
 
+warnings.warn("""Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class PasswordPolicy(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1121,6 +1126,7 @@ class PasswordPolicy(pulumi.CustomResource):
                  sms_recovery: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PasswordPolicy is deprecated: Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

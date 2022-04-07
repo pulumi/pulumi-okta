@@ -335,24 +335,96 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_policy_profile_enrollment_apps": {Tok: makeResource(mainMod, "PolicyProfileEnrollmentApps")},
 
 			// Deprecated Resources in Upstream Provider
-			"okta_idp":                       {Tok: makeResource(deprecatedMod, "Idp")},
-			"okta_auto_login_app":            {Tok: makeResource(deprecatedMod, "AuthLoginApp")},
-			"okta_bookmark_app":              {Tok: makeResource(deprecatedMod, "BookmarkApp")},
-			"okta_mfa_policy":                {Tok: makeResource(deprecatedMod, "MfaPolicy")},
-			"okta_mfa_policy_rule":           {Tok: makeResource(deprecatedMod, "MfaPolicyRule")},
-			"okta_oauth_app":                 {Tok: makeResource(deprecatedMod, "OauthApp")},
-			"okta_oauth_app_redirect_uri":    {Tok: makeResource(deprecatedMod, "OauthAppRedirectUri")},
-			"okta_password_policy":           {Tok: makeResource(deprecatedMod, "PasswordPolicy")},
-			"okta_password_policy_rule":      {Tok: makeResource(deprecatedMod, "PasswordPolicyRule")},
-			"okta_signon_policy":             {Tok: makeResource(deprecatedMod, "SignonPolicy")},
-			"okta_signon_policy_rule":        {Tok: makeResource(deprecatedMod, "SignonPolicyRule")},
-			"okta_swa_app":                   {Tok: makeResource(deprecatedMod, "SwaApp")},
-			"okta_saml_app":                  {Tok: makeResource(deprecatedMod, "SamlApp")},
-			"okta_saml_idp":                  {Tok: makeResource(deprecatedMod, "SamlIdp")},
-			"okta_saml_idp_signing_key":      {Tok: makeResource(deprecatedMod, "SamlIdpSigningKey")},
-			"okta_secure_password_store_app": {Tok: makeResource(deprecatedMod, "SecurePasswordStoreApp")},
-			"okta_social_idp":                {Tok: makeResource(deprecatedMod, "SocialIdp")},
-			"okta_three_field_app":           {Tok: makeResource(deprecatedMod, "ThreeFieldApp")},
+			"okta_idp": {
+				Tok:                makeResource(deprecatedMod, "Idp"),
+				DeprecationMessage: formatDeprecationMessage("idp.*"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_auto_login_app": {
+				Tok:                makeResource(deprecatedMod, "AuthLoginApp"),
+				DeprecationMessage: formatDeprecationMessage("app.AutoLogin"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_bookmark_app": {
+				Tok:                makeResource(deprecatedMod, "BookmarkApp"),
+				DeprecationMessage: formatDeprecationMessage("app.Bookmark"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_mfa_policy": {
+				Tok:                makeResource(deprecatedMod, "MfaPolicy"),
+				DeprecationMessage: formatDeprecationMessage("policy.Mfa"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_mfa_policy_rule": {
+				Tok:                makeResource(deprecatedMod, "MfaPolicyRule"),
+				DeprecationMessage: formatDeprecationMessage("policy.RuleMfa"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_oauth_app": {
+				Tok:                makeResource(deprecatedMod, "OauthApp"),
+				DeprecationMessage: formatDeprecationMessage("app.OAuth"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_oauth_app_redirect_uri": {
+				Tok:                makeResource(deprecatedMod, "OauthAppRedirectUri"),
+				DeprecationMessage: formatDeprecationMessage("app.OAuthRedirectUri"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_password_policy": {
+				Tok:                makeResource(deprecatedMod, "PasswordPolicy"),
+				DeprecationMessage: formatDeprecationMessage("policy.Password"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_password_policy_rule": {
+				Tok:                makeResource(deprecatedMod, "PasswordPolicyRule"),
+				DeprecationMessage: formatDeprecationMessage("policy.RulePassword"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_signon_policy": {
+				Tok:                makeResource(deprecatedMod, "SignonPolicy"),
+				DeprecationMessage: formatDeprecationMessage("policy.Signon"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_signon_policy_rule": {
+				Tok:                makeResource(deprecatedMod, "SignonPolicyRule"),
+				DeprecationMessage: formatDeprecationMessage("policy.RuleSignon"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_swa_app": {
+				Tok:                makeResource(deprecatedMod, "SwaApp"),
+				DeprecationMessage: formatDeprecationMessage("app.Swa"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_saml_app": {
+				Tok:                makeResource(deprecatedMod, "SamlApp"),
+				DeprecationMessage: formatDeprecationMessage("app.Saml"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_saml_idp": {
+				Tok:                makeResource(deprecatedMod, "SamlIdp"),
+				DeprecationMessage: formatDeprecationMessage("idp.Saml"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_saml_idp_signing_key": {
+				Tok:                makeResource(deprecatedMod, "SamlIdpSigningKey"),
+				DeprecationMessage: formatDeprecationMessage("idp.SamlKey"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_secure_password_store_app": {
+				Tok:                makeResource(deprecatedMod, "SecurePasswordStoreApp"),
+				DeprecationMessage: formatDeprecationMessage("app.SecurePasswordStore"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_social_idp": {
+				Tok:                makeResource(deprecatedMod, "SocialIdp"),
+				DeprecationMessage: formatDeprecationMessage("idp.Social"),
+				Docs:               noUpstreamDocs(),
+			},
+			"okta_three_field_app": {
+				Tok:                makeResource(deprecatedMod, "ThreeFieldApp"),
+				DeprecationMessage: formatDeprecationMessage("app.ThreeField"),
+				Docs:               noUpstreamDocs(),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources
@@ -435,7 +507,11 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_trusted_origins":         {Tok: makeDataSource(mainMod, "getTrustedOrigins")},
 
 			// Deprecated DataSources in Upstream Provider
-			"okta_default_policies": {Tok: makeDataSource(deprecatedMod, "getDefaultPolicies")},
+			"okta_default_policies": {
+				Tok:                makeDataSource(deprecatedMod, "getDefaultPolicies"),
+				DeprecationMessage: formatDeprecationMessage("policy.getDefaultPolicy"),
+				Docs:               noUpstreamDocs(),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -478,4 +554,15 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func noUpstreamDocs() *tfbridge.DocInfo {
+	return &tfbridge.DocInfo{
+		Markdown: []byte(" "),
+	}
+}
+
+func formatDeprecationMessage(newResourceName string) string {
+	return fmt.Sprintf("Deprecated. Use %s instead. This resource will be removed in version 4.0 of this provider.",
+		newResourceName)
 }

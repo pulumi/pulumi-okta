@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class SocialIdp extends pulumi.CustomResource {
     /**
      * Get an existing SocialIdp resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class SocialIdp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SocialIdpState, opts?: pulumi.CustomResourceOptions): SocialIdp {
+        pulumi.log.warn("SocialIdp is deprecated: Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.")
         return new SocialIdp(name, <any>state, { ...opts, id: id });
     }
 
@@ -108,8 +112,11 @@ export class SocialIdp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: SocialIdpArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: SocialIdpArgs | SocialIdpState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SocialIdp is deprecated: Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

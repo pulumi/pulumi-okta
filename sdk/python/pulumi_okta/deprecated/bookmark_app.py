@@ -646,7 +646,12 @@ class _BookmarkAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class BookmarkApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -733,6 +738,7 @@ class BookmarkApp(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""BookmarkApp is deprecated: Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -9227,7 +9227,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/bookmarkApp:BookmarkApp": {
             "properties": {
@@ -9508,7 +9509,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/idp:Idp": {
             "properties": {
@@ -9919,7 +9921,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/mfaPolicy:MfaPolicy": {
             "properties": {
@@ -10393,7 +10396,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/mfaPolicyRule:MfaPolicyRule": {
             "properties": {
@@ -10600,7 +10604,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/oauthApp:OauthApp": {
             "properties": {
@@ -11313,7 +11318,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.OAuth instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri": {
             "properties": {
@@ -11354,7 +11360,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/passwordPolicy:PasswordPolicy": {
             "properties": {
@@ -11747,7 +11754,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/passwordPolicyRule:PasswordPolicyRule": {
             "properties": {
@@ -11936,7 +11944,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/samlApp:SamlApp": {
             "properties": {
@@ -12689,7 +12698,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/samlIdp:SamlIdp": {
             "properties": {
@@ -13069,7 +13079,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey": {
             "properties": {
@@ -13150,7 +13161,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp": {
             "properties": {
@@ -13621,7 +13633,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.SecurePasswordStore instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/signonPolicy:SignonPolicy": {
             "properties": {
@@ -13705,7 +13718,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/signonPolicyRule:SignonPolicyRule": {
             "properties": {
@@ -14063,7 +14077,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.RuleSignon instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/socialIdp:SocialIdp": {
             "properties": {
@@ -14460,7 +14475,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/swaApp:SwaApp": {
             "properties": {
@@ -14865,7 +14881,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.Swa instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:deprecated/threeFieldApp:ThreeFieldApp": {
             "properties": {
@@ -15318,7 +15335,8 @@
                     }
                 },
                 "type": "object"
-            }
+            },
+            "deprecationMessage": "Deprecated. Use app.ThreeField instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:factor/factor:Factor": {
             "description": "Allows you to manage the activation of Okta MFA methods.\n\nThis resource allows you to manage Okta MFA methods.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.factor.Factor(\"example\", {\n    providerId: \"google_otp\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.factor.Factor(\"example\", provider_id=\"google_otp\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Factor.Factor(\"example\", new Okta.Factor.FactorArgs\n        {\n            ProviderId = \"google_otp\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/factor\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := factor.NewFactor(ctx, \"example\", \u0026factor.FactorArgs{\n\t\t\tProviderId: pulumi.String(\"google_otp\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
@@ -27511,7 +27529,8 @@
                     "type",
                     "id"
                 ]
-            }
+            },
+            "deprecationMessage": "Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider."
         },
         "okta:group/getEveryoneGroup:getEveryoneGroup": {
             "description": "Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data\nsource with `name = \"Everyone\"`. This is simply a shortcut.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = pulumi.output(okta.group.getEveryoneGroup());\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.group.get_everyone_group()\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Okta.Group.GetEveryoneGroup.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.GetEveryoneGroup(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
@@ -28798,6 +28817,14 @@
                         },
                         "description": "Map of search criteria. It supports the following properties.\n"
                     },
+                    "skipGroups": {
+                        "type": "boolean",
+                        "description": "Additional API call to collect user's groups will not be made.\n"
+                    },
+                    "skipRoles": {
+                        "type": "boolean",
+                        "description": "Additional API call to collect user's roles will not be made.\n"
+                    },
                     "userId": {
                         "type": "string",
                         "description": "String representing a specific user's id value\n"
@@ -28935,6 +28962,12 @@
                     "secondEmail": {
                         "type": "string",
                         "description": "user profile property.\n"
+                    },
+                    "skipGroups": {
+                        "type": "boolean"
+                    },
+                    "skipRoles": {
+                        "type": "boolean"
                     },
                     "state": {
                         "type": "string",

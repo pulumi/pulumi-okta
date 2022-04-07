@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class BookmarkApp extends pulumi.CustomResource {
     /**
      * Get an existing BookmarkApp resource's state with the given name, ID, and optional extra
@@ -16,6 +19,7 @@ export class BookmarkApp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BookmarkAppState, opts?: pulumi.CustomResourceOptions): BookmarkApp {
+        pulumi.log.warn("BookmarkApp is deprecated: Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.")
         return new BookmarkApp(name, <any>state, { ...opts, id: id });
     }
 
@@ -123,8 +127,11 @@ export class BookmarkApp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: BookmarkAppArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: BookmarkAppArgs | BookmarkAppState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BookmarkApp is deprecated: Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

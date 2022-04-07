@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.
 type Idp struct {
 	pulumi.CustomResourceState
 

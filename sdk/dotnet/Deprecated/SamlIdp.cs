@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [Obsolete(@"Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/samlIdp:SamlIdp")]
     public partial class SamlIdp : Pulumi.CustomResource
     {

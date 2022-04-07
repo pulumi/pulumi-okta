@@ -983,7 +983,12 @@ class _AuthLoginAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class AuthLoginApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1102,6 +1107,7 @@ class AuthLoginApp(pulumi.CustomResource):
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthLoginAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AuthLoginApp is deprecated: Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

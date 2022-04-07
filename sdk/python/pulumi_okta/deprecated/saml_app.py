@@ -1775,7 +1775,12 @@ class _SamlAppState:
         pulumi.set(self, "users", value)
 
 
+warnings.warn("""Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SamlApp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1956,6 +1961,7 @@ class SamlApp(pulumi.CustomResource):
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAppUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SamlApp is deprecated: Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

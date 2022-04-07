@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class SignonPolicy extends pulumi.CustomResource {
     /**
      * Get an existing SignonPolicy resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class SignonPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SignonPolicyState, opts?: pulumi.CustomResourceOptions): SignonPolicy {
+        pulumi.log.warn("SignonPolicy is deprecated: Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider.")
         return new SignonPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +65,11 @@ export class SignonPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args?: SignonPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: SignonPolicyArgs | SignonPolicyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SignonPolicy is deprecated: Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

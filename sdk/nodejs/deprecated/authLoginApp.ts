@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class AuthLoginApp extends pulumi.CustomResource {
     /**
      * Get an existing AuthLoginApp resource's state with the given name, ID, and optional extra
@@ -16,6 +19,7 @@ export class AuthLoginApp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthLoginAppState, opts?: pulumi.CustomResourceOptions): AuthLoginApp {
+        pulumi.log.warn("AuthLoginApp is deprecated: Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.")
         return new AuthLoginApp(name, <any>state, { ...opts, id: id });
     }
 
@@ -169,8 +173,11 @@ export class AuthLoginApp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: AuthLoginAppArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: AuthLoginAppArgs | AuthLoginAppState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AuthLoginApp is deprecated: Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

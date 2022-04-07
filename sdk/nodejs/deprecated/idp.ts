@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class Idp extends pulumi.CustomResource {
     /**
      * Get an existing Idp resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class Idp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdpState, opts?: pulumi.CustomResourceOptions): Idp {
+        pulumi.log.warn("Idp is deprecated: Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.")
         return new Idp(name, <any>state, { ...opts, id: id });
     }
 
@@ -94,8 +98,11 @@ export class Idp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args: IdpArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: IdpArgs | IdpState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Idp is deprecated: Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider.
 type OauthAppRedirectUri struct {
 	pulumi.CustomResourceState
 

@@ -904,7 +904,12 @@ class _IdpState:
         pulumi.set(self, "username_template", value)
 
 
+warnings.warn("""Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class Idp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1013,6 +1018,7 @@ class Idp(pulumi.CustomResource):
                  user_info_url: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Idp is deprecated: Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

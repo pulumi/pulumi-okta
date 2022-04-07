@@ -129,7 +129,12 @@ class _SamlIdpSigningKeyState:
         pulumi.set(self, "x5t_s256", value)
 
 
+warnings.warn("""Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SamlIdpSigningKey(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class SamlIdpSigningKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SamlIdpSigningKey is deprecated: Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

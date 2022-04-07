@@ -726,7 +726,12 @@ class _MfaPolicyState:
         pulumi.set(self, "yubikey_token", value)
 
 
+warnings.warn("""Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class MfaPolicy(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -822,6 +827,7 @@ class MfaPolicy(pulumi.CustomResource):
                  webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""MfaPolicy is deprecated: Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

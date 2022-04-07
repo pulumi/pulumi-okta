@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * @deprecated Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.
+ */
 export class MfaPolicy extends pulumi.CustomResource {
     /**
      * Get an existing MfaPolicy resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class MfaPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MfaPolicyState, opts?: pulumi.CustomResourceOptions): MfaPolicy {
+        pulumi.log.warn("MfaPolicy is deprecated: Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.")
         return new MfaPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -86,8 +90,11 @@ export class MfaPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, args?: MfaPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider. */
     constructor(name: string, argsOrState?: MfaPolicyArgs | MfaPolicyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MfaPolicy is deprecated: Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

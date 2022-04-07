@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [Obsolete(@"Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.")]
     public static class GetDefaultPolicies
     {
         public static Task<GetDefaultPoliciesResult> InvokeAsync(GetDefaultPoliciesArgs args, InvokeOptions? options = null)

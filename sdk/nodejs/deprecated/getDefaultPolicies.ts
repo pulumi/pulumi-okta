@@ -4,7 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/** @deprecated Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider. */
 export function getDefaultPolicies(args: GetDefaultPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPoliciesResult> {
+    pulumi.log.warn("getDefaultPolicies is deprecated: Deprecated. Use policy.getDefaultPolicy instead. This resource will be removed in version 4.0 of this provider.")
     if (!opts) {
         opts = {}
     }

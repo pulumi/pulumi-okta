@@ -857,7 +857,12 @@ class _SamlIdpState:
         pulumi.set(self, "username_template", value)
 
 
+warnings.warn("""Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
+
 class SamlIdp(pulumi.CustomResource):
+    warnings.warn("""Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -960,6 +965,7 @@ class SamlIdp(pulumi.CustomResource):
                  suspended_action: Optional[pulumi.Input[str]] = None,
                  username_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SamlIdp is deprecated: Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Deprecated
 {
+    [Obsolete(@"Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/passwordPolicy:PasswordPolicy")]
     public partial class PasswordPolicy : Pulumi.CustomResource
     {

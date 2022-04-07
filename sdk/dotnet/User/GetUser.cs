@@ -110,6 +110,18 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
+        /// Additional API call to collect user's groups will not be made.
+        /// </summary>
+        [Input("skipGroups")]
+        public bool? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Additional API call to collect user's roles will not be made.
+        /// </summary>
+        [Input("skipRoles")]
+        public bool? SkipRoles { get; set; }
+
+        /// <summary>
         /// String representing a specific user's id value
         /// </summary>
         [Input("userId")]
@@ -133,6 +145,18 @@ namespace Pulumi.Okta.User
             get => _searches ?? (_searches = new InputList<Inputs.GetUserSearchInputArgs>());
             set => _searches = value;
         }
+
+        /// <summary>
+        /// Additional API call to collect user's groups will not be made.
+        /// </summary>
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        /// <summary>
+        /// Additional API call to collect user's roles will not be made.
+        /// </summary>
+        [Input("skipRoles")]
+        public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
         /// String representing a specific user's id value
@@ -266,6 +290,8 @@ namespace Pulumi.Okta.User
         /// user profile property.
         /// </summary>
         public readonly string SecondEmail;
+        public readonly bool? SkipGroups;
+        public readonly bool? SkipRoles;
         /// <summary>
         /// user profile property.
         /// </summary>
@@ -358,6 +384,10 @@ namespace Pulumi.Okta.User
 
             string secondEmail,
 
+            bool? skipGroups,
+
+            bool? skipRoles,
+
             string state,
 
             string status,
@@ -404,6 +434,8 @@ namespace Pulumi.Okta.User
             ProfileUrl = profileUrl;
             Searches = searches;
             SecondEmail = secondEmail;
+            SkipGroups = skipGroups;
+            SkipRoles = skipRoles;
             State = state;
             Status = status;
             StreetAddress = streetAddress;

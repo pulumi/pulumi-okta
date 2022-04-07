@@ -56,6 +56,10 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 type LookupUserArgs struct {
 	// Map of search criteria. It supports the following properties.
 	Searches []GetUserSearch `pulumi:"searches"`
+	// Additional API call to collect user's groups will not be made.
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Additional API call to collect user's roles will not be made.
+	SkipRoles *bool `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId *string `pulumi:"userId"`
 }
@@ -121,6 +125,8 @@ type LookupUserResult struct {
 	Searches   []GetUserSearch `pulumi:"searches"`
 	// user profile property.
 	SecondEmail string `pulumi:"secondEmail"`
+	SkipGroups  *bool  `pulumi:"skipGroups"`
+	SkipRoles   *bool  `pulumi:"skipRoles"`
 	// user profile property.
 	State string `pulumi:"state"`
 	// user profile property.
@@ -151,6 +157,10 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 type LookupUserOutputArgs struct {
 	// Map of search criteria. It supports the following properties.
 	Searches GetUserSearchArrayInput `pulumi:"searches"`
+	// Additional API call to collect user's groups will not be made.
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Additional API call to collect user's roles will not be made.
+	SkipRoles pulumi.BoolPtrInput `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
@@ -321,6 +331,14 @@ func (o LookupUserResultOutput) Searches() GetUserSearchArrayOutput {
 // user profile property.
 func (o LookupUserResultOutput) SecondEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.SecondEmail }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupUserResultOutput) SkipRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *bool { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }
 
 // user profile property.

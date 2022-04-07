@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.
 type BookmarkApp struct {
 	pulumi.CustomResourceState
 
